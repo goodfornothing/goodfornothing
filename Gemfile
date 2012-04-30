@@ -5,15 +5,17 @@ gem 'rails', '3.2.3'
 gem 'mysql2'
 gem 'devise'
 gem 'omniauth'
-gem 'activeadmin'
+
 gem 'mail'
 gem 'carrierwave'
 gem 'mini_magick', "~> 3.3"
-gem 'simple_form', '~> 1.5.2'
+
 gem "redcarpet", "~> 2.0.1"
 gem 'tzinfo'
 gem 'jquery-rails'
 
+gem 'activeadmin'
+gem "formtastic", "~> 2.1.1"
 gem 'meta_search', '>= 1.1.0.pre' 
 gem 'sass-rails'
 

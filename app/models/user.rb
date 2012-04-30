@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
-  has_one :ning
+  has_one :ning_profile
+  has_many :posts, :class_name => "::Blog::Post"
 
 end

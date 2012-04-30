@@ -13,10 +13,10 @@ namespace :ning do
       row = row.to_hash.with_indifferent_access
 
       # Check for user on ning table
-      ning_user = Ning.find_by_email(row['Email'])
+      ning_user = NingProfile.find_by_email(row['Email'])
       if ning_user.nil?
         puts "Creating a new ning user"
-        ning_user = Ning.create! do |n|
+        ning_user = NingProfile.create! do |n|
         	n.name = row['Name']
         	n.email = row['Email']
         	n.gender = row['Gender']
@@ -44,6 +44,7 @@ namespace :ning do
         puts "Creating a new devise user"
         user = User.create! do |u| 
         	u.email = ning_user.email
+          u.name = ning_user.name
           u.password = 'password'
           u.password_confirmation = 'password'
         end

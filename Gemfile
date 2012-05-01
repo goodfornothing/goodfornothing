@@ -5,6 +5,7 @@ gem 'rails', '3.2.3'
 gem 'mysql2'
 gem 'devise'
 gem 'omniauth'
+gem 'simple_form'
 
 gem 'mail'
 gem 'carrierwave'

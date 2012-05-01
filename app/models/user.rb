@@ -7,5 +7,6 @@ class User < ActiveRecord::Base
 
   has_one :ning_profile
   has_many :posts, :class_name => "::Blog::Post"
+  has_and_belongs_to_many :events
 
 end

@@ -8,6 +8,25 @@
 </head>
 <body>
 
+	<header>
+		<p class="branding">Good for Nothing</p>
+		<nav id="tertiary_navigation">
+			<ul>
+				<li><%= link_to "Business", business_path %></li>
+				<% if user_signed_in? && current_user.admin? %>
+				<li><%= link_to "Admin", admin_dashboard_path %></li>
+				<% end %>
+				<% if user_signed_in? %>
+				<li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+				<% else %>
+				<li><%= link_to "Login", new_user_session_path %></li>
+				<% end %>
+			</ul>
+		</nav>
+	</header>
+
+	<%= render "shared/navigation" %>
+
 	<%= yield %>
 
 </body>

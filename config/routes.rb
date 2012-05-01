@@ -9,6 +9,10 @@ Goodfornothing::Application.routes.draw do
 
 	resources :events, :only => [:index, :show]
 
+	match "business" => "colophon#business"
+	match "about" => "colophon#about"
+	match "friends" => "colophon#friends"
+
 	root :to => "blog/posts#index"
 
 end

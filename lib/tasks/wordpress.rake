@@ -5,7 +5,7 @@ namespace :wordpress do
   desc '-- Import posts, categories and tags from a from WordPress eXtended RSS export.'
   task :import => :environment do
 
-		doc = Nokogiri::XML(open(File.join(Rails.root, "lib/dump/wordpress.2012-05-07.xml")))
+		doc = Nokogiri::XML(open(File.join(Rails.root, "lib/dump/goodfornothing.wordpress.2012-05-30.xml")))
 
 		# Ensure we're dealing with the correct format
 		begin
@@ -24,7 +24,7 @@ namespace :wordpress do
 
 		# Import WP categories
 		puts "Importing categories"
-		doc.xpath('//wp:category/wp:cat_name').each do |node|
+		doc.xpath('//category[@domain="category"]').each do |node|
   		unless node.text == "Uncategorized"
   			category = Blog::Category.find_by_title(node.text)
   			if category.nil?
@@ -39,7 +39,7 @@ namespace :wordpress do
 
 		# Import WP tags
 		# puts "Importing tags"
-		#doc.xpath('//wp:tag/wp:tag_name').each do |node|
+		#doc.xpath('//category[@domain="post_tag"]').each do |node|
 		#	tag = Blog::Tag.find_by_title(node.text)
 		#	if tag.nil?
   	#		puts "Creating tag: #{node.text}"

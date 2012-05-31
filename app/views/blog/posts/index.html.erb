@@ -1,4 +1,5 @@
 <% @posts.each do |post| %>
 	<h2><%= post.title %></h2>
+	<p><strong><%= post.created_at %></strong></p>
 	<%= simple_format post.body %>
 <% end %>

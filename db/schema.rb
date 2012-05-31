@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120507203727) do
+ActiveRecord::Schema.define(:version => 20120508200453) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(:version => 20120507203727) do
     t.integer  "wordpress_id"
   end
 
+  create_table "bookmarks_tags", :force => true do |t|
+    t.integer "tag_id"
+    t.integer "bookmark_id"
+  end
+
   create_table "events", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -44,6 +49,21 @@ ActiveRecord::Schema.define(:version => 20120507203727) do
   create_table "events_users", :id => false, :force => true do |t|
     t.integer "event_id"
     t.integer "user_id"
+  end
+
+  create_table "library_bookmarks", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "url"
+    t.boolean  "curated",     :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  create_table "library_tags", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "ning_profiles", :force => true do |t|

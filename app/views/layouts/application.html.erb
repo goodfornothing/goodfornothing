@@ -12,13 +12,13 @@
 		<p class="branding">Good for Nothing</p>
 		<nav id="tertiary_navigation">
 			<ul>
-				<% if user_signed_in? && current_user.admin? %>
-				<li><%= link_to "Admin", admin_dashboard_path %></li>
-				<% end %>
 				<% if user_signed_in? %>
-				<li>Welcome back, <%= current_user.name %> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+				<li>Welcome back, <%= current_user.name %> (<%= link_to "Edit profile", edit_user_registration_path %>, <%= link_to "Logout", destroy_user_session_path, :method => :delete %>)</li>
 				<% else %>
 				<li><%= link_to "Login", new_user_session_path %></li>
+				<% end %>
+				<% if user_signed_in? && current_user.admin? %>
+				<li><%= link_to "Admin", admin_dashboard_path %></li>
 				<% end %>
 			</ul>
 		</nav>

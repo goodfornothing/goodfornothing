@@ -1,4 +1,4 @@
 <% bookmarks.each do |bookmark| %>
 	<h2><%= bookmark.title %></h2>
-	<p><%= link_to bookmark.url %></p>
+	<p><%= link_to bookmark.url, bookmark.url %></p>
 <% end %>

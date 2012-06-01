@@ -1,0 +1,12 @@
+<section id="primary_content">
+	<h1>Good for Nothingers</h1>
+	<% if @members.any? %>
+		<ul>
+			<% @members.each do |member| %>
+			<li><%= link_to member.name, member_path(member) %></li>
+			<% end %>
+		</ul>
+	<% else %>
+		<p>No one is Good for Nothing :(</p>
+	<% end %>
+</section>

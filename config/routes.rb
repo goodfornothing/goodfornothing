@@ -25,6 +25,9 @@ Goodfornothing::Application.routes.draw do
 	
 	resources :briefs, :only => [:show]
 
+  match "members" => "members#index"
+  match "members/:id" => "members#show", :as => "member"
+  
 	match "business" => "colophon#business"
 	match "about" => "colophon#about"
 	match "friends" => "colophon#friends"

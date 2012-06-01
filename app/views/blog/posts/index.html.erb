@@ -1,7 +1,19 @@
 <section id="primary_content">
+	<h1><%= (@category) ? "Blog: #{@category.title}" : "Good for Nothing Blog" %></h1>
 	<% @posts.each do |post| %>
 		<h2><%= post.title %></h2>
 		<p><strong><%= post.created_at.to_formatted_s(:long_ordinal) %></strong></p>
 		<%= simple_format post.body %>
 	<% end %>
 </section>
+
+<aside>
+	<% if @categories.any? %>
+		<ul>
+			<li><%= link_to "All posts", blog_posts_path %></li>
+			<% @categories.each do |category| %>
+			<li><%= link_to category.title, categorised_blog_posts_path(category.slug) %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</aside>

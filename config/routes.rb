@@ -4,7 +4,11 @@ Goodfornothing::Application.routes.draw do
   devise_for :users
   
 	namespace :blog do
-		resources :posts, :only => [:index, :show]
+		resources :posts, :only => [:index, :show] do
+		  collection do 
+  	    match "category/:category" => "posts#index", :as => "categorised"
+  	  end
+		end
 	end
 	
 	namespace :library do
@@ -19,7 +23,7 @@ Goodfornothing::Application.routes.draw do
 
 	resources :gigs, :only => [:show, :index] do
 	  collection do 
-	    match ":region" => "gigs#index", :as => "regional"
+	    match "region/:region" => "gigs#index", :as => "regional"
 	  end
 	end
 	

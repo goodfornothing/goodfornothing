@@ -1,4 +1,6 @@
-ActiveAdmin.register Event do
+ActiveAdmin.register Gig do
+
+  menu :priority => 1
 
 	index do
     column :title

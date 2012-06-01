@@ -6,8 +6,24 @@ Goodfornothing::Application.routes.draw do
 	namespace :blog do
 		resources :posts, :only => [:index, :show]
 	end
+	
+	namespace :library do
+	  resources :bookmarks do
+	    collection do 
+  	    get "index"
+  	    get "search"
+  	  end
+    end
+	  resources :tags, :only => [:show]
+	end
 
-	resources :events, :only => [:index, :show]
+	resources :gigs, :only => [:show, :index] do
+	  collection do 
+	    match ":region" => "gigs#index", :as => "regional"
+	  end
+	end
+	
+	resources :briefs, :only => [:show]
 
 	match "business" => "colophon#business"
 	match "about" => "colophon#about"

@@ -1,0 +1,26 @@
+<section id="primary_content">
+	<h1><%= @region.title if @region.present? %> Gigs</h1>
+	
+	<% if @gigs.any? %>
+		<% @gigs.each do |gig| %>
+			<h2><%= gig.title %></h2>
+			<p><strong><%= gig.start_time.to_formatted_s(:long_ordinal) %> - <%= gig.end_time.to_formatted_s(:long_ordinal) %></strong></p>
+			<p><%= link_to "Find out more and read the briefs", gig_path(gig) %></p>
+		<% end %>
+	<% else %>
+		<p>Ain't no gigs at the moment.</p>
+	<% end %>
+	
+</section>
+
+<aside>
+	<% if @regions.any? %>
+	<h2>Chapters</h2>
+	<ul>
+		<li><%= link_to "All gigs", gigs_path %></li>
+		<% @regions.each do |region| %>
+		<li><%= link_to region.title, regional_gigs_path(region.slug) %></li>
+		<% end %>
+	</ul>
+	<% end %>
+</aside>

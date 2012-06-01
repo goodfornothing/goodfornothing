@@ -84,7 +84,7 @@ namespace :wordpress do
   							file << open(img.attr('src')).read
 							end
 						end
-
+						
 						# Rewrite body to include new image paths
 						post.body = post.body.gsub(/(#{image_url})/,"#{relative_image_path}#{image_filename}")
 

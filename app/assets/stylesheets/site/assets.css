@@ -1,0 +1,10 @@
+/* Graceful image replacement */
+
+  .ir { position: relative; display: block; overflow: hidden; }
+  .ir a { cursor: pointer; }
+  .ir span { 
+    width: 100%; height: 100%;
+    position: absolute; top: 0; left: 0;
+    background-repeat: no-repeat;
+    background-position: top left;
+  }

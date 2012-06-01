@@ -1,0 +1,55 @@
+/* =form */
+ 
+  form { 
+    padding-bottom: 10px; 
+  }
+  
+  form fieldset {
+    padding: 0 0 10px;
+  }
+  
+  form fieldset.controls { padding: 0; }  
+  form .errorExplanation { padding-bottom: 5px; }
+
+/* =label */
+ 
+  label { 
+    display: block; 
+    position: relative; 
+  }
+  
+  label span {
+    
+  }
+
+  fieldset.controls input { float: left; }
+  fieldset.controls p { width: 50%; float: left; }
+
+/* =input */
+
+  label.text input { 
+    padding: 5px; 
+    margin-bottom: 1em; 
+    font-size: 1em;
+    border: 1px solid #cccccc;
+  }
+ 
+ /* =checkbox */
+ 
+  label.checkbox {
+    margin-bottom: 0.75em;
+  }
+ 
+  label.checkbox span {
+    color: #333;
+    font-size: 0.75em; 
+  }
+
+ /* =textarea */
+
+  textarea { 
+    font-size: 1em; 
+    padding: 5px; 
+    margin-bottom: 1em; 
+    border: 1px solid #cccccc;
+  }

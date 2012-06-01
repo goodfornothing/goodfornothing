@@ -1,0 +1,7 @@
+/* Not all media were born equal */
+@media all and (max-device-width: 480px) {
+
+}
+@media all and (max-device-width: 768px) and (orientation:portrait) {
+
+}

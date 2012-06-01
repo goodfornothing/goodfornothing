@@ -1,5 +1,7 @@
 ActiveAdmin.register Blog::Post do
   
+  menu :parent => "Blog", :priority => 1
+  
 	index do
     column :title
     column :category

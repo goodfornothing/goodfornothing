@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120508200453) do
+ActiveRecord::Schema.define(:version => 20120601133531) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -35,7 +35,18 @@ ActiveRecord::Schema.define(:version => 20120508200453) do
     t.integer "bookmark_id"
   end
 
-  create_table "events", :force => true do |t|
+  create_table "briefs", :force => true do |t|
+    t.string  "title"
+    t.text    "description"
+    t.integer "gig_id"
+  end
+
+  create_table "events_users", :id => false, :force => true do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+  end
+
+  create_table "gigs", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.string   "location"
@@ -44,11 +55,6 @@ ActiveRecord::Schema.define(:version => 20120508200453) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "region_id"
-  end
-
-  create_table "events_users", :id => false, :force => true do |t|
-    t.integer "event_id"
-    t.integer "user_id"
   end
 
   create_table "library_bookmarks", :force => true do |t|

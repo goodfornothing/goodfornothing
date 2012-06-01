@@ -1,0 +1,9 @@
+<section id="primary_content">
+	<h1>Links tagged '<%= @tag.title %>'</h1>
+	<%= render :partial => "library/bookmarks/list", :locals => { bookmarks: @tag.bookmarks }%>
+</section>
+
+<aside>
+	<%= render :partial => "library/bookmarks/search_form" %>
+	<%= render :partial => "list", :locals => { :tags => @tags } %>
+</aside>

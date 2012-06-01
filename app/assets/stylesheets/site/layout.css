@@ -1,0 +1,24 @@
+@media all {
+
+	body { 
+		background-color: #ffffff;
+		background-repeat: repeat;
+	}
+   
+	.container {
+	    width: 960px; margin: 0 auto; 
+	    overflow: hidden; display: block;
+	}
+
+	#primary_content {
+		width: 700px;
+		float: left;
+		overflow: hidden;
+	}
+
+	aside {
+		float: right;
+		width: 240px;
+	}
+
+}

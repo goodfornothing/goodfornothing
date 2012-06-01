@@ -1,0 +1,9 @@
+<section id="primary_content">
+	<h1>The Good Library</h1>
+	<%= render :partial => "list", :locals => { :bookmarks => @bookmarks } %>
+</section>
+
+<aside>
+	<%= render "search_form" %>
+	<%= render :partial => "library/tags/list", :locals => { :tags => @tags } %>
+</aside>

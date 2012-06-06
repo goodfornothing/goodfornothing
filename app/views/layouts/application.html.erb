@@ -27,6 +27,8 @@
 	<%= render "shared/navigation" %>
 	
 	<div class="container">
+		<p><strong><%= flash[:error] %></strong></p>
+		<p><strong><%= flash[:notice] %></strong></p>
 		<%= yield %>
 	</div>
 

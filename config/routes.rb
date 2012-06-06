@@ -27,6 +27,7 @@ Goodfornothing::Application.routes.draw do
 	  end
 	  member do 
 	    get "attend"
+	    get "attending"
 	  end
 	end
 	

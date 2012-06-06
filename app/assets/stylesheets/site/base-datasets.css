@@ -53,3 +53,7 @@
     margin-bottom: 1em; 
     border: 1px solid #cccccc;
   }
+
+/* Tables */
+
+	table { margin-bottom: 14px; }

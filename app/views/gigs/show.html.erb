@@ -3,7 +3,6 @@
 	<h1><%= @gig.title %></h1>
 	<p><strong><%= @gig.start_time.to_formatted_s(:long_ordinal) %> - <%= @gig.end_time.to_formatted_s(:long_ordinal) %></strong></p>
 	<%= simple_format @gig.description %>
-	
 	<% if @gig.briefs.any? %>
 		<h2>The briefs</h2>
 		<% @gig.briefs.each do |brief| %>
@@ -17,21 +16,45 @@
 </section>
 
 <aside>
-	<% if user_signed_in? %>
-		<% if current_user.is_attending?(@gig) %>
-			<p>You've signed up for this event, please let us know if you can no longer make it.</p>
-			<p><%= link_to "Can not attend", attend_gig_path(@gig) %></p>
-		<% else %>
-			<p><%= link_to "Attend this event", attend_gig_path(@gig) %></p>
-		<% end %>
+	
+	<% if user_signed_in? && current_user.is_attending?(@gig) %>
+		<h2>You're attending this gig</h2>
+		<p>You've signed up for this gig, please let us know if you can no longer make it.</p>
+		<p><%= link_to "Can no longer attend", attend_gig_path(@gig) %></p>
+	<% elsif @gig.slots.count == 1 && @gig.slots.first.skill.nil? %>
+		<h2>Attend gig</h2>
+		<p>This gig is open to all.</p> 
+		<p><%= link_to "Attend", attend_gig_path(@gig, :slot => @gig.slots.first) %></p>
+	<% elsif @gig.slots.any? %>
+		<h2>Attend gig</h2>
+		<table>
+			<thead>
+				<tr>
+					<td>Skill</td>
+					<td>Slots</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% @gig.slots.each do |slot| %>
+				<tr>
+					<td><%= (slot.skill.present?) ? slot.skill.title : "Open to all" %></td>
+					<td><%= (slot.limit) ? slot.available_slots : "Unlimited" %></td>
+					<% if slot.limit.nil? || slot.available_slots > 0 %>
+					<td><%= link_to "Attend", attend_gig_path(@gig, :slot => slot) %></td>
+					<% end %>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
 	<% end %>
 	
-	<% if @gig.users.any? %>
+	<% if @attendees.any? %>
 		<h2>Who<%= (user_signed_in? && current_user.is_attending?(@gig) ? " else is" : "'s") %> coming?</h2>
 		<ul>
-			<% @gig.users.each do |user| %>
+			<% @attendees.each do |user| %>
 			<li><%= link_to user.name, member_path(user) %></li>
 			<% end %>
 		</ul>
 	<% end %>
+	
 </aside>

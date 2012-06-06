@@ -5,7 +5,7 @@ ActiveAdmin.register Slot do
     index do
       column :gig
       column :skill
-      column :count
+      column :limit
       default_actions
     end
     

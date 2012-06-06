@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120602132448) do
+ActiveRecord::Schema.define(:version => 20120606120223) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -60,11 +60,6 @@ ActiveRecord::Schema.define(:version => 20120602132448) do
   create_table "gigs_skills", :force => true do |t|
     t.integer "gig_id"
     t.integer "skill_id"
-  end
-
-  create_table "gigs_users", :force => true do |t|
-    t.integer "gig_id"
-    t.integer "user_id"
   end
 
   create_table "library_bookmarks", :force => true do |t|
@@ -122,7 +117,12 @@ ActiveRecord::Schema.define(:version => 20120602132448) do
   create_table "slots", :force => true do |t|
     t.integer "skill_id"
     t.integer "gig_id"
-    t.integer "count"
+    t.integer "limit"
+  end
+
+  create_table "slots_users", :force => true do |t|
+    t.integer "slot_id"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|

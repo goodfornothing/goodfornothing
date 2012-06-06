@@ -1,6 +1,6 @@
 ActiveAdmin.register Gig do
 
-  menu :priority => 1
+  menu :priority => 2
 
 	index do
     column :title

@@ -15,3 +15,23 @@
 	<% end %>
 	
 </section>
+
+<aside>
+	<% if user_signed_in? %>
+		<% if current_user.is_attending?(@gig) %>
+			<p>You've signed up for this event, please let us know if you can no longer make it.</p>
+			<p><%= link_to "Can not attend", attend_gig_path(@gig) %></p>
+		<% else %>
+			<p><%= link_to "Attend this event", attend_gig_path(@gig) %></p>
+		<% end %>
+	<% end %>
+	
+	<% if @gig.users.any? %>
+		<h2>Who<%= (user_signed_in? && current_user.is_attending?(@gig) ? " else is" : "'s") %> coming?</h2>
+		<ul>
+			<% @gig.users.each do |user| %>
+			<li><%= link_to user.name, member_path(user) %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</aside>

@@ -1,0 +1,20 @@
+<section id="primary_content">
+	<h1>Good for Nothing</h1>
+	
+	<% if @gig.present? %>
+		<h2>Next gig</h2>
+		<h3><%= @gig.title %></h3>
+		<p><strong><%= @gig.start_time.to_formatted_s(:long_ordinal) %> - <%= @gig.end_time.to_formatted_s(:long_ordinal) %></strong></p>
+		<p><%= link_to "Find out more and read the briefs", gig_path(@gig) %></p>
+	<% end %>
+	
+	<% if @posts.any? %>
+		<h2>Blog</h2>
+		<% @posts.each do |post| %>
+			<h2><%= post.title %></h2>
+			<p><strong><%= post.created_at.to_formatted_s(:long_ordinal) %></strong></p>
+			<%= simple_format post.body %>
+		<% end %>
+	<% end %>
+	
+</section>

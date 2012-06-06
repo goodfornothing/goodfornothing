@@ -1,5 +1,7 @@
 ActiveAdmin.register User do
   
+  menu :priority => 1, :label => "Members"
+  
 	index do
     column :name
     column :email
@@ -14,6 +16,7 @@ ActiveAdmin.register User do
       f.input :name
       f.input :email
       f.input :admin
+      f.input :skills, :as => :check_boxes
     end
     f.buttons
   end

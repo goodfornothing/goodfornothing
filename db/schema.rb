@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120606120223) do
+ActiveRecord::Schema.define(:version => 20120606170027) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20120606120223) do
     t.integer  "user_id"
     t.integer  "region_id"
     t.integer  "wordpress_id"
+    t.text     "excerpt"
+    t.string   "hero_image"
   end
 
   create_table "bookmarks_tags", :force => true do |t|

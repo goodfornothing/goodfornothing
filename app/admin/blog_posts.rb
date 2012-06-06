@@ -15,7 +15,9 @@ ActiveAdmin.register Blog::Post do
       f.input :category
       f.input :region
       f.input :user, :label => "Author"
+      f.input :hero_image
       f.input :title
+      f.input :excerpt, :input_html => { :rows => 5 }
       f.input :body
     end
     f.buttons

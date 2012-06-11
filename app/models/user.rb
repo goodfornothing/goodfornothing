@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   
   def is_attending?(gig)
-    p self.gigs
     self.gigs.include?(gig)
   end
 

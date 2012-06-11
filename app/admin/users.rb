@@ -20,5 +20,18 @@ ActiveAdmin.register User do
     end
     f.buttons
   end
+  
+  show do |user|
+    attributes_table do
+      row :name
+      row :email
+      row :admin
+      row :skills do 
+        user.skills.map(&:title).join(', ')
+      end
+      row :last_sign_in_at
+      row :last_sign_in_ip
+    end
+  end
 
 end

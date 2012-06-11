@@ -3,10 +3,18 @@ ActiveAdmin.register Slot do
     menu :priority => 4
     
     index do
-      column :gig
       column :skill
       column :limit
+      column :gig
       default_actions
+    end
+    
+    show do |skill|
+      attributes_table do
+        row :skill
+        row :limit
+        row :gig
+      end
     end
     
 end

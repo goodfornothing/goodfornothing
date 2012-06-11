@@ -20,5 +20,15 @@ ActiveAdmin.register Gig do
     f.buttons
   end
 
+  show do |gig|
+    attributes_table do
+      row :region
+      row :title
+      row :location
+      row :description
+      row :start_time
+      row :end_time
+    end
+  end
 
 end

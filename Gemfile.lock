@@ -112,6 +112,7 @@ GEM
       hashie (~> 1.2)
       rack
     orm_adapter (0.0.7)
+    pg (0.13.2)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -188,6 +189,7 @@ DEPENDENCIES
   mini_magick (~> 3.3)
   mysql2
   omniauth
+  pg
   rails (= 3.2.3)
   redcarpet (~> 2.0.1)
   sass-rails

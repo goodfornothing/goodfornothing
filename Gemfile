@@ -22,6 +22,9 @@ gem "formtastic", "~> 2.1.1"
 gem 'meta_search', '>= 1.1.0.pre' 
 gem 'sass-rails'
 
+# For Heroku
+gem 'pg'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
   def current_admin_user
     return nil if user_signed_in? && !current_user.admin? 
     current_user 
-   end
+  end
+  
+  def markdown_preview
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
+    render :inline => markdown.render(params[:data]).html_safe
+  end
 
 end

@@ -9,9 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require ./site/blank-canvas
- *= require ./site/base-typography
- *= require ./site/base-datasets
- *= require ./site/layout
- *= require ./site/assets
+ *= require blank-canvas
+ *= require base-typography
+ *= require base-datasets
+ *= require layout
+ *= require assets
 */

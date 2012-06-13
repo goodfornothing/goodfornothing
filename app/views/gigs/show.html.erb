@@ -8,7 +8,7 @@
 		<% @gig.briefs.each do |brief| %>
 		<article>
 			<h3><%= brief.title %></h3>
-			<%= simple_format brief.description %>
+			<%= markdown.render(brief.description).html_safe %>
 		</article>
 		<% end %>
 	<% end %>

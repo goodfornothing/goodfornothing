@@ -12,8 +12,8 @@ ActiveAdmin.register Gig do
     f.inputs "Content" do
       f.input :region
       f.input :title
-      f.input :description
       f.input :location
+      f.input :description
       f.input :start_time
       f.input :end_time
     end

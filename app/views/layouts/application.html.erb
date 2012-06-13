@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Good for Nothing</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Good for Nothing &ndash; Collaborating for good</title>
+	<meta name="description" content="Good for Nothing, collaborating for good" />
+	<meta name="keywords" content="Good, nothing, hack, london, pipeline" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 
 	<header class="container">
-		<p class="branding"><%= link_to "Good for Nothing", root_path %></p>
-		<nav id="tertiary_navigation">
-			<ul>
-				<% if user_signed_in? %>
-				<li>Welcome back, <%= current_user.name %> (<%= link_to "Edit profile", edit_user_registration_path %>, <%= link_to "Logout", destroy_user_session_path, :method => :delete %>)</li>
-				<% else %>
-				<li><%= link_to "Login", new_user_session_path %></li>
-				<% end %>
-				<% if user_signed_in? && current_user.admin? %>
-				<li><%= link_to "Admin", admin_dashboard_path %></li>
-				<% end %>
+		
+		<% if params[:controller] == "home" %>
+			<h1 class="branding">Good for Nothing</h1>
+		<% else %>
+			<p class="branding"><%= link_to "Good for Nothing", root_path %></p>
+		<% end %>
+		
+		<nav id="social_navigation">
+			<p>Collaborating for good</p>
+			<ul class="social-icons">
+				<li><a class="icon soundcloud" href="http://soundcloud.com/goodfornothing-1">Soundcloud</a></li>
+				<li><a class="icon facebook" href="http://www.facebook.com/g00dfornothing">Facebook</a></li>
+				<li><a class="icon flickr" href="http://www.flickr.com/photos/goodfornothingflickrs/">Flickr</a></li>
+				<li><a class="icon twitter" href="https://twitter.com/g00dfornothing">Twitter</a></li>
+				<li><a class="icon rss" href="http://www.goodfornothing.com/feed/">RSS</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -31,6 +38,25 @@
 		<p><strong><%= flash[:notice] %></strong></p>
 		<%= yield %>
 	</div>
+	
+	<footer class="container">
+		<section>
+			<h2>Good for Nothing</h2>
+			<p>Good for Nothing is the social mission of The Pipeline Project.</p>
+			<p>We give time, money and energy to do stuff that supports people trying to make positive impact and change happen.</p>
+		</section>
+		<section>
+			<h2>Crew</h2>
+		</section>
+		<section>
+			<h2>Community</h2>
+		</section>
+		<section>
+			<h2>Get in touch</h2>
+			<p><a href="mailto:hello@goodfornothing.com">hello@goodfornothing.com</a></p>
+		</section>
+		<p id="colophon">Good for Nothing &ndash; Bringing smart folk together to do some good for nothing. <a class="icon pipeline" href="http://www.pipelineproject.co">Brought to you by the Pipeline Project</a></p>
+	</footer>
 
 </body>
 </html>

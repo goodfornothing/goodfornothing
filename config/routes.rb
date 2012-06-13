@@ -1,6 +1,7 @@
 Goodfornothing::Application.routes.draw do
 	
   ActiveAdmin.routes(self)
+  match "/markdown_preview" => "application#markdown_preview"
   devise_for :users
   
 	namespace :blog do

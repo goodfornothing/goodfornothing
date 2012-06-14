@@ -8,23 +8,153 @@
 
 	body { 
 		background-color: #ffffff;
-		background-repeat: repeat;
 	}
    
 	.container {
 	    width: 960px; margin: 0 auto; 
 	    overflow: hidden; display: block;
 	}
+	
+	/*= header */
+	
+		header {
+			padding: 20px 0 1px;
+			overflow: hidden;
+			background: url(layout/border_horizontal.gif) repeat-x 109px bottom;
+		}
+			
+		header h1#branding,
+		header p#branding a {
+			color: #E31937;
+			font-size: 34px;
+			padding-top: 30px;
+			line-height: 79px;
+			padding-left: 109px;
+			font-family: Reader;
+			display: block;
+			float: left;
+			margin: 0;
+			background: no-repeat 0 50% url(branding/goodfornothing.gif);
+		}
+		
+		header p#branding { margin: 0; }
+		
+		header #branding a:hover,
+		header #branding a:focus,
+		header #branding a:active {
+			text-decoration: none;
+		}
+		
+		header #social_navigation {
+			float: right;
+			width: 160px;
+			padding-top: 10px;
+		}
+		
+		header #social_navigation p { 
+			color: #E31937; 
+			font-size: 14px;
+			margin-bottom: 15px;
+			padding-top: 23px;
+			text-align: right;
+			font-family: Reader;
+		}
+		
+		header #social_navigation ul {
+			padding: 0;
+		}
+		
+		header #social_navigation .social li {
+			list-style-type: none;
+			padding: 0;
+			float: right;
+			margin-right: 10px;
+		}
+		
+		header #social_navigation .social li:first-child { margin-right: 0; }
+		header #social_navigation .social li:last-child { margin-right: 9px; }
+		
+		
+	/*= primary_navigation */
+	
+		#primary_navigation {
+			padding: 10px;
+		}
+	
+		#primary_navigation ul {
+			padding: 0;
+			float: left;
+			margin-right: 70px;
+		}
+	
+		#primary_navigation ul li {
+			list-style-type: none;
+			padding: 0;
+			display: inline-block;
+			margin-right: 15px;
+		}
+	
+	/*= main */
 
-	#primary_content {
-		width: 700px;
-		float: left;
-		overflow: hidden;
-	}
+		#main {
+			padding-bottom: 100px;
+			background: no-repeat left bottom url(layout/footer.png)
+		}
+	
+		#main section#primary_content {
+			width: 700px;
+			float: left;
+			overflow: hidden;
+			padding: 20px 0;
+		}
 
-	aside {
-		float: right;
-		width: 240px;
-	}
+		#main	aside {
+			float: right;
+			width: 240px;
+		}
+	
+	/*= footer */
+	
+		footer {
+			background: #4D4D4D;
+			padding: 30px 0;
+			color: #ffffff;
+		}
+		
+		footer h2 {
+			border-bottom: 1px solid #404040;
+		}
+		
+		footer a { 
+			color: #ffffff;
+		}
+		
+		footer section {
+			width: 20%;
+			margin-right: 5%;
+			float: left;
+		}
+		
+		footer section:last-child,
+		footer section p:last-child { 
+			margin: 0; 
+		}
+		
+		section#colophon {
+			background: #333333;
+			color: #ffffff;
+			padding: 12px 0;
+			overflow: hidden;
+		}
+		
+		section#colophon p {
+			margin-bottom: 0;
+			line-height: 27px;
+		}
+		
+		section#colophon .icon {
+			float: right;
+			display: inline-block;
+		}
 
 }

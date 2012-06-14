@@ -1,19 +1,20 @@
 <nav id="primary_navigation" class="container">
 	<ul>
-		<li><%= link_to "About", about_path %></li>
 		<li><%= link_to "Gigs", gigs_path %></li>
 		<li><%= link_to "Blog", blog_posts_path %></li>
 		<li><%= link_to "Library", library_bookmarks_path %></li>
 	</ul>
 	<ul>
+		<li><%= link_to "About", about_path %></li>
 		<li><%= link_to "Members", members_path %></li>
 		<li><%= link_to "Friends", friends_path %></li>
-		<li><%= link_to "Business", business_path %></li>
+		<li><%= link_to "Partners", partners_path %></li>
+		<li><%= link_to "Ventures", ventures_path %></li>
 	</ul>
 	
 	<ul>
 		<% if user_signed_in? %>
-		<li>Welcome back, <%= current_user.name %> (<%= link_to "Edit profile", edit_user_registration_path %>, <%= link_to "Logout", destroy_user_session_path, :method => :delete %>)</li>
+		<li><%= current_user.name %> (<%= link_to "Profile", member_path(current_user) %>, <%= link_to "Logout", destroy_user_session_path, :method => :delete %>)</li>
 		<% else %>
 		<li><%= link_to "Login", new_user_session_path %></li>
 		<% end %>

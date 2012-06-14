@@ -1,6 +1,6 @@
 ActiveAdmin.register Slot do
     
-    menu :priority => 4
+    menu :priority => 3, :parent => "Events"
     
     index do
       column :skill

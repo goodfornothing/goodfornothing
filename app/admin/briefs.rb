@@ -1,6 +1,6 @@
 ActiveAdmin.register Brief do
   
-  menu :priority => 3
+  menu :priority => 2, :parent => "Events"
   
   index do
     column :title

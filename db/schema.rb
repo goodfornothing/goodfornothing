@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120606170027) do
+ActiveRecord::Schema.define(:version => 20120614113721) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20120606170027) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "user_id"
-    t.integer  "region_id"
+    t.integer  "chapter_id"
     t.integer  "wordpress_id"
     t.text     "excerpt"
     t.string   "hero_image"
@@ -41,11 +41,29 @@ ActiveRecord::Schema.define(:version => 20120606170027) do
     t.string  "title"
     t.text    "description"
     t.integer "gig_id"
+    t.integer "venture_id"
+  end
+
+  create_table "chapters", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "events_users", :id => false, :force => true do |t|
     t.integer "event_id"
     t.integer "user_id"
+  end
+
+  create_table "friends", :force => true do |t|
+    t.string "name"
+    t.string "url"
+    t.string "logo"
+  end
+
+  create_table "friends_gigs", :force => true do |t|
+    t.integer "gig_id"
+    t.integer "friend_id"
   end
 
   create_table "gigs", :force => true do |t|
@@ -56,7 +74,10 @@ ActiveRecord::Schema.define(:version => 20120606170027) do
     t.datetime "end_time"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "region_id"
+    t.integer  "chapter_id"
+    t.integer  "partner_id"
+    t.string   "poster"
+    t.string   "logo"
   end
 
   create_table "gigs_skills", :force => true do |t|
@@ -101,10 +122,10 @@ ActiveRecord::Schema.define(:version => 20120606170027) do
     t.datetime "updated_at",                                 :null => false
   end
 
-  create_table "regions", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "partners", :force => true do |t|
+    t.string "name"
+    t.string "url"
+    t.string "logo"
   end
 
   create_table "skills", :force => true do |t|
@@ -142,9 +163,16 @@ ActiveRecord::Schema.define(:version => 20120606170027) do
     t.datetime "updated_at",                                :null => false
     t.boolean  "admin",                  :default => false
     t.string   "name"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "ventures", :force => true do |t|
+    t.string "logo"
+    t.string "name"
+    t.string "url"
+  end
 
 end

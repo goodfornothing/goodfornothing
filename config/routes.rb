@@ -24,7 +24,7 @@ Goodfornothing::Application.routes.draw do
 
 	resources :gigs, :only => [:show, :index] do
 	  collection do 
-	    match "region/:region" => "gigs#index", :as => "regional"
+	    match "chapter/:chapter" => "gigs#index", :as => "chapter"
 	  end
 	  member do 
 	    get "attend"
@@ -33,13 +33,14 @@ Goodfornothing::Application.routes.draw do
 	end
 	
 	resources :briefs, :only => [:show]
-
+  
+  resources :partners, :only => [:index]
+  resources :friends, :only => [:index]
+  resources :ventures, :only => [:index]
+  
   match "members" => "members#index"
   match "members/:id" => "members#show", :as => "member"
-  
-	match "business" => "colophon#business"
 	match "about" => "colophon#about"
-	match "friends" => "colophon#friends"
 
 	root :to => "home#index"
 

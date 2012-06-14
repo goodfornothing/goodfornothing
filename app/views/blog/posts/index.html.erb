@@ -1,5 +1,5 @@
 <section id="primary_content">
-	<h1><%= (@category) ? "Blog: #{@category.title}" : "Good for Nothing Blog" %></h1>
+	<h1><%= (@category) ? "Blog: #{@category.title}" : "Good for Blogging" %></h1>
 	<% @posts.each do |post| %>
 		<h2><%= post.title %></h2>
 		<p><strong><%= post.created_at.to_formatted_s(:long_ordinal) %></strong></p>

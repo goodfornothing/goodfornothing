@@ -1,62 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Good for Nothing &ndash; Collaborating for good</title>
-	<meta name="description" content="Good for Nothing, collaborating for good" />
-	<meta name="keywords" content="Good, nothing, hack, london, pipeline" />
-	<link rel="shortcut icon" href="/favicon.ico" />
-	<%= stylesheet_link_tag    "application", :media => "all" %>
-	<%= javascript_include_tag "application" %>
-	<%= csrf_meta_tags %>
-</head>
-<body>
-
-	<header class="container">
+	<head>
+		<title>Good for Nothing &ndash; Collaborating for good</title>
+		<meta name="description" content="Good for Nothing, collaborating for good" />
+		<meta name="keywords" content="Good, nothing, hack, london, pipeline" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
 		
-		<% if params[:controller] == "home" %>
-			<h1 class="branding">Good for Nothing</h1>
-		<% else %>
-			<p class="branding"><%= link_to "Good for Nothing", root_path %></p>
-		<% end %>
+		<meta name="robots" content="noindex,nofollow" />
 		
-		<nav id="social_navigation">
-			<p>Collaborating for good</p>
-			<ul class="social-icons">
-				<li><a class="icon soundcloud" href="http://soundcloud.com/goodfornothing-1">Soundcloud</a></li>
-				<li><a class="icon facebook" href="http://www.facebook.com/g00dfornothing">Facebook</a></li>
-				<li><a class="icon flickr" href="http://www.flickr.com/photos/goodfornothingflickrs/">Flickr</a></li>
-				<li><a class="icon twitter" href="https://twitter.com/g00dfornothing">Twitter</a></li>
-				<li><a class="icon rss" href="http://www.goodfornothing.com/feed/">RSS</a></li>
-			</ul>
-		</nav>
-	</header>
+	</head>
+	<body>
 
-	<%= render "shared/navigation" %>
-	
-	<div class="container">
-		<p><strong><%= flash[:error] %></strong></p>
-		<p><strong><%= flash[:notice] %></strong></p>
-		<%= yield %>
-	</div>
-	
-	<footer class="container">
-		<section>
-			<h2>Good for Nothing</h2>
-			<p>Good for Nothing is the social mission of The Pipeline Project.</p>
-			<p>We give time, money and energy to do stuff that supports people trying to make positive impact and change happen.</p>
-		</section>
-		<section>
-			<h2>Crew</h2>
-		</section>
-		<section>
-			<h2>Community</h2>
-		</section>
-		<section>
-			<h2>Get in touch</h2>
-			<p><a href="mailto:hello@goodfornothing.com">hello@goodfornothing.com</a></p>
-		</section>
-		<p id="colophon">Good for Nothing &ndash; Bringing smart folk together to do some good for nothing. <a class="icon pipeline" href="http://www.pipelineproject.co">Brought to you by the Pipeline Project</a></p>
-	</footer>
+		<header class="container">
+		
+			<% if params[:controller] == "home" %>
+				<h1 id="branding">Good for Nothing</h1>
+			<% else %>
+				<p id="branding"><%= link_to "Good for Nothing", root_path %></p>
+			<% end %>
+		
+			<nav id="social_navigation">
+				<p>Collaborating for good</p>
+				<ul class="social">
+					<li><a title="Good for Nothing RSS" class="icon rss" href="http://www.goodfornothing.com/feed/">RSS</a></li>
+					<li><a title="Soundcloud" class="icon soundcloud" href="http://soundcloud.com/goodfornothing-1">Soundcloud</a></li>
+					<li><a title="Facebook" class="icon facebook" href="http://www.facebook.com/g00dfornothing">Facebook</a></li>
+					<li><a title="Flickr" class="icon flickr" href="http://www.flickr.com/photos/goodfornothingflickrs/">Flickr</a></li>
+					<li><a title="Twitter" class="icon twitter" href="https://twitter.com/g00dfornothing">Twitter</a></li>
+				</ul>
+			</nav>
+		</header>
 
-</body>
+		<%= render "shared/navigation" %>
+	
+		<div class="container" id="main" role="main">
+			<%= "<p><strong>#{flash[:error]}</strong></p>".html_safe if flash[:error] %>
+			<%= "<p><strong>#{flash[:notice]}</strong></p>".html_safe if flash[:notice] %>
+			<%= yield %>
+		</div>
+	
+		<footer>
+			<div class="container">
+				<section>
+					<h2 class="headline">Good for Nothing</h2>
+					<p>Good for Nothing is the social mission of The Pipeline Project.</p>
+					<p>We give time, money and energy to do stuff that supports people trying to make positive impact and change happen.</p>
+				</section>
+				<section>
+					<h2 class="headline">Crew</h2>
+				</section>
+				<section>
+					<h2 class="headline">Community</h2>
+				</section>
+				<section>
+					<h2 class="headline">Get in touch</h2>
+					<p><a href="mailto:hello@goodfornothing.com">hello@goodfornothing.com</a></p>
+				</section>
+			</div>
+		</footer>
+	
+		<section id="colophon">
+			<p class="container">Good for Nothing &ndash; Bringing smart folk together to do some good for nothing <a class="icon pipeline" href="http://www.pipelineproject.co">Brought to you by the Pipeline Project</a></p>
+		</section>
+
+	</body>
 </html>

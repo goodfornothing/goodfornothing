@@ -1,16 +1,24 @@
 ActiveAdmin.register Gig do
 
-  menu :priority => 2
+  menu :priority => 1, :parent => "Events"
 
 	index do
     column :title
-    column :region
+    column :chapter
     default_actions
   end
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
-    f.inputs "Content" do
-      f.input :region
+    f.inputs "Organised by" do 
+      f.input :chapter
+      f.input :partner
+      f.input :friends, :as => :check_boxes
+    end
+    f.inputs "Identity" do
+      f.input :logo
+      f.input :poster
+    end
+    f.inputs "Details" do
       f.input :title
       f.input :location
       f.input :description
@@ -21,8 +29,14 @@ ActiveAdmin.register Gig do
   end
 
   show do |gig|
+    panel 'Organised by' do
+      attributes_table_for gig do
+        row :chapter
+        row :partner
+        row :friends
+      end
+    end
     attributes_table do
-      row :region
       row :title
       row :location
       row :description

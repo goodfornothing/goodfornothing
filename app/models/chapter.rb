@@ -1,4 +1,4 @@
-class Region < ActiveRecord::Base
+class Chapter < ActiveRecord::Base
 
 	has_many :gigs
 	has_many :posts, :class_name => "::Blog::Post"

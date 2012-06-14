@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
   
-  menu :priority => 1, :label => "Members"
+  menu :priority => 1, :label => "Members", :parent => "People"
   
 	index do
     column :name

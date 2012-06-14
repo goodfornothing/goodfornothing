@@ -5,7 +5,7 @@ ActiveAdmin.register Blog::Post do
 	index do
     column :title
     column :category
-    column :region
+    column :chapter
     column "Author", :user
     default_actions
   end
@@ -13,7 +13,7 @@ ActiveAdmin.register Blog::Post do
   form :html => { :enctype => "multipart/form-data" }  do |f|
     f.inputs "Content" do
       f.input :category
-      f.input :region
+      f.input :chapter
       f.input :user, :label => "Author"
       f.input :hero_image
       f.input :title
@@ -26,7 +26,7 @@ ActiveAdmin.register Blog::Post do
   show  do |post|
     panel 'Meta' do
       attributes_table_for post do
-        row :region
+        row :chapter
         row :user
         row :created_at
         row :category

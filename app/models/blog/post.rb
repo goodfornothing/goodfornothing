@@ -1,17 +1,17 @@
 class Blog::Post < ActiveRecord::Base
 
-  attr_accessible :excerpt, :title, :body, :user_id, :region_id, :category_id, :region_id, :user_id, :hero_image
+  attr_accessible :excerpt, :title, :body, :user_id, :chapter_id, :category_id, :chapter_id, :user_id, :hero_image
 
 	self.table_name = 'blog_posts'
 
 	belongs_to :category
-	belongs_to :region
+	belongs_to :chapter
 	belongs_to :user
 
 	validates :title, :presence => true
 	validates :excerpt, :presence => true
 	validates :body, :presence => true
 	
-	mount_uploader :hero_image, ::PostUploader
+	mount_uploader :hero_image, ::ArticleImageUploader
 
 end

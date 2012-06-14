@@ -2,13 +2,13 @@ class GigsController < ApplicationController
 
   respond_to :html
   
-  before_filter :fetch_regions
+  before_filter :fetch_chapters
   before_filter :fetch_gig, :only => [:show, :attend, :attending]
   before_filter :authenticate_user!, :only => [:attend, :attending]
 
 	def index
-	  @region = Region.find_by_title(params[:region]) if params[:region]
-	  @gigs = (@region) ? Gig.find_all_by_region_id(@region.id) : Gig.all
+	  @chapter = Chapter.find_by_title(params[:chapter]) if params[:chapter]
+	  @gigs = (@chapter) ? Gig.find_all_by_chapter_id(@chapter.id) : Gig.all
 	end
 
 	def show
@@ -42,8 +42,8 @@ class GigsController < ApplicationController
 	end
 	
 	private
-	  def fetch_regions
-      @regions = Region.all
+	  def fetch_chapters
+      @chapters = Chapter.all
 	  end
 	  
 	  def fetch_gig

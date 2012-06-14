@@ -1,13 +1,13 @@
-ActiveAdmin.register Region do
+ActiveAdmin.register Chapter do
   
-  menu :parent => "Misc"
+  menu :priority => 5, :parent => "People"
   
 	index do
     column :title
     default_actions
   end
   
-  show do |region|
+  show do |chapter|
     attributes_table do
       row :title
     end

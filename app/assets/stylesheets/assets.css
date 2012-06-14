@@ -8,3 +8,20 @@
     background-repeat: no-repeat;
     background-position: top left;
   }
+
+	.icon {
+		text-indent: -1337px;
+		width: 21px;
+		height: 21px;
+		display: block;
+		background-repeat: no-repeat;
+		background-position: 0 0;
+	}
+	
+	.social .icon { background: url(icons/social.png); }
+	.social .facebook { background-position: -21px 0; }
+	.social .twitter { background-position: -63px 0; }
+	.social .flickr { background-position: -42px 0; }
+	.social .rss { background-position: -84px 0; }
+	
+	.pipeline { background-image: url(icons/pipeline.png); height: 27px; width: 27px; }

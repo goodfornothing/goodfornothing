@@ -1,6 +1,6 @@
 ActiveAdmin.register Chapter do
   
-  menu :priority => 5, :parent => "People"
+  menu :priority => 3, :parent => "People"
   
 	index do
     column :title
@@ -10,7 +10,22 @@ ActiveAdmin.register Chapter do
   show do |chapter|
     attributes_table do
       row :title
+      row :city
+      row :country
+       row :users do 
+          chapter.users.map(&:name).join(', ')
+        end
     end
+  end
+  
+  form do |f|
+    f.inputs "Details" do
+      f.input :title, :label => "Name"
+      f.input :city
+      f.input :country
+      f.input :users, :as => :check_boxes, :label => "Organised by"
+    end
+    f.buttons
   end
   
 end

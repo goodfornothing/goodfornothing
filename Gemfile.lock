@@ -48,6 +48,7 @@ GEM
     carrierwave (0.6.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    country-select (1.1.1)
     curb (0.7.18)
     devise (2.0.4)
       bcrypt-ruby (~> 3.0)
@@ -179,6 +180,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   carrierwave
+  country-select
   devise
   devise_mailchimp
   feedzirra

@@ -2,6 +2,8 @@ ActiveAdmin.register Slot do
     
     menu :priority => 3, :parent => "Events"
     
+    filter :gig
+    
     index do
       column :skill
       column :limit

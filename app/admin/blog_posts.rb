@@ -2,6 +2,9 @@ ActiveAdmin.register Blog::Post do
   
   menu :parent => "Blog", :priority => 1
   
+  filter :category
+  filter :chapter
+  
 	index do
     column :title
     column :category
@@ -11,10 +14,12 @@ ActiveAdmin.register Blog::Post do
   end
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
-    f.inputs "Content" do
-      f.input :category
+    f.inputs "Details" do
       f.input :chapter
       f.input :user, :label => "Author"
+      f.input :category
+    end
+    f.inputs "Post" do   
       f.input :hero_image
       f.input :title
       f.input :excerpt, :input_html => { :rows => 5 }
@@ -24,11 +29,15 @@ ActiveAdmin.register Blog::Post do
   end
   
   show  do |post|
-    panel 'Meta' do
+    panel 'Details' do
       attributes_table_for post do
         row :chapter
-        row :user
-        row :created_at
+        row "Author" do 
+          post.user.name if post.user
+        end
+        row "Posted" do
+          post.created_at
+        end
         row :category
       end  
     end

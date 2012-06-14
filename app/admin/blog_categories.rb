@@ -1,6 +1,8 @@
 ActiveAdmin.register Blog::Category do
   
   menu :parent => "Blog"
+ 
+  config.clear_sidebar_sections!
   
 	index do
     column :title

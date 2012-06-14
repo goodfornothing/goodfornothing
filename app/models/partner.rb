@@ -4,6 +4,8 @@ class Partner < ActiveRecord::Base
 
   has_many :gigs
   
+  validates_presence_of :name
+  
   mount_uploader :logo, LogoUploader
   
 end

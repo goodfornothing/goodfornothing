@@ -16,6 +16,7 @@ gem 'mini_magick', "~> 3.3"
 gem "redcarpet", "~> 2.0.1"
 gem 'tzinfo'
 gem 'jquery-rails'
+gem 'country-select'
 
 gem 'activeadmin'
 gem "formtastic", "~> 2.1.1"

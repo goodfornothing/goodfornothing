@@ -2,6 +2,8 @@ ActiveAdmin.register Chapter do
   
   menu :priority => 3, :parent => "People"
   
+  config.clear_sidebar_sections!
+  
 	index do
     column :title
     default_actions

@@ -51,7 +51,7 @@ ActiveAdmin::Dashboards.build do
 
   section "Bookmark Inbox" do
     ul do
-      Library::Bookmark.order(:created_at).limit(5).collect do |bookmark|
+      Library::Bookmark.order(:created_at).where('published = 0').limit(10).collect do |bookmark|
         li link_to(bookmark.title, admin_library_bookmark_path(bookmark))
       end
     end

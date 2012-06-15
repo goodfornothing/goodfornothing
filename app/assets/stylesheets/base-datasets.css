@@ -8,9 +8,6 @@
     padding: 0 0 10px;
   }
   
-  form fieldset.controls { padding: 0; }  
-  form .errorExplanation { padding-bottom: 5px; }
-
 /* =label */
  
   label { 
@@ -18,16 +15,9 @@
     position: relative; 
   }
   
-  label span {
-    
-  }
-
-  fieldset.controls input { float: left; }
-  fieldset.controls p { width: 50%; float: left; }
-
 /* =input */
 
-  label.text input { 
+  .string input { 
     padding: 5px; 
     margin-bottom: 1em; 
     font-size: 1em;
@@ -36,13 +26,8 @@
  
  /* =checkbox */
  
-  label.checkbox {
+  .checkbox label {
     margin-bottom: 0.75em;
-  }
- 
-  label.checkbox span {
-    color: #333;
-    font-size: 0.75em; 
   }
 
  /* =textarea */

@@ -9,6 +9,8 @@
     background-position: top left;
   }
 
+/* Icons */
+
 	.icon {
 		text-indent: -1337px;
 		width: 21px;
@@ -25,3 +27,22 @@
 	.social .rss { background-position: -84px 0; }
 	
 	.pipeline { background-image: url(icons/pipeline.png); height: 27px; width: 27px; }
+
+/* Grid lists */
+
+	.grid_list {
+		padding: 10px 0;
+		overflow: hidden;
+		width: 100%;
+	}
+
+	.grid_list li {
+		list-style-type: none;
+		padding: 0;
+		float: left;
+		margin: 0 10px 10px 0;
+	}
+	
+	.grid_list li:nth-child(3n+3) {
+		margin-right: 0;
+	}

@@ -5,7 +5,7 @@ ActiveAdmin.register Library::Bookmark do
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
     f.inputs "Content" do
-      f.input :curated
+      f.input :published
       f.input :title, :as => :string
       f.input :url, :as => :string
       f.input :description, :input_html => { :rows => 5 }
@@ -16,13 +16,14 @@ ActiveAdmin.register Library::Bookmark do
   
 	index do
     column :title
+    column :published
     default_actions
   end
   
   show do |bookmark|
     attributes_table do
-      row "Curated?" do 
-        (bookmark.curated) ? "Yes" : "No"
+      row "Published" do 
+        (bookmark.published) ? "Yes" : "No"
       end
       row :title
       row "URL" do

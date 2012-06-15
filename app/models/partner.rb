@@ -8,4 +8,6 @@ class Partner < ActiveRecord::Base
   
   mount_uploader :logo, LogoUploader
   
+  before_save :check_url_scheme
+	
 end

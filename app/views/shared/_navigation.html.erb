@@ -12,9 +12,9 @@
 		<li><%= link_to "Ventures", ventures_path %></li>
 	</ul>
 	
-	<ul>
+	<ul id="member_navigation">
 		<% if user_signed_in? %>
-		<li><%= current_user.name %> (<%= link_to "Profile", member_path(current_user) %>, <%= link_to "Logout", destroy_user_session_path, :method => :delete %>)</li>
+		<li><%= link_to current_user.name, member_path(current_user) %> (<%= link_to "Logout", destroy_user_session_path, :method => :delete %>)</li>
 		<% else %>
 		<li><%= link_to "Login", new_user_session_path %></li>
 		<% end %>

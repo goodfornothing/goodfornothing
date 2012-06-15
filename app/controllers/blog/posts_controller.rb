@@ -12,6 +12,14 @@ class Blog::PostsController < ApplicationController
 		  @posts = Blog::Post.order("created_at DESC").all
 		end
 		
+		respond_to do |format|
+      format.html { render :layout => true }
+      format.rss { 
+        @posts = @posts
+        render :layout => false 
+      } 
+    end
+		
 	end
 
 	def show

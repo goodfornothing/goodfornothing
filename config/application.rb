@@ -55,5 +55,11 @@ module Goodfornothing
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    # Catch 404s (for Rails <3.2)
+    # Append here rather than in routes.rb so as not to interfere with any Gem routes
+    config.after_initialize do |app|
+      app.routes.append{match '*path', :to => 'errors#routing'}
+    end
   end
 end

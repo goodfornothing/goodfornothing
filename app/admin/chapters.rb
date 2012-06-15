@@ -14,9 +14,9 @@ ActiveAdmin.register Chapter do
       row :title
       row :city
       row :country
-       row :users do 
-          chapter.users.map(&:name).join(', ')
-        end
+      row "Organised by" do 
+        chapter.users.map(&:name).join(', ')
+      end
     end
   end
   

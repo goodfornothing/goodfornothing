@@ -10,11 +10,7 @@ class LogoUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_to_fit => [300, 300]
-
-  version :thumbnail do
-    process :resize_to_fit => [50, 50]
-  end
+  process :resize_to_fit => [225, 100]
 
   def extension_white_list
     %w(jpg jpeg gif png)

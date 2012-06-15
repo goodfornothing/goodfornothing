@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120614122024) do
+ActiveRecord::Schema.define(:version => 20120615155808) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(:version => 20120614122024) do
     t.string   "title"
     t.text     "description"
     t.text     "url"
-    t.boolean  "curated",     :default => false
+    t.boolean  "published",   :default => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
   end

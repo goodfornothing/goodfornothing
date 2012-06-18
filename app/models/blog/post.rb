@@ -13,5 +13,7 @@ class Blog::Post < ActiveRecord::Base
 	validates :body, :presence => true
 	
 	mount_uploader :hero_image, ::ArticleImageUploader
+	
+	paginates_per 10
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120615155808) do
+ActiveRecord::Schema.define(:version => 20120618113004) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(:version => 20120615155808) do
     t.integer  "wordpress_id"
     t.text     "excerpt"
     t.string   "hero_image"
+  end
+
+  create_table "bookmarks_gigs", :force => true do |t|
+    t.integer "gig_id"
+    t.integer "bookmark_id"
   end
 
   create_table "bookmarks_tags", :force => true do |t|
@@ -167,8 +172,16 @@ ActiveRecord::Schema.define(:version => 20120615155808) do
     t.string   "name"
     t.string   "avatar"
     t.integer  "chapter_id"
+    t.boolean  "approved",               :default => false, :null => false
+    t.string   "url"
+    t.string   "twitter_handle"
+    t.string   "location"
+    t.string   "gender"
+    t.integer  "age"
+    t.text     "reasons_for_joining"
   end
 
+  add_index "users", ["approved"], :name => "index_users_on_approved"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 

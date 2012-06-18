@@ -1,8 +1,9 @@
 <section id="primary_content">
 	
 	<h1><%= @gig.title %></h1>
-	<p><strong><%= @gig.start_time.to_formatted_s(:long_ordinal) %> - <%= @gig.end_time.to_formatted_s(:long_ordinal) %></strong></p>
-	<%= simple_format @gig.description %>
+	<% if @gig.start_time && @gig.end_time %>
+	<time><%= @gig.start_time.to_formatted_s(:long_ordinal) %> - <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time>
+	<% end %>	<%= simple_format @gig.description %>
 	<% if @gig.briefs.any? %>
 		<h2>The briefs</h2>
 		<% @gig.briefs.each do |brief| %>

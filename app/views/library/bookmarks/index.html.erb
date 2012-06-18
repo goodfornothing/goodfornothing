@@ -1,6 +1,7 @@
 <section id="primary_content">
 	<h1>The Good Library</h1>
 	<%= render :partial => "list", :locals => { :bookmarks => @bookmarks } %>
+	<%= paginate @bookmarks %>
 </section>
 
 <aside id="secondary_content">

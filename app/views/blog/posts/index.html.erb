@@ -1,20 +1,14 @@
 <section id="primary_content">
+
 	<h1><%= (@category) ? "Blog: #{@category.title}" : "Good for Blogging" %></h1>
 	<% @posts.each do |post| %>
-		<h2><%= post.title %></h2>
-		<p><strong><%= post.created_at.to_formatted_s(:long_ordinal) %></strong></p>
-		<%= simple_format post.body %>
+		<%= render :partial => "block", :locals => { :post => post }%>
 	<% end %>
+	
+	<%= paginate @posts %>
+	
 </section>
 
 <aside id="secondary_content">
-	<% if @categories.any? %>
-	<h2>Conversations</h2>
-		<ul>
-			<li><%= link_to "All posts", blog_posts_path %></li>
-			<% @categories.each do |category| %>
-			<li><%= link_to category.title, categorised_blog_posts_path(category.slug) %></li>
-			<% end %>
-		</ul>
-	<% end %>
+	<%= render :partial => "categories" %>
 </aside>

@@ -10,6 +10,7 @@ ActiveAdmin.register Blog::Post do
     column :category
     column :chapter
     column "Author", :user
+    column :created_at
     default_actions
   end
   

@@ -11,12 +11,8 @@ ActiveAdmin.register User do
   end
 
   form do |f|
-    f.inputs "Details" do
-      f.input :name
-      f.input :email
-      f.input :skills, :as => :check_boxes
-    end
     f.inputs "Privileges" do
+      f.input :approved
       f.input :admin
     end
     f.buttons
@@ -30,6 +26,16 @@ ActiveAdmin.register User do
         end
       end
     end
+    panel "Privileges" do
+      attributes_table_for user do
+        row "Is admin?" do
+          (user.admin) ? "Yes" : "No"
+        end
+        row "Approved?" do
+          (user.approved) ? "Yes" : "No"
+        end
+      end
+    end
     attributes_table do
       row :avatar
       row :name
@@ -37,9 +43,14 @@ ActiveAdmin.register User do
       row :skills do 
         user.skills.map(&:title).join(', ')
       end
-      row "Is admin?" do
-        (user.admin) ? "Yes" : "No"
+      row "Website" do 
+        user.url
       end
+      row :twitter_handle
+      row :location
+      row :gender
+      row :age
+      row :reasons_for_joining
       row :last_sign_in_at
       row :last_sign_in_ip
     end

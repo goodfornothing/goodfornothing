@@ -20,5 +20,17 @@ class User < ActiveRecord::Base
   def is_attending?(gig)
     self.gigs.include?(gig)
   end
+  
+  def active_for_authentication? 
+    super && approved? 
+  end 
+
+  def inactive_message 
+    if !approved? 
+      :not_approved 
+    else 
+      super
+    end 
+  end
 
 end

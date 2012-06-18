@@ -30,6 +30,9 @@ ActiveAdmin.register Gig do
       f.input :location
       f.input :description
     end
+    f.inputs "Data sources" do
+      f.input :bookmarks, :as => :check_boxes
+    end
     f.buttons
   end
 
@@ -57,6 +60,13 @@ ActiveAdmin.register Gig do
       row :title
       row :location
       row :description
+    end
+    panel 'Data sources' do
+      attributes_table_for gig do
+        row :bookmarks do 
+          gig.bookmarks.map(&:title).join(', ')
+        end
+      end
     end
   end
 

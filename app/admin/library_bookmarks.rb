@@ -16,7 +16,6 @@ ActiveAdmin.register Library::Bookmark do
   
 	index do
     column :title
-    column :published
     default_actions
   end
   

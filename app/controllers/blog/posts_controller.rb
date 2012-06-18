@@ -4,12 +4,14 @@ class Blog::PostsController < ApplicationController
 
 	def index
 		
+		page = params[:page] || 1
+		
 		@category = Blog::Category.find_by_title(params[:category]) if params[:category]
 
 	  if @category
-	    @posts = Blog::Post.order("created_at DESC").find_all_by_category_id(@category.id)  		
+	    @posts = Blog::Post.order("created_at DESC").find_all_by_category_id(@category.id).page(page) 		
 	  else
-		  @posts = Blog::Post.order("created_at DESC").all
+		  @posts = Blog::Post.order("created_at DESC").page(page)
 		end
 		
 		respond_to do |format|

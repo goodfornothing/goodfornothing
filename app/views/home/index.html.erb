@@ -10,10 +10,12 @@
 	<% if @posts.any? %>
 		<h2 class="headline">Blog</h2>
 		<% @posts.each do |post| %>
-			<h3><%= post.title %></h3>
-			<time><%= post.created_at.to_formatted_s(:long_ordinal) %></time>
-			<%= simple_format post.excerpt %>
+			<%= render :partial => "blog/posts/block", :locals => { :post => post }%>
 		<% end %>
 	<% end %>
 	
 </section>
+
+<aside id="secondary_content">
+	<%= render :partial => "blog/posts/categories" %>
+</aside>

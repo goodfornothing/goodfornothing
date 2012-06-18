@@ -4,7 +4,9 @@
 	<% if @gigs.any? %>
 		<% @gigs.each do |gig| %>
 			<h2><%= gig.title %></h2>
-			<p><strong><%= gig.start_time.to_formatted_s(:long_ordinal) %> - <%= gig.end_time.to_formatted_s(:long_ordinal) %></strong></p>
+			<% if gig.start_time && gig.end_time %>
+			<time><%= gig.start_time.to_formatted_s(:long_ordinal) %> - <%= gig.end_time.to_formatted_s(:long_ordinal) %></time>
+			<% end %>
 			<p><%= link_to "Find out more and read the briefs", gig_path(gig) %></p>
 		<% end %>
 	<% else %>

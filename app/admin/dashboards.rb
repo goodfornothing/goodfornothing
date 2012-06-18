@@ -41,9 +41,9 @@ ActiveAdmin::Dashboards.build do
   # section "Membership Summary", :if => :memberships_enabled?
   # section "Membership Summary", :if => Proc.new { current_admin_user.account.memberships.any? }
 
-  section "Unapproved Members" do
+  section "Members awaiting approval" do
     ul do
-      User.order(:created_at).limit(5).collect do |user|
+      User.order(:created_at).where('approved = 0').collect do |user|
         li link_to(user.name, admin_user_path(user))
       end
     end
@@ -51,7 +51,7 @@ ActiveAdmin::Dashboards.build do
 
   section "Bookmark Inbox" do
     ul do
-      Library::Bookmark.order(:created_at).where('published = 0').limit(10).collect do |bookmark|
+      Library::Bookmark.order(:created_at).where('published = 0').collect do |bookmark|
         li link_to(bookmark.title, admin_library_bookmark_path(bookmark))
       end
     end

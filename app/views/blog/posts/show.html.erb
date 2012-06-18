@@ -1,5 +1,9 @@
 <section id="primary_content">
 	<h2><%= @post.title %></h2>
-	<p><strong><%= post.created_at.to_formatted_s(:long_ordinal) %></strong></p>
-	<%= simple_format @post.description %>
+	<time><%= @post.created_at.to_formatted_s(:long_ordinal) %></time>
+	<%= simple_format @post.body %>
 </section>
+
+<aside id="secondary_content">
+	<%= render :partial => "categories" %>
+</aside>

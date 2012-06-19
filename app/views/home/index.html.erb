@@ -1,14 +1,15 @@
 <section id="primary_content">
 
 	<% if @gig.present? %>
-		<h2 class="headline">Next gig</h2>
-		<h3><%= @gig.title %></h3>
-		<time><%= @gig.start_time.to_formatted_s(:long_ordinal) %> - <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time>
-		<p><%= link_to "Find out more and read the briefs", gig_path(@gig) %></p>
+	<article>
+		<h2>Your next dose of Good - <%= link_to @gig.title, gig_path(@gig) %></h2>
+		<p>Come join us on <strong><%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %></strong> of <%= @gig.start_time.strftime('%B') %> in <%= link_to @gig.chapter.title, chapter_gigs_path(@gig.chapter.title) %></p>
+		<%= image_tag @gig.logo unless @gig.logo.url.nil? %>
+	</article>
 	<% end %>
 	
 	<% if @posts.any? %>
-		<h2 class="headline">Blog</h2>
+		<h2>What we're talking about</h2>
 		<% @posts.each do |post| %>
 			<%= render :partial => "blog/posts/block", :locals => { :post => post }%>
 		<% end %>

@@ -1,6 +1,6 @@
 class Gig < ActiveRecord::Base
 
-  attr_accessible :chapter_id, :title, :description, :location, :start_time, :end_time, :skill_ids, :partner_id, :friend_ids, :bookmark_ids
+  attr_accessible :chapter_id, :title, :description, :location, :start_time, :end_time, :skill_ids, :partner_id, :friend_ids, :bookmark_ids, :poster, :logo
 
 	has_many :briefs
 	has_many :slots
@@ -12,7 +12,7 @@ class Gig < ActiveRecord::Base
 	
 	after_create :create_generic_slot
 	
-	mount_uploader :logo, LogoUploader
+	mount_uploader :logo, ArticleImageUploader
 	mount_uploader :poster, PosterUploader
 	
 	def create_generic_slot

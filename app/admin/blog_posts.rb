@@ -47,7 +47,7 @@ ActiveAdmin.register Blog::Post do
         row :title
         row :excerpt
         row :hero_image do
-          image_tag(post.hero_image.url) unless post.hero_image.url.nil?
+          image_tag(post.hero_image.thumbnail) unless post.hero_image.url.nil?
         end
         row :body do
           simple_format(post.body).html_safe

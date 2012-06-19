@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
 
-  devise :database_authenticatable, :registerable, :omniauthable,
-         :recoverable, :rememberable, :trackable, :validatable, :mailchimp
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :mailchimp
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :join_mailing_list, :admin, :name, :skill_ids
+  attr_accessible :email, :password, :password_confirmation, :current_password,
+                  :remember_me, :join_mailing_list, :admin, :name, :skill_ids,
+                  :gender, :age, :url, :location, :twitter_handle, :approved
 
   has_one :ning_profile
   has_many :posts, :class_name => "::Blog::Post"
@@ -14,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :gigs, :through => :slots
   
   validates_presence_of :name
+  
+  before_save :check_url_scheme
   
   mount_uploader :avatar, AvatarUploader
 	
@@ -32,5 +35,10 @@ class User < ActiveRecord::Base
       super
     end 
   end
+  
+  protected
+     def password_required?
+      !persisted? || password.present? || password_confirmation.present?
+    end
 
 end

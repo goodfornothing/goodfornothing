@@ -2,7 +2,7 @@ Goodfornothing::Application.routes.draw do
 	
   ActiveAdmin.routes(self)
   match "/markdown_preview" => "application#markdown_preview"
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" } 
   
 	namespace :blog do
 		resources :posts, :only => [:index, :show] do
@@ -40,7 +40,9 @@ Goodfornothing::Application.routes.draw do
   
   match "members" => "members#index"
   match "members/:id" => "members#show", :as => "member"
+  
 	match "about" => "colophon#about"
+	match "community" => "colophon#community"
 
 	root :to => "home#index"
 

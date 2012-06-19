@@ -46,3 +46,27 @@
 	.grid_list li:nth-child(3n+3) {
 		margin-right: 0;
 	}
+	
+/* Blocks */ 
+
+	article.block {
+		float: left;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		width: 330px;
+	}
+	
+	article.block h2,
+	article.block h3 {
+		font-size: 16px;
+	}
+	
+	article.block img.hero {
+		margin-bottom: 20px;
+		margin-top: 20px;
+		display: block;
+	}
+	
+	article.block time {
+		margin-bottom: 10px;
+	}	

@@ -1,3 +1,8 @@
-<h2><%= link_to post.title, blog_post_path(post) %></h2>
-<time><%= post.created_at.to_formatted_s(:long_ordinal) %></time>
-<%= simple_format post.excerpt %>
+<article class="block">
+	<h2><%= link_to post.title, blog_post_path(post) %></h2>
+	<% unless post.hero_image.url.nil? %>
+	<%= image_tag post.hero_image.thumbnail, :class => "hero" %>
+	<% end %>
+	<time><%= post.created_at.to_formatted_s(:long_ordinal) %></time>
+	<%= simple_format post.excerpt %>
+</article>

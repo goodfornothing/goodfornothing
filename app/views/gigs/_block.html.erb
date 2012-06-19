@@ -1,0 +1,5 @@
+<h3><%= gig.title %></h3>
+<% if gig.start_time && gig.end_time %>
+<time><%= gig.start_time.to_formatted_s(:long_ordinal) %> - <%= gig.end_time.to_formatted_s(:long_ordinal) %></time>
+<% end %>
+<p><%= link_to "Find out more and read the briefs", gig_path(gig) %></p>

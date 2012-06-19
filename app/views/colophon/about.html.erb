@@ -1,3 +1,10 @@
 <section id="primary_content">
-	<h1>The Good for Nothing Manifesto</h1>
+	<h1>Good for Nothing &ndash; Collaborating for Good</h1>
+	
+	<h2>Chapters</h2>
+	<ul>
+		<% @chapters.each do |chapter| %>
+		<li><%= chapter.title %></li>
+		<% end %>
+	</ul>
 </section>

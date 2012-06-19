@@ -1,14 +1,16 @@
 <section id="primary_content">
-	<h1><%= @member.name %>'s profile for Nothing</h1>
-	<% if user_signed_in? && current_user == @member %>
-		<%= link_to "Edit", edit_user_registration_path %>
-	<% end %>
+	<h1><%= @member.name %>'s profile for Nothing <% if user_signed_in? && current_user == @member %> <span>(<%= link_to "Edit", edit_user_registration_path %>)</span> <% end %></h1>
+
+</section>
+
+<aside id="secondary_content">
 	<% if @member.skills.any? %>
-	<h2>A dab hand at:</h2>
+	<h2>Skills</h2>
 	<ul>
 		<% @member.skills.each do |skill| %>
 		<li><%= skill.title %></li>
 		<% end %>
 	</ul>
 	<% end %>
-</section>
+
+</aside>

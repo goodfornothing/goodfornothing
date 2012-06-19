@@ -10,10 +10,10 @@ class ArticleImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_to_fit => [300, 300]
+  process :resize_to_fit => [700,nil]
 
   version :thumbnail do
-    process :resize_to_fit => [200, 200]
+    process :resize_to_fit => [330,nil]
   end
 
   def extension_white_list

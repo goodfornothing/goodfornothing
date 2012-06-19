@@ -1,22 +1,41 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<section id="primary_content">
+	
+	<h1>Edit your profile</h1>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= f.error_notification %>
+	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+		<%= f.error_notification %>
 
-  <div class="inputs">
-	<%= f.input :name, :required => true %>
-    <%= f.input :email, :required => true %>
-    <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
-    <%= f.input :password_confirmation, :required => false %>
-    <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
- 	<%= f.input :join_mailing_list, :as => :boolean %>
-  </div>
+		<fieldset>
+			<legend>Membership information</legend>
+			<%= f.input :name, :required => true %>
+			<%= f.input :email, :required => true %>
+		</fieldset>
 
-  <div class="actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+		<fieldset>
+			<legend>Your profile</legend>
+			<%= f.input :avatar %>
+			<%= f.input :gender, :as => :select, :collection => ["Female", "Male", "Transgender"] %>
+			<%= f.input :age %>
+			<%= f.input :url, :label => "Your digital location" %>
+			<%= f.input :location, :label => "Your physical location" %>
+			<%= f.input :twitter_handle %>
+			<%= f.input :join_mailing_list, :as => :boolean, :label => "On mailing list?" %>
+		</fieldset>
 
-<h3>Close my account</h3>
+		<fieldset>
+			<legend>Authentication</legend>
+			<%= f.input :password, :hint => "leave it blank if you don't want to change it", :required => false,  :input_html => { :autocomplete => "off" } %>
+			<%= f.input :password_confirmation, :required => false, :input_html => { :autocomplete => "off" } %>
+		</fieldset>
 
-<p><%= link_to "Close my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+		<fieldset class="actions">
+			<%= f.button :submit, "Save" %>
+		</fieldset>
+	<% end %>
+	
+</section>
+
+<aside id="secondary_content">
+	<h2>Your data</h2>
+	<p>If you'd want to remove all of your personal information from this site, you may <%= link_to "close your account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+</aside>

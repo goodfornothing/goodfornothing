@@ -5,8 +5,14 @@
   }
   
   form fieldset {
-    padding: 0 0 10px;
+    padding: 0 0 20px;
   }
+
+	legend {
+		font-size: 16px;
+		padding-bottom: 16px;
+		color: #E31937;
+	}
   
 /* =label */
  

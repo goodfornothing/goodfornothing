@@ -1,25 +1,32 @@
 <section id="primary_content">
 	<h1><%= @chapter.title if @chapter.present? %> Gigs</h1>
-	
-	<% if @gigs.any? %>
-		<% @gigs.each do |gig| %>
-			<h2><%= gig.title %></h2>
-			<% if gig.start_time && gig.end_time %>
-			<time><%= gig.start_time.to_formatted_s(:long_ordinal) %> - <%= gig.end_time.to_formatted_s(:long_ordinal) %></time>
-			<% end %>
-			<p><%= link_to "Find out more and read the briefs", gig_path(gig) %></p>
+
+	<% if @current_gigs.any? %>
+		<h2>Upcoming gigs</h2>
+		<% @current_gigs.each do |gig| %>
+			<%= render :partial => "block", :locals => { :gig => gig } %>
 		<% end %>
-	<% else %>
-		<p>Ain't no gigs at the moment.</p>
 	<% end %>
 	
+	<% if @past_gigs.any? %>
+		<h2>Past gigs</h2>
+		<% @past_gigs.each do |gig| %>
+			<%= render :partial => "block", :locals => { :gig => gig } %>
+		<% end %>
+	<% end %>
+		
 </section>
 
 <aside id="secondary_content">
+	<h2>Gigs?</h2>
+	<p>Gigs are how GFN started and they continue to be at the heart of what we do; 24 to 48 hour experiences, fast track making, doing and rapid prototyping.</p>
+	<p>Building community through demanding common tasks with music, food and laughs.</p>
+	<p>Creative collaboration meets rave, real people, working on real challenges, together.</p>
+	<p>Self organising since 2010</p>
 	<% if @chapters.any? %>
 	<h2>Chapters</h2>
+	<p>Good for Nothing gigs happening in your local area.</p>
 	<ul>
-		<li><%= link_to "All gigs", gigs_path %></li>
 		<% @chapters.each do |chapter| %>
 		<li><%= link_to chapter.title, chapter_gigs_path(chapter.slug) %></li>
 		<% end %>

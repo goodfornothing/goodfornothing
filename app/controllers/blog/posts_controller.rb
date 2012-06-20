@@ -7,9 +7,10 @@ class Blog::PostsController < ApplicationController
 		page = params[:page] || 1
 		
 		@category = Blog::Category.find_by_title(params[:category]) if params[:category]
+    @bookmarks = Library::Bookmark.limit(3)
 
 	  if @category
-	    @posts = Blog::Post.order("created_at DESC").find_all_by_category_id(@category.id).page(page) 		
+	    @posts = Blog::Post.order("created_at DESC").where('category_id = ?',@category.id).page(page) 		
 	  else
 		  @posts = Blog::Post.order("created_at DESC").page(page)
 		end

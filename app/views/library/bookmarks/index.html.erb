@@ -1,5 +1,7 @@
 <section id="primary_content">
 	<h1>The Good Library</h1>
+	<p>The Library is a place where we collect interesting stories and resources from around the web.</p>
+	
 	<%= render :partial => "list", :locals => { :bookmarks => @bookmarks } %>
 	<%= paginate @bookmarks %>
 </section>

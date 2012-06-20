@@ -42,6 +42,7 @@ Goodfornothing::Application.routes.draw do
   match "members/:id" => "members#show", :as => "member"
   
 	match "about" => "colophon#about"
+	match "how" => "colophon#how"
 	match "community" => "colophon#community"
 
 	root :to => "home#index"

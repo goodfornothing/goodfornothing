@@ -1,13 +1,54 @@
 <section id="primary_content">
 	<h1>The Good for Nothing Community</h1>
-	<p>Most active folk&hellip;</p>
+	<p>Describes the community, shows a list most active folk&hellip; or maybe most recent&hellip; who knows.</p>
 	
-	<h2>Members</h2>
+	<% if @members.any? %>
+	<article class="block">
+		<h2>Members</h2>
+		<p>Do-ers, the core of the community.</p>
+		<ul>
+			<% @members.each do |member| %>
+			<li><%= link_to member.name, member_path(member) %></li>
+			<% end %>
+		</ul>
+	</article>
+	<% end %>
 	
-	<h2>Friends</h2>
-	
-	<h2>Ventures</h2>
-	
-	<h2>Partners</h2>
+	<% if @friends.any? %>
+	<article class="block">
+		<h2>Friends</h2>
+		<p>Helping make gigs possible.</p>
+		<ul>
+			<% @friends.each do |friend| %>
+			<li><%= link_to friend.name, friend.url %></li>
+			<% end %>
+		</ul>
+	</article>
+	<% end %>
+		
+		
+	<% if @ventures.any? %>
+	<article class="block">
+		<h2>Ventures</h2>
+		<p>The purpose. Why we're all here.</p>
+		<ul>
+			<% @ventures.each do |venture| %>
+			<li><%= link_to venture.name, venture.url %></li>
+			<% end %>
+		</ul>
+	</article>
+	<% end %>
+		
+	<% if @partners.any? %>
+	<article class="block">
+		<h2>Partners</h2>
+		<p>Gig sponsors</p>
+		<ul>
+			<% @partners.each do |partner| %>
+			<li><%= link_to partner.name, partner.url %></li>
+			<% end %>
+		</ul>
+	</article>
+	<% end %>
 	
 </section>

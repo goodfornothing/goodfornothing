@@ -1,7 +1,12 @@
 <section id="primary_content">
 
+	<h1>What it is</h1>
+	<p>Blurby visualisation</p>
+
+	<h1>How you can do it</h1>
+	
 	<% if @gig.present? %>
-	<article>
+	<article class="full">
 		<h2>Your next dose of Good - <%= link_to @gig.title, gig_path(@gig) %></h2>
 		<p>Come join us on <strong><%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %></strong> of <%= @gig.start_time.strftime('%B') %> in <%= link_to @gig.chapter.title, chapter_gigs_path(@gig.chapter.title) %></p>
 		<%= image_tag @gig.logo unless @gig.logo.url.nil? %>
@@ -9,14 +14,15 @@
 	<% end %>
 	
 	<% if @posts.any? %>
-		<h2>What we're talking about</h2>
-		<% @posts.each do |post| %>
-			<%= render :partial => "blog/posts/block", :locals => { :post => post }%>
-		<% end %>
+		<h1>Things we're talking about</h1>
+		<div class="block_grid">
+			<% @posts.each do |post| %>
+				<%= render :partial => "blog/posts/block", :locals => { :post => post }%>
+			<% end %>
+		</div>
+		<p class="cta">Read more of our <%= link_to "conversations &rarr;".html_safe, blog_posts_path %></p>
+		<%= render :partial => "blog/posts/categories" %>
+		
 	<% end %>
 	
 </section>
-
-<aside id="secondary_content">
-	<%= render :partial => "blog/posts/categories" %>
-</aside>

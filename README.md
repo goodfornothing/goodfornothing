@@ -1,31 +1,43 @@
 Good for Nothing Platform
-==============
+================
 
-This will eventually be a web-based platform to support the growing Good for Nothing community.
+An embryonic platform to support and amplify the Good for Nothing communities' efforts.
 
 ## Basic architecture
 
-	(UML + mailchimp, facebook event stuff)
+	Insert UML here.
 
-## Extra bits and bobs
+## Extra useful stuff
+
+### Functional thingies
+
+ - Mailchimp integration
+ - Facebook event stuff
+
+### Datum factories
 
  - Wordpress importers
  - Bookmark importer
+ - Ning user importer
 
-## Development
+## We're workin' on it
 
-We're currently in phase one of development for the platform. See (this post)[] for more about how we plan to roll out features.
+We're currently in phase one of development of the platform. See (this post)[] for more about how we plan to roll out features.
 
 There are a few things still to implement in this phase:
 
- - comments,
- - email notifications
- - localisation
- - ability to send email to attendees
+ - User commenting for:
+   - Blog posts
+   - Gigs
+ - Email notifications when
+   - New users register
+   - Users register for gigs
+ - The ability to send email to gigs' attendees
+ - Localisation
 
 ## License
 
-The MIT License (MIT)
+MIT License (MIT)
 Copyright © 2012 Good for Nothing, http://goodfornothing.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:

@@ -12,7 +12,7 @@ namespace :ning do
       puts "Importing #{row['Email']}..."
       row = row.to_hash.with_indifferent_access
 
-      # Check for user on ning table
+      # Check for user on ning table before importing
       ning_user = NingProfile.find_by_email(row['Email'])
       if ning_user.nil?
         puts "Creating a new ning user"
@@ -38,7 +38,7 @@ namespace :ning do
         puts "Ning user already exists, skipping"
       end
 
-      # Check for user on devise table
+      # Check for user on devise table before importing
       user = User.find_by_email(ning_user.email)
       if user.nil?
         puts "Creating a new devise user"

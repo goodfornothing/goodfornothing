@@ -20,9 +20,9 @@ An embryonic platform to support and amplify the Good for Nothing communities' e
  - Bookmark importer
  - Ning user importer
 
-## We're workin' on it
+## We're working on it...
 
-We're currently in phase one of development of the platform. See (this post)[] for more about how we plan to roll out features.
+This is phase one. See (this post)[] for more about how we plan to roll out features.
 
 There are a few things still to implement in this phase:
 
@@ -37,7 +37,7 @@ There are a few things still to implement in this phase:
 
 ## License
 
-MIT License (MIT)
+The MIT License (MIT)
 Copyright © 2012 Good for Nothing, http://goodfornothing.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:

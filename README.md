@@ -11,18 +11,38 @@ An embryonic platform to support and amplify the Good for Nothing communities' e
 
 ### Functional thingies
 
- - Mailchimp integration
- - Facebook event stuff
+ - User accounts are tied to a Mailchimp subscriber lists. Users can edit their preferences on their profile page.
+ - Gigs are publishable to Facebook as 'Events'
 
 ### Datum factories
 
- - Wordpress importers
- - Bookmark importer
- - Ning user importer
+#### Wordpress
+
+You can import posts from standard Wordpress eXtended RSS formatted files to the Blog::Posts and Blog::Category models using the following rake task:
+
+    rake wordpress:import filename
+
+Images referenced in posts will be downloaded and stored locally, image tags will be updated to reference these local files.
+
+Post and category relationships will be maintained.  
+
+#### Bookmarks 
+
+The Netscape Bookmark format, surprisingly, is still rather common (Read it Later, Chrome, Firefox). Use this task to import bookmarks and tags into the Library::Bookmark and Library::Tag models.
+
+    rake bookmarks:import filename
+
+Bookmark and tag relationships will be maintained.
+
+#### Ning user
+
+Used to import a CSV Ning user list to a NingProfile model and map it to a core Devise User model.
+
+    rake ning:import filename
 
 ## We're working on it...
 
-This is phase one. See (this post)[] for more about how we plan to roll out features.
+This is phase one. See [this post](http://www.goodfornothing.com) for more about how we plan to roll out features.
 
 There are a few things still to implement in this phase:
 

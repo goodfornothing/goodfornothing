@@ -11,8 +11,18 @@ An embryonic platform to support and amplify the Good for Nothing communities' e
 
 ### Functional thingies
 
- - User accounts are tied to a Mailchimp subscriber lists. Users can edit their preferences on their profile page.
- - Gigs are publishable to Facebook as 'Events'
+#### Mailchimp/Devise integration
+
+User accounts are tied to a Mailchimp subscriber lists. Users can edit their preferences on their profile page. 
+
+Set your API key and list name in `config/initializers/devise.rb`
+
+    Devise.mailchimp_api_key = 'apikey'
+    Devise.mailing_list_name = 'Name of List'
+
+#### Facebook Events
+
+Gigs can be publishable to Facebook as 'Events'.
 
 ### Datum factories
 

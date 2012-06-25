@@ -4,11 +4,11 @@ class TagsBookmarksRelation < ActiveRecord::Migration
   		t.integer :tag_id
   		t.integer :bookmark_id
   	end
-  	remove_column :library_bookmarks, :library_tags_id
+  	remove_column :library_bookmarks, :library_tag_id
   end
 
   def down
   	drop_table :bookmarks_tags
-  	add_column :library_bookmarks, :library_tags_id, :integer
+  	add_column :library_bookmarks, :library_tag_id, :integer
   end
 end

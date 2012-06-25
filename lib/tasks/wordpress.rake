@@ -17,8 +17,8 @@ namespace :wordpress do
 
 		site_title = doc.xpath('//channel/title').text
 		site_url = doc.xpath('//wp:base_site_url').text
-		image_path = 'public/system/uploads/wordpress/'
-		relative_image_path = '/system/uploads/wordpress/'
+		image_path = 'public/system/imports/wordpress/'
+		relative_image_path = '/system/imports/wordpress/'
 
 		puts "Starting import from '#{site_title}'"
 

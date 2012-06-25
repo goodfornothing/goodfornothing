@@ -65,6 +65,7 @@ namespace :wordpress do
 					puts "Creating blog post: #{item.xpath('title').text}"
 					post = Blog::Post.create! do |p|
 						p.title = item.xpath('title').text
+						p.excerpt = item.xpath('title').text
 						p.body = item.xpath('content:encoded').text
 						p.created_at = Date.parse(item.xpath('pubDate').text)
 						p.wordpress_id = wp_post_id

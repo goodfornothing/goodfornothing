@@ -47,6 +47,8 @@ namespace :ning do
           u.name = ning_user.name
           u.password = 'password'
           u.password_confirmation = 'password'
+          u.approved = true
+          u.admin = true
         end
       else
         puts "Devise user already exists, skipping"

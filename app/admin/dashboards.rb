@@ -43,7 +43,7 @@ ActiveAdmin::Dashboards.build do
 
   section "Members awaiting approval" do
     ul do
-      User.order(:created_at).where('approved = 0').collect do |user|
+      User.order(:created_at).where('approved = false').collect do |user|
         li link_to(user.name, admin_user_path(user))
       end
     end
@@ -51,7 +51,7 @@ ActiveAdmin::Dashboards.build do
 
   section "Bookmark Inbox" do
     ul do
-      Library::Bookmark.order(:created_at).where('published = 0').collect do |bookmark|
+      Library::Bookmark.order(:created_at).where('published = false').collect do |bookmark|
         li link_to(bookmark.title, admin_library_bookmark_path(bookmark))
       end
     end

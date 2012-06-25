@@ -3,7 +3,7 @@ Good for Nothing Platform
 
 An embryonic platform to support and amplify the Good for Nothing communities' efforts.
 
-## Basic architecture
+### Basic platform architecture
 
 ![Good for Nothing Platform Architecture](http://www.goodfornothing.com/uml.png)
 

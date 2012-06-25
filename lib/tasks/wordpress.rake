@@ -5,7 +5,7 @@ namespace :wordpress do
   desc '-- Import posts, categories and tags from a from WordPress eXtended RSS export.'
   task :import => :environment do
 
-		doc = Nokogiri::XML(open(File.join(Rails.root, "lib/dump/goodfornothing.wordpress.2012-05-30.xml")))
+		doc = Nokogiri::XML(open(File.join(Rails.root, "lib/samples/blog.xml")))
 
 		# Ensure we're dealing with the correct format
 		begin

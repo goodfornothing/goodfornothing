@@ -4,7 +4,7 @@ namespace :ning do
   desc 'Import from ning member dump'
   task :import => :environment do
 
-		csv_text = File.read(File.join(Rails.root, "lib/dump/ning_memberdata_test.csv"))
+		csv_text = File.read(File.join(Rails.root, "lib/samples/ning.csv"))
     csv = CSV.parse(csv_text, :headers => true)
 
     csv.each_with_index do |row, i|

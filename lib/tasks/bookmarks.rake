@@ -5,8 +5,7 @@ namespace :bookmarks do
   desc '-- Import bookmarks in Netscape Bookmark format'
   task :import => :environment do
 
-		doc = Nokogiri::HTML(open(File.join(Rails.root, "lib/dump/bookmarks_5_8_12.html")))
-		#doc = Nokogiri::HTML(open(File.join(Rails.root, "lib/dump/ril.html")))
+		doc = Nokogiri::HTML(open(File.join(Rails.root, "lib/samples/library.html")))
 
 		# Ensure we're dealing with the correct format
 		unless doc.internal_subset.name == "NETSCAPE-Bookmark-file-1"

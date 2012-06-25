@@ -23,6 +23,10 @@ gem "formtastic", "~> 2.1.1"
 gem 'meta_search', '>= 1.1.0.pre' 
 gem 'sass-rails'
 
+# Visualising domain model
+gem 'railroady'
+gem "rails-erd"
+
 # For Heroku
 gem 'pg'
 

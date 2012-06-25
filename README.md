@@ -11,22 +11,22 @@ An embryonic platform to support and amplify the Good for Nothing communities' e
 
 ### Functional thingies
 
-#### Mailchimp/Devise integration
+##### Mailchimp/Devise integration
 
 User accounts are tied to a Mailchimp subscriber lists. Users can edit their preferences on their profile page. 
 
-Set your API key and list name in `config/initializers/devise.rb`
+Set your API key and list name in `config/initializers/devise.rb`.
 
     Devise.mailchimp_api_key = 'apikey'
     Devise.mailing_list_name = 'Name of List'
 
-#### Facebook Events
+##### Facebook Events
 
 Gigs can be publishable to Facebook as 'Events'.
 
 ### Datum factories
 
-#### Wordpress
+##### Wordpress
 
 You can import posts from standard Wordpress eXtended RSS formatted files to the Blog::Posts and Blog::Category models using the following rake task:
 
@@ -36,7 +36,7 @@ Images referenced in posts will be downloaded and stored locally, image tags wil
 
 Post and category relationships will be maintained.  
 
-#### Bookmarks 
+##### Bookmarks 
 
 The Netscape Bookmark format, surprisingly, is still rather common (Read it Later, Chrome, Firefox). Use this task to import bookmarks and tags into the Library::Bookmark and Library::Tag models.
 
@@ -44,7 +44,7 @@ The Netscape Bookmark format, surprisingly, is still rather common (Read it Late
 
 Bookmark and tag relationships will be maintained.
 
-#### Ning user
+##### Ning user
 
 Used to import a CSV Ning user list to a NingProfile model and map it to a core Devise User model.
 

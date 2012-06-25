@@ -124,6 +124,7 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
+    railroady (1.0.7)
     rails (3.2.3)
       actionmailer (= 3.2.3)
       actionpack (= 3.2.3)
@@ -132,6 +133,10 @@ GEM
       activesupport (= 3.2.3)
       bundler (~> 1.0)
       railties (= 3.2.3)
+    rails-erd (0.4.5)
+      activerecord (~> 3.0)
+      activesupport (~> 3.0)
+      ruby-graphviz (~> 0.9.18)
     railties (3.2.3)
       actionpack (= 3.2.3)
       activesupport (= 3.2.3)
@@ -145,6 +150,7 @@ GEM
     redcarpet (2.0.1)
     responders (0.9.1)
       railties (~> 3.1)
+    ruby-graphviz (0.9.21)
     sass (3.1.16)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -192,7 +198,9 @@ DEPENDENCIES
   mysql2
   omniauth
   pg
+  railroady
   rails (= 3.2.3)
+  rails-erd
   redcarpet (~> 2.0.1)
   sass-rails
   simple_form

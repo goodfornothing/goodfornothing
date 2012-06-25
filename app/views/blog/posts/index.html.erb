@@ -1,6 +1,6 @@
 <section id="primary_content">
 
-	<h1><%= (@category) ? "Talking about #{@category.title}" : "Things we're talking about" %></h1>
+	<h1><%= (@category) ? "Talking about #{@category.title}" : "Latest from all conversations" %></h1>
 	
 	<% @posts.each do |post| %>
 		<article class="full">
@@ -26,7 +26,7 @@
 	<%= render :partial => "categories" %>
 	
 	<% if @bookmarks.any? %>
-		<h2>Latest from The Library</h2>
+		<h2>New additions to The Library</h2>
 		<p>The Library is a place where we collect interesting stories and resources from around the web.</p>
 		<ul>
 		<% @bookmarks.each do |bookmark| %>

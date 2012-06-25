@@ -1,3 +1,10 @@
 <section id="primary_content">
 	<h1>Partners</h1>
+	<% if @partners.any? %>
+	<ul id="partner_list" class="grid_list">
+		<% @partners.each do |partner| %>
+		<li><%= link_to(image_tag(partner.logo, :alt => partner.name), partner.url) %></li>
+		<% end %>
+	</ul>
+	<% end %>
 </section>

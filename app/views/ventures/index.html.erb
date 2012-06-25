@@ -1,3 +1,10 @@
 <section id="primary_content">
-	<h1>Venturereres</h1>
+	<h1>Social Venturers</h1>
+	<% if @ventures.any? %>
+	<ul id="venture_list" class="grid_list">
+		<% @ventures.each do |venture| %>
+		<li><%= link_to(image_tag(venture.logo, :alt => venture.name), venture.url) %></li>
+		<% end %>
+	</ul>
+	<% end %>
 </section>

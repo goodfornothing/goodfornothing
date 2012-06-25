@@ -3,7 +3,7 @@
 	<h1>What it is</h1>
 	<p>Blurby visualisation</p>
 
-	<h1>How you can do it</h1>
+	<h1>Get stuck in</h1>
 	
 	<% if @gig.present? %>
 	<article class="full">
@@ -14,7 +14,7 @@
 	<% end %>
 	
 	<% if @posts.any? %>
-		<h1>Things we're talking about</h1>
+		<h1>Latest from all conversations</h1>
 		<div class="block_grid">
 			<% @posts.each do |post| %>
 				<%= render :partial => "blog/posts/block", :locals => { :post => post }%>

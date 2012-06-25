@@ -3,7 +3,7 @@
 	<%= render :partial => "list", :locals => { :bookmarks => @bookmarks } %>
 </section>
 
-<aside>
+<aside id="secondary_content">
 	<%= render "search_form" %>
 	<%= render :partial => "library/tags/list", :locals => { :tags => @tags } %>
 </aside>

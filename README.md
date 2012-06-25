@@ -5,7 +5,7 @@ An embryonic platform to support and amplify the Good for Nothing communities' e
 
 ### Basic platform architecture
 
-![Good for Nothing Platform Architecture](http://www.goodfornothing.com/uml.png)
+![Good for Nothing Platform Architecture](http://www.goodfornothing.com/uml2.png)
 
 ## Extra useful stuff
 

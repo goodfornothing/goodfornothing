@@ -1,5 +1,5 @@
 <% if @categories %>
-<h2>Conversations</h2>
+<h2>Conversation topics</h2>
 	<ul>
 		<% @categories.each do |category| %>
 			<li><%= link_to category.title, categorised_blog_posts_path(category.slug) %></li>

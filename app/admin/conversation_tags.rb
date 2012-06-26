@@ -1,5 +1,5 @@
-ActiveAdmin.register Library::Tag do
-   menu :parent => "Library"
+ActiveAdmin.register Conversation::Tag do
+   menu :parent => "Conversation"
    
    config.clear_sidebar_sections!
    

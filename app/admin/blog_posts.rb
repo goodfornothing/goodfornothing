@@ -1,6 +1,6 @@
 ActiveAdmin.register Blog::Post do
   
-  menu :parent => "Blog", :priority => 1
+  menu :parent => "Conversation", :priority => 1
   
   filter :category
   filter :chapter
@@ -19,6 +19,7 @@ ActiveAdmin.register Blog::Post do
       f.input :chapter
       f.input :user, :label => "Author"
       f.input :category
+      f.input :tags, :as => :check_boxes
     end
     f.inputs "Post" do   
       f.input :hero_image

@@ -1,5 +1,5 @@
 ActiveAdmin.register Library::Bookmark do
-  menu :parent => "Library"
+  menu :parent => "Conversation"
   
   config.clear_sidebar_sections!
   

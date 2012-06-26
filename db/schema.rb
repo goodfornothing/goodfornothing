@@ -11,13 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618113004) do
-
-  create_table "blog_categories", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120626190530) do
 
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
@@ -57,9 +51,27 @@ ActiveRecord::Schema.define(:version => 20120618113004) do
     t.string   "country"
   end
 
+  create_table "conversation_categories", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "conversation_tags", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "events_users", :id => false, :force => true do |t|
     t.integer "event_id"
     t.integer "user_id"
+  end
+
+  create_table "expenses", :force => true do |t|
+    t.string "supplier"
+    t.date   "month"
+    t.float  "amount"
   end
 
   create_table "friends", :force => true do |t|
@@ -101,10 +113,13 @@ ActiveRecord::Schema.define(:version => 20120618113004) do
     t.datetime "updated_at",                     :null => false
   end
 
-  create_table "library_tags", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "locations", :force => true do |t|
+    t.string "name"
+    t.string "latitude"
+    t.string "longitude"
+    t.string "address"
+    t.string "postcode"
+    t.string "notes"
   end
 
   create_table "ning_profiles", :force => true do |t|

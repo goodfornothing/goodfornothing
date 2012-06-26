@@ -26,9 +26,9 @@ Gigs can be published to Facebook as 'Events'.
 
 #### Wordpress
 
-You can import posts from standard Wordpress eXtended RSS formatted files to the Blog::Posts and Blog::Category models using the following rake task:
+You can import posts from standard Wordpress eXtended RSS formatted files to the Blog::Posts and Conversation::Category models using the following rake task:
 
-    rake wordpress:import filename
+    rake migrate:wordpress filename
 
 Images referenced in posts will be downloaded and stored locally, image tags will be updated to reference these local files.
 
@@ -36,9 +36,9 @@ Post and category relationships will be maintained.
 
 #### Bookmarks 
 
-The Netscape Bookmark format, surprisingly, is still rather common (Read it Later, Chrome, Firefox). Use this task to import bookmarks and tags into the Library::Bookmark and Library::Tag models.
+The Netscape Bookmark format, surprisingly, is still rather common (Read it Later, Chrome, Firefox). Use this task to import bookmarks and tags into the Library::Bookmark and Conversation::Tag models.
 
-    rake bookmarks:import filename
+    rake migrate:bookmarks filename
 
 Bookmark and tag relationships will be maintained.
 
@@ -46,7 +46,7 @@ Bookmark and tag relationships will be maintained.
 
 Used to import a CSV Ning user list to a NingProfile model and map it to a core Devise User model.
 
-    rake ning:import filename
+    rake migrate:ning filename
 
 ## We're working on it...
 

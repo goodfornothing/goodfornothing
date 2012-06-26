@@ -4,9 +4,11 @@ class Blog::Post < ActiveRecord::Base
 
 	self.table_name = 'blog_posts'
 
-	belongs_to :category
 	belongs_to :chapter
 	belongs_to :user
+	
+	belongs_to :category, :class_name => "::Conversation::Category"
+	has_and_belongs_to_many :tags, :class_name => "::Conversation::Tag"
 
 	validates :title, :presence => true
 	validates :excerpt, :presence => true

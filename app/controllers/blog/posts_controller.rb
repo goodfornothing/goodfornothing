@@ -6,7 +6,7 @@ class Blog::PostsController < ApplicationController
 		
 		page = params[:page] || 1
 		
-		@category = Blog::Category.find_by_title(params[:category]) if params[:category]
+		@category = Conversation::Category.find_by_title(params[:category]) if params[:category]
     @bookmarks = Library::Bookmark.where('published = true').limit(3)
 
 	  if @category
@@ -31,7 +31,7 @@ class Blog::PostsController < ApplicationController
 	
 	private
 	  def fetch_categories
-	    @categories = Blog::Category.all
+	    @categories = Conversation::Category.all
 	  end
 
 end

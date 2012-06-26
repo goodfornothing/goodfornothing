@@ -58,4 +58,13 @@
 		</ul>
 	<% end %>
 	
+	<% if @gig.bookmarks.any? %>
+		<h2>Resources and Inspiration</h2>
+		<ul>
+			<% @gig.bookmarks.each do |bookmark| %>
+			<li><%= link_to bookmark.title, bookmark.url %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	
 </aside>

@@ -14,7 +14,7 @@
 	<% end %>
 	
 	<% if @posts.any? %>
-		<h1>Latest from all conversations</h1>
+		<h1>Things we're talking about</h1>
 		<div class="block_grid">
 			<% @posts.each do |post| %>
 				<%= render :partial => "blog/posts/block", :locals => { :post => post }%>

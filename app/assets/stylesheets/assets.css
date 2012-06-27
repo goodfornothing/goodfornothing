@@ -76,6 +76,9 @@
 		margin-right: 40px;
 		margin-bottom: 20px;
 		width: 330px;
+		height: auto !important;
+		height: 210px;
+		min-height: 210px;
 	}
 	
 	article.block:nth-child(2n+2) {

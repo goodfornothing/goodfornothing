@@ -47,6 +47,14 @@
 		margin-right: 0;
 	}
 	
+/* Panels */
+
+	.panel {
+		display: block;
+		clear: both;
+		margin-bottom: 30px;
+	}
+	
 /* Articles */ 
 
 	article h2 {

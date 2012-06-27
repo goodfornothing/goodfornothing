@@ -9,4 +9,8 @@ class Conversation::Tag < ActiveRecord::Base
 	
 	validates :title, :presence => true
 
+  def slug
+	  self.title.downcase.gsub(/\s/,'-')
+	end
+
 end

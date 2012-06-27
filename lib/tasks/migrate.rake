@@ -29,6 +29,7 @@ namespace :migrate do
 				bookmark = Library::Bookmark.create! do |b|
 					b.title = node.text
 					b.url = node.attr('href')
+					b.published = true
 				end
 
 				# Associate tags (parent folders)

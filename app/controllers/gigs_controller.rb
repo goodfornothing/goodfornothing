@@ -8,8 +8,8 @@ class GigsController < ApplicationController
 
 	def index
 	  @chapter = Chapter.find_by_title(params[:chapter]) if params[:chapter]
-	  @current_gigs = (@chapter) ? Gig.where('start_time > ? and chapter_id = ?', Date.yesterday, @chapter.id).order('start_time ASC') : Gig.where('start_time > ?', Date.yesterday).order('start_time ASC')
-	  @past_gigs = (@chapter) ? Gig.where('start_time < ? and chapter_id = ?', Date.today, @chapter.id).order('start_time ASC') : Gig.where('start_time < ?', Date.today).order('start_time ASC')
+	  @current_gigs = (@chapter) ? Gig.where('start_time > ? and chapter_id = ?', Date.yesterday, @chapter.id).order('start_time DESC') : Gig.where('start_time > ?', Date.yesterday).order('start_time DESC')
+	  @past_gigs = (@chapter) ? Gig.where('start_time < ? and chapter_id = ?', Date.today, @chapter.id).order('start_time DESC') : Gig.where('start_time < ?', Date.today).order('start_time DESC')
 	end
 
 	def show

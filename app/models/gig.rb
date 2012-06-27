@@ -18,5 +18,9 @@ class Gig < ActiveRecord::Base
 	def create_generic_slot
 	  Slot.create!(:gig_id => self.id)
   end
+  
+  def slug
+	  self.title.downcase.gsub(/\s/,'-')
+	end
   	
 end

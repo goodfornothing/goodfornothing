@@ -17,5 +17,9 @@ class Blog::Post < ActiveRecord::Base
 	mount_uploader :hero_image, ::ArticleImageUploader
 	
 	paginates_per 10
+	
+	def slug
+	  self.title.downcase.gsub(/\s/,'-')
+	end
 
 end

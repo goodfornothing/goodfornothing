@@ -1,26 +1,24 @@
 Goodfornothing::Application.routes.draw do
 	
   ActiveAdmin.routes(self)
-  match "/markdown_preview" => "application#markdown_preview"
-  devise_for :users, :controllers => { :registrations => "registrations" } 
   
-	namespace :blog do
-		resources :posts, :only => [:index, :show] do
+  match "markdown_preview" => "application#markdown_preview"
+  devise_for :users, :controllers => { :registrations => "registrations" } 
+
+  match "conversation" => "colophon#conversation"
+  namespace :conversation do
+    resources :posts, :only => [:index, :show] do
 		  collection do 
   	    match "category/:category" => "posts#index", :as => "categorised"
   	  end
 		end
-	end
-	
-	namespace :library do
-	  resources :bookmarks do
+		resources :bookmarks do
 	    collection do 
   	    get "index"
   	    get "search"
   	  end
     end
-	  resources :tags, :only => [:show]
-	end
+  end
 
 	resources :gigs, :only => [:show, :index] do
 	  collection do 
@@ -32,15 +30,14 @@ Goodfornothing::Application.routes.draw do
 	  end
 	end
 	
-	resources :briefs, :only => [:show]
-  
   resources :partners, :only => [:index]
   resources :friends, :only => [:index]
   resources :ventures, :only => [:index]
   
   match "members" => "members#index"
-  match "members/:id" => "members#show", :as => "member"
+  match "members/:slug" => "members#show", :as => "member"
   
+  match "do" => "colophon#do"
 	match "about" => "colophon#about"
 	match "how" => "colophon#how"
 	match "community" => "colophon#community"

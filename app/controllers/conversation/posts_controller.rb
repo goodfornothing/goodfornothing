@@ -1,4 +1,4 @@
-class Blog::PostsController < ApplicationController
+class Conversation::PostsController < ApplicationController
 
   before_filter :fetch_categories
 
@@ -7,12 +7,12 @@ class Blog::PostsController < ApplicationController
 		page = params[:page] || 1
 		
 		@category = Conversation::Category.find_by_title(params[:category]) if params[:category]
-    @bookmarks = Library::Bookmark.where('published = true').limit(3)
+    @bookmarks = Conversation::Bookmark.where('published = true').limit(3)
 
 	  if @category
-	    @posts = Blog::Post.order("created_at DESC").where('category_id = ?',@category.id).page(page) 		
+	    @posts = Conversation::Post.order("created_at DESC").where('category_id = ?',@category.id).page(page) 		
 	  else
-		  @posts = Blog::Post.order("created_at DESC").page(page)
+		  @posts = Conversation::Post.order("created_at DESC").page(page)
 		end
 		
 		respond_to do |format|
@@ -26,7 +26,7 @@ class Blog::PostsController < ApplicationController
 	end
 
 	def show
-		@post = Blog::Post.find(params[:id])
+		@post = Conversation::Post.find(params[:id])
 	end
 	
 	private

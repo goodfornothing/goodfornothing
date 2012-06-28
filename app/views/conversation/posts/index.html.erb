@@ -5,7 +5,7 @@
 	<% @posts.each do |post| %>
 		<article class="full">
 			
-			<h2><%= link_to post.title, blog_post_path(post) %></h2>
+			<h2><%= link_to post.title, conversation_post_path(post) %></h2>
 			<time><%= post.created_at.to_formatted_s(:long_ordinal) %></time>
 
 			<% unless post.hero_image.url.nil? %>
@@ -29,11 +29,11 @@
 		<h2>The Library</h2>
 		<p>The Library is a place where we collect interesting stories and resources from around the web.</p>
 		<ul>
-		<% @bookmarks.each do |bookmark| %>
-			<li><%= link_to bookmark.title, bookmark.url %></li>
-		<% end %>
+			<% @bookmarks.each do |bookmark| %>
+				<li><%= link_to bookmark.title, bookmark.url %></li>
+			<% end %>
 		</ul>
-		<p class="cta">More from <%= link_to "library &rarr;".html_safe, library_bookmarks_path %></p>
+		<p class="cta">More from <%= link_to "library &rarr;".html_safe, conversation_bookmarks_path %></p>
 	<% end %>
 	
 </aside>

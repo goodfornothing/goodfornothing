@@ -14,5 +14,10 @@ class ColophonController < ApplicationController
 	  @ventures = Venture.limit(4)
 	  @partners = Partner.limit(4)
 	end
+	
+	def conversation
+	  @categories = Conversation::Category.all
+	  @tags = Conversation::Tag.all
+	end
 
 end

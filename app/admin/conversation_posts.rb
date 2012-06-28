@@ -1,6 +1,6 @@
-ActiveAdmin.register Blog::Post do
+ActiveAdmin.register Conversation::Post do
   
-  menu :parent => "Conversation", :priority => 1
+  menu :parent => "Conversations", :priority => 1
   
   filter :category
   filter :chapter

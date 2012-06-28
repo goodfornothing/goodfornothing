@@ -3,7 +3,7 @@
 	<% if post.body.blank? %>
 		<h2><%= post.title %></h2>
 	<% else %>
-		<h2><%= link_to post.title, blog_post_path(post) %></h2>
+		<h2><%= link_to post.title, conversation_post_path(post) %></h2>
 	<% end %>
 	
 	<% if post.hero_image.url.nil? %>

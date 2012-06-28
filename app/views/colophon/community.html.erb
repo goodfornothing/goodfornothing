@@ -11,7 +11,7 @@
 		<p>Do-ers, the core of the community.</p>
 		<ul>
 			<% @members.each do |member| %>
-			<li><%= link_to member.name, member_path(member) %></li>
+			<li><%= link_to member.name, member_path(member.slug) %></li>
 			<% end %>
 		</ul>
 		<p><%= link_to "All members &rarr;".html_safe, members_path %></p>

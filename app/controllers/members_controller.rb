@@ -5,7 +5,7 @@ class MembersController < ApplicationController
   end
   
   def show
-    @member = User.find(params[:id])
+    @member = User.find_by_name(params[:slug].gsub('-',' '))
   end
 
 end

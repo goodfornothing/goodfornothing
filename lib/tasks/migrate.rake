@@ -20,13 +20,13 @@ namespace :migrate do
 		doc.xpath('//dt/a').each do |node|
 
 			bookmark_url = node.attr('href')
-			bookmark = Library::Bookmark.find_by_url(bookmark_url)
+			bookmark = Conversation::Bookmark.find_by_url(bookmark_url)
 
 			if bookmark.nil?
 				puts "Creating bookmark: #{node.text}"
 
 				# Create bookmark
-				bookmark = Library::Bookmark.create! do |b|
+				bookmark = Conversation::Bookmark.create! do |b|
 					b.title = node.text
 					b.url = node.attr('href')
 					b.published = true

@@ -26,7 +26,7 @@ Gigs can be published to Facebook as 'Events'.
 
 #### Wordpress
 
-You can import posts from standard Wordpress eXtended RSS formatted files to the Blog::Posts and Conversation::Category models using the following rake task:
+You can import posts from standard Wordpress eXtended RSS formatted files to the Conversation::Posts and Conversation::Category models using the following rake task:
 
     rake migrate:wordpress filename
 

@@ -7,22 +7,20 @@
 	</div>
 	
 	<% if @friends.any? %>
-	<ul id="friend_list" class="grid_list">
 		<% @friends.each do |friend| %>
-		<li>
+		<article>
 			<% if friend.logo.present? %>
-				<%= link_to(image_tag(friend.logo, :alt => friend.name), friend.url) %>
-			<% else %>
-				<%= link_to(friend.name, friend.url) %>
+				<%= image_tag(friend.logo, :alt => friend.name) %>
 			<% end %>
-		</li>
+			<h2><%= link_to(friend.name, friend.url) %></h2>
+			<p><%= friend.description %></p>
+		</article>
 		<% end %>
-	</ul>
 	<% end %>
 	
 </section>
 
 <aside id="secondary_content">
 	<h2>Become a friend</h2>
-	<p>We're always looking for help with our weekends. Maybe you can <%= link_to "help us out?" %></p>
+	<p>We're always looking for help with our weekends. Maybe you can <%= link_to "help us out?", do_path %></p>
 </aside>

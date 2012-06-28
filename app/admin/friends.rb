@@ -12,6 +12,7 @@ ActiveAdmin.register Friend do
   show do |friend|
     attributes_table do
       row :name
+      row :description
       row "Website" do
         friend.url unless friend.url.nil?
       end
@@ -25,6 +26,7 @@ ActiveAdmin.register Friend do
     f.inputs "Details" do
       f.input :name
       f.input :url, :label => "Website"
+      f.input :description
       f.input :logo
     end
     f.buttons

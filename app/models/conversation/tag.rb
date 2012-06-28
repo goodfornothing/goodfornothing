@@ -4,8 +4,8 @@ class Conversation::Tag < ActiveRecord::Base
 
 	self.table_name = 'conversation_tags'
 
-	has_and_belongs_to_many :bookmarks, :class_name => "::Library::Bookmark"
-	has_and_belongs_to_many :posts, :class_name => "::Blog::Post"
+	has_and_belongs_to_many :bookmarks, :class_name => "::Conversation::Bookmark"
+	has_and_belongs_to_many :posts, :class_name => "::Conversation::Post"
 	
 	validates :title, :presence => true
 

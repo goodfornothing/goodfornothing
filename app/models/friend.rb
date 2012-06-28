@@ -1,6 +1,6 @@
 class Friend < ActiveRecord::Base
 	
-	attr_accessible :name, :url, :logo
+	attr_accessible :name, :url, :logo, :description
 	
 	has_and_belongs_to_many :gigs
 	

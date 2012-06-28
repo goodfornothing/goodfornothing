@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
                   :gender, :age, :url, :location, :twitter_handle, :approved
 
   has_one :ning_profile
-  has_many :posts, :class_name => "::Blog::Post"
+  has_many :posts, :class_name => "::Conversation::Post"
 
   belongs_to :chapter
   has_and_belongs_to_many :slots
@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   before_save :check_url_scheme
   
   mount_uploader :avatar, AvatarUploader
+	
+	def slug
+	  self.name.downcase.gsub(/\s/,'-')
+	end
 	
   def is_attending?(gig)
     self.gigs.include?(gig)

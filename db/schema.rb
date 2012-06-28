@@ -11,20 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120626190530) do
-
-  create_table "blog_posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.integer  "category_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "user_id"
-    t.integer  "chapter_id"
-    t.integer  "wordpress_id"
-    t.text     "excerpt"
-    t.string   "hero_image"
-  end
+ActiveRecord::Schema.define(:version => 20120628130028) do
 
   create_table "bookmarks_gigs", :force => true do |t|
     t.integer "gig_id"
@@ -51,10 +38,32 @@ ActiveRecord::Schema.define(:version => 20120626190530) do
     t.string   "country"
   end
 
+  create_table "conversation_bookmarks", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "url"
+    t.boolean  "published",   :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
   create_table "conversation_categories", :force => true do |t|
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "conversation_posts", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "category_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
+    t.integer  "chapter_id"
+    t.integer  "wordpress_id"
+    t.text     "excerpt"
+    t.string   "hero_image"
   end
 
   create_table "conversation_tags", :force => true do |t|
@@ -78,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20120626190530) do
     t.string "name"
     t.string "url"
     t.string "logo"
+    t.string "description"
   end
 
   create_table "friends_gigs", :force => true do |t|
@@ -102,15 +112,6 @@ ActiveRecord::Schema.define(:version => 20120626190530) do
   create_table "gigs_skills", :force => true do |t|
     t.integer "gig_id"
     t.integer "skill_id"
-  end
-
-  create_table "library_bookmarks", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.text     "url"
-    t.boolean  "published",   :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
   end
 
   create_table "locations", :force => true do |t|
@@ -148,6 +149,11 @@ ActiveRecord::Schema.define(:version => 20120626190530) do
     t.string "name"
     t.string "url"
     t.string "logo"
+  end
+
+  create_table "posts_tags", :force => true do |t|
+    t.integer "tag_id"
+    t.integer "post_id"
   end
 
   create_table "skills", :force => true do |t|

@@ -1,6 +1,6 @@
 ActiveAdmin.register Conversation::Category do
   
-  menu :parent => "Conversation"
+  menu :parent => "Conversations"
  
   config.clear_sidebar_sections!
   

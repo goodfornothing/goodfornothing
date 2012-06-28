@@ -1,0 +1,8 @@
+<% if @tags.any? %>
+	<h2>Tags</h2>
+	<ul>
+		<% @tags.each do |tag| %>
+			<li><%= link_to tag.title %></li>
+		<% end %>
+	</ul>
+<% end %>

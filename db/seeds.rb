@@ -44,7 +44,7 @@ User.create([
   }
 ])
 
-Conversation::Tag.create([
+Conversation::Category.create([
   {
     title: 'Innovation in Giving'
   }

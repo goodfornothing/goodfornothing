@@ -1,8 +1,8 @@
 ActiveAdmin.register User do
   
   menu :priority => 1, :label => "Members", :parent => "People"
-  
-  config.clear_sidebar_sections!
+    
+  filter :skills_id, :as => :check_boxes, :collection => proc {Skill.all}
   
 	index do
     column :name

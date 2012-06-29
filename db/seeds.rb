@@ -1,67 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
-User.create([
-  {
-    email: 'tom.farrand@goodfornothing.com',
-    name: 'Tom Farrand',
-    password: 'password',
-    password_confirmation: 'password',
-    approved: true,
-    admin: true
-  },
-  {
-    email: 'tom.rowley@goodfornothing.com',
-    name: 'Tom Rowley',
-    password: 'password',
-    password_confirmation: 'password',
-    approved: true,
-    admin: true
-  },
-  {
-    email: 'dan@goodfornothing.com',
-    name: 'Dan Burgess',
-    password: 'password',
-    password_confirmation: 'password',
-    approved: true,
-    admin: true
-  },
-  {
-    email: 'anouk@goodfornothing.com',
-    name: 'Anouk Van Den Eijnde',
-    password: 'password',
-    password_confirmation: 'password',
-    approved: true,
-    admin: true
-  },
-  {
-    email: 'andrew@goodfornothing.com',
-    name: 'Andrew Sprinz',
-    password: 'password',
-    password_confirmation: 'password',
-    approved: true,
-    admin: true
-  }
-])
-
-Conversation::Category.create([
-  {
-    title: 'Innovation in Giving'
-  }
-])
-
-Skill.create([
-  {
-    title: 'All rounder'
-  },
-  {
-    title: 'Designer'
-  },
-  {
-    title: 'Developer'
-  }
-])
-
 Chapter.create([
   {
     title: 'London',
@@ -82,6 +21,131 @@ Chapter.create([
     title: 'Manchester',
     city: 'Manchester',
     country: 'United Kingdom'
+  }
+])
+
+@london = Chapter.find_by_title('London')
+@brighton = Chapter.find_by_title('Brighton')
+@bristol = Chapter.find_by_title('Bristol')
+@manchester = Chapter.find_by_title('Manchester')
+
+User.create([
+  {
+    email: 'tom.farrand@goodfornothing.com',
+    name: 'Tom Farrand',
+    password: 'password',
+    password_confirmation: 'password',
+    approved: true,
+    admin: true,
+    chapter_id: @london.id
+  },
+  {
+    email: 'tom.rowley@goodfornothing.com',
+    name: 'Tom Rowley',
+    password: 'password',
+    password_confirmation: 'password',
+    approved: true,
+    admin: true,
+    chapter_id: @london.id
+  },
+  {
+    email: 'dan@goodfornothing.com',
+    name: 'Dan Burgess',
+    password: 'password',
+    password_confirmation: 'password',
+    approved: true,
+    admin: true,
+    chapter_id: @london.id
+  },
+  {
+    email: 'anouk@goodfornothing.com',
+    name: 'Anouk Van Den Eijnde',
+    password: 'password',
+    password_confirmation: 'password',
+    approved: true,
+    admin: true,
+    chapter_id: @london.id
+  },
+  {
+    email: 'andrew@goodfornothing.com',
+    name: 'Andrew Sprinz',
+    password: 'password',
+    password_confirmation: 'password',
+    approved: true,
+    admin: true,
+    chapter_id: @london.id
+  },
+  {
+    email: 'mark@thembigoaktrees.com',
+    name: 'Mark Sears',
+    password: 'password',
+    password_confirmation: 'password',
+    approved: true,
+    admin: true,
+    chapter_id: @brighton.id
+  },
+  {
+    email: 'zoe@engagebydesign.org',
+    name: 'Zoe Olivia John',
+    password: 'password',
+    password_confirmation: 'password',
+    approved: true,
+    admin: true,
+    chapter_id: @brighton.id
+  },
+  {
+    email: 'rodrigo@engagebydesign.org',
+    name: 'Rodrigo Bautista',
+    password: 'password',
+    password_confirmation: 'password',
+    approved: true,
+    admin: true,
+    chapter_id: @brighton.id
+  },
+  {
+    email: 'al@goodfornothing.com',
+    name: 'Al Kennedy',
+    password: 'password',
+    password_confirmation: 'password',
+    approved: true,
+    admin: true,
+    chapter_id: @bristol.id
+  },
+  {
+    email: 'hello@becausestudio.co.uk',
+    name: 'Loz Ives',
+    password: 'password',
+    password_confirmation: 'password',
+    approved: true,
+    admin: true,
+    chapter_id: @manchester.id
+  },
+  {
+    email: 'andy@goodfornothing.com',
+    name: 'Andy Gott',
+    password: 'password',
+    password_confirmation: 'password',
+    approved: true,
+    admin: true,
+    chapter_id: @manchester.id
+  }
+])
+
+Conversation::Category.create([
+  {
+    title: 'Innovation in Giving'
+  }
+])
+
+Skill.create([
+  {
+    title: 'All rounder'
+  },
+  {
+    title: 'Designer'
+  },
+  {
+    title: 'Developer'
   }
 ])
 
@@ -173,9 +237,6 @@ Venture.create([
     url: 'http://www.thedonation.org'
   }
 ])
-
-@london = Chapter.find_by_title('London')
-@brighton = Chapter.find_by_title('Brighton')
 
 Gig.create([
   {

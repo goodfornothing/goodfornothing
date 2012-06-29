@@ -20,7 +20,7 @@
 				<%= render :partial => "conversation/posts/block", :locals => { :post => post }%>
 			<% end %>
 		</div>
-		<p class="cta">Read more of our <%= link_to "conversations &rarr;".html_safe, blog_posts_path %></p>
+		<p class="cta">Read more of our <%= link_to "conversations &rarr;".html_safe, conversation_posts_path %></p>
 		<%= render :partial => "conversation/posts/categories" %>
 		
 	<% end %>

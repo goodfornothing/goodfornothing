@@ -13,6 +13,11 @@
 		</fieldset>
 
 		<fieldset>
+			<legend>Skills</legend>
+			<%= f.association :skills, :as => :check_boxes %>
+		</fieldset>
+
+		<fieldset>
 			<legend>Your profile</legend>
 			<%= f.input :avatar %>
 			<%= f.input :gender, :as => :select, :collection => ["Female", "Male", "Transgender"] %>

@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :current_password,
                   :remember_me, :join_mailing_list, :admin, :name, :skill_ids,
-                  :gender, :age, :url, :location, :twitter_handle, :approved
+                  :gender, :age, :url, :location, :twitter_handle, :approved, :chapter_id
 
   has_one :ning_profile
   has_many :posts, :class_name => "::Conversation::Post"

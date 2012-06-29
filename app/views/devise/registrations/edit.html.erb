@@ -10,6 +10,11 @@
 			<%= f.input :name, :required => true %>
 			<%= f.input :email, :required => true %>
 		</fieldset>
+		
+		<fieldset>
+			<legend>Skills</legend>
+			<%= f.association :skills, :as => :check_boxes %>
+		</fieldset>
 
 		<fieldset>
 			<legend>Your profile</legend>

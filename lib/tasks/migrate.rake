@@ -171,12 +171,12 @@ namespace :migrate do
 			if item.xpath('wp:status').text == "publish"
 
 				wp_post_id = item.xpath('wp:post_id').text
-				post = Blog::Post.find_by_wordpress_id(wp_post_id)
+				post = Conversation::Post.find_by_wordpress_id(wp_post_id)
 				
 				if post.nil?
 					
 					puts "Creating blog post: #{item.xpath('title').text}"
-					post = Blog::Post.create! do |p|
+					post = Conversation::Post.create! do |p|
 						p.title = item.xpath('title').text
 						p.excerpt = item.xpath('title').text
 						p.body = item.xpath('content:encoded').text

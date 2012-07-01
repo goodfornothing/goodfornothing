@@ -5,10 +5,10 @@
 	<time><%= @gig.start_time.to_formatted_s(:long_ordinal) %> - <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time>
 	<% end %>	<%= simple_format @gig.description %>
 	<% if @gig.briefs.any? %>
-		<h2>The briefs</h2>
+		<h1>The briefs</h1>
 		<% @gig.briefs.each do |brief| %>
 		<article>
-			<h3><%= brief.title %></h3>
+			<h2><%= brief.title %></h2>
 			<%= markdown.render(brief.description).html_safe %>
 		</article>
 		<% end %>
@@ -16,7 +16,7 @@
 	
 </section>
 
-<aside>
+<aside id="secondary_content">
 	
 	<% if user_signed_in? && current_user.is_attending?(@gig) %>
 		<h2>You're attending this gig</h2>

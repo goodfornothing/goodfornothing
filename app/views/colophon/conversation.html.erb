@@ -8,7 +8,7 @@
 	<% if @categories %>
 	<ul class="grid_list">
 		<% @categories.each do |category| %>
-			<li><%= link_to category.title, categorised_conversation_posts_path(category.slug) %></li>
+			<li><%= link_to category.title, categorised_conversation_posts_path(category) %></li>
 		<% end %>
 	</ul>
 	<% end %>

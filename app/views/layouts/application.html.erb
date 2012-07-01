@@ -52,7 +52,7 @@
 				<section>
 					<h2>Crew</h2>
 					<p>We have a team of passionate folk running Good for Nothing around the UK.</p>
-					<p><%= @crew.map{ |u| link_to u['name'].split(' ')[0], member_path(u.slug) }.join(', ').html_safe %></p>
+					<p><%= @crew.map{ |u| link_to u['name'].split(' ')[0], member_path(u) }.join(', ').html_safe %></p>
 				</section>
 				<section>
 					<h2>Community</h2>

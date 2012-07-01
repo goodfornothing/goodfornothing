@@ -3,7 +3,7 @@ class Conversation::BookmarksController < ApplicationController
 	def index
 	  page = params[:page] || 1
 	  
-		@tag = Conversation::Tag.find_by_title(params[:tag].gsub('-',' ')) if params[:tag]
+		@tag = Conversation::Tag.find(params[:id]) if params[:id]
 
 	  if @tag
 	    @bookmarks = @tag.bookmarks		

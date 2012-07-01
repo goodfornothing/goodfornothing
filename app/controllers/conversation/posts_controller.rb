@@ -6,7 +6,7 @@ class Conversation::PostsController < ApplicationController
 		
 		page = params[:page] || 1
 		
-		@category = Conversation::Category.find_by_title(params[:category].gsub('-',' ')) if params[:category]
+		@category = Conversation::Category.find(params[:id]) if params[:id]
     @bookmarks = Conversation::Bookmark.where('published = true').limit(3)
 
 	  if @category

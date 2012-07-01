@@ -8,8 +8,7 @@ class Chapter < ActiveRecord::Base
 	
 	validates_presence_of :title
 	
-	def slug
-	  self.title.downcase
-	end
+	extend FriendlyId
+  friendly_id :title, use: :slugged
 
 end

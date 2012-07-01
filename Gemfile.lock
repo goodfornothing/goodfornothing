@@ -75,6 +75,7 @@ GEM
       sax-machine (~> 0.0.20)
     formtastic (2.1.1)
       actionpack (~> 3.0)
+    friendly_id (4.0.7)
     has_scope (0.5.1)
     hashie (1.2.0)
     hike (1.2.1)
@@ -191,6 +192,7 @@ DEPENDENCIES
   devise_mailchimp
   feedzirra
   formtastic (~> 2.1.1)
+  friendly_id (~> 4.0.1)
   jquery-rails
   mail
   meta_search (>= 1.1.0.pre)

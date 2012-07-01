@@ -7,8 +7,7 @@ class Conversation::Category < ActiveRecord::Base
 	has_many :posts
 	validates :title, :presence => true
 	
-	def slug
-	  self.title.downcase.gsub(/\s/,'-')
-	end
+	extend FriendlyId
+  friendly_id :title, use: :slugged
 
 end

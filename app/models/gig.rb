@@ -19,8 +19,7 @@ class Gig < ActiveRecord::Base
 	  Slot.create!(:gig_id => self.id)
   end
   
-  def slug
-	  self.title.downcase.gsub(/\s/,'-')
-	end
+	extend FriendlyId
+  friendly_id :title, use: :slugged
   	
 end

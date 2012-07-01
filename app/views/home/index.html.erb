@@ -1,25 +1,20 @@
 <div id="primary_content" class="single">
 
 	<section id="gfn_introduction">
-		
 		<h1>What, how, why</h1>
 		<p>Blurby visualisation. Member, venture, gig stats</p>
 		<p><%= link_to "Become a member", new_user_registration_path %> &rarr;</p>
-		
 	</section>
 
 	<section id="gigs_teasers">
-		
 		<% if @gig.present? %>
 			<h2>Your next dose of Good</h2>
 			<p>Join us for <%= link_to @gig.title, gig_path(@gig) %> on the <strong><%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %></strong> of <%= @gig.start_time.strftime('%B') %> in <%= link_to @gig.chapter.title, chapter_gigs_path(@gig.chapter.title) %></p>
 			<%= image_tag @gig.logo unless @gig.logo.url.nil? %>
 		<% end %>
-		
 	</section>
 	
 	<section id="conversation_highlights">
-	
 		<% if @posts.any? %>
 			<h2>Conversations</h2>
 			<div class="block_grid">
@@ -28,14 +23,12 @@
 				<% end %>
 			</div>
 			<p class="cta">Read more of our <%= link_to "conversations &rarr;".html_safe, conversation_posts_path %></p>
-		
-		<% end %>
-		
+		<% end %>	
 	</section>
 	
 	<div id="venture_submission">
 		<h2>Social venture?</h2>
-		<p><a href="">Submit your brief</a> &rarr;</p>
+		<p><%= link_to "Submit your brief", do_path %> &rarr;</p>
 	</div>
 	
 </div>

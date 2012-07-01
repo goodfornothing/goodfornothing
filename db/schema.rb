@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120628130028) do
+ActiveRecord::Schema.define(:version => 20120701223723) do
 
   create_table "bookmarks_gigs", :force => true do |t|
     t.integer "gig_id"
@@ -36,7 +36,10 @@ ActiveRecord::Schema.define(:version => 20120628130028) do
     t.datetime "updated_at", :null => false
     t.string   "city"
     t.string   "country"
+    t.string   "slug"
   end
+
+  add_index "chapters", ["slug"], :name => "index_chapters_on_slug", :unique => true
 
   create_table "conversation_bookmarks", :force => true do |t|
     t.string   "title"
@@ -51,7 +54,10 @@ ActiveRecord::Schema.define(:version => 20120628130028) do
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
+
+  add_index "conversation_categories", ["slug"], :name => "index_conversation_categories_on_slug", :unique => true
 
   create_table "conversation_posts", :force => true do |t|
     t.string   "title"
@@ -64,13 +70,19 @@ ActiveRecord::Schema.define(:version => 20120628130028) do
     t.integer  "wordpress_id"
     t.text     "excerpt"
     t.string   "hero_image"
+    t.string   "slug"
   end
+
+  add_index "conversation_posts", ["slug"], :name => "index_conversation_posts_on_slug", :unique => true
 
   create_table "conversation_tags", :force => true do |t|
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
+
+  add_index "conversation_tags", ["slug"], :name => "index_conversation_tags_on_slug", :unique => true
 
   create_table "events_users", :id => false, :force => true do |t|
     t.integer "event_id"
@@ -107,7 +119,10 @@ ActiveRecord::Schema.define(:version => 20120628130028) do
     t.integer  "partner_id"
     t.string   "poster"
     t.string   "logo"
+    t.string   "slug"
   end
+
+  add_index "gigs", ["slug"], :name => "index_gigs_on_slug", :unique => true
 
   create_table "gigs_skills", :force => true do |t|
     t.integer "gig_id"
@@ -200,11 +215,13 @@ ActiveRecord::Schema.define(:version => 20120628130028) do
     t.string   "gender"
     t.integer  "age"
     t.text     "reasons_for_joining"
+    t.string   "slug"
   end
 
   add_index "users", ["approved"], :name => "index_users_on_approved"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
 
   create_table "ventures", :force => true do |t|
     t.string "logo"

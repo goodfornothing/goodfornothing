@@ -1,11 +1,7 @@
 <section id="primary_content">
-	
 	<h1>The Good Library<%= ": #{@tag.title}" if @tag %></h1>
 	<p>The Library is a place where we collect interesting stories and resources from around the web.</p>
-	
 	<%= render :partial => "list", :locals => { :bookmarks => @bookmarks } %>
-	
-	
 </section>
 
 <aside id="secondary_content">
@@ -13,5 +9,4 @@
 	<%= render "search_form" %>
 	<%= render :partial => "conversation/tags/list", :locals => { :tags => @tags } %>
 	<p class="cta">View the entire <%= link_to "library &rarr;".html_safe, conversation_bookmarks_path %></p>
-	
 </aside>

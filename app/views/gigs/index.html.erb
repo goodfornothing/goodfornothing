@@ -33,7 +33,7 @@
 	<p>Good for Nothing gigs happening in your local area.</p>
 	<ul>
 		<% @chapters.each do |chapter| %>
-		<li><%= link_to chapter.title, chapter_gigs_path(chapter.slug) %></li>
+		<li><%= link_to chapter.title, chapter_gigs_path(chapter) %></li>
 		<% end %>
 	</ul>
 	<% end %>

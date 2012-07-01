@@ -3,7 +3,7 @@
 	<% if @members.any? %>
 		<ul>
 			<% @members.each do |member| %>
-			<li><%= link_to member.name, member_path(member.slug) %></li>
+			<li><%= link_to member.name, member_path(member) %></li>
 			<% end %>
 		</ul>
 	<% else %>

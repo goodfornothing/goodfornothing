@@ -18,8 +18,7 @@ class Conversation::Post < ActiveRecord::Base
 	
 	paginates_per 10
 	
-	def slug
-	  self.title.downcase.gsub(/\s/,'-')
-	end
+	extend FriendlyId
+  friendly_id :title, use: :slugged
 
 end

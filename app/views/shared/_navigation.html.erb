@@ -9,7 +9,7 @@
 	
 	<ul id="member_navigation">
 		<% if user_signed_in? %>
-			<li>Hi, <%= link_to current_user.name, member_path(current_user.slug) %>, want to <%= link_to "logout?", destroy_user_session_path, :method => :delete %></li>
+			<li>Hi, <%= link_to current_user.name, member_path(current_user) %>, want to <%= link_to "logout?", destroy_user_session_path, :method => :delete %></li>
 		<% else %>
 			<li><%= link_to "Become a member", new_user_registration_path %></li>
 			<li>or</li>

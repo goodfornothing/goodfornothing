@@ -20,9 +20,8 @@ class User < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader
 	
-	def slug
-	  self.name.downcase.gsub(/\s/,'-')
-	end
+	extend FriendlyId
+  friendly_id :name, use: :slugged
 	
   def is_attending?(gig)
     self.gigs.include?(gig)

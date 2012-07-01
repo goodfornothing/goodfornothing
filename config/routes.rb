@@ -16,6 +16,7 @@ Goodfornothing::Application.routes.draw do
 	    collection do 
   	    get "index"
   	    get "search"
+  	    match "tag/:tag" => "bookmarks#index", :as => "tagged"
   	  end
     end
   end

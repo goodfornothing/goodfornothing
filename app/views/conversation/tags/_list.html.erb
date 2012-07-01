@@ -1,7 +1,7 @@
 <% if @tags.any? %>
 	<ul>
 		<% @tags.each do |tag| %>
-			<li><%= link_to tag.title %></li>
+			<li><%= link_to tag.title, tagged_conversation_bookmarks_path(tag.slug) %></li>
 		<% end %>
 	</ul>
 <% end %>

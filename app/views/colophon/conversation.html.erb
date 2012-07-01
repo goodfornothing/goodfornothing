@@ -21,4 +21,6 @@
 	
 	<%= render "conversation/bookmarks/search_form" %>	
 	<%= render :partial => "conversation/tags/list", :locals => { :tags => @tags } %>
+	<p class="cta">More from <%= link_to "library &rarr;".html_safe, conversation_bookmarks_path %></p>
+	
 </section>

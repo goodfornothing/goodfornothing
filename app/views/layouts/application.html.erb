@@ -13,7 +13,7 @@
 		<meta name="robots" content="noindex,nofollow" />
 		
 	</head>
-	<body>
+	<body class="<%= "section_#{params[:controller]} view_#{params[:action]}"%>">
 
 		<header class="container">
 		
@@ -67,8 +67,8 @@
 					<h2>Do some good</h2>
 					<ul>
 						<%= "<li>#{link_to 'Become a member', new_user_registration_path}</li>".html_safe unless user_signed_in? %>
-						<li><a href="">Submit a brief</a></li>
-						<li><a href="">Sponsor a gig</a></li>
+						<li><%= link_to "Submit a brief", do_path %></a></li>
+						<li><%= link_to "Sponsor a gig", do_path %></li>
 					</ul>
 				</section>
 			</div>

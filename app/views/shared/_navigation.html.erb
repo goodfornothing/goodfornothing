@@ -1,10 +1,10 @@
 <nav id="primary_navigation" class="container">
 	
 	<ul>
-		<li><%= link_to "How it Works", how_path %></li>
-		<li><%= link_to "The Gigs", gigs_path %></li>
-		<li><%= link_to "The Community", community_path %></li>
-		<li><%= link_to "Conversations", conversation_path %></li>
+		<li><%= link_to "How it Works", how_path, :class => ('active' if params[:action] == 'about' || params[:action] == 'how') %></li>
+		<li><%= link_to "The Gigs", gigs_path, :class => ('active' if params[:controller] == 'gigs') %></li>
+		<li><%= link_to "The Community", community_path, :class => ('active' if params[:action] == 'community') %></li>
+		<li><%= link_to "Conversations", conversation_path, :class => ('active' if params[:action] == 'conversation') %></li>
 	</ul>
 	
 	<ul id="member_navigation">

@@ -2,7 +2,16 @@
 
 	<h1>Conversations</h1>
 	
-	<%= render :partial => "conversation/posts/categories" %>
-	<%= render :partial => "conversation/tags/list" %>
-		
+	<% if @categories %>
+	<ul class="grid_list">
+		<% @categories.each do |category| %>
+			<li><%= link_to category.title, categorised_conversation_posts_path(category.slug) %></li>
+		<% end %>
+	</ul>
+	<% end %>
+			
+</section>
+
+<section id="secondary_content">
+	<%= render :partial => "conversation/bookmarks/panel", :locals => { :bookmarks => @bookmarks } %>
 </section>

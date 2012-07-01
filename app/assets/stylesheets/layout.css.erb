@@ -83,7 +83,11 @@
 			margin-right: 18px;
 		}
 		
-		#primary_navigation ul li a.active {
+		#primary_navigation ul li a.active,
+		#primary_navigation ul li a:hover,
+		#primary_navigation ul li a:focus,
+		#primary_navigation ul li a:active {
+			text-decoration: none;
 			color: #282828;
 		}
 		
@@ -103,7 +107,7 @@
 			background: no-repeat left bottom url(layout/footer.png)
 		}
 	
-		#main section#primary_content {
+		#main #primary_content {
 			width: 640px;
 			padding: 0 20px 0;
 			float: left;
@@ -113,7 +117,7 @@
 			min-height: 400px;
 		}
 		
-		#main section#primary_content.single {
+		#main #primary_content.single {
 			width: 880px;
 		}
 	
@@ -123,12 +127,6 @@
 			padding-right: 20px;
 		}
 		
-		#main aside#secondary_content h2 {
-			color: #E31937;
-			line-height: 36px;
-			margin-bottom: 16px;
-		}
-	
 	/*= footer */
 	
 		footer {

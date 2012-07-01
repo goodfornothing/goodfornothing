@@ -56,6 +56,18 @@
 		margin-right: 0;
 	}
 	
+	.single .grid_list li {
+		margin-right: 25px;
+	}
+	
+	.single .grid_list li:nth-child(3n+3) {
+		margin-right: 25px;
+	}
+	
+	.single .grid_list li:nth-child(4n+4) {
+		margin-right: 0 !important;
+	}
+	
 /* Panels */
 
 	.panel {

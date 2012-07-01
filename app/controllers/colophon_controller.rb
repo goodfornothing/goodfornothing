@@ -17,7 +17,7 @@ class ColophonController < ApplicationController
 	
 	def conversation
 	  @categories = Conversation::Category.all
-	  @bookmarks = Conversation::Bookmark.limit(3).order('created_at desc')
+	  @tags = Conversation::Tag.all
 	end
 
 end

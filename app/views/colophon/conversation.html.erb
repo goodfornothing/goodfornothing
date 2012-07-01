@@ -13,5 +13,8 @@
 </section>
 
 <section id="secondary_content">
-	<%= render :partial => "conversation/bookmarks/panel", :locals => { :bookmarks => @bookmarks } %>
+	<h2>The Library</h2>
+	<%= render :partial => "conversation/tags/list", :locals => { :tags => @tags } %>
+	<h2>Search the library</h2>
+	<%= render "conversation/bookmarks/search_form" %>
 </section>

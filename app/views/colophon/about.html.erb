@@ -1,10 +1,16 @@
 <section id="primary_content" class="single">
-	<h1>Who's behind Good for Nothing?</h1>
 	
-	<h2>The crew and their chapters</h2>
-	<ul>
+	<div class="panel">
+		<h1>The Good for Nothing crew</h1>
+		<p>We're various people scattered around the UK.</p>	
+	</div>
+	
+	<ul class="grid_list">
 		<% @chapters.each do |chapter| %>
-		<li><%= chapter.title %></li>
+			<li>
+				<h3><%= chapter.title %></h3>
+				<p><%= chapter.users.map{ |u| link_to u['name'], member_path(u.slug) }.join(', ').html_safe %></p>
+			</li>
 		<% end %>
 	</ul>
 	

@@ -19,6 +19,10 @@ Set your API key and list name in `config/mailchimp.yml`
 
 By default the application uses carrierwave and S3 for image storage. You'll need to pop your AWS credential in `config/carrierwave.yml`
 
+#### Check for life
+
+You can check your `bookmark` URLs for life by running `rake bookmarks:ping` daily. Every time a bookmark fails to respond it'll be given a strike, two strikes and it'll be automatically unpublished. A strike is deducted for every active response.
+
 #### Facebook Events
 
 Gigs can be published to Facebook as 'Events'.

@@ -1,0 +1,14 @@
+development:
+  s3_key_id: ''
+  s3_access_key: ''
+  bucket: ''
+
+test:
+  s3_key_id: ''
+  s3_access_key: ''
+  bucket: ''
+
+production:
+  s3_key_id: ''
+  s3_access_key: ''
+  bucket: ''

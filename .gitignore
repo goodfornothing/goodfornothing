@@ -17,4 +17,6 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 /config/database.yml
+/config/carrierwave.yml
+/config/mailchimp.yml
 /public/uploads/*

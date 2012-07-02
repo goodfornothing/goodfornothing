@@ -1,0 +1,11 @@
+development:
+  api_key: ''
+  list_name: ''
+
+test:
+  api_key: ''
+  list_name: ''
+
+production:
+  api_key: ''
+  list_name: ''

@@ -1,9 +1,35 @@
 <section id="primary_content">
+	
 	<h1><%= @member.name %>'s profile for Nothing <% if user_signed_in? && current_user == @member %> <span>(<%= link_to "Edit", edit_user_registration_path %>)</span> <% end %></h1>
 
+	<% if @member.chapter %>
+	<p><%= @member.short_name %> is part of the <%= link_to @member.chapter.title, chapter_gigs_path(@member.chapter) %> crew.</p>
+	<% end %>
+
+	<%= image_tag @member.avatar unless @member.avatar.url.nil? %>
+	
+	<ul>
+		<%= "<li>Living in #{@member.location}</li>".html_safe if @member.location %>
+		<%= "<li>#{@member.gender}</li>".html_safe if @member.gender %>
+		<%= "<li>#{@member.age}</li>".html_safe if @member.age %>
+		<%= "<li>#{link_to @member.twitter_handle, 'http://twitter.com/'}</li>".html_safe if @member.twitter_handle %>
+		<%= "<li>#{link_to @member.url}</li>".html_safe if @member.url %>
+	</ul>
+	
+	<% if @member.gigs.any? %>
+	<h2>Gigs</h2>
+	<p>Taking part in:</p>
+	<ul>
+		<% @member.gigs.each do |gig| %>
+		<li><%= link_to gig.title, gig_path(gig) %></li>
+		<% end %>
+	</ul>
+	<% end %>
+	
 </section>
 
 <aside id="secondary_content">
+	
 	<% if @member.skills.any? %>
 	<h2>Skills</h2>
 	<ul>
@@ -12,5 +38,5 @@
 		<% end %>
 	</ul>
 	<% end %>
-
+	
 </aside>

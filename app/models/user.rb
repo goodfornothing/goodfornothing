@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :current_password,
                   :remember_me, :join_mailing_list, :admin, :name, :skill_ids,
-                  :gender, :age, :url, :location, :twitter_handle, :approved, :chapter_id
+                  :gender, :age, :url, :location, :twitter_handle, :approved, 
+                  :chapter_id, :avatar
 
   has_one :ning_profile
   has_many :posts, :class_name => "::Conversation::Post"
@@ -22,6 +23,10 @@ class User < ActiveRecord::Base
 	
 	extend FriendlyId
   friendly_id :name, use: :slugged
+	
+	def short_name
+	  self.name.split(' ')[0]
+	end
 	
   def is_attending?(gig)
     self.gigs.include?(gig)

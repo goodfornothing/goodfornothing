@@ -11,19 +11,19 @@ gem 'mail'
 gem 'devise_mailchimp'
 gem 'feedzirra'
 gem 'carrierwave'
-gem 'mini_magick', "~> 3.3"
+gem 'mini_magick','~> 3.3'
 
-gem "redcarpet", "~> 2.0.1"
+gem 'redcarpet', '~> 2.0.1'
 gem 'tzinfo'
 gem 'jquery-rails'
 gem 'country-select'
 
 gem 'activeadmin'
-gem "formtastic", "~> 2.1.1"
+gem 'formtastic', '~> 2.1.1'
 gem 'meta_search', '>= 1.1.0.pre' 
 gem 'sass-rails'
 
-gem 'friendly_id', "~> 4.0.1"
+gem 'friendly_id', '~> 4.0.1'
 
 # Visualising domain model
 gem 'railroady'

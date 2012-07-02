@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701223723) do
+ActiveRecord::Schema.define(:version => 20120702205408) do
 
   create_table "bookmarks_gigs", :force => true do |t|
     t.integer "gig_id"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20120701223723) do
     t.boolean  "published",   :default => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.integer  "strikes",     :default => 0
   end
 
   create_table "conversation_categories", :force => true do |t|

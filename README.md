@@ -51,7 +51,7 @@ Used to import a CSV Ning user list to a NingProfile model and map it to a core 
 
 ## We're working on it...
 
-This is phase one. See [this post](http://www.goodfornothing.com) for more about how we plan to roll out features and [our staging site](http://staging.goodfornothing.com) to keep up with progress.
+This is phase one. See [this post](http://www.goodfornothing.com/2012/07/02/building-a-platform-for-uncertainty/) for more about how we plan to roll out features and [our staging site](http://staging.goodfornothing.com) to keep up with progress.
 
 ## License
 

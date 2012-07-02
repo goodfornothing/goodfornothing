@@ -13,10 +13,11 @@ An embryonic platform to support and amplify the Good for Nothing communities' e
 
 User accounts are tied to a Mailchimp subscriber lists. Users can edit their preferences on their profile page. 
 
-Set your API key and list name in `config/initializers/devise.rb`.
+Set your API key and list name in `config/mailchimp.yml`
 
-    Devise.mailchimp_api_key = 'apikey'
-    Devise.mailing_list_name = 'Name of List'
+#### Uploader storage
+
+By default the application uses carrierwave and S3 for image storage. You'll need to pop your AWS credential in `config/carrierwave.yml`
 
 #### Facebook Events
 

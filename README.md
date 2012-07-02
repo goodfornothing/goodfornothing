@@ -50,18 +50,7 @@ Used to import a CSV Ning user list to a NingProfile model and map it to a core 
 
 ## We're working on it...
 
-This is phase one. See [this post](http://www.goodfornothing.com) for more about how we plan to roll out features.
-
-There are a few things still to implement in this phase:
-
- - User commenting for:
-   - Blog posts
-   - Gigs
- - Email notifications when
-   - New users register
-   - Users register for gigs
- - The ability to send email to gigs' attendees
- - Localisation
+This is phase one. See [this post](http://www.goodfornothing.com) for more about how we plan to roll out features and [our staging site](http://staging.goodfornothing.com) to keep up with progress.
 
 ## License
 

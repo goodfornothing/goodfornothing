@@ -7,11 +7,13 @@ Goodfornothing::Application.routes.draw do
 
   match "conversation" => "colophon#conversation"
   namespace :conversation do
+    
     resources :posts, :only => [:index, :show] do
 		  collection do 
   	    match "category/:id" => "posts#index", :as => "categorised"
   	  end
 		end
+		
 		resources :bookmarks do
 	    collection do 
   	    get "index"
@@ -19,6 +21,7 @@ Goodfornothing::Application.routes.draw do
   	    match "tag/:id" => "bookmarks#index", :as => "tagged"
   	  end
     end
+    
   end
 
 	resources :gigs, :only => [:show, :index] do

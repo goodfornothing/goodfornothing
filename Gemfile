@@ -24,6 +24,7 @@ gem 'meta_search', '>= 1.1.0.pre'
 gem 'sass-rails'
 
 gem 'friendly_id', '~> 4.0.1'
+gem "fog", "~> 1.3.1"
 
 # Visualising domain model
 gem 'railroady'

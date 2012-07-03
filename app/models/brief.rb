@@ -4,7 +4,7 @@ class Brief < ActiveRecord::Base
 	belongs_to :gig
 	belongs_to :venture
 	
-	validates_presence_of :title
-	validates_presence_of :description
-	
+	# All briefs should have a gig, and will
+	# either a title, venture or just a description
+		
 end

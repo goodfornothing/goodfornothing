@@ -5,6 +5,7 @@ ActiveAdmin.register Brief do
   filter :venture
   
   index do
+    column :venture
     column :title
     column :gig
     default_actions

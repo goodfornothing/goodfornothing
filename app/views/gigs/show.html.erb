@@ -3,15 +3,29 @@
 	<h1><%= @gig.title %></h1>
 	<% if @gig.start_time && @gig.end_time %>
 	<time><%= @gig.start_time.to_formatted_s(:long_ordinal) %> - <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time>
-	<% end %>	<%= simple_format @gig.description %>
+	<% end %>	
+	
+	<%= simple_format @gig.description %>
+	
 	<% if @gig.briefs.any? %>
-		<h1>The briefs</h1>
+	
+		<h1>The brief<%= "s" if @gig.briefs.length>1 %></h1>
+		
 		<% @gig.briefs.each do |brief| %>
 		<article>
-			<h2><%= brief.title %></h2>
-			<%= markdown.render(brief.description).html_safe %>
+			
+			<% if brief.title.present? %>
+				<h2><%= brief.title %></h2>
+				<%= "<p>#{brief.venture.name}</p>".html_safe if brief.venture.present? %>
+			<% elsif brief.venture.present? %>
+				<h2><%= brief.venture.name %></h2>
+			<% end %>
+			
+			<%= markdown.render(brief.description).html_safe unless brief.description.blank? %>
+			
 		</article>
 		<% end %>
+		
 	<% end %>
 	
 </section>

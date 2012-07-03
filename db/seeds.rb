@@ -1,33 +1,39 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
-Chapter.create([
-  {
-    title: 'London',
-    city: 'London',
-    country: 'United Kingdom'
-  },
-  {
-    title: 'Bristol',
-    city: 'Bristol',
-    country: 'United Kingdom'
-  },
-  {
-    title: 'Brighton',
-    city: 'Brighton',
-    country: 'United Kingdom'
-  },
-  {
-    title: 'Manchester',
-    city: 'Manchester',
-    country: 'United Kingdom'
-  }
+Conversation::Category.create([
+  { title: 'Innovation in Giving' }
 ])
 
-@london = Chapter.find_by_title('London')
-@brighton = Chapter.find_by_title('Brighton')
-@bristol = Chapter.find_by_title('Bristol')
-@manchester = Chapter.find_by_title('Manchester')
+Skill.create([
+  { title: 'All rounder' },
+  { title: 'Designer' },
+  { title: 'Developer' }
+])
+
+@london = Chapter.create({
+  title: 'London',
+  city: 'London',
+  country: 'United Kingdom'
+})
+
+@bristol = Chapter.create({
+  title: 'Bristol',
+  city: 'Bristol',
+  country: 'United Kingdom'
+})
+
+@brighton = Chapter.create({
+  title: 'Brighton',
+  city: 'Brighton',
+  country: 'United Kingdom'
+})
+
+@manchester = Chapter.create({
+  title: 'Manchester',
+  city: 'Manchester',
+  country: 'United Kingdom'
+})
 
 User.create([
   {
@@ -73,7 +79,12 @@ User.create([
     password_confirmation: 'password',
     approved: true,
     admin: true,
-    chapter_id: @london.id
+    chapter_id: @london.id,
+    twitter_handle: '@andrewsprinz',
+    url: 'http://www.goodfornothing.com',
+    location: 'London, UK',
+    gender: 'Male',
+    age: '29'
   },
   {
     email: 'mark@thembigoaktrees.com',
@@ -128,24 +139,6 @@ User.create([
     approved: true,
     admin: true,
     chapter_id: @manchester.id
-  }
-])
-
-Conversation::Category.create([
-  {
-    title: 'Innovation in Giving'
-  }
-])
-
-Skill.create([
-  {
-    title: 'All rounder'
-  },
-  {
-    title: 'Designer'
-  },
-  {
-    title: 'Developer'
   }
 ])
 
@@ -228,6 +221,26 @@ Partner.create([
   {
     name: 'Ecclesiastical Insurance',
     url: 'http://www.ecclesiastical.com/'
+  },
+  {
+    name: 'Sony Europe',
+    url: 'http://www.openplanetideas.com/'
+  },
+  {
+    name: 'Lambeth Council',
+    url: 'http://www.lambeth.gov.uk'
+  },
+  {
+    name: 'University of Reading',
+    url: 'http://www.reading.ac.uk/typography/'
+  },
+  {
+    name: 'Fallon',
+    url: 'http://wearefallon.tumblr.com/'
+  },
+  {
+    name: 'D&AD New Blood',
+    url: 'http://www.dandad.org/talent/new-blood/'
   }
 ])
 
@@ -235,98 +248,388 @@ Venture.create([
   {
     name: 'The DoNation',
     url: 'http://www.thedonation.org'
+  },
+  {
+    name: 'PopUp Festival of Stories',
+    url: 'http://pop-up.org.uk/'
+  },
+  {
+    name: 'Sustaination',
+    url: 'http://www.sustaination.co.uk/'
+  },
+  {
+    name: 'Global Generation',
+    url: 'http://www.globalgeneration.org.uk/'
+  },
+  {
+    name: 'Good Gym',
+    url: 'http://www.thegoodgym.org/'
+  },
+  {
+    name: 'Great Football Giveaway',
+    url: 'http://www.thegreatfootballgiveaway.org.uk/'
+  },
+  {
+    name: 'Stay up Late',
+    url: 'http://www.stayuplate.org'
+  },
+  {
+    name: 'hiSbe',
+    url: 'http://www.hisbe.co.uk/'
+  },
+  {
+    name: 'PricePie',
+    url: 'http://www.pricepie.co.uk/'
+  },
+  {
+    name: 'Hackney Yoga Project',
+    url: 'http://hackneyyogaproject.blogspot.co.uk/'
+  },
+  {
+    name: '50/50 Make or Break',
+    url: 'http://5050.gd'
+  },
+  {
+    name: 'GnewtCargo',
+    url: 'http://gnewtcargo.co.uk/'
+  },
+  {
+    name: 'FoodCycle',
+    url: 'http://www.foodcycle.org.uk/'
+  },
+  {
+    name: 'Bletchley Park',
+    url: 'http://www.savingbletchleypark.org/'
+  },
+  {
+    name: 'Young Gloucestershire',
+    url: 'http://www.youngglos.org.uk/'
+  },
+  {
+    name: 'Cotswold Care Hospice',
+    url: 'http://www.cotswoldcare.org.uk/'
+  },
+  {
+    name: 'Gloucestershire Young Carers',
+    url: 'http://www.glosyoungcarers.org.uk/'
+  },
+  {
+    name: 'Stirchley Food Co-op',
+    url: 'http://www.stirchleystores.co.uk/'
+  },
+  {
+    name: 'Continental Star FC',
+    url: 'http://www.continentalstarfc.co.uk/'
+  },
+  {
+    name: 'Jericho Foundation',
+    url: 'http://www.jcp.org.uk/'
+  },
+  {
+    name: 'Thames 21',
+    url: 'http://www.thames21.org.uk/'
+  },
+  {
+    name: 'Espace Benevolat',
+    url: 'http://www.espacebenevolat.org/'
+  },
+  {
+    name: 'The Abundance Network',
+    url: 'http://www.growsheffield.com/images/abundbkview.pdf'
+  },
+  {
+    name: 'Special Effect',
+    url: 'http://www.gamebase.info/'
+  },
+  {
+    name: 'Open Cinema',
+    url: 'http://www.opencinema.net/'
+  },
+  {
+    name: 'Homeless SMS',
+    url: 'http://homelesssms.com/'
+  },
+  {
+    name: 'Bethnal Green Ventures',
+    url: 'http://bethnalgreenventures.com/'
   }
 ])
 
-Gig.create([
-  {
+@gfn_1 = Gig.create({
     title: 'Good for Nothing',
     chapter_id: @london.id,
     start_time: DateTime.new(2010, 12, 3, 18),
     end_time: DateTime.new(2010, 12, 4, 18)
+})
+  
+@gfn_2 = Gig.create({
+  title: 'Good for Nothing',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2011, 5, 20, 19),
+  end_time: DateTime.new(2011, 5, 22, 17)
+})
+  
+@newblood = Gig.create({
+  title: 'D&AD New Blood',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2011, 7, 2, 13), 
+  start_time: DateTime.new(2011, 7, 2, 18),
+  partner_id: Partner.find_by_name('D&AD New Blood').id
+})
+  
+@loveriot = Gig.create({
+  title: 'Creative Love Riot',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2011, 8, 12, 18),
+  end_time: DateTime.new(2011, 8, 14, 18)
+})
+  
+@ecclesiastical = Gig.create({
+  title: 'Ecclesiastical does Good for Nothing',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2011, 9, 1, 19),
+  end_time: DateTime.new(2011, 9, 3, 17),
+  partner_id: Partner.find_by_name('Ecclesiastical Insurance').id
+})
+  
+@hackneyyoga = Gig.create({
+  title: 'Hackney Yoga Project',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2011, 10, 30, 13),
+  end_time: DateTime.new(2011, 10, 30, 18)
+})
+  
+@readinguni = Gig.create({
+  title: 'University of Reading does Good for Nothing',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2012, 1, 17, 10),
+  end_time: DateTime.new(2012, 2, 10, 19),
+  partner_id: Partner.find_by_name('University of Reading').id
+})
+  
+@bluemonday = Gig.create({
+  title: 'Occupy Blue Monday',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2012, 1, 20, 18),
+  end_time: DateTime.new(2012, 1, 22, 18)
+})
+  
+@maketime = Gig.create({
+  title: 'Make / Time',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2012, 3, 29, 19),
+  end_time: DateTime.new(2012, 3, 31, 18),
+  partner_id: Partner.find_by_name('Sony Europe').id
+})
+  
+@fallonshift = Gig.create({
+  title: 'Good For Nothing at SHIFT Fallon Festival',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2012, 5, 2, 9),
+  end_time: DateTime.new(2012, 5, 2, 18),
+  partner_id: Partner.find_by_name('Fallon').id
+})
+  
+@openlabs = Gig.create({
+  title: 'Open Labs',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2012, 5, 18, 19),
+  end_time: DateTime.new(2012, 5, 20, 18),
+  partner_id: Partner.find_by_name('Cancer Research UK').id
+})
+  
+@ecclesiastical_2 = Gig.create({
+  title: 'Ecclesiastical does Good for Nothing',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2012, 6, 7, 19),
+  end_time: DateTime.new(2012, 6, 9, 18),
+  partner_id: Partner.find_by_name('Ecclesiastical Insurance').id
+})
+  
+@madeinlambeth = Gig.create({
+  title: 'Made in Lambeth',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2012, 6, 21, 18),
+  end_time: DateTime.new(2012, 6, 23, 18),
+  partner_id: Partner.find_by_name('Lambeth Council').id
+})
+  
+@sol = Gig.create({
+  title: 'Summer of Love',
+  chapter_id: @brighton.id,
+  start_time: DateTime.new(2012, 6, 22, 18),
+  end_time: DateTime.new(2012, 6, 24, 18)
+})
+
+@wildthing = Gig.create({
+  title: 'Wild Thing - Re-connecting Kids with Nature and Wildness',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2012, 7, 6, 19),
+  end_time: DateTime.new(2012, 7, 8, 18)
+})
+
+@shipshape = Gig.create({
+  title: 'ShipShape',
+  chapter_id: @bristol.id,
+  start_time: DateTime.new(2012, 7, 22, 18),
+  end_time: DateTime.new(2012, 7, 24, 17)
+})
+
+Brief.create([
+  {
+    gig_id: @wildthing.id
   },
   {
-    title: 'Good for Nothing',
-    chapter_id: @london.id,
-    start_time: DateTime.new(2011, 5, 20, 19),
-    end_time: DateTime.new(2011, 5, 22, 17)
+    gig_id: @sol.id,
+    venture_id: Venture.find_by_name('hiSbe').id
   },
   {
-    title: 'D&AD New Blood',
-    chapter_id: @london.id,
-    start_time: DateTime.new(2011, 7, 2, 13), 
-    start_time: DateTime.new(2011, 7, 2, 18)
+    gig_id: @sol.id,
+    venture_id: Venture.find_by_name('Stay up Late').id
   },
   {
-    title: 'Creative Love Riot',
-    chapter_id: @london.id,
-    start_time: DateTime.new(2011, 8, 12, 18),
-    end_time: DateTime.new(2011, 8, 14, 18),
+    gig_id: @sol.id,
+    venture_id: Venture.find_by_name('PricePie').id
   },
   {
-    title: 'Ecclesiastical does Good for Nothing',
-    chapter_id: @london.id,
-    start_time: DateTime.new(2011, 9, 1, 19),
-    end_time: DateTime.new(2011, 9, 3, 17)
+    gig_id: @madeinlambeth.id,
+    title: 'Healthwatch'
   },
   {
-    title: 'Hackney Yoga Project',
-    chapter_id: @london.id,
-    start_time: DateTime.new(2011, 10, 30, 13),
-    end_time: DateTime.new(2011, 10, 30, 18)
-  },
-  { 
-    title: 'University of Reading does Good for Nothing',
-    chapter_id: @london.id,
-    start_time: DateTime.new(2012, 1, 17, 10),
-    end_time: DateTime.new(2012, 2, 10, 19)
+    gig_id: @madeinlambeth.id,
+    title: 'Digital'
   },
   {
-    title: 'Occupy Blue Monday',
-    chapter_id: @london.id,
-    start_time: DateTime.new(2012, 1, 20, 18),
-    end_time: DateTime.new(2012, 1, 22, 18)
+    gig_id: @madeinlambeth.id,
+    title: 'Parks'
   },
   {
-    title: 'Make / Time',
-    chapter_id: @london.id,
-    start_time: DateTime.new(2012, 3, 29, 19),
-    end_time: DateTime.new(2012, 3, 31, 18)
+    gig_id: @ecclesiastical_2.id,
+    venture_id: Venture.find_by_name('Stirchley Food Co-op').id
   },
   {
-    title: 'Good For Nothing at SHIFT Fallon Festival',
-    chapter_id: @london.id,
-    start_time: DateTime.new(2012, 5, 2, 9),
-    end_time: DateTime.new(2012, 5, 2, 18)
+    gig_id: @ecclesiastical_2.id,
+    venture_id: Venture.find_by_name('Continental Star FC').id
   },
   {
-    title: 'Open Labs',
-    chapter_id: @london.id,
-    start_time: DateTime.new(2012, 5, 18, 19),
-    end_time: DateTime.new(2012, 5, 20, 18)
+    gig_id: @ecclesiastical_2.id,
+    venture_id: Venture.find_by_name('Jericho Foundation').id
   },
   {
-    title: 'Ecclesiastical does Good for Nothing',
-    chapter_id: @london.id,
-    start_time: DateTime.new(2012, 6, 7, 19),
-    end_time: DateTime.new(2012, 6, 9, 18)
+    gig_id: @openlabs.id,
+    title: 'Communications'
   },
   {
-    title: 'Made in Lambeth',
-    chapter_id: @london.id,
-    start_time: DateTime.new(2012, 6, 21, 18),
-    end_time: DateTime.new(2012, 6, 23, 18)
-  }, 
-  {
-    title: 'Summer of Love',
-    chapter_id: @brighton.id,
-    start_time: DateTime.new(2012, 6, 22, 18),
-    end_time: DateTime.new(2012, 6, 24, 18)
+    gig_id: @openlabs.id,
+    title: 'Genetic Analysis'
   },
   {
-    title: 'Wild Thing',
-    chapter_id: @london.id,
-    start_time: DateTime.new(2012, 7, 6, 19),
-    end_time: DateTime.new(2012, 7, 8, 18)
+    gig_id: @openlabs.id,
+    title: 'Cell Analysis'
+  },
+  {
+    gig_id: @fallonshift.id,
+    venture_id: Venture.find_by_name('The Abundance Network').id
+  },
+  {
+    gig_id: @fallonshift.id,
+    venture_id: Venture.find_by_name('Special Effect').id
+  },
+  {
+    gig_id: @fallonshift.id,
+    venture_id: Venture.find_by_name('Open Cinema').id
+  },
+  {
+    gig_id: @maketime.id,
+    venture_id: Venture.find_by_name('Thames 21').id
+  },
+  {
+    gig_id: @maketime.id,
+    venture_id: Venture.find_by_name('Espace Benevolat').id
+  },
+  {
+    gig_id: @maketime.id,
+    title: "Hack the U+ Source"
+  },
+  {
+    gig_id: @bluemonday.id,
+    venture_id: Venture.find_by_name('The DoNation').id
+  },
+  {
+    gig_id: @bluemonday.id,
+    venture_id: Venture.find_by_name('PopUp Festival of Stories').id
+  },
+  {
+    gig_id: @bluemonday.id,
+    venture_id: Venture.find_by_name('Sustaination').id
+  },
+  {
+    gig_id: @readinguni.id,
+    venture_id: Venture.find_by_name('Homeless SMS').id
+  },
+  {
+    gig_id: @readinguni.id,
+    venture_id: Venture.find_by_name('Hackney Yoga Project').id
+  },
+  {
+    gig_id: @readinguni.id,
+    venture_id: Venture.find_by_name('Good Gym').id
+  },
+  {
+    gig_id: @hackneyyoga.id,
+    venture_id: Venture.find_by_name('Hackney Yoga Project').id
+  },
+  {
+    gig_id: @ecclesiastical.id,
+    venture_id: Venture.find_by_name('Young Gloucestershire').id
+  },
+  {
+    gig_id: @ecclesiastical.id,
+    venture_id: Venture.find_by_name('Cotswold Care Hospice').id
+  },
+  {
+    gig_id: @ecclesiastical.id,
+    venture_id: Venture.find_by_name('Gloucestershire Young Carers').id
+  },
+  {
+    gig_id: @loveriot.id,
+    venture_id: Venture.find_by_name('50/50 Make or Break').id
+  },
+  {
+    gig_id: @newblood.id,
+    venture_id: Venture.find_by_name('Homeless SMS').id
+  },
+  {
+    gig_id: @newblood.id,
+    venture_id: Venture.find_by_name('Good Gym').id
+  },
+  {
+    gig_id: @newblood.id,
+    venture_id: Venture.find_by_name('Bethnal Green Ventures').id
+  },
+  {
+    gig_id: @gfn_2.id,
+    venture_id: Venture.find_by_name('GnewtCargo').id
+  },
+  {
+    gig_id: @gfn_2.id,
+    venture_id: Venture.find_by_name('FoodCycle').id
+  },
+  {
+    gig_id: @gfn_2.id,
+    venture_id: Venture.find_by_name('Bletchley Park').id
+  },
+  {
+    gig_id: @gfn_1.id,
+    venture_id: Venture.find_by_name('Global Generation').id
+  },
+  {
+    gig_id: @gfn_1.id,
+    venture_id: Venture.find_by_name('Good Gym').id
+  },
+  {
+    gig_id: @gfn_1.id,
+    venture_id: Venture.find_by_name('Great Football Giveaway').id
   }
 ])
+  

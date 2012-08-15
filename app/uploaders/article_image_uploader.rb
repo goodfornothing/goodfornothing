@@ -11,7 +11,7 @@ class ArticleImageUploader < CarrierWave::Uploader::Base
   process :resize_to_fit => [700,nil]
 
   version :thumbnail do
-    process :resize_to_fit => [330,220]
+    process :resize_to_fit => [280,180]
   end
 
   def extension_white_list

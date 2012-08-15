@@ -1,9 +1,13 @@
 class HomeController < ApplicationController
 
 	def index
-	  @posts = Conversation::Post.order("created_at DESC").limit(2)
+	  
+	  @post = Conversation::Post.order("created_at DESC").first
 	  @gig = Gig.order("start_time DESC").first
-	  @categories = Conversation::Category.all
+	  
+	  @member_count = User.count
+	  @cause_count = Venture.count + Partner.count
+	  
   end
 
 end

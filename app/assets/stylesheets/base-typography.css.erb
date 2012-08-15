@@ -1,28 +1,39 @@
 @font-face {
-    font-family: 'LeagueGothicRegular';
-    src: url('League_Gothic-webfont.eot');
-    src: url('League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('League_Gothic-webfont.woff') format('woff'),
-         url('League_Gothic-webfont.ttf') format('truetype'),
-         url('League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-family: 'Good for Nothing';
+    src: url('gfn_2-webfont.eot');
+    src: url('gfn_2-webfont.eot?#iefix') format('embedded-opentype'),
+         url('gfn_2-webfont.woff') format('woff'),
+         url('gfn_2-webfont.ttf') format('truetype'),
+         url('gfn_2-webfont.svg#gfn_2regular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Reader';
-    src: url('reader-medium-webfont.eot');
-    src: url('reader-medium-webfont.eot?#iefix') format('embedded-opentype'),
-         url('reader-medium-webfont.woff') format('woff'),
-         url('reader-medium-webfont.ttf') format('truetype'),
-         url('reader-medium-webfont.svg#LeagueGothicRegular') format('svg');
+    font-family: 'karlaregular';
+    src: url('karla-regular-webfont.eot');
+    src: url('karla-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('karla-regular-webfont.woff') format('woff'),
+         url('karla-regular-webfont.ttf') format('truetype'),
+         url('karla-regular-webfont.svg#karlaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'karlabold';
+    src: url('karla-bold-webfont.eot');
+    src: url('karla-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('karla-bold-webfont.woff') format('woff'),
+         url('karla-bold-webfont.ttf') format('truetype'),
+         url('karla-bold-webfont.svg#karlabold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 body { 
-	font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-	color: #555555; 
+	font-family: "Myriad Pro", Helvetica, Arial, sans-serif; 
+	color: #000000; 
 	-webkit-font-smoothing: antialiased; 
 }
 
@@ -32,7 +43,8 @@ body {
     font-size: 26px; 
     font-weight: 100;
 		margin-bottom: 26px;
-		font-family: Reader;
+		font-family: "Good for Nothing";
+		color: #61514D;
   }
 
 /* =h2 */
@@ -41,15 +53,17 @@ body {
 		font-size: 20px; 
 		margin-bottom: 26px;
 		font-weight: normal;
+		font-family: karlabold;
+		color: #61514D;
   }
 
-	#secondary_content h2,
 	footer h2 {
 		font-size: 22px;
 		margin-bottom: 12px;
-		font-family: LeagueGothicRegular;
+		font-family: karlabold;
 		text-transform: uppercase;
 		font-weight: normal;
+		color: #61514D;		
 	}
 
 /* =h3 */
@@ -70,7 +84,7 @@ body {
 
 /* =a */
 
-  a { color: #E31937; text-decoration: none; }
+  a { color: #D0122D; text-decoration: none; }
   a:hover, a:focus, a:active { text-decoration: underline; }
 
 /* =ul,ol,dl */

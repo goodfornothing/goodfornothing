@@ -1,124 +1,128 @@
 /*
-	Red:   #E31937
-	Grey:  #555555
+	Red:   #D0122D
+	Grey:  #61514D
 */
 
 
 @media all {
 
 	body { 
-		background-color: #ffffff;
+		background-color: #F0ECE9;
 	}
    
 	.container {
 	    width: 960px; margin: 0 auto; 
 	    overflow: hidden; display: block;
+			position: relative;
 	}
 	
 	/*= header */
 	
 		header {
-			padding: 20px 0 1px;
 			overflow: hidden;
-			background: url(layout/border_horizontal.gif) repeat-x 109px bottom;
+			background: #ffffff repeat-x center bottom url(layout/header.gif);
+			text-align: center;
+			min-height: 190px;
 		}
+		
+		header #branding {
+			display: inline-block;
+			margin: 45px auto 30px;
+			padding: 0;
+			min-width: 274px;
+			background: #D0122D url(assets/horizontal_splodge.gif) no-repeat top left;
 			
-		header h1#branding,
-		header p#branding a {
-			color: #E31937;
-			font-size: 34px;
-			line-height: 110px;
-			padding-left: 120px;
-			font-family: Reader;
-			display: block;
-			float: left;
-			margin: 0;
-			background: no-repeat 0 50% url(branding/goodfornothing.gif);
 		}
 		
-		header p#branding { margin: 0; }
-		
+		header h1#branding,
+		header p#branding,
+		header p#branding a {
+			color: #ffffff;
+			font-size: 24px;
+			line-height: 47px;
+			font-family: "Good for Nothing";
+		}
+				
 		header #branding a:hover,
 		header #branding a:focus,
 		header #branding a:active {
 			text-decoration: none;
 		}
 		
-		header #social_navigation {
+		header #secondary_navigation {
+			position: absolute;
+			top: 10px;
+			left: 0;
+			width: 100%;
+		}
+		
+		header #secondary_navigation .social {
+			padding: 0;
+			float: left;
+			width: 170px;
+		}
+		
+		header #secondary_navigation .social li {
+			list-style-type: none;
+			padding: 0;
+			float: left;
+			margin-left: 10px;
+		}
+		
+		header #secondary_navigation .social li:first-child { margin-right: 0; }
+		
+		header #secondary_navigation .registration {
+			padding: 0;
 			float: right;
 			width: 170px;
-			padding-top: 5px;
-			padding-right: 15px;
 		}
 		
-		header #social_navigation ul {
-			padding: 0;
-		}
-		
-		header #social_navigation .social li {
-			list-style-type: none;
-			padding: 0;
-			float: right;
-			margin-right: 15px;
-		}
-		
-		header #social_navigation .social li:first-child { margin-right: 0; }
-		
-	/*= primary_navigation */
-	
-		#primary_navigation {
-			padding: 10px 0 18px;
-			background: url(layout/border_horizontal.gif) repeat-x bottom;
+		header #primary_navigation {
+				font-family: "Good for Nothing";
 		}
 	
-		#primary_navigation ul {
-			padding: 0 0 0 23px;
-			float: left;
+		header #primary_navigation ul {
+				margin: 0 auto;
+				padding: 0;
 		}
 	
-		#primary_navigation ul li {
-			list-style-type: none;
-			padding: 0;
-			display: inline-block;
-			margin-right: 18px;
-		}
+		header #primary_navigation ul li {
+				list-style-type: none;
+				padding: 0;
+				display: inline-block;
+				margin-right: 26px;
+				font-size: 14px;
+				letter-spacing: 1px;
+			}
+			
+		header #primary_navigation ul li:last-child { margin: 0;}
 		
-		#primary_navigation ul li a.active,
-		#primary_navigation ul li a:hover,
-		#primary_navigation ul li a:focus,
-		#primary_navigation ul li a:active {
-			text-decoration: none;
-			color: #282828;
-		}
+		header #primary_navigation ul li a {
+				color: #60504D;
+			}
 		
-		#primary_navigation ul#member_navigation {
-			float: right;
-			padding-right: 20px;
-		}
-		
-		#primary_navigation ul#member_navigation li {
-			margin: 0 0 0 5px;
-		}
+		header #primary_navigation ul li a.active,
+		header #primary_navigation ul li a:hover,
+		header #primary_navigation ul li a:focus,
+		header #primary_navigation ul li a:active {
+				text-decoration: none;
+			}
 
 	/*= main */
 
 		#main {
-			padding: 30px 0 150px;
-			background: no-repeat left bottom url(layout/footer.png)
+			padding: 30px 0px;
 		}
 	
 		#main #primary_content {
 			width: 640px;
 			padding: 0 20px 0;
 			float: left;
-			overflow: hidden;
-			height: auto !important;
-			height: 400px;
-			min-height: 400px;
 		}
 		
 		#main #primary_content.single {
-			width: 880px;
+			width: 960px;
+			padding: 0;
 		}
 	
 		#main aside#secondary_content {
@@ -130,15 +134,15 @@
 	/*= footer */
 	
 		footer {
-			background: #4D4D4D;
 			padding: 30px 0;
+			background: #61514d repeat-x left top url(layout/footer.gif);
 			color: #ffffff;
 		}
 		
 		footer h2 {
-			border-bottom: 1px solid #404040;
 			padding-bottom: 5px;
 			margin-bottom: 16px;
+			color: #ffffff;
 		}
 		
 		footer ul {
@@ -172,7 +176,7 @@
 		}
 		
 		section#colophon {
-			background: #333333;
+			background: #61514D;
 			color: #ffffff;
 			padding: 12px 0;
 			overflow: hidden;

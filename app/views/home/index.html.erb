@@ -1,34 +1,35 @@
 <div id="primary_content" class="single">
 
-	<section id="gfn_introduction">
-		<h1>What, how, why</h1>
-		<p>Blurby visualisation. Member, venture, gig stats</p>
-		<p><%= link_to "Become a member", new_user_registration_path %> &rarr;</p>
+	<section id="introduction">
+		<h1>What is Good for Nothing?</h1>
 	</section>
 
-	<section id="gigs_teasers">
-		<% if @gig.present? %>
-			<h2>Your next dose of Good</h2>
-			<p>Join us for <%= link_to @gig.title, gig_path(@gig) %> on the <strong><%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %></strong> of <%= @gig.start_time.strftime('%B') %> in <%= link_to @gig.chapter.title, chapter_gigs_path(@gig.chapter) %></p>
-			<%= image_tag @gig.logo unless @gig.logo.url.nil? %>
-		<% end %>
+	<% if @gig.present? %>
+	<section id="gigs" class="panel">
+		<h2>The next gig</h2>
+		<p>Join us for <%= link_to @gig.title, gig_path(@gig) %> on the <strong><%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %></strong> of <%= @gig.start_time.strftime('%B') %> in <%= link_to @gig.chapter.title, chapter_gigs_path(@gig.chapter) %></p>
+		<%= image_tag @gig.logo unless @gig.logo.url.nil? %>
+		<p class="cta"><%= link_to "More".html_safe, gigs_path %></p>
+	</section>
+	<% end %>
+	
+	<section id="community" class="panel">
+		<h2>Community</h2>
+		<ul id="community_infographic">
+			<li><span><%= @cause_count %></span> amazing causes</li>
+			<li><span><%= @member_count %></span> Good for Nothingers</li>
+			<% unless user_signed_in? %>
+			<li><%= link_to "Become a member", new_user_registration_path %></li>
+			<% end %>
+		</ul>
 	</section>
 	
-	<section id="conversation_highlights">
-		<% if @posts.any? %>
-			<h2>Conversations</h2>
-			<div class="block_grid">
-				<% @posts.each do |post| %>
-					<%= render :partial => "conversation/posts/block", :locals => { :post => post }%>
-				<% end %>
-			</div>
-			<p class="cta">Read more of our <%= link_to "conversations &rarr;".html_safe, conversation_posts_path %></p>
-		<% end %>	
+	<% if @post.present? %>
+	<section id="warblings" class="panel">
+		<h2>Warblings</h2>
+		<%= render :partial => "conversation/posts/block", :locals => { :post => @post }%>
+		<p class="cta"><%= link_to "More".html_safe, conversation_posts_path %></p>
 	</section>
-	
-	<div id="venture_submission">
-		<h2>Social venture?</h2>
-		<p><%= link_to "Submit your brief", do_path %> &rarr;</p>
-	</div>
+	<% end %>
 	
 </div>

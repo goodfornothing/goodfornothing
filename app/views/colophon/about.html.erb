@@ -1,17 +1,9 @@
-<section id="primary_content" class="single">
-	
-	<div class="panel">
-		<h1>The Good for Nothing crew</h1>
-		<p>We're various people scattered around the UK.</p>	
-	</div>
-	
-	<ul class="grid_list">
-		<% @chapters.each do |chapter| %>
-			<li>
-				<h3><%= chapter.title %></h3>
-				<p><%= chapter.users.map{ |u| link_to u['name'], member_path(u) }.join(', ').html_safe %></p>
-			</li>
-		<% end %>
-	</ul>
-	
+<section id="primary_content">
+	<h1>From the horse's mouth</h1>
+	<p>[Video of community members]</p>
 </section>
+
+<aside id="secondary_content">
+	<h2>Who we are</h2>
+	<p class="cta">Read all <%= link_to "about us", who_path %></p>
+<aside>

@@ -1,4 +1,4 @@
-class Brief < ActiveRecord::Base
+class Challenge < ActiveRecord::Base
 
   attr_accessible :gig_id, :title, :description, :venture_id
 	belongs_to :gig

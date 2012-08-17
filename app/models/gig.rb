@@ -2,7 +2,7 @@ class Gig < ActiveRecord::Base
 
   attr_accessible :chapter_id, :title, :description, :location, :start_time, :end_time, :skill_ids, :partner_id, :friend_ids, :bookmark_ids, :poster, :logo
 
-	has_many :briefs
+	has_many :challenges
 	has_many :slots
   has_many :users, :through => :slots
 	belongs_to :chapter

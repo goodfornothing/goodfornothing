@@ -29,9 +29,9 @@
 
 					<ul>
 						<li><%= link_to "Community", community_path, :class => ('active' if params[:action] == 'community') %></li>
-						<li><%= link_to "Gigs", gigs_path, :class => ('active' if params[:controller] == 'gigs') %></li>
-						<li><%= link_to "About", how_path, :class => ('active' if params[:action] == 'about' || params[:action] == 'how') %></li>	
-						<li><%= link_to "Warblings", conversation_path, :class => ('active' if params[:action] == 'conversation') %></li>
+						<li><%= link_to "About", about_path, :class => ('active' if params[:action] == 'about' || params[:action] == 'about') %></li>	
+						<li><%= link_to "Challenges", challenges_path, :class => ('active' if params[:controller] == 'challenges') %></li>
+						<li><%= link_to "Warblings", warblings_path, :class => ('active' if params[:action] == 'conversation') %></li>
 					</ul>
 
 				</nav>
@@ -39,21 +39,17 @@
 				<nav id="secondary_navigation">
 					
 					<ul class="social">
-						<li><a title="Soundcloud" class="icon soundcloud" href="http://soundcloud.com/goodfornothing-1">Soundcloud</a></li>
 						<li><a title="Facebook" class="icon facebook" href="http://www.facebook.com/g00dfornothing">Facebook</a></li>
-						<li><a title="Flickr" class="icon flickr" href="http://www.flickr.com/photos/goodfornothingflickrs/">Flickr</a></li>
 						<li><a title="Twitter" class="icon twitter" href="https://twitter.com/g00dfornothing">Twitter</a></li>
 					</ul>
 					
-					<ul class="registration">
+					<p class="registration">
 						<% if user_signed_in? %>
-							<li>Hi, <%= link_to current_user.name, member_path(current_user) %>, want to <%= link_to "logout?", destroy_user_session_path, :method => :delete %></li>
+							Hi, <%= link_to current_user.name, member_path(current_user) %>, want to <%= link_to "logout?", destroy_user_session_path, :method => :delete %>
 						<% else %>
-							<li><%= link_to "Join", new_user_registration_path %></li>
-							<li>or</li>
-							<li><%= link_to "Login", new_user_session_path %></li>
+							<%= link_to "Become a member", new_user_registration_path %> or <%= link_to "Login", new_user_session_path %>
 						<% end %>
-					</ul>
+					</p>
 					
 				</nav>
 				
@@ -90,8 +86,8 @@
 					<h2>Do some good</h2>
 					<ul>
 						<%= "<li>#{link_to 'Become a member', new_user_registration_path}</li>".html_safe unless user_signed_in? %>
-						<li><%= link_to "Submit a brief", do_path %></a></li>
-						<li><%= link_to "Sponsor a gig", do_path %></li>
+						<li><%= link_to "Submit a challenge", how_path %></a></li>
+						<li><%= link_to "Sponsor a gig", how_path %></li>
 					</ul>
 				</section>
 			</div>

@@ -1,7 +1,11 @@
 class ColophonController < ApplicationController
 
-	def about
+	def who
 	  @chapters = Chapter.all
+	end
+	
+	def about
+	  
 	end
 	
 	def how
@@ -9,10 +13,6 @@ class ColophonController < ApplicationController
 	end
 
 	def community
-	  @friends = Friend.limit(4)
-	  @members = User.limit(4)
-	  @ventures = Venture.limit(4)
-	  @partners = Partner.limit(4)
 	end
 	
 	def conversation

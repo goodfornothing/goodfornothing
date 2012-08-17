@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120811170715) do
+ActiveRecord::Schema.define(:version => 20120817154309) do
 
   create_table "bookmarks_gigs", :force => true do |t|
     t.integer "gig_id"
@@ -23,22 +23,20 @@ ActiveRecord::Schema.define(:version => 20120811170715) do
     t.integer "bookmark_id"
   end
 
-  create_table "briefs", :force => true do |t|
+  create_table "challenges", :force => true do |t|
     t.string  "title"
     t.text    "description"
     t.integer "gig_id"
     t.integer "venture_id"
-    t.boolean "published",   :default => false
   end
 
   create_table "chapters", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "city"
     t.string   "country"
     t.string   "slug"
-    t.boolean  "published",  :default => false
   end
 
   add_index "chapters", ["slug"], :name => "index_chapters_on_slug", :unique => true
@@ -99,11 +97,10 @@ ActiveRecord::Schema.define(:version => 20120811170715) do
   end
 
   create_table "friends", :force => true do |t|
-    t.string  "name"
-    t.string  "url"
-    t.string  "logo"
-    t.string  "description"
-    t.boolean "published",   :default => false
+    t.string "name"
+    t.string "url"
+    t.string "logo"
+    t.string "description"
   end
 
   create_table "friends_gigs", :force => true do |t|
@@ -176,8 +173,7 @@ ActiveRecord::Schema.define(:version => 20120811170715) do
   end
 
   create_table "skills", :force => true do |t|
-    t.string  "title"
-    t.boolean "published", :default => false
+    t.string "title"
   end
 
   create_table "skills_users", :force => true do |t|

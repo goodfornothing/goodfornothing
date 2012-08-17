@@ -2,28 +2,24 @@
 	
 	<h1><%= @chapter.title if @chapter.present? %> Gigs</h1>
 	
-	<div class="panel">
-		<p>Gigs are how GFN started and they continue to be at the heart of what we do; 24 to 48 hour experiences.</p>
-		<p>Fast track making, doing and rapid prototyping; building community through demanding common tasks with music, food and laughs &ndash; creative collaboration meets rave, real people, working on real challenges, together.</p>
-	</div>
-	
-	<div class="panel">
-		<% if @current_gigs.any? %>
-			<h2>Upcoming gigs</h2>
-			<% @current_gigs.each do |gig| %>
-				<%= render :partial => "block", :locals => { :gig => gig } %>
-			<% end %>
+	<p>Gigs are how GFN started and they continue to be at the heart of what we do; 24 to 48 hour experiences.</p>
+	<p>Fast track making, doing and rapid prototyping; building community through demanding common tasks with music, food and laughs &ndash; creative collaboration meets rave, real people, working on real challenges, together.</p>
+		
+	<% if @current_gigs.any? %>
+		<h2>Upcoming gigs</h2>
+		<% @current_gigs.each do |gig| %>
+			<%= render :partial => "block", :locals => { :gig => gig } %>
 		<% end %>
-	</div>
-	
-	<div class="panel">
-		<% if @past_gigs.any? %>
-			<h2>Past gigs</h2>
-			<% @past_gigs.each do |gig| %>
-				<%= render :partial => "block", :locals => { :gig => gig } %>
-			<% end %>
+	<% end %>
+
+
+	<% if @past_gigs.any? %>
+		<h2>Past gigs</h2>
+		<% @past_gigs.each do |gig| %>
+			<%= render :partial => "block", :locals => { :gig => gig } %>
 		<% end %>
-	</div>
+	<% end %>
+
 		
 </section>
 

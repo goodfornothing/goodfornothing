@@ -1,0 +1,14 @@
+<section id="primary_content">
+	
+	<h1>Challenges</h1>
+			
+	<% if @challenges.any? %>
+		<h2>Open challenges</h2>
+		<ul>
+		<% @challenges.each do |challenge| %>
+			<li><%= challenge.title %></li>
+		<% end %>
+		</ul>
+	<% end %>
+		
+</section>

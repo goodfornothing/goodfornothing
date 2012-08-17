@@ -7,21 +7,21 @@
 	
 	<%= simple_format @gig.description %>
 	
-	<% if @gig.briefs.any? %>
+	<% if @gig.challenges.any? %>
 	
-		<h1>The brief<%= "s" if @gig.briefs.length>1 %></h1>
+		<h1>The challenge<%= "s" if @gig.challenges.length>1 %></h1>
 		
-		<% @gig.briefs.each do |brief| %>
+		<% @gig.challenges.each do |challenge| %>
 		<article>
 			
-			<% if brief.title.present? %>
-				<h2><%= brief.title %></h2>
-				<%= "<p>#{brief.venture.name}</p>".html_safe if brief.venture.present? %>
-			<% elsif brief.venture.present? %>
-				<h2><%= brief.venture.name %></h2>
+			<% if challenge.title.present? %>
+				<h2><%= challenges.title %></h2>
+				<%= "<p>#{challenge.venture.name}</p>".html_safe if challenge.venture.present? %>
+			<% elsif challenge.venture.present? %>
+				<h2><%= challenge.venture.name %></h2>
 			<% end %>
 			
-			<%= markdown.render(brief.description).html_safe unless brief.description.blank? %>
+			<%= markdown.render(challenge.description).html_safe unless challenge.description.blank? %>
 			
 		</article>
 		<% end %>

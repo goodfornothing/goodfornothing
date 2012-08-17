@@ -2,26 +2,28 @@
 
 	<section id="introduction">
 		<h1>What is Good for Nothing?</h1>
+		<p>Find a challenge...</p>
 	</section>
 
 	<% if @gig.present? %>
+	<!-- Or, the next social, or if neither, the most active challenge -->
 	<section id="gigs" class="panel">
 		<h2>The next gig</h2>
 		<p>Join us for <%= link_to @gig.title, gig_path(@gig) %> on the <strong><%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %></strong> of <%= @gig.start_time.strftime('%B') %> in <%= link_to @gig.chapter.title, chapter_gigs_path(@gig.chapter) %></p>
 		<%= image_tag @gig.logo unless @gig.logo.url.nil? %>
-		<p class="cta"><%= link_to "More".html_safe, gigs_path %></p>
+		<p class="cta"><%= link_to "Gig calendar".html_safe, gigs_path %></p>
 	</section>
 	<% end %>
 	
 	<section id="community" class="panel">
 		<h2>Community</h2>
 		<ul id="community_infographic">
-			<li><span><%= @cause_count %></span> amazing causes</li>
-			<li><span><%= @member_count %></span> Good for Nothingers</li>
-			<% unless user_signed_in? %>
-			<li><%= link_to "Become a member", new_user_registration_path %></li>
-			<% end %>
+			<li class="badge_count"><span><%= @cause_count %></span> <%= link_to "amazing causes", ventures_path %></li>
+			<li class="ticker_count"><%= spannerize("%04d" % @member_count) %> <%= link_to "Good for Nothingers", members_path %></li>
 		</ul>
+		<% unless user_signed_in? %>
+		<p class="highlight_button"><%= link_to "Become a member", new_user_registration_path %></p>
+		<% end %>
 	</section>
 	
 	<% if @post.present? %>

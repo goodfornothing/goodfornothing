@@ -5,7 +5,8 @@ Goodfornothing::Application.routes.draw do
   match "markdown_preview" => "application#markdown_preview"
   devise_for :users, :controllers => { :registrations => "registrations" } 
 
-  match "conversation" => "colophon#conversation"
+  match "warblings" => "colophon#conversation"
+  
   namespace :conversation do
     
     resources :posts, :only => [:index, :show] do
@@ -24,6 +25,8 @@ Goodfornothing::Application.routes.draw do
     
   end
 
+  resources :challenges, :only => [:show, :index]
+
 	resources :gigs, :only => [:show, :index] do
 	  collection do 
 	    match "chapter/:id" => "gigs#index", :as => "chapter"
@@ -41,9 +44,9 @@ Goodfornothing::Application.routes.draw do
   match "members" => "members#index"
   match "members/:id" => "members#show", :as => "member"
   
-  match "do" => "colophon#do"
+  match "how" => "colophon#how"
 	match "about" => "colophon#about"
-	match "how" => "colophon#how"
+	match "who" => "colophon#who"
 	match "community" => "colophon#community"
 
 	root :to => "home#index"

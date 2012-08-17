@@ -2,7 +2,7 @@ class Venture < ActiveRecord::Base
 	
 	attr_accessible :name, :url, :logo
 	
-	has_many :briefs
+	has_many :challenges
 	
 	validates_presence_of :name
 	

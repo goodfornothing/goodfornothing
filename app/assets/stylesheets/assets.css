@@ -13,20 +13,139 @@
 
 	.icon {
 		text-indent: -1337px;
-		width: 21px;
-		height: 21px;
+		width: 20px;
+		height: 20px;
 		display: block;
 		background-repeat: no-repeat;
 		background-position: 0 0;
 	}
 	
-	.social .icon { background: url(icons/social.png); }
-	.social .facebook { background-position: -21px 0; }
-	.social .twitter { background-position: -63px 0; }
-	.social .flickr { background-position: -42px 0; }
-	.social .rss { background-position: -84px 0; }
+	.social .facebook { background: url(icons/social_facebook.gif); }
+	.social .twitter { background: url(icons/social_twitter.gif); }
 	
 	.pipeline { background-image: url(icons/pipeline.png); height: 27px; width: 27px; }
+
+/* Graphical counters */
+
+	.badge_count {
+		padding: 20px 50px 20px 50px;
+		margin: 0;
+		width: 120px;
+		height: 136px;
+		text-align: center;
+		font-family: "Good for Nothing";
+		font-size: 16px;
+		list-style-type: none;
+		color: #ffffff;
+		display: block;
+		line-height: 16px;
+		background: no-repeat url(assets/badge_counter.png);
+	}
+	
+	.badge_count span {
+		font-size: 60px;
+		line-height: 60px;
+		display: block;
+		margin-bottom: 20px;
+	}
+	
+	.badge_count a {
+		color: #fff;
+	}
+	
+	.badge_count a:hover,
+	.badge_count a:focus,
+	.badge_count a:active {
+		text-decoration: none;
+	}
+	
+	.ticker_count {
+		padding-top: 35px;
+		padding-bottom: 10px;
+		position: relative;
+	}
+	
+	.ticker_count span {
+		display: inline-block;
+		width: 70px;
+		text-align: center;
+		font-size: 60px;
+		font-family: "Good for Nothing";
+		height: 69px;
+		padding-top: 27px;
+		color: #ffffff;
+		line-height: 60px;
+		margin-right: 10px;
+		background: url(assets/ticker_counter.gif) no-repeat;
+	}
+	
+	.ticker_count span:nth-child(4) {
+		margin: 0;
+	}
+	
+	.ticker_count a {
+		font-size: 18px;
+		line-height: 19px;
+		font-family: "Good for Nothing";
+		position: absolute;
+		top: 0;
+		width: 100%;
+		text-align: center;
+		color: #61514D;
+	}
+	
+	.ticker_count a:hover,
+	.ticker_count a:focus,
+	.ticker_count a:active {
+		text-decoration: none;
+	}
+	
+	.ticker_count a:before {
+		content: "";
+		background: url(icons/arrow_left.png) no-repeat 0 0;
+		display: inline-block;
+		width: 30px;
+		height: 19px;
+		top: 10px;
+		padding-right: 10px;
+		position: relative;
+	}
+	
+	.ticker_count a:after {
+		content: "";
+		background: url(icons/arrow_right.png) no-repeat 100% 0;
+		display: inline-block;
+		width: 30px;
+		height: 19px;
+		top: 10px;
+		padding-left: 10px;
+		position: relative;
+	}
+	
+/* Buttons */
+
+	.highlight_button { 
+		margin: 0; padding: 0; 
+		width: 280px;
+	}
+
+	.highlight_button a {
+		color: #ffffff;
+		font-size: 22px;
+		text-align: center;
+		font-family: "Good for Nothing";
+		padding: 25px;
+		line-height: 38px;
+		text-align: center;
+		display: block;
+		width: 230px;
+		background: url(assets/highlight_button.png) no-repeat;
+	}
+	
+	.highlight_button a:focus,
+	.highlight_button a:active,
+	.highlight_button a:hover
+	{ text-decoration: none; }
 
 /* Grid lists */
 
@@ -88,43 +207,24 @@
 	}
 	
 /* Articles */ 
-
-	article h2, article h3 {
-		margin-bottom: 5px;
-		font-size: 16px;
-	}
 	
-	article time { 
-		margin-bottom: 10px;
-	}
-	
-	.block_grid {
-		width: 100%;
-		overflow: hidden;
-	}
-
 	article.block {
 		float: left;
 		margin-right: 40px;
 		margin-bottom: 20px;
-		width: 330px;
-		height: auto !important;
-		height: 210px;
-		min-height: 210px;
+		width: 280px;
 	}
 	
 	article.block:nth-child(2n+2) {
 		margin-right: 0;
 	}
 	
-	article.block h2,
 	article.block h3 {
-		font-size: 16px;
-		margin-bottom: 20px;
+		margin-bottom: 3px;
 	}
 	
 	article.block img.hero {
-		margin-bottom: 20px;
+		margin-bottom: 15px;
 		display: block;
 	}
 	

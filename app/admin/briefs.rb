@@ -1,4 +1,4 @@
-ActiveAdmin.register Brief do
+ActiveAdmin.register Challenge do
   
   menu :priority => 2, :parent => "Events"
   filter :gig
@@ -11,7 +11,7 @@ ActiveAdmin.register Brief do
     default_actions
   end
   
-  show do |brief|
+  show do |challenge|
     attributes_table do
       row :gig
       row :venture

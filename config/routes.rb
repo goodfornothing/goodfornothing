@@ -3,7 +3,14 @@ Goodfornothing::Application.routes.draw do
   ActiveAdmin.routes(self)
   
   match "markdown_preview" => "application#markdown_preview"
-  devise_for :users, :controllers => { :registrations => "registrations" } 
+  
+  devise_for :users, :controllers => { :registrations => :registrations }
+  
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+    delete "/logout" => "devise/sessions#destroy"
+    get "/register" => "devise/registrations#new"
+  end
 
   match "warblings" => "colophon#conversation"
   

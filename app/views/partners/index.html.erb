@@ -2,22 +2,27 @@
 	
 	<h1>Partners</h1>
 	
-	<div class="panel">
-		<p>We bring brands and business together with relevant social innovators and enterprises creating experiential challenges, projects, ventures and relationships with benefits for all.</p>
-		<p>Where business uses its skills, expertise, assets and know-how to accelerate new forms of enterprise.</p>
-		<p>Good for collaboration, Good for new ways of working, Good for engagement, Good for innovation, Good for development and learning.</p>
-	</div>
+	<p>We bring brands and business together with relevant social innovators and enterprises creating experiential challenges, projects, ventures and relationships with benefits for all.</p>
+	<p>Where business uses its skills, expertise, assets and know-how to accelerate new forms of enterprise.</p>
+	<p>Good for collaboration, Good for new ways of working, Good for engagement, Good for innovation, Good for development and learning.</p>
 	
 	<% if @partners.any? %>
 	<ul id="partner_list" class="grid_list">
 		<% @partners.each do |partner| %>
+		<li>
 			<% if partner.logo.present? %>
 				<%= link_to(image_tag(partner.logo, :alt => partner.name), partner.url) %>
 			<% else %>
 				<%= link_to(partner.name, partner.url) %>
 			<% end %>
+		</li>
 		<% end %>
 	</ul>
 	<% end %>
 	
 </section>
+
+<aside id="secondary_content">
+	<h2>Put on a gig</h2>
+	<p>Do it...</p>
+</aside>

@@ -45,9 +45,9 @@
 					
 					<p class="registration">
 						<% if user_signed_in? %>
-							Hi, <%= link_to current_user.name, member_path(current_user) %>, want to <%= link_to "logout?", destroy_user_session_path, :method => :delete %>
+							View <%= link_to "your profile", member_path(current_user) %>, or <%= link_to "logout", logout_path, :method => :delete %>
 						<% else %>
-							<%= link_to "Become a member", new_user_registration_path %> or <%= link_to "Login", new_user_session_path %>
+							<%= link_to "Become a member", register_path %> or <%= link_to "Login", login_path %>
 						<% end %>
 					</p>
 					
@@ -58,19 +58,20 @@
 		<div class="container" id="main" role="main">
 			<%= "<p><strong>#{flash[:error]}</strong></p>".html_safe if flash[:error] %>
 			<%= "<p><strong>#{flash[:notice]}</strong></p>".html_safe if flash[:notice] %>
+			<%= "<p><strong>#{flash[:alert]}</strong></p>".html_safe if flash[:alert] %>
 			<%= yield %>
 		</div>
 	
 		<footer>
 			<div class="container">
 				<section>
-					<h2>Good for Nothing</h2>
+					<h2>What is this?</h2>
 					<p>Good for Nothing is the social mission of The Pipeline Project.</p>
 					<p>We give time, money and energy to do stuff that supports people trying to make positive impact and change happen.</p>
 				</section>
 				<section>
 					<h2>Crew</h2>
-					<p>We have a team of passionate folk running Good for Nothing around the UK.</p>
+					<p>We have a team of passionate folk looking after Good for Nothing around the UK.</p>
 					<p><%= @crew.map{ |u| link_to u.short_name, member_path(u) }.join(', ').html_safe %></p>
 				</section>
 				<section>
@@ -83,11 +84,11 @@
 					</ul>
 				</section>
 				<section>
-					<h2>Do some good</h2>
+					<h2>Get involved</h2>
 					<ul>
 						<%= "<li>#{link_to 'Become a member', new_user_registration_path}</li>".html_safe unless user_signed_in? %>
 						<li><%= link_to "Submit a challenge", how_path %></a></li>
-						<li><%= link_to "Sponsor a gig", how_path %></li>
+						<li><%= link_to "Put on a gig", how_path %></li>
 					</ul>
 				</section>
 			</div>

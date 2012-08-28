@@ -26,12 +26,6 @@ gem 'sass-rails'
 gem 'friendly_id', '~> 4.0.1'
 gem "fog", "~> 1.3.1"
 
-#gem "curatr", :path => "/Users/andrewsprinz/Sites/curatr"
-
-# Visualising domain model
-gem 'railroady'
-gem "rails-erd"
-
 # For Heroku
 gem 'pg'
 

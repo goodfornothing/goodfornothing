@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  
   def update
     # Devise use update_with_password instead of update_attributes.
     # This is the only change we make.
@@ -12,4 +13,11 @@ class RegistrationsController < Devise::RegistrationsController
       render_with_scope :edit
     end
   end
+  
+  protected
+  
+    def after_update_path_for(resource)
+      user_path(resource)
+    end
+  
 end

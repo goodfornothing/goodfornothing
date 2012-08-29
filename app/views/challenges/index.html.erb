@@ -6,7 +6,7 @@
 		<h2>Open challenges</h2>
 		<ul>
 		<% @challenges.each do |challenge| %>
-			<li><%= challenge.title %></li>
+			<li><%= link_to challenge.title, challenge_path(challenge) %> <%= "for #{challenge.venture.name}" if challenge.venture.present? %></li>
 		<% end %>
 		</ul>
 	<% end %>

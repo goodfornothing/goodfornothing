@@ -7,9 +7,5 @@ class ChallengesController < ApplicationController
 	def index
 	  @challenges = Challenge.all
 	end
-	
-	def join
-	  # if not already 'attending' this brief's gig, add user to generic slot
-	end
 
 end

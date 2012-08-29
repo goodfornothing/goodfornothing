@@ -11,26 +11,12 @@ Goodfornothing::Application.routes.draw do
     delete "/logout" => "devise/sessions#destroy"
     get "/register" => "devise/registrations#new"
   end
-
-  match "warblings" => "colophon#conversation"
   
-  namespace :conversation do
-    
-    resources :posts, :only => [:index, :show] do
-		  collection do 
-  	    match "category/:id" => "posts#index", :as => "categorised"
-  	  end
-		end
-		
-		resources :bookmarks do
-	    collection do 
-  	    get "index"
-  	    get "search"
-  	    match "tag/:id" => "bookmarks#index", :as => "tagged"
-  	  end
-    end
-    
-  end
+  resources :warblings, :only => [:index,:show]
+  resources :posts, :only => [:show]
+
+  match "library" => "bookmarks#index"
+  match "library/search" => "bookmarks#search"
 
   resources :challenges, :only => [:show, :index]
 

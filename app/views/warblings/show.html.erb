@@ -1,0 +1,34 @@
+<section id="primary_content">
+
+	<h1><%= @warbling.title %></h1>
+		
+	<% if @warbling.posts.any? %>
+	<h2>Posts</h2>
+	<ul>
+		<% @warbling.posts.each do |post| %>
+		<li><%= link_to post.title, post_path(post) %></li>
+		<% end %>
+	</ul>
+	<% end %>	
+	
+	<% if @warbling.bookmarks.any? %>
+	<h2>Bookmarks</h2>
+	<ul>
+		<% @warbling.bookmarks.each do |bookmark| %>
+		<li><%= link_to bookmark.title, bookmark.url %></li>
+		<% end %>
+	</ul>
+	<% end %>
+			
+</section>
+
+<% if @warblings %>
+<section id="secondary_content">
+<h2>Warblings</h2>
+<ul>
+	<% @warblings.each do |warbling| %>
+		<li><%= link_to warbling.title, warbling_path(warbling) %></li>
+	<% end %>
+</ul>
+</section>
+<% end %>

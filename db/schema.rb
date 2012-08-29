@@ -11,15 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817154309) do
+ActiveRecord::Schema.define(:version => 20120829101440) do
 
-  create_table "bookmarks_gigs", :force => true do |t|
-    t.integer "gig_id"
+  create_table "bookmarks", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "url"
+    t.boolean  "published",   :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "strikes",     :default => 0
+  end
+
+  create_table "bookmarks_challenges", :force => true do |t|
+    t.integer "challenge_id"
     t.integer "bookmark_id"
   end
 
-  create_table "bookmarks_tags", :force => true do |t|
-    t.integer "tag_id"
+  create_table "bookmarks_warblings", :force => true do |t|
+    t.integer "warbling_id"
     t.integer "bookmark_id"
   end
 
@@ -40,50 +50,6 @@ ActiveRecord::Schema.define(:version => 20120817154309) do
   end
 
   add_index "chapters", ["slug"], :name => "index_chapters_on_slug", :unique => true
-
-  create_table "conversation_bookmarks", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.text     "url"
-    t.boolean  "published",   :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "strikes",     :default => 0
-  end
-
-  create_table "conversation_categories", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "slug"
-  end
-
-  add_index "conversation_categories", ["slug"], :name => "index_conversation_categories_on_slug", :unique => true
-
-  create_table "conversation_posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.integer  "category_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "user_id"
-    t.integer  "chapter_id"
-    t.integer  "wordpress_id"
-    t.text     "excerpt"
-    t.string   "hero_image"
-    t.string   "slug"
-  end
-
-  add_index "conversation_posts", ["slug"], :name => "index_conversation_posts_on_slug", :unique => true
-
-  create_table "conversation_tags", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "slug"
-  end
-
-  add_index "conversation_tags", ["slug"], :name => "index_conversation_tags_on_slug", :unique => true
 
   create_table "events_users", :id => false, :force => true do |t|
     t.integer "event_id"
@@ -167,6 +133,22 @@ ActiveRecord::Schema.define(:version => 20120817154309) do
     t.string "logo"
   end
 
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "warbling_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
+    t.integer  "chapter_id"
+    t.integer  "wordpress_id"
+    t.text     "excerpt"
+    t.string   "hero_image"
+    t.string   "slug"
+  end
+
+  add_index "posts", ["slug"], :name => "index_conversation_posts_on_slug", :unique => true
+
   create_table "posts_tags", :force => true do |t|
     t.integer "tag_id"
     t.integer "post_id"
@@ -191,6 +173,15 @@ ActiveRecord::Schema.define(:version => 20120817154309) do
     t.integer "slot_id"
     t.integer "user_id"
   end
+
+  create_table "tags", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "slug"
+  end
+
+  add_index "tags", ["slug"], :name => "index_conversation_tags_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
@@ -229,5 +220,14 @@ ActiveRecord::Schema.define(:version => 20120817154309) do
     t.string "name"
     t.string "url"
   end
+
+  create_table "warblings", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "slug"
+  end
+
+  add_index "warblings", ["slug"], :name => "index_conversation_categories_on_slug", :unique => true
 
 end

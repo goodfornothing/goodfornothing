@@ -22,16 +22,19 @@
 			overflow: hidden;
 			background: #ffffff repeat-x center bottom url(layout/header.gif);
 			text-align: center;
-			min-height: 190px;
+		}
+		
+		header .container {
+			background: no-repeat url(branding/bird.png) 50px bottom;
+			padding-bottom: 80px;
 		}
 		
 		header #branding {
 			display: inline-block;
-			margin: 45px auto 35px;
+			margin: 45px auto 22px;
 			padding: 0;
 			min-width: 274px;
 			background: #D0122D url(assets/horizontal_splodge.gif) no-repeat top left;
-			
 		}
 		
 		header h1#branding,
@@ -66,7 +69,7 @@
 			list-style-type: none;
 			padding: 0;
 			float: left;
-			margin-left: 8px;
+			margin-left: 16px;
 		}
 		
 		header #secondary_navigation .social li:first-child { margin-right: 0; }
@@ -102,7 +105,7 @@
 				list-style-type: none;
 				padding: 0;
 				display: inline-block;
-				margin-right: 26px;
+				margin-right: 12px;
 				font-size: 14px;
 				letter-spacing: 1px;
 			}
@@ -111,6 +114,8 @@
 		
 		header #primary_navigation ul li a {
 				color: #60504D;
+				padding: 6px 3px;
+				display: block;
 			}
 		
 		header #primary_navigation ul li a.active,
@@ -118,12 +123,42 @@
 		header #primary_navigation ul li a:focus,
 		header #primary_navigation ul li a:active {
 				text-decoration: none;
-			}
+				color: #D0122D;
+				background: url(assets/hover_2.png) repeat-x bottom left;
+				
+		}
+		
+		header #primary_navigation ul li:first-child a { padding: 11px 13px 16px; }
+		header #primary_navigation ul li:first-child a.active,
+		header #primary_navigation ul li:first-child a:hover,
+		header #primary_navigation ul li:first-child a:focus,
+		header #primary_navigation ul li:first-child a:active {
+				text-decoration: none;
+				background: url(assets/hover_1.png) no-repeat top center;
+		}
+		
+		header #primary_navigation ul li:nth-child(3) a { padding: 15px 14px 16px; }
+		header #primary_navigation ul li:nth-child(3) a.active,
+		header #primary_navigation ul li:nth-child(3) a:hover,
+		header #primary_navigation ul li:nth-child(3) a:focus,
+		header #primary_navigation ul li:nth-child(3) a:active {
+				text-decoration: none;
+				background: url(assets/hover_3.png) no-repeat top center;
+		}
+		
+		header #primary_navigation ul li:last-child a { padding: 10px 10px 13px; }
+		header #primary_navigation ul li:last-child a.active,
+		header #primary_navigation ul li:last-child a:hover,
+		header #primary_navigation ul li:last-child a:focus,
+		header #primary_navigation ul li:last-child a:active {
+				text-decoration: none;
+				background: url(assets/hover_4.png) no-repeat top center;
+		}
 
 	/*= main */
 
 		#main {
-			padding: 30px 0px;
+			padding: 30px 0px 60px;
 		}
 	
 		#main #primary_content {

@@ -1,0 +1,21 @@
+<section id="primary_content">
+
+	<h1>Warblings</h1>
+	
+	<% if @warblings %>
+	<ul class="grid_list">
+		<% @warblings.each do |warbling| %>
+			<li><%= link_to warbling.title, warbling_path(warbling) %></li>
+		<% end %>
+	</ul>
+	<% end %>
+			
+</section>
+
+<section id="secondary_content">
+	<h2>Search the library</h2>
+	<p>The Library is a collection interesting stories and resources from around the web.</p>
+	
+	<%= render "bookmarks/search_form" %>	
+	<p class="cta">More from <%= link_to "library &rarr;".html_safe, library_path %></p>
+</section>

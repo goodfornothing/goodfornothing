@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :fetch_crew
+  before_filter :fetch_chapters
 
   def authenticate_admin_user!
   	redirect_to new_user_session_path and return if user_signed_in? && !current_user.admin? 
@@ -25,8 +25,8 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def fetch_crew
-    @crew = User.where('chapter_id IS NOT NULL').all
+  def fetch_chapters
+    @chapters = Chapter.all
   end
 
 end

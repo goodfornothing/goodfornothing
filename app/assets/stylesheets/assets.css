@@ -139,13 +139,13 @@
 		text-align: center;
 		display: block;
 		width: 230px;
-		background: url(assets/highlight_button.png) no-repeat;
+		background: url(assets/highlight_button.png) no-repeat center -85px;
 	}
 	
 	.highlight_button a:focus,
 	.highlight_button a:active,
 	.highlight_button a:hover
-	{ text-decoration: none; }
+	{ text-decoration: none; background-position: center top; }
 
 /* Grid lists */
 
@@ -212,7 +212,7 @@
 		float: left;
 		margin-right: 40px;
 		margin-bottom: 20px;
-		width: 280px;
+		width: 380px;
 	}
 	
 	article.block:nth-child(2n+2) {

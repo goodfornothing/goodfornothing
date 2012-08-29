@@ -1,12 +1,6 @@
 <div id="primary_content" class="single">
 
-	<section id="introduction">
-		<h1>What is Good for Nothing?</h1>
-		<p>Find a challenge...</p>
-	</section>
-
 	<% if @gig.present? %>
-	<!-- Or, the next social, or if neither, the most active challenge -->
 	<section id="gigs" class="panel">
 		<h2>The next gig</h2>
 		<p>Join us for <%= link_to @gig.title, gig_path(@gig) %> on the <strong><%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %></strong> of <%= @gig.start_time.strftime('%B') %> in <%= link_to @gig.chapter.title, chapter_gigs_path(@gig.chapter) %></p>
@@ -26,11 +20,11 @@
 		<% end %>
 	</section>
 	
-	<% if @post.present? %>
+	<% if @warblings.any? %>
 	<section id="warblings" class="panel">
-		<h2>Warblings</h2>
-		<%= render :partial => "conversation/posts/block", :locals => { :post => @post }%>
-		<p class="cta"><%= link_to "More".html_safe, conversation_posts_path %></p>
+		<h2>Most active Warblings</h2>
+		<%= render :partial => "warblings/list" %>
+		<p class="cta"><%= link_to "More".html_safe, warblings_path %></p>
 	</section>
 	<% end %>
 	

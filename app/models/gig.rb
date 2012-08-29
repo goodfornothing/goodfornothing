@@ -8,7 +8,6 @@ class Gig < ActiveRecord::Base
 	belongs_to :chapter
 	belongs_to :partner
 	has_and_belongs_to_many :friends
-	has_and_belongs_to_many :bookmarks, :class_name => "Conversation::Bookmark"
 	
 	after_create :create_generic_slot
 	

@@ -1,0 +1,19 @@
+<article class="block">
+	
+	<% if post.hero_image.url.nil? %>
+		<%= image_tag "assets/placeholder.png", :class => "hero" %>
+	<% else %>
+		<%= image_tag post.hero_image.thumbnail, :class => "hero" %>
+	<% end %>
+	
+	<% if post.body.blank? %>
+		<h3><%= post.title %></h3>
+	<% else %>
+		<h3><%= link_to post.title, post_path(post) %></h3>
+	<% end %>
+	
+	<time><%= post.created_at.to_formatted_s(:long_ordinal) %></time>
+	
+	<%= markdown.render(post.excerpt).html_safe %>
+	
+</article>

@@ -1,0 +1,10 @@
+<section id="primary_content">
+	<h1>Links matching '<%= params[:term] %>'</h1>
+	<%= render "list" %>
+</section>
+
+<aside id="secondary_content">
+	<h2>Search the Library</h2>
+	<%= render "search_form" %>
+	<p class="cta">View the entire <%= link_to "library &rarr;".html_safe, library_path %></p>	
+</aside>

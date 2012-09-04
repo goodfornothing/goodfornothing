@@ -32,6 +32,9 @@ class User < ActiveRecord::Base
     self.gigs.include?(gig)
   end
   
+  # These are devise approval 
+  # methods and nothing to do 
+  # with Ning user activation
   def active_for_authentication? 
     super && approved? 
   end 
@@ -42,6 +45,13 @@ class User < ActiveRecord::Base
     else 
       super
     end 
+  end
+  
+  # Ning user activation path
+  def activation_path
+    unless user.ning.nil?
+      claim_path(user.ning.id,user.id)
+    end
   end
   
   protected

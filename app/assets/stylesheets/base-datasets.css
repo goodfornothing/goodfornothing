@@ -23,7 +23,9 @@
   
 /* =input */
 
-  .string input { 
+  .string input,
+	.email input,
+	.password input  { 
     padding: 5px; 
     margin-bottom: 1em; 
     font-size: 1em;

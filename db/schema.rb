@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120829101440) do
+ActiveRecord::Schema.define(:version => 20120829160921) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "title"
@@ -208,6 +208,7 @@ ActiveRecord::Schema.define(:version => 20120829101440) do
     t.integer  "age"
     t.text     "reasons_for_joining"
     t.string   "slug"
+    t.boolean  "activated",              :default => false
   end
 
   add_index "users", ["approved"], :name => "index_users_on_approved"

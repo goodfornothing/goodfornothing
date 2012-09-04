@@ -10,6 +10,7 @@ Goodfornothing::Application.routes.draw do
     get "/login" => "devise/sessions#new"
     delete "/logout" => "devise/sessions#destroy"
     get "/register" => "devise/registrations#new"
+    get "/claim/:id/:secret" => "registrations#claim", :as => "claim"
   end
   
   resources :warblings, :only => [:index,:show]

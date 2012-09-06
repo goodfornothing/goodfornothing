@@ -1,6 +1,8 @@
 <section id="primary_content">
 	<h2><%= @challenge.title %></h2>
 	<%= simple_format @challenge.description %>
+	<h2>How to get involved</h2>
+	[iconography]
 </section>
 
 <aside id="secondary_content">
@@ -14,7 +16,6 @@
 	<h2>Venture</h2>
 	<p><%= @challenge.venture.name %></p>
 	<% end %>
-	
 	
 	<% if @challenge.bookmarks.any? %>
 	<h2>Inspiration</h2>

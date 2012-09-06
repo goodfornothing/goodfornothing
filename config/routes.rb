@@ -19,7 +19,11 @@ Goodfornothing::Application.routes.draw do
   match "library" => "bookmarks#index"
   match "library/search" => "bookmarks#search"
 
-  resources :challenges, :only => [:show, :index]
+  resources :challenges, :only => [:show, :index, :new] do
+    collection do
+      match "warbling/:id" => "challenges#index", :as => "warbling"
+    end
+  end
 
 	resources :gigs, :only => [:show, :index] do
 	  collection do 
@@ -31,7 +35,7 @@ Goodfornothing::Application.routes.draw do
 	  end
 	end
 	
-  resources :partners, :only => [:index]
+  resources :partners, :only => [:index,:new]
   resources :friends, :only => [:index]
   resources :ventures, :only => [:index]
   

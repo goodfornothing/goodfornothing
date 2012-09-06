@@ -1,7 +1,7 @@
 ActiveAdmin.register Warbling do
   
-  menu :parent => "Warblings"
- 
+  menu :priority => 1, :parent => "Conversations"
+   
   config.clear_sidebar_sections!
   
 	index do

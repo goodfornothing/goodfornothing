@@ -1,7 +1,7 @@
 ActiveAdmin.register Post do
   
-  menu :parent => "Warblings", :priority => 1
-  
+  menu :priority => 2, :parent => "Conversations"
+    
   filter :warbling
   filter :chapter
   

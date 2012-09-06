@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120829160921) do
+ActiveRecord::Schema.define(:version => 20120905221830) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "title"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(:version => 20120829160921) do
     t.text    "description"
     t.integer "gig_id"
     t.integer "venture_id"
+    t.boolean "featured",    :default => false
+    t.boolean "active",      :default => false
+  end
+
+  create_table "challenges_warblings", :force => true do |t|
+    t.integer "challenge_id"
+    t.integer "warbling_id"
   end
 
   create_table "chapters", :force => true do |t|
@@ -128,9 +135,13 @@ ActiveRecord::Schema.define(:version => 20120829160921) do
   end
 
   create_table "partners", :force => true do |t|
-    t.string "name"
-    t.string "url"
-    t.string "logo"
+    t.string  "name"
+    t.string  "url"
+    t.string  "logo"
+    t.boolean "active", :default => false
+    t.string  "type"
+    t.string  "email"
+    t.text    "notes"
   end
 
   create_table "posts", :force => true do |t|

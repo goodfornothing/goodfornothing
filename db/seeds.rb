@@ -1,14 +1,21 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
-Conversation::Category.create([
-  { title: 'Innovation in Giving' }
+Skill.create([
+  { title: 'Think' },
+  { title: 'Design' },
+  { title: 'Code' }
 ])
 
-Skill.create([
-  { title: 'All rounder' },
-  { title: 'Designer' },
-  { title: 'Developer' }
+Warbling.create([
+  { title: 'Food' },
+  { title: 'Energy' },
+  { title: 'Environment' },
+  { title: 'Education' },
+  { title: 'Poverty' },
+  { title: 'Inequality' },
+  { title: 'Health' },
+  { title: 'Community' }
 ])
 
 @london = Chapter.create({
@@ -475,7 +482,7 @@ Venture.create([
   end_time: DateTime.new(2012, 7, 24, 17)
 })
 
-Brief.create([
+Challenge.create([
   {
     gig_id: @wildthing.id
   },

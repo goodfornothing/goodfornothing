@@ -44,9 +44,9 @@
 	
 	.badge_count span {
 		font-size: 60px;
-		line-height: 60px;
+		line-height: 74px;
 		display: block;
-		margin-bottom: 20px;
+		margin-bottom: 6px;
 	}
 	
 	.badge_count a {
@@ -74,7 +74,7 @@
 		height: 69px;
 		padding-top: 27px;
 		color: #ffffff;
-		line-height: 60px;
+		line-height: 73px;
 		margin-right: 10px;
 		background: url(assets/ticker_counter.gif) no-repeat;
 	}
@@ -135,7 +135,7 @@
 		text-align: center;
 		font-family: "Good for Nothing";
 		padding: 25px;
-		line-height: 38px;
+		line-height: 42px;
 		text-align: center;
 		display: block;
 		width: 230px;

@@ -1,7 +1,7 @@
 <section id="primary_content">
 	
 	<h1>Challenges</h1>
-			
+	
 	<% if @challenges.any? %>
 		<h2>Open challenges</h2>
 		<ul>
@@ -12,3 +12,20 @@
 	<% end %>
 		
 </section>
+
+<aside id="secondary_content">
+	
+	<h2>Filter by warbling</h2>
+	<ul>
+		<% @warblings.each do |warbling| %>
+		<li><%= link_to warbling.title, warbling_challenges_path(warbling) %></li>
+		<% end %>
+	</ul>
+	
+	<h2>Gig calendar</h2>
+	<p><%= link_to "Calendar", gigs_path %></p>
+	
+	<h2>Submit a challenge</h2>
+	<p><%= link_to "Challenge", new_challenge_path %></p>
+	
+</aside>

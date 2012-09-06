@@ -6,38 +6,132 @@
 		
 		<%= f.error_notification %>
 
+		<fieldset class="slide warblings">
+			<legend>1. Which issues are you most passionate about?</legend>
+			
+			<div class="boolean">
+				<input type="checkbox">
+				<label>Food</label>
+			</div>
+			
+			<div class="boolean">
+				<input type="checkbox">
+				<label>Energy</label>
+			</div>
+			
+			<div class="boolean">
+				<input type="checkbox">
+				<label>Environment</label>
+			</div>
+			
+			<div class="boolean">
+				<input type="checkbox">
+				<label>Education</label>
+			</div>
+			
+			<div class="boolean">
+				<input type="checkbox">
+				<label>Poverty</label>
+			</div>
+			
+			<div class="boolean">
+				<input type="checkbox">
+				<label>Inequality</label>
+			</div>
+			
+			<div class="boolean">
+				<input type="checkbox">
+				<label>Health</label>
+			</div>
+			
+			<div class="boolean">
+				<input type="checkbox">
+				<label>Community</label>
+			</div>
+		</fieldset>
+		
+		<fieldset class="slide chapters">
+			<legend>2. Which Good for Nothing chapter are you closest to?</legend>
+			
+			<div class="input boolean">
+				<input type="radio" name="chapter">
+				<label>London, UK</label>
+				<input type="radio" name="chapter">
+				<label>Brighton, UK</label>
+				<input type="radio" name="chapter">
+				<label>Bristol, UK</label>
+				<input type="radio" name="chapter">
+				<label>Manchester, UK</label>
+				<input type="radio" name="chapter">
+				<label>Wellington, NZ</label>
+				<input type="radio" name="chapter">
+				<label>It's not happening near me yet!</label>
+			</div>
+			
+			<div class="input string">
+				<br /><br />
+				<label>If none, where are you?</label>
+				<select>
+					<option></option>
+					<optgroup label="United Kingdom">
+						<option>Southwest</option>
+						<option>North</option>
+					</optgroup>
+					<optgroup label="International">
+						<option>France</option>
+						<option>Japan</option>
+					</optgroup>
+				</select>
+				<em>[only appears if use selects "It's not happening near me yet!"]</em>
+				
+			</div>
+			
+		</fieldset>
+		
+		<fieldset class="slide involvement">
+			<legend>3. Your talents</legend>
+			(you can tell us more about your skills later)
+			<%= f.association :skills, :as => :check_boxes, :label => "" %>
+			<br />
+			<em>[displayed as sliders]</em>
+		
+		</fieldset>
+
 		<fieldset>
-			<legend>Membership information</legend>
+			<legend>4. Claim your profile</legend>
 			<%= f.input :name, :required => true %>
 			<%= f.input :email, :required => true %>
-		</fieldset>
-
-		<fieldset>
-			<legend>Skills</legend>
-			<%= f.association :skills, :as => :check_boxes %>
-		</fieldset>
-
-		<fieldset>
-			<legend>Your profile</legend>
-			<%= f.input :avatar %>
-			<%= f.input :gender, :as => :select, :collection => ["Female", "Male", "Transgender"] %>
-			<%= f.input :age %>
-			<%= f.input :url, :label => "Your digital location" %>
-			<%= f.input :location, :label => "Your physical location" %>
-			<%= f.input :twitter_handle %>
-			<%= f.input :join_mailing_list, :as => :boolean, :label => "On mailing list?" %>
-		</fieldset>
-
-		<fieldset>
-			<legend>Password</legend>
 			<%= f.input :password, :required => false, :input_html => { :autocomplete => "off" } %>
 			<%= f.input :password_confirmation, :required => false, :input_html => { :autocomplete => "off" } %>
-		</fieldset>
-
-		<fieldset class="actions">
-			<%= f.button :submit, "Save" %>
+			<br /><br />
+			<%= f.input :reasons_for_joining, :input_html => { :rows => 5 } %>
+			
+			<%= f.input :join_mailing_list, :as => :boolean, :label => "Join the GFN mailing list?" %>
+			<%= f.button :submit, "Apply for membership" %>
 		</fieldset>
 		
 	<% end %>
 
 </section>
+
+<aside id="secondary_content">
+	
+	<div style="padding-top: 410px" id="slide_information_warblings">
+		<h2 class="border-top: 1px dotted #000000">Challenges we've tackled that match your interests</h2>
+		<ul>
+			<li>DoNation</li>
+			<li><em>[grid of logos]</em></li>
+		</ul>
+		
+	</div>
+	
+	<div style="padding-top: 200px" id="slide_information_chapters">
+		<h2 class="border-top: 1px dotted #000000">Members in your area</h2>
+		<ul>
+			<li>Tom</li>
+			<li><em>[grid of avatars, 5-10]</em></li>
+		</ul>
+		
+	</div>
+	
+</aside>

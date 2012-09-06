@@ -1,5 +1,6 @@
 ActiveAdmin.register Bookmark do
-  menu :parent => "Warblings"
+  
+  menu :priority => 3, :parent => "Conversations"
   
   config.clear_sidebar_sections!
   

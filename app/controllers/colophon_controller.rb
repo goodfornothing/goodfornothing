@@ -6,9 +6,6 @@ class ColophonController < ApplicationController
 	
 	def about
 	end
-	
-	def how 
-	end
 
 	def community
 	end

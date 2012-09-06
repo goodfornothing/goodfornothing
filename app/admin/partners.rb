@@ -11,6 +11,9 @@ ActiveAdmin.register Partner do
   
   show do |partner|
     attributes_table do
+      row :type
+      row :email
+      row :notes
       row :name
       row "Website" do
         partner.url unless partner.url.nil?
@@ -26,6 +29,7 @@ ActiveAdmin.register Partner do
       f.input :name
       f.input :url, :label => "Website"
       f.input :logo
+      f.input :active
     end
     f.buttons
   end

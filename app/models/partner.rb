@@ -1,6 +1,6 @@
 class Partner < ActiveRecord::Base
   
-  attr_accessible :name, :url, :logo
+  attr_accessible :name, :url, :logo, :active, :type
 
   has_many :gigs
   

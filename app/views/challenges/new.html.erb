@@ -1,0 +1,13 @@
+<h2>Submit a challenge</h2>
+<%= simple_form_for [@challenge] do |f| %>
+  
+	<%= field_set_tag nil do %>
+		<%= f.input :title %>
+		<%= f.input :description %>
+	<% end %>
+
+	<%= field_set_tag nil, :class => "actions" do %>
+		<%= f.submit :value => "Submit" %>	
+	<% end %>
+	
+<% end %>

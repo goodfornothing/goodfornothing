@@ -1,0 +1,17 @@
+<h2>Partner with us</h2>
+<%= simple_form_for [@partner] do |f| %>
+  
+	<%= field_set_tag do %>
+		<%= f.input :name %>
+		<%= f.input :type, :collection => [ 'Sponsor a challenge', 'Give us stuff to help fuel gigs', 'Get your people doing Good for Nothing', 'Invest in Good for Nothing'] %>
+		<%= f.input :email %>
+		<%= f.input :notes %>
+	<% end %>
+
+	<%= field_set_tag nil, :class => "actions" do %>
+		<%= f.submit :value => "Submit" %>	
+	<% end %>
+	
+<% end %>
+
+

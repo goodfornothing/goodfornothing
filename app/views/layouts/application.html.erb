@@ -56,7 +56,7 @@
 				<% if params[:controller] == "home" %>
 				<section id="introduction">
 					<h2>What<br /> is Good for Nothing?</h2>
-					<p>If not member, show intro, if member [Find a challenge]</p>
+					<p><%= link_to "Smart folk", community_path %> <span>collaborating and experimenting to solve</span> <%= link_to "stuff that matters", challenges_path %></p>
 				</section>
 				<% end %>
 				
@@ -72,15 +72,17 @@
 		<footer>
 			<div class="container">
 				<section>
-					<h2>Local chapters</h2>
+					<h2>Good for Near You</h2>
+					<p>Taking challenges offline is important, be it in the form of a two day <%= link_to "collaborative gig", gigs_path %> or just grabbing a coffee. So we're starting to set up some local chapters:</p>
 					<p><%= @chapters.map{ |c| c.title }.join(', ').html_safe %></p>
+					<p class="cta">If you're not already covered, <a href="mailto:hello@goodfornothing.com">drop us a note</a>, maybe you can start your own.</p>
 				</section>
 				<section>
-					<h2>Other ways to give</h2>
+					<h2>Get involved</h2>
 					<ul>
-						<%= "<li>#{link_to 'Become a member', register_path}</li>".html_safe unless user_signed_in? %>
-						<li><%= link_to "Submit a challenge", how_path %></a></li>
-						<li><%= link_to "Put on a gig", how_path %></li>
+						<li><%= link_to 'Find a challenge', challenges_path %></li>
+						<li><%= link_to "Submit a challenge", new_challenge_path %></a></li>
+						<li><%= link_to "Partner with us", new_partner_path %></li>
 					</ul>
 				</section>
 			</div>

@@ -2,11 +2,18 @@
 	
 	<h1>Challenges</h1>
 	
+	<h2>Filter by issue</h2>
+	<ul>
+		<% @warblings.each do |warbling| %>
+		<li><%= link_to warbling.title, warbling_challenges_path(warbling) %></li>
+		<% end %>
+	</ul>
+	
 	<% if @challenges.any? %>
 		<h2>Open challenges</h2>
 		<ul>
 		<% @challenges.each do |challenge| %>
-			<li><%= link_to challenge.title, challenge_path(challenge) %> <%= "for #{challenge.venture.name}" if challenge.venture.present? %></li>
+			<li><%= link_to challenge.title, challenge_path(challenge) %> <%= "for #{challenge.cause}" unless challenge.cause.nil? %></li>
 		<% end %>
 		</ul>
 	<% end %>
@@ -14,13 +21,6 @@
 </section>
 
 <aside id="secondary_content">
-	
-	<h2>Filter by warbling</h2>
-	<ul>
-		<% @warblings.each do |warbling| %>
-		<li><%= link_to warbling.title, warbling_challenges_path(warbling) %></li>
-		<% end %>
-	</ul>
 	
 	<h2>Gig calendar</h2>
 	<p><%= link_to "Calendar", gigs_path %></p>

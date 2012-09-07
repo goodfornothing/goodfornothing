@@ -32,35 +32,42 @@
 
 <aside id="secondary_content">
 	
-	<% if user_signed_in? && current_user.is_attending?(@gig) %>
-		<h2>You're attending this gig</h2>
-		<p>You've signed up for this gig, please let us know if you can no longer make it.</p>
-		<p><%= link_to "Can no longer attend", attend_gig_path(@gig) %></p>
-	<% elsif @gig.slots.count == 1 && @gig.slots.first.skill.nil? %>
-		<h2>Attend gig</h2>
-		<p>This gig is open to all.</p> 
-		<p><%= link_to "Attend", attend_gig_path(@gig, :slot => @gig.slots.first) %></p>
-	<% elsif @gig.slots.any? %>
-		<h2>Attend gig</h2>
-		<table>
-			<thead>
-				<tr>
-					<td>Skill</td>
-					<td>Slots</td>
-				</tr>
-			</thead>
-			<tbody>
-				<% @gig.slots.each do |slot| %>
-				<tr>
-					<td><%= (slot.skill.present?) ? slot.skill.title : "Open to all" %></td>
-					<td><%= (slot.limit) ? slot.available_slots : "Unlimited" %></td>
-					<% if slot.limit.nil? || slot.available_slots > 0 %>
-					<td><%= link_to "Attend", attend_gig_path(@gig, :slot => slot) %></td>
+	<% if @gig.start_time.past? && @gig.end_time.future? %>
+		<p>This gig's happening right now, you can no longer register, but feel free to just drop in and say hello anyway!</p>
+	<% elsif @gig.end_time.past? %>
+		<p>This gig has ended but you can still get involved in its challenges.</p>
+	<% else %>
+		<% if user_signed_in? && current_user.is_attending?(@gig) %>
+			<h2>You're attending this gig</h2>
+			<p>You've signed up for this gig, please let us know if you can no longer make it.</p>
+			<p><%= link_to "Can no longer attend", attend_gig_path(@gig) %></p>
+		<% elsif @gig.slots.count == 1 && @gig.slots.first.skill.nil? %>
+			<h2>Attend gig</h2>
+			<p>This gig is open to all.</p> 
+			<p><%= link_to "Attend", attend_gig_path(@gig, :slot => @gig.slots.first) %></p>
+		<% elsif @gig.slots.any? %>
+			<h2>Attend gig</h2>
+			<table>
+				<thead>
+					<tr>
+						<td>Skill</td>
+						<td>Slots</td>
+					</tr>
+				</thead>
+				<tbody>
+					<% @gig.slots.each do |slot| %>
+					<tr>
+						<td><%= (slot.skill.present?) ? slot.skill.title : "Open to all" %></td>
+						<td><%= (slot.limit) ? slot.available_slots : "Unlimited" %></td>
+						<% if slot.limit.nil? || slot.available_slots > 0 %>
+						<td><%= link_to "Attend", attend_gig_path(@gig, :slot => slot) %></td>
+						<% end %>
+					</tr>
 					<% end %>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
+				</tbody>
+			</table>
+		<% end %>
+	
 	<% end %>
 	
 	<% if @attendees.any? %>
@@ -68,15 +75,6 @@
 		<ul>
 			<% @attendees.each do |user| %>
 			<li><%= link_to user.name, member_path(user) %></li>
-			<% end %>
-		</ul>
-	<% end %>
-	
-	<% if @gig.bookmarks.any? %>
-		<h2>Resources and Inspiration</h2>
-		<ul>
-			<% @gig.bookmarks.each do |bookmark| %>
-			<li><%= link_to bookmark.title, bookmark.url %></li>
 			<% end %>
 		</ul>
 	<% end %>

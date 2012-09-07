@@ -9,14 +9,14 @@
 			<% if @challenge.warblings.any? %>
 			<p>All about <%= @challenge.warblings.map{ |w| (link_to w.title.downcase, warbling_challenges_path(w)) }.join(', ').html_safe %></p>
 			<% end %>
-			<p class="cta"></p>
+			<p class="cta"><%= link_to "More challenges", challenges_path %></p>
 		<% end %>
 		
 		<% if @gig.present? %>
 			<h2>The next gig</h2>
-			<p>Join us for <%= link_to @gig.title, gig_path(@gig) %> on the <strong><%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %></strong> of <%= @gig.start_time.strftime('%B') %> in <%= link_to @gig.chapter.title, chapter_gigs_path(@gig.chapter) %></p>
+			<p>Join us for <%= link_to @gig.title, gig_path(@gig) %> on the <strong><%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %></strong> of <%= @gig.start_time.strftime('%B') %> in <%= @gig.chapter.title %></p>
 			<%= image_tag @gig.logo unless @gig.logo.url.nil? %>
-			<p class="cta"><%= link_to "Calendar".html_safe, gigs_path %></p>
+			<p class="cta"><%= link_to "Gig Calendar".html_safe, gigs_path %></p>
 		<% end %>
 		
 	</section>

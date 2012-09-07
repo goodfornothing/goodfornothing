@@ -28,9 +28,9 @@
 				<nav id="primary_navigation">
 
 					<ul>
-						<li><%= link_to "Community", community_path, :class => ('active' if is_community?) %></li>
-						<li><%= link_to "About", about_path, :class => ('active' if is_about?) %></li>	
 						<li><%= link_to "Challenges", challenges_path, :class => ('active' if is_challenges?) %></li>
+						<li><%= link_to "How it works", about_path, :class => ('active' if is_about?) %></li>	
+						<li><%= link_to "Community", community_path, :class => ('active' if is_community?) %></li>
 						<li><%= link_to "Warblings", warblings_path, :class => ('active' if is_warblings?) %></li>
 					</ul>
 
@@ -63,9 +63,9 @@
 		</header>
 
 		<div id="main" role="main" class="container">
-			<%= "<p><strong>#{flash[:error]}</strong></p>".html_safe if flash[:error] %>
-			<%= "<p><strong>#{flash[:notice]}</strong></p>".html_safe if flash[:notice] %>
-			<%= "<p><strong>#{flash[:alert]}</strong></p>".html_safe if flash[:alert] %>
+			<%= "<p id='site_notice'>#{flash[:error]}</p>".html_safe if flash[:error] %>
+			<%= "<p id='site_notice'>#{flash[:notice]}</p>".html_safe if flash[:notice] %>
+			<%= "<p id='site_notice'>#{flash[:alert]}</p>".html_safe if flash[:alert] %>
 			<%= yield %>
 		</div>
 	
@@ -81,6 +81,7 @@
 					<h2>Get involved</h2>
 					<ul>
 						<li><%= link_to 'Find a challenge', challenges_path %></li>
+						<li><%= link_to 'Attend a gig', gigs_path %></li>
 						<li><%= link_to "Submit a challenge", new_challenge_path %></a></li>
 						<li><%= link_to "Partner with us", new_partner_path %></li>
 					</ul>

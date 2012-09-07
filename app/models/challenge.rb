@@ -7,6 +7,11 @@ class Challenge < ActiveRecord::Base
 	has_and_belongs_to_many :warblings		
 	has_and_belongs_to_many :bookmarks
 	
+	extend FriendlyId
+  friendly_id :title, use: :slugged
+  
+  validates_presence_of :title
+  
 	def cause
 	  if self.venture.present?
 	    self.venture.name

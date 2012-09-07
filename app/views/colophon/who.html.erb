@@ -8,7 +8,8 @@
 			<li>
 				<h3><%= chapter.title %></h3>
 				<p><%= chapter.users.map{ |u| link_to u['name'], member_path(u) }.join(', ').html_safe %></p>
-			</li>
+				[ next gig if any ]
+			</li>	
 		<% end %>
 	</ul>
 	

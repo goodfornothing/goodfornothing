@@ -7,7 +7,7 @@ class ChallengesController < ApplicationController
 	def index
 	  @warblings = Warbling.all
   	@warbling = Warbling.find(params[:id]) if params[:id]
-  	@challenges = (@warbling) ? Challenge.where('warbling_id = ?', @warbling.id) : Challenge.all
+  	@challenges = (@warbling) ? @warbling.challenges : Challenge.all
 	end
 	
 	def new

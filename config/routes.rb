@@ -31,7 +31,12 @@ Goodfornothing::Application.routes.draw do
 	  end
 	  member do 
 	    get "attend"
-	    get "attending"
+	  end
+	end
+	
+	resources :socials, :only => [:show] do
+	  member do 
+	    get "attend"
 	  end
 	end
 	
@@ -42,10 +47,10 @@ Goodfornothing::Application.routes.draw do
   match "members" => "members#index"
   match "members/:id" => "members#show", :as => "member"
   
-  match "how" => "colophon#how"
-	match "about" => "colophon#about"
+  match "how-it-works" => "colophon#how", :as => "how"
 	match "who" => "colophon#who"
 	match "community" => "colophon#community"
+  match "calendar" => "colophon#calendar"
 
 	root :to => "home#index"
 

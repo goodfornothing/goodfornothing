@@ -13,7 +13,7 @@ Warbling.create([
   { title: 'Environment' },
   { title: 'Education' },
   { title: 'Poverty' },
-  { title: 'Inequality' },
+  { title: 'Human Rights' },
   { title: 'Health' },
   { title: 'Community' }
 ])

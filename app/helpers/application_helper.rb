@@ -9,15 +9,15 @@ module ApplicationHelper
   end
   
   def is_about?
-    params[:action] == 'about' || params[:action] == 'who' || params[:action] == 'how'
+    params[:action] == 'how' || params[:action] == 'who'
   end
   
   def is_community?
-    params[:action] == 'community' || params[:controller] == 'partners' || params[:controller] == 'ventures' || params[:controller] == 'members' || params[:controller] == 'friends'
+    params[:action] == 'community' || params[:controller] == 'partners' || params[:controller] == 'ventures' || params[:controller] == 'members' || params[:controller] == 'friends' || params[:controller] == 'socials' ||  params[:controller] == 'gigs' || params[:action] == "calendar"
   end
   
   def is_challenges?
-     params[:controller] == 'challenges' ||  params[:controller] == 'gigs'
+     params[:controller] == 'challenges'
   end
   
   def is_warblings?

@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :slots
   has_and_belongs_to_many :skills
   has_many :gigs, :through => :slots
+  has_many :socials, :through => :slots
   
   validates_presence_of :name
   
@@ -28,8 +29,12 @@ class User < ActiveRecord::Base
 	  self.name.split(' ')[0]
 	end
 	
-  def is_attending?(gig)
+  def is_attending_gig?(gig)
     self.gigs.include?(gig)
+  end
+  
+  def is_attending_social?(social)
+    self.socials.include?(social)
   end
   
   # These are devise approval 

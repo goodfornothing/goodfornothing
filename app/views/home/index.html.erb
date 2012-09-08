@@ -3,26 +3,18 @@
 	<section id="latest_activity" class="panel">
 		
 		<% if @challenge.present? %>
-			<h2>Featured challenge</h2>
-			<h2><%= @challenge.cause %></h2>
+			<h3><%= @challenge.cause %></h3>
 			<p><%= link_to @challenge.title, challenge_path(@challenge) %></p>
 			<% if @challenge.warblings.any? %>
-			<p>All about <%= @challenge.warblings.map{ |w| (link_to w.title.downcase, warbling_challenges_path(w)) }.join(', ').html_safe %></p>
 			<% end %>
-			<p class="cta"><%= link_to "More challenges", challenges_path %></p>
 		<% end %>
 		
-		<% if @gig.present? %>
-			<h2>The next gig</h2>
-			<p>Join us for <%= link_to @gig.title, gig_path(@gig) %> on the <strong><%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %></strong> of <%= @gig.start_time.strftime('%B') %> in <%= @gig.chapter.title %></p>
-			<%= image_tag @gig.logo unless @gig.logo.url.nil? %>
-			<p class="cta"><%= link_to "Gig Calendar".html_safe, gigs_path %></p>
-		<% end %>
+		<%= render :partial => "shared/events", :locals => { :gig => @gig, :social => @social } %>
+		<p class="cta"><%= link_to "GFN Calendar".html_safe, calendar_path %></p>
 		
 	</section>
 	
 	<section id="community" class="panel">
-		<h2>Community</h2>
 		<ul id="community_infographic">
 			<li class="badge_count"><span><%= @cause_count %></span> <%= link_to "amazing causes", ventures_path %></li>
 			<li class="ticker_count"><%= spannerize("%04d" % @member_count) %> <%= link_to "Good for Nothingers", members_path %></li>
@@ -34,7 +26,6 @@
 	
 	<% if @warblings.any? %>
 	<section id="warblings" class="panel">
-		<h2>Warblings</h2>
 		<%= render :partial => "warblings/list" %>
 		<p class="cta"><%= link_to "More".html_safe, warblings_path %></p>
 	</section>

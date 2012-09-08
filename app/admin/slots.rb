@@ -1,5 +1,11 @@
 ActiveAdmin.register Slot do
     
+    controller do
+      def scoped_collection
+        Slot.where(:social_id => nil)
+      end
+    end
+        
     menu :priority => 3, :parent => "Events"
     
     filter :gig

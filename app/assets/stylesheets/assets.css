@@ -25,6 +25,45 @@
 	
 	.pipeline { background-image: url(icons/pipeline.png); height: 27px; width: 27px; }
 
+/* CTA */
+
+	.cta a {
+		background-color: #D0122D;
+		color: #ffffff;
+		display: inline-block;
+		line-height: 30px;
+		font-family: "Good for Nothing";
+		font-size: 13px;
+		padding: 0 15px;
+		text-align: center;
+		background-image: url(assets/cta_left.gif), url(assets/cta_right.gif);
+		background-position: left center, right center;
+		background-repeat: no-repeat;
+	}
+	
+	aside .cta a {
+		color: #ffffff;
+		display: inline-block;
+		line-height: 28px;
+		font-family: "Good for Nothing";
+		font-size: 22px;
+		padding: 25px 15px 34px 15px;
+		width: 220px;
+		text-align: center;
+		background-color: transparent;
+		background-image: url(assets/cta_aside.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+	}
+	
+	aside .cta a:hover,
+	aside .cta a:focus,
+	aside .cta a:active {
+		text-decoration: none;
+		background-position: left bottom;
+		padding: 41px 0px 18px;
+	}
+
 /* Graphical counters */
 
 	.badge_count {
@@ -139,13 +178,13 @@
 		text-align: center;
 		display: block;
 		width: 230px;
-		background: url(assets/highlight_button.png) no-repeat center -85px;
+		background: url(assets/highlight_button.png) no-repeat center top;
 	}
 	
 	.highlight_button a:focus,
 	.highlight_button a:active,
 	.highlight_button a:hover
-	{ text-decoration: none; background-position: center top; }
+	{ text-decoration: none; background-position: center -85px; }
 
 /* Grid lists */
 
@@ -202,6 +241,7 @@
 	
 	.panel h2 {
 		font-size: 18px;
+		line-height: 20px;
 		text-align: center;
 		font-family: "Good for Nothing";
 	}

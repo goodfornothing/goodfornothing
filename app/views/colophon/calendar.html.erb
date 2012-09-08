@@ -1,0 +1,30 @@
+<section id="primary_content">
+	<h1>The GFN calendar</h1>
+	
+	<section id="gigs">
+		<h2>Upcoming gigs</h2>
+		<p>Gigs are how GFN started and they continue to be at the heart of what we do; 24 to 48 hour experiences.</p>
+		<p>Fast track making, doing and rapid prototyping; building community through demanding common tasks with music, food and laughs &ndash; creative collaboration meets rave, real people, working on real challenges, together.</p>
+		<% if @gigs.any? %>
+			
+			<% @gigs.each do |gig| %>
+				<%= render :partial => "gigs/block", :locals => { :gig => gig } %>
+			<% end %>
+		<% end %>
+		
+		<p class="cta"><%= link_to "All gigs, past and present", gigs_path %></p>
+		
+	</section>
+	
+	<section id="socials">
+		<h2>Upcoming socials</h2>
+		
+		<p>Socials are for socialising with alcoholic beverages.</p>
+		<% if @socials.any? %>
+			<% @socials.each do |social| %>
+				<%= render :partial => "socials/block", :locals => { :social => social } %>
+			<% end %>
+		<% end %>
+	</section>
+	
+</section>

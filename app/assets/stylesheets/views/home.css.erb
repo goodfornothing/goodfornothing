@@ -1,22 +1,75 @@
+.section_home header .container {
+	padding-bottom: 0;
+	background-position: left 487px;
+	overflow: visible;
+}
+
+.section_home #main {
+	padding-top: 50px;
+	padding-bottom: 35px;
+}
+
+.section_home #introduction {
+	background: url(<%= asset_path "layout/home_intro.png" %>) no-repeat right top;
+	height: 438px;
+	position: relative;
+	margin-top: 20px;
+	z-index: 10;
+}
+
 .section_home #introduction h2 {
 	color: #ffffff;
 	background: url(<%= asset_path "assets/bubble_medium.png" %>) no-repeat;
 	font-family: "Good for Nothing";
-	width: 137px;
-	height: 120px;
-	padding: 36px 20px 20px 38px;
-	text-align: left;
-	line-height: 26px;
-	font-size: 22px;
-	float: left;
-	margin-left: 30px;
+	width: 80px;
+	height: 70px;
+	padding: 20px 12px 20px 8px;
+	text-align: center;
+	line-height: 22px;
+	font-size: 18px;
+	position: absolute;
+	left: 23px;
+	bottom: 83px;
 }
 
-.section_home #introduction p {
-	line-height: 150px;
-	opacity: 0.5;
-	text-align: left;
-	text-indent: 100px;
+.section_home #introduction p span {
+	text-indent: -11337px;
+	display: block;
+	width: 273px;
+	height: 107px;
+	position: absolute;
+	top: 124px;
+	left: 395px;
+	background: url(<%= asset_path "text/collaborating.png" %>) no-repeat top left;
+}
+
+.section_home #introduction p a {
+	display: block;
+	color: #ffffff;
+	font-family: "Good for Nothing";
+	font-size: 18px;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: absolute;
+}
+
+.section_home #introduction p a:first-child {
+	width: 143px;
+	line-height: 52px;
+	padding-top: 3px;
+	background-image: url(<%= asset_path "assets/small_splodge.png" %>);
+	top: 183px;
+	left: 178px;
+}
+
+.section_home #introduction p a:last-child {
+	width: 195px;
+	line-height: 58px;
+	padding-top: 3px;
+	background-image: url(<%= asset_path "assets/medium_splodge.png" %>);
+	bottom: 92px;
+	right: 15px;
 }
 
 .section_home #community {
@@ -41,13 +94,3 @@
 .section_home #community .highlight_button {
 	margin: 0 auto;
 }
-
-
-form#new_user fieldset {
-	display: block;
-	border-bottom: 1px dotted #000000;
-	padding-bottom: 30px;
-	margin-bottom: 30px;
-}
-
-

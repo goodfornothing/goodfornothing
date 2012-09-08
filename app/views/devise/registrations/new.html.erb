@@ -1,13 +1,13 @@
-<section id="primary_content">
-
-	<h1>Join the community</h1>
+<section id="primary_content" class="single">
 
 	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		
+		<h1 class="ir">Join the community<span></span></h1>
 		
 		<%= f.error_notification %>
 
 		<fieldset class="slide warblings">
-			<legend>1. Which issues are you most passionate about?</legend>
+			<legend>Which issues are you most passionate about?</legend>
 			
 			<div class="boolean">
 				<input type="checkbox">
@@ -51,7 +51,7 @@
 		</fieldset>
 		
 		<fieldset class="slide chapters">
-			<legend>2. Which Good for Nothing chapter are you closest to?</legend>
+			<legend>Which Good for Nothing chapter are you closest to?</legend>
 			
 			<div class="input boolean">
 				<input type="radio" name="chapter">
@@ -89,7 +89,7 @@
 		</fieldset>
 		
 		<fieldset class="slide involvement">
-			<legend>3. Your talents</legend>
+			<legend>Your talents</legend>
 			(you can tell us more about your skills later)
 			<%= f.association :skills, :as => :check_boxes, :label => "" %>
 			<br />
@@ -98,7 +98,7 @@
 		</fieldset>
 
 		<fieldset>
-			<legend>4. Claim your profile</legend>
+			<legend>Claim your profile</legend>
 			<%= f.input :name, :required => true %>
 			<%= f.input :email, :required => true %>
 			<%= f.input :password, :required => false, :input_html => { :autocomplete => "off" } %>
@@ -113,25 +113,3 @@
 	<% end %>
 
 </section>
-
-<aside id="secondary_content">
-	
-	<div style="padding-top: 410px" id="slide_information_warblings">
-		<h2 class="border-top: 1px dotted #000000">Challenges we've tackled that match your interests</h2>
-		<ul>
-			<li>DoNation</li>
-			<li><em>[grid of logos]</em></li>
-		</ul>
-		
-	</div>
-	
-	<div style="padding-top: 200px" id="slide_information_chapters">
-		<h2 class="border-top: 1px dotted #000000">Members in your area</h2>
-		<ul>
-			<li>Tom</li>
-			<li><em>[grid of avatars, 5-10]</em></li>
-		</ul>
-		
-	</div>
-	
-</aside>

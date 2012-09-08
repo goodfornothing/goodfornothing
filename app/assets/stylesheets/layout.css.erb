@@ -1,6 +1,8 @@
 /*
-	Red:   #D0122D
+	Red:    #D0122D
 	Brown:  #61514D
+	Blue:   #9ED4D6
+	Teal:   #085156
 */
 
 
@@ -31,7 +33,7 @@
 		
 		header #branding {
 			display: inline-block;
-			margin: 45px auto 22px;
+			margin: 45px auto 20px;
 			padding: 0;
 			min-width: 274px;
 			background: #D0122D url(assets/horizontal_splodge.gif) no-repeat top left;
@@ -94,6 +96,8 @@
 		
 		header #primary_navigation {
 				font-family: "Good for Nothing";
+				position: relative;
+				z-index: 20;
 		}
 	
 		header #primary_navigation ul {
@@ -163,7 +167,7 @@
 		}
 	
 		#main #primary_content {
-			width: 640px;
+			width: 600px;
 			padding: 0 20px 0;
 			float: left;
 		}
@@ -175,14 +179,14 @@
 	
 		#main aside#secondary_content {
 			float: right;
-			width: 200px;
-			padding-right: 20px;
+			width: 240px;
+			padding-top: 10px;
 		}
 		
 	/*= footer */
 	
 		footer {
-			padding: 30px 0;
+			padding: 50px 0;
 			background: #61514d repeat-x left top url(layout/footer.gif);
 			color: #ffffff;
 		}
@@ -213,9 +217,13 @@
 		}
 		
 		footer section {
-			width: 20%;
-			margin-right: 5%;
+			width: 400px;
 			float: left;
+		}
+		
+		footer section h2 {
+			font-family: "Good for Nothing";
+			
 		}
 		
 		footer section:last-child,

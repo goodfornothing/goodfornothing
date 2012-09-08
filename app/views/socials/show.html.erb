@@ -1,0 +1,36 @@
+<section id="primary_content">
+	
+	<h1><%= @social.title %></h1>
+	<% if @social.start_time %>
+	<time><%= @social.start_time.to_formatted_s(:long_ordinal) %></time>
+	<% end %>	
+	
+	<%= simple_format @social.description %>
+	
+</section>
+
+<aside id="secondary_content">
+	
+	<% if @social.start_time.future?  %>
+	
+		<% if user_signed_in? && current_user.is_attending_social?(@social) %>
+			<h2>You're attending this social</h2>
+			<p>You've signed up for this social, please let us know if you can no longer make it.</p>
+			<p><%= link_to "Can no longer attend", attend_social_path(@social) %></p>
+		<% else %>
+			<h2>Attend social</h2>
+			<p><%= link_to "Attend", attend_social_path(@social, :slot => @social.slots.first) %></p>
+		<% end %>
+	
+	<% end %>
+	
+	<% if @attendees.any? %>
+		<h2>Who<%= (user_signed_in? && current_user.is_attending?(@social) ? " else is" : "'s") %> coming?</h2>
+		<ul>
+			<% @attendees.each do |user| %>
+			<li><%= link_to user.name, member_path(user) %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	
+</aside>

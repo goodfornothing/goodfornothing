@@ -37,7 +37,7 @@
 	<% elsif @gig.end_time.past? %>
 		<p>This gig has ended but you can still get involved in its challenges.</p>
 	<% else %>
-		<% if user_signed_in? && current_user.is_attending?(@gig) %>
+		<% if user_signed_in? && current_user.is_attending_gig?(@gig) %>
 			<h2>You're attending this gig</h2>
 			<p>You've signed up for this gig, please let us know if you can no longer make it.</p>
 			<p><%= link_to "Can no longer attend", attend_gig_path(@gig) %></p>

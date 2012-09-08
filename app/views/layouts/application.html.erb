@@ -13,7 +13,7 @@
 		<meta name="robots" content="noindex,nofollow" />
 		
 	</head>
-	<body class="<%= "section_#{params[:controller]} view_#{params[:action]}"%>">
+	<body class="<%= "section_#{params[:controller].parameterize.underscore} view_#{params[:action]}"%>">
 
 		<header>
 			
@@ -29,7 +29,7 @@
 
 					<ul>
 						<li><%= link_to "Challenges", challenges_path, :class => ('active' if is_challenges?) %></li>
-						<li><%= link_to "How it works", about_path, :class => ('active' if is_about?) %></li>	
+						<li><%= link_to "How it works", how_path, :class => ('active' if is_about?) %></li>	
 						<li><%= link_to "Community", community_path, :class => ('active' if is_community?) %></li>
 						<li><%= link_to "Warblings", warblings_path, :class => ('active' if is_warblings?) %></li>
 					</ul>
@@ -55,7 +55,7 @@
 				
 				<% if params[:controller] == "home" %>
 				<section id="introduction">
-					<h2>What<br /> is Good for Nothing?</h2>
+					<h2>What<br /> is GFN?</h2>
 					<p><%= link_to "Smart folk", community_path %> <span>collaborating and experimenting to solve</span> <%= link_to "stuff that matters", challenges_path %></p>
 				</section>
 				<% end %>
@@ -72,19 +72,18 @@
 		<footer>
 			<div class="container">
 				<section>
-					<h2>Good for Near You</h2>
-					<p>Taking challenges offline is important, be it in the form of a two day <%= link_to "collaborative gig", gigs_path %> or just grabbing a coffee. So we're starting to set up some local chapters:</p>
-					<p><%= @chapters.map{ |c| c.title }.join(', ').html_safe %></p>
-					<p class="cta">If you're not already covered, <a href="mailto:hello@goodfornothing.com">drop us a note</a>, maybe you can start your own.</p>
-				</section>
-				<section>
 					<h2>Get involved</h2>
 					<ul>
 						<li><%= link_to 'Find a challenge', challenges_path %></li>
-						<li><%= link_to 'Attend a gig', gigs_path %></li>
+						<li><%= link_to 'Attend a gig or social', calendar_path %></li>
 						<li><%= link_to "Submit a challenge", new_challenge_path %></a></li>
 						<li><%= link_to "Partner with us", new_partner_path %></li>
 					</ul>
+				</section>
+				<section>
+					<h2>Good for Near You</h2>
+					<p>Taking challenges offline is important, be it in the form of a <%= link_to "GFN gig or social", calendar_path %> or just grabbing a coffee. So we're starting to set up some local chapters in <%= @chapters.map{ |c| c.title }.join(', ').html_safe %></p>
+					<p>If you're not already covered, <a href="mailto:hello@goodfornothing.com">drop us a note</a>, we'd love to talk about starting one in your area</p>
 				</section>
 			</div>
 		</footer>

@@ -1,5 +1,7 @@
-<section id="primary_content" class="single">
+<section id="primary_content">
 	<h1>The Good for Nothing Community</h1>
+	
+	<p>Good for Nothing is a growing community of smart folk who collaborate with social innovators, social business and enterprise, activists, change makers, film makers and charities. The community welcomes anyone with skills who has a desire to get stuck in.</p>
 	
 	<article class="block">
 		<h2>Members</h2>
@@ -26,3 +28,11 @@
 	</article>
 	
 </section>
+
+<aside id="secondary_content">
+	
+	<p class="cta"><%= link_to "GFN Calendar".html_safe, calendar_path %></p>
+	
+	<%= render :partial => "shared/events", :locals => { :gig => @gig, :social => @social } %>
+	
+</aside>

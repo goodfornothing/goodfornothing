@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120907092805) do
+ActiveRecord::Schema.define(:version => 20120908142403) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "title"
@@ -179,11 +179,23 @@ ActiveRecord::Schema.define(:version => 20120907092805) do
     t.integer "skill_id"
     t.integer "gig_id"
     t.integer "limit"
+    t.integer "social_id"
   end
 
   create_table "slots_users", :force => true do |t|
     t.integer "slot_id"
     t.integer "user_id"
+  end
+
+  create_table "socials", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "location"
+    t.datetime "start_time"
+    t.integer  "chapter_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "slug"
   end
 
   create_table "tags", :force => true do |t|

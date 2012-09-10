@@ -40,4 +40,11 @@ ActiveAdmin.register Bookmark do
     end
   end
   
+  member_action :publish do
+    bookmark = Bookmark.find(params[:id])
+    bookmark.published = true
+    bookmark.save
+    redirect_to admin_dashboard_path
+  end
+  
 end

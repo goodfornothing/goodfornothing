@@ -30,7 +30,7 @@ class GigsController < ApplicationController
         flash[:error] = "Sorry, we've reached the limit for this slot."
       else
         slot.users << current_user
-        location =  gig_path(@gig)
+        location = gig_path(@gig)
       end
     end
   

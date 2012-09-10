@@ -4,7 +4,9 @@ ActiveAdmin.register User do
     
   filter :skills_id, :as => :check_boxes, :collection => proc {Skill.all}
   filter :crew, :as => :select, :collection => [true,false]
-  
+
+  actions :all, :except => [:new]
+
 	index do
     column :name
     column :email
@@ -13,7 +15,6 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs "Privileges" do
-      f.input :approved
       f.input :admin
       f.input :crew
     end
@@ -22,22 +23,22 @@ ActiveAdmin.register User do
   
   show do |user|
     unless user.chapter.nil?
-      panel "Running" do
+      panel "Chapter" do
         attributes_table_for user do
+          row "Is a member of the crew?" do
+            (user.crew) ? "Yes" : "No"
+          end
           row :chapter
         end
       end
     end
     panel "Privileges" do
       attributes_table_for user do
-        row "Is admin?" do
+        row "Is an admin?" do
           (user.admin) ? "Yes" : "No"
         end
-        row "Is a member of the crew?" do
-          (user.crew) ? "Yes" : "No"
-        end
-        row "Approved?" do
-          (user.approved) ? "Yes" : "No"
+        row "Activated from Ning?" do
+          (user.activated) ? "Yes" : "No"
         end
       end
     end
@@ -62,13 +63,6 @@ ActiveAdmin.register User do
       row :last_sign_in_at
       row :last_sign_in_ip
     end
-  end
-  
-  member_action :approve do
-    user = User.find(params[:id])
-    user.approved = true
-    user.save
-    redirect_to admin_dashboard_path
   end
 
 end

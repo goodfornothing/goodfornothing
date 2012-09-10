@@ -1,5 +1,30 @@
-<section id="primary_content">
-	
-	<h1>Tell us what you've been up to</h1>
-	
+<section id="primary_content" class="single">
+		
+	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+		
+		<h1>Which gigs have you attended?</h1>
+		
+		<%= f.error_notification %>
+		
+		<% if @past_gigs.any? %>
+		
+			<fieldset>
+				<% if @past_gigs.any? %>
+
+					<% @past_gigs.each do |gig| %>
+						<%= f.label gig.title %>
+						<%= check_box_tag "gigs[]", gig.id, resource.is_attending_gig?(gig) %>
+					<% end %>
+
+				<% end %>
+			</fieldset>
+
+		<% end %>
+
+		<fieldset class="actions">
+			<%= f.button :submit, "Save" %>
+		</fieldset>
+		
+	<% end %>
+		
 </section>

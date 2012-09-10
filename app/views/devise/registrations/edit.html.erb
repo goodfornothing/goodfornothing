@@ -1,12 +1,10 @@
 <section id="primary_content" class="single">
 	
-	<h2>Your data</h2>
-	<p>If you'd want to remove all of your personal information from this site, you may <%= link_to "close your account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
 	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-		<%= f.error_notification %>
 
-		<h1>Edit your profile</h1>
+		<h1>Update your profile</h1>
+		
+		<%= f.error_notification %>
 
 		<fieldset>
 			<legend>Membership information</legend>

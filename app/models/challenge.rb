@@ -1,6 +1,8 @@
 class Challenge < ActiveRecord::Base
 
-  attr_accessible :gig_id, :title, :description, :venture_id, :bookmark_ids, :warbling_ids, :featured, :active
+  attr_accessible :gig_id, :title, :description, :venture_id, :contact,
+                  :bookmark_ids, :warbling_ids, :featured, :active
+                  
 	belongs_to :gig
 	belongs_to :venture
 	

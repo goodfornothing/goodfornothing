@@ -1,38 +1,26 @@
 ActiveAdmin::Dashboards.build do
-  
-  section "Unapproved members", :priority => 1 do
+
+  section "Bookmark Inbox", :priority => 2 do
     
     table do
       thead do
         tr do
-          th "Name"
-          th "Reasons"
-          th "Passions"
-          th "Talents"
+          th "Title"
+          th "URL"
           th "Actions"
         end
       end
       tbody do
-        User.order(:created_at).where('approved = false').collect do |user|
+        Bookmark.order(:created_at).where('published = false').collect do |bookmark|
           tr do
-            td user.name
-            td user.reasons_for_joining
-            td user.warblings.map(&:title).join(', ')
-            td user.talents.map { |t| "<strong>#{t.skill.title}:</strong> #{t.level}".html_safe }.join("<br />").html_safe
-            td link_to "Approve", approve_admin_user_path(user)
+            td bookmark.title
+            td bookmark.url
+            td link_to "Publish", publish_admin_bookmark_path(bookmark)
           end
         end
       end
     end
     
-  end
-
-  section "Bookmark Inbox", :priority => 2 do
-    ul do
-      Bookmark.order(:created_at).where('published = false').collect do |bookmark|
-        li link_to(bookmark.title, admin_bookmark_path(bookmark))
-      end
-    end
   end
   
   section "Challenge Submissions", :priority => 3 do

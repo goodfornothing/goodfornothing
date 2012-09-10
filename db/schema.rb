@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910084012) do
+ActiveRecord::Schema.define(:version => 20120910131012) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "title"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20120910084012) do
     t.boolean "featured",    :default => false
     t.boolean "active",      :default => false
     t.string  "slug"
+    t.string  "contact"
   end
 
   create_table "challenges_warblings", :force => true do |t|
@@ -134,10 +135,11 @@ ActiveRecord::Schema.define(:version => 20120910084012) do
     t.string  "name"
     t.string  "url"
     t.string  "logo"
-    t.boolean "active", :default => false
+    t.boolean "active",  :default => false
     t.string  "type"
     t.string  "email"
     t.text    "notes"
+    t.string  "contact"
   end
 
   create_table "posts", :force => true do |t|
@@ -220,7 +222,6 @@ ActiveRecord::Schema.define(:version => 20120910084012) do
     t.string   "name"
     t.string   "avatar"
     t.integer  "chapter_id"
-    t.boolean  "approved",               :default => false, :null => false
     t.string   "url"
     t.string   "twitter_handle"
     t.string   "location"
@@ -232,7 +233,6 @@ ActiveRecord::Schema.define(:version => 20120910084012) do
     t.boolean  "crew",                   :default => false
   end
 
-  add_index "users", ["approved"], :name => "index_users_on_approved"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true

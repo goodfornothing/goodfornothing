@@ -25,4 +25,13 @@ ActiveAdmin.register Slot do
       end
     end
     
+    form :html => { :enctype => "multipart/form-data" }  do |f|
+      f.inputs "Details" do
+        f.input :skill
+        f.input :gig
+        f.input :limit
+      end
+      f.buttons
+    end
+    
 end

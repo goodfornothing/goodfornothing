@@ -26,7 +26,7 @@
 	</ul>
 	<% end %>
 		
-	<h2>Gigs</h2>
+	<h2>Gigs attended (<%= @member.gigs.count %>)</h2>
 	<% if @member.gigs.any? %>
 	<p>Gigs you've attended:</p>
 	<ul>
@@ -35,9 +35,10 @@
 		<% end %>
 	</ul>
 	<% end %>
+	<p><%= link_to "Tell us which gigs you've attended", users_activity_path %></p>
 	
-	<h2>Socials</h2>
 	<% if @member.socials.any? %>
+	<h2>Socials (<%= @member.socials.count %>)</h2>
 	<p>Been to:</p>
 	<ul>
 		<% @member.socials.each do |social| %>
@@ -52,7 +53,6 @@
 	
 	<% if user_signed_in? && current_user == @member %>
 		<p class="cta"><%= link_to "Update profile", edit_user_registration_path %>
-		<p><%= link_to "Tell us what you've taken part in", users_activity_path %></p>		
 	<% end %>
 	
 </aside>

@@ -1,16 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:og="http://opengraphprotocol.org/schema/">
 	<head>
 		
-		<title>Good for Nothing &ndash; Collaborating for good</title>
-		<meta name="description" content="Good for Nothing, collaborating for good" />
-		<meta name="keywords" content="good, nothing, hack, london, pipeline, socent, social, innovation" />
+		<title>Good for Nothing &ndash; Collaborating for Good</title>
+		
+		<meta name="description" content="Good for Nothing, smart folk collaborating and experimenting to solve stuff that matters." />
+		<meta name="keywords" content="good, nothing, hack, london, pipeline, socent, social, innovation, purpose" />
 		<link rel="shortcut icon" href="/favicon.ico?v2" />
+		
+		<meta property="og:title" content="Good for Nothing &ndash; Collaborating for Good" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://www.goodfornothing.com" />
+		<meta property="og:image" content="http://www.goodfornothing.com/assets/branding/og.gif" />
+		
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 		
 		<meta name="robots" content="noindex,nofollow" />
+		
+		<% if Rails.env.production? %>
+		<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-32250261-2']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+		<% end %>
 		
 	</head>
 	<body class="<%= "section_#{params[:controller].parameterize.underscore} view_#{params[:action]}"%>">
@@ -89,7 +112,7 @@
 		</footer>
 	
 		<section id="colophon">
-			<p class="container">Good for Nothing &ndash; Bringing smart folk together to do some good for nothing, <a href="mailto:hello@goodfornothing.com">say hello</a> <a class="icon pipeline" href="http://www.pipelineproject.co">Brought to you by the Pipeline Project</a></p>
+			<p class="container">Good for Nothing &ndash; Smart folk collaborating and experimenting to solve stuff that matters, <a href="mailto:hello@goodfornothing.com">say hello</a> <a class="icon pipeline" href="http://www.pipelineproject.co">Brought to you by the Pipeline Project</a></p>
 		</section>
 
 	</body>

@@ -1,12 +1,13 @@
 class User < ActiveRecord::Base
 
   scope :crew, where(:crew => true)
-
+  scope :active, where(:active => true)
+  
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :mailchimp
 
   attr_accessible :email, :password, :password_confirmation, :current_password,
                   :remember_me, :join_mailing_list, :admin, :name,
-                  :gender, :age, :url, :location, :twitter_handle, :approved, 
+                  :gender, :age, :url, :location, :twitter_handle, 
                   :chapter_id, :avatar, :warbling_ids, :reasons_for_joining, :crew
 
   has_one :ning_profile
@@ -52,22 +53,6 @@ class User < ActiveRecord::Base
     level
   end
   
-  # These are devise approval 
-  # methods and nothing to do 
-  # with Ning user activation
-  def active_for_authentication? 
-    super && approved? 
-  end 
-
-  def inactive_message 
-    if !approved? 
-      :not_approved 
-    else 
-      super
-    end 
-  end
-  
-  # Ning user activation path
   def activation_path
     unless user.ning.nil?
       claim_path(user.ning.id,user.id)

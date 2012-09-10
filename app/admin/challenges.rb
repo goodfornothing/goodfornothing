@@ -14,10 +14,11 @@ ActiveAdmin.register Challenge do
   
   show do |challenge|
     attributes_table do
-      row :gig
-      row :venture
+      row :contact
       row :title
       row :description
+      row :gig
+      row :venture
       row "Warblings" do |i|
         i.warblings.map{ |w| w.title }.join(', ')
       end

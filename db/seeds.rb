@@ -54,7 +54,7 @@ User.create([
     name: 'Tom Farrand',
     password: 'password',
     password_confirmation: 'password',
-    approved: true,
+    activated: true,
     admin: true,
     crew: true,
     chapter_id: @london.id
@@ -64,7 +64,7 @@ User.create([
     name: 'Tom Rowley',
     password: 'password',
     password_confirmation: 'password',
-    approved: true,
+    activated: true,
     admin: true,
     crew: true,
     chapter_id: @london.id
@@ -74,7 +74,7 @@ User.create([
     name: 'Dan Burgess',
     password: 'password',
     password_confirmation: 'password',
-    approved: true,
+    activated: true,
     admin: true,
     crew: true,
     chapter_id: @london.id
@@ -84,7 +84,7 @@ User.create([
     name: 'Anouk Van Den Eijnde',
     password: 'password',
     password_confirmation: 'password',
-    approved: true,
+    activated: true,
     admin: true,
     crew: true,
     chapter_id: @london.id
@@ -94,7 +94,7 @@ User.create([
     name: 'Andrew Sprinz',
     password: 'password',
     password_confirmation: 'password',
-    approved: true,
+    activated: true,
     admin: true,
     crew: true,
     chapter_id: @london.id,
@@ -109,7 +109,7 @@ User.create([
     name: 'Mark Sears',
     password: 'password',
     password_confirmation: 'password',
-    approved: true,
+    activated: true,
     admin: true,
     crew: true,
     chapter_id: @brighton.id
@@ -119,7 +119,7 @@ User.create([
     name: 'Zoe Olivia John',
     password: 'password',
     password_confirmation: 'password',
-    approved: true,
+    activated: true,
     admin: true,
     crew: true,
     chapter_id: @brighton.id
@@ -129,7 +129,7 @@ User.create([
     name: 'Rodrigo Bautista',
     password: 'password',
     password_confirmation: 'password',
-    approved: true,
+    activated: true,
     admin: true,
     crew: true,
     chapter_id: @brighton.id
@@ -139,7 +139,7 @@ User.create([
     name: 'Al Kennedy',
     password: 'password',
     password_confirmation: 'password',
-    approved: true,
+    activated: true,
     admin: true,
     crew: true,
     chapter_id: @bristol.id
@@ -149,7 +149,7 @@ User.create([
     name: 'Caro Vail',
     password: 'password',
     password_confirmation: 'password',
-    approved: true,
+    activated: true,
     admin: true,
     crew: true,
     twitter_handle: '@carolinavail',
@@ -160,7 +160,7 @@ User.create([
     name: 'Loz Ives',
     password: 'password',
     password_confirmation: 'password',
-    approved: true,
+    activated: true,
     admin: true,
     crew: true,
     chapter_id: @manchester.id
@@ -170,7 +170,7 @@ User.create([
     name: 'Andy Gott',
     password: 'password',
     password_confirmation: 'password',
-    approved: true,
+    activated: true,
     admin: true,
     crew: true,
     chapter_id: @manchester.id
@@ -180,7 +180,7 @@ User.create([
     name: 'Mark Shayler',
     password: 'password',
     password_confirmation: 'password',
-    approved: true,
+    activated: true,
     admin: true,
     crew: true,
     twitter_handle: '@greenape',

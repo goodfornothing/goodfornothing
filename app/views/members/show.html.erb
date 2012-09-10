@@ -1,22 +1,31 @@
 <section id="primary_content">
 	
-	<h1><%= @member.name %>'s profile for Nothing <% if user_signed_in? && current_user == @member %> <span>(<%= link_to "Edit", edit_user_registration_path %>)</span> <% end %></h1>
+	<h1><%= @member.name %></h1>
 
-	<% if @member.chapter %>
+	<% if @member.chapter && @member.crew? %>
 	<p><%= @member.short_name %> is part of the <%= link_to @member.chapter.title, chapter_gigs_path(@member.chapter) %> crew.</p>
 	<% end %>
 
 	<%= image_tag @member.avatar unless @member.avatar.url.nil? %>
 	
 	<ul>
+		<%= "<li>Part of Good for Nothing in #{@member.chapter.title}</li>".html_safe if @member.chapter %>
 		<%= "<li>Living in #{@member.location}</li>".html_safe if @member.location %>
 		<%= "<li>#{@member.gender}</li>".html_safe if @member.gender %>
 		<%= "<li>#{@member.age}</li>".html_safe if @member.age %>
-		<%= "<li>#{link_to @member.twitter_handle, 'http://twitter.com/'}</li>".html_safe if @member.twitter_handle %>
-		<%= "<li>#{link_to @member.url}</li>".html_safe if @member.url %>
+		<%= "<li>#{link_to @member.twitter_handle, "http://twitter.com/#{@member.twitter_handle}"}</li>".html_safe if @member.twitter_handle %>
+		<%= "<li>#{link_to @member.url, @member.url}</li>".html_safe if @member.url %>
 	</ul>
 	
-	
+	<% if @member.talents.any? %>
+	<h2>Talents</h2>
+	<ul>
+		<% @member.talents.each do |talent| %>
+		<li><%= talent.skill.title %> (<%= talent.level %>)</li>
+		<% end %>
+	</ul>
+	<% end %>
+		
 	<h2>Gigs</h2>
 	<% if @member.gigs.any? %>
 	<p>Gigs you've attended:</p>
@@ -26,9 +35,7 @@
 		<% end %>
 	</ul>
 	<% end %>
-	<p class="cta"><%= link_to "I've been to more than that!" %></p>
 	
-
 	<h2>Socials</h2>
 	<% if @member.socials.any? %>
 	<p>Been to:</p>
@@ -38,20 +45,14 @@
 		<% end %>
 	</ul>
 	<% end %>
-	<p class="cta"><%= link_to "I've socialised more than that!" %></p>
-	
 	
 </section>
 
 <aside id="secondary_content">
 	
-	<% if @member.skills.any? %>
-	<h2>Skills</h2>
-	<ul>
-		<% @member.skills.each do |skill| %>
-		<li><%= skill.title %></li>
-		<% end %>
-	</ul>
+	<% if user_signed_in? && current_user == @member %>
+		<p class="cta"><%= link_to "Update profile", edit_user_registration_path %>
+		<p><%= link_to "Tell us what you've taken part in", users_activity_path %></p>		
 	<% end %>
 	
 </aside>

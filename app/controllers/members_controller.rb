@@ -8,4 +8,5 @@ class MembersController < ApplicationController
     @member = User.find(params[:id])
   end
 
+
 end

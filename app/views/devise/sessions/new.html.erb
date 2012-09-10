@@ -4,9 +4,9 @@
 
 		<h1>Welcome back</h1>
 	
-	  	<%= field_set_tag nil, :class => "auto" do %>
-	    	<%= f.input :email, :required => false, :autofocus => true %>
-	    	<%= f.input :password, :required => false %>
+	  	<%= field_set_tag do %>
+	    	<%= f.input :email, :required => false, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
+	    	<%= f.input :password, :required => false, :wrapper_html => { :class => "smart_label" } %>
 		<% end %>
 
 		<%= field_set_tag do %>

@@ -14,10 +14,19 @@
 			<%= f.input :email, :required => true %>
 		</fieldset>
 		
-		<fieldset>
-			<legend>Skills</legend>
-			<%= f.association :skills, :as => :check_boxes %>
-		</fieldset>
+		<% if @skills.any? %>
+		
+			<fieldset>
+				<legend>Talents</legend>
+			
+				<% @skills.each do |skill| %>
+					<%= f.label skill.title %>
+					<%= number_field_tag "skill[#{skill.id}]", resource.skill_level(skill) %>
+				<% end %>
+	
+			</fieldset>
+
+		<% end %>
 
 		<fieldset>
 			<legend>Your profile</legend>

@@ -18,8 +18,7 @@
 			<p>You've signed up for this social, please let us know if you can no longer make it.</p>
 			<p><%= link_to "Can no longer attend", attend_social_path(@social) %></p>
 		<% else %>
-			<h2>Attend social</h2>
-			<p><%= link_to "Attend", attend_social_path(@social, :slot => @social.slots.first) %></p>
+			<p class="cta"><%= link_to "Attend", attend_social_path(@social, :slot => @social.slots.first) %></p>
 		<% end %>
 	
 	<% end %>

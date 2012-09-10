@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120908142403) do
+ActiveRecord::Schema.define(:version => 20120910084012) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "title"
@@ -99,11 +99,6 @@ ActiveRecord::Schema.define(:version => 20120908142403) do
 
   add_index "gigs", ["slug"], :name => "index_gigs_on_slug", :unique => true
 
-  create_table "gigs_skills", :force => true do |t|
-    t.integer "gig_id"
-    t.integer "skill_id"
-  end
-
   create_table "locations", :force => true do |t|
     t.string "name"
     t.string "latitude"
@@ -170,11 +165,6 @@ ActiveRecord::Schema.define(:version => 20120908142403) do
     t.string "title"
   end
 
-  create_table "skills_users", :force => true do |t|
-    t.integer "skill_id"
-    t.integer "user_id"
-  end
-
   create_table "slots", :force => true do |t|
     t.integer "skill_id"
     t.integer "gig_id"
@@ -207,6 +197,12 @@ ActiveRecord::Schema.define(:version => 20120908142403) do
 
   add_index "tags", ["slug"], :name => "index_conversation_tags_on_slug", :unique => true
 
+  create_table "talents", :force => true do |t|
+    t.integer "user_id"
+    t.integer "skill_id"
+    t.integer "level",    :default => 0
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
     t.string   "encrypted_password",     :default => "",    :null => false
@@ -233,12 +229,18 @@ ActiveRecord::Schema.define(:version => 20120908142403) do
     t.text     "reasons_for_joining"
     t.string   "slug"
     t.boolean  "activated",              :default => false
+    t.boolean  "crew",                   :default => false
   end
 
   add_index "users", ["approved"], :name => "index_users_on_approved"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
+
+  create_table "users_warblings", :force => true do |t|
+    t.integer "warbling_id"
+    t.integer "user_id"
+  end
 
   create_table "ventures", :force => true do |t|
     t.string "logo"

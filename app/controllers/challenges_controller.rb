@@ -7,7 +7,7 @@ class ChallengesController < ApplicationController
 	def index
 	  @warblings = Warbling.all
   	@warbling = Warbling.find(params[:id]) if params[:id]
-  	@challenges = (@warbling) ? @warbling.challenges : Challenge.all
+  	@challenges = (@warbling) ? @warbling.challenges.active : Challenge.active
 	end
 	
 	def new
@@ -15,8 +15,23 @@ class ChallengesController < ApplicationController
 	end
 	
 	def create
-	  # set 'active' = false
+	  
+	  @challenge = Challenge.new(params[:challenge])
+	  @challenge.active = false
+    	
+    if @challenge.save
+      redirect_to thanks_challenges_path
+    else
+      flash[:notice] = "Sorry, we couldn't save your challenge"
+      render "new"
+    end
+	  
 	  # email notification to admins
+	  
+	end
+	
+	def thanks
+	  
 	end
 
 end

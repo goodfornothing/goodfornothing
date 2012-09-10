@@ -5,18 +5,35 @@
 		background: #9ED4D6;
 		color: #ffffff;
 		width: 500px;
-		margin: 10px auto 40px;
+		margin: 10px auto 35px;
 		text-align: center;
   }
 
+	#primary_content form ::selection { background:#085156; color:#ffffff; }
+	#primary_content form ::-moz-selection { background:#085156; color:#ffffff; }
+	#primary_content form ::-webkit-selection { background:#085156; color:#ffffff; }
+
 	#primary_content form h1 {
 		color: #085156;
-		margin-bottom: 30px;
+		margin-bottom: 40px;
+		background: url(<%= asset_path "assets/teal_squiggle.png" %>) repeat-x center bottom;
+		padding-bottom: 5px;
+		display: inline-block;
+	}
+	
+	#primary_content form p {
+		margin-bottom: 15px;
+		font-weight: bold;
+		text-align: left;
 	}
   
   #primary_content form fieldset {
-    padding: 0 0 20px;
+    padding: 10px 0 20px;
   }
+
+	#primary_content form fieldset:last-child {
+		padding: 0;
+	}
 
 	#primary_content legend {
 		font-size: 26px;
@@ -43,11 +60,11 @@
 		color: #9ED4D6;
 		background: #ffffff;
 		font-family: "Good for Nothing";
-    margin-bottom: 1em; 
+    margin-bottom: 25px; 
     font-size: 16px;
-		line-height: 18px;
+		line-height: 20px;
     border: 0;
-		width: 350px;
+		width: 480px;
   }
  
  /* =checkbox */
@@ -65,8 +82,36 @@
 		font-size: 16px;
 		color: #9ED4D6;
 		background: #ffffff;
+		line-height: 20px;
+		width: 480px;
 		font-family: "Good for Nothing";
   }
+
+
+	/* =submit */
+	
+	#primary_content input[type="submit"] {
+		color: #ffffff;
+		display: inline-block;
+		line-height: 28px;
+		font-family: "Good for Nothing";
+		font-size: 22px;
+		padding: 25px 15px 34px 15px;
+		width: 240px;
+		text-align: center;
+		background-color: transparent;
+		background-image: url(assets/cta_aside.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+		border: 0;
+		cursor: pointer;
+	}
+	
+	#primary_content input[type="submit"]:active {
+		text-decoration: none;
+		background-position: left bottom;
+		padding: 41px 20px 18px 0px;
+	}
 
 /* Tables */
 

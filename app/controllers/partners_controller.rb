@@ -1,7 +1,7 @@
 class PartnersController < ApplicationController
 
 	def index
-	  @partners = Partner.all
+	  @partners = Partner.active.all
   end
   
 	def new
@@ -9,8 +9,21 @@ class PartnersController < ApplicationController
 	end
 	
 	def create
-	  # set 'active' = false
+	  @partner = Partner.new(params[:partner])
+	  @partner.active = false
+    	
+    if @partner.save
+      redirect_to thanks_partners_path
+    else
+      flash[:notice] = "Sorry, we couldn't save your request"
+      render "new"
+    end
+	  
 	  # email notification to admins
 	end
+
+  def thanks
+    
+  end
 
 end

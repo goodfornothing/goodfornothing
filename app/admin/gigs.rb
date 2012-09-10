@@ -34,6 +34,7 @@ ActiveAdmin.register Gig do
   end
 
   show do |gig|
+    
     panel 'People' do
       attributes_table_for gig do
         row :chapter
@@ -43,6 +44,7 @@ ActiveAdmin.register Gig do
         end
       end
     end
+    
     panel "Dates" do
       attributes_table_for gig do
         row "Start" do 
@@ -53,11 +55,43 @@ ActiveAdmin.register Gig do
         end
       end
     end
+    
     attributes_table do
       row :title
       row :location
       row :description
     end
+    
+    panel "Attendees" do
+
+      table do
+        thead do
+          tr do
+            th "Name"
+            th "Email"
+          end
+        end
+        tbody do
+          gig.users.each do |user|
+            tr do
+              td user.name
+              td user.email
+            end
+          end
+        end
+      end
+      
+    end
+    
+    div :class => "download_links" do
+      "Download attendees: #{link_to "CSV", download_attendees_admin_gig_path(gig, :format => "csv")}".html_safe
+    end
+    
+  end
+  
+  member_action :download_attendees, :method => :get do
+    @gig = Gig.find(params[:id])
+    @attendees = @gig.users
   end
 
 end

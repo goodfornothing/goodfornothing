@@ -9,5 +9,8 @@ class Partner < ActiveRecord::Base
   mount_uploader :logo, LogoUploader
   
   before_save :check_url_scheme
+  
+  scope :active, where(:active => true)
+  scope :inactive, where(:active => false)
 	
 end

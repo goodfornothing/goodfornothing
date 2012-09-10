@@ -24,9 +24,9 @@ class ApplicationController < ActionController::Base
       format.any { render 'errors/404', :status => 404, :formats => [:html], :layout => 'application', :content_type => Mime[:html] }
     end
   end
-  
+    
   def fetch_chapters
-    @chapters = Chapter.all
+    @all_chapters = Chapter.all
   end
 
 end

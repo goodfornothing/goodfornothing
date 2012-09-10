@@ -6,8 +6,8 @@ ActiveAdmin.register Challenge do
   filter :venture
   
   index do
-    column :venture
     column :title
+    column :venture
     column :gig
     default_actions
   end

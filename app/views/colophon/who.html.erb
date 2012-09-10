@@ -1,13 +1,13 @@
 <section id="primary_content" class="single">
 	
-	<h1>The Good for Nothing crew</h1>
+	<h1>The crew</h1>
 	<p>We're various people scattered around the UK. <%= link_to "Start your own", "mailto:hello@goodfornothing.com" %> chapter?</p>	
 	
 	<ul class="grid_list">
-		<% @chapters.each do |chapter| %>
+		<% @all_chapters.each do |chapter| %>
 			<li>
 				<h3><%= chapter.title %></h3>
-				<p><%= chapter.users.map{ |u| link_to u['name'], member_path(u) }.join(', ').html_safe %></p>
+				<p><%= chapter.users.crew.map{ |u| link_to u['name'], member_path(u) }.join(', ').html_safe %></p>
 			</li>	
 		<% end %>
 	</ul>

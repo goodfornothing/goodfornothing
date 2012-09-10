@@ -15,7 +15,7 @@ ActiveAdmin.register Chapter do
       row :city
       row :country
       row "Organised by" do 
-        chapter.users.map(&:name).join(', ')
+        chapter.users.crew.map(&:name).join(', ')
       end
     end
   end
@@ -25,7 +25,7 @@ ActiveAdmin.register Chapter do
       f.input :title, :label => "Name"
       f.input :city
       f.input :country
-      f.input :users, :as => :check_boxes, :label => "Organised by"
+      f.input :users, :as => :check_boxes, :label => "Organised by", :collection => User.crew
     end
     f.buttons
   end

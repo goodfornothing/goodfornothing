@@ -184,7 +184,7 @@
 	.highlight_button a:focus,
 	.highlight_button a:active,
 	.highlight_button a:hover
-	{ text-decoration: none; background-position: center -85px; }
+	{ text-decoration: none; background-position: center top; }
 
 /* Grid lists */
 
@@ -199,7 +199,7 @@
 		padding: 0;
 		float: left;
 		margin: 0 10px 10px 0;
-		width: 200px;
+		width: 190px;
 		height: auto !important;
 		height: 100px;
 		min-height: 100px;

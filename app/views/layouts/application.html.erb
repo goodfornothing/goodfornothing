@@ -5,7 +5,7 @@
 		<title>Good for Nothing &ndash; Collaborating for good</title>
 		<meta name="description" content="Good for Nothing, collaborating for good" />
 		<meta name="keywords" content="good, nothing, hack, london, pipeline, socent, social, innovation" />
-		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="/favicon.ico?v2" />
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
@@ -82,7 +82,7 @@
 				</section>
 				<section>
 					<h2>Good for Near You</h2>
-					<p>Taking challenges offline is important, be it in the form of a <%= link_to "GFN gig or social", calendar_path %> or just grabbing a coffee. So we're starting to set up some local chapters in <%= @chapters.map{ |c| c.title }.join(', ').html_safe %></p>
+					<p>Taking challenges offline is important, be it in the form of a <%= link_to "GFN gig or social", calendar_path %> or just grabbing a coffee. So we're starting to set up some local chapters in <%= @all_chapters.map{ |c| c.title }.join(', ').html_safe %></p>
 					<p>If you're not already covered, <a href="mailto:hello@goodfornothing.com">drop us a note</a>, we'd love to talk about starting one in your area</p>
 				</section>
 			</div>

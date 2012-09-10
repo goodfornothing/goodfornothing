@@ -3,6 +3,7 @@ ActiveAdmin.register User do
   menu :priority => 1, :label => "Members", :parent => "People"
     
   filter :skills_id, :as => :check_boxes, :collection => proc {Skill.all}
+  filter :crew, :as => :select, :collection => [true,false]
   
 	index do
     column :name
@@ -14,6 +15,7 @@ ActiveAdmin.register User do
     f.inputs "Privileges" do
       f.input :approved
       f.input :admin
+      f.input :crew
     end
     f.buttons
   end
@@ -31,18 +33,24 @@ ActiveAdmin.register User do
         row "Is admin?" do
           (user.admin) ? "Yes" : "No"
         end
+        row "Is a member of the crew?" do
+          (user.crew) ? "Yes" : "No"
+        end
         row "Approved?" do
           (user.approved) ? "Yes" : "No"
         end
       end
     end
     attributes_table do
+      row :warblings do 
+        user.warblings.map(&:title).join(', ')
+      end
+      row :talents do 
+        user.talents.map { |t| "<strong>#{t.skill.title}:</strong> #{t.level}".html_safe }.join("<br />").html_safe
+      end
       row :avatar
       row :name
       row :email
-      row :skills do 
-        user.skills.map(&:title).join(', ')
-      end
       row "Website" do 
         user.url
       end
@@ -54,6 +62,13 @@ ActiveAdmin.register User do
       row :last_sign_in_at
       row :last_sign_in_ip
     end
+  end
+  
+  member_action :approve do
+    user = User.find(params[:id])
+    user.approved = true
+    user.save
+    redirect_to admin_dashboard_path
   end
 
 end

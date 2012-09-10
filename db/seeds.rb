@@ -42,6 +42,12 @@ Warbling.create([
   country: 'United Kingdom'
 })
 
+@wellington = Chapter.create({
+  title: 'Wellington',
+  city: 'Wellington',
+  country: 'New Zealand'
+})
+
 User.create([
   {
     email: 'tom.farrand@goodfornothing.com',
@@ -50,6 +56,7 @@ User.create([
     password_confirmation: 'password',
     approved: true,
     admin: true,
+    crew: true,
     chapter_id: @london.id
   },
   {
@@ -59,6 +66,7 @@ User.create([
     password_confirmation: 'password',
     approved: true,
     admin: true,
+    crew: true,
     chapter_id: @london.id
   },
   {
@@ -68,6 +76,7 @@ User.create([
     password_confirmation: 'password',
     approved: true,
     admin: true,
+    crew: true,
     chapter_id: @london.id
   },
   {
@@ -77,6 +86,7 @@ User.create([
     password_confirmation: 'password',
     approved: true,
     admin: true,
+    crew: true,
     chapter_id: @london.id
   },
   {
@@ -86,6 +96,7 @@ User.create([
     password_confirmation: 'password',
     approved: true,
     admin: true,
+    crew: true,
     chapter_id: @london.id,
     twitter_handle: '@andrewsprinz',
     url: 'http://www.goodfornothing.com',
@@ -100,6 +111,7 @@ User.create([
     password_confirmation: 'password',
     approved: true,
     admin: true,
+    crew: true,
     chapter_id: @brighton.id
   },
   {
@@ -109,6 +121,7 @@ User.create([
     password_confirmation: 'password',
     approved: true,
     admin: true,
+    crew: true,
     chapter_id: @brighton.id
   },
   {
@@ -118,15 +131,28 @@ User.create([
     password_confirmation: 'password',
     approved: true,
     admin: true,
+    crew: true,
     chapter_id: @brighton.id
   },
   {
-    email: 'al@goodfornothing.com',
+    email: 'info@alkennedy.co',
     name: 'Al Kennedy',
     password: 'password',
     password_confirmation: 'password',
     approved: true,
     admin: true,
+    crew: true,
+    chapter_id: @bristol.id
+  },
+  {
+    email: 'caro@goodfornothing.com',
+    name: 'Caro Vail',
+    password: 'password',
+    password_confirmation: 'password',
+    approved: true,
+    admin: true,
+    crew: true,
+    twitter_handle: '@carolinavail',
     chapter_id: @bristol.id
   },
   {
@@ -136,6 +162,7 @@ User.create([
     password_confirmation: 'password',
     approved: true,
     admin: true,
+    crew: true,
     chapter_id: @manchester.id
   },
   {
@@ -145,6 +172,18 @@ User.create([
     password_confirmation: 'password',
     approved: true,
     admin: true,
+    crew: true,
+    chapter_id: @manchester.id
+  },
+  {
+    email: 'mark@greenape.co.uk',
+    name: 'Mark Shayler',
+    password: 'password',
+    password_confirmation: 'password',
+    approved: true,
+    admin: true,
+    crew: true,
+    twitter_handle: '@greenape',
     chapter_id: @manchester.id
   }
 ])
@@ -223,31 +262,38 @@ Friend.create([
 Partner.create([
   {
     name: 'Cancer Research UK',
-    url: 'http://www.cancerresearchuk.org/'
+    url: 'http://www.cancerresearchuk.org/',
+    active: true
   },
   {
     name: 'Ecclesiastical Insurance',
-    url: 'http://www.ecclesiastical.com/'
+    url: 'http://www.ecclesiastical.com/',
+    active: true
   },
   {
     name: 'Sony Europe',
-    url: 'http://www.openplanetideas.com/'
+    url: 'http://www.openplanetideas.com/',
+    active: true
   },
   {
     name: 'Lambeth Council',
-    url: 'http://www.lambeth.gov.uk'
+    url: 'http://www.lambeth.gov.uk',
+    active: true
   },
   {
     name: 'University of Reading',
-    url: 'http://www.reading.ac.uk/typography/'
+    url: 'http://www.reading.ac.uk/typography/',
+    active: true
   },
   {
     name: 'Fallon',
-    url: 'http://wearefallon.tumblr.com/'
+    url: 'http://wearefallon.tumblr.com/',
+    active: true
   },
   {
     name: 'D&AD New Blood',
-    url: 'http://www.dandad.org/talent/new-blood/'
+    url: 'http://www.dandad.org/talent/new-blood/',
+    active: true
   }
 ])
 
@@ -484,159 +530,198 @@ Venture.create([
 
 Challenge.create([
   {
-    gig_id: @wildthing.id
+    gig_id: @wildthing.id,
+    active: true
   },
   {
     gig_id: @sol.id,
-    venture_id: Venture.find_by_name('hiSbe').id
+    venture_id: Venture.find_by_name('hiSbe').id,
+    active: true
   },
   {
     gig_id: @sol.id,
-    venture_id: Venture.find_by_name('Stay up Late').id
+    venture_id: Venture.find_by_name('Stay up Late').id,
+    active: true
   },
   {
     gig_id: @sol.id,
-    venture_id: Venture.find_by_name('PricePie').id
+    venture_id: Venture.find_by_name('PricePie').id,
+    active: true
   },
   {
     gig_id: @madeinlambeth.id,
-    title: 'Healthwatch'
+    title: 'Healthwatch',
+    active: true
   },
   {
     gig_id: @madeinlambeth.id,
-    title: 'Digital'
+    title: 'Digital',
+    active: true
   },
   {
     gig_id: @madeinlambeth.id,
-    title: 'Parks'
+    title: 'Parks',
+    active: true
   },
   {
     gig_id: @ecclesiastical_2.id,
-    venture_id: Venture.find_by_name('Stirchley Food Co-op').id
+    venture_id: Venture.find_by_name('Stirchley Food Co-op').id,
+    active: true
   },
   {
     gig_id: @ecclesiastical_2.id,
-    venture_id: Venture.find_by_name('Continental Star FC').id
+    venture_id: Venture.find_by_name('Continental Star FC').id,
+    active: true
   },
   {
     gig_id: @ecclesiastical_2.id,
-    venture_id: Venture.find_by_name('Jericho Foundation').id
+    venture_id: Venture.find_by_name('Jericho Foundation').id,
+    active: true
   },
   {
     gig_id: @openlabs.id,
-    title: 'Communications'
+    title: 'Communications',
+    active: true
   },
   {
     gig_id: @openlabs.id,
-    title: 'Genetic Analysis'
+    title: 'Genetic Analysis',
+    active: true
   },
   {
     gig_id: @openlabs.id,
-    title: 'Cell Analysis'
+    title: 'Cell Analysis',
+    active: true
   },
   {
     gig_id: @fallonshift.id,
-    venture_id: Venture.find_by_name('The Abundance Network').id
+    venture_id: Venture.find_by_name('The Abundance Network').id,
+    active: true
   },
   {
     gig_id: @fallonshift.id,
-    venture_id: Venture.find_by_name('Special Effect').id
+    venture_id: Venture.find_by_name('Special Effect').id,
+    active: true
   },
   {
     gig_id: @fallonshift.id,
-    venture_id: Venture.find_by_name('Open Cinema').id
+    venture_id: Venture.find_by_name('Open Cinema').id,
+    active: true
   },
   {
     gig_id: @maketime.id,
-    venture_id: Venture.find_by_name('Thames 21').id
+    venture_id: Venture.find_by_name('Thames 21').id,
+    active: true
   },
   {
     gig_id: @maketime.id,
-    venture_id: Venture.find_by_name('Espace Benevolat').id
+    venture_id: Venture.find_by_name('Espace Benevolat').id,
+    active: true
   },
   {
     gig_id: @maketime.id,
-    title: "Hack the U+ Source"
+    title: "Hack the U+ Source",
+    active: true
   },
   {
     gig_id: @bluemonday.id,
-    venture_id: Venture.find_by_name('The DoNation').id
+    venture_id: Venture.find_by_name('The DoNation').id,
+    active: true
   },
   {
     gig_id: @bluemonday.id,
-    venture_id: Venture.find_by_name('PopUp Festival of Stories').id
+    venture_id: Venture.find_by_name('PopUp Festival of Stories').id,
+    active: true
   },
   {
     gig_id: @bluemonday.id,
-    venture_id: Venture.find_by_name('Sustaination').id
+    venture_id: Venture.find_by_name('Sustaination').id,
+    active: true
   },
   {
     gig_id: @readinguni.id,
-    venture_id: Venture.find_by_name('Homeless SMS').id
+    venture_id: Venture.find_by_name('Homeless SMS').id,
+    active: true
   },
   {
     gig_id: @readinguni.id,
-    venture_id: Venture.find_by_name('Hackney Yoga Project').id
+    venture_id: Venture.find_by_name('Hackney Yoga Project').id,
+    active: true
   },
   {
     gig_id: @readinguni.id,
-    venture_id: Venture.find_by_name('Good Gym').id
+    venture_id: Venture.find_by_name('Good Gym').id,
+    active: true
   },
   {
     gig_id: @hackneyyoga.id,
-    venture_id: Venture.find_by_name('Hackney Yoga Project').id
+    venture_id: Venture.find_by_name('Hackney Yoga Project').id,
+    active: true
   },
   {
     gig_id: @ecclesiastical.id,
-    venture_id: Venture.find_by_name('Young Gloucestershire').id
+    venture_id: Venture.find_by_name('Young Gloucestershire').id,
+    active: true
   },
   {
     gig_id: @ecclesiastical.id,
-    venture_id: Venture.find_by_name('Cotswold Care Hospice').id
+    venture_id: Venture.find_by_name('Cotswold Care Hospice').id,
+    active: true
   },
   {
     gig_id: @ecclesiastical.id,
-    venture_id: Venture.find_by_name('Gloucestershire Young Carers').id
+    venture_id: Venture.find_by_name('Gloucestershire Young Carers').id,
+    active: true
   },
   {
     gig_id: @loveriot.id,
-    venture_id: Venture.find_by_name('50/50 Make or Break').id
+    venture_id: Venture.find_by_name('50/50 Make or Break').id,
+    active: true
   },
   {
     gig_id: @newblood.id,
-    venture_id: Venture.find_by_name('Homeless SMS').id
+    venture_id: Venture.find_by_name('Homeless SMS').id,
+    active: true
   },
   {
     gig_id: @newblood.id,
-    venture_id: Venture.find_by_name('Good Gym').id
+    venture_id: Venture.find_by_name('Good Gym').id,
+    active: true
   },
   {
     gig_id: @newblood.id,
-    venture_id: Venture.find_by_name('Bethnal Green Ventures').id
+    venture_id: Venture.find_by_name('Bethnal Green Ventures').id,
+    active: true
   },
   {
     gig_id: @gfn_2.id,
-    venture_id: Venture.find_by_name('GnewtCargo').id
+    venture_id: Venture.find_by_name('GnewtCargo').id,
+    active: true
   },
   {
     gig_id: @gfn_2.id,
-    venture_id: Venture.find_by_name('FoodCycle').id
+    venture_id: Venture.find_by_name('FoodCycle').id,
+    active: true
   },
   {
     gig_id: @gfn_2.id,
-    venture_id: Venture.find_by_name('Bletchley Park').id
+    venture_id: Venture.find_by_name('Bletchley Park').id,
+    active: true
   },
   {
     gig_id: @gfn_1.id,
-    venture_id: Venture.find_by_name('Global Generation').id
+    venture_id: Venture.find_by_name('Global Generation').id,
+    active: true
   },
   {
     gig_id: @gfn_1.id,
-    venture_id: Venture.find_by_name('Good Gym').id
+    venture_id: Venture.find_by_name('Good Gym').id,
+    active: true
   },
   {
     gig_id: @gfn_1.id,
-    venture_id: Venture.find_by_name('Great Football Giveaway').id
+    venture_id: Venture.find_by_name('Great Football Giveaway').id,
+    active: true
   }
 ])
   

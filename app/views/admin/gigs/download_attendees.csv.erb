@@ -1,0 +1,17 @@
+<%-
+  csv_lib = if RUBY_VERSION =~ /^1.8/
+              require 'fastercsv'
+              FasterCSV
+            else
+              require 'csv'
+              CSV
+            end
+
+  csv_output = csv_lib.generate do |csv|
+	csv << ["ID","NAME","EMAIL"]
+    @attendees.each do |user|
+		csv << [ user[:id], user[:email], user[:name] ]
+	end
+  end
+%>
+<%= csv_output.html_safe %>

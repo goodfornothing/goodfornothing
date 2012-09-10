@@ -2,7 +2,6 @@ class GigsController < ApplicationController
 
   respond_to :html
   
-  before_filter :fetch_chapters
   before_filter :fetch_gig, :only => [:show, :attend, :attending]
   before_filter :authenticate_user!, :only => [:attend, :attending]
 
@@ -40,9 +39,6 @@ class GigsController < ApplicationController
 	end
 	
 	private
-	  def fetch_chapters
-      @chapters = Chapter.all
-	  end
 	  
 	  def fetch_gig
 	    @gig = Gig.find(params[:id])

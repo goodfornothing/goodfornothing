@@ -9,7 +9,6 @@
 		<% end %>
 	<% end %>
 
-
 	<% if @past_gigs.any? %>
 		<h2>Past gigs</h2>
 		<% @past_gigs.each do |gig| %>
@@ -17,15 +16,14 @@
 		<% end %>
 	<% end %>
 
-		
 </section>
 
 <aside id="secondary_content">
-	<% if @chapters.any? %>
+	<% if @all_chapters.any? %>
 	<h2>Chapters</h2>
 	<p>Good for Nothing gigs happening in your local area.</p>
 	<ul>
-		<% @chapters.each do |chapter| %>
+		<% @all_chapters.each do |chapter| %>
 		<li><%= link_to chapter.title, chapter_gigs_path(chapter) %></li>
 		<% end %>
 	</ul>

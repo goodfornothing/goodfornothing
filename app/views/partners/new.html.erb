@@ -4,15 +4,18 @@
   
 		<h1>Partner with us</h1>
 
+		<p>Something about partnering with us, what you can do, why it matters and such like.</p>
+
 		<%= field_set_tag do %>
-			<%= f.input :name %>
-			<%= f.input :type, :collection => [ 'Sponsor a challenge', 'Give us stuff to help fuel gigs', 'Get your people doing Good for Nothing', 'Invest in Good for Nothing'] %>
-			<%= f.input :email %>
-			<%= f.input :notes %>
+			<%= f.input :name, :label => "Your name", :wrapper_html => { :class => "smart_label" } %>
+			<%= f.input :email, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
+			
+			<%= f.input :type, :label => "How would you like to get involved?", :collection => [ 'Sponsor a challenge', 'Give us stuff to help fuel gigs', 'Get your people doing Good for Nothing', 'Invest in Good for Nothing'] %>
+			<%= f.input :notes, :label => "A little about your organisation", :wrapper_html => { :class => "smart_label" } %>
 		<% end %>
 
 		<%= field_set_tag nil, :class => "actions" do %>
-			<%= f.submit :value => "Submit" %>	
+			<%= f.submit :value => "Send request" %>	
 		<% end %>
 	
 	<% end %>

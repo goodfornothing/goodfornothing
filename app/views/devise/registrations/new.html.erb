@@ -8,106 +8,40 @@
 
 		<fieldset class="slide warblings">
 			<legend>Which issues are you most passionate about?</legend>
-			
-			<div class="boolean">
-				<input type="checkbox">
-				<label>Food</label>
-			</div>
-			
-			<div class="boolean">
-				<input type="checkbox">
-				<label>Energy</label>
-			</div>
-			
-			<div class="boolean">
-				<input type="checkbox">
-				<label>Environment</label>
-			</div>
-			
-			<div class="boolean">
-				<input type="checkbox">
-				<label>Education</label>
-			</div>
-			
-			<div class="boolean">
-				<input type="checkbox">
-				<label>Poverty</label>
-			</div>
-			
-			<div class="boolean">
-				<input type="checkbox">
-				<label>Inequality</label>
-			</div>
-			
-			<div class="boolean">
-				<input type="checkbox">
-				<label>Health</label>
-			</div>
-			
-			<div class="boolean">
-				<input type="checkbox">
-				<label>Community</label>
-			</div>
+			<%= f.association :warblings, :as => :check_boxes, :label => "" %>
 		</fieldset>
 		
 		<fieldset class="slide chapters">
 			<legend>Which Good for Nothing chapter are you closest to?</legend>
 			
-			<div class="input boolean">
-				<input type="radio" name="chapter">
-				<label>London, UK</label>
-				<input type="radio" name="chapter">
-				<label>Brighton, UK</label>
-				<input type="radio" name="chapter">
-				<label>Bristol, UK</label>
-				<input type="radio" name="chapter">
-				<label>Manchester, UK</label>
-				<input type="radio" name="chapter">
-				<label>Wellington, NZ</label>
-				<input type="radio" name="chapter">
-				<label>It's not happening near me yet!</label>
-			</div>
+			<%= f.association :chapter, :as => :radio, :label => "" %>
 			
-			<div class="input string">
-				<br /><br />
-				<label>If none, where are you?</label>
-				<select>
-					<option></option>
-					<optgroup label="United Kingdom">
-						<option>Southwest</option>
-						<option>North</option>
-					</optgroup>
-					<optgroup label="International">
-						<option>France</option>
-						<option>Japan</option>
-					</optgroup>
-				</select>
-				<em>[only appears if use selects "It's not happening near me yet!"]</em>
-				
-			</div>
+			<%= f.input :location, :as => :select, :label => "If you're not close to any, where are you?", :collection => @locations %>
 			
 		</fieldset>
 		
 		<fieldset class="slide involvement">
 			<legend>Your talents</legend>
-			(you can tell us more about your skills later)
-			<%= f.association :skills, :as => :check_boxes, :label => "" %>
-			<br />
-			<em>[displayed as sliders]</em>
-		
+			<% if @skills.any? %>
+
+				<% @skills.each do |skill| %>
+					<%= f.label skill.title %>
+					<%= number_field_tag "skill[#{skill.id}]", resource.skill_level(skill) %>
+				<% end %>
+
+			<% end %>
 		</fieldset>
 
 		<fieldset>
 			<legend>Claim your profile</legend>
-			<%= f.input :name, :required => true %>
-			<%= f.input :email, :required => true %>
-			<%= f.input :password, :required => false, :input_html => { :autocomplete => "off" } %>
-			<%= f.input :password_confirmation, :required => false, :input_html => { :autocomplete => "off" } %>
-			<br /><br />
-			<%= f.input :reasons_for_joining, :input_html => { :rows => 5 } %>
+			<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
+			<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
+			<%= f.input :password, :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
+			<%= f.input :password_confirmation, :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
 			
+			<%= f.input :reasons_for_joining, :input_html => { :rows => 5 }, :wrapper_html => { :class => "smart_label" } %>
 			<%= f.input :join_mailing_list, :as => :boolean, :label => "Join the GFN mailing list?" %>
-			<%= f.button :submit, "Apply for membership" %>
+			<%= f.button :submit, "Apply" %>
 		</fieldset>
 		
 	<% end %>

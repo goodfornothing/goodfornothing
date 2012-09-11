@@ -11,6 +11,7 @@ Goodfornothing::Application.routes.draw do
     delete "/logout" => "devise/sessions#destroy"
     get "/register" => "registrations#new"
     get "/claim/:id/:secret" => "registrations#claim", :as => "claim"
+    put "/claim/:id/:secret" => "registrations#activate", :as => "activate"
     get '/users/activity' => 'registrations#activity'
   end
   

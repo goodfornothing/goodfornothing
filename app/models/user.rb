@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   scope :crew, where(:crew => true)
-  scope :active, where(:active => true)
+  scope :active, where(:activated => true)
   
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :mailchimp
 
@@ -57,9 +57,21 @@ class User < ActiveRecord::Base
   end
   
   def activation_path
-    unless user.ning.nil?
-      claim_path(user.ning.id,user.id)
+    unless self.ning_profile.nil?
+      Rails.application.routes.url_helpers.claim_path(self.id,self.ning_profile.id)
     end
+  end
+  
+  def active_for_authentication? 
+    super && activated? 
+  end 
+
+  def inactive_message 
+    if !activated? 
+      "You need to activate your account first."
+    else 
+      super
+    end 
   end
   
   def challenges
@@ -67,11 +79,11 @@ class User < ActiveRecord::Base
   end
   
   def offline_encountered
-    User.includes(:gigs,:socials).where("users.id != ? and (gigs.id in (?) or socials.id in (?))",self.id, self.gigs.map(&:id).join(','), self.socials.map(&:id).join(','))
+    User.active.includes(:gigs,:socials).where("users.id != ? and (gigs.id in (?) or socials.id in (?))",self.id, self.gigs.map(&:id).join(','), self.socials.map(&:id).join(','))
   end
   
   def online_encountered
-    User.includes(:ideas,:contributions).where('users.id != ? and (contributions.challenge_id in (?) or ideas.challenge_id in (?))', self.id, self.challenges.map(&:id).join(','), self.challenges.map(&:id).join(','))
+    User.active.includes(:ideas,:contributions).where('users.id != ? and (contributions.challenge_id in (?) or ideas.challenge_id in (?))', self.id, self.challenges.map(&:id).join(','), self.challenges.map(&:id).join(','))
   end
   
   protected

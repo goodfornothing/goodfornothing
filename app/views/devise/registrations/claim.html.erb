@@ -1,6 +1,20 @@
 <section id="primary_content" class="single">
 	
-	<h1>Claim your profile</h1>
-	<p><%= @user.name %></p>
+	<%= simple_form_for(@user, :as => 'user', :url => activate_path(@user.id,@user.ning_profile.id), :html => { :method => :put }) do |f| %>
+
+		<h1>Claim your profile</h1>
+		<p>Welcome to our new home <%= @user.name %>, enter a new password below to claim your profile.</p>
+
+		<fieldset>
+			<%= f.input :password, :required => true,  :input_html => { :autocomplete => "off" } %>
+			<%= f.input :password_confirmation, :required => true, :input_html => { :autocomplete => "off" } %>
+		</fieldset>
+
+		<fieldset class="actions">
+			<%= f.button :submit, "Open account" %>
+			<p class="footnote">By re-activating your account you are agreeing to our new <%= link_to "privacy policy", privacy_path %></p>
+		</fieldset>
+		
+	<% end %>
 
 </section>

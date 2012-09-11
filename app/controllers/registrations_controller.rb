@@ -1,6 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   
   before_filter :fetch_associations, :only => [:new, :create, :edit, :update]
+  before_filter :fetch_secret_user, :only => [:claim, :activate]
   prepend_before_filter :authenticate_scope!, :only => [:activity, :edit, :update, :destroy]
   
   def new
@@ -64,17 +65,30 @@ class RegistrationsController < Devise::RegistrationsController
       render_with_scope :edit
     end
   end
-  
-  def 
-  
-  def claim
     
-    @user = User.where("activated = false && slug = #{params[:id]}")
-    # check if params[:secret] = user.ning.id, probably want to 
-    # put this fetch in the user model
+  def claim
     
     if @user.nil?
       not_found
+    end
+    
+  end
+  
+  def activate
+     
+    # Devise doesn't seem to check for this empty password, only that it matches confirm
+    if @user.nil? || params[:user][:password].empty?
+      render :claim
+    else 
+      if @user.reset_password!(params[:user][:password], params[:user][:password_confirmation])
+        @user.activated = true
+        @user.save!
+        flash[:notice] = "Account activated!"
+        sign_in 'user', @user, :bypass => true
+        redirect_to after_update_path_for(@user)
+      else
+        render :claim
+      end
     end
     
   end
@@ -84,6 +98,12 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   protected
+    
+    def fetch_secret_user
+      # check if params[:secret] = user.ning.id, probably want to 
+      # put this fetch in the user model
+      @user = User.where("activated = false && id = #{params[:id]}").first
+    end
     
     def fetch_associations
       @skills = Skill.all

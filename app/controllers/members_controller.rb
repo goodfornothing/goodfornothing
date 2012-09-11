@@ -2,9 +2,9 @@ class MembersController < ApplicationController
 
 	def index
 	  
-	  @members = User.all
+	  @members = User.active
 	  
-	  @chapter_members = (user_signed_in? && current_user.chapter.present?) ? current_user.chapter.users : []
+	  @chapter_members = (user_signed_in? && current_user.chapter.present?) ? current_user.chapter.users.active : []
 	  
 	  @offline_encountered_members = [] 
 	  @online_encountered_members = []
@@ -17,7 +17,7 @@ class MembersController < ApplicationController
   end
   
   def show
-    @member = User.find(params[:id])
+    @member = User.active.find(params[:id])
   end
 
 end

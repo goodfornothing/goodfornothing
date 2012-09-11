@@ -5,7 +5,7 @@
 		background: #9ED4D6;
 		color: #ffffff;
 		width: 500px;
-		margin: 10px auto 35px;
+		margin: 10px auto 40px;
 		text-align: center;
   }
 
@@ -14,10 +14,10 @@
 	.single form ::-webkit-selection { background:#085156; color:#ffffff; }
 
 	.single form h1 {
-		color: #085156;
+		color: #ffffff;
 		margin-bottom: 40px;
 		background: url(<%= asset_path "assets/teal_squiggle.png" %>) repeat-x center bottom;
-		padding-bottom: 5px;
+		padding: 0 10px 5px;
 		display: inline-block;
 	}
 	
@@ -25,6 +25,17 @@
 		margin-bottom: 15px;
 		font-weight: bold;
 		text-align: left;
+	}
+	
+	.single form .footnote {
+		font-size: 12px;
+		text-align: center;
+		line-height: 16px;
+		margin-top: 25px;
+	}
+	
+	.single form a {
+		color: #085156;
 	}
   
   .single form fieldset {

@@ -1,0 +1,10 @@
+A new member has joined Good for Nothing community
+==================================================
+
+Name: <%= @user.name %>
+Email: <%= @user.email %>
+
+Reasons for joining: 
+<%= @user.reasons_for_joining %>
+
+You can <%= link_to "review their membership", admin_user_url(@user) %>, or ignore this email, whatevs.

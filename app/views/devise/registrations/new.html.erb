@@ -14,7 +14,7 @@
 		<fieldset class="slide chapters">
 			<legend>Which Good for Nothing chapter are you closest to?</legend>
 			
-			<%= f.association :chapter, :as => :radio, :label => "" %>
+			<%= f.association :chapter, :as => :radio_buttons, :label => "" %>
 			
 			<%= f.input :location, :as => :select, :label => "If you're not close to any, where are you?", :collection => @locations %>
 			

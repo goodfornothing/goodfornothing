@@ -23,6 +23,7 @@ class ChallengesController < ApplicationController
 	  @challenge.active = false
     	
     if @challenge.save
+      AdminMailer.new_challenge(@challenge).deliver
       redirect_to thanks_challenges_path
     else
       flash[:notice] = "Sorry, we couldn't save your challenge"

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>A new member has just joined Good for Nothing community.</p>
+    
+	<p><strong>Name</strong>: <%= @user.name %><br />
+	<strong>Email</strong>: <%= @user.email %></p>
+	
+	<p><strong>Reason for joining</strong>: <br /><%= @user.reasons_for_joining %></p>
+
+	<p>You can <%= link_to "review their membership", admin_user_url(@user) %>, or ignore this email, whatevs.</p>
+  </body>
+</html>

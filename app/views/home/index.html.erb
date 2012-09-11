@@ -2,7 +2,6 @@
 
 	<section id="latest_activity" class="panel">
 		
-		
 		<% if @challenge.present? %>
 			<h3><%= @challenge.cause %></h3>
 			<p><%= link_to @challenge.title, challenge_path(@challenge) %></p>

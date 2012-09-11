@@ -13,6 +13,7 @@ class PartnersController < ApplicationController
 	  @partner.active = false
     	
     if @partner.save
+      AdminMailer.new_partner(@partner).deliver
       redirect_to thanks_partners_path
     else
       flash[:notice] = "Sorry, we couldn't save your request"

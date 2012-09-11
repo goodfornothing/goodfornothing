@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>Good for Nothing partner request.</p>
+    
+	<p><strong>Name</strong>: <%= @partner.name %><br />
+	<strong>Email</strong>: <%= @partner.contact %><br />
+	<strong>Type of request</strong>: <%= @partner.type %></p>
+	
+	<p><strong>Notes</strong>: <br /><%= @partner.notes %></p>
+
+	<p><%= link_to "Review it", admin_partner_url(@partner) %> at the hive.</p>
+  </body>
+</html>

@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.selectBox.min
+//= require jquery.tools.min
+//= require jquery.validate.min
 //= require_tree .
+//= require modernizr

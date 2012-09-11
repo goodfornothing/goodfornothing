@@ -2,7 +2,6 @@ class SocialsController < ApplicationController
 
   respond_to :html
   
-  before_filter :fetch_chapters
   before_filter :fetch_social, :only => [:show, :attend, :attending]
   before_filter :authenticate_user!, :only => [:attend, :attending]
 
@@ -30,10 +29,7 @@ class SocialsController < ApplicationController
 	end
 	
 	private
-	  def fetch_chapters
-      @chapters = Chapter.all
-	  end
-	  
+	
 	  def fetch_social
 	    @social = Social.find(params[:id])
 	  end

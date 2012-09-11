@@ -1,5 +1,7 @@
 $(document).ready(function(){
 	
+	// Forms
+	
 	$('.input.smart_label').each(function(i,el){
 		
 		label = $($(el).find('label')[0]).hide();
@@ -30,5 +32,7 @@ $(document).ready(function(){
 		});
 		
 	});
+	
+	$('input[type="range"]').rangeinput();
 	
 });

@@ -114,6 +114,39 @@
 		padding: 41px 20px 18px 0px;
 	}
 
+	/* =ranges */
+	
+	.slider {
+		background: #ffffff;
+		height: 20px;
+		position: relative;
+		cursor: pointer;
+		border: 0;
+		width: 500px;
+		display: block;
+		margin-bottom: 20px;
+	}
+
+	.slider .progress {
+		height: 20px;
+		background-color: #D0122D;
+		display: none;
+	}
+
+	.slider .handle {
+		height: 55px;
+		width: 50px;
+		top: -18px;
+		position:absolute;
+		display:block;
+		cursor: move;
+		background: url(<%= asset_path "assets/range_handle.png" %>) no-repeat center center;
+	}
+
+	input.range {
+	  display: none;
+	}
+
 /* Tables */
 
 	table { margin-bottom: 14px; }

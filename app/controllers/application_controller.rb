@@ -2,6 +2,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :fetch_chapters
+  before_filter :store_location
+  helper_method :signed_in_as_owner?
+
+  def signed_in_as_owner?(resource)
+    if resource.user.present? && user_signed_in?
+      if current_user.admin?
+        true
+      else
+        resource.user == current_user
+      end
+    else
+      false
+    end
+  end
 
   def authenticate_admin_user!
   	redirect_to new_user_session_path and return if user_signed_in? && !current_user.admin? 
@@ -30,6 +44,20 @@ class ApplicationController < ActionController::Base
   end
   
   private
+  
+    def store_location
+      if !user_signed_in?
+        if params[:next]
+          session[:return_to] = params[:next]
+        else
+           session[:return_to] = nil
+        end
+      end
+    end
+
+    def stored_location_for(resource_or_scope)
+      session[:return_to] || super
+    end
   
     def after_sign_in_path_for(resource_or_scope)
       stored_location_for(resource_or_scope) || member_path(resource_or_scope) || signed_in_root_path(resource_or_scope)

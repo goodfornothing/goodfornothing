@@ -1,8 +1,9 @@
 class IdeasController < ApplicationController
   
   before_filter :fetch_challenge
-  before_filter :fetch_idea, :only => [:edit, :update]
+  before_filter :fetch_idea, :only => [:edit, :update, :destroy]
   before_filter :authenticate_user!
+  before_filter :authenticate_as_owner!, :only => [:destroy, :edit, :update]
   
   def create
     
@@ -20,7 +21,6 @@ class IdeasController < ApplicationController
   end
   
   def edit
-    
   end
   
   def update
@@ -31,14 +31,26 @@ class IdeasController < ApplicationController
     end
   end
   
+  def destroy
+    @idea.destroy
+    redirect_to @challenge
+  end
+  
   protected
   
     def fetch_challenge
-      @challenge = Challenge.find(params[:id])
+      @challenge = Challenge.find(params[:challenge_id])
     end
     
     def fetch_idea
-      @idea = Idea.find(params[:idea_id])
+      @idea = Idea.find(params[:id])
+    end
+    
+    def authenticate_as_owner!
+      unless signed_in_as_owner?(@idea)
+        flash[:error] = "You can not edit other people's ideas"
+        redirect_to challenge_path(@challenge)
+      end
     end
   
 end

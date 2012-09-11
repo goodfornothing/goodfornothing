@@ -1,8 +1,10 @@
 <section id="primary_content">
 	<h1>Friends</h1>
 	
-	<p>Good for Nothing does cost a few quid to put on. Luckily there are some awesome companies and organisations out there who have supported us through donating products, services, space and time to help us put on a great experience.</p>
-	<p>We thank you very much, you are all awesome.</p>
+	<div class="abstract">
+		<p>Good for Nothing does cost a few quid to put on. Luckily there are some awesome companies and organisations out there who have supported us through donating products, services, space and time to help us put on a great experience.</p>
+		<p>We thank you very much, you are all awesome.</p>
+	</div>
 	
 	<% if @friends.any? %>
 		<ul class="grid_list">
@@ -10,9 +12,9 @@
 		<li>
 			<% if friend.logo.present? %>
 				<%= image_tag(friend.logo, :alt => friend.name) %>
+			<% else %>
+				<%= link_to(friend.name, friend.url) %>
 			<% end %>
-			<h2><%= link_to(friend.name, friend.url) %></h2>
-			<p><%= friend.description %></p>
 		</li>
 		<% end %>
 		</ul>
@@ -21,7 +23,5 @@
 </section>
 
 <aside id="secondary_content">
-	<h2>Become a friend</h2>
-	<p>We're always looking for help with our weekends.</p>
-	<p class="cta"><%= link_to "Fuel our gigs", new_partner_path %></p>
+	<p class="cta"><%= link_to "help Fuel our gigs", new_partner_path %></p>
 </aside>

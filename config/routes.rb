@@ -27,10 +27,8 @@ Goodfornothing::Application.routes.draw do
       match "warbling/:id" => "challenges#index", :as => "warbling"
       match "thanks" => "challenges#thanks", :as => "thanks"
     end
-    member do
-      resources :ideas, :only => [:new,:create,:edit,:update]
-      resources :contributions, :only => [:new,:create,:edit,:update]
-    end
+    resources :ideas
+    resources :contributions
   end
 
 	resources :gigs, :only => [:show, :index] do

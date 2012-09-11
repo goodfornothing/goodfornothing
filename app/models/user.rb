@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   has_one :ning_profile
   has_many :posts
+  
   has_many :ideas
   has_many :contributions
 
@@ -59,6 +60,18 @@ class User < ActiveRecord::Base
     unless user.ning.nil?
       claim_path(user.ning.id,user.id)
     end
+  end
+  
+  def challenges
+    Challenge.includes(:contributions,:ideas).where('contributions.user_id = ? or ideas.user_id = ?',self.id,self.id)
+  end
+  
+  def offline_encountered
+    User.includes(:gigs,:socials).where("users.id != ? and (gigs.id in (?) or socials.id in (?))",self.id, self.gigs.map(&:id).join(','), self.socials.map(&:id).join(','))
+  end
+  
+  def online_encountered
+    User.includes(:ideas,:contributions).where('users.id != ? and (contributions.challenge_id in (?) or ideas.challenge_id in (?))', self.id, self.challenges.map(&:id).join(','), self.challenges.map(&:id).join(','))
   end
   
   protected

@@ -26,8 +26,16 @@
 	</ul>
 	<% end %>
 	
-	<h2>Challenges worked on</h2>
-	[ has contributed ideas or 'contributions' to]
+	<h2>Number of people encountered in the community: <%= @member.offline_encountered.count + @member.online_encountered.count %> <%= link_to "See all", members_path if user_signed_in? && @member == current_user %></h2>
+	
+	<% if @member.challenges.any? %>
+	<h2>Worked on these challenges:</h2>
+	<ul>
+		<% @member.challenges.each do |challenge| %>
+		<li><%= link_to challenge.title, challenge_path(challenge) %></li>
+		<% end %>
+	</ul>
+	<% end %>
 		
 	<h2>Gigs attended (<%= @member.gigs.count %>)</h2>
 	<% if @member.gigs.any? %>

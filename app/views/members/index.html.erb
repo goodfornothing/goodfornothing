@@ -1,11 +1,36 @@
 <section id="primary_content">
 	<h1>Good for Nothingers</h1>
-
-	<h2>That you've worked with [from gigs attended]</h2>
 	
-	<h2>In your area...</h2>
+	<% if @offline_encountered_members.any? or @online_encountered_members.any? %>
+	<h2>Encountered members</h2>
+	<p>People who have attended gigs or socials with you, or worked on the same challenges online.</p>
+	<ul>
+		<% if @offline_encountered_members.any? %>
+		<% @offline_encountered_members.each do |member| %>
+		<li><%= link_to member.name, member_path(member) %></li>
+		<% end %>
+		<% end %>
+		
+		<% if @online_encountered_members.any? %>
+		<% @online_encountered_members.each do |member| %>
+		<li><%= link_to member.name, member_path(member) %></li>
+		<% end %>
+		<% end %>		
+	</ul>
+	<% end %>
 	
+	<% if @chapter_members.any?  %>
+	<h2>In your chapter</h2>
+	<ul>
+		<% @chapter_members.each do |member| %>
+		<li><%= link_to member.name, member_path(member) %></li>
+		<% end %>
+	</ul>
+	<% end %>
+	
+	<% if @chapter_members.any? || @encountered_members.any? %>
 	<h2>Everyone else</h2>
+	<% end %>
 	
 	<% if @members.any? %>
 		<ul>
@@ -16,11 +41,12 @@
 	<% else %>
 		<p>No one is Good for Nothing.</p>
 	<% end %>
+	
 </section>
 
 <aside id="secondary_content">
 	<% if user_signed_in? %>
-	
+	<p class="cta"><%= link_to "View Your profile", member_path(current_user) %></p>
 	<% else %>
 	<p class="cta"><%= link_to "Become a member", register_path %></p>
 	<% end %>

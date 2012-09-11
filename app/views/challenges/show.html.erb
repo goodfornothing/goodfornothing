@@ -16,6 +16,12 @@
 		<li>
 			<h3>From <%= idea.user.name %></h3>
 			<p><%= idea.body %></p>
+			<% if signed_in_as_owner?(idea) %>
+			<ul class="actions">
+				<li><%= link_to "Edit", edit_challenge_idea_path(@challenge, idea) %></li>
+				<li><%= link_to "Delete", challenge_idea_path(@challenge, idea), :method => :delete %></li>	
+			</ul>
+			<% end %>
 		</li>
 		<% end %>
 	</ul>
@@ -35,6 +41,12 @@
 			<p><%= contribution.skill.title %></p>
 			<p><%= link_to contribution.url, contribution.url %></p>
 			<p><%= contribution.description %></p>
+			<% if signed_in_as_owner?(contribution) %>
+			<ul class="actions">
+				<li><%= link_to "Edit", edit_challenge_contribution_path(@challenge, contribution) %></li>
+				<li><%= link_to "Delete", challenge_contribution_path(@challenge, contribution), :method => :delete %></li>	
+			</ul>
+			<% end %>
 		</li>
 		<% end %>
 	</ul>
@@ -45,7 +57,7 @@
 	<% end %>
 	
 	<% if @challenge.open? && !user_signed_in? %>
-	<p><%= link_to "Login", login_path %> or <%= link_to "Join the community", register_path %> to share your ideas or contribute to the challenge.</p>
+	<p><%= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "Join the community", register_path %> to share your ideas or contribute to the challenge.</p>
 	<% end %>
 		
 </section>

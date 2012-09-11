@@ -36,4 +36,8 @@ class Challenge < ActiveRecord::Base
   scope :open, where(:active => true, :open => true)
   scope :closed, where(:active => true, :open => false)
 		
+	def team
+    User.includes(:contributions,:ideas).where('contributions.challenge_id = ? or ideas.challenge_id = ?',self.id,self.id)
+  end
+		
 end

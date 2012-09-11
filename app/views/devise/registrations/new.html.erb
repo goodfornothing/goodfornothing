@@ -26,7 +26,7 @@
 
 				<% @skills.each do |skill| %>
 					<%= f.label skill.title %>
-					<%= number_field_tag "skill[#{skill.id}]", resource.skill_level(skill) %>
+					<%= range_field_tag "skill[#{skill.id}]", resource.skill_level(skill) || 0, :in => 0...11, :step => 1 %>
 				<% end %>
 
 			<% end %>

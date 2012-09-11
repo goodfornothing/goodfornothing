@@ -16,7 +16,6 @@ class RegistrationsController < Devise::RegistrationsController
 	 #		<option>Japan</option>
 	 #	</optgroup>
 	 #</select>
-    
     resource = build_resource({})
     respond_with resource
     

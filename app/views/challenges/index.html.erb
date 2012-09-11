@@ -16,8 +16,8 @@
 		</ul>
 	<% end %>
 	
-	<h2>Closed challenges</h2>
 	<% if @closed_challenges.any? %>
+		<h2>Closed challenges</h2>
 		<ul>
 		<% @closed_challenges.each do |challenge| %>
 			<li><%= link_to challenge.title, challenge_path(challenge) %> <%= "for #{challenge.cause}" unless challenge.cause.nil? %></li>

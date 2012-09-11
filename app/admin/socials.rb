@@ -5,8 +5,8 @@ ActiveAdmin.register Social do
   filter :chapter
 
 	index do
-    column :title
     column :chapter
+    column :start_time
     default_actions
   end
   
@@ -14,7 +14,6 @@ ActiveAdmin.register Social do
     f.inputs "Details" do
       f.input :start_time, :label => "Date and Time"
       f.input :chapter
-      f.input :title
       f.input :location
       f.input :description
     end
@@ -27,7 +26,6 @@ ActiveAdmin.register Social do
         social.start_time
       end
       row :chapter
-      row :title
       row :location
       row :description
     end

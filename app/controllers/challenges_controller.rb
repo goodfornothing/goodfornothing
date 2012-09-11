@@ -9,7 +9,7 @@ class ChallengesController < ApplicationController
 	def index
 	  @warblings = Warbling.all
   	@warbling = Warbling.find(params[:id]) if params[:id]
-  	@open_challenges = (@warbling) ? @warbling.challenges.open : Challenge.open
+  	@open_challenges = (@warbling) ? @warbling.challenges.opened : Challenge.opened
   	@closed_challenges = (@warbling) ? @warbling.challenges.closed : Challenge.closed	
 	end
 	
@@ -29,9 +29,7 @@ class ChallengesController < ApplicationController
       flash[:notice] = "Sorry, we couldn't save your challenge"
       render "new"
     end
-	  
-	  # email notification to admins
-	  
+		  
 	end
 	
 	def thanks

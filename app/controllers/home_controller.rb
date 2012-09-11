@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
 	def index
 	  
-	  @update = Post.updates.first
+	  @update = Post.updates.order("created_at DESC").first
 	  @challenge = Challenge.active.find_by_featured(true)
 	  
 	  @member_count = User.count

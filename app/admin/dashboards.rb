@@ -68,7 +68,7 @@ ActiveAdmin::Dashboards.build do
         thead do
           tr do
             th "Name"
-            th "Type"
+            th "Purpose"
             th "Summary"
             th "Actions"
           end
@@ -77,7 +77,7 @@ ActiveAdmin::Dashboards.build do
           @partners.collect do |partner|
             tr do
               td partner.name
-              td partner.type
+              td partner.purpose
               td partner.notes
               td link_to "View", admin_partner_path(partner)
             end

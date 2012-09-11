@@ -20,13 +20,13 @@ namespace :migrate do
 		doc.xpath('//dt/a').each do |node|
 
 			bookmark_url = node.attr('href')
-			bookmark = Conversation::Bookmark.find_by_url(bookmark_url)
+			bookmark = Bookmark.find_by_url(bookmark_url)
 
 			if bookmark.nil?
 				puts "Creating bookmark: #{node.text}"
 
 				# Create bookmark
-				bookmark = Conversation::Bookmark.create! do |b|
+				bookmark = Bookmark.create! do |b|
 					b.title = node.text
 					b.url = node.attr('href')
 					b.published = true
@@ -34,9 +34,9 @@ namespace :migrate do
 
 				# Associate tags (parent folders)
 				node.xpath('ancestor::dl').xpath('preceding-sibling::dt/h3').each do |d|
-					tag = Conversation::Tag.find_by_title(d.text)
+					tag = Tag.find_by_title(d.text)
 					if tag.nil?
-						tag = Conversation::Tag.create do |t|
+						tag = Tag.create do |t|
 							t.title = d.text
 						end
 					end
@@ -79,13 +79,13 @@ namespace :migrate do
         	n.age = row['Age']
         	n.website = row['your web space']
         	n.twitter = row['twitter page']
-        	n.birthdate = Date.parse(row['Birthdate'])
+        	n.birthdate = Date.parse(row['Birthdate']) if row['Birthdate']
         	n.reasons_for_joining = row['What makes you want to do Good for Nothing?']
         	n.skills = row['What special skills do you bring?']
         	n.notification_broadcasts = (row['Receiving Broadcasts?']=='Yes') ? true : false
         	n.notification_email = (row['Receiving Any Emails?']=='Yes') ? true : false
         	n.date_joined = Date.parse(row['Date Joined'])
-        	n.last_visit = Date.parse(row['Last Visit'])
+        	n.last_visit = Date.parse(row['Last Visit']) if row['Last Visit']
         end
       else
         puts "Ning user already exists, skipping"
@@ -98,10 +98,10 @@ namespace :migrate do
         user = User.create! do |u| 
         	u.email = ning_user.email
           u.name = ning_user.name
-          u.password = 'password'
-          u.password_confirmation = 'password'
-          u.approved = true
-          u.admin = true
+          u.password = 'bt793fxp'
+          u.password_confirmation = 'bt793fxp'
+          u.activated = false
+          u.admin = false
         end
       else
         puts "Devise user already exists, skipping"
@@ -136,19 +136,19 @@ namespace :migrate do
 		puts "Starting import from '#{site_title}'"
 
 		# Import WP categories
-		puts "Importing categories"
-		doc.xpath('//category[@domain="category"]').each do |node|
-  		unless node.text == "Uncategorized"
-  			category = Conversation::Category.find_by_title(node.text)
-  			if category.nil?
-	  			puts "Creating category: #{node.text}"
-	  			category = Conversation::Category.create! do |c|
-	  				c.title = node.text
-	  			end
-	  		end
-  			category.save!
-  		end
-		end
+		#puts "Importing categories"
+		#doc.xpath('//category[@domain="category"]').each do |node|
+  	#	unless node.text == "Uncategorized"
+  	#		category = Category.find_by_title(node.text)
+  	#		if category.nil?
+	  #			puts "Creating category: #{node.text}"
+	  #			category = Category.create! do |c|
+	  #				c.title = node.text
+	  #			end
+	  #		end
+  	#		category.save!
+  	#	end
+		#end
 
 		# Import WP tags
 		# puts "Importing tags"
@@ -171,12 +171,12 @@ namespace :migrate do
 			if item.xpath('wp:status').text == "publish"
 
 				wp_post_id = item.xpath('wp:post_id').text
-				post = Conversation::Post.find_by_wordpress_id(wp_post_id)
+				post = Post.find_by_wordpress_id(wp_post_id)
 				
 				if post.nil?
 					
 					puts "Creating blog post: #{item.xpath('title').text}"
-					post = Conversation::Post.create! do |p|
+					post = Post.create! do |p|
 						p.title = item.xpath('title').text
 						p.excerpt = item.xpath('title').text
 						p.body = item.xpath('content:encoded').text
@@ -205,11 +205,11 @@ namespace :migrate do
 					end
 
 					# Associate category
-					pc = Conversation::Category.find_by_title(item.xpath('category').first.text)
-					item.xpath('category').each do |c|
-						pc = Conversation::Category.find_by_title(c.text) if pc.nil?
-					end
-					post.category = pc unless pc.nil?
+					#pc = Category.find_by_title(item.xpath('category').first.text)
+					#item.xpath('category').each do |c|
+					#	pc = Category.find_by_title(c.text) if pc.nil?
+					#end
+					#post.category = pc unless pc.nil?
 
 				end
 

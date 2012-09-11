@@ -1,69 +1,75 @@
-<section id="primary_content">
+<section id="primary_content" class="single">
 	
 	<h1><%= @member.name %></h1>
 
-	<% if @member.chapter && @member.crew? %>
-	<p><%= @member.short_name %> is part of the <%= link_to @member.chapter.title, chapter_gigs_path(@member.chapter) %> crew.</p>
-	<% end %>
+	<div class="panel">
 
-	<%= image_tag @member.avatar unless @member.avatar.url.nil? %>
+		<h2>Profile</h2>
+		<%= image_tag @member.avatar unless @member.avatar.url.nil? %>
 	
-	<ul>
-		<%= "<li>Part of Good for Nothing in #{@member.chapter.title}</li>".html_safe if @member.chapter %>
-		<%= "<li>Living in #{@member.location}</li>".html_safe if @member.location %>
-		<%= "<li>#{@member.gender}</li>".html_safe if @member.gender %>
-		<%= "<li>#{@member.age}</li>".html_safe if @member.age %>
-		<%= "<li>#{link_to @member.twitter_handle, "http://twitter.com/#{@member.twitter_handle}"}</li>".html_safe if @member.twitter_handle %>
-		<%= "<li>#{link_to @member.url, @member.url}</li>".html_safe if @member.url %>
-	</ul>
-	
-	<% if @member.talents.any? %>
-	<h2>Talents</h2>
-	<ul>
-		<% @member.talents.each do |talent| %>
-		<li><%= talent.skill.title %> (<%= talent.level %>)</li>
+		<ul>
+			<% if @member.chapter && @member.crew? %>
+			<li><%= @member.short_name %> is part of the <%= link_to @member.chapter.title, chapter_gigs_path(@member.chapter) %> crew</li>
+			<% end %>
+			<%= "<li>Part of Good for Nothing in #{@member.chapter.title}</li>".html_safe if @member.chapter %>
+			<%= "<li>Living in #{@member.location}</li>".html_safe if @member.location %>
+			<%= "<li>#{@member.gender}</li>".html_safe if @member.gender %>
+			<%= "<li>#{@member.age}</li>".html_safe if @member.age %>
+			<%= "<li>#{link_to @member.twitter_handle, "http://twitter.com/#{@member.twitter_handle}"}</li>".html_safe if @member.twitter_handle %>
+			<%= "<li>#{link_to @member.url, @member.url}</li>".html_safe if @member.url %>
+		</ul>
+		
+		<% if user_signed_in? && current_user == @member %>
+			<p><%= link_to "Update profile", edit_user_registration_path %>
 		<% end %>
-	</ul>
-	<% end %>
 	
-	<h2>Number of people encountered in the community: <%= @member.offline_encountered.count + @member.online_encountered.count %> <%= link_to "See all", members_path if user_signed_in? && @member == current_user %></h2>
+	</div>
+	
+	<div class="panel">
+	
+		<% if @member.talents.any? %>
+		<h2>Talents</h2>
+		<ul>
+			<% @member.talents.each do |talent| %>
+			<li><%= talent.skill.title %> (<%= talent.level %>)</li>
+			<% end %>
+		</ul>
+		<% end %>
+		
+	</div>
+	
+	<h2>Activity</h2>
+	
+	<p>So far, <%= contextual_reference(@member).downcase %> worked with <%= link_to "#{@member.offline_encountered.count + @member.online_encountered.count} members", members_path %> of the community.</p>
 	
 	<% if @member.challenges.any? %>
-	<h2>Worked on these challenges:</h2>
+	<h3>You've worked on <%= pluralize(@member.challenges.count, "challenge") %></h3>
 	<ul>
 		<% @member.challenges.each do |challenge| %>
 		<li><%= link_to challenge.title, challenge_path(challenge) %></li>
 		<% end %>
 	</ul>
 	<% end %>
-		
-	<h2>Gigs attended (<%= @member.gigs.count %>)</h2>
+	
 	<% if @member.gigs.any? %>
-	<p>Gigs you've attended:</p>
+	<h3><%= contextual_reference(@member) %> taken part in <%= pluralize(@member.gigs.count, "gig") %></h3>
 	<ul>
 		<% @member.gigs.each do |gig| %>
 		<li><%= link_to gig.title, gig_path(gig) %></li>
 		<% end %>
 	</ul>
+	<p><%= link_to "Have we got it wrong? Update your activity", users_activity_path %></p>
+	<% elsif user_signed_in? && current_user == @member %>
+	<p>We're not sure if you've taken part in any gigs, <%= link_to "add gigs to your profile", users_activity_path %> if you have!</p>	
 	<% end %>
-	<p><%= link_to "Tell us which gigs you've attended", users_activity_path %></p>
 	
 	<% if @member.socials.any? %>
-	<h2>Socials (<%= @member.socials.count %>)</h2>
-	<p>Been to:</p>
+	<h3><%= contextual_reference(@member) %> taken part in <%= pluralize(@member.socials.count, "social") %></h3>
 	<ul>
 		<% @member.socials.each do |social| %>
-		<li><%= link_to social.title, social_path(social) %></li>
+		<li><%= link_to social.start_time, social_path(social) %></li>
 		<% end %>
 	</ul>
 	<% end %>
 	
 </section>
-
-<aside id="secondary_content">
-	
-	<% if user_signed_in? && current_user == @member %>
-		<p class="cta"><%= link_to "Update profile", edit_user_registration_path %>
-	<% end %>
-	
-</aside>

@@ -20,7 +20,6 @@ class PartnersController < ApplicationController
       render "new"
     end
 	  
-	  # email notification to admins
 	end
 
   def thanks

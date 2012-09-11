@@ -3,7 +3,7 @@
 	<h1>The crew</h1>
 	<p>We're various people scattered around the UK. <%= link_to "Start your own", "mailto:hello@goodfornothing.com" %> chapter?</p>	
 	
-	<ul class="grid_list">
+	<ul class="grid_list grid_four">
 		<% @all_chapters.each do |chapter| %>
 			<li>
 				<h3><%= chapter.title %></h3>

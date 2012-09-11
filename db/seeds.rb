@@ -185,7 +185,27 @@ User.create([
     crew: true,
     twitter_handle: '@greenape',
     chapter_id: @manchester.id
-  }
+  },
+  {
+    email: 'sam@buckybox.com',
+    name: 'Sam Rye',
+    password: 'password',
+    password_confirmation: 'password',
+    activated: true,
+    admin: true,
+    crew: true,
+    chapter_id: @wellington.id
+    },
+    {
+      email: 'joshua@enspiral.com',
+      name: 'Joshua Vial',
+      password: 'password',
+      password_confirmation: 'password',
+      activated: true,
+      admin: true,
+      crew: true,
+      chapter_id: @wellington.id
+    }
 ])
 
 Friend.create([
@@ -528,7 +548,47 @@ Venture.create([
   end_time: DateTime.new(2012, 7, 24, 17)
 })
 
+@madeinlambeth_2 = Gig.create({
+  title: 'Made in Lambeth 2',
+  chapter_id: @london.id,
+  start_time: DateTime.new(2012, 10, 12, 18),
+  end_time: DateTime.new(2012, 10, 14, 17)
+})
+
+@northernsoul = Gig.create({
+  title: 'Northern Soul',
+  chapter_id: @manchester.id,
+  start_time: DateTime.new(2012, 10, 5, 18),
+  end_time: DateTime.new(2012, 10, 7, 17)
+})
+
+Social.create([
+  {
+    chapter_id: @bristol.id,
+    start_time: DateTime.new(2012, 9, 27, 7),
+    location: 'The Canteen'
+  },
+  {
+    chapter_id: @london.id,
+    start_time: DateTime.new(2012, 9, 19, 6),
+    location: 'Betsey Trotwood'
+  }
+])
+
 Challenge.create([
+  {
+    gig_id: @northernsoul.id,
+    active: true,
+    featured: true
+  },
+  {
+    gig_id: @northernsoul.id,
+    active: true
+  },
+  {
+    gig_id: @northernsoul.id,
+    active: true
+  },
   {
     gig_id: @wildthing.id,
     active: true
@@ -561,6 +621,21 @@ Challenge.create([
   {
     gig_id: @madeinlambeth.id,
     title: 'Parks',
+    active: true
+  },
+  {
+    gig_id: @madeinlambeth_2.id,
+    title: 'MIL 2 B 1',
+    active: true
+  },
+  {
+    gig_id: @madeinlambeth_2.id,
+    title: 'MIL 2 B 2',
+    active: true
+  },
+  {
+    gig_id: @madeinlambeth_2.id,
+    title: 'MIL 2 B 3',
     active: true
   },
   {

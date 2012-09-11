@@ -14,7 +14,7 @@
 	    	<%= f.button :submit, "Sign in" %>
 
 			<%- if devise_mapping.recoverable? %>
-		  		<p class="cta"><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
+		  		<p class="footnote">Can't remember your password? Fear not, you can <%= link_to "request a new one", new_password_path(resource_name) %></p>
 			<% end -%>
 		
 		<% end %>

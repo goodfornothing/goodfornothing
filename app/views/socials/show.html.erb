@@ -1,6 +1,6 @@
 <section id="primary_content">
 	
-	<h1><%= @social.title %></h1>
+	<h1><%= @social.chapter.title %> Social</h1>
 	<% if @social.start_time %>
 	<time><%= @social.start_time.to_formatted_s(:long_ordinal) %></time>
 	<% end %>	

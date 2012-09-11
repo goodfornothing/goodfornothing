@@ -26,5 +26,9 @@ class Gig < ActiveRecord::Base
   def past?
     self.end_time < Time.now
   end
+  
+  def future?
+    self.start_time > Time.now
+  end
   	
 end

@@ -18,20 +18,20 @@
 
 
 <rss version="2.0"
-	xmlns:excerpt="http://wordpress.org/export/1.1/excerpt/"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
 	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
 	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:wp="http://wordpress.org/export/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
 >
 
 <channel>
 	<title>Good for Nothing</title>
 	<link>http://www.goodfornothing.com</link>
 	<description>Collaborating for good</description>
-	<pubDate>Mon, 25 Jun 2012 11:54:43 +0000</pubDate>
-	<language>en</language>
-	<wp:wxr_version>1.1</wp:wxr_version>
+	<pubDate>Tue, 11 Sep 2012 21:25:47 +0000</pubDate>
+	<language>en-US</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
 	<wp:base_site_url>http://www.goodfornothing.com</wp:base_site_url>
 	<wp:base_blog_url>http://www.goodfornothing.com</wp:base_blog_url>
 
@@ -2306,20 +2306,6 @@ Good for Nothing not only curate collaborative gigs that bring together diverse 
 			<wp:comment_content><![CDATA[[...] had a pop at a 4 hr gig with 50+ design students at the D&amp;AD New Blood Festival which rocked. And buddied up with Innocent&#8217;s creative team do a a 24 hour blast of Good for Nothing for [...] ]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type>pingback</wp:comment_type>
-			<wp:comment_parent>0</wp:comment_parent>
-			<wp:comment_user_id>0</wp:comment_user_id>
-		</wp:comment>
-		<wp:comment>
-			<wp:comment_id>89</wp:comment_id>
-			<wp:comment_author><![CDATA[zatohhm]]></wp:comment_author>
-			<wp:comment_author_email>wldlxg@tkhitd.com</wp:comment_author_email>
-			<wp:comment_author_url>http://idptwhrvvgeq.com/</wp:comment_author_url>
-			<wp:comment_author_IP>46.119.115.22</wp:comment_author_IP>
-			<wp:comment_date>2012-06-25 04:47:51</wp:comment_date>
-			<wp:comment_date_gmt>2012-06-25 04:47:51</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[vSfOTJ  <a href="http://dblskxyupqva.com/" rel="nofollow">dblskxyupqva</a>, [url=http://tfpfnjhvmpdp.com/]tfpfnjhvmpdp[/url], [link=http://gxpnzcerbajv.com/]gxpnzcerbajv[/link], http://ihcddnmtxhua.com/]]></wp:comment_content>
-			<wp:comment_approved>0</wp:comment_approved>
-			<wp:comment_type></wp:comment_type>
 			<wp:comment_parent>0</wp:comment_parent>
 			<wp:comment_user_id>0</wp:comment_user_id>
 		</wp:comment>
@@ -5573,6 +5559,39 @@ So here's the brief for THAMES 21..... and a short film about their work
 		</wp:postmeta>
 	</item>
 	<item>
+		<title>MAKE/TIME weekend - What was made</title>
+		<link>http://www.goodfornothing.com/2012/04/08/maketime-weekend-what-was-made/</link>
+		<pubDate>Sun, 08 Apr 2012 13:45:45 +0000</pubDate>
+		<dc:creator>Anouk</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2666</guid>
+		<description></description>
+		<content:encoded><![CDATA[On 29-31st March, Sony and Good for Nothing teamed up for Make/Time, a weekend of making and prototyping in the lovely space at <a href="http://westminster.the-hub.net/">Hub Westminster</a>. A crack team of developers, designers and strategists came together to hack the <a href="http://www.sony.co.uk/discussions/community/en/community/better_futures/plus_u">+U open source code</a> to develop mobile volunteering apps for 2 charities, <a href="http://espacebenevolat.org/">Espace Benevolat</a> and <a href="http://www.thames21.org.uk/">Thames21</a>.
+
+Here's a film we put together that captures the energy, hard work and incredible outputs after just 48 hours.
+
+<iframe src="http://player.vimeo.com/video/41981276" frameborder="0" width="500" height="275"></iframe>
+
+<a href="http://vimeo.com/41981276">Make/Time Good for Nothing weekend</a> from <a href="http://vimeo.com/goodfornothing">Good for Nothing</a> on <a href="http://vimeo.com">Vimeo</a>.]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2666</wp:post_id>
+		<wp:post_date>2012-04-08 13:45:45</wp:post_date>
+		<wp:post_date_gmt>2012-04-08 13:45:45</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>maketime-weekend-what-was-made</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[6]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
 		<title>Made in Lambeth 21-23 June: Call out for makers and doers</title>
 		<link>http://www.goodfornothing.com/2012/06/01/made-in-lambeth-21-23-june-call-out-for-makers-and-doers/</link>
 		<pubDate>Fri, 01 Jun 2012 16:34:08 +0000</pubDate>
@@ -5629,7 +5648,7 @@ Here's the link to the <a href="http://madeinlambeth.eventbrite.com/">Eventbrite
 			<wp:comment_author_IP>188.40.89.18</wp:comment_author_IP>
 			<wp:comment_date>2012-06-08 09:46:05</wp:comment_date>
 			<wp:comment_date_gmt>2012-06-08 09:46:05</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[[...] the next Good of Nothing day which will be in Lambeth/South London on June 21st ad 22nd. More info here.   This entry was posted in Uncategorized by ted. Bookmark the [...] ]]></wp:comment_content>
+			<wp:comment_content><![CDATA[[...] the next Good of Nothing day which will be in Lambeth/South London on June 21st ad 22nd. More info here.   This entry was posted in Uncategorized by ted. Bookmark the [...]]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type>pingback</wp:comment_type>
 			<wp:comment_parent>0</wp:comment_parent>
@@ -5643,7 +5662,7 @@ Here's the link to the <a href="http://madeinlambeth.eventbrite.com/">Eventbrite
 			<wp:comment_author_IP>50.97.97.36</wp:comment_author_IP>
 			<wp:comment_date>2012-06-15 21:23:35</wp:comment_date>
 			<wp:comment_date_gmt>2012-06-15 21:23:35</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[[...] more information see the Good For Nothing website and Made In Lambeth Eventbrite [...] ]]></wp:comment_content>
+			<wp:comment_content><![CDATA[[...] more information see the Good For Nothing website and Made In Lambeth Eventbrite [...]]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type>pingback</wp:comment_type>
 			<wp:comment_parent>0</wp:comment_parent>
@@ -5657,7 +5676,7 @@ Here's the link to the <a href="http://madeinlambeth.eventbrite.com/">Eventbrite
 			<wp:comment_author_IP>216.151.210.48</wp:comment_author_IP>
 			<wp:comment_date>2012-06-23 16:20:02</wp:comment_date>
 			<wp:comment_date_gmt>2012-06-23 16:20:02</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[[...] here&#8217;s a report from the Made in Lambeth Good for Nothing event. A very creative crowd &#8211; designers, developers, artists &#8211; here at the Oasis Centre near [...] ]]></wp:comment_content>
+			<wp:comment_content><![CDATA[[...] here&#8217;s a report from the Made in Lambeth Good for Nothing event. A very creative crowd &#8211; designers, developers, artists &#8211; here at the Oasis Centre near [...]]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type>pingback</wp:comment_type>
 			<wp:comment_parent>0</wp:comment_parent>
@@ -5799,77 +5818,6 @@ Yeah baby, let's go..
 			<wp:meta_key>_thumbnail_id</wp:meta_key>
 			<wp:meta_value><![CDATA[2147]]></wp:meta_value>
 		</wp:postmeta>
-		<wp:comment>
-			<wp:comment_id>76</wp:comment_id>
-			<wp:comment_author><![CDATA[Steve Heaton]]></wp:comment_author>
-			<wp:comment_author_email>smheaton12@gmail.com</wp:comment_author_email>
-			<wp:comment_author_url></wp:comment_author_url>
-			<wp:comment_author_IP>166.147.123.27</wp:comment_author_IP>
-			<wp:comment_date>2012-06-09 17:02:26</wp:comment_date>
-			<wp:comment_date_gmt>2012-06-09 17:02:26</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[Steve Heaton
-Mobile: 850-896-5846
-Email: smheaton12@gmail.com
-
-Experiential Marketing and Mobile Tour Marketing Experience and Skill Set
-With over 11-years of previous field management / promotions / mobile tour experience I have managed over 20-staff members on experiential marketing programs. Experienced in driving truck and trailer cross-country for national tours with hands-on site set up and strike of a variety of footprints. Strong organizational, planning and problem-solving skills.
-Seasoned sales professional with over 12 years’ experience, proactive, self-starter and flexible with the ability to thrive in a fast-paced environment
-
-Experience
-Tour Manager, AT&amp;T RET for Central Florida, Mosaic XM Team
-04/12 to Present
-•	Overall successful field implementation of events
-•	Strong understanding of mobile devices and major OS
-•	Manage all assets and logistical aspects of the experience and meeting pre-determine program metrics  
-•	Driving and storage of SUV and 10' trailer
-•	Daily reporting, asset inventory and expense tracking and serve as in-market liaison for clients at each event site
-
-National and Local Tour Lead, ICC/The Passion Group
-03/05 to 11/11
-•	Completion of 10 marketing tours of which 3-years was a National Tour for Chrysler
-•	Tours consisted of such brands including Army, ESPN, Trojan, Banana Boat, Daimler Chrysler Motors and Army National Guard
-•	Responsible for site set-up/strike, event execution, securing event property and training local brand ambassadors
-•	Captured and reported daily metrics
-•	Coordinated program activities (i.e. sport tournaments, on-stage contest for crowd participation and emcee)
-
-Logistics Coordinator and Staff Manager, Hilltop Productions
-04/06 to 06/08
-•	Coordinated events and managed staff, security, event clients, vendors, event acts and catering
-•	Responsible for managing, organization and inventory of all warehouse goods and supplies
-•	Responsible for site checks, designing event layouts and forecasting set-up timelines
-•	Managed events such as festivals, concerts, trade shows, weddings, sporting events and exhibits
-
-Event Manager/Brand Ambassador, Sun Power Promotions
-03/02 to 05/11
-•	Supervised on and off-premise beverage sampling events
-•	Oversaw site location for promotional events covering North West Florida
-•	Marketed vast array of company products to vendors and potential customers on location
-
-Assistant Manager Army National Guard Promotion, Promo-Staff Inc.
-03/06 to 05/06
-•	Oversaw event staff for operation of course and guerrilla marketing
-•	In charge of daily activity reports and inventory control
-
-Operations and Sales, Koko Island Llc.
-03/02 to Present
-•	Oversee store setup including but not limited to set store Planogram, displays, creating new departments, dealing with management, inventory, establishing new accounts and basic daily operations
-•	Establish local advertising for vast array of merchandise
-•	Help construct new departments in national chain stores including Wal-Mart and K-Mart
-•	Manage both wholesale and retail aspects aspects
-•	Develop and maintain outstanding working relationship with key accounts]]></wp:comment_content>
-			<wp:comment_approved>trash</wp:comment_approved>
-			<wp:comment_type></wp:comment_type>
-			<wp:comment_parent>0</wp:comment_parent>
-			<wp:comment_user_id>0</wp:comment_user_id>
-			<wp:commentmeta>
-				<wp:meta_key>_wp_trash_meta_status</wp:meta_key>
-				<wp:meta_value><![CDATA[0]]></wp:meta_value>
-			</wp:commentmeta>
-			<wp:commentmeta>
-				<wp:meta_key>_wp_trash_meta_time</wp:meta_key>
-				<wp:meta_value><![CDATA[1339442189]]></wp:meta_value>
-			</wp:commentmeta>
-		</wp:comment>
 	</item>
 	<item>
 		<title>WILD THING,  London, July 6th-8th</title>
@@ -5892,17 +5840,25 @@ David has appointed himself the Marketing Director for Nature and with the help 
 
 The Nature Film is a 90-minute feature documentary film project being made with Channel 4 and the BRITDOC foundation for cinema, television, film festivals and public screenings to be released in summer 2013.
 
+Here's the latest teaser...
+
+<iframe src="http://player.vimeo.com/video/44097760?byline=0&amp;color=aecf1b" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/44097760">The Nature Film</a> from <a href="http://vimeo.com/greenlions">Green Lions</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+
 David has approached Good for Nothing to see how the community can help with his quest.
 
 We have decided to point our next London gig solely at this challenge. 
 
 To help David develop a campaign for nature and seed a people’s movement for nature, to get nature back into our lives.
 
-In a nutshell, we are going to spend a weekend with David to try and create and prototype a movement for nature and wildness to get increasingly sanitised, screen addicted, brand saturated youngsters, curious, excited and up for getting out into nature and wild play.
+In a nutshell, we are going to spend a weekend with David to try and create and prototype a movement for nature and wildness to get increasingly sanitised, screen addicted, brand saturated youngsters, curious, excited and up for getting out into nature and wild play. 
+
+We're  going to be mashing up design, technology and communications with naturalist wisdom and intelligence and smart thinking and doing.
 
 Check out the first draft brief below for the details of the challenge
 
 <a href="http://wildthing.eventbrite.com/">And head here to the Eventbrite to register for this gig</a>
+
+And if you're a soulful business that would like to get involved, we're looking for partners to help feed and refresh our crew of 70 folk, and help fund the seeding of the movement next year around the film   - <a href="http://www.goodfornothing.com/2012/06/20/seeking-founding-folk-for-wild-thing/">check here for more details</a>
 
 This is going to be Wild.
 
@@ -5925,12 +5881,26 @@ This is going to be Wild.
 		<category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
 		<wp:postmeta>
 			<wp:meta_key>_edit_last</wp:meta_key>
-			<wp:meta_value><![CDATA[7]]></wp:meta_value>
+			<wp:meta_value><![CDATA[3]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>_thumbnail_id</wp:meta_key>
 			<wp:meta_value><![CDATA[2193]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:comment>
+			<wp:comment_id>92</wp:comment_id>
+			<wp:comment_author><![CDATA[candida corcoran]]></wp:comment_author>
+			<wp:comment_author_email>candybarr@freeuk.com</wp:comment_author_email>
+			<wp:comment_author_url>http://www.ritualartinnature.co.uk</wp:comment_author_url>
+			<wp:comment_author_IP>78.147.6.206</wp:comment_author_IP>
+			<wp:comment_date>2012-06-29 08:37:41</wp:comment_date>
+			<wp:comment_date_gmt>2012-06-29 08:37:41</wp:comment_date_gmt>
+			<wp:comment_content><![CDATA[Good for you! Nothing beats a day out in Nature!]]></wp:comment_content>
+			<wp:comment_approved>1</wp:comment_approved>
+			<wp:comment_type></wp:comment_type>
+			<wp:comment_parent>0</wp:comment_parent>
+			<wp:comment_user_id>0</wp:comment_user_id>
+		</wp:comment>
 	</item>
 	<item>
 		<title>The Briefs for #summeroflove //Good for Nothing Brighton</title>
@@ -6078,6 +6048,20 @@ And here is the final brief around positive hacks on Lambeth parks
 			<wp:meta_key>_thumbnail_id</wp:meta_key>
 			<wp:meta_value><![CDATA[2245]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:comment>
+			<wp:comment_id>90</wp:comment_id>
+			<wp:comment_author><![CDATA[Made in Lambeth – A good for Nothing event! &laquo; Cooperative toolkit]]></wp:comment_author>
+			<wp:comment_author_email></wp:comment_author_email>
+			<wp:comment_author_url>http://cooperativecounciltoolkit.wordpress.com/2012/06/26/made-in-lambeth-a-good-for-nothing-event/</wp:comment_author_url>
+			<wp:comment_author_IP>69.170.134.162</wp:comment_author_IP>
+			<wp:comment_date>2012-06-26 13:54:44</wp:comment_date>
+			<wp:comment_date_gmt>2012-06-26 13:54:44</wp:comment_date_gmt>
+			<wp:comment_content><![CDATA[[...] event started on the evening of the 21st where the project briefs were introduced (take a look at them here) and we everyone got to meet each other for the first time. The group was really dynamic and [...]]]></wp:comment_content>
+			<wp:comment_approved>1</wp:comment_approved>
+			<wp:comment_type>pingback</wp:comment_type>
+			<wp:comment_parent>0</wp:comment_parent>
+			<wp:comment_user_id>0</wp:comment_user_id>
+		</wp:comment>
 	</item>
 	<item>
 		<title>Meet The Stars</title>
@@ -6310,6 +6294,10 @@ As Richard Louv puts it:
 	<li>Can we help quantify our daily interactions with the planet's resources in way that is<br /> painless, intuitive and helpful?</li>
 	<li>How might we help David Bond's <a href="http://www.goodfornothing.com/2012/06/11/wild-thing/">Nature marketing campaign</a> exist and thrive online?</li>
 </ol>
+Here's a teaser of David's mission...
+
+<iframe src="http://player.vimeo.com/video/44097760?byline=0&amp;color=aecf1b" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/44097760">The Nature Film</a> from <a href="http://vimeo.com/greenlions">Green Lions</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+
 <h3>The data</h3>
 
 Thankfully ecologists are big on data, so there's plenty to play with:
@@ -6325,11 +6313,14 @@ Thankfully ecologists are big on data, so there's plenty to play with:
 Or have a look at these curated lists of tools, datasets and APIs:
 
 <ol>
+<li><a href="http://greendrea.ms/">Green Dreams</a></li>
 <li><a href="http://fschackday.org/apis-and-tools-sets/">Field Studies Council hackday tools &amp; APIs</a></li>
 <li><a href="http://datacite.org/repolist">DataCite Repositories</a></li>
 <li><a href="http://www.guardian.co.uk/data">Guardian Open Data</a></li>
 <li><a href="http://data.gov.uk/search/apachesolr_search/environment?filters=type%3Ackan_package&retain-filters=1">UK Government Open Data</a></li>
 <li><a href="http://sdwebx.worldbank.org/climateportal/index.cfm">World Bank Climate Data Portal</a></li>
+<li><a href="http://www.freebase.com/">Freebase</a></li>
+<li><a href="http://protectedplanet.net/search">Protected Planet</a></li>
 </ol>
 
 <h3>Attending?</h3>
@@ -6369,6 +6360,22 @@ Or have a look at these curated lists of tools, datasets and APIs:
 			<wp:comment_content><![CDATA[There is no href on the "Nature marketing campaign" link.
 
 There are some useful datasets in Freebase that might be useful here too.]]></wp:comment_content>
+			<wp:comment_approved>1</wp:comment_approved>
+			<wp:comment_type></wp:comment_type>
+			<wp:comment_parent>0</wp:comment_parent>
+			<wp:comment_user_id>0</wp:comment_user_id>
+		</wp:comment>
+		<wp:comment>
+			<wp:comment_id>194</wp:comment_id>
+			<wp:comment_author><![CDATA[Jamie]]></wp:comment_author>
+			<wp:comment_author_email>jamie@loco2.com</wp:comment_author_email>
+			<wp:comment_author_url>http://loco2.com</wp:comment_author_url>
+			<wp:comment_author_IP>86.184.142.8</wp:comment_author_IP>
+			<wp:comment_date>2012-07-04 15:12:31</wp:comment_date>
+			<wp:comment_date_gmt>2012-07-04 15:12:31</wp:comment_date_gmt>
+			<wp:comment_content><![CDATA[This project should definitely take into account the fantastic UNESCO Protected Planet website:
+
+http://protectedplanet.net/]]></wp:comment_content>
 			<wp:comment_approved>1</wp:comment_approved>
 			<wp:comment_type></wp:comment_type>
 			<wp:comment_parent>0</wp:comment_parent>
@@ -6500,6 +6507,994 @@ Time is of the essence.... so if you want to get involved then please do get in 
 		<wp:postmeta>
 			<wp:meta_key>_thumbnail_id</wp:meta_key>
 			<wp:meta_value><![CDATA[2422]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Building a platform for uncertainty</title>
+		<link>http://www.goodfornothing.com/2012/07/02/building-a-platform-for-uncertainty/</link>
+		<pubDate>Mon, 02 Jul 2012 19:28:12 +0000</pubDate>
+		<dc:creator>Andrew Sprinz</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2401</guid>
+		<description></description>
+		<content:encoded><![CDATA[<img src="http://www.goodfornothing.com/wp-content/uploads/2012/07/2012-01-04-22-23-55.jpg" alt="" title="2012-01-04-22-23-55" width="612" height="612" class="alignnone size-full wp-image-2459" />
+<p>For the past couple of years we've been running some crazy experiments in the name of community-driven, purposeful innovation.</p>
+<p>We've learned a load. They've helped us loosely define some formats that work offline, so it feels like a good time to take our experimentation online. To start building a web platform that will allow more people to do more Good for Nothing, more of the time.</p>
+<p>We're privileged to be living Good for Nothing every day, surrounded by inspiring individuals and organisations. It's amazing to watch it grow and evolve with every gig, constantly shifting our perspectives, but this does mean that it's impossible to know what the final platform should or will look like.</p>
+<p>So we've let go of the concept of a finished product and that of a traditional prototype / development cycle &ndash; instead we're creating the platform in a way which allows it to evolve and adapt as the community grows.</p>
+<p>Learning while doing. Doing while learning.</p>
+<p>We're going to need the community involved in this process, here's the plan&hellip;</p>
+<h2>Phase 1 - Foundations</h2>
+<p>By using various free web services over the last year or so (Ning, Wordpress, Eventbrite etc.) we've figured out we need to build to support the online community as it stands.</p>
+<p>Nothing groundbreaking, just a solid foundation for some experimentation.</p>
+<p>Essentially it'll consist of a blog, somewhere to house information about gigs and briefs, and a mechanism for do-ers to register their attendance.</p>
+<h2>Phase 2 - Supporting structures for community growth</h2>
+<p>The second phase will focus on connecting up the growing community of do-ers and makers with the social enterprises, causes, grassroots innovators and charities that we support.</p>
+<p>Another big part of this phase will be to start playing with ideas that encourage and support do-ers who want to continue working on briefs after everyone's goes home.</p>
+<p>At this stage we're planning to introduce profiles for do-ers and causes alike - somewhere to showcase all the amazing work that's happening both at gigs and beyond.</p>
+<h2>Phase 3 - Going on tour</h2>
+<p>We're lucky to have met some amazing folk in Brighton, Bristol and Manchester who are brave enough to take up the challenge of organising Good for Nothings in their cities.</p>
+<p>This phase is all about building tools for these local chapters. Things that helps with the grunt-work involved in putting on a gig.</p>
+<h2>Phase 4 - The slightly-more-crazy phase</h2>
+<p>Then it gets really interesting. We've been thinking about a number of digital experiments that we'd like to run with the help of the community.</p>
+<p>A few of them are below.</p>
+<p>Once the basic platform is kicking we'll start inviting small groups of do-ers and other members of the community to sit with us and work through the ideas before we begin to test them out on the wider Good for Nothing community.</p>
+<h3>1. Micro-volunteering</h3>
+<p>Two days just isn't enough time to get everything done. Ideas flow during gigs so there's always a load of small things that causes need which the do-ers just don't have time to cover.</p>
+<p>Sometimes it's as simple as a changing text on a website.</p>
+<p>We want to give do-ers the ability to dip in to this pool of need when they have a spare moments.</p>
+<h3>2. Match-making causes/briefs with teams online</h3>
+<p>Fifty two weeks a year just isn't enough time to crack every brief. We're always in contact with causes that need help with larger projects, some of these make it into gigs, some, sadly, do not.</p>
+<p>But there's no reason the self-organising witnessed at a Good for Nothing gig can't happen online or between a group of colleagues.</p>
+<p>We want to make it possible for teams to form around these briefs between gigs.</p>
+<h3>3. Curated ideas &amp; inspiration</h3>
+<p>Last year, before kicking off the <a href="http://5050.gd/">50/50 project</a>, we put out a call for ideas and gave people a place to post and rate these online.</p>
+<p>The resulting inspiration flood was overwhelming.</p>
+<p>These stories and ideas went on to inspire and shape the projects that helped raise over a quarter of a million for famine aid.</p>
+<p>We want to harness the power of crowd intelligence so that do-ers can hit the ground running at the start of a gig, and keep going afterwards to tackle larger issues.</p>
+<h3>4. Crowdfunding</h3>
+<p>It's been done dozens of times, but feels like a natural extension of many of the briefs that are tackled during a Good for Nothing gig.</p>
+<h3>5. Advice &amp; mentoring</h3>
+<p>There are nearly 700 people tuned in to the Good for Nothing community. That's a lot of talent. How can we allow do-ers to get their daily dose of Good simply by answering questions from causes?</p>
+<p>This could even evolve into a self-organising mentoring network for causes or young people looking for creative mentoring&hellip;</p>
+<h3>6. Connections</h3>
+<p>The Good for Nothing network extends beyond those directly involved. How can we help turn this extended network into a directory of do-ers that causes can tap in to?</p>
+<h2>Watch it grow</h2>
+<p>We're not there yet, but you can follow our progress on the <a href="http://staging.goodfornothing.com">development site</a>.</p>
+<p>For a more techie overview head over to <a href="https://github.com/goodfornothing/goodfornothing">GitHub</a> where we have some lovely UML diagrams and more detail on the specific features of the platform. Oh, and, of course, it's all available under an open source license.</p>
+<p>Thoughts, ideas and general ponderances are, as always, much appreciated.</p>
+<p>&nbsp;</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2401</wp:post_id>
+		<wp:post_date>2012-07-02 19:28:12</wp:post_date>
+		<wp:post_date_gmt>2012-07-02 19:28:12</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>building-a-platform-for-uncertainty</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="experiments"><![CDATA[Experiments]]></category>
+		<category domain="category" nicename="ways-of-working"><![CDATA[Ways of Working]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[7]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2459]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_old_slug</wp:meta_key>
+			<wp:meta_value><![CDATA[developing-a-platform-for-uncertainty]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:comment>
+			<wp:comment_id>204</wp:comment_id>
+			<wp:comment_author><![CDATA[Adrian Taylor]]></wp:comment_author>
+			<wp:comment_author_email>adrian.taylor@catch-22.org.uk</wp:comment_author_email>
+			<wp:comment_author_url>http://www.communityspacechallenge.co.uk</wp:comment_author_url>
+			<wp:comment_author_IP>81.106.223.52</wp:comment_author_IP>
+			<wp:comment_date>2012-07-16 15:09:47</wp:comment_date>
+			<wp:comment_date_gmt>2012-07-16 15:09:47</wp:comment_date_gmt>
+			<wp:comment_content><![CDATA[UUUUUUUUUGH! Ideas explosion all up in your face! pow pow pow!
+
+I like what you do. Could you guess? can we work together on something?]]></wp:comment_content>
+			<wp:comment_approved>1</wp:comment_approved>
+			<wp:comment_type></wp:comment_type>
+			<wp:comment_parent>0</wp:comment_parent>
+			<wp:comment_user_id>0</wp:comment_user_id>
+		</wp:comment>
+	</item>
+	<item>
+		<title>Wild Thing - The Challenge</title>
+		<link>http://www.goodfornothing.com/2012/07/06/the-wild-thing-mission-our-challenge-for-the-next-48-hours/</link>
+		<pubDate>Fri, 06 Jul 2012 09:07:06 +0000</pubDate>
+		<dc:creator>Tom F</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2471</guid>
+		<description></description>
+		<content:encoded><![CDATA[In about 8 hours, we'll be kicking off Wild Thing and to say we're excited would be an understatement.
+
+The tent is going up, the sound system cranks up nicely and we really don't care about the rain. It's nature after all innit.....?!
+
+Our challenge for the weekend is now 'live' -&gt; and it's awesome.
+
+Check it out, and see you later.
+
+<div style="width:600px" id="__ss_13560196"><strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/g00dfornothing/wild-thing-brief" title="Wild Thing brief">Wild Thing brief</a></strong><object id="__sse13560196" width="600" height="1000"><param name="movie" value="http://static.slidesharecdn.com/swf/doc_player.swf?doc=wildthingbrieffinal-120706040028-phpapp02&stripped_title=wild-thing-brief&userName=g00dfornothing" /><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/><param name="wmode" value="transparent"/><embed name="__sse13560196" src="http://static.slidesharecdn.com/swf/doc_player.swf?doc=wildthingbrieffinal-120706040028-phpapp02&stripped_title=wild-thing-brief&userName=g00dfornothing" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" width="600" height="1000"></embed></object><div style="padding:5px 0 12px">View more documents from <a href="http://www.slideshare.net/g00dfornothing">g00dfornothing</a>.</div></div>
+&nbsp;
+
+&nbsp;]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2471</wp:post_id>
+		<wp:post_date>2012-07-06 09:07:06</wp:post_date>
+		<wp:post_date_gmt>2012-07-06 09:07:06</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>the-wild-thing-mission-our-challenge-for-the-next-48-hours</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="gigs"><![CDATA[Gigs]]></category>
+		<category domain="post_tag" nicename="goodfornothing"><![CDATA[goodfornothing]]></category>
+		<category domain="post_tag" nicename="london"><![CDATA[london]]></category>
+		<category domain="post_tag" nicename="wildthing"><![CDATA[wildthing]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[4]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2476]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:comment>
+			<wp:comment_id>201</wp:comment_id>
+			<wp:comment_author><![CDATA[Good For Nothing / WildThing &#8211; Connecting kids with nature | Jimmy Tidey&#039;s Blog - Product Management and Creative Technologist]]></wp:comment_author>
+			<wp:comment_author_email></wp:comment_author_email>
+			<wp:comment_author_url>http://jimmytidey.co.uk/blog/good-wildthing-connecting-kids-nature/</wp:comment_author_url>
+			<wp:comment_author_IP>205.186.184.14</wp:comment_author_IP>
+			<wp:comment_date>2012-07-09 09:56:30</wp:comment_date>
+			<wp:comment_date_gmt>2012-07-09 09:56:30</wp:comment_date_gmt>
+			<wp:comment_content><![CDATA[[...] weekend Good For Nothing held an event called WildThing for documenatary makers Green Lion.  Green Lion are working on a film in the mold of Hugh [...]]]></wp:comment_content>
+			<wp:comment_approved>1</wp:comment_approved>
+			<wp:comment_type>pingback</wp:comment_type>
+			<wp:comment_parent>0</wp:comment_parent>
+			<wp:comment_user_id>0</wp:comment_user_id>
+		</wp:comment>
+	</item>
+	<item>
+		<title>Good for Nothing Bristol presents #ShipShape 20-22nd July</title>
+		<link>http://www.goodfornothing.com/2012/07/10/good-for-nothing-bristol-presents-shipshape-20-22nd-july/</link>
+		<pubDate>Tue, 10 Jul 2012 10:08:30 +0000</pubDate>
+		<dc:creator>Dan</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2484</guid>
+		<description></description>
+		<content:encoded><![CDATA[<a href="http://gfnbristol.eventbrite.com/"><img class="alignnone size-full" title="GFN BRISTOL SHIPSHAPE" src="http://www.goodfornothing.com/wp-content/uploads/2012/07/GFN-BRISTOL-SHIPSHAPE1.jpg" alt="" width="595" height="799" /></a>
+
+So this is the date for Good for Nothing Bristol, the next chapter to hatch outside London.
+
+#Shipshape is about connecting up a crew of Bristol based do-ers, makers, and tinkerers to come together for 48hrs to help accelerate and turbo charge the missions of three Bristol based social innovators.
+
+As with all Good for Nothing, there'll be music, food and fun with a focus on fast track rapid, doing and making. This is no talk shop.
+
+It's a mini festival of Do.
+
+It's taking place at the ace <a href="http://www.pmstudio.co.uk/">Pervasive Media Studio.</a>
+
+If you're a Bristol/west country based thinker, innovator, designer, developer, communicator, maker, hacker, coder or general tinkerer, get involved ;-)
+
+Or if you've done Good for Nothing before and know folk in the west country you think might be up for it, please let them know.
+
+THe full briefs will be up shortly, but these are the missions, and if you're wanting to know more about cutting edge disruptive solutions to social and environmental issues, then look no further and sign up
+<h2>Challenge 1: Bristol Pound (Launching September)</h2>
+<a href="http://www.bristolpound.org/">http://www.bristolpound.org/</a>
+Twitter: <a href="https://twitter.com/bristolpound">@bristolpound</a>
+
+<iframe src="http://www.youtube.com/embed/QtGEby4ORGM" frameborder="0" width="560" height="315"></iframe>
+
+The Brief
+<div id="__ss_13634563" style="width: 479px;"><strong style="display: block; margin: 12px 0 4px;"><a title="Gfn bristol pound brief" href="http://www.slideshare.net/g00dfornothing/gfn-bristol-pound-brief" target="_blank">Gfn bristol pound brief</a></strong> <iframe style="border: 1px solid #CCC; border-width: 1px 1px 0;" src="http://www.slideshare.net/slideshow/embed_code/13634563?rel=0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="479" height="511"></iframe>
+<div style="padding: 5px 0 12px;">View more documents from <a href="http://www.slideshare.net/g00dfornothing" target="_blank">g00dfornothing</a></div>
+</div>
+<h2>Challenge 2: Playing Out</h2>
+<a href="http://playingout.net/">http://playingout.net/</a>
+
+Playing Out is a not-for-profit information and advice resource for street play.
+
+We aim to increase children’s safe access to informal play in residential streets through:
+- Directly supporting resident-led street play sessions
+- Running workshops for parents and residents
+- Coordinating a network of 'street organisers'
+- Providing free resources and advice
+- Training play/community professionals
+- Communicating the benefits of street play
+- Working with policy-makers to enable street play
+
+<iframe src="http://player.vimeo.com/video/30483877?byline=0&amp;color=aecf1b" width="500" height="275" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/30483877">Playing Out</a> from <a href="http://vimeo.com/user4890578">Playing Out</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+
+The brief
+<div id="__ss_13634546" style="width: 479px;"><strong style="display: block; margin: 12px 0 4px;"><a title="Gfn bristol playing out brief" href="http://www.slideshare.net/g00dfornothing/gfn-bristol-playing-out-brief" target="_blank">Gfn bristol playing out brief</a></strong> <iframe style="border: 1px solid #CCC; border-width: 1px 1px 0;" src="http://www.slideshare.net/slideshow/embed_code/13634546?rel=0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="479" height="511"></iframe>
+<div style="padding: 5px 0 12px;">View more documents from <a href="http://www.slideshare.net/g00dfornothing" target="_blank">g00dfornothing</a></div>
+</div>
+The Guardian - Family article
+<a href="http://www.guardian.co.uk/lifeandstyle/2012/jun/23/reclaiming-the-streets-for-kids?commentpage=1#start-of-comments">http://www.guardian.co.uk/lifeandstyle/2012/jun/23/reclaiming-the-streets-for-kids?commentpage=1#start-of-comments</a>
+
+BBC One News
+<a href="http://www.bbc.co.uk/programmes/p00vm6bq">http://www.bbc.co.uk/programmes/p00vm6bq</a>
+<h2>Challenge 3: Home Turf Lettings</h2>
+&nbsp;
+
+There are hundreds of homeless people in and around Bristol, who would make good, reliable tenants, but they can’t find housing because landlords won’t rent to you if you’re homeless, don’t have a track record, or are unemployed.
+
+This means that they are trapped in a cycle of homelessness or unsuitable housing.
+
+<a href="http://www.hometurflettings.co.uk">Home Turf Lettings</a> is a social enterprise that acts as a safety net. We make it much easier and safer for landlords to let their properties to people in need, thereby helping vulnerable people to find and keep a home. We want people to be proud of where they live, feel safe and have a base from which they can get their lives back on track again.
+
+<strong>Our Challenge</strong>
+<ol>
+	<li>We need to identify, engage and sign up landlords and properties</li>
+	<li>We need to better communicate who we are and what we do through
+<ul>
+	<li>a website / online presence / social media through which we can engage people, network, channel enquiries and grow our database; and</li>
+	<li>refining our messaging / branding / marketing materials</li>
+</ul>
+</li>
+	<li>Review, challenge and refine our marketing strategy, to produce a realistic action plan for us to move forward</li>
+	<li>And if there is time…..identify (and maybe contact!?) potential partners and organisations we could collaborate with both to find more housing and to improve the experience for our tenants</li>
+</ol>
+<strong>Full brief</strong>
+<div id="__ss_13605631" style="width: 477px;"><strong style="display: block; margin: 12px 0 4px;"><a title="Home Turf Brief - #ShipShape" href="http://www.slideshare.net/g00dfornothing/home-turf-brief-shipshape">Home Turf Brief - #ShipShape</a></strong><object id="__sse13605631" style="height: 510px;" width="477" height="510" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="wmode" value="transparent" /><param name="src" value="http://static.slidesharecdn.com/swf/doc_player.swf?doc=hometurffullbrief11july12-120711082804-phpapp02&amp;stripped_title=home-turf-brief-shipshape&amp;userName=g00dfornothing" /><param name="allowscriptaccess" value="always" /><param name="allowfullscreen" value="true" /><embed id="__sse13605631" style="height: 510px;" width="477" height="510" type="application/x-shockwave-flash" src="http://static.slidesharecdn.com/swf/doc_player.swf?doc=hometurffullbrief11july12-120711082804-phpapp02&amp;stripped_title=home-turf-brief-shipshape&amp;userName=g00dfornothing" allowFullScreen="true" allowScriptAccess="always" wmode="transparent" allowscriptaccess="always" allowfullscreen="true" /></object></div>
+&nbsp;
+
+<strong>To register for ShipShape <a href="http://gfnbristol.eventbrite.com/">head here to sign up</a></strong>
+
+For more info contact <a href="https://twitter.com/_alkennedy">Al Kennedy</a>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2484</wp:post_id>
+		<wp:post_date>2012-07-10 10:08:30</wp:post_date>
+		<wp:post_date_gmt>2012-07-10 10:08:30</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>good-for-nothing-bristol-presents-shipshape-20-22nd-july</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="bristol"><![CDATA[Bristol]]></category>
+		<category domain="category" nicename="gigs"><![CDATA[Gigs]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[3]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2492]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:comment>
+			<wp:comment_id>202</wp:comment_id>
+			<wp:comment_author><![CDATA[Anna McMullen]]></wp:comment_author>
+			<wp:comment_author_email>anna.mcmullen@yahoo.co.uk</wp:comment_author_email>
+			<wp:comment_author_url></wp:comment_author_url>
+			<wp:comment_author_IP>83.9.168.191</wp:comment_author_IP>
+			<wp:comment_date>2012-07-11 23:15:30</wp:comment_date>
+			<wp:comment_date_gmt>2012-07-11 23:15:30</wp:comment_date_gmt>
+			<wp:comment_content><![CDATA[I'd like to take part. How do I sign up?!]]></wp:comment_content>
+			<wp:comment_approved>1</wp:comment_approved>
+			<wp:comment_type></wp:comment_type>
+			<wp:comment_parent>0</wp:comment_parent>
+			<wp:comment_user_id>0</wp:comment_user_id>
+		</wp:comment>
+		<wp:comment>
+			<wp:comment_id>203</wp:comment_id>
+			<wp:comment_author><![CDATA[Tom F]]></wp:comment_author>
+			<wp:comment_author_email>tom.farrand@pipelineideas.com</wp:comment_author_email>
+			<wp:comment_author_url></wp:comment_author_url>
+			<wp:comment_author_IP>188.29.63.161</wp:comment_author_IP>
+			<wp:comment_date>2012-07-12 08:54:32</wp:comment_date>
+			<wp:comment_date_gmt>2012-07-12 08:54:32</wp:comment_date_gmt>
+			<wp:comment_content><![CDATA[Hey - you can sign up <a href="http://gfnbristol.eventbrite.com/" rel="nofollow">here</a> - look forward to seeing you!]]></wp:comment_content>
+			<wp:comment_approved>1</wp:comment_approved>
+			<wp:comment_type></wp:comment_type>
+			<wp:comment_parent>202</wp:comment_parent>
+			<wp:comment_user_id>4</wp:comment_user_id>
+		</wp:comment>
+	</item>
+	<item>
+		<title>Phew! Wild Thing, reflections and where next.</title>
+		<link>http://www.goodfornothing.com/2012/07/20/phew-wild-thing-reflections-and-where-next/</link>
+		<pubDate>Fri, 20 Jul 2012 09:37:01 +0000</pubDate>
+		<dc:creator>Dan</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2500</guid>
+		<description></description>
+		<content:encoded><![CDATA[<iframe src="http://player.vimeo.com/video/46079894?byline=0&amp;color=aecf1b" width="500" height="313" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/46079894">WILD THING SLIDESHOW</a> from <a href="http://vimeo.com/goodfornothing">Good for Nothing</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+
+So that was Wild Thing.
+
+Its taken us all a few days to recover.
+
+Physically and mentally a bit broken in a very lovely way.
+
+In 18 months we've done some crazy gigs, each one surprising, moving and energising in their own unique ways. 
+
+But Wild Thing was a step into something else.
+
+The energy, creativity and collaboration was beyond what we've ever experienced.
+
+So the question is why?
+
+Well the crew of Good for Nothinger's who turned up were outstanding. 
+
+Diverse, brilliant, beautiful humans with tons of energy and a bucket load of do.
+
+The brief probably had something to do with it.
+
+Who couldn't be excited about trying to raise awareness of the natural world, outdoor play, and wildness. 
+
+Energised about communicating the wonder of nature versus some dull corporate landfill nonsense.
+
+And then there was the genius of place.
+
+<a href="http://www.globalgeneration.org.uk/">Global Generation </a>is a special place. A small, nomadic hive of creativity and possibility in the midst of Europe's biggest building site. 
+
+There's a vibe of inventiveness which runs through the place. Manifested through the creative experimentation that is Global Generation itself.
+
+Taking materials from the construction site, turning them into growing spaces, learning spaces and collaboration places for diverse community to come together, explore and develop themselves.
+
+It made me think again how there is nothing more creative than nature and wildness.
+
+How did we come out of 48hrs, with three campaign ideas developed, three working web app prototypes, several engagement programs, system interventions, films, music, product concepts and even <a href="https://vimeo.com/45665112">a treehouse</a>?
+
+All self organised, no creative depts, no stratgey depts, no management.
+
+And of course there was the tent.  Everyone loves a big tent. 
+
+A mashup of festival, camping and circus vibes ( and mildly apocalyptic during the torrential rain)
+
+And that combination actually felt a bit like the essence of Wild Thing.
+
+And we're struck not for the first time, that creative responses to some of our most pressing problems will not come from sitting around big tables, watching powerpoint and cerebral jousting. 
+
+They'll come from folk with diverse skills and different world views collaborating together, doing, making and prototyping rapidly.
+
+They'll come when people let go of vested interests and ego, they'll come from working in places that remove the barriers to really *seeing* the problems, where you can feel the tensions, and when we have the freedom to really be ourselves, as with nature, to be spontaneously ourselves.
+
+Awe.
+
+In terms of next steps for the Wild Thing project, we will be sharing all the work produced over the next few weeks. Some of which will be taken on by David in the remainder of the film.
+
+<a href="http://www.projectwildthing.com/">A Wild Thing platform</a> is coming, so follow the<a href="https://twitter.com/wearewildthing"> twitter feed</a> for news on that. This will house all projects from the weekend, be a space to find more collaborators to develop and finish concepts, be a place for people to start new projects, share existing ideas, connect different communities and kick start a bottom up people's movement to help reconnect kids and their parents with nature and wildness.
+
+More on that soon.
+
+The weekend was made possible by loads of amazing people giving time, resources, energy and stuff. We thank you so much. Special mention to <a href="http://www.globalgeneration.org.uk/">Global Generation</a>, <a href="http://www.innocentdrinks.co.uk/">Innocent Drinks</a>, <a href="http://www.divinechocolate.com/default.aspx">Divine Chocolate</a>, <a href="http://www.bearnibbles.co.uk/">Bear Nibbles</a>, <a href="http://jimmysicedcoffee.com/">Jimmy's Iced Coffee.</a>
+
+We also as a new experiment created a group of founding folk to help support Wild Thing and to collaborate in the ongoing evolution of the project. Big respect to <a href="http://www.nationaltrust.org.uk/">The National Trust</a>, <a href="http://www.edenproject.com/">Eden Project</a>, <a href="http://dolectures.com/">Do Lectures</a>, <a href="http://greenlions.com/">Green Lions</a>, <a href="http://www.tyf.com/">TYF Outdoors</a> and <a href="https://twitter.com/_alkennedy">Al Kennedy</a>. 
+
+We're also having a social in a couple of weeks on the 31st July, there will be updates from Green lions, chats, ale and music, be ace to see you, <a href="http://goodfornoth.ning.com/events/good-for-nothing-drinks-post-wild-thing-thursday-july-19th">register here</a>
+
+And now it's really just the beginning.
+]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2500</wp:post_id>
+		<wp:post_date>2012-07-20 09:37:01</wp:post_date>
+		<wp:post_date_gmt>2012-07-20 09:37:01</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>phew-wild-thing-reflections-and-where-next</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="gigs"><![CDATA[Gigs]]></category>
+		<category domain="category" nicename="nature"><![CDATA[Nature]]></category>
+		<category domain="category" nicename="ways-of-working"><![CDATA[Ways of Working]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[4]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2560]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Drop in Do-er/Maker ticket</title>
+		<link>http://www.goodfornothing.com/2012/07/12/drop-in-do-ermaker-ticket/</link>
+		<pubDate>Thu, 12 Jul 2012 21:26:27 +0000</pubDate>
+		<dc:creator>Dan</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2514</guid>
+		<description></description>
+		<content:encoded><![CDATA[Over the last few months we've had a big run of Good for Nothings and have been learning loads about what makes a Good for Nothing gig go off. 
+
+As it spreads into new cities we're also keen to carry on the experimental approach. 
+
+One thing we recognise is that sometimes giving up a whole weekend to attend a Good for Nothing is hard. 
+
+We all have lots to do and if you have family and other commitments it can be tricky to give up 48hrs.
+
+Alongside this we've also seen the impact that talented folk can make with just a few hours on a brief to help a social venture or enterprise - a developer can hack some code together quickly to prototype a web app, if some thinking and design has been done and some datasets exist. 
+
+A designer can quickly visualise a concept or bring to life an identity or piece of communications. 
+
+A good strategist can produce a punchy funding pitch in a couple of hours and so on.
+
+We're also keen for Good for Nothing to feel like something you can drop into if you have a few hours and an appetite to make something for a cause. There are after all many ways to do Good for Nothing.
+
+And I mean look what<a href="https://twitter.com/stephenjking"> Steve </a> and I made in two hours at WILDTHING...nuff said
+
+<iframe src="http://player.vimeo.com/video/45665112?byline=0&amp;color=aecf1b" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/45665112">Tree house vid</a> from <a href="http://vimeo.com/goodfornothing">Good for Nothing</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+
+So from now on we're going to also offer a number of Drop in Do-er/Maker tickets. If you can only make one day or even half a day, these are for you. 
+
+But they are there for do-ers. Come and get stuck in, use your skills to help create and make something useful.
+
+We're going to test these with the <a href="http://gfnbristol.eventbrite.com/">ShipShape gig in Bristol on the weekend</a> of 20th July
+
+There's nothing quite like the rollercoaster experience of doing the 48hr Good for Nothing.
+
+But if you're a maker with very limited time but are curious about getting a hit of Good for Nothing, this one's for you, we hope to see you soon.]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2514</wp:post_id>
+		<wp:post_date>2012-07-12 21:26:27</wp:post_date>
+		<wp:post_date_gmt>2012-07-12 21:26:27</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>drop-in-do-ermaker-ticket</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="gigs"><![CDATA[Gigs]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[3]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2520]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>What was made at Wild Thing Part 1 - Building a grassroots movement</title>
+		<link>http://www.goodfornothing.com/2012/07/25/what-was-made-at-wild-thing-building-a-grassroots-movement/</link>
+		<pubDate>Wed, 25 Jul 2012 13:16:13 +0000</pubDate>
+		<dc:creator>Anouk</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2537</guid>
+		<description></description>
+		<content:encoded><![CDATA[We like a challenge. Wild Thing was our biggest and most ambitious gig yet and there was just one brief: help filmmaker David Bond create communication and engagement ideas that can help to re-connect kids and their parents with nature. How do you communicate an abstract yet fundamental concept such as nature to children?
+
+Well in just under two days, in a tent on a building site in Kings Cross, about 60 folk rolled up their sleeves and created a load of awesome. Here are just a few of the communication and engagement ideas and concepts that could start to seed a grassroots movement to get kids back into nature.
+
+<a href="http://www.goodfornothing.com/2012/07/25/what-was-made-at-wild-thing-building-a-grassroots-movement/dsc_6365/" rel="attachment wp-att-2544"><img class="aligncenter size-large wp-image-2544" title="DSC_6365" src="http://www.goodfornothing.com/wp-content/uploads/2012/07/DSC_6365-1024x678.jpg" alt="" width="1024" height="678" /></a>
+
+<h2>Rebellious by Nature</h2>
+
+<a href="https://twitter.com/gileyb">Giles</a>, <a href="https://twitter.com/UNDERWOODemily">Emily</a> and Mike developed a brilliant “Rebellious by Nature” approach - picking up on the chaotic, anti-establishment vibe of nature itself to appeal to young people's wild side. The work includes various cheeky and thought-provoking messages and themes.
+<br /><br />
+<iframe style="border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;" src="http://www.slideshare.net/slideshow/embed_code/13704598?rel=0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="427" height="356"></iframe>
+
+<h2>Active Nature Mark</h2>
+
+<a href="https://twitter.com/ZoeOliviaJohn">Zoe</a>, Daniel and <a href="https://twitter.com/stephenjking">Steve</a> developed an 'Active Nature Mark' - a conceptual idea that product and service brands can acquire if their mission encouarges outdoor time &amp; inquiry into livings things. Organisations that might qualify now could include the Scouts, Raleigh bikes, Patagonia and National Geographic.
+<br /><br />
+<iframe style="border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;" src="http://www.slideshare.net/slideshow/embed_code/13750667?rel=0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="427" height="356"></iframe>
+
+<h2>Out &amp; About Guide for Parents</h2>
+
+<a href="https://twitter.com/Leonora_O">Leonora</a>, <a href="https://twitter.com/ginarembe">Gina</a>, <a href="https://twitter.com/pedrocyrne">Pedro</a>, <a href="https://twitter.com/vbrooksy">Victoria</a>, <a href="https://twitter.com/andymindel">Andy</a> and <a href="https://twitter.com/Manjulle">Manjul</a> produced an impressive concept for a national engagement programme and intervention delivered to new mums as part of the 'bounty pack', an early start parent toolkit. Out &amp; About is a new addition to the pack including information &amp; advice for parents about spending time outdoors with their kids highlighting the health benefits, giving expert advice, suggesting activities etc. A booster pack is to be delivered on the child's 3rd, 5th &amp; 8th birthday with new age-specific suggestions supported by a digital platform that acts as an online journal to record "you and your children's landmark days &amp; special events outdoors".
+<br /><br />
+<iframe style="border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;" src="http://www.slideshare.net/slideshow/embed_code/13750640?rel=0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="427" height="356"></iframe>
+
+<h2>Let Them Grow Campaign</h2>
+
+Jonathan and <a href="https://twitter.com/richardsonjen">Jennie</a> concepted an approach to encourage parents to question their perceptions of outdoor play as high danger and risk. Trying to land 'nature' as beneficial for their children's development, an enabler for them to grow in confidence and independence.
+<br /><br />
+<iframe style="border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;" src="http://www.slideshare.net/slideshow/embed_code/13739071?rel=0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="427" height="356"></iframe>
+
+<h2>'The Wild' Identity</h2>
+
+<a href="https://twitter.com/zoecoles">Zoe</a>, <a href="https://twitter.com/lucylangdon">Lucy</a> and <a href="https://twitter.com/Ali_Freeman">Ali</a> worked up 'The Wild' a fun brand for nature, helping kids co-discover natural wild spaces. <a href="https://twitter.com/isaac_matovu">Isaac</a> and <a href="https://twitter.com/_JoeBradley">Joe</a> also developed 'growfeeti', graffiti moss that kids can make together (magic potion of moss, yoghurt, sugar &amp; water) that leads people to natural spaces near them.
+<br /><br />
+<iframe style="border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;" src="http://www.slideshare.net/slideshow/embed_code/13738978?rel=0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="427" height="356"></iframe>
+]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2537</wp:post_id>
+		<wp:post_date>2012-07-25 13:16:13</wp:post_date>
+		<wp:post_date_gmt>2012-07-25 13:16:13</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>what-was-made-at-wild-thing-building-a-grassroots-movement</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="gigs"><![CDATA[Gigs]]></category>
+		<category domain="category" nicename="nature"><![CDATA[Nature]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[7]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2544]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:comment>
+			<wp:comment_id>215</wp:comment_id>
+			<wp:comment_author><![CDATA[wyroby betonowe]]></wp:comment_author>
+			<wp:comment_author_email>Helgerson454@gazeta.pl</wp:comment_author_email>
+			<wp:comment_author_url>http://www.infoweb.tir365.pl/Wyroby_Betonowe/1455/</wp:comment_author_url>
+			<wp:comment_author_IP>37.59.223.27</wp:comment_author_IP>
+			<wp:comment_date>2012-07-29 23:21:27</wp:comment_date>
+			<wp:comment_date_gmt>2012-07-29 23:21:27</wp:comment_date_gmt>
+			<wp:comment_content><![CDATA[I enjoy what you guys are up too. This kind of clever work and coverage! Keep up the awesome works guys I've  you guys to our blogroll.]]></wp:comment_content>
+			<wp:comment_approved>1</wp:comment_approved>
+			<wp:comment_type></wp:comment_type>
+			<wp:comment_parent>0</wp:comment_parent>
+			<wp:comment_user_id>0</wp:comment_user_id>
+		</wp:comment>
+	</item>
+	<item>
+		<title>Our first local chapter - Brighton&#039;s Summer of Love</title>
+		<link>http://www.goodfornothing.com/2012/07/26/our-first-local-chapter-brightons-summer-of-love/</link>
+		<pubDate>Thu, 26 Jul 2012 15:17:07 +0000</pubDate>
+		<dc:creator>Anouk</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2564</guid>
+		<description></description>
+		<content:encoded><![CDATA[Tonight sees the first <a href="http://goodfornoth.ning.com/events/brighton-social">Brighton social</a> almost five weeks after the first Brighton GFN gig on 23/24 June and I realised that apart from us down here at the seaside, no one else knows much about what happened over our Summer of Love. So here goes...
+
+<a href="http://www.goodfornothing.com/2012/07/26/our-first-local-chapter-brightons-summer-of-love/solpic5/" rel="attachment wp-att-2574"><img class="aligncenter size-large wp-image-2574" title="SoLpic5" src="http://www.goodfornothing.com/wp-content/uploads/2012/07/SoLpic5-1024x1024.jpg" alt="" width="1024" height="1024" /></a>
+
+Being the first chapter out of London, we weren’t really sure what to expect. All the usual questions came up: would people actually come, do we have enough space, are we gonna be able to feed them all, will the cause partners be happy with the outputs, the list could go on. But Friday evening rolled on and everything fell into place. We held it at an amazing venue, <a href="http://www.lighthouse.org.uk/">The Lighthouse</a>, right in the heart of Brighton’s North Laines. We started with a small but awesome bunch of folk and began, as a gig always does, with the causes briefing us: where they had come from, where they are now, where they want to get to, I’m pretty sure world domination managed to slip in there as well!
+
+Our cause partners for the weekend were: <a href="http://www.hisbe.co.uk/">Hisbe</a>, a community interest company who want to shine a light on the food industry and needed help visualizing their first ethical supermarket. Then came <a href="http://www.pricepie.co.uk/">PricePie</a>, a tool to show and support transparent pricing on all goods and services. And finally, <a href="https://twitter.com/gigbuddies">Gig Buddies</a>, matching up music lovers with and without disabilities who enjoy the same types of music for nights out. Here are the <a href="http://summeroflove.eventbrite.com/">original briefs and event info</a>.
+
+None of our Good for Nothing’ers had been to a GFN before and only about 20% of them had ever been to a hack day so there really was an element of the unknown. However, excited by the briefs and energized by the delicious and rather powerful <a href="http://www.aspall.co.uk/">Aspall cyder</a> we were drinking our evening ended on a high and full of anticipation about what the next 48 hours would bring.
+
+And wow what a weekend. Our three teams worked hard and fast and the outcomes were brilliant. We had a great crew from those who gave over their whole weekend, to a Coder who had two hours on Sunday morning to spare and not forgetting the Interior Designer who walked past on Saturday afternoon popped in to see what was going on (we were eating Lick frozen yogurt &amp; the beats were pumping out into the sunshine) and ended up staying for the rest of the weekend!
+
+<a href="http://www.goodfornothing.com/2012/07/26/our-first-local-chapter-brightons-summer-of-love/img_5960/" rel="attachment wp-att-2578"><img class="aligncenter size-large wp-image-2578" title="IMG_5960" src="http://www.goodfornothing.com/wp-content/uploads/2012/07/IMG_5960-1024x768.jpg" alt="" width="1024" height="768" /></a>
+
+<a href="http://www.goodfornothing.com/2012/07/26/our-first-local-chapter-brightons-summer-of-love/img_5867/" rel="attachment wp-att-2579"><img class="aligncenter size-large wp-image-2579" title="IMG_5867" src="http://www.goodfornothing.com/wp-content/uploads/2012/07/IMG_5867-1024x768.jpg" alt="" width="1024" height="768" /></a>
+
+We had some awesome DJ’s playing us through, many thanks to <a href="http://soundcloud.com/dj-danny-williams">Danny Williams</a> &amp; <a href="http://soundcloud.com/sumsuch">Will Sumsuch</a>. Local and national companies got behind us to be our Food &amp; Drink partners keeping our fuel tanks on full! We couldn’t have done it without them;
+Breakfast - <a href="http://www.realpatisserie.co.uk/">The Real Patisserie</a> &amp; The <a href="http://www.redroaster.co.uk/">RedRoaster Coffee House</a>
+Lunch - <a href="http://www.bagelman.co.uk/stores.html">Bagel Man</a> &amp; <a href="http://www.higgidy.co.uk/">Higgidy Pies</a>
+Snacks – <a href="http://www.co-operative.coop/food/welcome/">The Co Op</a> (Church Road Brighton Store) <a href="http://www.hotelchocolat.co.uk/Chocolate-Store-Brighton-Astore_brig/">The Hotel Chocolat</a> (Brighton Store) &amp; <a href="http://lickyogurt.com/">Lick Frozen Yogurt</a>
+Evening drinks - <a href="http://www.aspall.co.uk/">Aspall Cyder</a>
+
+And the causes were thrilled with the outcomes… (in their own words!)
+
+<strong>Team HiSbe</strong> created a floor plan of the retail space, drawn to scale, including sketches and design ideas for pods, several technical drawings of different design features, research on potential building materials / suppliers and  summary of technology that could be used to enhance experience in-store. They also produced a first stage  stakeholder analysis and communication plan.
+
+<a href="http://www.goodfornothing.com/2012/07/26/our-first-local-chapter-brightons-summer-of-love/solpic6/" rel="attachment wp-att-2582"><img class="aligncenter size-full wp-image-2582" title="SoLpic6" src="http://www.goodfornothing.com/wp-content/uploads/2012/07/SoLpic6.png" alt="" width="960" height="500" /></a>
+
+<strong>Team PricePie</strong> developed a kick-arse software programme custom built that will enable them to upload their data to screens in supermarkets, clients' websites, clients' packaging etc. Remotely. Unbelievable! They also produced a new, sexy looking pie chart that will be the same structure from client to client, which links in with the new software program as well as an animated video with music that explains and sells PricePie to new businesses.
+
+<a href="http://www.goodfornothing.com/2012/07/26/our-first-local-chapter-brightons-summer-of-love/solpic7/" rel="attachment wp-att-2586"><img class="aligncenter size-full wp-image-2586" title="SoLpic7" src="http://www.goodfornothing.com/wp-content/uploads/2012/07/SoLpic7.png" alt="" width="453" height="440" /></a>
+
+<strong>Team Gig Buddies</strong> set up Twitter and Facebook profiles including a social media content plan, made a short promo interview for the website, came up with branding ideas, and thinking about their identity &amp; strapline, came up with a story behind Gig Buddies, developed a supporters and promoters pack and wrote a press release and launch event plan.
+
+<a href="http://www.goodfornothing.com/2012/07/26/our-first-local-chapter-brightons-summer-of-love/screen-shot-2012-06-24-at-15-26-08/" rel="attachment wp-att-2587"><img class="aligncenter size-full wp-image-2587" title="Screen Shot 2012-06-24 at 15.26.08" src="http://www.goodfornothing.com/wp-content/uploads/2012/07/Screen-Shot-2012-06-24-at-15.26.08.png" alt="" width="867" height="600" /></a>
+
+And we, <a href="https://twitter.com/searsio">Mark</a>,<a href="https://twitter.com/Rodgox"> Rodrigo</a> &amp; myself (<a href="https://twitter.com/ZoeOliviaJohn">Zoe</a>), were in shock &amp; awe at the immense awesomeness of everyone. Their energy, ideas &amp; enthusiasm. So much so that we can’t wait for the next one and have already started hatching a plan! More of that to come soon, but if you know anyone who would like to get involved get in touch.
+
+So that leaves us here, looking forward to seeing everyone again, excited to hear what the causes have been up to and plotting for the future.
+
+Peace, Love &amp; Respect x
+
+Zoë Olivia John]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2564</wp:post_id>
+		<wp:post_date>2012-07-26 15:17:07</wp:post_date>
+		<wp:post_date_gmt>2012-07-26 15:17:07</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>our-first-local-chapter-brightons-summer-of-love</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="brighton"><![CDATA[Brighton]]></category>
+		<category domain="category" nicename="cause-partners"><![CDATA[Cause Partners]]></category>
+		<category domain="category" nicename="gigs"><![CDATA[Gigs]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2568]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>#MadeinLambeth - Good for Councils?</title>
+		<link>http://www.goodfornothing.com/2012/08/07/madeinlambeth-good-for-councils/</link>
+		<pubDate>Tue, 07 Aug 2012 14:49:13 +0000</pubDate>
+		<dc:creator>Anouk</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2604</guid>
+		<description></description>
+		<content:encoded><![CDATA[A few weeks ago on 22 &amp; 23 June, we did our first Good for Nothing in collaboration with a council, Lambeth Council. This isn't just any council though, they are the first to pioneer the concept of <a href="http://cooperativecounciltoolkit.wordpress.com/why-co-operative-council/">cooperative council</a> in the UK. Here's a little film we put together about the event:
+
+<iframe src="http://player.vimeo.com/video/45186753" frameborder="0" width="500" height="275"></iframe>
+
+<a href="http://vimeo.com/45186753">Made in Lambeth Film</a> from <a href="http://vimeo.com/goodfornothing">Good for Nothing</a> on <a href="http://vimeo.com">Vimeo</a>.
+
+The 48 hour gig brought together 45 Lambeth-based doers, makers and residents to work alongside social entrepreneurs and members of the co-operative council on <a href="http://www.goodfornothing.com/2012/06/15/the-briefs-for-madeinlambeth-lambeth-does-good-for-nothing/">3 tangible briefs</a>. The first is improving communications and how we can open up <strong>Lambeth's online presence</strong> to foster more two way dialogue and engagement. The second is prototyping ways of engaging Lambeth folk in improving provision of <strong>health and social care services</strong> across the borough through greater co-operation and more open feedback loops. And the third is all around finding new ways to get diverse groups of Lambeth residents in re-imagining <strong>Lambeth's 60+ parks and green spaces</strong> and developing new ways to run and develop them.
+
+<a href="http://www.goodfornothing.com/2012/08/07/madeinlambeth-good-for-councils/dsc_6179/" rel="attachment wp-att-2612"><img class="aligncenter size-large wp-image-2612" title="DSC_6179" src="http://www.goodfornothing.com/wp-content/uploads/2012/08/DSC_6179-1024x678.jpg" alt="" width="1024" height="678" /></a>
+
+The atmosphere at the <a href="http://www.oasisuk.org/oasiscentre">Oasis Centre</a> was buzzing and as the weekend progressed, you could sense the enthusiasm for this new, faster and more creative way of working, especially for the council folk. The three teams got so much done and quickly got into 'doing not talking' mode by getting out and about visiting doctor's surgeries, interviewing people at bus shelters and putting up feedback boards in Lambeth's open spaces.
+
+<strong>What was made after 48 hours</strong>
+
+The first team designed, coded and launched a website in 48 hours. The identity for the new site, intended to sit alongside <a href="http://www.lambeth.gov.uk/home.htm">Lambeth.gov.uk</a>, was designed to reflect the cooperative nature of the campaign, so, while some key content was identified and pulled across the official council site, the team also created tools to start to aggregate content from other local blogs. The basics for a Lambeth co-op website were created and the website can be seen here: <a href="http://ilovelambeth.com">http://ilovelambeth.com</a>.
+
+<a href="http://www.goodfornothing.com/2012/08/07/madeinlambeth-good-for-councils/i-love-lambeth/" rel="attachment wp-att-2615"><img class="aligncenter size-full wp-image-2615" title="i love lambeth" src="http://www.goodfornothing.com/wp-content/uploads/2012/08/i-love-lambeth.png" alt="" width="772" height="564" /></a>
+
+The second group worked on setting up Healthwatch, a local consumer group for users of health and social care services in the borough. This was probably the trickiest of the 3 briefs, but the team powered through and by the second day they had developed a service design for the consumer group, designed a prototype web page, launched a <a href="https://twitter.com/ourhealthwatch">Twitter account</a> and profiled Lambeth residents including a process designed for coproducing a network of community connectors.
+
+<a href="http://www.goodfornothing.com/2012/08/07/madeinlambeth-good-for-councils/our-healthwatch-logo/" rel="attachment wp-att-2617"><img class="aligncenter size-large wp-image-2617" title="our healthwatch logo" src="http://www.goodfornothing.com/wp-content/uploads/2012/08/our-healthwatch-logo-1024x553.jpg" alt="" width="1024" height="553" /></a>
+
+The final team looked at how they can increase the use of Lambeth parks and open spaces. After exploring some parks on the first day and seeing the bigger ones well used, the group decided to focus on the smaller ‘unloved’ green spaces in and around estates. They put together a <a href="http://live.lovelambeth.gotpantheon.com/site-page/loveyourspace">'Love your Space' campaign</a> and encouraged people to identify ‘unloved spaces’ and start to develop ideas around how they can be used and loved again.
+<p style="text-align: center;"><a href="http://www.goodfornothing.com/2012/08/07/madeinlambeth-good-for-councils/unloved-space/" rel="attachment wp-att-2619"><img class="size-full wp-image-2619 aligncenter" title="unloved space" src="http://www.goodfornothing.com/wp-content/uploads/2012/08/unloved-space.jpeg" alt="" width="306" height="306" /></a></p>
+So did we do Good for Councils? Judging by the outputs, <a href="http://m.lgcplus.com/5046526.article">positive energ</a>y, <a href="http://storify.com/g00dfornothing/madeinlambeth-storify">enthusiastic tweets</a> and <a href="http://cooperativecounciltoolkit.wordpress.com/2012/07/13/made-in-lambeth-catch-up-12th-july/">ongoing interest in Lambeth as a cooperative council</a>, the first Made in Lambeth was a real success.
+
+Stay tuned for the next Made in Lambeth coming up on 13/14 October.]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2604</wp:post_id>
+		<wp:post_date>2012-08-07 14:49:13</wp:post_date>
+		<wp:post_date_gmt>2012-08-07 14:49:13</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>madeinlambeth-good-for-councils</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="gigs"><![CDATA[Gigs]]></category>
+		<category domain="category" nicename="ways-of-working"><![CDATA[Ways of Working]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2638]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:comment>
+			<wp:comment_id>223</wp:comment_id>
+			<wp:comment_author><![CDATA[Lambeth United]]></wp:comment_author>
+			<wp:comment_author_email>lambethunitedhousingco-op@hotmail.com</wp:comment_author_email>
+			<wp:comment_author_url>http://www.lambethunitedhousingco-op.org.uk</wp:comment_author_url>
+			<wp:comment_author_IP>81.159.207.1</wp:comment_author_IP>
+			<wp:comment_date>2012-08-07 23:17:08</wp:comment_date>
+			<wp:comment_date_gmt>2012-08-07 23:17:08</wp:comment_date_gmt>
+			<wp:comment_content><![CDATA[Hi.
+
+Enjoyed your video. It was very positive.  However, this only makes it all the more sad and wrong that Lambeth's "co-operative council" is destroying a network of 40-year old housing co-ops and threatening long-term residents (including pensioners) with eviction.
+
+This is an extremely nasty and wholly avoidable state of affairs that has been slammed by local MP Kate Hoey and concerned a range of politicians from all sides, as well as co-operative organisations and local communities.  If you read this please lobby Lambeth councillors to stop this vindictive and punitive legal campaign against some of the borough's longest term residents.
+
+Visit www.lambethunitedhousingco-op.org.uk for more information]]></wp:comment_content>
+			<wp:comment_approved>1</wp:comment_approved>
+			<wp:comment_type></wp:comment_type>
+			<wp:comment_parent>0</wp:comment_parent>
+			<wp:comment_user_id>0</wp:comment_user_id>
+		</wp:comment>
+	</item>
+	<item>
+		<title>What was made at Wild Thing Part 2 - High Tech High Nature</title>
+		<link>http://www.goodfornothing.com/2012/08/08/what-was-made-at-wild-thing-part-2-high-tech-high-nature/</link>
+		<pubDate>Wed, 08 Aug 2012 10:48:38 +0000</pubDate>
+		<dc:creator>Anouk</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2625</guid>
+		<description></description>
+		<content:encoded><![CDATA[Kids intuitively get technology. They've grown up with it. Give a 6 year old an iPad and they immediately start sliding things, pressing buttons and playing games. So it only makes sense that some of the creative minds and technologists at Wild Thing developed apps and websites that bring kids &amp; their parents closer to nature (as paradoxical as that sounds). In just 48 hours, an incredible amount of technology was built, from a Wildtime app that lets parents pick nature-rich activities based on how much time they've got to a Spotted app that lets kids track bugs, plants and trees.
+
+<a href="http://www.goodfornothing.com/2012/08/08/what-was-made-at-wild-thing-part-2-high-tech-high-nature/dsc_6539/" rel="attachment wp-att-2650"><img class="aligncenter size-large wp-image-2650" title="DSC_6539" src="http://www.goodfornothing.com/wp-content/uploads/2012/08/DSC_6539-1024x678.jpg" alt="" width="1024" height="678" /></a>
+<h2>Wild Thing Army</h2>
+<a href="https://twitter.com/tomfarrand">Tom F</a> and <a href="http://twitter.com/isaac_matovu">Isaac</a> quietly but very busily developed a concept for a nature intelligence gathering tool on Sunday that allows kids to track what they see and sense out in the wild. The personalised 'wild it' gadget comes with GPS rangefinder, SMS SOS button, image geo-mapping, sensors for temperature, CO2, humidity, pollution, wind speed, etc, "giving the right to roam back to the next generation".
+
+<iframe style="border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;" src="http://www.slideshare.net/slideshow/embed_code/13766276?rel=0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="427" height="356"></iframe>
+<h2>Wild Time App</h2>
+<a href="https://twitter.com/dansolo">Dan</a> and <a href="https://twitter.com/andrewsprinz">Andrew</a> impressively built a working <a href="http://www.goodfornothing.com/gigs/wildthing/">Wild Time app</a> that has a database of nature-rich activities for people to choose between, depending on how much time they have available from just 10mins to a whole day. Activities include drawing something in the wild (10mins), going on a bug hunt: snap it, note it, sketch it &amp; then release it (40mins), and going on a moon walk allowing your kids to see &amp; feel the transition from day to night (3 hours).
+
+<iframe style="border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;" src="http://www.slideshare.net/slideshow/embed_code/13766298?rel=0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="427" height="356"></iframe>
+<h2>Spotted App</h2>
+<a href="https://twitter.com/feeschmidts">Fee</a>, <a href="https://twitter.com/stef">Stef</a> and Amy developed a <a href="http://spottedapp.herokuapp.com/">wild treasure hunt app</a> idea that allows kids to discover new and unusual types of plants, herbs and creature such as marigold, red russian tomatoes and praying mantis, learning an interesting fact each time they track their discovery.
+
+<iframe style="border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;" src="http://www.slideshare.net/slideshow/embed_code/13585633?rel=0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="427" height="356"></iframe>
+<div style="margin-bottom: 5px;"><a href="http://www.goodfornothing.com/2012/08/08/what-was-made-at-wild-thing-part-2-high-tech-high-nature/dsc_6530/" rel="attachment wp-att-2652"><img class="aligncenter size-large wp-image-2652" title="DSC_6530" src="http://www.goodfornothing.com/wp-content/uploads/2012/08/DSC_6530-1024x678.jpg" alt="" width="1024" height="678" /></a></div>
+<h2>Wild Thing Challenge Competition</h2>
+<a href="https://twitter.com/pmackay">Paul</a>, Kirsty and <a href="https://twitter.com/vanea">Vanea</a> came up with a schools nature competition for kids, getting them to compete with other schools by doing wild activities like 'plant a tree', 'build a tree house', 'go camping', 'feed the birds' etc. The more they achieve, the more points they get, prizes they win and 'wild' the school becomes. Paul also built an app so that kids and teachers can log their wild activities.
+
+<iframe style="border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;" src="http://www.slideshare.net/slideshow/embed_code/13766315?rel=0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="427" height="356"></iframe>
+<div style="margin-bottom: 5px;">Look out for the final Part 3 of what was made at Wild Thing coming soon...</div>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2625</wp:post_id>
+		<wp:post_date>2012-08-08 10:48:38</wp:post_date>
+		<wp:post_date_gmt>2012-08-08 10:48:38</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>what-was-made-at-wild-thing-part-2-high-tech-high-nature</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="gigs"><![CDATA[Gigs]]></category>
+		<category domain="category" nicename="nature"><![CDATA[Nature]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2649]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>What was made at Wild Thing Part 3 - Wild Card Hacks</title>
+		<link>http://www.goodfornothing.com/2012/08/17/what-was-made-at-wild-thing-part-3-wild-card-hacks/</link>
+		<pubDate>Fri, 17 Aug 2012 14:47:07 +0000</pubDate>
+		<dc:creator>Anouk</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2671</guid>
+		<description></description>
+		<content:encoded><![CDATA[We had a few 'wild' surprises on the Sunday of Wild Thing. While everyone else was beavering away in the tent, working on their apps, websites and campaigns, Chris Packe was finishing off a rap he wrote in ode to dads &amp; kids out there, encouraging them to get into nature. At the same time, Steve and Dan were building a treehouse with Global Generation's scrap wood. Quite an eventful Sunday to say the least!
+
+<a href="http://www.goodfornothing.com/2012/08/17/what-was-made-at-wild-thing-part-3-wild-card-hacks/attachment/9/" rel="attachment wp-att-2676"><img class="aligncenter size-large wp-image-2676" title="9" src="http://www.goodfornothing.com/wp-content/uploads/2012/08/9-1024x581.jpg" alt="" width="1024" height="581" /></a>
+<h2>Wild Dad Rap</h2>
+Awesome, hilarious and heartfelt rap by <a href="https://twitter.com/chrispacke">Chris Packe</a> filmed by <a href="https://twitter.com/Green_Lions">Green Lions</a> about the importance of getting kids into nature (illustration above also by Chris). Just watch it.
+
+<iframe src="http://player.vimeo.com/video/45452526" frameborder="0" width="500" height="275"></iframe>
+
+<a href="http://vimeo.com/45452526">Wild Dad Rap by Chris Packe at Wild Thing</a> from <a href="http://vimeo.com/goodfornothing">Good for Nothing</a> on <a href="http://vimeo.com">Vimeo</a>.
+<h2>Kids Parties in Nature</h2>
+<a href="https://twitter.com/Tomrlondon">Tom R</a>, <a href="https://twitter.com/tweet_ellie">Ellie</a>, <a href="https://twitter.com/B_RoystonBishop">Ben</a>, <a href="https://twitter.com/Annie_b89">Annie</a> and <a href="https://twitter.com/patrickcunn">Patrick</a> developed a brilliant toolkit idea for families to organise their kids' parties in nature (instead of McDonalds). The prototype kit includes places, recipes, activity cards with games and an idea for a supporting website with tons of information about the best natural spots all over the country. The aim is to make nature exploration part of every park party and suggests activities such as building a nest with sticks, finding the fastest slug or playing hide &amp; seek with leaf camouflage.
+
+<iframe style="border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;" src="http://www.slideshare.net/slideshow/embed_code/13593043?rel=0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="427" height="356"></iframe>
+<h2>Building a treehouse</h2>
+Maybe it's <a href="https://twitter.com/stephenjking">Steve's</a> Canadian roots or <a href="https://twitter.com/dansolo">Dan's</a> love of making things, but no one expected this one, especially on a building site in Kings Cross. In the following stop motion film, you'll see them both slaving away in the Sunday afternoon sunshine (and occasional downpour), sawing wood, hammering bits together to make a treehouse. Awesome.
+
+<iframe src="http://player.vimeo.com/video/45665112" frameborder="0" width="500" height="281"></iframe>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2671</wp:post_id>
+		<wp:post_date>2012-08-17 14:47:07</wp:post_date>
+		<wp:post_date_gmt>2012-08-17 14:47:07</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>what-was-made-at-wild-thing-part-3-wild-card-hacks</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="gigs"><![CDATA[Gigs]]></category>
+		<category domain="category" nicename="nature"><![CDATA[Nature]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2689]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:comment>
+			<wp:comment_id>228</wp:comment_id>
+			<wp:comment_author><![CDATA[Lorna Prescott]]></wp:comment_author>
+			<wp:comment_author_email>lorna@dudleycvs.org.uk</wp:comment_author_email>
+			<wp:comment_author_url>http://about.me/lornaprescott</wp:comment_author_url>
+			<wp:comment_author_IP>86.160.89.185</wp:comment_author_IP>
+			<wp:comment_date>2012-08-18 15:46:48</wp:comment_date>
+			<wp:comment_date_gmt>2012-08-18 15:46:48</wp:comment_date_gmt>
+			<wp:comment_content><![CDATA[Please keep your readers updated on the development of the park party pack and online sharing. It's a brilliant idea, I I can't wait until my nephew is old enough for us to have our own wild thing parties. I'm sure my sister will love it, as she innocently got lured in to the awful middle class expensive joint birthday party with entertainer this year, not the sort of thing her little one enjoys. Meanwhile we'll keep digging up worms in the garden :)]]></wp:comment_content>
+			<wp:comment_approved>1</wp:comment_approved>
+			<wp:comment_type></wp:comment_type>
+			<wp:comment_parent>0</wp:comment_parent>
+			<wp:comment_user_id>0</wp:comment_user_id>
+		</wp:comment>
+	</item>
+	<item>
+		<title>ShipShape // Good for Nothing Bristol - the lowdown</title>
+		<link>http://www.goodfornothing.com/2012/09/05/shipshape-good-for-nothing-bristol-the-lowdown/</link>
+		<pubDate>Wed, 05 Sep 2012 13:29:36 +0000</pubDate>
+		<dc:creator>Anouk</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2697</guid>
+		<description></description>
+		<content:encoded><![CDATA[<p style="text-align: left;"><a href="http://www.goodfornothing.com/2012/09/05/shipshape-good-for-nothing-bristol-the-lowdown/shipshape2blog/" rel="attachment wp-att-2708"><img class="aligncenter size-full wp-image-2708" title="ShipShape2blog" src="http://www.goodfornothing.com/wp-content/uploads/2012/09/ShipShape2blog.jpg" alt="" width="640" height="320" /></a><a href="http://www.goodfornothing.com/2012/09/05/shipshape-good-for-nothing-bristol-the-lowdown/good-for-nothing_nologos_lr-2/" rel="attachment wp-att-2706">
+</a><em>“.....love what you guys do around GFN... would love to help you bring that innovation to the SW." </em>Al</p>
+The seeds were sown via an email back in February 2011 and then further West with conversations at the Do Lectures. Both <a href="https://twitter.com/carolinavail">Caro</a> and <a href="https://twitter.com/_alkennedy">I</a> knew that Bristol would be a willing creative community ready to collaborate, co-create and help accelerate three of Bristol's leading social innovators. We were right. Best thing to do said <a href="https://twitter.com/dansolo">Dan</a>, fix a date and then you're off and running! OK - so we did. We chose the same date as the biggest <a href="http://www.bristolharbourfestival.co.uk/">festival</a> in the city and aptly titled our GFN #ShipShape for (hopefully) obvious reasons. We had a great space in the <a href="http://www.pmstudio.co.uk/">Pervasive Media Studio</a> at <a href="http://www.watershed.co.uk/">Watershed</a>, overlooking the harbourside festivities; and that set up a good vibe and helped everyone feel connected to the city over the hot weekend.
+
+<a href="http://www.goodfornothing.com/2012/09/05/shipshape-good-for-nothing-bristol-the-lowdown/ship-shape3/" rel="attachment wp-att-2710"><img class="aligncenter size-full wp-image-2710" title="ship shape3" src="http://www.goodfornothing.com/wp-content/uploads/2012/09/ship-shape3.jpeg" alt="" width="612" height="612" /></a>
+
+All the social enterprises we talked to around the city are doing amazing work, but in the end we brought together three very different projects - Our fantastic cause partners for the weekend were <a href="http://bristolpound.org/">The Bristol Pound</a>, the local currency designed to support Bristol’s independent businesses, strengthen the local economy and help build stronger communities. <a href="http://playingout.net/">Playing Out</a> an exciting not-for-profit information and advice resource for children’s street play, and <a href="http://www.hometurflettings.co.uk/">Home Turf Lettings</a> which is a social enterprise that acts as a safety net, making it much easier and safer for landlords to let their properties to people in need, thereby helping vulnerable people to find and keep a home. The bringing together of these particular three projects, gave us a really dynamic mix of challenges that allowed us to pull together a wide range of skills.
+
+Here are the <a href="http://www.goodfornothing.com/2012/07/10/good-for-nothing-bristol-presents-shipshape-20-22nd-july/">original briefs for the event.</a>
+
+<a href="http://www.goodfornothing.com/2012/09/05/shipshape-good-for-nothing-bristol-the-lowdown/ship-shape10/" rel="attachment wp-att-2712"><img class="aligncenter size-full wp-image-2712" title="ship shape10" src="http://www.goodfornothing.com/wp-content/uploads/2012/09/ship-shape10.jpeg" alt="" width="612" height="612" /></a>
+
+Next stop - off to meet <a href="https://twitter.com/searsio">@searsio</a> our Brighton GFN colleague (in a car park off the M5) for the GFN ‘toolkit’ handover. Tweet - the small bird has landed. We are official... Bristol is the second chapter to host Good For Nothing. Friday night we welcomed our doers and makers into our ‘Pie lab’ for the weekend, kicked off with some drinks and allowed some time to connect, then launched the project presentations. The teams started to take shape and the buzz was good - ready for action the next day... we were now up and running!
+
+<a href="http://www.goodfornothing.com/2012/09/05/shipshape-good-for-nothing-bristol-the-lowdown/ship-shape4/" rel="attachment wp-att-2714"><img class="aligncenter size-full wp-image-2714" title="ship shape4" src="http://www.goodfornothing.com/wp-content/uploads/2012/09/ship-shape4.jpeg" alt="" width="612" height="612" /></a>
+
+What happened over the next couple of days was truly inspiring... teams self organised around the projects, divided their skills and challenges to get turbo doing... helped along by some great tunes and sustenance from our fabulous supporters - <a href="https://twitter.com/pieminister">@Pieminister</a> <a href="https://twitter.com/KabutoNoodles">@KabutoNoodles</a> and <a href="https://twitter.com/jimmyicedcoffee">@jimmyicedcoffee</a> . Some truly incredible work was produced in under 48 hours, amongst the final outputs were a Facebook app, a website, a video, infographics and graphic illustration work, logo design, branding development work, social media integration, strategy, copywriting, map applications and marketing brochure design treatments. Huge respect to all who attended - I really hope we are building something positive together - lets do it again - soon!
+
+In the meantime we are looking forward to our <a href="http://goodfornoth.ning.com/events/bristol-good-for-nothing-social-thurs-sept-27th">social in Bristol on Thursday September 27th</a> and catching up with all our causes to see their progress. Hope to see you there!
+
+Huge thanks to <a href="https://twitter.com/dansolo">Dan</a>, <a href="https://twitter.com/tomfarrand">Tom F</a>, <a href="https://twitter.com/Tomrlondon">Tom R</a>, &amp; <a href="https://twitter.com/anoukvande">Anouk</a> for the vision, and everybody who supported us and got involved.
+
+People are brilliant... <a href="http://storify.com/alkennedy/good-for-nothing-bristol">http://storify.com/alkennedy/good-for-nothing-bristol</a>
+
+All good - Al &amp; Caro
+
+<a href="http://www.goodfornothing.com/2012/09/05/shipshape-good-for-nothing-bristol-the-lowdown/ship-shape11/" rel="attachment wp-att-2715"><img class="aligncenter size-full wp-image-2715" title="ship shape11" src="http://www.goodfornothing.com/wp-content/uploads/2012/09/ship-shape11.jpeg" alt="" width="612" height="612" /></a>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2697</wp:post_id>
+		<wp:post_date>2012-09-05 13:29:36</wp:post_date>
+		<wp:post_date_gmt>2012-09-05 13:29:36</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>shipshape-good-for-nothing-bristol-the-lowdown</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="bristol"><![CDATA[Bristol]]></category>
+		<category domain="category" nicename="gigs"><![CDATA[Gigs]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[4]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2721]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Project Wild Thing // Kicking off at Shambala Festival</title>
+		<link>http://www.goodfornothing.com/2012/09/07/project-wild-thing-kicking-off-at-shambala-festival/</link>
+		<pubDate>Fri, 07 Sep 2012 15:43:00 +0000</pubDate>
+		<dc:creator>Tom F</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2727</guid>
+		<description></description>
+		<content:encoded><![CDATA[<iframe src="http://www.flickr.com/slideShow/index.gne?group_id=&amp;user_id=56354581@N02&amp;set_id=72157631451508626&amp;text=" frameborder="0" scrolling="no" align="center" width="639" height="600"></iframe>
+<small>Created with <a title="Admarket.se" href="http://www.admarket.se">Admarket's</a> <a title="flickrSLiDR" href="http://flickrslidr.com">flickrSLiDR</a>.</small>
+
+Last year we went <a href="https://vimeo.com/34028100">hiking in the Lakes</a> to figure out a set of missions for this year...
+
+2 of the big challenges we fancied having a crack at were getting more nature into our work ..... somehow (we weren't really sure how).
+
+And then - halfway up a mountain - we'd optimistically wondered if we might get some Good for Nothing going at a festival...
+
+So you can imagine we were like kids in a sweetshop last weekend when we got an amazing opportunity to do both in 1 go.
+
+With massive thanks to <a href="https://twitter.com/frucool">Ed Gillespie</a> at Futerra, we were delighted to part of a great collaboration at the creative human energy bomb of a weekend that is <a href="http://www.shambalafestival.org/whats-on/the-emporium-of-invaluable-insights">Shambala Festival</a> - deep in a secret field somewhere in the beautiful Leicestershire countryside.
+<h2>Our main mission (beyond not getting too bombed...) was to kickstart a people's movement to reconnect a million kids with nature...to launch <a href="http://www.projectwildthing.com/">Project Wild Thing</a> which we've been working on since our <a href="http://www.goodfornothing.com/2012/07/20/phew-wild-thing-reflections-and-where-next/">epic summer gig</a> in London.</h2>
+Coming out of that, we've been bringing together a coalition of ideas, projects and partners to seed a growing movement ahead of the launch of <a href="https://twitter.com/TheNatureFilm">The Nature Film</a> next year.
+
+First up, David Bond kicked things off by getting on the mainstage to launch the Project Wild Thing campaign to a welcoming and supportive reception from a happy, chilled and slightly swaying audience of party-going families and old school ravers including our good friends and fellow GFNers <a href="https://twitter.com/RSWorks">Andy G</a> from Manchester and <a href="https://twitter.com/Rodgox">Rodrigo B</a> from Brighton.
+
+<a href="http://www.goodfornothing.com/2012/09/07/project-wild-thing-kicking-off-at-shambala-festival/david1/" rel="attachment wp-att-2737"><img class="alignnone size-large wp-image-2737" title="David Bond, Marketing Director for Nature" src="http://www.goodfornothing.com/wp-content/uploads/2012/09/david1-1024x576.jpeg" alt="" width="1024" height="576" /></a>
+
+David, Dan, Tom R and I then hosted a 4 hour blast of creativity, conversation and pedal-powered tunes with a range of interested festival folk who added their ideas into the mix and lent their support to the project.
+<h2>The 'campaign' officially launched on Monday - with free outdoor and digital slots across the country...</h2>
+<a href="http://www.goodfornothing.com/2012/09/07/project-wild-thing-kicking-off-at-shambala-festival/digitalbillboard_01/" rel="attachment wp-att-2728"><img class="alignnone size-full wp-image-2728" title="Project Wild Thing launch poster" src="http://www.goodfornothing.com/wp-content/uploads/2012/09/ProjectWildthing_Transvision.jpg" alt="" width="960" height="480" /></a>
+
+In the last couple of days, we've already had a few hundred pledges of support - pledges to spend as much time outside as you do in front of your screen. We're aiming to get up to 5000 in the next 2 weeks as part of a push to start influencing how outdoor play can become more integrated into health and education policy.
+
+If you'd like to get involved, we'd love your support. We've an amazing set of <a href="http://www.projectwildthing.com/partners">founding partners</a> for the project and are on the lookout for as many collaborators as we can to make this go big.
+<h1>There's 2 very simple ways you can help</h1>
+First, please head <a href="http://www.projectwildthing.com/">here to pledge</a>, and spread the love with your friends and family. Everyone can do this, it takes 2 seconds and will really help us show how much people want to get involved.
+
+Second, if you know anyone you think could help with funding/support for the movement then ping us a mail and let us know.
+
+And most importantly of all, get out there and away from your screen.
+
+Happy tree-climbing folks......!]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2727</wp:post_id>
+		<wp:post_date>2012-09-07 15:43:00</wp:post_date>
+		<wp:post_date_gmt>2012-09-07 15:43:00</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>project-wild-thing-kicking-off-at-shambala-festival</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="post_tag" nicename="collaboration"><![CDATA[collaboration]]></category>
+		<category domain="post_tag" nicename="festival"><![CDATA[festival]]></category>
+		<category domain="post_tag" nicename="gig"><![CDATA[gig]]></category>
+		<category domain="category" nicename="gigs"><![CDATA[Gigs]]></category>
+		<category domain="post_tag" nicename="goodfornothing"><![CDATA[goodfornothing]]></category>
+		<category domain="category" nicename="music-and-rave"><![CDATA[Music and Rave]]></category>
+		<category domain="post_tag" nicename="shambala"><![CDATA[shambala]]></category>
+		<category domain="category" nicename="wild-thing"><![CDATA[Wild Thing]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[4]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2734]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>#NorthernSoul: Good for Nothing Spreads North!</title>
+		<link>http://www.goodfornothing.com/2012/09/11/northernsoul-good-for-nothing-spreads-north/</link>
+		<pubDate>Tue, 11 Sep 2012 12:06:27 +0000</pubDate>
+		<dc:creator>Anouk</dc:creator>
+		<guid isPermaLink="false">http://www.goodfornothing.com/?p=2779</guid>
+		<description></description>
+		<content:encoded><![CDATA[#NorthernSoul, The first gig for our Northern chapter is at <a href="http://madlab.org.uk/">MadLab</a> in Manchester’s Northern Quarter on <strong>5–7 October</strong>.
+
+<a href="https://twitter.com/BecauseStudio">Loz</a>, <a href="https://twitter.com/greenape">Mark</a> and <a href="https://twitter.com/RSWorks">Andy</a> have picked three local social innovators to support with 48 hours of turbo-charged hacking, making, designing and doing. Expect great people, music and food, and the massive buzz of making a whole lot of tangible things in a single weekend.
+
+<a href="http://www.goodfornothing.com/2012/09/11/northernsoul-good-for-nothing-spreads-north/madlab-manchester-5/" rel="attachment wp-att-2785"><img class="aligncenter size-full wp-image-2785" title="madlab-manchester-5" src="http://www.goodfornothing.com/wp-content/uploads/2012/09/madlab-manchester-5.jpeg" alt="" width="800" height="532" /></a>
+
+It’s amazing what can happen in just 48 hours, when you bring together a bunch of clever people with a focus on making things.
+
+We’re especially excited about the three great causes we’ll be working with. We’ll have full briefs ready soon – watch this space – but for now, some quick introductions:
+
+<a href="http://www.signposts.org.uk/"><strong>Signposts</strong></a> are a local charity offering advice and support to a broad range of hard to reach/vulnerable people including the homeless. They need a new image and communication strategy, and all of the assets that usually go along with that, so there’s plenty to go at!
+
+<a href="http://carbon.coop/"><strong>Carbon Coop</strong></a> are a group of Greater Manchester residents who’ve teamed up to work together on improving their homes’ energy efficiency. They’re doing exciting things with the collection and use of data, and if you’re a technologist, tinkerer, coder, or user-interface designer, you’re going to love this brief!
+
+<a href="http://www.thepathlesstravelled.co.uk/mountains-of-hope/"><strong>Mountains of Hope</strong></a> work with children from the most disadvantaged areas of the UK, using small personal and group challenges to inspire them to plan an action packed day of fun in the mountains. Mountains of Hope need a brand identity and a social media presence – another brief with plenty to get your teeth into!
+
+<a href="http://www.goodfornothing.com/2012/09/11/northernsoul-good-for-nothing-spreads-north/6754787181_7009c602fd_z/" rel="attachment wp-att-2787"><img class="aligncenter size-full wp-image-2787" title="6754787181_7009c602fd_z" src="http://www.goodfornothing.com/wp-content/uploads/2012/09/6754787181_7009c602fd_z.jpg" alt="" width="640" height="480" /></a>
+
+Sound good? Then come along and join in! Collaborate, experiment, design, code, write, tinker, make – do what you do, and help these three causes do even more great work.
+
+We’ll have a sign-up page ready very soon. Until then, there are a couple of things you can do to stay up to date:
+<ul>
+	<li><a href="http://goodfornoth.ning.com/">Join Good for Nothing</a></li>
+	<li>Follow <a href="http://twitter.com/g00dfornothing">@g00dfornothing</a></li>
+</ul>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2779</wp:post_id>
+		<wp:post_date>2012-09-11 12:06:27</wp:post_date>
+		<wp:post_date_gmt>2012-09-11 12:06:27</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>northernsoul-good-for-nothing-spreads-north</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="gigs"><![CDATA[Gigs]]></category>
+		<category domain="category" nicename="north"><![CDATA[North]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2792]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 </channel>

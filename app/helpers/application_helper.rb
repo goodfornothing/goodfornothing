@@ -24,4 +24,8 @@ module ApplicationHelper
     params[:controller] == 'warblings' || params[:controller] == 'bookmarks'
   end
   
+  def contextual_reference(user)
+	  (user_signed_in? && current_user == user) ? "You've" : "#{user.short_name} has"
+	end
+  
 end

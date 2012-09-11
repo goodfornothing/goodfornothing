@@ -1,7 +1,9 @@
 <section id="primary_content">
-	<h1><%= @post.title %></h1>
-	<time><%= @post.created_at.to_formatted_s(:long_ordinal) %></time>
-	<%= markdown.render(@post.body).html_safe %>
+	<article class="post">
+		<h1><%= @post.title %></h1>
+		<time><%= @post.created_at.to_formatted_s(:long_ordinal) %></time>
+		<%= markdown.render(@post.body).html_safe %>
+	</article>
 </section>
 
 <aside id="secondary_content">

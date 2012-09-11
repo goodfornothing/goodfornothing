@@ -12,7 +12,7 @@ ActiveAdmin.register Partner do
   show do |partner|
     attributes_table do
       row :contact
-      row :type
+      row :purpose
       row :notes
       row :name
       row "Website" do

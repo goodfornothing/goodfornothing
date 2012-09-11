@@ -14,7 +14,7 @@
 		
 	<% if @updates.any? %>
 	<h2>Good for Nothing Goings on</h2>
-	<ul class="grid_list">
+	<ul class="grid_list grid_two">
 		<% @updates.each do |post| %>
 			<li><%= render :partial => "posts/block", :locals => { :post => post } %></li>
 		<% end %>

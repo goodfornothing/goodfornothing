@@ -33,7 +33,7 @@ class Challenge < ActiveRecord::Base
 	
 	scope :active, where(:active => true)
   scope :inactive, where(:active => false)
-  scope :open, where(:active => true, :open => true)
+  scope :opened, where(:active => true, :open => true)
   scope :closed, where(:active => true, :open => false)
 		
 	def team

@@ -34,7 +34,7 @@ class RegistrationsController < Devise::RegistrationsController
     if resource.save
       
       save_talents
-      save_activity
+      save_gig_activity
       AdminMailer.new_user(resource).deliver
       
       if resource.active_for_authentication?
@@ -58,7 +58,7 @@ class RegistrationsController < Devise::RegistrationsController
       set_flash_message :notice, :updated
       sign_in resource_name, resource, :bypass => true
       save_talents
-      save_activity
+      save_gig_activity
       redirect_to after_update_path_for(resource)
     else
       clean_up_passwords(resource)
@@ -120,13 +120,18 @@ class RegistrationsController < Devise::RegistrationsController
       end
     end
     
-    def save_activity
+    def save_gig_activity
       if params[:gigs]
-        resource.slots.delete_all
+        
+        resource.slots.each do |slot|
+          slot.users.delete(resource) unless slot.gig_id.nil? || slot.gig.future?
+        end
+        
         params[:gigs].each do |gig|
           @gig = Gig.find(gig)
           @gig.slots.first.users << resource
         end
+        
       end
     end
     

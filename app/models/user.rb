@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :current_password,
                   :remember_me, :join_mailing_list, :admin, :name,
-                  :gender, :age, :url, :location, :twitter_handle, 
+                  :gender, :age, :url, :location, :twitter_handle, :activated,
                   :chapter_id, :avatar, :warbling_ids, :reasons_for_joining, :crew
 
   has_one :ning_profile

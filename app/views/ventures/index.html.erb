@@ -13,7 +13,6 @@
 			<% else %>
 				<%= link_to(venture.name, venture.url) %>
 			<% end %>
-			[view challenges]
 		</li>
 		<% end %>
 	</ul>
@@ -21,7 +20,5 @@
 </section>
 
 <aside id="secondary_content">
-	<h2>Submit a brief</h2>
-	<p>If that sounds like you and you have a mission you need help with please, <a href="mailto:hello@goodfornothing.com">get in touch</a>.</p>
-	
+	<p class="cta"><%= link_to "Suggest a venture", new_challenge_path %></p>
 </aside>

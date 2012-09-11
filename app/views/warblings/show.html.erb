@@ -12,7 +12,7 @@
 	<% end %>	
 	
 	<% if @warbling.bookmarks.any? %>
-	<h2>Bookmarks</h2>
+	<h2>In the Library</h2>
 	<ul>
 		<% @warbling.bookmarks.each do |bookmark| %>
 		<li><%= link_to bookmark.title, bookmark.url %></li>
@@ -23,7 +23,7 @@
 </section>
 
 <% if @warblings %>
-<section id="secondary_content">
+<aside id="secondary_content">
 <h2>Warblings</h2>
 <ul>
 	<% @warblings.each do |warbling| %>

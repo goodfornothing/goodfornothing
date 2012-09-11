@@ -1,6 +1,6 @@
 ActiveAdmin.register Partner do
   
-  menu :priority => 4, :parent => "People"
+  menu :priority => 4, :parent => "Community"
   
   config.clear_sidebar_sections!
   

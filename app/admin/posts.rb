@@ -7,8 +7,6 @@ ActiveAdmin.register Post do
   
 	index do
     column :title
-    column :warbling
-    column :chapter
     column "Author", :user
     column :created_at
     default_actions

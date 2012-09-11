@@ -64,6 +64,10 @@
 		padding: 41px 0px 18px;
 	}
 
+	aside .cta:first-child {
+		margin-top: 42px;
+	}
+
 /* Graphical counters */
 
 	.badge_count {
@@ -198,32 +202,27 @@
 		list-style-type: none;
 		padding: 0;
 		float: left;
-		margin: 0 10px 10px 0;
-		width: 190px;
-		height: auto !important;
-		height: 100px;
-		min-height: 100px;
+		margin: 0 20px 20px 0;
+		width: 200px;
 	}
 	
-	.grid_list li h2 {
-		font-size: 14px;
-		margin-bottom: 5px;
-	}
-	
-	.grid_list li:nth-child(3n+3) {
+	.grid_list li:nth-child(3n+3),
+	.grid_four li:nth-child(4n+4),
+	.grid_two li:nth-child(2n+2) {
 		margin-right: 0;
 	}
 	
-	.single .grid_list li {
-		margin-right: 25px;
+	.grid_four li {
+		width: 145px;
 	}
 	
-	.single .grid_list li:nth-child(3n+3) {
-		margin-right: 25px;
+	.grid_two li {
+		width: 310px;
 	}
 	
-	.single .grid_list li:nth-child(4n+4) {
-		margin-right: 0 !important;
+	.grid_four li:nth-child(3n+3),
+	.grid_two li:nth-child(3n+3) { 
+		margin-right: 20px;
 	}
 	
 /* Panels */
@@ -231,8 +230,9 @@
 	.panel {
 		margin-bottom: 20px;
 		float: left;
-		margin-right: 20px;
-		width: 280px;
+		margin-right: 65px;
+		width: 260px;
+		overflow: hidden;
 	}
 	
 	.panel:last-child {

@@ -2,12 +2,15 @@ class ChallengesController < ApplicationController
 
 	def show
 		@challenge = Challenge.find(params[:id])
+		@idea = Idea.new
+		@contribution = Contribution.new
 	end
 	
 	def index
 	  @warblings = Warbling.all
   	@warbling = Warbling.find(params[:id]) if params[:id]
-  	@challenges = (@warbling) ? @warbling.challenges.active : Challenge.active
+  	@open_challenges = (@warbling) ? @warbling.challenges.open : Challenge.open
+  	@closed_challenges = (@warbling) ? @warbling.challenges.closed : Challenge.closed	
 	end
 	
 	def new

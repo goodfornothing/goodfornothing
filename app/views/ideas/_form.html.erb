@@ -1,0 +1,13 @@
+<%= simple_form_for [@idea] do |f| %>
+
+	<h1>Your idea</h1>
+
+	<%= field_set_tag do %>
+		<%= f.input :body, :label => "Your idea", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 5 } %>
+	<% end %>
+
+	<%= field_set_tag nil, :class => "actions" do %>
+		<%= f.submit :value => "Send" %>	
+	<% end %>
+
+<% end %>

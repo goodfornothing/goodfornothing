@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
 
-  attr_accessible :excerpt, :title, :body, :user_id, :chapter_id, :category_id, :chapter_id, :user_id, :hero_image
+  scope :updates, where(:warbling_id => nil)
+
+  attr_accessible :excerpt, :title, :body, :user_id, :chapter_id, :category_id, :chapter_id, :user_id, :hero_image, :warbling_id
   
 	belongs_to :chapter
 	belongs_to :user

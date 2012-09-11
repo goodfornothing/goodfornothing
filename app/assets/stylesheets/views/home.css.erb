@@ -1,19 +1,18 @@
 .section_home header .container {
 	padding-bottom: 0;
-	background-position: left 487px;
+	background-position: 3px 485px;
 	overflow: visible;
 }
 
-.section_home #main {
-	padding-top: 50px;
-	padding-bottom: 20px;
+.section_home #main #primary_content {
+	padding: 65px 0 15px;
 }
 
 .section_home #introduction {
 	background: url(<%= asset_path "layout/home_intro.png" %>) no-repeat right top;
 	height: 438px;
 	position: relative;
-	margin-top: 20px;
+	margin-top: -5px;
 	z-index: 10;
 }
 
@@ -74,7 +73,6 @@
 
 .section_home #community {
 	width: 310px;
-	padding: 0 25px;
 }
 
 .section_home #community_infographic {
@@ -92,5 +90,9 @@
 }
 
 .section_home #community .highlight_button {
-	margin: 15px auto;
+	margin: 15px auto 0;
+}
+
+.section_home .panel .cta {
+	text-align: center;
 }

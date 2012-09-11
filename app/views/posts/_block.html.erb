@@ -1,4 +1,4 @@
-<article class="block">
+<div class="block">
 	
 	<% if post.hero_image.url.nil? %>
 		<%= image_tag "assets/placeholder.png", :class => "hero" %>
@@ -15,5 +15,5 @@
 	<time><%= post.created_at.to_formatted_s(:long_ordinal) %></time>
 	
 	<%= markdown.render(post.excerpt).html_safe %>
-	
-</article>
+
+</div>

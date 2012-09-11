@@ -15,7 +15,7 @@
 		<article>
 			
 			<% if challenge.title.present? %>
-				<h2><%= challenges.title %></h2>
+				<h2><%= challenge.title %></h2>
 				<%= "<p>#{challenge.venture.name}</p>".html_safe if challenge.venture.present? %>
 			<% elsif challenge.venture.present? %>
 				<h2><%= challenge.venture.name %></h2>
@@ -42,9 +42,7 @@
 			<p>You've signed up for this gig, please let us know if you can no longer make it.</p>
 			<p><%= link_to "Can no longer attend", attend_gig_path(@gig) %></p>
 		<% elsif @gig.slots.count == 1 && @gig.slots.first.skill.nil? %>
-			<h2>Attend gig</h2>
-			<p>This gig is open to all.</p> 
-			<p><%= link_to "Attend", attend_gig_path(@gig, :slot => @gig.slots.first) %></p>
+			<p class="cta"><%= link_to "I'm Coming!", attend_gig_path(@gig, :slot => @gig.slots.first) %></p>
 		<% elsif @gig.slots.any? %>
 			<h2>Attend gig</h2>
 			<table>

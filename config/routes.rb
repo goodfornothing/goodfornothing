@@ -4,7 +4,7 @@ Goodfornothing::Application.routes.draw do
   
   match "markdown_preview" => "application#markdown_preview"
   
-  devise_for :users, :controllers => { :registrations => :registrations }
+  devise_for :users, :controllers => { :registrations => :registrations } 
   
   devise_scope :user do
     get "/login" => "devise/sessions#new"
@@ -14,16 +14,22 @@ Goodfornothing::Application.routes.draw do
     get '/users/activity' => 'registrations#activity'
   end
   
+  
   resources :warblings, :only => [:index,:show]
   resources :posts, :only => [:show]
 
   match "library" => "bookmarks#index"
   match "library/search" => "bookmarks#search"
+  match "library/:id" => "bookmarks#index", :as => "bookmark_tag"
 
   resources :challenges, :only => [:show, :index, :new, :create] do
     collection do
       match "warbling/:id" => "challenges#index", :as => "warbling"
       match "thanks" => "challenges#thanks", :as => "thanks"
+    end
+    member do
+      resources :ideas, :only => [:new,:create,:edit,:update]
+      resources :contributions, :only => [:new,:create,:edit,:update]
     end
   end
 
@@ -53,7 +59,7 @@ Goodfornothing::Application.routes.draw do
   
   match "members" => "members#index"
   match "members/:id" => "members#show", :as => "member"
-    
+  
   match "how-it-works" => "colophon#how", :as => "how"
 	match "who" => "colophon#who"
 	match "community" => "colophon#community"

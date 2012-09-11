@@ -15,7 +15,6 @@
 			<% else %>
 				<%= link_to(partner.name, partner.url) %>
 			<% end %>
-			[view challenges,gigs]
 		</li>
 		<% end %>
 	</ul>
@@ -24,6 +23,5 @@
 </section>
 
 <aside id="secondary_content">
-	<h2>Partner with us</h2>
-	<p><%= link_to "Partner", new_partner_path %></p>
+	<p class="cta"><%= link_to "Partner with us", new_partner_path %></p>
 </aside>

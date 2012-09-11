@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910131012) do
+ActiveRecord::Schema.define(:version => 20120911074939) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "title"
@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(:version => 20120910131012) do
     t.integer "bookmark_id"
   end
 
+  create_table "bookmarks_tags", :force => true do |t|
+    t.integer "bookmark_id"
+    t.integer "tag_id"
+  end
+
   create_table "bookmarks_warblings", :force => true do |t|
     t.integer "warbling_id"
     t.integer "bookmark_id"
@@ -42,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120910131012) do
     t.boolean "active",      :default => false
     t.string  "slug"
     t.string  "contact"
+    t.boolean "open",        :default => true
   end
 
   create_table "challenges_warblings", :force => true do |t|
@@ -59,6 +65,17 @@ ActiveRecord::Schema.define(:version => 20120910131012) do
   end
 
   add_index "chapters", ["slug"], :name => "index_chapters_on_slug", :unique => true
+
+  create_table "contributions", :force => true do |t|
+    t.string   "url"
+    t.text     "description"
+    t.boolean  "accepted",     :default => false
+    t.integer  "user_id"
+    t.integer  "challenge_id"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "skill_id"
+  end
 
   create_table "events_users", :id => false, :force => true do |t|
     t.integer "event_id"
@@ -99,6 +116,14 @@ ActiveRecord::Schema.define(:version => 20120910131012) do
   end
 
   add_index "gigs", ["slug"], :name => "index_gigs_on_slug", :unique => true
+
+  create_table "ideas", :force => true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "challenge_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "locations", :force => true do |t|
     t.string "name"
@@ -157,11 +182,6 @@ ActiveRecord::Schema.define(:version => 20120910131012) do
   end
 
   add_index "posts", ["slug"], :name => "index_conversation_posts_on_slug", :unique => true
-
-  create_table "posts_tags", :force => true do |t|
-    t.integer "tag_id"
-    t.integer "post_id"
-  end
 
   create_table "skills", :force => true do |t|
     t.string "title"

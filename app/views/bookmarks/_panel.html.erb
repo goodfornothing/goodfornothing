@@ -1,9 +1,0 @@
-<% if @bookmarks %>
-	<h2>The Library</h2>
-	<ul>
-		<% @bookmarks.each do |bookmark| %>
-			<li><%= link_to bookmark.title, bookmark.url %></li>
-		<% end %>
-	</ul>
-	<p class="cta">More from <%= link_to "library &rarr;".html_safe, library_path %></p>
-<% end %>

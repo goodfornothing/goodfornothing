@@ -1,6 +1,6 @@
 ActiveAdmin.register Venture do
   
-  menu :priority => 5, :parent => "People"
+  menu :priority => 5, :parent => "Community"
   
   config.clear_sidebar_sections!
   

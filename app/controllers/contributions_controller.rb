@@ -1,0 +1,40 @@
+class ContributionsController < ApplicationController
+  
+  before_filter :fetch_challenge
+  before_filter :fetch_contribution, :only => [:edit, :update]
+  before_filter :authenticate_user!
+  
+  def create
+    
+    @contribution = Contribution.new(params[:contribution])
+    @contribution.challenge = @challenge
+    @contribution.user = current_user
+    
+    if @contribution.save
+      redirect_to @challenge
+    else
+      flash[:notice] = "Sorry, we couldn't save your contribution"
+      redirect_to @challenge
+    end
+    
+  end
+  
+  def update
+    if @contribution.update_attributes(params[:contribution])
+      redirect_to @challenge
+    else
+      render :edit
+    end
+  end
+  
+  protected
+  
+    def fetch_challenge
+      @challenge = Challenge.find(params[:id])
+    end
+    
+    def fetch_contribution
+      @contribution = Idea.find(params[:contribution_id])
+    end
+  
+end

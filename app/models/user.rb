@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   has_one :ning_profile
   has_many :posts
+  has_many :ideas
+  has_many :contributions
 
   belongs_to :chapter
   

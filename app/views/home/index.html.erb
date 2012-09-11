@@ -2,6 +2,7 @@
 
 	<section id="latest_activity" class="panel">
 		
+		
 		<% if @challenge.present? %>
 			<h3><%= @challenge.cause %></h3>
 			<p><%= link_to @challenge.title, challenge_path(@challenge) %></p>
@@ -24,10 +25,10 @@
 		<% end %>
 	</section>
 	
-	<% if @warblings.any? %>
-	<section id="warblings" class="panel">
-		<%= render :partial => "warblings/list" %>
-		<p class="cta"><%= link_to "More".html_safe, warblings_path %></p>
+	<% if @update.present? %>
+	<section id="updates" class="panel">
+		<%= render :partial => "posts/block", :locals => { :post => @update } %>
+		<p class="cta"><%= link_to "More warblings".html_safe, warblings_path %></p>
 	</section>
 	<% end %>
 	

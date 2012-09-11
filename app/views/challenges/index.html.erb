@@ -1,20 +1,25 @@
 <section id="primary_content">
 	
-	<h1>Find a challenge</h1>
-	
-	<p>How you can get involved in a challenge...</p>
-	
-	<h2>Filter by issue</h2>
-	<ul>
+	<h1>Challenges that matter</h1>
+
+	<ul class="grid_list grid_four">
 		<% @warblings.each do |warbling| %>
 		<li><%= link_to warbling.title, warbling_challenges_path(warbling) %></li>
 		<% end %>
 	</ul>
 	
-	<% if @challenges.any? %>
-		<h2>Open challenges</h2>
+	<% if @open_challenges.any? %>
 		<ul>
-		<% @challenges.each do |challenge| %>
+		<% @open_challenges.each do |challenge| %>
+			<li><%= link_to challenge.title, challenge_path(challenge) %> <%= "for #{challenge.cause}" unless challenge.cause.nil? %></li>
+		<% end %>
+		</ul>
+	<% end %>
+	
+	<h2>Closed challenges</h2>
+	<% if @closed_challenges.any? %>
+		<ul>
+		<% @closed_challenges.each do |challenge| %>
 			<li><%= link_to challenge.title, challenge_path(challenge) %> <%= "for #{challenge.cause}" unless challenge.cause.nil? %></li>
 		<% end %>
 		</ul>
@@ -22,12 +27,6 @@
 		
 </section>
 
-<aside id="secondary_content">
-	
+<aside id="secondary_content">	
 	<p class="cta"><%= link_to "Submit a challenge", new_challenge_path %></p>
-	
-	<h2>GFN calendar</h2>
-	<p>Meet face to face, work on challenges together</p>
-	<p><%= link_to "Calendar", calendar_path %></p>
-	
 </aside>

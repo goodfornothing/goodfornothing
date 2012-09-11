@@ -2,16 +2,27 @@
 
 	<h1>Warblings</h1>
 	
+	<p>Warblings are community driven streams of consciousness around topics that matter &ndash; thoughts, ponderances and snippets from the web.</p>
+	
 	<% if @warblings %>
-	<ul class="grid_list">
+	<ul class="grid_list grid_four">
 		<% @warblings.each do |warbling| %>
 			<li><%= link_to warbling.title, warbling_path(warbling) %></li>
 		<% end %>
 	</ul>
 	<% end %>
-			
+		
+	<% if @updates.any? %>
+	<h2>Good for Nothing Goings on</h2>
+	<ul class="grid_list">
+		<% @updates.each do |post| %>
+			<li><%= render :partial => "posts/block", :locals => { :post => post } %></li>
+		<% end %>
+	</ul>
+	<% end %>	
+		
 </section>
 
 <aside id="secondary_content">	
-	<p class="cta"><%= link_to "The library".html_safe, library_path %></p>
+	<p class="cta"><%= link_to "Research library".html_safe, library_path %></p>
 </aside>

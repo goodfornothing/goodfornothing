@@ -1,7 +1,7 @@
 /* =form */
  
-  #primary_content form { 
-    padding: 40px;
+  .single form { 
+    padding: 40px 60px;
 		background: #9ED4D6;
 		color: #ffffff;
 		width: 500px;
@@ -9,11 +9,11 @@
 		text-align: center;
   }
 
-	#primary_content form ::selection { background:#085156; color:#ffffff; }
-	#primary_content form ::-moz-selection { background:#085156; color:#ffffff; }
-	#primary_content form ::-webkit-selection { background:#085156; color:#ffffff; }
+	.single form ::selection { background:#085156; color:#ffffff; }
+	.single form ::-moz-selection { background:#085156; color:#ffffff; }
+	.single form ::-webkit-selection { background:#085156; color:#ffffff; }
 
-	#primary_content form h1 {
+	.single form h1 {
 		color: #085156;
 		margin-bottom: 40px;
 		background: url(<%= asset_path "assets/teal_squiggle.png" %>) repeat-x center bottom;
@@ -21,21 +21,21 @@
 		display: inline-block;
 	}
 	
-	#primary_content form p {
+	.single form p {
 		margin-bottom: 15px;
 		font-weight: bold;
 		text-align: left;
 	}
   
-  #primary_content form fieldset {
+  .single form fieldset {
     padding: 10px 0 20px;
   }
 
-	#primary_content form fieldset:last-child {
+	.single form fieldset:last-child {
 		padding: 0;
 	}
 
-	#primary_content legend {
+	.single legend {
 		font-size: 26px;
 		line-height: 28px;
 		padding-bottom: 4px;
@@ -46,17 +46,17 @@
   
 /* =label */
  
-  #primary_content label { 
+  .single label { 
     display: block; 
     position: relative;
   }
   
 /* =input */
 
-  #primary_content .string input,
-	#primary_content .email input,
-	#primary_content .url input,
-	#primary_content .password input  { 
+  .single .string input,
+	.single .email input,
+	.single .url input,
+	.single .password input  { 
     padding: 12px 10px;
 		color: #9ED4D6;
 		background: #ffffff;
@@ -70,13 +70,13 @@
  
  /* =checkbox */
  
-  #primary_content .checkbox label {
+  .single .checkbox label {
     margin-bottom: 0.75em;
   }
 
  /* =textarea */
 
- #primary_content textarea {  
+ .single textarea {  
     margin-bottom: 1em; 
     border: 0;
     padding: 15px 10px;
@@ -85,13 +85,13 @@
 		background: #ffffff;
 		line-height: 20px;
 		width: 480px;
-		font-family: "Good for Nothing";
+		font-family: karlaregular;
   }
 
 
 	/* =submit */
 	
-	#primary_content input[type="submit"] {
+	.single input[type="submit"] {
 		color: #ffffff;
 		display: inline-block;
 		line-height: 28px;
@@ -108,7 +108,7 @@
 		cursor: pointer;
 	}
 	
-	#primary_content input[type="submit"]:active {
+	.single input[type="submit"]:active {
 		text-decoration: none;
 		background-position: left bottom;
 		padding: 41px 20px 18px 0px;

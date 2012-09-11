@@ -82,14 +82,6 @@ class RegistrationsController < Devise::RegistrationsController
   
   protected
     
-    def after_update_path_for(resource)
-      member_path(resource)
-    end
-    
-    def after_sign_up_path_for(resource)
-      member_path(resource)
-    end
-    
     def fetch_associations
       @skills = Skill.all
       @locations = ["South","North"]
@@ -113,6 +105,14 @@ class RegistrationsController < Devise::RegistrationsController
           @gig.slots.first.users << resource
         end
       end
+    end
+    
+    def after_update_path_for(resource)
+       member_path(resource)
+    end
+    
+    def after_sign_up_path_for(resource)
+       member_path(resource)
     end
   
 end

@@ -5,20 +5,23 @@
 	<p>We thank you very much, you are all awesome.</p>
 	
 	<% if @friends.any? %>
+		<ul class="grid_list">
 		<% @friends.each do |friend| %>
-		<article>
+		<li>
 			<% if friend.logo.present? %>
 				<%= image_tag(friend.logo, :alt => friend.name) %>
 			<% end %>
 			<h2><%= link_to(friend.name, friend.url) %></h2>
 			<p><%= friend.description %></p>
-		</article>
+		</li>
 		<% end %>
+		</ul>
 	<% end %>
 	
 </section>
 
 <aside id="secondary_content">
 	<h2>Become a friend</h2>
-	<p>We're always looking for help with our weekends. Maybe you can <%= link_to "help us out?", how_path %></p>
+	<p>We're always looking for help with our weekends.</p>
+	<p class="cta"><%= link_to "Fuel our gigs", new_partner_path %></p>
 </aside>

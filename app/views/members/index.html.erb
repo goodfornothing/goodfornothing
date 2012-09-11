@@ -19,8 +19,9 @@
 </section>
 
 <aside id="secondary_content">
-	<h2>Join the community</h2>
-	<p>Do it...</p>
-	<h2>Who's behind it..</h2>
-	<p>The 'who' page</p>
+	<% if user_signed_in? %>
+	
+	<% else %>
+	<p class="cta"><%= link_to "Become a member", register_path %></p>
+	<% end %>
 </aside>

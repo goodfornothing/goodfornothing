@@ -1,6 +1,6 @@
 ActiveAdmin.register Challenge do
   
-  menu :priority => 2
+  menu :priority => 1, :parent => "Challenges"
   
   filter :gig
   filter :venture
@@ -14,8 +14,10 @@ ActiveAdmin.register Challenge do
   
   show do |challenge|
     attributes_table do
-      row :contact
+      row :active
+      row :open
       row :title
+      row :contact
       row :description
       row :gig
       row :venture
@@ -30,6 +32,7 @@ ActiveAdmin.register Challenge do
   
   form do |f|
     f.inputs :active
+    f.inputs :open
     f.inputs "Associations" do
       f.input :gig
       f.input :venture

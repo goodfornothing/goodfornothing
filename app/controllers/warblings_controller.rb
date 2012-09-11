@@ -3,6 +3,7 @@ class WarblingsController < ApplicationController
   before_filter :fetch_warblings
 
 	def index
+	  @updates = Post.updates
 	end
 	
 	def show

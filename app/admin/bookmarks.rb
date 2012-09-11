@@ -13,8 +13,11 @@ ActiveAdmin.register Bookmark do
       f.input :url, :as => :string
       f.input :description, :input_html => { :rows => 5 }
     end
-    f.inputs "Tag" do
+    f.inputs "Warblings" do
       f.input :warblings, :as => :check_boxes
+    end
+    f.inputs "Tags" do
+      f.input :tags, :as => :check_boxes
     end
     f.buttons
   end
@@ -36,6 +39,9 @@ ActiveAdmin.register Bookmark do
       row :description
       row "Warblings" do |i|
         i.warblings.map{ |w| w.title }.join(', ')
+      end
+      row "Tags" do |i|
+        i.tags.map{ |w| w.title }.join(', ')
       end
     end
   end

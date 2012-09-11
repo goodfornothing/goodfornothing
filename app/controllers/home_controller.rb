@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
 	def index
 	  
-	  @warblings = Warbling.order("created_at DESC").limit(3)
+	  @update = Post.updates.first
 	  @challenge = Challenge.active.find_by_featured(true)
 	  
 	  @member_count = User.count

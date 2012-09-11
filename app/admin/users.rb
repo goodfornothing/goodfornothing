@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
   
-  menu :priority => 1, :label => "Members", :parent => "People"
+  menu :priority => 1, :label => "Members", :parent => "Community"
     
   filter :skills_id, :as => :check_boxes, :collection => proc {Skill.all}
   filter :crew, :as => :select, :collection => [true,false]

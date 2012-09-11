@@ -1,6 +1,6 @@
-ActiveAdmin.register Warbling do
+ActiveAdmin.register Tag do
   
-  menu :priority => 1, :parent => "Conversations"
+  menu :priority => 4, :parent => "Conversations"
    
   config.clear_sidebar_sections!
   

@@ -1,0 +1,15 @@
+<%= simple_form_for [@contribution] do |f| %>
+
+	<h1>Your contribution</h1>
+
+	<%= field_set_tag do %>
+		<%= f.input :skill_id, :label => "Type of contribution", :collection => Skill.all %>
+		<%= f.input :description, :label => "What is it?", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 5 } %>
+		<%= f.input :url, :label => "Link", :wrapper_html => { :class => "smart_label" } %>
+	<% end %>
+
+	<%= field_set_tag nil, :class => "actions" do %>
+		<%= f.submit :value => "Contribute" %>	
+	<% end %>
+
+<% end %>

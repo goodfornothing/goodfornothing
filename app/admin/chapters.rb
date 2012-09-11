@@ -1,6 +1,6 @@
 ActiveAdmin.register Chapter do
   
-  menu :priority => 3, :parent => "People"
+  menu :priority => 3, :parent => "Community"
   
   config.clear_sidebar_sections!
   

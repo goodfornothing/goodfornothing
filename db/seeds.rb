@@ -601,7 +601,7 @@ Challenge.create([
   },
   {
     gig_id: @northernsoul.id,
-    active: true
+    active: true,
     title: 'Mountains of Hope brief'
   },
   {

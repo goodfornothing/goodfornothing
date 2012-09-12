@@ -3,7 +3,7 @@ class WarblingsController < ApplicationController
   before_filter :fetch_warblings
 
 	def index
-	  @updates = Post.updates.order("created_at DESC").limit(4)
+	  @updates = Post.updates.order("created_at DESC").limit(2)
 	end
 	
 	def show

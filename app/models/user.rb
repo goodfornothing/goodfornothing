@@ -86,6 +86,10 @@ class User < ActiveRecord::Base
     User.active.includes(:ideas,:contributions).where('users.id != ? and (contributions.challenge_id in (?) or ideas.challenge_id in (?))', self.id, self.challenges.map(&:id).join(','), self.challenges.map(&:id).join(','))
   end
   
+  def member_reach
+    (self.online_encountered + self.offline_encountered).uniq
+  end
+  
   protected
      def password_required?
       !persisted? || password.present? || password_confirmation.present?

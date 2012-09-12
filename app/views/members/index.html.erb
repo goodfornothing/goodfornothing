@@ -1,21 +1,13 @@
 <section id="primary_content">
 	<h1>Good for Nothingers</h1>
 	
-	<% if @offline_encountered_members.any? or @online_encountered_members.any? %>
+	<% if @member_reach.any? %>
 	<h2>Encountered members</h2>
 	<p>People who have attended gigs or socials with you, or worked on the same challenges online.</p>
 	<ul>
-		<% if @offline_encountered_members.any? %>
-		<% @offline_encountered_members.each do |member| %>
+		<% @member_reach.each do |member| %>
 		<li><%= link_to member.name, member_path(member) %></li>
 		<% end %>
-		<% end %>
-		
-		<% if @online_encountered_members.any? %>
-		<% @online_encountered_members.each do |member| %>
-		<li><%= link_to member.name, member_path(member) %></li>
-		<% end %>
-		<% end %>		
 	</ul>
 	<% end %>
 	

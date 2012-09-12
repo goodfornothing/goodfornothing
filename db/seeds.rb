@@ -15,7 +15,8 @@ Warbling.create([
   { title: 'Poverty' },
   { title: 'Human Rights' },
   { title: 'Health' },
-  { title: 'Community' }
+  { title: 'Community' },
+  { title: 'Water' }
 ])
 
 @london = Chapter.create({
@@ -222,6 +223,10 @@ Friend.create([
     url: 'http://www.divinechocolate.com/'
   },
   {
+    name: 'Co-operative Food',
+    url: 'http://www.co-operative.coop/food/welcome/'
+  },
+  {
     name: 'Fallon London',
     url: 'http://www.fallon.co.uk/'
   },
@@ -276,6 +281,54 @@ Friend.create([
   {
     name: 'Yorkshire Tea',
     url: 'http://www.yorkshiretea.co.uk/'
+  },
+  {
+    name: 'Redroaster',
+    url: 'http://www.redroaster.co.uk/'
+  },
+  {
+    name: 'Lick Yoghurt',
+    url: 'http://lickyogurt.com/'
+  },
+  {
+    name: 'Lighthouse',
+    url: 'http://www.lighthouse.org.uk/'
+  },
+  {
+    name: 'Higgidy',
+    url: 'http://www.higgidy.co.uk/'
+  },
+  {
+    name: 'Hotel Chocolat',
+    url: 'http://www.hotelchocolat.co.uk/'
+  },
+  {
+    name: 'Bagelman',
+    url: 'http://www.bagelman.co.uk/'
+  },
+  {
+    name: 'Aspall',
+    url: 'http://www.aspall.co.uk/'
+  },
+  {
+    name: 'Pieminister',
+    url: 'http://pieminister.co.uk/'
+  },
+  {
+    name: 'Kabuto Noodles',
+    url: 'http://www.kabutonoodles.com/'
+  },
+  {
+    name: "Jimmy's Iced Coffee",
+    url: 'http://jimmysicedcoffee.com/'
+  },
+  {
+    name: 'Bear Nibbles',
+    url: 'http://www.bearnibbles.co.uk/'
+  },
+  {
+    name: 'Mozilla',
+    url: 'http://www.mozilla.org/'
   }
 ])
 
@@ -427,7 +480,7 @@ Venture.create([
     url: 'http://bethnalgreenventures.com/'
   },
   {
-    name: 'Mountains of Hope',
+    name: 'Signposts',
     url:'http://www.signposts.org.uk/'
   },
   {
@@ -571,7 +624,19 @@ Venture.create([
   title: 'Northern Soul',
   chapter_id: @manchester.id,
   start_time: DateTime.new(2012, 10, 5, 18),
-  end_time: DateTime.new(2012, 10, 7, 17)
+  end_time: DateTime.new(2012, 10, 7, 17),
+  location: 'MadLab, 36-40 Edge Street, Manchester M4 1HN',
+  description: "The first Good for Nothing gig is kicking off in Manchester!
+  It's the third chapter of the next wave of Good for Nothing across the UK - Brighton and Bristol went off already and we're really excited to get things going in Manchester.
+  Bringing together doers, makers and tinkerers to accelerate the work of 3 of leading local social innovators on 3 tangible briefs. 
+  There'll be music, food, drink and lots of getting stuff made... doing not just talking, collaborating and experimenting and supporting grassroots social and environmental innovators"
+})
+
+@gfn_3 = Gig.create({
+    title: 'Good for Nothing',
+    chapter_id: @london.id,
+    start_time: DateTime.new(2013, 1, 26, 18),
+    end_time: DateTime.new(2013, 1, 27, 18)
 })
 
 Social.create([
@@ -582,8 +647,16 @@ Social.create([
   },
   {
     chapter_id: @london.id,
-    start_time: DateTime.new(2012, 9, 19, 6),
+    start_time: DateTime.new(2012, 9, 19, 6.5),
     location: 'Betsey Trotwood'
+  },
+  {
+    chapter_id: @london.id,
+    start_time: DateTime.new(2012, 10, 18, 6.5)
+  },
+  {
+    chapter_id: @london.id,
+    start_time: DateTime.new(2012, 11, 15, 6.5)
   }
 ])
 
@@ -592,17 +665,23 @@ Challenge.create([
     gig_id: @northernsoul.id,
     active: true,
     featured: true,
-    title: 'Signposts brief'
+    title: 'Signposts',
+    venture_id: Venture.find_by_name('Signposts').id,
+    description: 'Signposts are a local charity offering advice and support to a broad range of hard to reach/vulnerable people including the homeless. They need a new image and communication strategy, and all of the assets that usually go along with that, so there\'s plenty to go at!'
   },
   {
     gig_id: @northernsoul.id,
     active: true,
-    title: 'Carbon Coop brief'
+    title: 'Carbon Coop',
+    venture_id: Venture.find_by_name('Carbon Coop').id,
+    description: 'Carbon Coop are a group of Greater Manchester residents who\'ve teamed up to work together on improving their homes\' energy efficiency. They\'re doing exciting things with the collection and use of data, and if you\'re a technologist, tinkerer, coder, or user-interface designer, you\'re going to love this brief!'
   },
   {
     gig_id: @northernsoul.id,
     active: true,
-    title: 'Mountains of Hope brief'
+    title: 'Mountains of Hope',
+    venture_id: Venture.find_by_name('Mountains of Hope').id,
+    description: 'Mountains of Hope work with children from the most disadvantaged areas of the UK, using small personal and group challenges to inspire them to plan an action packed day of fun in the mountains. Mountains of Hope need a brand identity and a social media presence - another brief with plenty to get your teeth into!'
   },
   {
     gig_id: @wildthing.id,

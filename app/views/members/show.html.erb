@@ -40,7 +40,7 @@
 	
 	<h2>Activity</h2>
 	
-	<p>So far, <%= contextual_reference(@member).downcase %> worked with <%= link_to "#{@member.offline_encountered.count + @member.online_encountered.count} members", members_path %> of the community.</p>
+	<p>So far, <%= contextual_reference(@member).downcase %> worked with <%= link_to pluralize(@member.member_reach.count, "member"), members_path %> of the community.</p>
 	
 	<% if @member.challenges.any? %>
 	<h3>You've worked on <%= pluralize(@member.challenges.count, "challenge") %></h3>

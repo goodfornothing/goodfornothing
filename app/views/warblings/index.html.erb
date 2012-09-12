@@ -5,9 +5,9 @@
 	<p>Warblings are community driven streams of consciousness around topics that matter &ndash; thoughts, ponderances and snippets from the web.</p>
 	
 	<% if @warblings %>
-	<ul class="grid_list grid_four">
+	<ul class="grid_list">
 		<% @warblings.each do |warbling| %>
-			<li><%= link_to warbling.title, warbling_path(warbling) %></li>
+			<li style="height: 150px; background: #ffffff"><%= link_to warbling.title, warbling_path(warbling) %></li>
 		<% end %>
 	</ul>
 	<% end %>
@@ -19,6 +19,7 @@
 			<li><%= render :partial => "posts/block", :locals => { :post => post } %></li>
 		<% end %>
 	</ul>
+	<p class="cta">More posts...</p>
 	<% end %>	
 		
 </section>

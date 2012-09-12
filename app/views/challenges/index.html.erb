@@ -2,9 +2,9 @@
 	
 	<h1>Challenges that matter</h1>
 
-	<ul class="grid_list grid_four">
+	<ul class="grid_list">
 		<% @warblings.each do |warbling| %>
-		<li><%= link_to warbling.title, warbling_challenges_path(warbling) %></li>
+		<li style="height: 150px; background: #ffffff"><%= link_to warbling.title, warbling_challenges_path(warbling) %></li>
 		<% end %>
 	</ul>
 	

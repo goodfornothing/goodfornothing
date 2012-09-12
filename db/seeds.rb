@@ -425,6 +425,18 @@ Venture.create([
   {
     name: 'Bethnal Green Ventures',
     url: 'http://bethnalgreenventures.com/'
+  },
+  {
+    name: 'Mountains of Hope',
+    url:'http://www.signposts.org.uk/'
+  },
+  {
+    name: 'Carbon Coop',
+    url: 'http://carbon.coop/'
+  },
+  {
+    name: 'Mountains of Hope',
+    url: 'http://www.thepathlesstravelled.co.uk/mountains-of-hope/'
   }
 ])
 
@@ -579,15 +591,18 @@ Challenge.create([
   {
     gig_id: @northernsoul.id,
     active: true,
-    featured: true
+    featured: true,
+    title: 'Signposts brief'
+  },
+  {
+    gig_id: @northernsoul.id,
+    active: true,
+    title: 'Carbon Coop brief'
   },
   {
     gig_id: @northernsoul.id,
     active: true
-  },
-  {
-    gig_id: @northernsoul.id,
-    active: true
+    title: 'Mountains of Hope brief'
   },
   {
     gig_id: @wildthing.id,

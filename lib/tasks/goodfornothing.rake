@@ -9,6 +9,7 @@ namespace :goodfornothing do
     
     Rake::Task['migrate:bookmarks'].invoke
     Rake::Task['migrate:wordpress'].invoke
+    Rake::Task['migrate:ning'].invoke
     
   end
 end

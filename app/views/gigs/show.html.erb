@@ -23,6 +23,8 @@
 			
 			<%= markdown.render(challenge.description).html_safe unless challenge.description.blank? %>
 			
+			<p class="cta"><%= link_to "Get stuck in!", challenge_path(challenge) %></p>
+			
 		</article>
 		<% end %>
 		

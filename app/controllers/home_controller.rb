@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 	  @challenge = Challenge.active.find_by_featured(true)
 	  
 	  @member_count = User.count
-	  @cause_count = Venture.count + Partner.count
+	  @venture_count = Venture.count
 	  
 	  @social = Social.where('start_time > ?',Time.now).first
 	  @gig = Gig.where('end_time > ?',Time.now).order("start_time DESC").first

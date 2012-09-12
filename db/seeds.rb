@@ -344,7 +344,7 @@ Partner.create([
     active: true
   },
   {
-    name: 'Sony Europe',
+    name: 'Open Planet Ideas',
     url: 'http://www.openplanetideas.com/',
     active: true
   },
@@ -489,7 +489,7 @@ Venture.create([
   },
   {
     name: 'Mountains of Hope',
-    url: 'http://www.thepathlesstravelled.co.uk/mountains-of-hope/'
+    url: 'http://mountainsofhope.co.uk/'
   }
 ])
 

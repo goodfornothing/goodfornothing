@@ -13,7 +13,7 @@
 			<% if venture.logo.present? %>
 				<%= link_to(image_tag(venture.logo, :alt => venture.name), venture.url) %>
 			<% else %>
-				<%= link_to(venture.name, venture.url) %>
+				<%= link_to(venture.name, venture.url, :class => "logo") %>
 			<% end %>
 		</li>
 		<% end %>

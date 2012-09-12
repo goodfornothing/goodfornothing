@@ -1,6 +1,6 @@
 <section id="primary_content">
 	
-	<h1>Partners</h1>
+	<h1>Gig Partners</h1>
 	
 	<div class="abstract">
 		<p>We bring brands and business together with relevant social innovators and enterprises creating experiential challenges, projects, ventures and relationships with benefits for all.</p>
@@ -15,7 +15,7 @@
 			<% if partner.logo.present? %>
 				<%= link_to(image_tag(partner.logo, :alt => partner.name), partner.url) %>
 			<% else %>
-				<%= link_to(partner.name, partner.url) %>
+				<%= link_to(partner.name, partner.url, :class => "logo") %>
 			<% end %>
 		</li>
 		<% end %>

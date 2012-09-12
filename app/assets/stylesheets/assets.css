@@ -71,9 +71,9 @@
 /* Graphical counters */
 
 	.badge_count {
-		padding: 20px 50px 20px 50px;
+		padding: 20px 50px 20px 32px;
 		margin: 0;
-		width: 120px;
+		width: 155px;
 		height: 136px;
 		text-align: center;
 		font-family: "Good for Nothing";
@@ -193,7 +193,7 @@
 /* Grid lists */
 
 	.grid_list {
-		padding: 10px 0;
+		padding: 0;
 		overflow: hidden;
 		width: 100%;
 	}
@@ -223,6 +223,24 @@
 	.grid_four li:nth-child(3n+3),
 	.grid_two li:nth-child(3n+3) { 
 		margin-right: 20px;
+	}
+	
+	.grid_list .logo {
+		background: #ffffff;
+		text-align: center;
+		font-weight: bold;
+		color: #60504D;
+		height: 80px;
+		display: block;
+		font-size: 20px;
+		padding: 50px 20px 0;
+		text-transform: uppercase;
+	}
+	
+	.grid_list .logo:hover,
+	.grid_list .logo:active,
+	.grid_list .logo:focus {
+		text-decoration: none;
 	}
 	
 /* Panels */
@@ -265,3 +283,11 @@
 	article.post img {
 		max-width: 100%;
 	}
+
+
+/* Abstract */
+
+	.abstract {
+		padding: 0 0 20px 0;
+	}
+	

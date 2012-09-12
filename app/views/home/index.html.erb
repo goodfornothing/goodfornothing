@@ -16,7 +16,7 @@
 	
 	<section id="community" class="panel">
 		<ul id="community_infographic">
-			<li class="badge_count"><span><%= @cause_count %></span> <%= link_to "amazing causes", ventures_path %></li>
+			<li class="badge_count"><span><%= @venture_count %></span> <%= link_to "amazing ventures", ventures_path %></li>
 			<li class="ticker_count"><%= spannerize("%04d" % @member_count) %> <%= link_to "Good for Nothingers", members_path %></li>
 		</ul>
 		<% unless user_signed_in? %>

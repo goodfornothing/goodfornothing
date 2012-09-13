@@ -2,11 +2,16 @@
  
   .single form { 
     padding: 40px 60px;
-		background: #9ED4D6;
+		background: #9adada;
 		color: #ffffff;
 		width: 500px;
-		margin: 10px auto 40px;
+		margin: 0 auto 40px;
 		text-align: center;
+		background-position: top left, top right, bottom right;
+		background-repeat: no-repeat, no-repeat, no-repeat;
+		background-image: url(<%= asset_path "blocks/form_top_left.gif" %>),
+											url(<%= asset_path "blocks/form_top_right.gif" %>),
+											url(<%= asset_path "blocks/form_bottom_right.gif" %>);
   }
 
 	.single form ::selection { background:#085156; color:#ffffff; }
@@ -15,7 +20,7 @@
 
 	.single form h1 {
 		color: #ffffff;
-		margin-bottom: 40px;
+		margin-bottom: 35px;
 		background: url(<%= asset_path "assets/teal_squiggle.png" %>) repeat-x center bottom;
 		padding: 0 10px 5px;
 		display: inline-block;
@@ -23,8 +28,8 @@
 	
 	.single form p {
 		margin-bottom: 15px;
-		font-weight: bold;
 		text-align: left;
+		color: #ffffff;
 	}
 	
 	.single form .footnote {
@@ -69,14 +74,16 @@
 	.single .url input,
 	.single .password input  { 
     padding: 12px 10px;
-		color: #9ED4D6;
+		margin-top: 0;
+		color: #9adada;
 		background: #ffffff;
 		font-family: "Good for Nothing";
-    margin-bottom: 25px; 
+    margin-bottom: 20px; 
     font-size: 16px;
 		line-height: 20px;
     border: 0;
 		width: 480px;
+		-webkit-font-smoothing: antialiased; 
   }
  
  /* =checkbox */
@@ -88,17 +95,18 @@
  /* =textarea */
 
  .single textarea {  
-    margin-bottom: 1em; 
+    margin-bottom: 20px;
+		margin-top: 0;
     border: 0;
-    padding: 15px 10px;
-		font-size: 16px;
-		color: #9ED4D6;
+    padding: 12px 15px;
+		font-size: 15px;
+		color: #9adada;
 		background: #ffffff;
-		line-height: 20px;
-		width: 480px;
-		font-family: karlaregular;
+		line-height: 22px;
+		font-weight: normal;
+		width: 470px;
+		font-family: karlaregular;		
   }
-
 
 	/* =submit */
 	

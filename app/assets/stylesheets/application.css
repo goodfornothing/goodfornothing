@@ -15,4 +15,5 @@
  *= require layout
  *= require assets
  *= require_tree ./views
+ *= require jquery.selectBox
 */

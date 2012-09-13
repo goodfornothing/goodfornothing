@@ -4,12 +4,12 @@
   
 		<h1>Submit a challenge</h1>
 
-		<p>Are you working on an innovative approach to solving a social or environmental challenge? Looking for help?</p>
+		<p>Are you working on an innovative approach to solving a social or environmental challenge? Looking for help? Drop us a note, we'd love to chat.</p>
 
 		<%= field_set_tag do %>
 			<%= f.input :title, :label => "Your name", :wrapper_html => { :class => "smart_label" } %>
 			<%= f.input :contact, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
-			<%= f.input :description, :label => "Summarise your challenge, include a link to your thing", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 10 } %>
+			<%= f.input :description, :label => "Summarise your challenge, remember to include a link to your digital home if you have one.", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 10 } %>
 		<% end %>
 
 		<%= field_set_tag nil, :class => "actions" do %>

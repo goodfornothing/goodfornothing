@@ -15,5 +15,6 @@
 //= require jquery.selectBox.min
 //= require jquery.tools.min
 //= require jquery.validate.min
+//= require limit_chars
 //= require_tree .
 //= require modernizr

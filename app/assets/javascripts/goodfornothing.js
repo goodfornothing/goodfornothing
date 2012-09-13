@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	
-	// Forms
-	
+	// Smart Labels
 	$('.input.smart_label').each(function(i,el){
 		
 		label = $($(el).find('label')[0]).hide();
@@ -15,9 +14,7 @@ $(document).ready(function(){
 		text = label.text().replace('* ','');
 		input.data('placeholder', text);
 		
-		if(input.val()=='') {
-			input.val(text)
-		} 
+		if(input.val()=='') { input.val(text); } 
 		
 		input.bind('focus',function(ev){
 			if($(this).val()==$(this).data('placeholder')) {
@@ -33,6 +30,27 @@ $(document).ready(function(){
 		
 	});
 	
+	$('form').each(function(i,el){
+
+		$(el).bind('submit',function(ev){
+			$(el).find('.smart_label input, .smart_label textarea').each(function(i,input) {
+				if($(input).val()==$(input).data('placeholder')) {
+					$(input).val('');
+				}
+			})
+		})
+		
+	})
+	
+	// Range sliders
 	$('input[type="range"]').rangeinput();
+	
+	// Select boxes
+	$('.single form select').selectBox();
+	$('.single form .input.select label').hide();
+	
+	
+	// Max lengths
+	$(".single form [maxlength]").each(function(index,input) { $(input).limit_chars(); });
 	
 });

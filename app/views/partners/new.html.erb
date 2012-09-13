@@ -4,12 +4,12 @@
   
 		<h1>Partner with us</h1>
 
-		<p>Something about partnering with us, what you can do, why it matters and such like.</p>
+		<p>Good for Nothing is good for organisations. We are always open to collaborations and experiments with partners. If you've got an idea in mind, please drop us a note, we'd love to chat.</p>
 
 		<%= field_set_tag do %>
 			<%= f.input :name, :label => "Your name", :wrapper_html => { :class => "smart_label" } %>
 			<%= f.input :contact, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
-			<%= f.input :purpose, :label => "How would you like to get involved?", :collection => [ 'Sponsor a challenge', 'Give us stuff to help fuel gigs', 'Get your people doing Good for Nothing', 'Invest in Good for Nothing'] %>
+			<%= f.input :purpose, :label => "How would you like to get involved?", :collection => [ 'Sponsor a challenge', 'Give us stuff to fuel our gigs', 'Get your people doing Good for Nothing', 'Invest in Good for Nothing', 'Take us to the pub'] %>
 			<%= f.input :notes, :label => "A little about your organisation", :wrapper_html => { :class => "smart_label" } %>
 		<% end %>
 

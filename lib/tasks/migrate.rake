@@ -32,18 +32,16 @@ namespace :migrate do
 					b.published = true
 				end
 
-				# Associate tags (parent folders)
-				node.xpath('ancestor::dl').xpath('preceding-sibling::dt/h3').each do |d|
-					tag = Tag.find_by_title(d.text)
-					if tag.nil?
-						tag = Tag.create do |t|
-							t.title = d.text
-						end
+				# Associate tag (parent folder)
+				d = node.xpath('ancestor::dl[1]').xpath('preceding::dt[1]/h3')
+				tag = Tag.find_by_title(d.text)
+				if tag.nil?
+					tag = Tag.create do |t|
+						t.title = d.text
 					end
-					tag.save!
-					bookmark.tags << tag
 				end
-
+				tag.save!
+				bookmark.tags << tag
 			end
 
 			bookmark.save!

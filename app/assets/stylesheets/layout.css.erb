@@ -81,6 +81,7 @@
 			padding: 28px 0 0;
 			float: right;
 			width: 180px;
+			line-height: 21px;
 			margin: 0;
 			text-align: center;
 			color: #ffffff;
@@ -185,7 +186,7 @@
 	/*= footer */
 	
 		footer {
-			padding: 50px 0;
+			padding: 55px 0 35px;
 			background: #61514d repeat-x left top url(layout/footer.gif);
 			color: #ffffff;
 		}
@@ -206,23 +207,25 @@
 		
 		footer p a {
 			color: #ffffff;
-			text-decoration: underline;
+			text-decoration: none;
+			padding-bottom: 1px;
+			border-bottom: 1px dotted rgba(255,255,255,0.6);
 		}
 		
 		footer p a:hover, 
 		footer p a:focus, 
 		footer p a:active {
 			text-decoration: none;
+			border: none;
 		}
 		
 		footer section {
-			width: 400px;
+			width: 220px;
 			float: left;
 		}
 		
 		footer section h2 {
 			font-family: "Good for Nothing";
-			
 		}
 		
 		footer section:last-child,
@@ -230,8 +233,29 @@
 			margin: 0; 
 		}
 		
+		footer section li {
+			margin-bottom: 3px;
+		}
+		
+		footer section li a:hover,
+		footer section li a:active,
+		footer section li a:focus {
+			text-decoration: none;
+			padding-bottom: 1px;
+			border-bottom: 1px dotted rgba(255,255,255,0.6);
+		}
+		
+		footer section#hood {
+			width: 700px;
+			float: right;
+		}
+		
+		footer section#hood p {
+			margin-bottom: 15px;
+		}
+		
 		section#colophon {
-			background: #61514D;
+			background: #443936;
 			color: #ffffff;
 			padding: 12px 0;
 			overflow: hidden;
@@ -239,21 +263,25 @@
 		
 		section#colophon p {
 			margin-bottom: 0;
-			line-height: 27px;
+			line-height: 30px;
 		}
 		
 		section#colophon a {
 			color: #ffffff;
-			text-decoration: underline;
+			text-decoration: none;
+			padding-bottom: 1px;
+			border-bottom: 1px dotted rgba(255,255,255,0.6);
 		}
 		
 		section#colophon a:hover, section#colophon a:focus, section#colophon a:active {
 			text-decoration: none;
+			border: none;
 		}
 		
 		section#colophon .icon {
 			float: right;
 			display: inline-block;
+			border: none;
 		}
 
 }

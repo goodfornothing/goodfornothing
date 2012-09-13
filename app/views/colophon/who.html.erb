@@ -1,12 +1,13 @@
-<section id="primary_content" class="single">
+<section id="primary_content">
 	
-	<h1>The crew</h1>
+	<h1>The Crew</h1>
 	
 	<div class="abstract">
-		<p>We're various people scattered around the UK. <%= link_to "Start your own", "mailto:hello@goodfornothing.com" %> chapter?</p>	
+		<p>We love the Interweb, but to solve challenges people also need to get together. Hooking up with likeminded folk at a gig or social, or just for a cuppa and a natter is the Good for Nothing way.</p>
+		<p>We're hatching local chapters to help good folk do just that. If we're not near you yet and you'd like to bring Good for Nothing to your hood, <a href="mailto:hello@goodfornothing.com">drop us a note</a>, we'd love to talk.</p>
 	</div>
 	
-	<ul class="grid_list grid_four">
+	<ul class="grid_list">
 		<% @all_chapters.each do |chapter| %>
 			<li>
 				<h3><%= chapter.title %></h3>
@@ -15,6 +16,8 @@
 		<% end %>
 	</ul>
 	
-	<p class="cta"><%= link_to "Find out what's happening in your area", calendar_path %></p>
-	
 </section>
+
+<aside id="secondary_content">
+	<p class="cta"><%= link_to "Chapter calendar", calendar_path %></p>
+</aside>

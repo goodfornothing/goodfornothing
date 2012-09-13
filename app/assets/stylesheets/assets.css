@@ -196,6 +196,7 @@
 		padding: 0;
 		overflow: hidden;
 		width: 100%;
+		margin-bottom: 20px;
 	}
 
 	.grid_list li {
@@ -212,11 +213,19 @@
 		margin-right: 0;
 	}
 	
+	.grid_list li a img {
+		display: block;
+	}
+	
 	.grid_four li {
 		width: 145px;
 	}
 	
 	.grid_two li {
+		width: 310px;
+	}
+	
+	.grid_two li img {
 		width: 310px;
 	}
 	
@@ -284,10 +293,9 @@
 		max-width: 100%;
 	}
 
-
 /* Abstract */
 
 	.abstract {
-		padding: 0 0 20px 0;
+		padding: 0 0 10px 0;
 	}
 	

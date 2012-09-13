@@ -94,7 +94,8 @@
 	
 		<footer>
 			<div class="container">
-				<section>
+				
+				<section id="get_involved">
 					<h2>Get involved</h2>
 					<ul>
 						<li><%= link_to 'Find a challenge', challenges_path %></li>
@@ -103,16 +104,20 @@
 						<li><%= link_to "Partner with us", new_partner_path %></li>
 					</ul>
 				</section>
-				<section>
-					<h2>Good for Near You</h2>
-					<p>Taking challenges offline is important, be it in the form of a <%= link_to "GFN gig or social", calendar_path %> or just grabbing a coffee. So we're starting to set up some local chapters in <%= @all_chapters.map{ |c| c.title }.join(', ').html_safe %></p>
-					<p>If you're not already covered, <a href="mailto:hello@goodfornothing.com">drop us a note</a>, we'd love to talk about starting one in your area</p>
+				
+				<section id="hood">
+
+					<h2>Good in your hood</h2>
+					<p>We love the Interweb, but to solve challenges people also need to get together. Hooking up with likeminded folk at a gig or social, or just for a cuppa and a natter is the Good for Nothing way.</p>
+					<p>We're hatching chapters in <%= @all_chapters.map{ |c| c.title }.to_sentence %> to help good folk do just that. If we're not near you yet and you'd like to bring Good for Nothing to your hood, <a href="mailto:hello@goodfornothing.com">drop us a note</a>, we'd love to talk.</p>
+
 				</section>
+			
 			</div>
 		</footer>
 	
 		<section id="colophon">
-			<p class="container">Good for Nothing &ndash; Smart folk collaborating and experimenting to solve stuff that matters, <a href="mailto:hello@goodfornothing.com">say hello</a>, or check out our <%= link_to "privacy policy", privacy_path %> <a class="icon pipeline" href="http://www.pipelineproject.co">Brought to you by the Pipeline Project</a></p>
+			<p class="container">Good for Nothing &ndash; Smart folk collaborating and experimenting to solve stuff that matters, say <a href="mailto:hello@goodfornothing.com">hello</a>, or check out our <%= link_to "privacy", privacy_path %> policy <a class="icon pipeline" href="http://www.pipelineproject.co">Brought to you by the Pipeline Project</a></p>
 		</section>
 
 	</body>

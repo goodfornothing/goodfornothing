@@ -3,9 +3,12 @@
 	<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
 	  	
 		<h1>Request a new password</h1>
-	
 		<%= f.error_notification %>
-	    <%= f.input :email, :required => true, :label => "Your email address, please", :wrapper_html => { :class => "smart_label" } %>
+		
+		<fieldset>
+	    	<%= f.input :email, :required => true, :label => "Your email address, please", :wrapper_html => { :class => "smart_label" } %>
+		</fieldset>
+	
 	    <%= f.button :submit, "Do it" %>
 	
 	<% end %>

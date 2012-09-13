@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   
   before_filter :fetch_associations, :only => [:new, :create, :edit, :update]
-  before_filter :fetch_secret_user, :only => [:claim, :activate]
+  before_filter :fetch_secret_user, :only => [:claim, :activate, :reactivate]
   prepend_before_filter :authenticate_scope!, :only => [:activity, :edit, :update, :destroy]
   
   def new
@@ -28,7 +28,6 @@ class RegistrationsController < Devise::RegistrationsController
   
   # We're overwriting the default create and update
   # so we can call save_talents - better way of doing this?
-  
   def create
     build_resource
     if resource.save
@@ -67,16 +66,19 @@ class RegistrationsController < Devise::RegistrationsController
   end
     
   def claim
-    
     if @user.nil?
       not_found
     end
-    
+  end
+  
+  def reactivate
+    if @user.nil?
+      not_found
+    end
   end
   
   def activate
      
-    # Devise doesn't seem to check for this empty password, only that it matches confirm
     if @user.nil? || params[:user][:password].empty?
       render :claim
     else 
@@ -91,7 +93,7 @@ class RegistrationsController < Devise::RegistrationsController
       end
     end
     
-  end
+  end 
   
   def activity
     @past_gigs = Gig.past
@@ -100,9 +102,13 @@ class RegistrationsController < Devise::RegistrationsController
   protected
     
     def fetch_secret_user
-      # check if params[:secret] = user.ning.id, probably want to 
-      # put this fetch in the user model
-      @user = User.where("activated = false && id = #{params[:id]}").first
+          
+      if params[:secret].nil? or params[:id].nil?
+        nil
+      else
+        @user = User.joins(:ning_profile).where("ning_profiles.id = #{params[:secret]} && users.activated = false && users.id = #{params[:id]}").first
+      end
+      
     end
     
     def fetch_associations

@@ -186,14 +186,8 @@
 	/*= footer */
 	
 		footer {
-			padding: 55px 0 35px;
+			padding: 50px 0 70px;
 			background: #61514d repeat-x left top url(layout/footer.gif);
-			color: #ffffff;
-		}
-		
-		footer h2 {
-			padding-bottom: 5px;
-			margin-bottom: 16px;
 			color: #ffffff;
 		}
 		
@@ -226,6 +220,10 @@
 		
 		footer section h2 {
 			font-family: "Good for Nothing";
+			padding-bottom: 6px;
+			display: inline-block;
+			margin-bottom: 15px;
+			color: #ffffff;
 		}
 		
 		footer section:last-child,
@@ -234,15 +232,23 @@
 		}
 		
 		footer section li {
-			margin-bottom: 3px;
+			list-style-type: none;
+			padding: 0;
+		}
+		
+		footer section li a {
+			line-height: 27px;
+			display: inline-block;
+			list-style-type: none;
+			padding-left: 24px;
+			background: no-repeat left 5px url(<%= asset_path "icons/bullet_arrow.png" %>);
 		}
 		
 		footer section li a:hover,
 		footer section li a:active,
 		footer section li a:focus {
 			text-decoration: none;
-			padding-bottom: 1px;
-			border-bottom: 1px dotted rgba(255,255,255,0.6);
+			background-position: 4px 5px;
 		}
 		
 		footer section#hood {
@@ -257,7 +263,7 @@
 		section#colophon {
 			background: #443936;
 			color: #ffffff;
-			padding: 12px 0;
+			padding: 15px 0;
 			overflow: hidden;
 		}
 		
@@ -269,7 +275,6 @@
 		section#colophon a {
 			color: #ffffff;
 			text-decoration: none;
-			padding-bottom: 1px;
 			border-bottom: 1px dotted rgba(255,255,255,0.6);
 		}
 		

@@ -27,16 +27,35 @@
 	}
 	
 	.single form p {
-		margin-bottom: 15px;
+		margin-bottom: 17px;
 		text-align: left;
 		color: #ffffff;
+		font-size: 14px;
 	}
 	
-	.single form .footnote {
-		font-size: 12px;
+	.single form .hint {
+		position: absolute;
+		top: 6px;
+		right: 12px;
+	}
+	
+	.single form .hint a {
+		width: 30px;
+		height: 33px;
+		font-size: 20px;
+		font-family: "Good for Nothing";
 		text-align: center;
-		line-height: 16px;
-		margin-top: 25px;
+		line-height: 34px;
+		color: #ffffff;
+		display: block;
+		background: #9adada url(<%= asset_path "assets/input_splodge.gif" %>) no-repeat center center;
+	}
+	
+	.single form .hint a:hover,
+	.single form .hint a:active,
+	.single form .hint a:focus {
+		font-style: italic;
+		text-decoration: none;
 	}
 	
 	.single form a {
@@ -46,6 +65,10 @@
   .single form fieldset {
     padding: 10px 0 20px;
   }
+
+	.single form .abstract {
+		padding-bottom: 30px;
+	}
 
 	.single form fieldset:last-child {
 		padding: 0;
@@ -69,27 +92,60 @@
   
 /* =input */
 
+	.single .input {
+		position: relative;
+	}
+
   .single .string input,
 	.single .email input,
 	.single .url input,
 	.single .password input  { 
-    padding: 12px 10px;
+    padding: 13px 18px 11px;
 		margin-top: 0;
 		color: #9adada;
-		background: #ffffff;
+		background-color: #ffffff;
+		background-position: top left, top right;
+		background-repeat: no-repeat, no-repeat;
+		background-image: url(<%= asset_path "blocks/input_left_2.gif" %>),
+											url(<%= asset_path "blocks/input_right_2.gif" %>);
 		font-family: "Good for Nothing";
     margin-bottom: 20px; 
     font-size: 16px;
 		line-height: 20px;
     border: 0;
-		width: 480px;
-		-webkit-font-smoothing: antialiased; 
+		width: 464px;
+		-webkit-font-smoothing: antialiased;
   }
+
+  .single .string:nth-child(odd) input,
+	.single .email:nth-child(odd) input,
+	.single .url:nth-child(odd) input,
+	.single .password:nth-child(odd) input {
+		background-image: url(<%= asset_path "blocks/input_left_3.gif" %>),
+											url(<%= asset_path "blocks/input_right.gif" %>);
+	}
+	
+	.single .string:nth-child(3n) input,
+	.single .email:nth-child(3n) input,
+	.single .url:nth-child(3n) input,
+	.single .password:nth-child(3n) input {
+		background-image: url(<%= asset_path "blocks/input_left.gif" %>),
+											url(<%= asset_path "blocks/input_right_3.gif" %>);
+	}
  
- /* =checkbox */
+ /* =boolean */
  
-  .single .checkbox label {
-    margin-bottom: 0.75em;
+	.single .boolean {
+		margin-top: -10px;
+	}
+
+  .single .boolean label {
+   	text-align: left;
+		padding-left: 10px;
+  }
+
+	.single .boolean input {
+		margin-right: 8px;
   }
 
  /* =textarea */
@@ -98,14 +154,22 @@
     margin-bottom: 20px;
 		margin-top: 0;
     border: 0;
-    padding: 12px 15px;
+    padding: 20px;
 		font-size: 15px;
 		color: #9adada;
 		background: #ffffff;
 		line-height: 22px;
 		font-weight: normal;
-		width: 470px;
-		font-family: karlaregular;		
+		width: 450px;
+		font-family: karlaregular;
+		background-color: #ffffff;
+		 resize: none; 
+		background-position: top left, top right, bottom left, bottom right;
+		background-repeat: no-repeat;
+		background-image: url(<%= asset_path "blocks/textarea_top_left.gif" %>),
+											url(<%= asset_path "blocks/textarea_top_right.gif" %>),
+											url(<%= asset_path "blocks/textarea_bottom_left.gif" %>),
+											url(<%= asset_path "blocks/textarea_bottom_right.gif" %>);
   }
 
 	/* =submit */

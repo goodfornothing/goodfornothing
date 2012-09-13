@@ -49,8 +49,12 @@ $(document).ready(function(){
 	$('.single form select').selectBox();
 	$('.single form .input.select label').hide();
 	
-	
 	// Max lengths
 	$(".single form [maxlength]").each(function(index,input) { $(input).limit_chars(); });
+	
+	// Tips
+	$(".tip[title], .hint a[title]").tooltip({
+		offset: [2, 20]
+	});
 	
 });

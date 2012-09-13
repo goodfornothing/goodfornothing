@@ -4,17 +4,17 @@ Goodfornothing::Application.routes.draw do
   
   match "markdown_preview" => "application#markdown_preview"
   
-  devise_for :users, :controllers => { :registrations => :registrations } 
+  devise_for :users, :controllers => { :registrations => :registrations, :sessions => :sessions } 
   
   devise_scope :user do
     get "/login" => "devise/sessions#new"
     delete "/logout" => "devise/sessions#destroy"
     get "/register" => "registrations#new"
     get "/claim/:id/:secret" => "registrations#claim", :as => "claim"
+    get "/reactivate/:id/:secret" => "registrations#reactivate", :as => "reactivate"
     put "/claim/:id/:secret" => "registrations#activate", :as => "activate"
     get '/users/activity' => 'registrations#activity'
   end
-  
   
   resources :warblings, :only => [:index,:show]
   resources :posts, :only => [:show]

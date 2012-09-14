@@ -2,15 +2,8 @@
 	
 	<h1>Challenges that matter</h1>
 
-	<p>Good for Nothing is about collaborating on challenges to create disruptive solutions to some of the uber issues of our time.</p>	
-	<p>Some challenges will be tackled at gigs, some with small groups of collaborators, some over a cuppa or an email exchange, some with your colleagues&hellip;</p>
+	<p>Good for Nothing is about collaborating on challenges to create disruptive solutions to some of the uber issues of our time. Some challenges will be tackled at gigs, some with small groups of collaborators, some over a cuppa or an email exchange, some with your colleagues&hellip;</p>
 	<p>In short, it's up to you to decide how you want to get stuck in, just be sure to share your ideas and contributions on the challenge page to guide others who may be doing the same.</p>
-	
-	<ul class="grid_list">
-		<% @warblings.each do |warbling| %>
-		<li style="height: 150px; background: #ffffff"><%= link_to warbling.title, warbling_challenges_path(warbling) %></li>
-		<% end %>
-	</ul>
 	
 	<% if @open_challenges.any? %>
 		<ul>
@@ -32,5 +25,12 @@
 </section>
 
 <aside id="secondary_content">	
-	<p class="cta"><%= link_to "Attend a gig", calendar_path %></p>
+
+	
+	<ul class="filter_list">
+		<% @warblings.each do |warbling| %>
+		<li class="warbling_small small_warbling_<%= warbling.slug.underscore %>"><%= link_to warbling.title, warbling_challenges_path(warbling) %></li>
+		<% end %>
+	</ul>
+	
 </aside>

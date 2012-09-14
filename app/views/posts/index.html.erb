@@ -1,9 +1,15 @@
 <section id="primary_content">
-	<article class="post">
-		<h1><%= @post.title %></h1>
-		<time><%= @post.created_at.to_formatted_s(:long_ordinal) %></time>
-		<%= markdown.render(@post.body).html_safe %>
-	</article>
+
+	<h1>Good for Nothing Goings On</h1>
+		
+	<% if @updates.any? %>
+	<ul>
+		<% @updates.each do |post| %>
+		<li><%= link_to post.title, post_path(post) %></li>
+		<% end %>
+	</ul>
+	<% end %>	
+			
 </section>
 
 <% if @warblings.any? %>

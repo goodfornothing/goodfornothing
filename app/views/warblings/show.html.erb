@@ -22,13 +22,12 @@
 			
 </section>
 
-<% if @warblings %>
+<% if @warblings.any? %>
 <aside id="secondary_content">
-<h2>Warblings</h2>
-<ul>
-	<% @warblings.each do |warbling| %>
-		<li><%= link_to warbling.title, warbling_path(warbling) %></li>
-	<% end %>
-</ul>
+	<ul class="filter_list">
+		<% @warblings.each do |warbling| %>
+			<li class="warbling_small small_warbling_<%= warbling.slug.underscore %>"><%= link_to warbling.title, warbling_path(warbling) %></li>
+		<% end %>
+	</ul>
 </section>
 <% end %>

@@ -21,7 +21,7 @@ module ApplicationHelper
   end
   
   def is_warblings?
-    params[:controller] == 'warblings' || params[:controller] == 'bookmarks'
+    params[:controller] == 'warblings' || params[:controller] == 'bookmarks' || params[:controller] == 'posts'
   end
   
   def contextual_reference(user)

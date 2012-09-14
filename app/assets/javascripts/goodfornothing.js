@@ -54,7 +54,7 @@ $(document).ready(function(){
 	
 	// Tips
 	$(".tip[title], .hint a[title]").tooltip({
-		offset: [2, 20]
+		offset: [-1, 22]
 	});
 	
 });

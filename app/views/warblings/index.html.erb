@@ -9,23 +9,34 @@
 	<% if @warblings %>
 	<ul class="grid_list">
 		<% @warblings.each do |warbling| %>
-			<li style="height: 150px; background: #ffffff"><%= link_to warbling.title, warbling_path(warbling) %></li>
+			<li class="warbling warbling_<%= warbling.slug.underscore %>"><%= link_to warbling.title, warbling_path(warbling) %></li>
 		<% end %>
 	</ul>
 	<% end %>
-		
-	<% if @updates.any? %>
-	<h2>Good for Nothing Goings on</h2>
-	<ul class="grid_list grid_two">
-		<% @updates.each do |post| %>
-			<li><%= render :partial => "posts/block", :locals => { :post => post } %></li>
-		<% end %>
-	</ul>
-	<p class="cta">More posts...</p>
-	<% end %>	
-		
+			
 </section>
 
 <aside id="secondary_content">	
 	<p class="cta"><%= link_to "The library".html_safe, library_path %></p>
+	
+	<% if @updates.any? %>
+	<ul id="updates_list">
+		<% @updates.each do |post| %>
+			<li>
+				
+				<time><%= post.created_at.to_formatted_s(:long_ordinal) %></time>
+				<% if post.body.blank? %>
+					<h3><%= post.title %></h3>
+				<% else %>
+					<h3><%= link_to post.title, post_path(post) %></h3>
+				<% end %>
+
+				<%= markdown.render(post.excerpt).html_safe %>
+				
+			</li>
+		<% end %>
+	</ul>
+	<p><%= link_to "More GFN updates", posts_path %>
+	<% end %>
+	
 </aside>

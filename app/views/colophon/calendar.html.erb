@@ -1,30 +1,35 @@
-<section id="primary_content">
+<section id="primary_content" class="single">
 	<h1>The GFN calendar</h1>
 	
-	<section id="gigs">
-		<h2>Upcoming gigs</h2>
 		<p>Gigs are how GFN started and they continue to be at the heart of what we do; 24 to 48 hour experiences.</p>
 		<p>Fast track making, doing and rapid prototyping; building community through demanding common tasks with music, food and laughs &ndash; creative collaboration meets rave, real people, working on real challenges, together.</p>
+		<p>Socials are for socialising with alcoholic beverages.</p>
+		
 		<% if @gigs.any? %>
+			<ul class="grid_list">
+				<% @gigs.each do |gig| %>
+					<li class="note">
+					<h3><%= link_to gig.title, gig_path(gig) %></h3>
+					<% if gig.start_time && gig.end_time %>
+					<time><%= gig.start_time.to_formatted_s(:long_ordinal) %> - <%= gig.end_time.to_formatted_s(:long_ordinal) %></time>
+					<% end %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+		
+		<% if @socials.any? %>
+		<ul class="grid_list">
 			
-			<% @gigs.each do |gig| %>
-				<%= render :partial => "gigs/block", :locals => { :gig => gig } %>
+			<% @socials.each do |social| %>
+			<li class="note">
+				<%= render :partial => "socials/block", :locals => { :social => social } %>
+				</li>
 			<% end %>
+			</ul>
 		<% end %>
 		
 		<p class="cta"><%= link_to "All gigs, past and present", gigs_path %></p>
 		
-	</section>
-	
-	<section id="socials">
-		<h2>Upcoming socials</h2>
-		
-		<p>Socials are for socialising with alcoholic beverages.</p>
-		<% if @socials.any? %>
-			<% @socials.each do |social| %>
-				<%= render :partial => "socials/block", :locals => { :social => social } %>
-			<% end %>
-		<% end %>
-	</section>
 	
 </section>

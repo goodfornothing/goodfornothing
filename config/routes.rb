@@ -16,8 +16,8 @@ Goodfornothing::Application.routes.draw do
     get '/users/activity' => 'registrations#activity'
   end
   
-  resources :warblings, :only => [:index,:show]
-  resources :posts, :only => [:show]
+  resources :warblings, :only => [:index, :show]
+  resources :posts, :only => [:show, :index]
 
   match "library" => "bookmarks#index"
   match "library/search" => "bookmarks#search"

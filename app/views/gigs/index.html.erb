@@ -19,13 +19,5 @@
 </section>
 
 <aside id="secondary_content">
-	<% if @all_chapters.any? %>
-	<h2>Chapters</h2>
-	<p>Good for Nothing gigs happening in your local area.</p>
-	<ul>
-		<% @all_chapters.each do |chapter| %>
-		<li><%= link_to chapter.title, chapter_gigs_path(chapter) %></li>
-		<% end %>
-	</ul>
-	<% end %>
+	
 </aside>

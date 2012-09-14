@@ -57,7 +57,7 @@
 		background-repeat: no-repeat;
 	}
 	
-	.cta.strong { text-align: center; }
+	.cta.strong { text-align: center; margin-bottom: 30px; }
 	
 	aside .cta a:hover, aside .cta a:focus, aside .cta a:active,
 	.cta.strong a:hover, .cta.strong a:focus, .cta.strong a:active {
@@ -67,7 +67,8 @@
 	}
 
 	aside .cta:first-child {
-		margin-top: 42px;
+		margin-top: 35px;
+		margin-bottom: 60px;
 	}
 
 /* Graphical counters */
@@ -272,6 +273,13 @@
 		text-decoration: none;
 	}
 	
+	.grid_list li.note {
+		width: 180px;
+		height: 214px;
+		padding: 40px 20px 20px;
+		background: url(<%= asset_path "blocks/note.png" %>) no-repeat top left;
+	}
+	
 /* Panels */
 
 	.panel {
@@ -316,6 +324,78 @@
 /* Abstract */
 
 	.abstract {
-		padding: 0 0 10px 0;
+		padding: 0 0 20px 0;
 	}
+	
+/* Warbling grid */
+
+	.warbling a {
+		display: block;
+		text-align: center;
+		font-family: "Good for Nothing";
+		color: #222;
+		font-size: 20px;
+		line-height: 24px;
+		padding: 130px 0 15px;
+		background-repeat: no-repeat;
+		background-position: center top;
+	}
+	
+	.warbling a:hover,
+	.warbling a:active,
+	.warbling a:focus {
+		font-size: 23px;
+		text-decoration: none;
+	}
+
+	.warbling_food a { background-image: url(<%= asset_path "warblings/food.gif" %>); }
+	.warbling_energy a { background-image: url(<%= asset_path "warblings/energy.gif" %>); }
+	.warbling_environment a { background-image: url(<%= asset_path "warblings/environment.gif" %>); }
+	.warbling_education a { background-image: url(<%= asset_path "warblings/education.gif" %>); }
+	.warbling_poverty a { background-image: url(<%= asset_path "warblings/poverty.gif" %>); }
+	.warbling_human_rights a { background-image: url(<%= asset_path "warblings/human-rights.gif" %>); }
+	.warbling_health a { background-image: url(<%= asset_path "warblings/health.gif" %>); }
+	.warbling_community a { background-image: url(<%= asset_path "warblings/community.gif" %>); }
+	.warbling_water a { background-image: url(<%= asset_path "warblings/water.gif" %>); }
+	
+/* Warbling list */
+
+	.filter_list {
+		list-style-type: none;
+		padding: 95px 0px;
+		margin: 0;
+	}
+
+	.warbling_small {
+		margin-bottom: 5px;
+	}
+
+	.warbling_small a {
+		display: block;
+		text-align: left;
+		font-family: "Good for Nothing";
+		color: #000000;
+		font-size: 15px;
+		line-height: 40px;
+		padding-left: 65px;
+		background-repeat: no-repeat;
+		background-position: left middle;
+	}
+	
+	.warbling_small a:hover,
+	.warbling_small a:active,
+	.warbling_small a:focus {
+		text-decoration: none;
+		font-size: 18px;
+	}
+
+	.small_warbling_food a { background-image: url(<%= asset_path "warblings/food_small.gif" %>); }
+	.small_warbling_energy a { background-image: url(<%= asset_path "warblings/energy_small.gif" %>); }
+	.small_warbling_environment a { background-image: url(<%= asset_path "warblings/environment_small.gif" %>); }
+	.small_warbling_education a { background-image: url(<%= asset_path "warblings/education_small.gif" %>); }
+	.small_warbling_poverty a { background-image: url(<%= asset_path "warblings/poverty_small.gif" %>); }
+	.small_warbling_human_rights a { background-image: url(<%= asset_path "warblings/human-rights_small.gif" %>); }
+	.small_warbling_health a { background-image: url(<%= asset_path "warblings/health_small.gif" %>); }
+	.small_warbling_community a { background-image: url(<%= asset_path "warblings/community_small.gif" %>); }
+	.small_warbling_water a { background-image: url(<%= asset_path "warblings/water_small.gif" %>); }
 	

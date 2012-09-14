@@ -10,6 +10,7 @@ class MembersController < ApplicationController
   
   def show
     @member = User.active.find(params[:id])
+    @first_sign_in = (user_signed_in? && params[:welcome].present? && current_user == @member) ? true : false
   end
 
 end

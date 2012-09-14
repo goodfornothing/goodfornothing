@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
 
   def inactive_message 
     if !activated? 
-      "You need to activate your account first."
+      :not_approved
     else 
       super
     end 

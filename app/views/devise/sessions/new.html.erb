@@ -4,6 +4,10 @@
 
 		<h1>Welcome back</h1>
 	
+		<%= "<p id='site_notice'>#{flash[:error]}</p>".html_safe if flash[:error] %>
+		<%= "<p id='site_notice'>#{flash[:notice]}</p>".html_safe if flash[:notice] %>
+		<%= "<p id='site_notice'>#{flash[:alert]}</p>".html_safe if flash[:alert] %>
+	
 	  	<%= field_set_tag do %>
 	    	<%= f.input :email, :required => false, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
 	    	<%= f.input :password, :required => false, :wrapper_html => { :class => "smart_label" }, :hint => (link_to "?", new_password_path(resource_name), :title => "Request a new password")%>

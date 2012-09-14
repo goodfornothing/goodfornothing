@@ -26,8 +26,6 @@ class RegistrationsController < Devise::RegistrationsController
     render :edit
   end
   
-  # We're overwriting the default create and update
-  # so we can call save_talents - better way of doing this?
   def create
     build_resource
     if resource.save
@@ -80,17 +78,22 @@ class RegistrationsController < Devise::RegistrationsController
   def activate
      
     if @user.nil? || params[:user][:password].empty?
+      flash[:error] = "Match your passwords, they must"
       render :claim
-    else 
-      if @user.reset_password!(params[:user][:password], params[:user][:password_confirmation])
+    else
+      
+      @user = User.reset_password_by_token(params[:user])
+
+      if @user.errors.empty?
         @user.activated = true
         @user.save!
-        flash[:notice] = "Account activated!"
         sign_in 'user', @user, :bypass => true
-        redirect_to after_update_path_for(@user)
+        redirect_to member_path(@user, :welcome=>"yahuh")
       else
         render :claim
       end
+      
+      
     end
     
   end 
@@ -146,7 +149,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
     
     def after_sign_up_path_for(resource)
-       member_path(resource)
+       member_path(resource, :welcome=>"yahuh")
     end
   
 end

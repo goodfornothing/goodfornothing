@@ -8,8 +8,8 @@
 
 		<fieldset>
 			<legend>Membership information</legend>
-			<%= f.input :name, :required => true %>
-			<%= f.input :email, :required => true %>
+			<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
+			<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
 		</fieldset>
 		
 		<% if @skills.any? %>
@@ -33,10 +33,10 @@
 			<legend>Your profile</legend>
 			<%= f.input :avatar %>
 			<%= f.input :gender, :as => :select, :collection => ["Female", "Male", "Transgender"] %>
-			<%= f.input :age %>
-			<%= f.input :url, :label => "Your digital location" %>
-			<%= f.input :location, :label => "Your physical location" %>
-			<%= f.input :twitter_handle %>
+			<%= f.input :age, :wrapper_html => { :class => "smart_label" } %>
+			<%= f.input :url, :label => "Your digital location", :wrapper_html => { :class => "smart_label" } %>
+			<%= f.input :location, :label => "Your physical location", :wrapper_html => { :class => "smart_label" } %>
+			<%= f.input :twitter_handle, :wrapper_html => { :class => "smart_label" } %>
 			<%= f.input :join_mailing_list, :as => :boolean, :label => "On mailing list?" %>
 		</fieldset>
 

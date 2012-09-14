@@ -100,6 +100,14 @@ namespace :migrate do
           u.password_confirmation = 'bt793fxp'
           u.activated = false
           u.admin = false
+          u.gender = ning_user.gender
+          u.age = ning_user.age
+          u.location = ning_user.country
+          u.url = ning_user.website
+          u.twitter_handle = ning_user.twitter
+          u.brings = ning_user.skills
+          u.created_at = ning_user.date_joined
+          u.reasons_for_joining = ning_user.reasons_for_joining
         end
       else
         puts "Devise user already exists, skipping"

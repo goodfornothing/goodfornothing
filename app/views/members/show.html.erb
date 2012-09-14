@@ -1,5 +1,16 @@
 <section id="primary_content" class="single">
 	
+	<% if @first_sign_in %>
+	<section id="welcome">
+		<p>Welcome to our new web hive!</p>
+		<ul>
+			<li class="cta strong"><%= link_to "Find a challenge", challenges_path %></li>
+			<li class="cta strong"><%= link_to "Attend an event", calendar_path %></li>
+			<li class="cta strong"><%= link_to "Tell us more!", edit_user_registration_path %></li>
+		</ul>
+	</section>
+	<% end %>
+	
 	<h1><%= @member.name %></h1>
 
 	<div class="panel">

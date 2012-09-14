@@ -557,7 +557,7 @@ Venture.create([
   chapter_id: @london.id,
   start_time: DateTime.new(2012, 3, 29, 19),
   end_time: DateTime.new(2012, 3, 31, 18),
-  partner_id: Partner.find_by_name('Sony Europe').id
+  partner_id: Partner.find_by_name('Open Planet Ideas').id
 })
   
 @fallonshift = Gig.create({

@@ -1,7 +1,8 @@
 <section id="primary_content">
 	
 	<h1><%= @challenge.title %></h1>
-	<%= simple_format @challenge.description %>
+	
+	<%= markdown.render(@challenge.description).html_safe unless @challenge.description.nil? %>
 	
 	<% unless @challenge.open? %>
 		<p>This challenge is closed, thanks for all your Good</p>

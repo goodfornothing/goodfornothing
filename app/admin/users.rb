@@ -62,6 +62,9 @@ ActiveAdmin.register User do
       row :gender
       row :age
       row :reasons_for_joining
+      row "Extra skills" do
+        user.brings
+      end
       row :last_sign_in_at
       row :last_sign_in_ip
     end

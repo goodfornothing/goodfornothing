@@ -40,12 +40,14 @@
 		background-image: url(assets/cta_left.gif), url(assets/cta_right.gif);
 		background-position: left center, right center;
 		background-repeat: no-repeat;
+		width: 110px;
 	}
 	
-	.cta a:hover, .cta a:focus, .cta a:active,
+	#primary_content .cta a:hover, #primary_content .cta a:focus, #primary_content .cta a:active,
 	.more a:hover, .more a:focus, .more a:active {
-		text-decoration: none; font-size: 14px;
-		padding: 0 11px 0 12px;
+		text-decoration: none; font-size: 15px;
+		line-height: 29px;
+		padding-top: 1px;
 	}
 	
 	aside .cta a,
@@ -67,10 +69,12 @@
 	.cta.strong { text-align: center; margin-bottom: 30px; }
 	
 	aside .cta a:hover, aside .cta a:focus, aside .cta a:active,
-	.cta.strong a:hover, .cta.strong a:focus, .cta.strong a:active {
+	#primary_content .cta.strong a:hover,	#primary_content .cta.strong a:focus,	#primary_content .cta.strong a:active {
 		text-decoration: none;
 		background-position: left bottom;
 		padding: 41px 0px 18px;
+		font-size: 22px;
+		line-height: 28px;
 	}
 
 	aside .cta:first-child {
@@ -216,7 +220,7 @@
 	.highlight_button a:focus,
 	.highlight_button a:active,
 	.highlight_button a:hover
-	{ text-decoration: none; font-size: 21px; background-position: center top; }
+	{ text-decoration: none; background-position: center top; }
 
 /* Grid lists */
 
@@ -370,7 +374,7 @@
 	.warbling a:hover,
 	.warbling a:active,
 	.warbling a:focus {
-		font-size: 23px;
+		font-size: 25px;
 		text-decoration: none;
 	}
 
@@ -457,7 +461,7 @@
 /* Posts */
 
 	article.post {
-		margin-bottom: 50px;
+		margin-bottom: 40px;
 	}
 	
 	article.post:last-child {
@@ -482,11 +486,16 @@
 		max-width: 100%;
 	}
 	
+	article.post_list {
+		padding-top: 5px;
+	}
+	
 	article.post_list time {
-		margin-bottom: 5px;
+		margin-bottom: 3px;
 	}
 	
 	article.post_list h2 {
 		margin-bottom: 10px;
+		font-size: 20px;
 	}
 	

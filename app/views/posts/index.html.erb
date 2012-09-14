@@ -10,7 +10,7 @@
 					<%= image_tag post.hero_image.thumbnail, :class => "hero" %>
 				<% end %>
 
-				<time><%= post.created_at.to_formatted_s(:long_ordinal) %></time>
+				<time><%= post.created_at.to_formatted_s(:article) %></time>
 				<% if post.body.blank? %>
 					<h2><%= post.title %></h2>
 				<% else %>
@@ -24,7 +24,6 @@
 	<% end %>	
 			
 </section>
-
 
 <aside id="secondary_content">
 	

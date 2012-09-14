@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914074051) do
+ActiveRecord::Schema.define(:version => 20120914195650) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "title"
@@ -112,15 +112,6 @@ ActiveRecord::Schema.define(:version => 20120914074051) do
     t.integer  "challenge_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-  end
-
-  create_table "locations", :force => true do |t|
-    t.string "name"
-    t.string "latitude"
-    t.string "longitude"
-    t.string "address"
-    t.string "postcode"
-    t.string "notes"
   end
 
   create_table "ning_profiles", :force => true do |t|
@@ -240,7 +231,7 @@ ActiveRecord::Schema.define(:version => 20120914074051) do
     t.integer  "age"
     t.text     "reasons_for_joining"
     t.string   "slug"
-    t.boolean  "activated",              :default => false
+    t.boolean  "activated",              :default => true
     t.boolean  "crew",                   :default => false
     t.text     "brings"
   end

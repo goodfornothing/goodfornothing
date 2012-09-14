@@ -3,21 +3,39 @@
 	<h1>Good for Nothing Goings On</h1>
 		
 	<% if @updates.any? %>
-	<ul>
+	
 		<% @updates.each do |post| %>
-		<li><%= link_to post.title, post_path(post) %></li>
+			<article class="post post_list">
+				<% unless post.hero_image.url.nil? %>
+					<%= image_tag post.hero_image.thumbnail, :class => "hero" %>
+				<% end %>
+
+				<time><%= post.created_at.to_formatted_s(:long_ordinal) %></time>
+				<% if post.body.blank? %>
+					<h2><%= post.title %></h2>
+				<% else %>
+					<h2><%= link_to post.title, post_path(post) %></h2>
+				<% end %>
+
+				<%= markdown.render(post.excerpt).html_safe %>
+			</article>
 		<% end %>
-	</ul>
+	
 	<% end %>	
 			
 </section>
 
-<% if @warblings.any? %>
+
 <aside id="secondary_content">
+	
+	<p class="cta"><%= link_to "The library", library_path %></p>
+	
+	<% if @warblings.any? %>
 	<ul class="filter_list">
 		<% @warblings.each do |warbling| %>
 			<li class="warbling_small small_warbling_<%= warbling.slug.underscore %>"><%= link_to warbling.title, warbling_path(warbling) %></li>
 		<% end %>
 	</ul>
+	<% end %>
+	
 </section>
-<% end %>

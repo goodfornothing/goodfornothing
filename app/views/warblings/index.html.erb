@@ -23,20 +23,11 @@
 	<ul id="updates_list">
 		<% @updates.each do |post| %>
 			<li>
-				
-				<time><%= post.created_at.to_formatted_s(:long_ordinal) %></time>
-				<% if post.body.blank? %>
-					<h3><%= post.title %></h3>
-				<% else %>
-					<h3><%= link_to post.title, post_path(post) %></h3>
-				<% end %>
-
-				<%= markdown.render(post.excerpt).html_safe %>
-				
+				<%= render :partial => "posts/block", :locals => { :post => post } %>
 			</li>
 		<% end %>
 	</ul>
-	<p><%= link_to "More GFN updates", posts_path %>
+	<p class="more"><%= link_to "More GFN updates", posts_path %>
 	<% end %>
 	
 </aside>

@@ -27,7 +27,6 @@
 	<% if @update.present? %>
 	<section id="updates" class="panel">
 		<%= render :partial => "posts/block", :locals => { :post => @update } %>
-		<p class="cta"><%= link_to "More warblings".html_safe, warblings_path %></p>
 	</section>
 	<% end %>
 	

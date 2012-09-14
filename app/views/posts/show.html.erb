@@ -1,17 +1,23 @@
 <section id="primary_content">
 	<article class="post">
+		<time>Warbled on <%= @post.created_at.to_formatted_s(:article) %> <%= "by #{link_to @post.user.short_name, member_path(@post.user)}" unless @post.user.nil? %></time>
+		
 		<h1><%= @post.title %></h1>
-		<time><%= @post.created_at.to_formatted_s(:long_ordinal) %></time>
 		<%= markdown.render(@post.body).html_safe %>
 	</article>
 </section>
 
-<% if @warblings.any? %>
+
 <aside id="secondary_content">
+	
+	<p class="cta"><%= link_to "The library", library_path %></p>
+	
+	<% if @warblings.any? %>
 	<ul class="filter_list">
 		<% @warblings.each do |warbling| %>
 			<li class="warbling_small small_warbling_<%= warbling.slug.underscore %>"><%= link_to warbling.title, warbling_path(warbling) %></li>
 		<% end %>
 	</ul>
+	<% end %>
+	
 </section>
-<% end %>

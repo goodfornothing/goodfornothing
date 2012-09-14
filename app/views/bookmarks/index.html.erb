@@ -6,8 +6,7 @@
 	<ul>
 	<% @bookmarks.each do |bookmark| %>
 		<li>
-			<strong><%= bookmark.title %></strong><br />
-			<%= link_to bookmark.url, bookmark.url %>
+			<strong><%= link_to bookmark.title, bookmark.url %></strong>
 		</li>
 	<% end %>
 	</ul>

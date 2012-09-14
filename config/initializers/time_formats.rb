@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:article] = lambda { |time| time.strftime( "%A the #{time.day.ordinalize} of %B %Y") }

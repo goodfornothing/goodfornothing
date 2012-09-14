@@ -27,7 +27,8 @@
 
 /* CTA */
 
-	.cta a {
+	.cta a,
+	.more a {
 		background-color: #D0122D;
 		color: #ffffff;
 		display: inline-block;
@@ -39,6 +40,12 @@
 		background-image: url(assets/cta_left.gif), url(assets/cta_right.gif);
 		background-position: left center, right center;
 		background-repeat: no-repeat;
+	}
+	
+	.cta a:hover, .cta a:focus, .cta a:active,
+	.more a:hover, .more a:focus, .more a:active {
+		text-decoration: none; font-size: 14px;
+		padding: 0 11px 0 12px;
 	}
 	
 	aside .cta a,
@@ -68,7 +75,7 @@
 
 	aside .cta:first-child {
 		margin-top: 35px;
-		margin-bottom: 35px;
+		margin-bottom: 45px;
 	}
 
 /* Graphical counters */
@@ -203,13 +210,13 @@
 		text-align: center;
 		display: block;
 		width: 230px;
-		background: url(assets/highlight_button.png) no-repeat center top;
+		background: url(assets/highlight_button.png) no-repeat center -85px;
 	}
 	
 	.highlight_button a:focus,
 	.highlight_button a:active,
 	.highlight_button a:hover
-	{ text-decoration: none; font-size: 21px; }
+	{ text-decoration: none; font-size: 21px; background-position: center top; }
 
 /* Grid lists */
 
@@ -313,6 +320,10 @@
 	
 	.block h3 {
 		margin-bottom: 3px;
+		font-family: karlaregular;
+		margin-bottom: 10px;
+		font-size: 15px;
+		line-height: 20px;
 	}
 	
 	.block img.hero {
@@ -320,14 +331,8 @@
 		display: block;
 	}
 	
-	article.post {
-		position: relative;
-		width: 640px;
-	}
-	
-	article.post iframe,
-	article.post img {
-		max-width: 100%;
+	.block p {
+		font-size: 13px;
 	}
 
 /* Abstract */
@@ -339,7 +344,7 @@
 	.single .abstract {
 		width: 100%;
 		overflow: hidden;
-		padding-bottom: 35px;
+		padding-bottom: 20px;
 	}
 	
 	.single .abstract div {
@@ -447,5 +452,41 @@
 		width: 100%;
 		height: 100%;
 		background: url(<%= asset_path "assets/avatar_mask.png" %>) no-repeat center center;
+	}
+	
+/* Posts */
+
+	article.post {
+		margin-bottom: 50px;
+	}
+	
+	article.post:last-child {
+		margin-bottom: 0;
+	}
+
+	article.post h1 {
+		font-size: 26px;
+		margin-bottom: 27px;
+	}
+	
+	article.post h2, article.post h3 {
+		font-family: karlaregular;
+	}
+	
+	article.post_list time {
+		margin-bottom: 0px;
+	}
+	
+	article.post_list h2 {
+		margin-bottom: 10px;
+	}
+	
+	article.post time {
+		margin-bottom: 10px;
+	}
+	
+	article.post iframe,
+	article.post img {
+		max-width: 100%;
 	}
 	

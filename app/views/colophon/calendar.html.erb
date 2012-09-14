@@ -1,35 +1,43 @@
 <section id="primary_content" class="single">
-	<h1>The GFN calendar</h1>
 	
-		<p>Gigs are how GFN started and they continue to be at the heart of what we do; 24 to 48 hour experiences.</p>
-		<p>Fast track making, doing and rapid prototyping; building community through demanding common tasks with music, food and laughs &ndash; creative collaboration meets rave, real people, working on real challenges, together.</p>
-		<p>Socials are for socialising with alcoholic beverages.</p>
-		
-		<% if @gigs.any? %>
-			<ul class="grid_list">
-				<% @gigs.each do |gig| %>
-					<li class="note">
-					<h3><%= link_to gig.title, gig_path(gig) %></h3>
-					<% if gig.start_time && gig.end_time %>
-					<time><%= gig.start_time.to_formatted_s(:long_ordinal) %> - <%= gig.end_time.to_formatted_s(:long_ordinal) %></time>
-					<% end %>
-					</li>
-				<% end %>
-			</ul>
-		<% end %>
-		
-		<% if @socials.any? %>
-		<ul class="grid_list">
+	<div class="abstract">
+		<div>
+			<h1>GFN calendar, for the offline bits</h1>
 			
-			<% @socials.each do |social| %>
-			<li class="note">
-				<%= render :partial => "socials/block", :locals => { :social => social } %>
-				</li>
+			<p>We love the Interweb, but to solve challenges people also need to get together. Hooking up with likeminded folk at a gig or social, or just for a cuppa and a natter is the Good for Nothing way.</p>
+			<p>Gigs are how GFN started and they continue to be at the heart of what we do; 24-48 hr collaborative experiments. Socials are just that, a time to meet up with fellow GFNers, have a natter and be merry.</p>
+		</div>
+		<p class="cta strong"><%= link_to "Take it online", challenges_path %></p>
+	</div>
+	
+	<% if @events.any? %>
+	<ul class="grid_list">
+		<% @events.each do |event| %>
+		<li class="note">
+
+			<% if event.class == Gig %>
+			
+				<h3><%= event.title %></h3>
+				<% if event.start_time && event.end_time %>
+				<time><%= event.start_time.to_formatted_s(:long_ordinal) %> &ndash; <%= event.end_time.to_formatted_s(:long_ordinal) %></time>
+				<% end %>
+				<p>In: <%= event.chapter.title %></p>
+				<% unless event.partner.nil? %>
+				<p>In collaboration with: <%= event.partner.name %></p>
+				<% end %>
+				<p class="cta"><%= link_to "Details & registration", gig_path(event) %></p>
+				
+			<% elsif %>
+			
+				<%= render :partial => "socials/block", :locals => { :social => event } %>
+				
 			<% end %>
-			</ul>
+			
+		</li>
 		<% end %>
-		
-		<p class="cta"><%= link_to "All gigs, past and present", gigs_path %></p>
-		
+	</ul>
+	<% end %>
+	
+	<p class="cta"><%= link_to "Past gigs", gigs_path %></p>
 	
 </section>

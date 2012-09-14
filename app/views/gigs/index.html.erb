@@ -1,13 +1,6 @@
 <section id="primary_content">
 	
-	<h1>All <%= @chapter.title if @chapter.present? %> Gigs</h1>
-		
-	<% if @current_gigs.any? %>
-		<h2>Upcoming gigs</h2>
-		<% @current_gigs.each do |gig| %>
-			<%= render :partial => "block", :locals => { :gig => gig } %>
-		<% end %>
-	<% end %>
+	<h1>Past gigs</h1>
 
 	<% if @past_gigs.any? %>
 		<h2>Past gigs</h2>
@@ -18,6 +11,6 @@
 
 </section>
 
-<aside id="secondary_content">
-	
-</aside>
+<section id="secondary_content">
+	<p class="cta"><%= link_to "Upcoming gigs", calendar_path %></p>
+</section>

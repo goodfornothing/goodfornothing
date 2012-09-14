@@ -25,9 +25,8 @@
 </section>
 
 <aside id="secondary_content">	
-
-	
-	<ul class="filter_list">
+	<p class="cta"><%= link_to "Take it offline", calendar_path %></p>
+	<ul class="filter_list">	
 		<% @warblings.each do |warbling| %>
 		<li class="warbling_small small_warbling_<%= warbling.slug.underscore %>"><%= link_to warbling.title, warbling_challenges_path(warbling) %></li>
 		<% end %>

@@ -18,6 +18,8 @@ class ColophonController < ApplicationController
 	  @socials = Social.where('start_time > ?',Time.now).order("start_time DESC")
   	@gigs = Gig.where('end_time > ?',Time.now).order("start_time DESC")
 	  
+	  @events = (@socials + @gigs).sort_by(&:start_time)
+	  
 	end
 
 end

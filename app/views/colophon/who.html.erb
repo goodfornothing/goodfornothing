@@ -7,21 +7,22 @@
 		<p>We're hatching local chapters to help good folk do just that. If we're not near you yet and you'd like to bring Good for Nothing to your hood, <a href="mailto:hello@goodfornothing.com">drop us a note</a>, we'd love to talk.</p>
 	</div>
 	
-
-	<ul class="avatar_grid">
+	<ul class="chapter_grid">
 		<% @all_chapters.each do |chapter| %>
-			<li class="avatar compact index_title">
-				<%= chapter.title %>
-			</li>
-			<% chapter.users.crew.each_with_index do |member,index| %>	
-			<li class="avatar compact">	
-				<% if member.avatar.blank? %>
-					<%= link_to (image_tag "assets/avatar_small.png", :alt => member.name), member_path(member), :class => "tip", :title => member.name %>
-				<% else %>
-					<%= link_to (image_tag member.avatar.compact, :alt => member.name, :title => member.name), member_path(member), :class => "tip", :title => member.name %>
+		<li class="chapter">
+			<h3><span><%= chapter.title %></span></h3>
+			<ul>
+				<% chapter.users.crew.each_with_index do |member,index| %>	
+				<li class="avatar compact">	
+					<% if member.avatar.blank? %>
+						<%= link_to (image_tag "assets/avatar_small.png", :alt => member.name), member_path(member), :class => "tip", :title => member.name %>
+					<% else %>
+						<%= link_to (image_tag member.avatar.compact, :alt => member.name, :title => member.name), member_path(member), :class => "tip", :title => member.name %>
+					<% end %>
+				</li>
 				<% end %>
-			</li>
-			<% end %>
+			</ul>
+		</li>
 		<% end %>	
 	</ul>
 				

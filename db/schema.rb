@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120912201037) do
+ActiveRecord::Schema.define(:version => 20120914074051) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "title"
@@ -174,6 +174,9 @@ ActiveRecord::Schema.define(:version => 20120912201037) do
 
   create_table "skills", :force => true do |t|
     t.string "title"
+    t.text   "description"
+    t.string "upper"
+    t.string "lower"
   end
 
   create_table "slots", :force => true do |t|

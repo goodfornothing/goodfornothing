@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :mailchimp
 
   attr_accessible :email, :password, :password_confirmation, :current_password,
-                  :remember_me, :join_mailing_list, :admin, :name,
+                  :remember_me, :join_mailing_list, :admin, :name, :brings,
                   :gender, :age, :url, :location, :twitter_handle, :activated,
                   :chapter_id, :avatar, :warbling_ids, :reasons_for_joining, :crew
 

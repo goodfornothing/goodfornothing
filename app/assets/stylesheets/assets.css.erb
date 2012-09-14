@@ -68,7 +68,7 @@
 
 	aside .cta:first-child {
 		margin-top: 35px;
-		margin-bottom: 60px;
+		margin-bottom: 30px;
 	}
 
 /* Graphical counters */
@@ -398,4 +398,52 @@
 	.small_warbling_health a { background-image: url(<%= asset_path "warblings/health_small.gif" %>); }
 	.small_warbling_community a { background-image: url(<%= asset_path "warblings/community_small.gif" %>); }
 	.small_warbling_water a { background-image: url(<%= asset_path "warblings/water_small.gif" %>); }
+	
+/* Avatar grid */
+
+	.avatar_grid {
+		list-style-type: none;
+		padding: 0;
+	}
+	
+	.avatar_grid li.avatar {
+		float: left;
+		margin-right: 10px;
+		margin-bottom: 10px;
+		padding: 0;
+		list-style-type: none;
+	}
+	
+	.avatar_grid li.index_title {
+		display: block;
+		height: 30px;
+		width: 80px;
+		padding-top: 30px;
+		float: left;
+		clear: left;
+		font-size: 13px;
+		font-family: "Good for Nothing";
+		color: #61514d;
+		background: url(<%= asset_path "assets/grid_arrow.png" %>) 0 9px no-repeat;
+	}
+	
+	.avatar_grid li.avatar a {
+		display: block;
+		height: 60px;
+		width: 60px;
+		background: #ffffff;
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.avatar_grid li.avatar a:before {
+		position: absolute;
+		content: '';
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		background: url(<%= asset_path "assets/avatar_mask.png" %>) no-repeat center center;
+	}
+	
 	

@@ -4,6 +4,8 @@ ActiveAdmin.register User do
     
   filter :skills_id, :as => :check_boxes, :collection => proc {Skill.all}
   filter :crew, :as => :select, :collection => [true,false]
+  filter :name
+  filter :email
 
   actions :all, :except => [:new]
 

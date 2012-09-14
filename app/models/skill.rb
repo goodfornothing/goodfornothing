@@ -1,6 +1,6 @@
 class Skill < ActiveRecord::Base
   
-  attr_accessible :title
+  attr_accessible :title, :description, :lower, :upper
   
   has_and_belongs_to_many :gigs
   has_many :talents

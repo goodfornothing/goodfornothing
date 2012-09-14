@@ -91,13 +91,14 @@ namespace :migrate do
 
       # Check for user on devise table before importing
       user = User.find_by_email(ning_user.email)
+      unique = User.reset_password_token
       if user.nil?
         puts "Creating a new devise user"
         user = User.create! do |u| 
         	u.email = ning_user.email
           u.name = ning_user.name
-          u.password = 'bt793fxp'
-          u.password_confirmation = 'bt793fxp'
+          u.password = unique
+          u.password_confirmation = unique
           u.activated = false
           u.admin = false
           u.gender = ning_user.gender
@@ -108,6 +109,8 @@ namespace :migrate do
           u.brings = ning_user.skills
           u.created_at = ning_user.date_joined
           u.reasons_for_joining = ning_user.reasons_for_joining
+          u.reset_password_token = unique
+          u.reset_password_sent_at = Time.now
         end
       else
         puts "Devise user already exists, skipping"

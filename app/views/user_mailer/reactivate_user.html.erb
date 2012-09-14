@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+	<p>Hello there <%= @user.short_name %></p>
+    <p>Someone has requested a reactivation link for your Good for Nothing account, if this was not you, please ignore this email &ndash; your account is safe.</p>
+	<p>To reactivate your Good for Nothing account follow the link below.</p>
+	<p><%= link_to "Reactivate my account", claim_url(@user.reset_password_token) %></p>
+	<p>Peace &amp; love</p>
+	<p>GFN crew</p>
+  </body>
+</html>

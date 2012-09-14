@@ -1,6 +1,6 @@
 <section id="primary_content" class="single">
 	
-	<%= simple_form_for(@user, :as => 'user', :url => activate_path(@user.id,@user.ning_profile.id), :html => { :method => :put }) do |f| %>
+	<%= simple_form_for(@user, :as => 'user', :url => activate_path, :html => { :method => :put }) do |f| %>
 
 		<h1>Claim your profile</h1>		
 		
@@ -8,7 +8,7 @@
 		<%= "<p id='site_notice'>#{flash[:notice]}</p>".html_safe if flash[:notice] %>
 		<%= "<p id='site_notice'>#{flash[:alert]}</p>".html_safe if flash[:alert] %>
 		
-		<p>Welcome to our new web hive <%= @user.short_name %>, you're nearly there, just enter new password below to claim your profile.</p>
+		<p>Welcome to our new web hive! You're profile is nearly ready, just enter new password below to get started.</p>
 
 		<fieldset>
 			<%= f.input :password, :required => true,  :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
@@ -16,7 +16,7 @@
 		</fieldset>
 
 		<fieldset class="actions">
-			<%= f.hidden_field "reset_password_token", :value => params[:secret] %>
+			<%= f.hidden_field "reset_password_token", :value => params[:reset_password_token] %>
 			<%= f.button :submit, "Let me at it" %>
 		</fieldset>
 		

@@ -1,6 +1,6 @@
 <section id="primary_content" class="single">
 
-	<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+	<%= simple_form_for(resource, :as => resource_name, :url => reactivate_path, :html => { :method => :post }) do |f| %>
 	  	
 		<h1>Account re-activation</h1>
 		
@@ -9,8 +9,10 @@
 			<p>To get started we need to send an email to <em><%= resource.email %></em> in order to confirm that you're the owner of this account. Once you receive it you'll be asked to chose a new password, then you're ready to go!</p>
 		</fieldset>
 		
-	    <%= f.input :email, :as => :hidden, :value => resource.email %>
-	    <%= f.button :submit, "Ok, let's do it!" %>
+		<fieldset>
+	    	<%= f.input :email, :as => :hidden, :value => resource.email %>
+	    	<%= f.button :submit, "Ok, let's do it!" %>
+		</fieldset>
 	
 	<% end %>
 	

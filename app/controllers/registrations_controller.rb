@@ -1,7 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   
   before_filter :fetch_associations, :only => [:new, :create, :edit, :update]
-  before_filter :fetch_secret_user, :only => [:claim, :activate, :reactivate]
   prepend_before_filter :authenticate_scope!, :only => [:activity, :edit, :update, :destroy]
   
   def new
@@ -63,37 +62,53 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
     
-  def claim
+  def reactivate
+    @user = User.where("activated = false && email = '#{params[:email]}'").first
     if @user.nil?
       not_found
     end
   end
   
-  def reactivate
+  def send_reactivation
+    @user = User.where("activated = false && email = '#{params[:user][:email]}'").first
     if @user.nil?
       not_found
+    else
+      UserMailer.reactivate_user(@user).deliver
+    end
+  end
+  
+  def claim
+    if params[:reset_password_token].blank?
+      not_found
+    else
+      @user = User.new
     end
   end
   
   def activate
-     
-    if @user.nil? || params[:user][:password].empty?
-      flash[:error] = "Match your passwords, they must"
-      render :claim
-    else
-      
+    
+    params[:reset_password_token] = params[:user][:reset_password_token]
+    
+    if !params[:user][:password].blank?
+    
       @user = User.reset_password_by_token(params[:user])
 
       if @user.errors.empty?
         @user.activated = true
         @user.save!
-        sign_in 'user', @user, :bypass => true
+        flash_message = @user.active_for_authentication? ? :updated : :updated_not_active
+        set_flash_message(:notice, flash_message) if is_navigational_format?
+        sign_in(User, @user)
         redirect_to member_path(@user, :welcome=>"yahuh")
       else
+        flash[:error] = nil
         render :claim
       end
       
-      
+    else
+      flash[:error] = "Your password can not be blank"
+      render :claim
     end
     
   end 
@@ -103,16 +118,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   protected
-    
-    def fetch_secret_user
-          
-      if params[:secret].nil? or params[:id].nil?
-        nil
-      else
-        @user = User.joins(:ning_profile).where("ning_profiles.id = #{params[:secret]} && users.activated = false && users.id = #{params[:id]}").first
-      end
-      
-    end
     
     def fetch_associations
       @skills = Skill.all

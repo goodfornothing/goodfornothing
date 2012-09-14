@@ -10,9 +10,10 @@ Goodfornothing::Application.routes.draw do
     get "/login" => "devise/sessions#new"
     delete "/logout" => "devise/sessions#destroy"
     get "/register" => "registrations#new"
-    get "/claim/:id/:secret" => "registrations#claim", :as => "claim"
-    get "/reactivate/:id/:secret" => "registrations#reactivate", :as => "reactivate"
-    put "/claim/:id/:secret" => "registrations#activate", :as => "activate"
+    get "/reactivate" => "registrations#reactivate", :as => "reactivate"
+    post "/reactivate" => "registrations#send_reactivation", :as => "reactivate"
+    get "/claim/:reset_password_token" => "registrations#claim", :as => "claim"
+    put "/claim/" => "registrations#activate", :as => "activate"
     get '/users/activity' => 'registrations#activity'
   end
   

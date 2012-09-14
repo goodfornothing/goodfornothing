@@ -7,7 +7,7 @@ class SessionsController < Devise::SessionsController
       
       user = User.find_by_email(params[:user][:email])
       unless user.nil? or user.ning_profile.nil? or user.activated?
-        redirect_to reactivate_path(user.id,user.ning_profile.id)
+        redirect_to reactivate_path(:email => user.email)
       end
       
     end

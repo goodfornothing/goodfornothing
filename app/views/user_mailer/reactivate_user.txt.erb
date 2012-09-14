@@ -1,0 +1,9 @@
+Hello there <%= @user.short_name %>
+
+Someone has requested a reactivation link for your Good for Nothing account, if this was not you, please ignore this email - your account is safe.
+To reactivate your Good for Nothing account follow the link below.
+
+<%= claim_url(@user.reset_password_token %>
+
+Peace and love
+GFN crew

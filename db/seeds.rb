@@ -49,165 +49,165 @@ Warbling.create([
   country: 'New Zealand'
 })
 
-User.create([
-  {
-    email: 'tom.farrand@goodfornothing.com',
-    name: 'Tom Farrand',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    chapter_id: @london.id
-  },
-  {
-    email: 'tom.rowley@goodfornothing.com',
-    name: 'Tom Rowley',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    chapter_id: @london.id
-  },
-  {
-    email: 'dan@goodfornothing.com',
-    name: 'Dan Burgess',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    chapter_id: @london.id
-  },
-  {
-    email: 'anouk@goodfornothing.com',
-    name: 'Anouk Van Den Eijnde',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    chapter_id: @london.id
-  },
-  {
-    email: 'andrew@goodfornothing.com',
-    name: 'Andrew Sprinz',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    chapter_id: @london.id,
-    twitter_handle: '@andrewsprinz',
-    url: 'http://www.goodfornothing.com',
-    location: 'London, UK',
-    gender: 'Male',
-    age: '29'
-  },
-  {
-    email: 'mark@thembigoaktrees.com',
-    name: 'Mark Sears',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    chapter_id: @brighton.id
-  },
-  {
-    email: 'zoe@engagebydesign.org',
-    name: 'Zoe Olivia John',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    chapter_id: @brighton.id
-  },
-  {
-    email: 'rodrigo@engagebydesign.org',
-    name: 'Rodrigo Bautista',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    chapter_id: @brighton.id
-  },
-  {
-    email: 'info@alkennedy.co',
-    name: 'Al Kennedy',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    chapter_id: @bristol.id
-  },
-  {
-    email: 'caro@goodfornothing.com',
-    name: 'Caro Vail',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    twitter_handle: '@carolinavail',
-    chapter_id: @bristol.id
-  },
-  {
-    email: 'hello@becausestudio.co.uk',
-    name: 'Loz Ives',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    chapter_id: @manchester.id
-  },
-  {
-    email: 'andy@goodfornothing.com',
-    name: 'Andy Gott',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    chapter_id: @manchester.id
-  },
-  {
-    email: 'mark@greenape.co.uk',
-    name: 'Mark Shayler',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    twitter_handle: '@greenape',
-    chapter_id: @manchester.id
-  },
-  {
-    email: 'sam@buckybox.com',
-    name: 'Sam Rye',
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    admin: true,
-    crew: true,
-    chapter_id: @wellington.id
-    },
-    {
-      email: 'joshua@enspiral.com',
-      name: 'Joshua Vial',
-      password: 'password',
-      password_confirmation: 'password',
-      activated: true,
-      admin: true,
-      crew: true,
-      chapter_id: @wellington.id
-    }
-])
+#User.create([
+#  {
+#    email: 'tom.farrand@goodfornothing.com',
+#    name: 'Tom Farrand',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    chapter_id: @london.id
+#  },
+#  {
+#    email: 'tom.rowley@goodfornothing.com',
+#    name: 'Tom Rowley',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    chapter_id: @london.id
+#  },
+#  {
+#    email: 'dan@goodfornothing.com',
+#    name: 'Dan Burgess',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    chapter_id: @london.id
+#  },
+#  {
+#    email: 'anouk@goodfornothing.com',
+#    name: 'Anouk Van Den Eijnde',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    chapter_id: @london.id
+#  },
+#  {
+#    email: 'andrew@goodfornothing.com',
+#    name: 'Andrew Sprinz',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    chapter_id: @london.id,
+#    twitter_handle: '@andrewsprinz',
+#    url: 'http://www.goodfornothing.com',
+#    location: 'London, UK',
+#    gender: 'Male',
+#    age: '29'
+#  },
+#  {
+#    email: 'mark@thembigoaktrees.com',
+#    name: 'Mark Sears',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    chapter_id: @brighton.id
+#  },
+#  {
+#    email: 'zoe@engagebydesign.org',
+#    name: 'Zoe Olivia John',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    chapter_id: @brighton.id
+#  },
+#  {
+#    email: 'rodrigo@engagebydesign.org',
+#    name: 'Rodrigo Bautista',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    chapter_id: @brighton.id
+#  },
+#  {
+#    email: 'info@alkennedy.co',
+#    name: 'Al Kennedy',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    chapter_id: @bristol.id
+#  },
+#  {
+#    email: 'caro@goodfornothing.com',
+#    name: 'Caro Vail',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    twitter_handle: '@carolinavail',
+#    chapter_id: @bristol.id
+#  },
+#  {
+#    email: 'hello@becausestudio.co.uk',
+#    name: 'Loz Ives',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    chapter_id: @manchester.id
+#  },
+#  {
+#    email: 'andy@goodfornothing.com',
+#    name: 'Andy Gott',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    chapter_id: @manchester.id
+#  },
+#  {
+#    email: 'mark@greenape.co.uk',
+#    name: 'Mark Shayler',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    twitter_handle: '@greenape',
+#    chapter_id: @manchester.id
+#  },
+#  {
+#    email: 'sam@buckybox.com',
+#    name: 'Sam Rye',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    activated: true,
+#    admin: true,
+#    crew: true,
+#    chapter_id: @wellington.id
+#    },
+#    {
+#      email: 'joshua@enspiral.com',
+#      name: 'Joshua Vial',
+#      password: 'password',
+#      password_confirmation: 'password',
+#      activated: true,
+#      admin: true,
+#      crew: true,
+#      chapter_id: @wellington.id
+#    }
+#])
 
 Friend.create([
   {

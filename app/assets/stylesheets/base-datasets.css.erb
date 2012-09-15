@@ -91,10 +91,26 @@
   
 /* =label */
  
-  .single label { 
+  .single .string label,
+ 	.single .email label,
+	.single .url label,
+	.single .password label { 
     display: block; 
     position: relative;
+		text-align: left;
+		color: #9adada;
+		font-family: "Good for Nothing";
+    font-size: 16px;
+		line-height: 20px;
+    border: 0;
+		width: 464px;
   }
+
+	.single .input label.js {
+		position: absolute;
+		top: 13px;
+		left: 18px;
+	}
   
 /* =input */
 
@@ -102,10 +118,10 @@
 		position: relative;
 	}
 
-  .single .string input,
+  .single .string input, 
 	.single .email input,
 	.single .url input,
-	.single .password input  { 
+	.single .password input {  
     padding: 13px 18px 11px;
 		margin-top: 0;
 		color: #9adada;
@@ -177,6 +193,23 @@
 											url(<%= asset_path "blocks/textarea_bottom_left.gif" %>),
 											url(<%= asset_path "blocks/textarea_bottom_right.gif" %>);
   }
+
+  .single .text label { 
+		font-size: 15px;
+		color: #9adada;
+		background: #ffffff;
+		line-height: 22px;
+		font-weight: normal;
+		width: 450px;
+		font-family: karlaregular;
+		text-align: left;
+  }
+
+	.single .text label.js {
+		position: absolute;
+		top: 17px;
+		left: 24px;
+	}
 
 	/* =submit */
 	

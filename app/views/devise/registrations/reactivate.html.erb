@@ -1,6 +1,6 @@
 <section id="primary_content" class="single">
 
-	<%= simple_form_for(resource, :as => resource_name, :url => reactivate_path, :html => { :method => :post }) do |f| %>
+	<%= simple_form_for(resource, :as => resource_name, :url => reactivate_path, :html => { :method => :post, :class => "primary" }) do |f| %>
 	  	
 		<h1>Account <%= "re-" unless @new_user %>activation</h1>
 		

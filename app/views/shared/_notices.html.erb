@@ -1,0 +1,3 @@
+<%= "<p id='site_notice'>#{flash[:error]}</p>".html_safe if flash[:error] %>
+<%= "<p id='site_notice'>#{flash[:notice]}</p>".html_safe if flash[:notice] %>
+<%= "<p id='site_notice'>#{flash[:alert]}</p>".html_safe if flash[:alert] %>

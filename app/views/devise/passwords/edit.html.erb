@@ -1,11 +1,12 @@
 <section id="primary_content" class="single">
 
-	<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+	<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :class => "primary" }) do |f| %>
 	
 		<h1>New password</h1>
-	  	<%= f.error_notification %>
+	  	
+		<%= render "shared/notices" %>
+		
 	  	<%= f.input :reset_password_token, :as => :hidden %>
-	  	<%= f.full_error :reset_password_token %>
 		<fieldset>
 	    	<%= f.input :password,  :input_html => { :autocomplete => "off" }, :label => "New password", :required => true, :wrapper_html => { :class => "smart_label" } %>
 	    	<%= f.input :password_confirmation,  :input_html => { :autocomplete => "off" }, :label => "Confirm your new password", :required => true, :wrapper_html => { :class => "smart_label" } %>

@@ -106,14 +106,29 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   def update
+    
     if resource.update_attributes(params[resource_name])
-      set_flash_message :notice, :updated
+      
       sign_in resource_name, resource, :bypass => true
-      redirect_to after_update_path_for(resource)
+      if remotipart_submitted?
+        render :update, :format => "js"
+      elsif request.xhr?
+        render :json => { :status => 200, :data => { :chapter => resource } }
+      else
+        set_flash_message :notice, :updated
+        redirect_to after_update_path_for(resource)
+      end
+      
     else
-      clean_up_passwords(resource)
-      render_with_scope :edit
+      
+      if request.xhr?
+        render :json => { :status => 400, :data => { :message => "Something went wrong, please try again" } }
+      else
+        render_with_scope :edit
+      end
+      
     end
+    
   end
     
   def reactivate
@@ -176,7 +191,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
     
     def save_talents(resource)
-      
       if params[:skill]
         resource.talents.delete_all
         params[:skill].each do |i,skill|
@@ -184,7 +198,6 @@ class RegistrationsController < Devise::RegistrationsController
           resource.talents.create(:skill_id => @skill.id, :level => skill)
         end
       end
-      
     end
     
     def save_gig_activity
@@ -204,7 +217,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
     
     def after_sign_up_path_for(resource)
-       member_path(resource, :welcome=>"yahuh")
+       stored_location_for(resource) || member_path(resource, :welcome=>"yahuh")
     end
   
 end

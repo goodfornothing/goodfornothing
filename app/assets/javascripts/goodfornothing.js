@@ -40,12 +40,8 @@ $(document).ready(function(){
 	$(".single form [maxlength]").each(function(index,input) { $(input).limit_chars(); });
 	
 	// Tips
-	$(".hint a[title]").tooltip({
-		offset: [-1, 22]
-	});
-	
-	$(".tip[title]").tooltip({
-		offset: [-3, 40]
-	});
+	$(".hint a[title]").tooltip({offset: [-1, 22]	});
+	$(".tip[title]").tooltip({ offset: [-3, 40] });
+
 	
 });

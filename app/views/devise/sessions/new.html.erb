@@ -1,13 +1,15 @@
 <section id="primary_content" class="single">
 
-	<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+	<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "primary" }) do |f| %>
 
-		<h1>Welcome back</h1>
-	
-		<%= "<p id='site_notice'>#{flash[:error]}</p>".html_safe if flash[:error] %>
-		<%= "<p id='site_notice'>#{flash[:notice]}</p>".html_safe if flash[:notice] %>
-		<%= "<p id='site_notice'>#{flash[:alert]}</p>".html_safe if flash[:alert] %>
-	
+		<h1><%= (params[:authfailure]) ? "The bit where you log in" : "Welcome back" %></h1>
+
+		<% if params[:authfailure] %>
+			<p class="form_arrow_down">Hi there, sorry to put a form in your way, but we need you to log in to continue, new members should <%= link_to "join the community", register_path %> first, veteran Good for Nothingers can just pop their details in those boxes down <span>there</span></p>
+		<% else %>
+			<%= render "shared/notices" %>
+		<% end %>
+
 	  	<%= field_set_tag do %>
 	    	<%= f.input :email, :required => false, :label => "Your email address", :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
 	    	<%= f.input :password, :required => false, :label => "Your password", :wrapper_html => { :class => "smart_label" }, :hint => (link_to "?", new_password_path(resource_name), :title => "Request a new password")%>
@@ -15,8 +17,7 @@
 		<% end %>
 
 		<%= field_set_tag do %>
-	    	<%= f.button :submit, "Sign in" %>
-
+	    	<%= f.button :submit, "Log me in" %>
 		<% end %>
 
 	<% end %>

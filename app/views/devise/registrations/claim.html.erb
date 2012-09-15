@@ -1,12 +1,10 @@
 <section id="primary_content" class="single">
 	
-	<%= simple_form_for(@user, :as => 'user', :url => activate_path, :html => { :method => :put }) do |f| %>
+	<%= simple_form_for(@user, :as => 'user', :url => activate_path, :html => { :method => :put, :class => "primary" }) do |f| %>
 
 		<h1>Claim your profile</h1>		
 		
-		<%= "<p id='site_notice'>#{flash[:error]}</p>".html_safe if flash[:error] %>
-		<%= "<p id='site_notice'>#{flash[:notice]}</p>".html_safe if flash[:notice] %>
-		<%= "<p id='site_notice'>#{flash[:alert]}</p>".html_safe if flash[:alert] %>
+		<%= render "shared/notices" %>
 		
 		<p>Welcome to our new web hive! You're profile is nearly ready, just enter new password below to get started.</p>
 

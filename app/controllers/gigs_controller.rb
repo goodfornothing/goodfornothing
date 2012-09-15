@@ -3,7 +3,7 @@ class GigsController < ApplicationController
   respond_to :html
   
   before_filter :fetch_gig, :only => [:show, :attend, :attending]
-  before_filter :authenticate_user!, :only => [:attend, :attending]
+  before_filter :authenticate_user!, :only => [:attend]
 
 	def index
 	  @chapter = Chapter.find(params[:id]) if params[:id]

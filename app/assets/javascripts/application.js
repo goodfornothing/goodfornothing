@@ -16,5 +16,6 @@
 //= require jquery.tools.min
 //= require jquery.validate.min
 //= require limit_chars
+//= require jquery.remotipart
 //= require_tree .
 //= require modernizr

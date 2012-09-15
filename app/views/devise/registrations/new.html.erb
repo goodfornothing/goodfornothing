@@ -1,13 +1,15 @@
 <section id="primary_content" class="single">
 
-	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "primary slides" } ) do |f| %>
 		
 		<h1 class="ir">Join the community<span></span></h1>
 		
+		<%= render "shared/notices" %>
+		
 		<p>Did you have an account on our old Ning platform? <%= link_to "Skip registration", login_path %></p>
 		
-		<%= f.error_notification %>
-
+		<p>Collaboration and experimentation works best when people know who you are, that's why we'd love to know all of this...</p>
+		
 		<fieldset class="slide warblings">
 			<legend>Which issues are you most passionate about?</legend>
 			<%= f.association :warblings, :as => :check_boxes, :label => "" %>

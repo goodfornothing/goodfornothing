@@ -1,6 +1,6 @@
 /* =form */
  
-  .single form { 
+  form.primary { 
     padding: 40px 60px;
 		background: #9adada;
 		color: #ffffff;
@@ -14,11 +14,11 @@
 											url(<%= asset_path "blocks/form_bottom_right.gif" %>);
   }
 
-	.single form ::selection { background:#085156; color:#ffffff; }
-	.single form ::-moz-selection { background:#085156; color:#ffffff; }
-	.single form ::-webkit-selection { background:#085156; color:#ffffff; }
+	form.primary ::selection { background:#085156; color:#ffffff; }
+	form.primary ::-moz-selection { background:#085156; color:#ffffff; }
+	form.primary ::-webkit-selection { background:#085156; color:#ffffff; }
 
-	.single form h1 {
+	form.primary h1 {
 		color: #ffffff;
 		margin-bottom: 37px;
 		background: url(<%= asset_path "assets/teal_squiggle.png" %>) repeat-x center bottom;
@@ -26,20 +26,45 @@
 		display: inline-block;
 	}
 	
-	.single form p {
+	form.primary p {
 		margin-bottom: 17px;
 		text-align: left;
 		color: #085156;
 		font-size: 14px;
 	}
 	
-	.single form .hint {
+	form.primary p.form_arrow_down {
+		padding: 0 0px 9px;
+	}
+	
+	form.primary p.form_arrow_down a {
+		display: inline-block;
+		padding: 0 2px;
+	}
+	
+	form.primary p.form_arrow_down span {
+		display: inline-block;
+		position: relative;
+	}
+	
+	form.primary p.form_arrow_down span:after {
+		content: '';
+		width: 20px;
+		height: 15px;
+		display: block;
+		top: 10px;
+		right: -28px;
+		position: absolute;
+		background: url(<%= asset_path "assets/form_arrow.png" %>) no-repeat top left;
+	}
+	
+	form.primary .hint {
 		position: absolute;
 		top: 6px;
 		right: 12px;
 	}
 	
-	.single form .hint a {
+	form.primary .hint a {
 		width: 30px;
 		height: 33px;
 		font-size: 20px;
@@ -51,26 +76,26 @@
 		background: #9adada url(<%= asset_path "assets/input_splodge.gif" %>) no-repeat center center;
 	}
 	
-	.single form .hint a:hover,
-	.single form .hint a:active,
-	.single form .hint a:focus {
+	form.primary .hint a:hover,
+	form.primary .hint a:active,
+	form.primary .hint a:focus {
 		font-style: italic;
 		text-decoration: none;
 	}
 	
-	.single form a {
-		color: #085156;
+	form.primary a {
+		color: #ffffff;
 	}
   
-  .single form fieldset {
+  form.primary fieldset {
     padding: 10px 0 20px;
   }
 
-	.single form fieldset:last-child {
+	form.primary fieldset:last-child {
 		padding: 10px;
 	}
 
-	.single legend {
+	form.primary legend {
 		font-size: 26px;
 		line-height: 28px;
 		padding-bottom: 4px;
@@ -79,7 +104,7 @@
 		background: url(<%= asset_path "assets/teal_squiggle.png" %>) repeat-x center bottom;
 	}
 	
-	.single form .footnote {
+	form.primary .footnote {
 		color: #ffffff;
 		text-align: center;
 		padding-top: 10px;
@@ -88,13 +113,17 @@
 		margin: 0 auto;
 		line-height: 18px;
 	}
+	
+	form.primary .footnote a {
+		color: #085156;
+	}
   
 /* =label */
  
-  .single .string label,
- 	.single .email label,
-	.single .url label,
-	.single .password label { 
+  form.primary .string label,
+ 	form.primary .email label,
+	form.primary .url label,
+	form.primary .password label { 
     display: block; 
     position: relative;
 		text-align: left;
@@ -106,7 +135,7 @@
 		width: 464px;
   }
 
-	.single .input label.js {
+	form.primary .input label.js {
 		position: absolute;
 		top: 13px;
 		left: 18px;
@@ -114,14 +143,14 @@
   
 /* =input */
 
-	.single .input {
+	form.primary .input {
 		position: relative;
 	}
 
-  .single .string input, 
-	.single .email input,
-	.single .url input,
-	.single .password input {  
+  form.primary .string input, 
+	form.primary .email input,
+	form.primary .url input,
+	form.primary .password input {  
     padding: 13px 18px 11px;
 		margin-top: 0;
 		color: #9adada;
@@ -139,40 +168,40 @@
 		-webkit-font-smoothing: antialiased;
   }
 
-  .single .string:nth-child(odd) input,
-	.single .email:nth-child(odd) input,
-	.single .url:nth-child(odd) input,
-	.single .password:nth-child(odd) input {
+  form.primary .string:nth-child(odd) input,
+	form.primary .email:nth-child(odd) input,
+	form.primary .url:nth-child(odd) input,
+	form.primary .password:nth-child(odd) input {
 		background-image: url(<%= asset_path "blocks/input_left_3.gif" %>),
 											url(<%= asset_path "blocks/input_right.gif" %>);
 	}
 	
-	.single .string:nth-child(3n) input,
-	.single .email:nth-child(3n) input,
-	.single .url:nth-child(3n) input,
-	.single .password:nth-child(3n) input {
+	form.primary .string:nth-child(3n) input,
+	form.primary .email:nth-child(3n) input,
+	form.primary .url:nth-child(3n) input,
+	form.primary .password:nth-child(3n) input {
 		background-image: url(<%= asset_path "blocks/input_left.gif" %>),
 											url(<%= asset_path "blocks/input_right_3.gif" %>);
 	}
  
  /* =boolean */
  
-	.single .boolean {
+	form.primary .boolean {
 		margin-top: -10px;
 	}
 
-  .single .boolean label {
+  form.primary .boolean label {
    	text-align: left;
 		padding-left: 10px;
   }
 
-	.single .boolean input {
+	form.primary .boolean input {
 		margin-right: 8px;
   }
 
  /* =textarea */
 
- .single textarea {  
+ form.primary textarea {  
     margin-bottom: 20px;
 		margin-top: 0;
     border: 0;
@@ -194,7 +223,7 @@
 											url(<%= asset_path "blocks/textarea_bottom_right.gif" %>);
   }
 
-  .single .text label { 
+  form.primary .text label { 
 		font-size: 15px;
 		color: #9adada;
 		background: #ffffff;
@@ -205,7 +234,7 @@
 		text-align: left;
   }
 
-	.single .text label.js {
+	form.primary .text label.js {
 		position: absolute;
 		top: 17px;
 		left: 24px;
@@ -213,7 +242,7 @@
 
 	/* =submit */
 	
-	.single input[type="submit"] {
+	form.primary input[type="submit"] {
 		color: #ffffff;
 		display: inline-block;
 		line-height: 28px;
@@ -230,7 +259,7 @@
 		cursor: pointer;
 	}
 	
-	.single input[type="submit"]:active {
+	form.primary input[type="submit"]:active {
 		text-decoration: none;
 		background-position: left bottom;
 		padding: 41px 20px 18px 0px;

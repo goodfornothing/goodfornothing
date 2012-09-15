@@ -28,6 +28,8 @@
 	</ul>
 	<% end %>
 	
+	<%= render "shared/notices" %>
+	
 	<% if user_signed_in? && @challenge.open? %>
 		<%= render :partial => "ideas/form", :locals => { :idea => @idea } %>	
 	<% end %>
@@ -58,7 +60,7 @@
 	<% end %>
 	
 	<% if @challenge.open? && !user_signed_in? %>
-	<p><%= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "Join the community", register_path %> to share your ideas or contribute to the challenge.</p>
+	<p><%= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "Join the community", register_path(:next => challenge_path(@challenge)) %> to share your ideas or contribute to the challenge.</p>
 	<% end %>
 		
 </section>

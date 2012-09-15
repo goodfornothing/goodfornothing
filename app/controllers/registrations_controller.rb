@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   
   before_filter :fetch_associations, :only => [:new, :create, :edit, :edit_talents, :update]
-  prepend_before_filter :authenticate_scope!, :only => [:edit_activity, :edit_talents, :edit_password, :edit, :update, :destroy]
+  prepend_before_filter :authenticate_scope!, :only => [:edit_activity, :edit_talents, :edit_password, :edit, :update, :destroy, :update_activity, :update_talents, :update_password]
   
   def new
   
@@ -22,7 +22,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   def edit
-    render :edit
   end
   
   def edit_password
@@ -71,12 +70,45 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
   
-  def update
+  def update_password
+    if resource.update_attributes(params[resource_name])
+      set_flash_message :notice, :updated
+      sign_in resource_name, resource, :bypass => true
+      redirect_to after_update_path_for(resource)
+    else
+      clean_up_passwords(resource)
+      render_with_scope :edit_passwords
+    end
+  end
+  
+  def update_talents
     if resource.update_attributes(params[resource_name])
       set_flash_message :notice, :updated
       sign_in resource_name, resource, :bypass => true
       save_talents(resource)
+      redirect_to after_update_path_for(resource)
+    else
+      clean_up_passwords(resource)
+      render_with_scope :edit_talents
+    end
+  end
+  
+  def update_activity
+    if resource.update_attributes(params[resource_name])
+      set_flash_message :notice, :updated
+      sign_in resource_name, resource, :bypass => true
       save_gig_activity
+      redirect_to after_update_path_for(resource)
+    else
+      clean_up_passwords(resource)
+      render_with_scope :edit_activity
+    end
+  end
+  
+  def update
+    if resource.update_attributes(params[resource_name])
+      set_flash_message :notice, :updated
+      sign_in resource_name, resource, :bypass => true
       redirect_to after_update_path_for(resource)
     else
       clean_up_passwords(resource)
@@ -157,16 +189,13 @@ class RegistrationsController < Devise::RegistrationsController
     
     def save_gig_activity
       if params[:gigs]
-        
         resource.slots.each do |slot|
           slot.users.delete(resource) unless slot.gig_id.nil? || slot.gig.future?
         end
-        
         params[:gigs].each do |gig|
           @gig = Gig.find(gig)
           @gig.slots.first.users << resource
         end
-        
       end
     end
     

@@ -6,7 +6,7 @@
 	<p>People who have attended gigs and socials with you, or who you've worked with on online challenges.</p>
 	<ul>
 		<% @member_reach.each do |member| %>
-		<li><%= link_to member.name, member_path(member) %></li>
+		<li class="avatar"><%= link_to member.name, member_path(member) %></li>
 		<% end %>
 	</ul>
 	<% end %>
@@ -15,7 +15,7 @@
 	<h2>In your chapter</h2>
 	<ul>
 		<% @chapter_members.each do |member| %>
-		<li><%= link_to member.name, member_path(member) %></li>
+		<li class="avatar"><%= link_to member.name, member_path(member) %></li>
 		<% end %>
 	</ul>
 	<% end %>
@@ -27,7 +27,7 @@
 	<% if @members.any? %>
 		<ul>
 			<% @members.each do |member| %>
-			<li><%= link_to member.name, member_path(member) %></li>
+			<li class="avatar"><%= link_to member.name, member_path(member) %></li>
 			<% end %>
 		</ul>
 	<% else %>

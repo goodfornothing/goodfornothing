@@ -5,18 +5,31 @@ Goodfornothing::Application.routes.draw do
   match "markdown_preview" => "application#markdown_preview"
   
   devise_for :users, :controllers => { :registrations => :registrations, :sessions => :sessions } 
-  
+  match "members" => "members#index"
+  match "members/:id" => "members#show", :as => "member"
+
   devise_scope :user do
+    
+    # Rename default devise scopes
     get "/login" => "devise/sessions#new"
     delete "/logout" => "devise/sessions#destroy"
     get "/register" => "registrations#new"
+    
+    # Ning user activation routes
     get "/reactivate" => "registrations#reactivate", :as => "reactivate"
     post "/reactivate" => "registrations#send_reactivation", :as => "reactivate"
     get "/claim/:reset_password_token" => "registrations#claim", :as => "claim"
     put "/claim/" => "registrations#activate", :as => "activate"
+    
+    # Profile editing
     get '/users/edit/activity' => 'registrations#edit_activity', :as => "activity"
     get '/users/edit/password' => 'registrations#edit_password', :as => "password"
     get '/users/edit/talents' => 'registrations#edit_talents', :as => "talents"
+    
+    put '/users/edit/activity' => 'registrations#update_activity', :as => "activity"
+    put '/users/edit/password' => 'registrations#update_password', :as => "password"
+    put '/users/edit/talents' => 'registrations#update_talents', :as => "talents"
+    
   end
   
   resources :warblings, :only => [:index, :show]
@@ -58,9 +71,6 @@ Goodfornothing::Application.routes.draw do
   
   resources :friends, :only => [:index]
   resources :ventures, :only => [:index]
-  
-  match "members" => "members#index"
-  match "members/:id" => "members#show", :as => "member"
   
   match "how-it-works" => "colophon#how", :as => "how"
 	match "who" => "colophon#who"

@@ -20,6 +20,8 @@
 			Doing Good for Nothing in <%= @member.chapter.title %>
 			<%= link_to "Change" if signed_in_as_owner?(@member) %>
 		</p>
+	<% elsif signed_in_as_owner?(@member) %>
+		<p>You've not joined a local chapter, <%= link_to "join one" %>, or <%= link_to "drop us a note", "mailto:hello@goodfornothing.com" %> if you're interesting in starting your own.</p>
 	<% end %>
 
 	<div class="panel">
@@ -46,7 +48,7 @@
 		</ul>
 		
 		<% if signed_in_as_owner?(@member) %>
-			<p><%= link_to "Update profile", edit_user_registration_path %>, <%= link_to "Change Password" %></p>
+			<p><%= link_to "Update profile", edit_user_registration_path %>, <%= link_to "Change Password", password_path %></p>
 		<% end %>
 	
 	</div>
@@ -62,8 +64,13 @@
 		</ul>
 		<% end %>
 		
+		<% unless @member.brings.nil? %>
+			<h2>Special skillz</h2>
+			<p><%= @member.brings %></p>
+		<% end %>
+		
 		<% if signed_in_as_owner?(@member) %>
-			<p><%= link_to "Tell us more about your talents and any special skills you have" %></p>
+			<p><%= link_to "More talents?", talents_path %></p>
 		<% end %>
 		
 	</div>

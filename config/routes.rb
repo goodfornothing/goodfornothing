@@ -14,7 +14,9 @@ Goodfornothing::Application.routes.draw do
     post "/reactivate" => "registrations#send_reactivation", :as => "reactivate"
     get "/claim/:reset_password_token" => "registrations#claim", :as => "claim"
     put "/claim/" => "registrations#activate", :as => "activate"
-    get '/users/activity' => 'registrations#activity'
+    get '/users/edit/activity' => 'registrations#edit_activity', :as => "activity"
+    get '/users/edit/password' => 'registrations#edit_password', :as => "password"
+    get '/users/edit/talents' => 'registrations#edit_talents', :as => "talents"
   end
   
   resources :warblings, :only => [:index, :show]

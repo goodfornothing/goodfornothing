@@ -1,0 +1,27 @@
+<section id="primary_content" class="single">
+	
+	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+
+		<h1>Tell us about your talents</h1>
+		
+		<%= f.error_notification %>
+
+		<fieldset>		
+			<% if @skills.any? %>
+				<% @skills.each do |skill| %>
+					<%= f.label skill.title %>
+					<%= range_field_tag "skill[#{skill.id}]", resource.skill_level(skill) %>
+				<% end %>
+			<% end %>
+			
+			<%= f.input :brings, :label => "What other special skills do you bring?", :input_html => { :rows => 4 } %>
+			
+		</fieldset>
+
+		<fieldset class="actions">
+			<%= f.button :submit, "Save" %>
+		</fieldset>
+		
+	<% end %>
+	
+</section>

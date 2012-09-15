@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   
-  before_filter :fetch_associations, :only => [:new, :create, :edit, :update]
-  prepend_before_filter :authenticate_scope!, :only => [:activity, :edit, :update, :destroy]
+  before_filter :fetch_associations, :only => [:new, :create, :edit, :edit_talents, :update]
+  prepend_before_filter :authenticate_scope!, :only => [:edit_activity, :edit_talents, :edit_password, :edit, :update, :destroy]
   
   def new
   
@@ -25,6 +25,16 @@ class RegistrationsController < Devise::RegistrationsController
     render :edit
   end
   
+  def edit_password
+  end
+  
+  def edit_talents    
+  end
+  
+  def edit_activity
+    @past_gigs = Gig.past
+  end
+
   def create
     
     ning_user = User.joins(:ning_profile).where('users.email = ? && users.activated = ?', params[:user][:email], false).first
@@ -125,10 +135,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
     
   end 
-  
-  def activity
-    @past_gigs = Gig.past
-  end
   
   protected
     

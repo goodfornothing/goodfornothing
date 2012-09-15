@@ -25,7 +25,7 @@ module ApplicationHelper
   end
   
   def contextual_reference(user)
-	  (user_signed_in? && current_user == user) ? "You've" : "#{user.short_name} has"
+	  (user_signed_in? && current_user == user) ? "you've" : "#{user.short_name} has"
 	end
   
 end

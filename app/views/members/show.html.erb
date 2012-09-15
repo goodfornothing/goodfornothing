@@ -13,16 +13,31 @@
 	
 	<h1><%= @member.name %></h1>
 
+	<% if @member.chapter && @member.crew? %>
+		<p><%= @member.short_name %> is part of the <%= link_to @member.chapter.title, chapter_gigs_path(@member.chapter) %> crew</p>
+	<% elsif @member.chapter %>
+		<p>
+			Doing Good for Nothing in <%= @member.chapter.title %>
+			<%= link_to "Change" if signed_in_as_owner?(@member) %>
+		</p>
+	<% end %>
+
 	<div class="panel">
 
 		<h2>Profile</h2>
-		<%= image_tag @member.avatar unless @member.avatar.url.nil? %>
+		
+		<% if @member.avatar.url.nil? %>
+			<div class="avatar">
+				<%= link_to "Show us yer face" if signed_in_as_owner?(@member) %>
+				<%= image_tag "assets/avatar_small.png" %>
+			</div>
+		<% else %>
+			<div class="avatar"><%= image_tag @member.avatar %></div>
+		<% end %>
+	
+		<p>Been a member for: </p>
 	
 		<ul>
-			<% if @member.chapter && @member.crew? %>
-			<li><%= @member.short_name %> is part of the <%= link_to @member.chapter.title, chapter_gigs_path(@member.chapter) %> crew</li>
-			<% end %>
-			<%= "<li>Part of Good for Nothing in #{@member.chapter.title}</li>".html_safe if @member.chapter %>
 			<%= "<li>Living in #{@member.location}</li>".html_safe if @member.location %>
 			<%= "<li>#{@member.gender}</li>".html_safe if @member.gender %>
 			<%= "<li>#{@member.age}</li>".html_safe if @member.age %>
@@ -30,8 +45,8 @@
 			<%= "<li>#{link_to @member.url, @member.url}</li>".html_safe if @member.url %>
 		</ul>
 		
-		<% if user_signed_in? && current_user == @member %>
-			<p><%= link_to "Update profile", edit_user_registration_path %>
+		<% if signed_in_as_owner?(@member) %>
+			<p><%= link_to "Update profile", edit_user_registration_path %>, <%= link_to "Change Password" %></p>
 		<% end %>
 	
 	</div>
@@ -47,14 +62,18 @@
 		</ul>
 		<% end %>
 		
+		<% if signed_in_as_owner?(@member) %>
+			<p><%= link_to "Tell us more about your talents and any special skills you have" %></p>
+		<% end %>
+		
 	</div>
 	
 	<h2>Activity</h2>
 	
-	<p>So far, <%= contextual_reference(@member).downcase %> worked with <%= link_to pluralize(@member.member_reach.count, "member"), members_path %> of the community.</p>
+	<p>So far, <%= contextual_reference(@member) %> worked with <%= link_to pluralize(@member.member_reach.count, "member"), members_path %> of the community.</p>
 	
 	<% if @member.challenges.any? %>
-	<h3>You've worked on <%= pluralize(@member.challenges.count, "challenge") %></h3>
+	<h3><%= contextual_reference(@member).titlecase %> worked on <%= pluralize(@member.challenges.count, "challenge") %></h3>
 	<ul>
 		<% @member.challenges.each do |challenge| %>
 		<li><%= link_to challenge.title, challenge_path(challenge) %></li>
@@ -63,19 +82,24 @@
 	<% end %>
 	
 	<% if @member.gigs.any? %>
-	<h3><%= contextual_reference(@member) %> taken part in <%= pluralize(@member.gigs.count, "gig") %></h3>
-	<ul>
-		<% @member.gigs.each do |gig| %>
-		<li><%= link_to gig.title, gig_path(gig) %></li>
-		<% end %>
-	</ul>
-	<p><%= link_to "Have we got it wrong? Update your activity", users_activity_path %></p>
-	<% elsif user_signed_in? && current_user == @member %>
-	<p>We're not sure if you've taken part in any gigs, <%= link_to "add gigs to your profile", users_activity_path %> if you have!</p>	
+	
+		<h3><%= contextual_reference(@member).titlecase %> taken part in <%= pluralize(@member.gigs.count, "gig") %></h3>
+		<ul>
+			<% @member.gigs.each do |gig| %>
+			<li><%= link_to gig.title, gig_path(gig) %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	
+	<% if signed_in_as_owner?(@member) && @member.gigs.empty? %>
+	<p>We're not sure if you've taken part in any gigs, <%= link_to "add gigs to your profile", activity_path %> if you have!</p>	
+	<% elsif signed_in_as_owner?(@member) %>
+	<p><%= link_to "Have we got it wrong? Update your activity", activity_path %></p>
+	
 	<% end %>
 	
 	<% if @member.socials.any? %>
-	<h3><%= contextual_reference(@member) %> taken part in <%= pluralize(@member.socials.count, "social") %></h3>
+	<h3><%= contextual_reference(@member).titlecase %> taken part in <%= pluralize(@member.socials.count, "social") %></h3>
 	<ul>
 		<% @member.socials.each do |social| %>
 		<li><%= link_to social.start_time, social_path(social) %></li>

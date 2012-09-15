@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   helper_method :signed_in_as_owner?
 
   def signed_in_as_owner?(resource)
-    if resource.user.present? && user_signed_in?
+    if user_signed_in? && resource == current_user
+      true
+    elsif resource.class != User && resource.user.present? && user_signed_in?
       if current_user.admin?
         true
       else

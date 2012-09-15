@@ -56,12 +56,6 @@ class User < ActiveRecord::Base
     level
   end
   
-  def activation_path
-    unless self.ning_profile.nil?
-      Rails.application.routes.url_helpers.claim_path(self.id,self.ning_profile.id)
-    end
-  end
-  
   def active_for_authentication? 
     super && activated? 
   end 

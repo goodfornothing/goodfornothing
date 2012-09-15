@@ -26,26 +26,38 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   def create
-    build_resource
-    if resource.save
+    
+    ning_user = User.joins(:ning_profile).where('users.email = ? && users.activated = ?', params[:user][:email], false).first
+    
+    unless ning_user.nil?
       
-      save_talents
-      save_gig_activity
-      AdminMailer.new_user(resource).deliver
-      
-      if resource.active_for_authentication?
-        set_flash_message :notice, :signed_up if is_navigational_format?
-        sign_in(resource_name, resource)
-        respond_with resource, :location => after_sign_up_path_for(resource)
-      else
-        set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
-        expire_session_data_after_sign_in!
-        respond_with resource, :location => after_inactive_sign_up_path_for(resource)
-      end
+      redirect_to reactivate_path(:email => ning_user.email, :route => "create")
       
     else
-      clean_up_passwords resource
-      respond_with resource
+      
+      build_resource
+    
+      if resource.save
+      
+        save_talents(resource)
+        save_gig_activity
+        AdminMailer.new_user(resource).deliver
+      
+        if resource.active_for_authentication?
+          set_flash_message :notice, :signed_up if is_navigational_format?
+          sign_in(resource_name, resource)
+          respond_with resource, :location => after_sign_up_path_for(resource)
+        else
+          set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
+          expire_session_data_after_sign_in!
+          respond_with resource, :location => after_inactive_sign_up_path_for(resource)
+        end
+      
+      else
+        clean_up_passwords resource
+        respond_with resource
+      end
+      
     end
   end
   
@@ -53,7 +65,7 @@ class RegistrationsController < Devise::RegistrationsController
     if resource.update_attributes(params[resource_name])
       set_flash_message :notice, :updated
       sign_in resource_name, resource, :bypass => true
-      save_talents
+      save_talents(resource)
       save_gig_activity
       redirect_to after_update_path_for(resource)
     else
@@ -63,6 +75,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
     
   def reactivate
+    @new_user = params[:route]
     @user = User.where("activated = false && email = '#{params[:email]}'").first
     if @user.nil?
       not_found
@@ -124,7 +137,8 @@ class RegistrationsController < Devise::RegistrationsController
       @locations = ["South","North"]
     end
     
-    def save_talents
+    def save_talents(resource)
+      
       if params[:skill]
         resource.talents.delete_all
         params[:skill].each do |i,skill|
@@ -132,6 +146,7 @@ class RegistrationsController < Devise::RegistrationsController
           resource.talents.create(:skill_id => @skill.id, :level => skill)
         end
       end
+      
     end
     
     def save_gig_activity

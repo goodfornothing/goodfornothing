@@ -23,6 +23,10 @@ $(document).ready(function(){
 			}
 		});
 		
+		if(input.val()!='') {
+			$(input.siblings('label')[0]).hide()
+		}
+		
 	});
 	
 	// Range sliders

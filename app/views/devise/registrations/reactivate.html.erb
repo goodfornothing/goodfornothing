@@ -2,11 +2,16 @@
 
 	<%= simple_form_for(resource, :as => resource_name, :url => reactivate_path, :html => { :method => :post }) do |f| %>
 	  	
-		<h1>Account re-activation</h1>
+		<h1>Account <%= "re-" unless @new_user %>activation</h1>
 		
 		<fieldset class="abstract">
-			<p>It looks like you're trying to login with an account from our old site. Don't worry, your profile is safe, but you need to reactivate it before you can login, it'll only take a second.</p>
-			<p>To get started we need to send an email to <em><%= resource.email %></em> in order to confirm that you're the owner of this account. Once you receive it you'll be asked to chose a new password, then you're ready to go!</p>
+			<p>It looks like you're trying to <%= (@new_user) ? "register" : "login" %> with an account from our 
+				old site. 
+				Your profile is safe, but you need to reactivate it before you can login, 
+				it'll only take a second.</p>
+			<p>To get started we need to send an email to <em><%= resource.email %></em> in order to 
+				confirm that you're the owner of the account. Once you receive it you'll be asked to 
+				chose a new password, then you're ready to go!</p>
 		</fieldset>
 		
 		<fieldset>

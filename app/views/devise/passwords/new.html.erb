@@ -6,7 +6,7 @@
 		<%= f.error_notification %>
 		
 		<fieldset>
-	    	<%= f.input :email, :required => true, :label => "Your email address, please", :wrapper_html => { :class => "smart_label" } %>
+	    	<%= f.input :email,  :input_html => { :autocomplete => "off" }, :required => true, :label => "Your email address, please", :wrapper_html => { :class => "smart_label" } %>
 		</fieldset>
 	
 	    <%= f.button :submit, "Do it" %>

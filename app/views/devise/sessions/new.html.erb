@@ -9,7 +9,7 @@
 		<%= "<p id='site_notice'>#{flash[:alert]}</p>".html_safe if flash[:alert] %>
 	
 	  	<%= field_set_tag do %>
-	    	<%= f.input :email, :required => false, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
+	    	<%= f.input :email, :required => false, :label => "Your email address", :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
 	    	<%= f.input :password, :required => false, :label => "Your password", :wrapper_html => { :class => "smart_label" }, :hint => (link_to "?", new_password_path(resource_name), :title => "Request a new password")%>
 	    	<%= f.input :remember_me, :as => :hidden, :input_html => { :value => 1 } if devise_mapping.rememberable? %>
 		<% end %>

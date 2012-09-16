@@ -5,9 +5,13 @@
 	<time><%= @gig.start_time.to_formatted_s(:long_ordinal) %> - <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time>
 	<% end %>
 	
-	<p>Organised by:</p>	
+	<% if @gig.chapter.users.any? %>
+		<p>Organised by <%= @gig.chapter.users.crew.map { |u| link_to u.name, member_path(u) }.to_sentence.html_safe %></p>	
+	<% else %>
+		<p>Organised by the <%= @gig.chapter.title %> crew</p>
+	<% end %>
 	
-	<%= simple_format @gig.description %>
+	<%= markdown.render(@gig.description).html_safe %>
 	
 	<% if @gig.challenges.any? %>
 	

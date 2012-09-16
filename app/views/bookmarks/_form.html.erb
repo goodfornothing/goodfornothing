@@ -1,4 +1,10 @@
 <form action="<%= library_search_path %>" method="GET">
-	<input type="text" name="term" />
-	<input type="submit" value="Search">
+	
+	<div class="input string smart_label">
+		<label for="term">Search the library</label>
+		<input type="text" id="term" name="term" />
+	</div>
+	
+	<input type="submit" value="Go">
+	
 </form>

@@ -14,30 +14,16 @@
 	<ul class="grid_list">
 		<% @events.each do |event| %>
 		<li class="note">
-
 			<% if event.class == Gig %>
-			
-				<h3><%= event.title %></h3>
-				<% if event.start_time && event.end_time %>
-				<time><%= event.start_time.to_formatted_s(:long_ordinal) %> &ndash; <%= event.end_time.to_formatted_s(:long_ordinal) %></time>
-				<% end %>
-				<p>In: <%= event.chapter.title %></p>
-				<% unless event.partner.nil? %>
-				<p>In collaboration with: <%= event.partner.name %></p>
-				<% end %>
-				<p class="cta"><%= link_to "Details & registration", gig_path(event) %></p>
-				
+				<%= render :partial => "gigs/block", :locals => { :gig => event } %>
 			<% elsif %>
-			
 				<%= render :partial => "socials/block", :locals => { :social => event } %>
-				
 			<% end %>
-			
 		</li>
 		<% end %>
 	</ul>
 	<% end %>
 	
-	<p class="cta"><%= link_to "Past gigs", gigs_path %></p>
+	<p class="cta strong"><%= link_to "Past gigs", gigs_path %></p>
 	
 </section>

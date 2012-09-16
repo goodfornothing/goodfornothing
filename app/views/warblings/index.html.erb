@@ -7,17 +7,17 @@
 	</div>
 	
 	<% if @warblings %>
-	<ul class="grid_list">
+	<ul class="grid_list grid_three">
 		<% @warblings.each do |warbling| %>
 			<li class="warbling warbling_<%= warbling.slug.underscore %>"><%= link_to warbling.title, warbling_path(warbling) %></li>
 		<% end %>
 	</ul>
 	<% end %>
 	
-	<p class="cta strong"><%= link_to "GFN updates", posts_path %></p>
 			
 </section>
 
 <aside id="secondary_content">	
-	<p class="cta"><%= link_to "The library".html_safe, library_path, :class => "tip", :title => "For Web-based research" %></p>
+	<p class="cta"><%= link_to "GFN updates", posts_path %></p>
+	<%#= link_to "The library".html_safe, library_path, :class => "tip", :title => "For Web-based research" %>
 </aside>

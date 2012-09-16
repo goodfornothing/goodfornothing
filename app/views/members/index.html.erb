@@ -1,33 +1,37 @@
 <section id="primary_content">
 	<h1>Good for Nothingers</h1>
 	
+	<div class="abstract">
+		<p>The do-ers, makers, dreamers and believers, the heart of Good for Nothing.</p>
+	</div>
+		
 	<% if @member_reach.any? %>
 	<h2>Collaborators</h2>
-	<p>People who have attended gigs and socials with you, or who you've worked with on online challenges.</p>
-	<ul>
+	<p>People who have attended gigs and socials with you, or who you've worked with online challenges.</p>
+	<ul class="avatar_list">
 		<% @member_reach.each do |member| %>
-		<li class="avatar"><%= link_to member.name, member_path(member) %></li>
+			<%= render :partial => "members/avatar", :locals => { :member => member }%>
 		<% end %>
 	</ul>
 	<% end %>
 	
 	<% if @chapter_members.any?  %>
-	<h2>In your chapter</h2>
-	<ul>
+	<h2>In <%= current_user.chapter.title %></h2>
+	<ul class="avatar_list">
 		<% @chapter_members.each do |member| %>
-		<li class="avatar"><%= link_to member.name, member_path(member) %></li>
+			<%= render :partial => "members/avatar", :locals => { :member => member }%>
 		<% end %>
 	</ul>
 	<% end %>
 	
 	<% if @chapter_members.any? || @member_reach.any? %>
-	<h2>Fellow Good for Nothingers</h2>
+	<h2>Everyone else</h2>
 	<% end %>
 	
 	<% if @members.any? %>
-		<ul>
+		<ul class="avatar_list">
 			<% @members.each do |member| %>
-			<li class="avatar"><%= link_to member.name, member_path(member) %></li>
+				<%= render :partial => "members/avatar", :locals => { :member => member }%>
 			<% end %>
 		</ul>
 	<% else %>

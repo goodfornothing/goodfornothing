@@ -1,12 +1,11 @@
 <section id="primary_content">
 	
-	<h1>The Library <%= ":#{params[:term]}" if params[:term] %></h1>
-	<p>Our collective bookmarking brain.</p>
-	
-	<ul>
+	<h1 class="tip" title="Our collective bookmarking brain">The Library <%= ":#{params[:term]}" if params[:term] %></h1>
+		
+	<ul class="grid_list grid_four">
 	<% @bookmarks.each do |bookmark| %>
-		<li>
-			<strong><%= link_to bookmark.title, bookmark.url %></strong>
+		<li class="small_panel">
+			<h2><%= link_to truncate(bookmark.title, :length => 80, :omission => '&hellip;').html_safe, bookmark.url %></h2>
 		</li>
 	<% end %>
 	</ul>
@@ -15,7 +14,6 @@
 
 <aside id="secondary_content">
 	
-	<h2>Search the Library</h2>
 	<%= render "form" %>
 	
 	<% if @tags.any? %>

@@ -1,16 +1,17 @@
-<section id="primary_content">
+<section id="primary_content" class="single">
 	
-	<h1>Past gigs</h1>
+	<h1>Gigs, come and gone</h1>
 
 	<% if @past_gigs.any? %>
-		<h2>Past gigs</h2>
+	<ul class="grid_list">
 		<% @past_gigs.each do |gig| %>
-			<%= render :partial => "block", :locals => { :gig => gig } %>
+		<li class="note">
+			<%= render :partial => "gigs/block", :locals => { :gig => gig } %>
+		</li>
 		<% end %>
+	</ul>
 	<% end %>
+	
+	<p class="cta strong"><%= link_to "Upcoming gigs", calendar_path %></p>
 
-</section>
-
-<section id="secondary_content">
-	<p class="cta"><%= link_to "Upcoming gigs", calendar_path %></p>
 </section>

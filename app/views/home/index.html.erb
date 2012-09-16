@@ -2,19 +2,24 @@
 
 	<section id="latest_activity" class="panel">
 		
-		<% if @challenge.present? %>
-			<h3><%= @challenge.cause %></h3>
-			<p><%= link_to @challenge.title, challenge_path(@challenge) %></p>
-			<% if @challenge.warblings.any? %>
+		<div class="calendar">
+			<% if @gig.present? %>
+				<h2>The next gig</h2>
+				<p><%= @gig.title %> on the <%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %> of <%= @gig.start_time.strftime('%B') %> in <%= @gig.chapter.title %><br /><%= link_to "Details and registration", gig_path(@gig) %></p>
 			<% end %>
-		<% end %>
+
+			<% if @social.present? %>
+				<h2>The next social</h2>
+				<p>In <%= @social.chapter.title %> <%= "at #{@social.location}" if @social.location %> on <%= @social.start_time.day.ordinalize %> of <%= @social.start_time.strftime('%B') %> at <%= @social.start_time.strftime('%l%P') %><br /><%= link_to "Details and registration", social_path(@social) %></p>
+			<% end %>
+		</div>
 		
-		<%= render :partial => "shared/events", :locals => { :gig => @gig, :social => @social } %>
-		<p class="cta"><%= link_to "GFN Calendar".html_safe, calendar_path %></p>
+		<p class="cta"><%= link_to "GFN Calendar", calendar_path %></p>
 		
 	</section>
 	
 	<section id="community" class="panel">
+		<h2>Community</h2>
 		<ul id="community_infographic">
 			<li class="badge_count"><span><%= @venture_count %></span> <%= link_to "amazing ventures", ventures_path %></li>
 			<li class="ticker_count"><%= spannerize("%04d" % @member_count) %> <%= link_to "Good for Nothingers", members_path %></li>
@@ -26,6 +31,7 @@
 	
 	<% if @update.present? %>
 	<section id="updates" class="panel">
+		<h2>Warblings</h2>
 		<%= render :partial => "posts/block", :locals => { :post => @update } %>
 	</section>
 	<% end %>

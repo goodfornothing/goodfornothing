@@ -1,0 +1,7 @@
+<li class="avatar compact">	
+	<% if member.avatar.blank? %>
+		<%= link_to (image_tag "assets/avatar_small.png", :alt => member.name), member_path(member), :class => "tip", :title => member.name %>
+	<% else %>
+		<%= link_to (image_tag member.avatar.compact, :alt => member.name, :title => member.name), member_path(member), :class => "tip", :title => member.name %>
+	<% end %>
+</li>

@@ -2,9 +2,15 @@ class MembersController < ApplicationController
 
 	def index
 	  
-	  @members = User.active
-	  @chapter_members = (user_signed_in? && current_user.chapter.present?) ? current_user.chapter.users.active : []
-	  @member_reach = (user_signed_in?) ? current_user.member_reach : []
+	  if user_signed_in?
+	    @members = User.active.where('id != ?', current_user.id)
+	    @chapter_members = (current_user.chapter.present?) ? current_user.chapter.users.active.where('id != ?', current_user.id) : []
+  	  @member_reach = current_user.member_reach
+	  else
+	    @members = User.active
+	    @member_reach = []
+	    @chapter_members = []
+	  end
 	  
   end
   

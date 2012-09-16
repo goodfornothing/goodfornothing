@@ -13,6 +13,8 @@ class Gig < ActiveRecord::Base
 	
 	after_create :create_generic_slot
 	
+	validates_presence_of :title, :start_time
+	
 	mount_uploader :logo, ArticleImageUploader
 	mount_uploader :poster, PosterUploader
 	

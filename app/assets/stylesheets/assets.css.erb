@@ -85,7 +85,7 @@
 /* Graphical counters */
 
 	.badge_count {
-		padding: 20px 50px 20px 32px;
+		padding: 20px 40px 20px 42px;
 		margin: 0;
 		width: 155px;
 		height: 136px;
@@ -96,7 +96,7 @@
 		color: #ffffff;
 		display: block;
 		line-height: 17px;
-		background: no-repeat url(assets/badge_counter.png);
+		background: no-repeat url(assets/badge_counter.png) 10px 0;
 	}
 	
 	.badge_count span {
@@ -218,13 +218,13 @@
 		text-align: center;
 		display: block;
 		width: 230px;
-		background: url(assets/highlight_button.png) no-repeat center -85px;
+		background: url(assets/highlight_button.png) no-repeat center top;
 	}
 	
 	.highlight_button a:focus,
 	.highlight_button a:active,
 	.highlight_button a:hover
-	{ text-decoration: none; background-position: center top; }
+	{ text-decoration: none; font-size: 21px; }
 
 /* Grid lists */
 
@@ -243,12 +243,12 @@
 		width: 200px;
 	}
 	
-	.grid_list li:nth-child(3n+3),
+	.grid_three li:nth-child(3n+3),
 	.grid_four li:nth-child(4n+4),
 	.grid_two li:nth-child(2n+2) {
 		margin-right: 0;
 	}
-	
+
 	.single .grid_list li:nth-child(3n+3) {
 		margin-right: 20px;
 	}
@@ -273,11 +273,6 @@
 		width: 310px;
 	}
 	
-	.grid_four li:nth-child(3n+3),
-	.grid_two li:nth-child(3n+3) { 
-		margin-right: 20px;
-	}
-	
 	.grid_list .logo {
 		background: #ffffff;
 		text-align: center;
@@ -296,12 +291,83 @@
 		text-decoration: none;
 	}
 	
+/* Panels */
+
+	.section_panel {
+		padding: 0px 20px 40px;
+		text-align: center;
+	}
+	
+	.section_panel h2 {
+		margin-bottom: 15px;
+	}
+	
+	.section_panel p:last-child {
+		margin: 0;
+	}
+	
+	.grid_list .small_panel {
+		padding: 20px 15px 15px;
+		background: url(<%= asset_path "blocks/small_panel.gif" %>) no-repeat top left;
+		height: 110px;
+		width: 115px;
+		overflow: hidden;
+		position: relative;
+	}
+	
+	.grid_list .small_panel h2 {
+		margin-bottom: 15px;
+		font-size: 14px;
+		line-height: 19px;
+		font-family: karlaregular;
+		word-wrap:break-word;
+		text-align: center;
+	}
+	
+	.grid_list .small_panel p:last-child {
+		margin: 0;
+	}
+	
+/* Notes */
+	
+	.note {
+		width: 180px;
+		height: 140px;
+		padding: 65px 20px 65px;
+		margin-bottom: 40px;
+		text-align: center;
+		position: relative;
+		background: url(<%= asset_path "blocks/note.png" %>) no-repeat top left;
+	}
+	
 	.grid_list li.note {
 		width: 180px;
-		height: 214px;
-		padding: 40px 20px 20px;
-		margin-bottom: 40px;
-		background: url(<%= asset_path "blocks/note.png" %>) no-repeat top left;
+		height: 140px;
+		padding: 65px 20px 65px;
+	}
+	
+	.note h2 { 
+		font-size: 44px; 
+		letter-spacing: 1px;
+		margin-bottom: 13px;
+	}
+	
+	.note h2 span {
+		display: block;
+		font-size: 14px;
+		padding-top: 8px;
+		color: #61514d;
+	}
+	
+	.note p {
+		margin: 5px;
+	}
+	
+	.note .cta {
+		position: absolute;
+		bottom: 20px;
+		left: 38px;
+		margin: 0;
 	}
 	
 /* Panels */
@@ -403,6 +469,10 @@
 		padding: 0;
 		margin: 0;
 	}
+	
+	aside .filter_list:first-child {
+		padding-top: 90px;
+	}
 
 	.warbling_small {
 		margin-bottom: 5px;
@@ -466,6 +536,14 @@
 		background: url(<%= asset_path "assets/avatar_mask.png" %>) no-repeat center center;
 	}
 	
+	.avatar_list {
+		width: 100%;
+		padding: 0;
+		list-style-type: none;
+		overflow: hidden;
+		margin-bottom: 30px;
+	}
+	
 /* Posts */
 
 	article.post {
@@ -514,11 +592,11 @@
 	}
 	
 	article.post_list time {
-		margin-bottom: 3px;
+		margin-bottom: 2px;
 	}
 	
 	article.post_list h2 {
-		margin-bottom: 20px;
+		margin-bottom: 23px;
 		font-size: 20px;
 		text-align: center;
 		padding-top: 0;

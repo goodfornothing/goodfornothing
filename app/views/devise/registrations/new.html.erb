@@ -7,9 +7,7 @@
 		<%= render "shared/notices" %>
 		
 		<p>Did you have an account on our old Ning platform? <%= link_to "Skip registration", login_path %></p>
-		
-		<p>Collaboration and experimentation works best when people know who you are, that's why we'd love to know all of this...</p>
-		
+				
 		<fieldset class="slide warblings">
 			<legend>Which issues are you most passionate about?</legend>
 			<%= f.association :warblings, :as => :check_boxes, :label => "" %>

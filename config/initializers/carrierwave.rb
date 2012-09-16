@@ -20,7 +20,8 @@ if Rails.env.production?
     config.fog_credentials = { 
       :provider               => 'AWS', 
       :aws_access_key_id      => carrierwave_info['s3_key_id'], 
-      :aws_secret_access_key  => carrierwave_info['s3_secret_key'], 
+      :aws_secret_access_key  => carrierwave_info['s3_secret_key'],
+      :region                 => 'eu-west-1'
     } 
     config.fog_directory  = carrierwave_info['bucket']
     config.fog_public     = false

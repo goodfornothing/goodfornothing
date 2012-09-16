@@ -48,6 +48,6 @@ miu = {
 
 $(document).ready(function() {
   $("#gig_description_input textarea").markItUp(myMarkdownSettings);
-  $("#blog_post_body_input textarea").markItUp(myMarkdownSettings);
+  $("#post_body_input textarea").markItUp(myMarkdownSettings);
   $("#brief_description_input textarea").markItUp(myMarkdownSettings);
 });

@@ -8,7 +8,6 @@ gem 'omniauth'
 gem 'simple_form'
 
 gem 'mail'
-gem 'tlsmail'
 gem 'devise_mailchimp'
 gem 'feedzirra'
 gem 'carrierwave'

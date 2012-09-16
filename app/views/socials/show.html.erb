@@ -5,7 +5,9 @@
 	<time><%= @social.start_time.to_formatted_s(:long_ordinal) %></time>
 	<% end %>	
 	
-	<%= simple_format @social.description %>
+	<%= render.markdown(@social.description).html_safe %>
+	
+	<p>Crew</p>
 	
 </section>
 

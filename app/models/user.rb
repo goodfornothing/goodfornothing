@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   scope :crew, where(:crew => true)
   scope :active, where(:activated => true)
+  scope :admins, where(:admin => true)
   
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :mailchimp
 

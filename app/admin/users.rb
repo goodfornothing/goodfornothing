@@ -19,6 +19,7 @@ ActiveAdmin.register User do
     f.inputs "Privileges" do
       f.input :admin
       f.input :crew
+      f.input :activated
     end
     f.buttons
   end
@@ -27,9 +28,6 @@ ActiveAdmin.register User do
     unless user.chapter.nil?
       panel "Chapter" do
         attributes_table_for user do
-          row "Is a member of the crew?" do
-            (user.crew) ? "Yes" : "No"
-          end
           row :chapter
         end
       end

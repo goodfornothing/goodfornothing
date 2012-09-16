@@ -15,7 +15,7 @@ ActiveAdmin.register Post do
   form :html => { :enctype => "multipart/form-data" }  do |f|
     f.inputs "Details" do
       f.input :chapter
-      f.input :user, :label => "Author"
+      f.input :user, :label => "Author", :collection => User.admins
       f.input :warbling
     end
     f.inputs "Post" do   

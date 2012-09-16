@@ -1,11 +1,7 @@
-Good for Nothing Platform
-================
+Good for Nothing Web Hive
+=========================
 
 An embryonic platform to support and amplify the Good for Nothing communities' efforts.
-
-### Basic platform architecture
-
-![Good for Nothing Platform Architecture](http://www.goodfornothing.com/uml2.png)
 
 ## Extra useful stuff
 
@@ -53,9 +49,13 @@ Used to import a CSV Ning user list to a NingProfile model and map it to a core 
 
     rake migrate:ning filename
 
-## We're working on it...
+## Installation:
 
-This is phase one. See [this post](http://www.goodfornothing.com/2012/07/02/building-a-platform-for-uncertainty/) for more about how we plan to roll out features and [our staging site](http://staging.goodfornothing.com) to keep up with progress.
+    rake goodfornothing:install
+
+You'll need to ensure sendmail is enabled on your server, for Engine Yard follow these instructions:
+
+https://support.cloud.engineyard.com/entries/21016513-set-up-ssmtp-for-mail-relay-to-authsmtp    
 
 ## License
 

@@ -20,21 +20,11 @@ Goodfornothing::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  config.action_mailer.default_url_options = { :host => 'staging.goodfornothing.com' }
+  config.action_mailer.default_url_options = { :host => 'goodfornothing.com' }
 
-  config.action_mailer.delivery_method = :smtp
-
-  config.action_mailer.smtp_settings = {
-    :address => 'smtp.gmail.com',
-    :port => 587,
-    :domain => 'pipelineideas.com',
-    :authentication => :plain,
-    :user_name => "andrew.sprinz@pipelineideas.com",
-    :password => 'j0bb3hplop',
-    :enable_starttls_auto => true
-  }
+  config.action_mailer.delivery_method = :sendmail  
+  config.action_mailer.sendmail_settings = {:arguments => "-i"}
   
-
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 

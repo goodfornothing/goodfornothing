@@ -195,6 +195,10 @@
 		font-family: "Good for Nothing";
 		text-align: center;
   }
+
+	.cta .tooltip {
+		font-size: 12px;
+	}
 	
 /* Buttons */
 
@@ -321,7 +325,7 @@
 	}
 	
 /* Articles */ 
-	
+
 	.block h3 {
 		margin-bottom: 3px;
 		font-family: karlaregular;
@@ -330,8 +334,12 @@
 		line-height: 20px;
 	}
 	
+	.block time {
+		font-size: 13px;
+	}
+	
 	.block img.hero {
-		margin-bottom: 15px;
+		margin-bottom: 12px;
 		display: block;
 	}
 	
@@ -461,7 +469,9 @@
 /* Posts */
 
 	article.post {
-		margin-bottom: 40px;
+		margin: 0 auto 40px;
+		width: 640px;
+		overflow: hidden;
 	}
 	
 	article.post:last-child {
@@ -469,21 +479,34 @@
 	}
 
 	article.post h1 {
-		font-size: 26px;
-		margin-bottom: 27px;
+		font-size: 25px;
+		margin-bottom: 12px;
+		text-align: center;
+		padding-top: 15px;
+		line-height: 32px;
 	}
 	
 	article.post h2, article.post h3 {
-		font-family: karlaregular;
+		font-family: karlabold;
+		padding-top: 13px;
+	}
+	
+	article.post h3 {
+		margin-bottom: 15px;
 	}
 	
 	article.post time {
-		margin-bottom: 10px;
+		margin-bottom: 43px;
+		text-align: center;
+	}
+	
+	article.post .hero {
+		margin-bottom: 15px;
+		margin-top: 0px;
 	}
 	
 	article.post iframe,
 	article.post img {
-		max-width: 100%;
 	}
 	
 	article.post_list {
@@ -495,7 +518,10 @@
 	}
 	
 	article.post_list h2 {
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 		font-size: 20px;
+		text-align: center;
+		padding-top: 0;
+		font-family: karlaregular;
 	}
 	

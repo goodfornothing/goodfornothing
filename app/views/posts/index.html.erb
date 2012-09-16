@@ -1,4 +1,4 @@
-<section id="primary_content">
+<section id="primary_content" class="single">
 
 	<h1>Good for Nothing Goings On</h1>
 		
@@ -6,35 +6,24 @@
 	
 		<% @updates.each do |post| %>
 			<article class="post post_list">
-				<% unless post.hero_image.url.nil? %>
-					<%= image_tag post.hero_image.thumbnail, :class => "hero" %>
-				<% end %>
-
+				
 				<time><%= post.created_at.to_formatted_s(:article) %></time>
 				<% if post.body.blank? %>
 					<h2><%= post.title %></h2>
 				<% else %>
 					<h2><%= link_to post.title, post_path(post) %></h2>
 				<% end %>
+				
+				<% unless post.hero_image.url.nil? %>
+					<%= link_to (image_tag post.hero_image, :class => "hero"), post_path(post) %>
+				<% end %>
 
 				<%= markdown.render(post.excerpt).html_safe %>
 			</article>
 		<% end %>
 	
-	<% end %>	
-			
-</section>
-
-<aside id="secondary_content">
-	
-	<p class="cta"><%= link_to "The library", library_path %></p>
-	
-	<% if @warblings.any? %>
-	<ul class="filter_list">
-		<% @warblings.each do |warbling| %>
-			<li class="warbling_small small_warbling_<%= warbling.slug.underscore %>"><%= link_to warbling.title, warbling_path(warbling) %></li>
-		<% end %>
-	</ul>
 	<% end %>
 	
+	<p class="cta strong"><%= link_to "More Warblings", warblings_path %></p>
+			
 </section>

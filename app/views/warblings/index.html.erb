@@ -1,9 +1,9 @@
 <section id="primary_content">
 
-	<h1>Warblings</h1>
+	<h1>Warbling about Good</h1>
 	
 	<div class="abstract">
-		<p>Warblings are community driven streams of consciousness around topics that matter &ndash; thoughts, ponderances and snippets from the web.</p>
+		<p>Warblings are community driven streams of consciousness around topics that matter &ndash; <br />thoughts, ponderances and snippets from the web.</p>
 	</div>
 	
 	<% if @warblings %>
@@ -13,21 +13,11 @@
 		<% end %>
 	</ul>
 	<% end %>
+	
+	<p class="cta strong"><%= link_to "GFN updates", posts_path %></p>
 			
 </section>
 
 <aside id="secondary_content">	
-	<p class="cta"><%= link_to "The library".html_safe, library_path %></p>
-	
-	<% if @updates.any? %>
-	<ul id="updates_list">
-		<% @updates.each do |post| %>
-			<li>
-				<%= render :partial => "posts/block", :locals => { :post => post } %>
-			</li>
-		<% end %>
-	</ul>
-	<p class="more"><%= link_to "GFN updates", posts_path %>
-	<% end %>
-	
+	<p class="cta"><%= link_to "The library".html_safe, library_path, :class => "tip", :title => "For Web-based research" %></p>
 </aside>

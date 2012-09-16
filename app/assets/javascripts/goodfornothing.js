@@ -41,7 +41,8 @@ $(document).ready(function(){
 	
 	// Tips
 	$(".hint a[title]").tooltip({offset: [-1, 22]	});
-	$(".tip[title]").tooltip({ offset: [-3, 40] });
-
+	$(".avatar .tip[title]").tooltip({ offset: [-3, 40] });
+	$(".cta .tip[title]").tooltip({ offset: [3, 100] });
+	
 	
 });

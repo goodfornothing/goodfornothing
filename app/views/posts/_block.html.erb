@@ -1,7 +1,7 @@
 <div class="block">
 	
 	<% unless post.hero_image.url.nil? %>
-		<%= image_tag post.hero_image.thumbnail, :class => "hero" %>
+		<%= link_to (image_tag post.hero_image.panel, :class => "hero"), post_path(post) %>
 	<% end %>
 	
 	<time><%= post.created_at.to_formatted_s(:article) %></time>

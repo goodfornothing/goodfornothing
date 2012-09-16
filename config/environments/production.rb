@@ -27,11 +27,11 @@ Goodfornothing::Application.configure do
   config.action_mailer.smtp_settings = {
     :address => 'smtp.gmail.com',
     :port => 587,
-    :tls => true,
     :domain => 'pipelineideas.com',
     :authentication => :plain,
     :user_name => "andrew.sprinz@pipelineideas.com",
-    :password => 'j0bb3hplop'
+    :password => 'j0bb3hplop',
+    :enable_starttls_auto => true
   }
   
 

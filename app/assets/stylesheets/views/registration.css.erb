@@ -1,15 +1,141 @@
-.section_registrations.view_new #new_user {
+#new_user.slides {
 	width: 800px;
 	margin: 20px 0 50px;
 }
 
-.section_registrations.view_new #new_user h1 {
+#new_user.slides h1 {
 	font-size: 13px;
 	width: 495px;
 	height: 60px;
-	margin: 0 auto 40px;
+	margin: 0 auto 70px;
 }
 
-.section_registrations.view_new #new_user h1 span {
+#new_user.slides h1 span {
 	background: url(<%= asset_path "text/join.gif" %>) no-repeat;
 }
+
+#new_user.slides p.notice {
+	text-align: center;
+	margin-bottom: 40px;
+	display: none;
+}
+
+#new_user.slides fieldset {
+	min-height: 330px;
+	margin: 0;
+	padding-top: 40px;
+	padding-bottom: 0;
+}
+
+.section_registrations.view_new #pagination {
+	margin: 0 auto;
+	display: inline-block;
+	padding: 0 0 0 15px;
+	background: url(<%= asset_path "assets/white_squiggle.png" %>) repeat-x center center;
+}
+
+.section_registrations.view_new #pagination li.page_links {
+	font-family: "Good for Nothing";
+	display: inline-block;
+	color: #085156;
+	font-size: 18px;
+	width: 30px;
+	text-align: center;
+	line-height: 36px;
+	height: 31px;
+	cursor: pointer;
+	padding: 0;
+	margin-right: 15px;
+	background: url(<%= asset_path "assets/single_splodge_1.png" %>) no-repeat;
+}
+
+.section_registrations.view_new #pagination li.page_links:hover,
+.section_registrations.view_new #pagination li.page_links:active,
+.section_registrations.view_new #pagination li.page_links:focus,
+.section_registrations.view_new #pagination li.page_links.current {
+	background-position: left bottom;
+	color: #ffffff;
+}
+
+.section_registrations.view_new #pagination .prev,
+.section_registrations.view_new #pagination .next {
+	text-indent: -13377px;
+	display: block;
+	height: 60px;
+	width: 60px;
+	position: absolute;
+	top: 300px;
+	left: 0;
+	background: url(<%= asset_path "icons/previous.png" %>) no-repeat top left;
+	cursor: pointer;
+}
+
+.section_registrations.view_new #pagination .next {
+	right: 0; left: auto;
+	background: url(<%= asset_path "icons/next.png" %>) no-repeat top left;
+}
+
+#new_user.slides .warblings .input.check_boxes {
+	width: 750px;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+	left: -20px;
+}
+
+#new_user.slides .warblings .checkbox {
+	font-size: 22px;
+	font-family: "Good for Nothing";
+	width: 112px;
+	margin: 0 20px 30px;
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	line-height: 55px;
+	height: 50px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#new_user.slides .warblings .js {
+	background: url(<%= asset_path "assets/white_border_1.png" %>) no-repeat 0 0;
+}
+
+#new_user.slides .warblings .js input {
+	display: none;
+}
+
+#new_user.slides .warblings .js:nth-child(3) {
+	width: 172px; font-size: 21px;
+	background: url(<%= asset_path "assets/white_border_3.png" %>) no-repeat 0 0;
+}
+
+#new_user.slides .warblings .js:nth-child(4) {
+	width: 173px; font-size: 20px;
+	background: url(<%= asset_path "assets/white_border_4.png" %>) no-repeat 0 0;
+}
+
+#new_user.slides .warblings .js:nth-child(5) {
+	width: 172px; 
+	background: url(<%= asset_path "assets/white_border_3.png" %>) no-repeat 0 0;
+}
+
+#new_user.slides .warblings .js:nth-child(6) {
+	width: 107px; 
+	background: url(<%= asset_path "assets/white_border_5.png" %>) no-repeat 0 0;
+}
+
+#new_user.slides .warblings .js:nth-child(7) {
+	width: 172px; font-size: 21px;
+	background: url(<%= asset_path "assets/white_border_3.png" %>) no-repeat 0 0;
+}
+
+#new_user.slides .warblings .js:nth-child(9) {
+	width: 147px; font-size: 20px;
+	background: url(<%= asset_path "assets/white_border_2.png" %>) no-repeat 0 0;
+}
+
+#new_user.slides .warblings .checkbox.checked {
+	background-color: #D0122D;
+}
+

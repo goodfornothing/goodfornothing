@@ -6,7 +6,7 @@
 		
 		<%= render "shared/notices" %>
 		
-		<p>Did you have an account on our old Ning platform? <%= link_to "Skip registration", login_path %></p>
+		<p class="notice">Hold up there, did you have an account on old Ning? <%= link_to "Skip registration!", login_path %></p>
 				
 		<fieldset class="slide warblings">
 			<legend>Which issues are you most passionate about?</legend>
@@ -16,7 +16,7 @@
 		<fieldset class="slide chapters">
 			<legend>Which Good for Nothing chapter are you closest to?</legend>
 			<%= f.association :chapter, :as => :radio_buttons, :label => "" %>
-			<%= f.input :location, :as => :select, :label => "If you're not close to any, where are you?", :collection => @locations %>
+			<%= f.input :location, :as => :select, :include_blank => "No chapter near you? Where do you live?", :collection => @locations %>
 		</fieldset>
 		
 		<fieldset class="slide involvement">

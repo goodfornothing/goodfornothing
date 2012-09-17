@@ -1,8 +1,8 @@
 <section id="primary_content" class="single">
 	
+	<% if @first_sign_in %>
 	<div id="profile_welcome">
-	
-		<% if @first_sign_in %>
+
 		<section class="welcome">
 			<h2>Welcome to our new web hive!</h2>
 			<ul>
@@ -11,9 +11,9 @@
 			</ul>
 			<p>&hellip; or just take a few seconds to tell your story and share your skills. The more you give, the more you'll get back. And the better we'll get at gathering amazing folk to turbo-charge challenges.</p>
 		</section>
-		<% end %>
 		
 	</div>
+	<% end %>
 
 	<div id="profile">
 		

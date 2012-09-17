@@ -14,7 +14,7 @@
 		</fieldset>
 		
 		<fieldset class="slide chapters">
-			<legend>Which Good for Nothing chapter are you closest to?</legend>
+			<legend>Which is your closest GFN chapter?</legend>
 			<%= f.association :chapter, :as => :radio_buttons, :label => "" %>
 		</fieldset>
 		
@@ -36,14 +36,23 @@
 
 		<fieldset>
 			<legend>Claim your profile</legend>
-			<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
-			<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
-			<%= f.input :password, :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
-			<%= f.input :password_confirmation, :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
 			
-			<%= f.input :reasons_for_joining, :input_html => { :rows => 5 }, :wrapper_html => { :class => "smart_label" } %>
-			<%= f.input :join_mailing_list, :as => :boolean, :label => "Join the GFN mailing list?" %>
+			<div class="form_panels">
+				<div class="half_panel">
+					<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
+					<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
+					<%= f.input :password, :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
+					<%= f.input :password_confirmation, :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
+				</div>
+			
+				<div class="half_panel">
+					<%= f.input :reasons_for_joining, :label => "Why do you want to do Good for Nothing?", :input_html => { :rows => 9 }, :wrapper_html => { :class => "smart_label" } %>
+					<%= f.input :join_mailing_list, :as => :boolean, :label => "Join the GFN mailing list?" %>
+				</div>
+			</div>
+			
 			<%= f.button :submit, "Create my profile" %>
+			
 		</fieldset>
 		
 	<% end %>

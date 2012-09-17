@@ -4,7 +4,7 @@
 	<div id="profile_welcome">
 
 		<section class="welcome">
-			<h2>Welcome to our new web hive!</h2>
+			<h2>Welcome to our new web hive!<br /> So, what next?</h2>
 			<ul>
 				<li class="cta strong"><%= link_to "Find a challenge", challenges_path %></li>
 				<li class="cta strong"><%= link_to "Attend an event", calendar_path %></li>
@@ -64,7 +64,7 @@
 			</div>
 		
 			<ul>
-				<li><%= contextual_reference(@member).titlecase %> <%= @member.time_active %></li>
+				<li><%= contextual_reference(@member).titlecase %> <%= time_active(@member) %></li>
 				<%= "<li>Living in #{@member.location}</li>".html_safe if @member.location %>
 				<%= "<li>#{@member.gender}</li>".html_safe if @member.gender %>
 				<%= "<li>#{@member.age}</li>".html_safe if @member.age %>
@@ -90,7 +90,7 @@
 			<% end %>
 		
 			<% unless @member.brings.nil? %>
-				<h2>Special skillz</h2>
+				<h2>Special skills</h2>
 				<p><%= @member.brings %></p>
 			<% end %>
 		

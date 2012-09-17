@@ -48,10 +48,10 @@
 			$(children).each(function(i){
 				var child = $(this);
 				child.hide();
-				if(i>=lower && i<upper){ setTimeout(function(){ child.fadeIn('fast') }, ( i-( Math.floor(i/step) * step) )*options.delay ); }
+				if(i>=lower && i<upper){ setTimeout(function(){ child.show() }, ( i-( Math.floor(i/step) * step) )*options.delay ); }
 				if(options.nextprev){
-					if(upper >= count) { next.fadeOut('fast'); } else { next.fadeIn('fast'); };
-					if(lower >= 1) { prev.fadeIn('fast'); } else { prev.fadeOut('fast'); };
+					if(upper >= count) { next.hide(); } else { next.show(); };
+					if(lower >= 1) { prev.show(); } else { prev.hide(); };
 				};
 			});	
 			$('li','#'+ options.controls).removeClass(options.current);
@@ -104,7 +104,7 @@
 					next = $('<li class="next">Next</li>')
 						.hide()
 						.appendTo(ol)
-						.click(function(){
+						.click(function(ev){
 							clicked = true;			
 							page++;
 							show();

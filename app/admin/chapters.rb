@@ -25,7 +25,6 @@ ActiveAdmin.register Chapter do
       f.input :title, :label => "Name"
       f.input :city
       f.input :country
-      f.input :users, :as => :check_boxes, :label => "Organised by", :collection => User.active
     end
     f.buttons
   end

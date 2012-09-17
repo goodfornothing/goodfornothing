@@ -16,5 +16,4 @@
  *= require assets
  *= require_tree ./views
  *= require jquery.selectBox
- *= require uniform.default
 */

@@ -5,7 +5,7 @@ module UsersHelper
     if years < 1
       months = Time.now.month - user.created_at.month
       if months < 1
-        "has just joined"
+        nil
       else
         "been a member for #{pluralize(months,'month')}"
       end

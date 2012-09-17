@@ -11,17 +11,12 @@
 		<fieldset class="slide warblings">
 			<legend>Which issues are you most passionate about?</legend>
 			<%= f.association :warblings, :as => :check_boxes, :label => "" %>
-		</fieldset>
-		
-		<fieldset class="slide chapters">
-			<legend>Which is your closest GFN chapter?</legend>
-			<%= f.association :chapter, :as => :radio_buttons, :label => "" %>
-			<p class="footnote">Some note about starting your own.</p>
+			<%= image_tag "illustrations/teacup.png", :class => "slide_illustration" %>
 		</fieldset>
 		
 		<fieldset class="slide involvement">
 			
-			<legend>Your talents</legend>
+			<legend>Where do your interests lie?</legend>
 			<% if @skills.any? %>
 
 				<% @skills.each do |skill| %>
@@ -35,18 +30,25 @@
 				<% end %>
 				
 			<% end %>
-						
+			<%= image_tag "illustrations/laptop.png", :class => "slide_illustration" %>
+			
+		</fieldset>
+		
+		<fieldset class="slide chapters">
+			<legend>Do you live near a GFN chapter?</legend>
+			<%= f.association :chapter, :as => :radio_buttons, :label => "" %>
+			<%= image_tag "illustrations/maptorch.png", :class => "slide_illustration" %>
 		</fieldset>
 
 		<fieldset class="slide claim">
-			<legend>Claim your profile</legend>
+			<legend>A little bit about you</legend>
 			
 			<div class="form_panels">
 				<div class="half_panel">
 					<%= f.input :name, :label => "Your name", :required => true, :wrapper_html => { :class => "smart_label" } %>
 					<%= f.input :email, :label => "Your email address", :required => true, :wrapper_html => { :class => "smart_label" } %>
-					<%= f.input :password, :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
-					<%= f.input :password_confirmation, :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
+					<%= f.input :password, :label => "Choose a password", :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
+					<%= f.input :password_confirmation, :label => "Type your password again", :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
 				</div>
 			
 				<div class="half_panel">

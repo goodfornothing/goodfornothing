@@ -13,10 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.selectBox.min
-//= require jquery.uniform.min
 //= require jquery.tools.min
 //= require jquery.validate.min
-//= require limit_chars
 //= require jquery.remotipart
 //= require paginate
 //= require_tree .

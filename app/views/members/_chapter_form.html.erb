@@ -1,0 +1,4 @@
+<%= simple_form_for(@member, :as => 'user', :url => registration_path(@member), :html => { :remote => true, :method => :put, :class => "inline_form avatar_form" }) do |f| %>				
+	<%= f.association :chapter, :as => :select, :include_blank => "Join a chapter" %>
+	<%= f.button :submit, "Change" %>
+<% end %>

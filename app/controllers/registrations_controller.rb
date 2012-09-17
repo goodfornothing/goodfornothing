@@ -190,9 +190,9 @@ class RegistrationsController < Devise::RegistrationsController
     def check_subscription(resource)
       if resource.subscribed?
         mc = Gibbon.new()
-        puts mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address =>resource.email})
+        mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :double_optin => false})
       else
-        p "unsubscribe"
+        mc.list_unsubscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :send_goodbye => false, :send_notify => false})
       end
     end
     

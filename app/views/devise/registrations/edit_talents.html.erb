@@ -6,12 +6,20 @@
 		
 		<%= render "shared/notices" %>
 
-		<fieldset>		
+		<fieldset>	
+				
 			<% if @skills.any? %>
+
 				<% @skills.each do |skill| %>
-					<%= f.label skill.title %>
-					<%= range_field_tag "skill[#{skill.id}]", resource.skill_level(skill) || 0, :in => 0...11, :step => 1 %>
+				<ul class="range_slider">
+					<li class="skill"><%= f.label skill.title %></li>
+					<li class="details" title="<%= skill.description %>">?</li>
+					<li class="limit"><%= skill.lower %></li>
+					<li class="ranger"><%= range_field_tag "skill[#{skill.id}]", resource.skill_level(skill) || 1, :in => 0...11, :step => 1 %></li>
+					<li class="limit"><%= skill.upper %></li>
+				</ul>
 				<% end %>
+				
 			<% end %>
 			
 			<%= f.input :brings, :label => "What other special skills do you bring?", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 4 } %>

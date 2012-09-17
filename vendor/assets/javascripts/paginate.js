@@ -81,7 +81,9 @@
 					prev = $('<li class="prev">Previous</li>')
 						.hide()
 						.appendTo(ol)
-						.click(function(){
+						.click(function(ev){
+							ev.preventDefault();
+							ev.stopPropagation();
 							clicked = true;
 							page--;
 							show();
@@ -92,7 +94,9 @@
 					for(var i=1;i<=pages;i++){
 					$('<li data-index="'+ i +'">'+ i +'</li>')
 						.appendTo(ol)
-						.click(function(){	
+						.click(function(ev){	
+							ev.preventDefault();
+							ev.stopPropagation();
 							clicked = true;
 							page = $(this).attr('data-index');
 							show();
@@ -105,9 +109,12 @@
 						.hide()
 						.appendTo(ol)
 						.click(function(ev){
+							ev.preventDefault();
+							ev.stopPropagation();
 							clicked = true;			
 							page++;
 							show();
+							return false;
 						});
 				};
 			

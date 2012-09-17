@@ -41,15 +41,30 @@ $(document).ready(function(){
 	$(".slide .checkbox input").each(function(index,input){
 		
 		checked = $(input).attr('checked')?true:false;
-		if(checked){
-			$($(input).parents('label')[0]).addClass('checked');
-		} else {
-			$($(input).parents('label')[0]).removeClass('checked');
-		}
+		if(checked) $($(input).parents('label')[0]).addClass('checked');
 		
 		$(input).change(function(ev){
 			checked = $(this).attr('checked')?true:false;
 			if(checked){
+				$($(this).parents('label')[0]).addClass('checked');
+			} else {
+				$($(this).parents('label')[0]).removeClass('checked');
+			}
+		});
+		
+	});
+	
+	// Radios
+	$(".slide .radio").addClass('js');
+	$(".slide .radio input").each(function(index,input){
+
+		checked = $(input).attr('checked')?true:false;
+		if(checked) $($(input).parents('label')[0]).addClass('checked');
+		
+		$(input).change(function(ev){			
+			checked = $(this).attr('checked')?true:false;
+			if(checked){
+				$($(this).parents('.radio_buttons')[0]).find('.radio').removeClass('checked');
 				$($(this).parents('label')[0]).addClass('checked');
 			} else {
 				$($(this).parents('label')[0]).removeClass('checked');

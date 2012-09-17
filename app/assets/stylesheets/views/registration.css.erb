@@ -7,7 +7,7 @@
 	font-size: 13px;
 	width: 495px;
 	height: 60px;
-	margin: 0 auto 70px;
+	margin: 0 auto 80px;
 }
 
 #new_user.slides h1 span {
@@ -21,9 +21,9 @@
 }
 
 #new_user.slides fieldset {
-	min-height: 330px;
+	min-height: 320px;
 	margin: 0;
-	padding-top: 40px;
+	padding-top: 50px;
 	padding-bottom: 0;
 }
 
@@ -64,7 +64,7 @@
 	height: 60px;
 	width: 60px;
 	position: absolute;
-	top: 300px;
+	top: 340px;
 	left: 0;
 	background: url(<%= asset_path "icons/previous.png" %>) no-repeat top left;
 	cursor: pointer;
@@ -87,7 +87,7 @@
 	font-size: 22px;
 	font-family: "Good for Nothing";
 	width: 112px;
-	margin: 0 20px 30px;
+	margin: 0 20px 20px;
 	display: inline-block;
 	text-align: center;
 	position: relative;
@@ -97,40 +97,40 @@
 	cursor: pointer;
 }
 
-#new_user.slides .warblings .js {
+#new_user.slides .warblings .checkbox.js {
 	background: url(<%= asset_path "assets/white_border_1.png" %>) no-repeat 0 0;
 }
 
-#new_user.slides .warblings .js input {
+#new_user.slides .warblings .checkbox.js input {
 	display: none;
 }
 
-#new_user.slides .warblings .js:nth-child(3) {
+#new_user.slides .warblings .checkbox.js:nth-child(3) {
 	width: 172px; font-size: 21px;
 	background: url(<%= asset_path "assets/white_border_3.png" %>) no-repeat 0 0;
 }
 
-#new_user.slides .warblings .js:nth-child(4) {
+#new_user.slides .warblings .checkbox.js:nth-child(4) {
 	width: 173px; font-size: 20px;
 	background: url(<%= asset_path "assets/white_border_4.png" %>) no-repeat 0 0;
 }
 
-#new_user.slides .warblings .js:nth-child(5) {
+#new_user.slides .warblings .checkbox.js:nth-child(5) {
 	width: 172px; 
 	background: url(<%= asset_path "assets/white_border_3.png" %>) no-repeat 0 0;
 }
 
-#new_user.slides .warblings .js:nth-child(6) {
+#new_user.slides .warblings .checkbox.js:nth-child(6) {
 	width: 107px; 
 	background: url(<%= asset_path "assets/white_border_5.png" %>) no-repeat 0 0;
 }
 
-#new_user.slides .warblings .js:nth-child(7) {
+#new_user.slides .warblings .checkbox.js:nth-child(7) {
 	width: 172px; font-size: 21px;
 	background: url(<%= asset_path "assets/white_border_3.png" %>) no-repeat 0 0;
 }
 
-#new_user.slides .warblings .js:nth-child(9) {
+#new_user.slides .warblings .checkbox.js:nth-child(9) {
 	width: 147px; font-size: 20px;
 	background: url(<%= asset_path "assets/white_border_2.png" %>) no-repeat 0 0;
 }
@@ -139,3 +139,51 @@
 	background-color: #D0122D;
 }
 
+#new_user.slides .chapters .input.radio_buttons {
+	position: relative;
+	left: -10px;
+	text-align: center;
+}
+
+#new_user.slides .chapters .radio.js input {
+	display: none;
+}
+
+#new_user.slides .chapters .radio.js {
+	font-size: 20px;
+	font-family: "Good for Nothing";
+	width: 150px;
+	background: url(<%= asset_path "assets/white_splodge.gif" %>) no-repeat top left;
+	color: #9adada;
+	margin: 0 10px 0 0;
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	line-height: 150px;
+	vertical-align: middle;
+	height: 147px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#new_user.slides .chapters .radio.checked {
+	color: #D0122D;
+}
+
+#new_user.slides .chapters .radio.js:nth-child(2) {
+	background: url(<%= asset_path "assets/white_splodge_2.gif" %>) no-repeat top left;
+	height: 154px;
+	width: 150px;
+}
+
+#new_user.slides .chapters .radio.js:nth-child(4) {
+	background: url(<%= asset_path "assets/white_splodge_3.gif" %>) no-repeat top left;
+	height: 154px;
+	width: 150px;
+}
+
+#new_user.slides .chapters .radio.js:nth-child(6) {
+	background: url(<%= asset_path "assets/white_splodge_2.gif" %>) no-repeat top left;
+	height: 154px;
+	width: 150px;
+}

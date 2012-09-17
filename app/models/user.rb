@@ -85,6 +85,20 @@ class User < ActiveRecord::Base
     (self.online_encountered + self.offline_encountered).uniq
   end
   
+  def time_active
+    years = (Time.now.year) - (self.created_at.year)
+    if years < 1
+      months = Time.now.month - self.created_at.month
+      if months < 1
+        "has just joined"
+      else
+        "been a member for #{months} months"
+      end
+    else
+      "been a member for #{years} years"
+    end
+  end
+  
   protected
      def password_required?
       !persisted? || password.present? || password_confirmation.present?

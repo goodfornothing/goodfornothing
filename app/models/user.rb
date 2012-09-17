@@ -4,11 +4,11 @@ class User < ActiveRecord::Base
   scope :active, where(:activated => true)
   scope :admins, where(:admin => true)
   
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :mailchimp
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :email, :password, :password_confirmation, :current_password,
                   :remember_me, :join_mailing_list, :admin, :name, :brings,
-                  :gender, :age, :url, :location, :twitter_handle, :activated,
+                  :gender, :age, :url, :location, :twitter_handle, :activated, :subscribed,
                   :chapter_id, :avatar, :warbling_ids, :reasons_for_joining, :crew
 
   has_one :ning_profile

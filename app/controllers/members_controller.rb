@@ -3,8 +3,8 @@ class MembersController < ApplicationController
 	def index
 	  
 	  if user_signed_in?
-	    @members = User.active.where('id != ?', current_user.id)
-	    @chapter_members = (current_user.chapter.present?) ? current_user.chapter.users.active.where('id != ?', current_user.id) : []
+	    @members = User.active
+	    @chapter_members = (current_user.chapter.present?) ? current_user.chapter.users.active : []
   	  @member_reach = current_user.member_reach
 	  else
 	    @members = User.active

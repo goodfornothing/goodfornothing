@@ -16,6 +16,7 @@
 		<fieldset class="slide chapters">
 			<legend>Which is your closest GFN chapter?</legend>
 			<%= f.association :chapter, :as => :radio_buttons, :label => "" %>
+			<p class="footnote">Some note about starting your own.</p>
 		</fieldset>
 		
 		<fieldset class="slide involvement">
@@ -24,34 +25,37 @@
 			<% if @skills.any? %>
 
 				<% @skills.each do |skill| %>
-					<%= f.label skill.title %>
-					<%= range_field_tag "skill[#{skill.id}]", resource.skill_level(skill) || 0, :in => 0...11, :step => 1 %>
+				<ul class="range_slider">
+					<li class="skill"><%= f.label skill.title %></li>
+					<li class="details" title="<%= skill.description %>">?</li>
+					<li class="limit"><%= skill.lower %></li>
+					<li class="ranger"><%= range_field_tag "skill[#{skill.id}]", resource.skill_level(skill) || 1, :in => 0...11, :step => 1 %></li>
+					<li class="limit"><%= skill.upper %></li>
+				</ul>
 				<% end %>
-
+				
 			<% end %>
-			
-			<p class="footnote">You can tell us more about your skills from your profile</p>
-			
+						
 		</fieldset>
 
-		<fieldset>
+		<fieldset class="slide claim">
 			<legend>Claim your profile</legend>
 			
 			<div class="form_panels">
 				<div class="half_panel">
-					<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
-					<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
+					<%= f.input :name, :label => "Your name", :required => true, :wrapper_html => { :class => "smart_label" } %>
+					<%= f.input :email, :label => "Your email address", :required => true, :wrapper_html => { :class => "smart_label" } %>
 					<%= f.input :password, :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
 					<%= f.input :password_confirmation, :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
 				</div>
 			
 				<div class="half_panel">
-					<%= f.input :reasons_for_joining, :label => "Why do you want to do Good for Nothing?", :input_html => { :rows => 9 }, :wrapper_html => { :class => "smart_label" } %>
-					<%= f.input :join_mailing_list, :as => :boolean, :label => "Join the GFN mailing list?" %>
+					<%= f.input :reasons_for_joining, :label => "What makes you want to do Good for Nothing?", :input_html => { :rows => 9 }, :wrapper_html => { :class => "smart_label" } %>
+					<%= f.input :subscribed, :label => "Join the GFN mailing list?" %>
 				</div>
 			</div>
 			
-			<%= f.button :submit, "Create my profile" %>
+			<%= f.button :submit, "Let me in!" %>
 			
 		</fieldset>
 		

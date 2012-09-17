@@ -49,7 +49,7 @@ class RegistrationsController < Devise::RegistrationsController
       if resource.save
       
         save_talents(resource)
-        save_gig_activity
+        check_subscription(resource)
         AdminMailer.new_user(resource).deliver
       
         if resource.active_for_authentication?
@@ -108,6 +108,8 @@ class RegistrationsController < Devise::RegistrationsController
   def update
     
     if resource.update_attributes(params[resource_name])
+      
+      check_subscription(resource)
       
       sign_in resource_name, resource, :bypass => true
       if remotipart_submitted?
@@ -184,6 +186,15 @@ class RegistrationsController < Devise::RegistrationsController
   end 
   
   protected
+    
+    def check_subscription(resource)
+      if resource.subscribed?
+        mc = Gibbon.new()
+        puts mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address =>resource.email})
+      else
+        p "unsubscribe"
+      end
+    end
     
     def fetch_associations
       @skills = Skill.all

@@ -11,7 +11,7 @@
 	font-size: 13px;
 	width: 495px;
 	height: 60px;
-	margin: 0 auto 50px;
+	margin: 0 auto 65px;
 }
 
 #new_user.slides h1 span {
@@ -29,6 +29,7 @@
 	margin: 0;
 	padding-top: 50px;
 	padding-bottom: 0;
+	position: relative;
 }
 
 .section_registrations.view_new #pagination {
@@ -220,4 +221,70 @@
 
 #new_user .half_panel:first-child {
 	float: left;
+}
+
+.range_slider {
+	list-style-type: none;
+	padding: 0;
+	text-align: left;
+	width: 735px;
+	margin: 0 auto 10px;
+	position: relative;
+}
+
+.range_slider:last-child { margin-bottom: 0; }
+
+.range_slider li {
+	display: inline-block;
+	padding: 0;
+}
+
+.range_slider li.skill {
+	font-size: 19px;
+	font-family: "Good for Nothing";
+	background: url(<%= asset_path "assets/semi_border.png" %>) no-repeat 0 0;
+	width: 91px;
+	line-height: 55px;
+	text-align: center;
+	margin-right: 5px;
+}
+
+.range_slider li.details {
+	height: 40px;
+	width: 37px;
+	background: url(<%= asset_path "assets/tip_button.png"%>) no-repeat 0 0;
+	font-size: #ffffff;
+	font-size: 22px;
+	line-height: 45px;
+	font-family: "Good for Nothing";
+	text-align: center;
+	cursor: pointer;
+}
+
+.range_slider li.ranger {
+	position: relative;
+	top: 23px;
+}
+
+.range_slider li.limit {
+	font-size: 16px;
+	font-family: "Good for Nothing";
+	color: #085156;
+	width: 60px;
+	text-align: right;
+	padding: 0 3px;
+}
+
+.range_slider li.limit:last-child {
+	text-align: left;
+}
+
+#new_user.slides fieldset.claim {
+	padding-bottom: 50px;
+}
+
+#new_user .claim .btn {
+	position: absolute;
+	bottom: -40px;
+	left: 280px;
 }

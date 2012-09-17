@@ -8,7 +8,7 @@ gem 'omniauth'
 gem 'simple_form'
 
 gem 'mail'
-gem 'devise_mailchimp'
+gem 'gibbon'
 gem 'feedzirra'
 gem 'carrierwave'
 gem 'mini_magick','~> 3.3'

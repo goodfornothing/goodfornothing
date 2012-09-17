@@ -1,6 +1,3 @@
-yaml_file = File.join(Rails.root, "config", "mailchimp.yml")
-mailchimp_info = YAML.load_file(yaml_file)[Rails.env.to_s]
-
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -8,9 +5,6 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "hello@goodfornothing.com"
-
-  Devise.mailchimp_api_key = mailchimp_info['api_key']
-  Devise.mailing_list_name = mailchimp_info['list_name']
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"

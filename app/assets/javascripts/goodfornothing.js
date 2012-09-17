@@ -37,8 +37,8 @@ $(document).ready(function(){
 	$('.single form .input.select label').hide();
 	
 	// Checkboxes
-	$(".slide .checkbox").addClass('js');
-	$(".slide .checkbox input").each(function(index,input){
+	$(".warblings .checkbox").addClass('js');
+	$(".warblings .checkbox input").each(function(index,input){
 		
 		checked = $(input).attr('checked')?true:false;
 		if(checked) $($(input).parents('label')[0]).addClass('checked');
@@ -80,6 +80,7 @@ $(document).ready(function(){
 	$(".hint a[title]").tooltip({offset: [-1, 22]	});
 	$(".avatar .tip[title]").tooltip({ offset: [-3, 40] });
 	$(".cta .tip[title]").tooltip({ offset: [3, 100] });
+	$(".range_slider .details[title]").tooltip({ offset: [0, -50],tipClass: 'tooltip_large' });
 	
 	$('#new_user.slides').easyPaginate({ step: 1 });
 	$('#new_user.slides').append($('#pagination'))

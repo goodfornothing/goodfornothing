@@ -1,0 +1,21 @@
+<div class="challenge_panel">
+	
+	<h2><%= link_to challenge.title, challenge_path(challenge) %></h2>
+	
+	<ul class="stats">
+		<%= "<li>#{spannerize(pluralize(challenge.bookmarks.count,'inspiration'))}</li>".html_safe if challenge.bookmarks.any? %>
+		<%= "<li>#{spannerize(pluralize(challenge.ideas.count,'idea'))}</li>".html_safe if challenge.ideas.any? %>
+		<%= "<li>#{spannerize(pluralize(challenge.contributions.count,'contribution'))}</li>".html_safe if challenge.contributions.any? %>
+	</ul>
+	
+	<% if challenge.warblings.any? %>
+		<%= link_to (image_tag "warblings/#{challenge.warblings.first.slug}.png", :class => "tip", :title => "#{challenge.warblings.map(&:title).to_sentence}"), warbling_challenges_path(challenge.warblings.first) %>
+	<% end %>
+	
+	<% if challenge.venture %>
+		<%= "<p class='cause'>For #{challenge.venture.name}</p>".html_safe  %>
+	<% elsif challenge.gig.present? && challenge.gig.partner %>
+		<p class='cause'><%= "In partnership with #{challenge.gig.partner.name}"%></p>
+	<% end %>
+	
+</div>

@@ -12,6 +12,7 @@ ActiveAdmin.register Slot do
     
     index do
       column :skill
+      column :custom_skill
       column :limit
       column :gig
       default_actions
@@ -20,6 +21,7 @@ ActiveAdmin.register Slot do
     show do |skill|
       attributes_table do
         row :skill
+        row :custom_skill
         row :limit
         row :gig
       end
@@ -28,6 +30,7 @@ ActiveAdmin.register Slot do
     form :html => { :enctype => "multipart/form-data" }  do |f|
       f.inputs "Details" do
         f.input :skill
+        f.input :custom_skill, :label => "...or custom skill"
         f.input :gig
         f.input :limit
       end

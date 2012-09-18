@@ -21,6 +21,7 @@ ActiveAdmin.register Challenge do
       row :description
       row :gig
       row :venture
+      row :partner
       row "Warblings" do |i|
         i.warblings.map{ |w| w.title }.join(', ')
       end
@@ -36,11 +37,12 @@ ActiveAdmin.register Challenge do
     f.inputs "Associations" do
       f.input :gig
       f.input :venture
+      f.input :partner
       f.input :warblings, :as => :check_boxes
     end
     f.inputs "Content" do
       f.input :title
-      f.input :description, :input_html => { :rows => 5 }
+      f.input :description, :input_html => { :rows => 12 }
       f.input :featured
     end
     f.inputs "Inspirations" do

@@ -33,8 +33,9 @@
 	<% if @challenge.bookmarks.any? %>
 	
 		<h2>Inspirations</h2>
-		<% @bookmarks = @challenge.bookmarks %>
-		<%= render :partial => "bookmarks/list" %>
+		<% @challenge.bookmarks.each do |bookmark| %>
+			<li><%= link_to truncate(bookmark.title, :length => 80, :omission => '&hellip;').html_safe, bookmark.url %></li>
+		<% end %>
 		
 	<% end %>
 	

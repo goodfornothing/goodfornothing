@@ -81,6 +81,7 @@ $(document).ready(function(){
 	$(".avatar .tip[title]").tooltip({ offset: [-3, 40] });
 	$(".cta .tip[title]").tooltip({ offset: [3, 100] });
 	$(".range_slider .details[title]").tooltip({ offset: [0, -50],tipClass: 'tooltip_large' });
+	$('.challenge_panel .tip').tooltip({ offset: [3, 60] });
 	
 	// Registration form
 	$('#new_user.slides').easyPaginate({ step: 1 });

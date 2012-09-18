@@ -1,25 +1,31 @@
 <section id="primary_content">
 	
-	<h1>Challenges that matter</h1>
+	<h1>
+		<% if @warbling %>
+		<%= @warbling.title %> challenges
+		<% else %>
+		Challenges that matter
+		<% end %>
+	</h1>
 
-	<p>Good for Nothing is about collaborating and experimenting to create disruptive solutions to some of the biggest issues of our time. Most of these experiments take the form of challenges; some of which will be tackled at gigs, some with groups of your friends or colleagues, some over a cuppa'&hellip;</p>
-	<p>In short, it's up to you to decide how you want to get stuck in; once you are, share your ideas and contributions on the challenge page to help guide your fellow GFNers on the same mission.</p>
+	<div class="abstract">
+		<p>Good for Nothing is about collaborating and experimenting to create disruptive solutions to some of the biggest issues of our time. Most of these experiments take the form of challenges; some of which will be tackled at gigs, some with groups of your friends or colleagues, some over a cuppa'&hellip;</p>
+		<p>In short, it's up to you to decide how you want to get stuck in; once you are, share your ideas and contributions on the challenge page to help guide your fellow GFNers on the same mission.</p>
+	</div>
 	
 	<% if @open_challenges.any? %>
-		<ul>
 		<% @open_challenges.each do |challenge| %>
-			<li><%= link_to challenge.title, challenge_path(challenge) %> <%= "for #{challenge.cause}" unless challenge.cause.nil? %></li>
+			<%= render :partial => "challenges/block", :locals => { :challenge => challenge } %>
 		<% end %>
-		</ul>
 	<% end %>
 		
 </section>
 
 <aside id="secondary_content">	
 	<p class="cta"><%= link_to "Take it offline", calendar_path,  :class => "tip", :title => "Check out the calendar" %></p>
-	<ul class="filter_list">	
+	<!--<ul class="filter_list">	
 		<% @warblings.each do |warbling| %>
 		<li class="warbling_small small_warbling_<%= warbling.slug.underscore %>"><%= link_to warbling.title, warbling_challenges_path(warbling) %></li>
 		<% end %>
-	</ul>	
+	</ul>-->	
 </aside>

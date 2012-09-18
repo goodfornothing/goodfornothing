@@ -18,20 +18,7 @@
 		<h1>The challenge<%= "s" if @gig.challenges.length>1 %></h1>
 		
 		<% @gig.challenges.each do |challenge| %>
-		<article>
-			
-			<% if challenge.title.present? %>
-				<h2><%= challenge.title %></h2>
-				<%= "<p>#{challenge.venture.name}</p>".html_safe if challenge.venture.present? %>
-			<% elsif challenge.venture.present? %>
-				<h2><%= challenge.venture.name %></h2>
-			<% end %>
-			
-			<%= markdown.render(challenge.description).html_safe unless challenge.description.blank? %>
-			
-			<p class="cta"><%= link_to "Get stuck in!", challenge_path(challenge) %></p>
-			
-		</article>
+			<%= render :partial => "challenges/block", :locals => { :challenge => challenge } %>
 		<% end %>
 		
 	<% end %>
@@ -63,7 +50,7 @@
 				<tbody>
 					<% @gig.slots.each do |slot| %>
 					<tr>
-						<td><%= (slot.skill.present?) ? slot.skill.title : "Open to all" %></td>
+						<td><%= (slot.skill.present?) ? slot.skill.title : (slot.custom_skill.empty?) ? "Open to all" : slot.custom_skill %></td>
 						<td><%= (slot.limit) ? slot.available_slots : "Unlimited" %></td>
 						<% if slot.limit.nil? || slot.available_slots > 0 %>
 						<td><%= link_to "Attend", attend_gig_path(@gig, :slot => slot) %></td>

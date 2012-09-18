@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918095905) do
+ActiveRecord::Schema.define(:version => 20120918132026) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "title"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20120918095905) do
     t.string  "slug"
     t.string  "contact"
     t.boolean "open",        :default => true
+    t.integer "partner_id"
   end
 
   create_table "challenges_warblings", :force => true do |t|
@@ -176,6 +177,7 @@ ActiveRecord::Schema.define(:version => 20120918095905) do
     t.integer "gig_id"
     t.integer "limit"
     t.integer "social_id"
+    t.string  "custom_skill"
   end
 
   create_table "slots_users", :force => true do |t|

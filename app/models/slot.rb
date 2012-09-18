@@ -1,6 +1,6 @@
 class Slot < ActiveRecord::Base
   
-  attr_accessible :limit, :skill_id, :gig_id, :social_id
+  attr_accessible :limit, :skill_id, :gig_id, :social_id, :custom_skill
   belongs_to :skill
   belongs_to :gig
   belongs_to :social

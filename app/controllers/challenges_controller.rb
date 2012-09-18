@@ -10,7 +10,6 @@ class ChallengesController < ApplicationController
 	  @warblings = Warbling.all
   	@warbling = Warbling.find(params[:id]) if params[:id]
   	@open_challenges = (@warbling) ? @warbling.challenges.opened : Challenge.opened
-  	@closed_challenges = (@warbling) ? @warbling.challenges.closed : Challenge.closed	
 	end
 	
 	def new

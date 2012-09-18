@@ -1,13 +1,22 @@
 <section id="primary_content">
 	
-	<h1><%= @social.chapter.title %> Social</h1>
-	<% if @social.start_time %>
-	<time><%= @social.start_time.to_formatted_s(:long_ordinal) %></time>
-	<% end %>	
+	<article class="event">
+		
+		<h1><%= @social.chapter.title %> Social</h1>
+		<% if @social.start_time %>
+		<time>
+			Join us on <%= @social.start_time.to_formatted_s(:article) %>
+			<% if @social.location %>
+			at <%= link_to @social.location, "https://maps.google.co.uk/maps?q=#{@social.location},+%20#{@social.chapter.city}" %>
+			<% end %>
+		</time>
+		<% end %>	
 	
-	<%= render.markdown(@social.description).html_safe %>
+		<%= simple_format @social.description %>
 	
-	<p>Crew</p>
+		<p>See you there! <br /><em><%= @social.chapter.users.crew.map(&:short_name).to_sentence %></em></p>
+		
+	</article>
 	
 </section>
 
@@ -16,18 +25,18 @@
 	<% if @social.start_time.future?  %>
 	
 		<% if user_signed_in? && current_user.is_attending_social?(@social) %>
-			<h2>You're attending this social</h2>
-			<p>You've signed up for this social, please let us know if you can no longer make it.</p>
-			<p><%= link_to "Can no longer attend", attend_social_path(@social) %></p>
+			<h2>You're attending</h2>
+			<p>You've told us that you're attending this social, please let us know if you can no longer make it.</p>
+			<p class="cta"><%= link_to "I can't make it", attend_social_path(@social) %></p>
 		<% else %>
-			<p class="cta"><%= link_to "Attend", attend_social_path(@social, :slot => @social.slots.first) %></p>
+			<p class="cta"><%= link_to "I'm coming!", attend_social_path(@social, :slot => @social.slots.first) %></p>
 		<% end %>
 	
 	<% end %>
 	
 	<% if @attendees.any? %>
 		<h2>Who<%= (user_signed_in? && current_user.is_attending_social?(@social) ? " else is" : "'s") %> coming?</h2>
-		<ul>
+		<ul class="avatar_list">
 			<% @attendees.each do |user| %>
 				<%= render :partial => "members/avatar", :locals => { :member => user }%>
 			<% end %>

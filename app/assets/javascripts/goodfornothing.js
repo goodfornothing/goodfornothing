@@ -82,8 +82,20 @@ $(document).ready(function(){
 	$(".cta .tip[title]").tooltip({ offset: [3, 100] });
 	$(".range_slider .details[title]").tooltip({ offset: [0, -50],tipClass: 'tooltip_large' });
 	
+	// Registration form
 	$('#new_user.slides').easyPaginate({ step: 1 });
 	$('#new_user.slides').append($('#pagination'))
 	$('#pagination li').not('.next, .prev').addClass('page_links')
+	
+	// Section panels
+	$('.section_panel').each(function(i,el){
+		$(el).find('p').hide();
+		$(el).bind('mouseover',function(ev){
+			$(this).find('p').slideDown('fast');
+		});
+		$(el).bind('mouseleave',function(ev){
+			$(this).find('p').slideUp('fast');
+		});
+	});
 	
 });

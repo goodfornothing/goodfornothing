@@ -306,12 +306,36 @@
 /* Panels */
 
 	.section_panel {
-		padding: 0px 20px 40px;
-		text-align: center;
+		padding: 0;
+		text-align: left;
+		background: #ffffff;
+		position: relative;
+		height: 261px;
+	}
+	
+	.section_panel img {
+		display: block;
+		margin: 0;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: 5;
 	}
 	
 	.section_panel h2 {
-		margin-bottom: 15px;
+		padding: 20px 20px 15px;
+		margin: 0;
+	}
+	
+	.section_panel h2 a {
+		color: #61514D;
+	}
+	
+	.section_panel p {
+		padding: 0 20px 15px;
+		position: relative;
+		z-index: 10;
+		background: #ffffff;
 	}
 	
 	.section_panel p:last-child {

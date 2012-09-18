@@ -96,6 +96,13 @@ $(document).ready(function(){
 		$(el).bind('mouseleave',function(ev){
 			$(this).find('p').slideUp('fast');
 		});
+		
+		$(el).click(function(ev){
+			ev.preventDefault();
+			ev.stopPropagation();
+			window.location = $($(this).find('h2 a')[0]).attr('href')
+		})
+		
 	});
 	
 });

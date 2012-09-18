@@ -2,17 +2,23 @@
 
 	<section id="latest_activity" class="panel">
 		
-		<div class="calendar">
-			<% if @gig.present? %>
-				<h2>The next gig</h2>
-				<p><%= @gig.title %> on the <%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %> of <%= @gig.start_time.strftime('%B') %> in <%= @gig.chapter.title %><br /><%= link_to "Details and registration", gig_path(@gig) %></p>
-			<% end %>
-
-			<% if @social.present? %>
-				<h2>The next social</h2>
-				<p>In <%= @social.chapter.title %> <%= "at #{@social.location}" if @social.location %> on <%= @social.start_time.day.ordinalize %> of <%= @social.start_time.strftime('%B') %> at <%= @social.start_time.strftime('%l%P') %><br /><%= link_to "Details and registration", social_path(@social) %></p>
-			<% end %>
+		<h2>What's next</h2>
+		
+		<% if @gig.present? %>
+		<div class="gig_panel">	
+			<h3>The next gig</h3>
+			<p><%= @gig.title %> on the <%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %> of <%= @gig.start_time.strftime('%B') %> in <%= @gig.chapter.title %></p>
+			<p><%= link_to "Tell me more!", gig_path(@gig) %></p>
 		</div>
+		<% end %>
+		
+		<% if @social.present? %>
+		<div class="social_panel">
+			<h3>The next social</h3>
+			<p>In <%= @social.chapter.title %> <%= "at #{@social.location}" if @social.location %> on <%= @social.start_time.day.ordinalize %> of <%= @social.start_time.strftime('%B') %> at <%= @social.start_time.strftime('%l%P') %></p>
+			<p><%= link_to "Count me in!", social_path(@social) %>
+		</div>
+		<% end %>
 		
 		<p class="cta"><%= link_to "GFN Calendar", calendar_path %></p>
 		

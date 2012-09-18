@@ -62,12 +62,15 @@ article.post_panel {
 	overflow: hidden;
 	width: 100%;
 	margin-bottom: 50px;
-	padding-top: 20px;
+	padding-top: 55px;
+	background-position: top center, bottom left;
+	background-repeat: no-repeat;
+	background-image: url(<%= asset_path "assets/brown_squiggle.png" %>);
 }
 
 article.post_panel .hero {
 	float: left;
-	margin-right: 20px;
+	margin-right: 15px;
 }
 
 article.post_panel .panel_content {
@@ -75,16 +78,15 @@ article.post_panel .panel_content {
 	width: 360px;
 }
 
-article.post_panel .panel_content time {
-	margin-bottom: 2px;
+article.post_panel .panel_content h2 {
+	font-family: karlaregular;
+	font-size: 18px;
+	margin-bottom: 13px;
+	line-height: 23px;
+	margin-top: -4px;
 }
 
-article.post_panel .panel_content h2 {
-	font-family: karlabold;
-	font-size: 19px;
-	margin-bottom: 10px;
-	line-height: 23px;
-}
+article.post_panel .panel_content h2 a { display: block; }
 
 article.post_panel .panel_content p:last-child {
 	margin: 0;

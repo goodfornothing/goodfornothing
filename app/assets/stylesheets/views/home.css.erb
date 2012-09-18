@@ -110,7 +110,7 @@
 }
 
 .section_home #community .highlight_button {
-	margin: -2px auto 25px;
+	margin: -5px auto 25px;
 }
 
 .section_home .panel {
@@ -120,15 +120,22 @@
 }
 
 .section_home #latest_activity {
-	text-align: center;
-	width: 220px;
-	padding: 2px 20px;
+	width: 250px;
+	overflow: hidden;
 }
 
-.section_home #latest_activity p.cta {
+.section_home #latest_activity .cta a {
 	background: #D0122D;
 	font-size: 18px;
 	width: 100%;
+	padding: 8px 0 4px;
+}
+
+.section_home #latest_activity .cta a:hover,
+.section_home #latest_activity .cta a:active,
+.section_home #latest_activity .cta a:focus {
+	font-size: 22px;
+	line-height: 30px;
 }
 
 .section_home .panel:nth-child(2n+2) {

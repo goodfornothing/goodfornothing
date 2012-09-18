@@ -12,7 +12,7 @@
 	%>
 	
 	<% if challenge.warblings.any? %>
-		<%= link_to (image_tag "warblings/#{challenge.warblings.first.slug}.png", :class => "tip", :title => "#{challenge.warblings.map(&:title).to_sentence}"), warbling_challenges_path(challenge.warblings.first) %>
+		<%= link_to (image_tag "warblings/#{challenge.warblings.first.slug}.png", :class => "tip", :title => "#{challenge.warblings.first.title}"), warbling_challenges_path(challenge.warblings.first) %>
 	<% end %>
 	
 	<% if challenge.venture %>

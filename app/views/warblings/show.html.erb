@@ -29,7 +29,6 @@
 					<% end %>
 					
 					<div class="panel_content">
-						<time><%= resource.created_at.to_formatted_s(:article) %></time>
 						<% if resource.body.blank? %>
 							<h2><%= resource.title %></h2>
 						<% else %>

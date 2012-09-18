@@ -1,23 +1,49 @@
 <section id="primary_content">
 
-	<h1><%= @warbling.title %></h1>
-		
-	<% if @warbling.posts.any? %>
-	<h2>Posts</h2>
-	<ul>
-		<% @warbling.posts.each do |post| %>
-		<li><%= link_to post.title, post_path(post) %></li>
-		<% end %>
-	</ul>
-	<% end %>	
+	<h1>Warbling about <%= @warbling.title %></h1>
 	
-	<% if @warbling.bookmarks.any? %>
-	<h2>In the Library</h2>
-	<ul>
-		<% @warbling.bookmarks.each do |bookmark| %>
-		<li><%= link_to bookmark.title, bookmark.url %></li>
+	<% if @stream.any? %>
+		<% @stream.each do |resource| %>
+		
+			<% if resource.class == Bookmark %>
+				<article class="warble">
+					
+					<div class="warble_intro">
+						<% unless resource.hero_image.url.nil? %>
+							<%=  image_tag resource.hero_image, :class => "hero" %>
+						<% end %>
+						<div class="heading">
+							<h2><%= resource.title %></h2>
+							<p class="cta"><%= link_to "Visit site", resource.url %></p>
+						</div>
+					</div>
+					
+					<%= markdown.render(resource.description).html_safe %>
+
+				</article>
+			<% elsif resource.class == Post %>
+				<article class="post_panel">
+
+					<% unless resource.hero_image.url.nil? %>
+						<%= image_tag resource.hero_image.panel, :class => "hero" %>
+					<% end %>
+					
+					<div class="panel_content">
+						<time><%= resource.created_at.to_formatted_s(:article) %></time>
+						<% if resource.body.blank? %>
+							<h2><%= resource.title %></h2>
+						<% else %>
+							<h2><%= link_to resource.title, post_path(resource) %></h2>
+						<% end %>
+						<%= markdown.render(resource.excerpt).html_safe %>
+					</div>
+
+				</article>
+			<% end %>
+			
 		<% end %>
-	</ul>
+	<% else %>
+		<p>There's not a lot here yet, but hey, we've just launched!</p>
 	<% end %>
 			
 </section>
@@ -28,7 +54,7 @@
 	<% if @warblings.any? %>
 	<ul class="filter_list">
 		<% @warblings.each do |warbling| %>
-			<li class="warbling_small small_warbling_<%= warbling.slug.underscore %>"><%= link_to warbling.title, warbling_path(warbling) %></li>
+			<li class="<%= "active" if @warbling.present? && warbling == @warbling %> warbling_small small_warbling_<%= warbling.slug.underscore %>"><%= link_to warbling.title, warbling_path(warbling) %></li>
 		<% end %>
 	</ul>
 	<% end %>

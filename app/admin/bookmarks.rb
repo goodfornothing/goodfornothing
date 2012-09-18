@@ -1,4 +1,4 @@
-ActiveAdmin.register Bookmark do
+ActiveAdmin.register Bookmark, :as => "Warbles" do
   
   menu :priority => 3, :parent => "Conversations"
   
@@ -11,7 +11,8 @@ ActiveAdmin.register Bookmark do
     f.inputs "Content" do
       f.input :title, :as => :string
       f.input :url, :as => :string
-      f.input :description, :input_html => { :rows => 5 }
+      f.input :description, :input_html => { :rows => 10 }
+      f.input :hero_image
     end
     f.inputs "Warblings" do
       f.input :warblings, :as => :check_boxes
@@ -37,6 +38,9 @@ ActiveAdmin.register Bookmark do
         link_to bookmark.url, bookmark.url
       end
       row :description
+      row :hero_image do
+        image_tag(bookmark.hero_image.thumbnail) unless bookmark.hero_image.url.nil?
+      end
       row "Warblings" do |i|
         i.warblings.map{ |w| w.title }.join(', ')
       end

@@ -1,10 +1,8 @@
 <section id="primary_content">
 
-	<h1>Warbling about Good</h1>
+	<h1>Warbling about stuff we care about</h1>
 	
-	<div class="abstract">
-		<p>Warblings are community driven streams of consciousness around topics that matter &ndash; <br />thoughts, ponderances and snippets from the web.</p>
-	</div>
+	<p>Warblings are community driven streams of consciousness around topics that matter &ndash; thoughts, ponderances and snippets from the web.</p>
 	
 	<% if @warblings %>
 	<ul class="grid_list grid_three">
@@ -18,6 +16,6 @@
 </section>
 
 <aside id="secondary_content">	
-	<p class="cta"><%= link_to "GFN updates", posts_path %></p>
+	<p class="icon_updates"><%= link_to "Good for Nothing goings on", posts_path %></p>
 	<%#= link_to "The library".html_safe, library_path, :class => "tip", :title => "For Web-based research" %>
 </aside>

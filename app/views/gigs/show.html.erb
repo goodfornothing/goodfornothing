@@ -55,6 +55,7 @@
 		<% elsif @gig.slots.count == 1 && @gig.slots.first.skill.nil? %>
 			<p class="cta"><%= link_to "I'm Coming!", attend_gig_path(@gig, :slot => @gig.slots.first) %></p>
 		<% elsif @gig.slots.any? %>
+			<h2>Register to attend</h2>
 			<table class="registration_table">
 				<thead>
 					<tr>

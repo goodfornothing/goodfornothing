@@ -752,8 +752,16 @@
 	
 /* Event */
 
+	article.event {
+		padding-bottom: 36px;
+	}
+	
+	article.event .abstract {
+		padding-bottom: 16px;
+	}
+
 	article.event h1 {
-		margin-bottom: 5px;
+		margin-bottom: 33px;
 	}
 	
 	article.event time {
@@ -761,31 +769,74 @@
 		line-height: 20px;
 	}
 	
+	article.event .meta {
+		margin-bottom: 10px;
+		padding-left: 5px;
+	}
+	
+	article.event .meta span {
+		display: inline-block;
+		padding-right: 10px;
+		width: 60px;
+		color: #61514D;
+		font-family: "Good for Nothing";
+	}
+		
 /* Registration table */
 
 	table.registration_table {
 		font-size: 13px;
 		margin-bottom: 40px;
+		border-spacing: 5px;
+		border-collapse: separate;
 	}
 	
 	table.registration_table th {
 		text-align: left;
-		padding: 10px 5px;
-		border-bottom: 1px solid #61514D;
+		padding: 10px 0px;
+		border-bottom: 1px solid #D0122D;
+		color: #D0122D;
 	}
 	
 	table.registration_table tbody tr:first-child td {
-		padding-top: 10px;
+		padding-top: 0;
 	}
 	
 	table.registration_table td {
 		text-align: left;
-		padding: 5px;
+		padding: 5px 0 7px;
 	}
 	
+	table.registration_table td:first-child,
+	table.registration_table td:nth-child(2) {
+		border-bottom: 1px solid #D0122D;
+	}
 	
+	table.registration_table td:nth-child(2) {
+		text-align: center;
+	}
 	
+	table.registration_table td:nth-child(3) {
+		padding-left: 5px;
+	}
 	
+	table.registration_table td.btn a {
+		background: url(<%= asset_path "assets/tiny_button.gif" %>) no-repeat top left;
+		color: #ffffff;
+		font-family: "Good for Nothing";
+		line-height: 23px;
+		width: 44px;
+		height: 22px;
+		display: block;
+		font-size: 11px;
+		text-align: center;
+	}
 	
+	table.registration_table td.btn a:hover,
+	table.registration_table td.btn a:focus,
+	table.registration_table td.btn a:active {
+		font-size: 13px;
+		text-decoration: none;
+	}
 	
 	

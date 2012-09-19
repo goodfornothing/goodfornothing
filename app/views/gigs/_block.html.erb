@@ -1,7 +1,3 @@
 <h2><%= gig.start_time.day %><%= "-#{gig.end_time.day}" if gig.end_time && gig.end_time.day > gig.start_time.day %><span><%= gig.start_time.strftime('%B') %></span></h2>
-
-<p>
-	<strong><%= gig.title %></strong> &ndash; a gig in <%= gig.chapter.title %>
-</p>
-
+<p><strong><%= gig.title %></strong> <br />A gig in <%= gig.chapter.title %></p>
 <p class="cta"><%= link_to "Tell me more!", gig_path(gig) %></p>

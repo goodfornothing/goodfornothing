@@ -9,7 +9,7 @@ class ChallengesController < ApplicationController
 	def index
 	  @warblings = Warbling.all
   	@warbling = Warbling.find(params[:id]) if params[:id]
-  	@open_challenges = (@warbling) ? @warbling.challenges.opened : Challenge.opened
+  	@open_challenges = (@warbling) ? @warbling.challenges.opened : Challenge.opened.reverse
 	end
 	
 	def new

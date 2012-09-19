@@ -7,6 +7,11 @@
 		<time><%= @gig.start_time.to_formatted_s(:long_ordinal) %> - <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time>
 		<% end %>
 		
+		<p class="meta">
+			This gig has been organised by the <strong><%= @gig.chapter.title %></strong> crew
+			<%= " in partnership with <strong>#{@gig.partner.name}</strong>".html_safe unless @gig.partner.nil? %>
+		</p>
+		
 		<%= markdown.render(@gig.description).html_safe unless @gig.description.nil? %>
 	
 		<% if @gig.challenges.any? %>
@@ -25,23 +30,23 @@
 
 <aside id="secondary_content">
 	
-	<h2>Who's running it?</h2>
-	<p>
-		This gig has been organised by the <strong><%= @gig.chapter.title %></strong> crew
-		<%= " in partnership with <strong>#{@gig.partner.name}</strong>".html_safe unless @gig.partner.nil? %>
-	</p>
+	<h2>Who's coming?</h2>
+	<ul class="avatar_list">
 	
-	<% if @attendees.any? %>
-		<h2>Who's coming?</h2>
-		<ul class="avatar_list">
-			<% @attendees.each do |user| %>
-				<%= render :partial => "members/avatar", :locals => { :member => user }%>
-			<% end %>
-		</ul>
-	<% end %>
+		<% @gig.chapter.users.crew.each do |user| %>
+			<%= render :partial => "members/avatar", :locals => { :member => user }%>
+		<% end %>
+		
+		<% if @attendees.any? %>
+		<% @attendees.each do |user| %>
+			<%= render :partial => "members/avatar", :locals => { :member => user }%>
+		<% end %>
+		<% end %>
+		
+	</ul>
 	
 	<% if !@gig.end_time.nil? && (@gig.start_time.past? && @gig.end_time.future?) %>
-		<h2>Happening now!</h2>
+		<h2>It's happening!</h2>
 		<p>This gig is happening right now, you can no longer register, but feel free to just drop in and say hello anyway!</p>
 	<% elsif (@gig.start_time.past? && @gig.end_time.nil?) || @gig.end_time.past? %>
 		<h2>Challenge time</h2>

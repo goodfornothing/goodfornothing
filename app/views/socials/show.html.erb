@@ -7,7 +7,7 @@
 		<time>Join us on <%= @social.start_time.to_formatted_s(:article) %></time>
 		<% end %>	
 	
-		<%= render.markdown(@social.description).html_safe unless @social.description %>
+		<%= render.markdown(@social.description).html_safe unless @social.description.nil? %>
 	
 		<p>See you there! <br /><em><%= @social.chapter.users.crew.map(&:short_name).to_sentence %></em></p>
 		

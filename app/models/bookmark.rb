@@ -14,5 +14,8 @@ class Bookmark < ActiveRecord::Base
   before_save :check_url_scheme
   
   mount_uploader :hero_image, ::ArticleImageUploader
+  
+  scope :published, where("published = true")
+  
 	
 end

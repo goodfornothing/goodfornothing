@@ -1,10 +1,10 @@
 <h2><%= social.start_time.day %> <span><%= social.start_time.strftime('%B') %></span></h2>
 
-<p><strong><%= social.chapter.title %> social</strong><br /> Join us 
-<% unless social.location.nil? %>
-at <%=  social.location %>
+<p><strong><%= social.chapter.title %> social</strong><br />
+<% unless social.location.nil? || social.location.blank? %>
+At <%=  social.location %>
 <% else %>
-for a natter and beverages
+Not sure where yet!
 <% end %>
 </p>
 

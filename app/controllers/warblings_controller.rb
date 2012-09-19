@@ -8,7 +8,7 @@ class WarblingsController < ApplicationController
 	
 	def show
 	  @warbling = Warbling.find(params[:id])
-	  @stream = (@warbling.bookmarks + @warbling.posts).sort_by(&:created_at).reverse
+	  @stream = (@warbling.bookmarks.published + @warbling.posts).sort_by(&:created_at).reverse
 	end
 	
 	private 

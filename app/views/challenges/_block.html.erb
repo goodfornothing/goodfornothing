@@ -17,8 +17,8 @@
 	
 	<% if challenge.venture %>
 		<%= "<p class='cause'>For #{challenge.venture.name}</p>".html_safe  %>
-	<% elsif challenge.gig.present? && challenge.gig.partner %>
-		<p class='cause'><%= "In partnership with #{challenge.gig.partner.name}"%></p>
+	<% elsif challenge.partner.present? %>
+		<p class='cause'><%= "In partnership with #{challenge.partner.name}"%></p>
 	<% end %>
 	
 </div>

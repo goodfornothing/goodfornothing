@@ -1,57 +1,63 @@
 <section id="primary_content">
 	
-	<h1><%= @gig.title %></h1>
-	<% if @gig.start_time && @gig.end_time %>
-	<time><%= @gig.start_time.to_formatted_s(:long_ordinal) %> - <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time>
-	<% end %>
+	<article class="event">
 	
-	<% if @gig.chapter.users.any? %>
-		<p>Organised by <%= @gig.chapter.users.crew.map { |u| link_to u.name, member_path(u) }.to_sentence.html_safe %></p>	
-	<% else %>
-		<p>Organised by the <%= @gig.chapter.title %> crew</p>
-	<% end %>
-	
-	<%= markdown.render(@gig.description).html_safe %>
-	
-	<% if @gig.challenges.any? %>
-	
-		<h1>The challenge<%= "s" if @gig.challenges.length>1 %></h1>
-		
-		<% @gig.challenges.each do |challenge| %>
-			<%= render :partial => "challenges/block", :locals => { :challenge => challenge } %>
+		<h1><%= @gig.title %></h1>
+		<% if @gig.start_time && @gig.end_time %>
+		<time><%= @gig.start_time.to_formatted_s(:long_ordinal) %> - <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time>
 		<% end %>
 		
-	<% end %>
+		<%= markdown.render(@gig.description).html_safe unless @gig.description.nil? %>
+	
+		<% if @gig.challenges.any? %>
+	
+			<h2>The challenge<%= "s" if @gig.challenges.length>1 %></h2>
+		
+			<% @gig.challenges.each do |challenge| %>
+				<%= render :partial => "challenges/block", :locals => { :challenge => challenge } %>
+			<% end %>
+		
+		<% end %>
+	
+	</article>
 	
 </section>
 
 <aside id="secondary_content">
 	
-	<% if @gig.start_time.past? && @gig.end_time.future? %>
+	<h2>Who's running it?</h2>
+	<p>
+		This gig's been organised by the <strong><%= @gig.chapter.title %></strong> crew
+		<%= " in partnership with <strong>#{@gig.partner.name}</strong>".html_safe unless @gig.partner.nil? %>
+	</p>
+	
+	<% if !@gig.end_time.nil? && (@gig.start_time.past? && @gig.end_time.future?) %>
+		<h2>Happening now!</h2>
 		<p>This gig's happening right now, you can no longer register, but feel free to just drop in and say hello anyway!</p>
-	<% elsif @gig.end_time.past? %>
-		<p>This gig has ended but you can still get involved in its challenges.</p>
+	<% elsif (@gig.start_time.past? && @gig.end_time.nil?) || @gig.end_time.past? %>
+		<h2>Challenge time</h2>
+		<p>This gig has ended but you can still get involved in the challenges.</p>
 	<% else %>
 		<% if user_signed_in? && current_user.is_attending_gig?(@gig) %>
 			<h2>You're attending this gig</h2>
-			<p>You've signed up for this gig, please let us know if you can no longer make it.</p>
-			<p><%= link_to "Can no longer attend", attend_gig_path(@gig) %></p>
+			<p>You're registered for this gig, let us know if you can no longer make it.</p>
+			<p class="more"><%= link_to "I can't make it", attend_gig_path(@gig) %></p>
 		<% elsif @gig.slots.count == 1 && @gig.slots.first.skill.nil? %>
 			<p class="cta"><%= link_to "I'm Coming!", attend_gig_path(@gig, :slot => @gig.slots.first) %></p>
 		<% elsif @gig.slots.any? %>
-			<h2>Attend gig</h2>
-			<table>
+			<h2>Registration</h2>
+			<table class="registration_table">
 				<thead>
 					<tr>
-						<td>Skill</td>
-						<td>Slots</td>
+						<th>Ticket type</th>
+						<th colspan="2">Available</th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @gig.slots.each do |slot| %>
 					<tr>
 						<td><%= (slot.skill.present?) ? slot.skill.title : (slot.custom_skill.empty?) ? "Open to all" : slot.custom_skill %></td>
-						<td><%= (slot.limit) ? slot.available_slots : "Unlimited" %></td>
+						<td><%= (slot.limit) ? slot.available_slots : "&#8734;".html_safe %></td>
 						<% if slot.limit.nil? || slot.available_slots > 0 %>
 						<td><%= link_to "Attend", attend_gig_path(@gig, :slot => slot) %></td>
 						<% end %>
@@ -64,12 +70,17 @@
 	<% end %>
 	
 	<% if @attendees.any? %>
-		<h2>Who<%= (user_signed_in? && current_user.is_attending?(@gig) ? " else is" : "'s") %> coming?</h2>
-		<ul>
+		<h2>Who<%= (user_signed_in? && current_user.is_attending_gig?(@gig) ? " else is" : "'s") %> coming?</h2>
+		<ul class="avatar_list">
 			<% @attendees.each do |user| %>
 				<%= render :partial => "members/avatar", :locals => { :member => user }%>
 			<% end %>
 		</ul>
+	<% end %>
+	
+	<% unless @gig.location.nil? %>
+		<h2>Where</h2>
+		<p><%= link_to @gig.location, "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.city}" %></p>
 	<% end %>
 	
 </aside>

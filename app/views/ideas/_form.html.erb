@@ -1,7 +1,5 @@
 <%= simple_form_for [@challenge, @idea] do |f| %>
 
-	<h1>Your idea</h1>
-
 	<%= field_set_tag do %>
 		<%= f.input :body, :label => "Your idea", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 5 } %>
 	<% end %>

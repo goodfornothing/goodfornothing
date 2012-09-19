@@ -1,34 +1,8 @@
-<section id="primary_content" class="single">
+<section id="primary_content">
 	
 	<h1><%= @challenge.title %></h1>
 	
 	<%= markdown.render(@challenge.description).html_safe unless @challenge.description.nil? %>
-	
-	<% unless @challenge.open? %>
-		<p>This challenge is closed, thanks for all your Good</p>
-	<% end %>
-	
-	<% if @challenge.venture.present? %>
-		<h2>Venture</h2>
-		<% if @challenge.venture.logo.present? %>
-			<%= link_to(image_tag(@challenge.venture.logo, :alt => @challenge.venture.name), @challenge.venture.url) %>
-		<% else %>
-			<%= link_to(@challenge.venture.name, @challenge.venture.url, :class => "logo") %>
-		<% end %>
-	<% end %>
-	
-	<% if @challenge.gig.present? %>	
-	
-		<% unless @challenge.gig.past? %>
-		<p>
-			Join us for <%= link_to @challenge.gig.title, gig_path(@challenge.gig) %> <%= "in collaboration with #{@challenge.gig.partner.name}" if @challenge.gig.partner.present? %> on the 
-			<strong><%= @challenge.gig.start_time.day.ordinalize %> to the <%= @challenge.gig.end_time.day.ordinalize %></strong> of <%= @challenge.gig.start_time.strftime('%B') %> 
-			in <%= @challenge.gig.chapter.title %>
-		</p>
-		<p class="cta"><%= link_to "attend the gig", gig_path(@challenge.gig) %></p>
-		<% end %>
-	
-	<% end %>
 	
 	<% if @challenge.bookmarks.any? %>
 	
@@ -37,11 +11,6 @@
 			<li><%= link_to truncate(bookmark.title, :length => 80, :omission => '&hellip;').html_safe, bookmark.url %></li>
 		<% end %>
 		
-	<% end %>
-	
-	<% if @challenge.warblings.any? %>
-		<h2>Similar challenges</h2>
-		<p><%= @challenge.warblings.map{ |w| (link_to w.title.downcase, warbling_challenges_path(w)) }.join(', ').html_safe %></p>
 	<% end %>
 	
 	<%= render "shared/notices" %>
@@ -72,7 +41,10 @@
 
 		<% if user_signed_in? && @challenge.open? %>
 			<%= render :partial => "ideas/form", :locals => { :idea => @idea } %>	
+		<% elsif user_signed_in? && !@challenge.open? %>
+			<p>This challenge is closed, thanks for all your Good!</p>
 		<% end %>
+		
 	</div>
 	
 	<div class="panel">
@@ -100,7 +72,52 @@
 	
 		<% if user_signed_in? && @challenge.open?%>
 			<%= render :partial => "contributions/form", :locals => { :contribution => @contribution } %>
+		<% elsif user_signed_in? && !@challenge.open? %>
+			<p>This challenge is closed, thanks for all your Good!</p>
 		<% end %>
+		
 	</div>
 		
 </section>
+
+<aside id="secondary_content">
+	
+	<% if @challenge.partner.present? %>
+		<h2>Partner</h2>
+		<% if @challenge.partner.logo.present? %>
+			<%= link_to(image_tag(@challenge.partner.logo, :alt => @challenge.partner.name), @challenge.partner.url) %>
+		<% else %>
+			<%= link_to(@challenge.partner.name, @challenge.partner.url, :class => "logo") %>
+		<% end %>
+	<% end %>
+	
+	<% if @challenge.venture.present? %>
+		<h2>Venture</h2>
+		<% if @challenge.venture.logo.present? %>
+			<%= link_to(image_tag(@challenge.venture.logo, :alt => @challenge.venture.name), @challenge.venture.url) %>
+		<% else %>
+			<%= link_to(@challenge.venture.name, @challenge.venture.url, :class => "logo") %>
+		<% end %>
+	<% end %>
+	
+	<% if @challenge.gig.present? %>	
+	
+		<% unless @challenge.gig.past? %>
+		<p>
+			Join us for <%= link_to @challenge.gig.title, gig_path(@challenge.gig) %> <%= "in collaboration with #{@challenge.gig.partner.name}" if @challenge.gig.partner.present? %> on the 
+			<strong><%= @challenge.gig.start_time.day.ordinalize %> to the <%= @challenge.gig.end_time.day.ordinalize %></strong> of <%= @challenge.gig.start_time.strftime('%B') %> 
+			in <%= @challenge.gig.chapter.title %>
+		</p>
+		<p class="cta"><%= link_to "attend the gig", gig_path(@challenge.gig) %></p>
+		<% end %>
+	
+	<% end %>
+	
+	<h2>Working on it</h2>
+	people list
+	
+</aside>
+	
+	
+	
+	

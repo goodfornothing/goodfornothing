@@ -1,7 +1,5 @@
 <%= simple_form_for [@challenge, @contribution] do |f| %>
 
-	<h1>Your contribution</h1>
-
 	<%= field_set_tag do %>
 		<%= f.input :skill_id, :label => "Type of contribution", :collection => Skill.all %>
 		<%= f.input :description, :label => "What is it?", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 5 } %>

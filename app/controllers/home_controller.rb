@@ -9,7 +9,7 @@ class HomeController < ApplicationController
 	  @venture_count = Venture.count
 	  
 	  @social = Social.where('start_time > ?',Time.now).order("start_time ASC").first
-	  @gig = Gig.where('end_time > ?',Time.now).order("start_time ASC").first
+	  @gig = Gig.where('end_time > ?',Time.now).order("start_time ASC").second
 	  
   end
 

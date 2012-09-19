@@ -302,3 +302,39 @@
 /* Tables */
 
 	table { margin-bottom: 14px; }
+	
+/* Form panels */
+
+	.form_panel {
+		width: 270px;
+		float: left;
+		margin-right: 20px;
+		padding: 20px;
+		background: #9adada;
+		color: #ffffff;
+		text-align: center;
+		background-position: top left, top right, bottom right;
+		background-repeat: no-repeat, no-repeat, no-repeat;
+		background-image: url(<%= asset_path "blocks/form_top_left.gif" %>),
+											url(<%= asset_path "blocks/form_top_right.gif" %>),
+											url(<%= asset_path "blocks/form_bottom_right.gif" %>);
+	}
+	
+	.form_panel:last-child {
+		margin: 0;
+	}
+	
+	.form_panel h2 {
+		color: #ffffff;
+		margin-bottom: 37px;
+		background: url(<%= asset_path "assets/teal_squiggle.png" %>) repeat-x center bottom;
+		padding: 0 10px 5px;
+		display: inline-block;
+	}
+	
+	.form_panel p {
+		margin-bottom: 17px;
+		text-align: left;
+		color: #085156;
+		font-size: 14px;
+	}

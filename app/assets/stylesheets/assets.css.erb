@@ -91,6 +91,32 @@
 		font-size: 20px;
 		text-decoration: none;
 	}
+	
+	
+	.icon_attend {
+		padding-top: 85px;
+		margin-bottom: 50px;
+	}
+	
+	.icon_attend a {
+		width: 180px;
+		color: #ffffff;
+		font-family: "Good for Nothing";
+		padding: 60px 30px 45px;
+		font-size: 18px;
+		text-align: center;
+		display: block;
+		line-height: 26px;
+		background: url(<%= asset_path "icons/attend.gif" %>) no-repeat top left;
+	}
+
+	
+	.icon_attend a:hover,
+	.icon_attend a:focus,
+	.icon_attend a:active {
+		font-size: 20px;
+		text-decoration: none;
+	}
 
 /* CTA */
 
@@ -435,6 +461,7 @@
 		font-family: karlaregular;
 		word-wrap:break-word;
 		text-align: center;
+		font-weight: normal;
 	}
 	
 	.grid_list .small_panel p:last-child {
@@ -511,6 +538,7 @@
 		margin-bottom: 15px;
 		font-size: 16px;
 		line-height: 20px;
+		font-weight: normal;
 	}
 	
 	.block time {
@@ -712,6 +740,7 @@
 		text-align: center;
 		padding-top: 0;
 		font-family: karlaregular;
+		font-weight: normal;
 	}
 	
 /* Gig panel */
@@ -752,6 +781,10 @@
 	
 /* Event */
 
+	article.event h1 {
+		line-height: 40px;
+	}
+
 	article.event {
 		padding-bottom: 36px;
 	}
@@ -780,6 +813,14 @@
 		width: 60px;
 		color: #61514D;
 		font-family: "Good for Nothing";
+	}
+	
+	article.challenge_event .meta span {
+		width: 150px;
+	}
+	
+	article.challenge_event .abstract {
+		padding-bottom: 35px;
 	}
 		
 /* Registration table */

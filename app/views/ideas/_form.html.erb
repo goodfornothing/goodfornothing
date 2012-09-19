@@ -1,4 +1,4 @@
-<%= simple_form_for [@challenge, @idea] do |f| %>
+<%= simple_form_for [@challenge, @idea], :html => { :class => "inpage" } do |f| %>
 
 	<%= field_set_tag do %>
 		<%= f.input :body, :label => "Your idea", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 5 } %>

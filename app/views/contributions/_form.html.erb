@@ -1,4 +1,4 @@
-<%= simple_form_for [@challenge, @contribution] do |f| %>
+<%= simple_form_for [@challenge, @contribution], :html => { :class => "inpage" } do |f| %>
 
 	<%= field_set_tag do %>
 		<%= f.input :skill_id, :label => "Type of contribution", :collection => Skill.all %>

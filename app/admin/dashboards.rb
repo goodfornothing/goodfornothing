@@ -19,7 +19,7 @@ ActiveAdmin::Dashboards.build do
             tr do
               td bookmark.title
               td bookmark.url
-              td link_to "Publish", publish_admin_bookmark_path(bookmark)
+              td link_to "Publish", publish_admin_warble_path(bookmark)
             end
           end
         end

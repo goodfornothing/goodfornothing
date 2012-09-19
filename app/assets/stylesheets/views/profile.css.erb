@@ -11,8 +11,9 @@
 }
 
 #profile_welcome p {
-	width: 530px;
+	width: 500px;
 	margin: 0 auto;
+	text-align: center;
 }
 
 #profile_welcome ul {
@@ -21,7 +22,7 @@
 	list-style-type: none;
 	text-align: center;
 	width: 560px;
-	margin: 0 auto 5px;
+	margin: 0 auto 10px;
 }
 
 #profile_welcome ul li {
@@ -41,6 +42,13 @@
 	background: #ffffff;
 	padding: 20px;
 	width: 410px;
+	min-height: 400px;
+	position: relative;
+}
+
+#profile .panel h2 {
+	color: #D0122D;
+	text-align: center;
 }
 
 #profile .panel #profile_avatar {
@@ -49,6 +57,32 @@
 }
 
 #profile .panel #profile_avatar .avatar {
+}
+
+#profile .panel .call {
+	margin: 0;
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+}
+
+#profile .panel .call a {
+	font-family: "Good for Nothing";
+	font-size: 16px;
+	color: #ffffff;
+	line-height: 36px;
+	height: 33px;
+	display: block;
+	text-align: center;
+	width: 410px;
+	background: url(<%= asset_path "assets/pull_button.gif"%>) no-repeat;
+}
+
+#profile .panel .call a:hover,
+#profile .panel .call a:active,
+#profile .panel .call a:focus {
+	text-decoration: none;
+	font-size: 18px;
 }
 
 #profile .panel ul {

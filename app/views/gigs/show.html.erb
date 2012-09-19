@@ -27,20 +27,28 @@
 	
 	<h2>Who's running it?</h2>
 	<p>
-		This gig's been organised by the <strong><%= @gig.chapter.title %></strong> crew
+		This gig has been organised by the <strong><%= @gig.chapter.title %></strong> crew
 		<%= " in partnership with <strong>#{@gig.partner.name}</strong>".html_safe unless @gig.partner.nil? %>
 	</p>
 	
+	<% if @attendees.any? %>
+		<h2>Who's coming?</h2>
+		<ul class="avatar_list">
+			<% @attendees.each do |user| %>
+				<%= render :partial => "members/avatar", :locals => { :member => user }%>
+			<% end %>
+		</ul>
+	<% end %>
+	
 	<% if !@gig.end_time.nil? && (@gig.start_time.past? && @gig.end_time.future?) %>
 		<h2>Happening now!</h2>
-		<p>This gig's happening right now, you can no longer register, but feel free to just drop in and say hello anyway!</p>
+		<p>This gig is happening right now, you can no longer register, but feel free to just drop in and say hello anyway!</p>
 	<% elsif (@gig.start_time.past? && @gig.end_time.nil?) || @gig.end_time.past? %>
 		<h2>Challenge time</h2>
 		<p>This gig has ended but you can still get involved in the challenges.</p>
 	<% else %>
 		<% if user_signed_in? && current_user.is_attending_gig?(@gig) %>
-			<h2>You're attending this gig</h2>
-			<p>You're registered for this gig, let us know if you can no longer make it.</p>
+			<p>You've registered to attend this gig, let us know if you can no longer make it.</p>
 			<p class="more"><%= link_to "I can't make it", attend_gig_path(@gig) %></p>
 		<% elsif @gig.slots.count == 1 && @gig.slots.first.skill.nil? %>
 			<p class="cta"><%= link_to "I'm Coming!", attend_gig_path(@gig, :slot => @gig.slots.first) %></p>
@@ -69,17 +77,8 @@
 	
 	<% end %>
 	
-	<% if @attendees.any? %>
-		<h2>Who<%= (user_signed_in? && current_user.is_attending_gig?(@gig) ? " else is" : "'s") %> coming?</h2>
-		<ul class="avatar_list">
-			<% @attendees.each do |user| %>
-				<%= render :partial => "members/avatar", :locals => { :member => user }%>
-			<% end %>
-		</ul>
-	<% end %>
-	
 	<% unless @gig.location.nil? %>
-		<h2>Where</h2>
+		<h2>Where do I go?</h2>
 		<p><%= link_to @gig.location, "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.city}" %></p>
 	<% end %>
 	

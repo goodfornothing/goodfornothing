@@ -12,7 +12,6 @@ class GigsController < ApplicationController
 
 	def show
 	  @attendees = @gig.users
-    @attendees = @gig.users.where("user_id != #{current_user.id}") if user_signed_in?
 	end
 	
 	def attend

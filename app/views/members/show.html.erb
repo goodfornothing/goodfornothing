@@ -137,7 +137,7 @@
 			<h3><%= contextual_reference(@member).titlecase %> taken part in <%= pluralize(@member.socials.count, "social") %></h3>
 			<ul>
 				<% @member.socials.each do |social| %>
-				<li><%= link_to social.start_time, social_path(social) %></li>
+				<li><%= link_to social.title, social_path(social) %></li>
 				<% end %>
 			</ul>
 			<% end %>

@@ -25,7 +25,7 @@
 		<%= render "shared/notices" %>
 	
 		<% if @challenge.open? && !user_signed_in? %>
-		<p><%= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "Join the community", register_path(:next => challenge_path(@challenge)) %> to share your ideas or contribute to the challenge.</p>
+		<!--<p><%#= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "Join the community", register_path(:next => challenge_path(@challenge)) %> to share your ideas or contribute to the challenge.</p>-->
 		<% end %>
 	
 	</article>
@@ -33,8 +33,10 @@
 	<div class="form_panel">
 		<h2>Ideas</h2>
 		
+		<p>You'll be able to contribute your ideas to this challenge in the next few days, we're slowly rolling our features on our new platform; this one is next!</p>
+		
 		<% if user_signed_in? && @challenge.open? %>
-			<%= render :partial => "ideas/form", :locals => { :idea => @idea } %>	
+			<%#= render :partial => "ideas/form", :locals => { :idea => @idea } %>	
 		<% elsif user_signed_in? && !@challenge.open? %>
 			<p>This challenge is closed, thanks for all your Good!</p>
 		<% end %>
@@ -60,9 +62,12 @@
 	
 	<div class="form_panel">
 		<h2>Contributions</h2>
+		
+		<p>You'll be able to upload contributions to this challenge in the next few days, we're slowly rolling our features on our new platform; this one is next!</p>
+		
 	
 		<% if user_signed_in? && @challenge.open?%>
-			<%= render :partial => "contributions/form", :locals => { :contribution => @contribution } %>
+			<%#= render :partial => "contributions/form", :locals => { :contribution => @contribution } %>
 		<% elsif user_signed_in? && !@challenge.open? %>
 			<p>This challenge is closed, thanks for all your Good!</p>
 		<% end %>

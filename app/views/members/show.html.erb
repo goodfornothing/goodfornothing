@@ -53,7 +53,7 @@
 				<% if signed_in_as_owner?(@member) %>
 
 					<%= simple_form_for(@member, :as => 'user', :url => registration_path(@member), :html => { :remote => true, :method => :put, :class => "inline_form", :multipart => true }) do |f| %>				
-						<%= f.input :avatar, :label => "No likey your face? Change it:" %>
+						<%= f.input :avatar, :label => "No likey your face? Change it:<br /><br />".html_safe %>
 						<%= f.button :submit, "Upload" %>
 					<% end %>
 
@@ -103,7 +103,7 @@
 	
 		<div class="panel">
 	
-			<h2>What you've been up to</h2>
+			<h2>What <%= contextual_reference(@member).titlecase %> been up to</h2>
 	
 			<p>So far, <%= contextual_reference(@member) %> worked with <%= link_to pluralize(@member.member_reach.count, "member"), members_path %> of the community.</p>
 	

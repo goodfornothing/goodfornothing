@@ -135,7 +135,10 @@
     border: 0;
   }
 
-	form.primary .input label.js {
+	form.primary .string label.js,
+ 	form.primary .email label.js,
+	form.primary .url label.js,
+	form.primary .password label.js {
 		position: absolute;
 		top: 13px;
 		left: 18px;
@@ -150,7 +153,8 @@
   form.primary .string input, 
 	form.primary .email input,
 	form.primary .url input,
-	form.primary .password input {  
+	form.primary .password input,
+	form.primary .integer input {  
     padding: 13px 18px 11px;
 		margin-top: 0;
 		color: #9adada;
@@ -187,17 +191,32 @@
  /* =boolean */
  
 	form.primary .boolean {
-		margin-top: -10px;
+		margin-bottom: 35px;
+	}
+	
+	form.primary .checkbox {
+		font-size: 18px;
+		font-family: "Good for Nothing";
+		width: 300px;
+		line-height: 28px;
+		display: block;
+		text-align: left;
+		cursor: pointer;
+		padding-left: 30px;
+		height: 23px;
 	}
 
-  form.primary .boolean label {
-   	text-align: left;
-		padding-left: 10px;
-  }
+	form.primary  .checkbox.js {
+		background: url(<%= asset_path "icons/checkbox.png" %>) no-repeat 0 0;
+	}
 
-	form.primary .boolean input {
-		margin-right: 8px;
-  }
+	form.primary .checkbox.checked.js {
+		background-position: left bottom;
+	}
+
+	form.primary .checkbox.js input {
+		display: none;
+	}
 
  /* =textarea */
 

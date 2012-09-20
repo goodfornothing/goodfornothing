@@ -37,8 +37,8 @@ $(document).ready(function(){
 	$('.single form .input.select label').hide();
 	
 	// Checkboxes
-	$(".slide .checkbox").addClass('js');
-	$(".slide .checkbox input").each(function(index,input){
+	$(".checkbox").addClass('js');
+	$(".checkbox input").each(function(index,input){
 		
 		checked = $(input).attr('checked')?true:false;
 		if(checked) $($(input).parents('label')[0]).addClass('checked');

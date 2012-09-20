@@ -38,6 +38,17 @@
 	margin: 0;
 }
 
+#profile h1 {
+	margin-bottom: 10px;
+}
+
+#profile .chapter {
+	font-size: 24px;
+	font-family: "Good for Nothing";
+	margin-bottom: 30px;
+	color: #fff;
+}
+
 #profile .panel {
 	background: #ffffff;
 	padding: 20px;
@@ -47,8 +58,10 @@
 }
 
 #profile .panel h2 {
-	color: #D0122D;
-	text-align: center;
+	color: #61514D;
+	display: inline-block;
+	padding-bottom: 12px;
+	background: url(<%= asset_path "assets/hover_2.png" %>) repeat-x bottom left;
 }
 
 #profile .panel #profile_avatar {
@@ -90,3 +103,49 @@
 	clear: both;
 	display: block;
 }
+
+#profile .talents {
+	list-style-type: none;
+	text-align: center;
+	padding: 8px 0 75px;
+}
+
+#profile .talents li {
+	display: inline-block;
+	padding: 0;
+	width: 99px;
+	height: 85px;
+	text-align: center;
+	font-size: 34px;
+	color: #ffffff;
+	line-height: 85px;
+	font-family: "Good for Nothing";
+	background-color: #9adada;
+	background-repeat: no-repeat;
+	background-position: top left;
+	margin-right: 60px;
+}
+
+#profile .talents li sub {
+	font-size: 18px;
+}
+
+#profile .talents li:last-child {
+	margin: 0;
+}
+
+#profile .talents li span {
+	display: block;
+	width: 100%;
+	background: #ffffff;
+	line-height: 28px;
+	color: #61514D;
+	font-size: 20px;
+	padding-top: 10px;
+}
+
+#profile .talents .design { width: 71px; background-image: url(<%= asset_path "icons/design.gif"%>); }
+#profile .talents .code { width: 87px; background-image: url(<%= asset_path "icons/code.gif"%>); }
+#profile .talents .think { background-image: url(<%= asset_path "icons/think.gif"%>); }
+
+

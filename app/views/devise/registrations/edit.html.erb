@@ -2,7 +2,7 @@
 	
 	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "primary" }) do |f| %>
 
-		<h1>All about you</h1>
+		<h1>A little about you</h1>
 		
 		<%= render "shared/notices" %>
 
@@ -11,16 +11,17 @@
 			<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
 			<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
 			<%= f.input :gender, :as => :select, :collection => ["Female", "Male", "Transgender"] %>
-			<%= f.input :age, :wrapper_html => { :class => "smart_label" } %>
+			<%= f.input :age, :as => :string, :wrapper_html => { :class => "smart_label" } %>
 			<%= f.input :location, :label => "Your physical location", :wrapper_html => { :class => "smart_label" } %>
 			
 			<%= f.input :url, :label => "Your digital location", :wrapper_html => { :class => "smart_label" } %>
 			<%= f.input :twitter_handle, :wrapper_html => { :class => "smart_label" } %>
 			
+			<%= f.input :subscribed, :as => :boolean, :label => "On the GFN mailing list?" %>
+			
 		</fieldset>
 
 		<fieldset class="actions">
-			<%= f.input :subscribed, :as => :boolean, :label => "On mailing list?" %>
 			<%= f.button :submit, "Save" %>
 		</fieldset>
 	<% end %>

@@ -23,8 +23,8 @@
 		<h1><%= @member.name %></h1>
 
 		<% if @member.chapter %>
-			<p>
-				<%= @member.short_name %> <%= (@member.crew?) ? "is part of the crew in" : "is doing Good for Nothing in" %>
+			<p class="chapter">
+				<%= (@member.crew?) ? "Part of the crew in" : "Doing Good for Nothing in" %>
 
 				<% if false && signed_in_as_owner?(@member) %>
 			
@@ -41,7 +41,7 @@
 
 		<div class="panel">
 
-			<h2>Profile</h2>
+			<h2>All about you</h2>
 		
 			<div id="profile_avatar">
 			<% if @member.avatar.url.nil? %>
@@ -53,7 +53,7 @@
 				<% if signed_in_as_owner?(@member) %>
 
 					<%= simple_form_for(@member, :as => 'user', :url => registration_path(@member), :html => { :remote => true, :method => :put, :class => "inline_form", :multipart => true }) do |f| %>				
-						<%= f.input :avatar, :label => "No likey your face? Change it:<br /><br />".html_safe %>
+						<%= f.input :avatar, :label => ((@member.avatar.url.nil?) ? "Show us yer face!" : "New face?") %>
 						<%= f.button :submit, "Upload" %>
 					<% end %>
 
@@ -82,21 +82,23 @@
 		<div class="panel">
 	
 			<% if @member.talents.any? %>
-			<h2>Talents</h2>
-			<ul>
+			<h2>Your Talents</h2>
+			<ul class="talents">
 				<% @member.talents.each do |talent| %>
-				<li><%= talent.skill.title %> (<%= talent.level %>)</li>
+				<li class="<%= talent.skill.title.underscore %>"><%= talent.level %><sub>/10</sub> <span><%= talent.skill.title %></span></li>
 				<% end %>
 			</ul>
 			<% end %>
 		
-			<% unless @member.brings.nil? %>
+			<% unless @member.brings.empty? %>
 				<h2>Special skills</h2>
 				<p><%= @member.brings %></p>
 			<% end %>
 		
-			<% if signed_in_as_owner?(@member) %>
+			<% if signed_in_as_owner?(@member) && @member.brings.nil? %>
 				<p class="call"><%= link_to "Tell us more about your talents", talents_path %></p>
+			<% elsif signed_in_as_owner?(@member) %>
+				<p class="call"><%= link_to "Update your talents", talents_path %></p>
 			<% end %>
 		
 		</div>

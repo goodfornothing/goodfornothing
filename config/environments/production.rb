@@ -20,7 +20,7 @@ Goodfornothing::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  config.action_mailer.default_url_options = { :host => 'staging.goodfornothing.com' }
+  config.action_mailer.default_url_options = { :host => 'www.goodfornothing.com' }
 
   config.action_mailer.delivery_method = :sendmail  
   config.action_mailer.sendmail_settings = {:arguments => "-i"}

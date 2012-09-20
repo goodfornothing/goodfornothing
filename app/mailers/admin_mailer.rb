@@ -18,4 +18,8 @@ class AdminMailer < ActionMailer::Base
     mail(:subject => "Good for Nothing Partner Request")
   end
   
+  def crew_activation(member)
+    mail(:subject => "Good for Nothing Partner Request")
+  end
+  
 end

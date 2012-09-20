@@ -102,7 +102,7 @@
 	
 		<% unless @challenge.gig.past? %>
 		<p class="icon_attend">
-			<%= link_to "Attend the gig", gig_path(@challenge.gig) %>
+			<%= link_to "Attend the gig on<br /> the #{@challenge.gig.start_time.day.ordinalize} of #{@challenge.gig.start_time.strftime('%B')}".html_safe, gig_path(@challenge.gig) %>
 		</p>
 		<% end %>
 	

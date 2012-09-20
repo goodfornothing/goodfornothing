@@ -93,7 +93,7 @@
 				</ul>
 				<% end %>
 		
-				<% unless @member.brings.empty? %>
+				<% unless @member.brings.nil? || @member.brings.empty? %>
 					<h2>Special skills</h2>
 					<p><%= @member.brings %></p>
 				<% end %>

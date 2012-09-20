@@ -191,7 +191,7 @@ class RegistrationsController < Devise::RegistrationsController
       mc = Gibbon.new()
       
       if resource.subscribed?
-        mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :double_optin => false})
+        mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :merge_vars => { :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
       else
         mc.list_unsubscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :send_goodbye => false, :send_notify => false})
       end

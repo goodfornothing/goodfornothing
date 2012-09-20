@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+	<p>Hello there <%= @user.short_name %></p>
+	<p>As you may have noticed, we've started to move across to our new web home. We're rolling it out slowly for a couple of days, keeping quiet on the Twitters and what-not while we hunt down bugs and tidy up a few bits and bobs.</p>
+	<p>In the mean time, it'd be great to get chapter leaders' accounts reactivated and profiles updated.</p>
+	<p>Once we're fully up and running you'll all receive some details about how to use the new platform to host gigs, socials, post blogs and such like!</p>
+	<p><%= link_to "Reactivate my account", claim_url(@user.reset_password_token) %></p>
+	<p>Peace &amp; love</p>
+	<p>GFN crew</p>
+  </body>
+</html>

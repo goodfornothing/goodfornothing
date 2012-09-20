@@ -1,6 +1,6 @@
 class AdminMailer < ActionMailer::Base
   
-  default from: "Hive Mind <crew@goodfornothing.com>",
+  default from: "GFN Hive Mind <crew@goodfornothing.com>",
           to: (Rails.env.production?) ? Chapter.find_by_title('London').users.crew.map(&:email) : "andrew@goodfornothing.com"
   
   def new_user(user)
@@ -19,7 +19,8 @@ class AdminMailer < ActionMailer::Base
   end
   
   def crew_activation(member)
-    mail(:subject => "Good for Nothing Partner Request")
+    @user = member
+    mail(:to => member.email, :subject => "Your account is ready for re-activation")
   end
   
 end

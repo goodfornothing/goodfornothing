@@ -1,0 +1,14 @@
+Hello there <%= @user.short_name %>
+
+As you may have noticed, we've started to move across to our new web home. We're rolling it out slowly for a couple of days, keeping quiet on the Twitters and what-not while we hunt down bugs and tidy up a few bits and bobs.
+
+In the mean time, it'd be great to get chapter leaders' accounts reactivated and profiles updated.
+
+Once we're fully up and running you'll all receive some details about how to use the new platform to host gigs, socials, post blogs and such like!
+
+To reactivate your Good for Nothing account follow the link below.
+
+<%= claim_url(@user.reset_password_token %>
+
+Peace and love
+London crew

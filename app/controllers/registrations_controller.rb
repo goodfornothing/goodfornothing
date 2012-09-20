@@ -31,7 +31,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   def edit_activity
-    @past_gigs = Gig.past
+    @past_gigs = Gig.past.order('start_time DESC')
   end
 
   def create

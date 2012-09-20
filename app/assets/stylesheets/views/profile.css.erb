@@ -43,15 +43,15 @@
 }
 
 #profile .chapter {
-	font-size: 24px;
+	font-size: 20px;
 	font-family: "Good for Nothing";
-	margin-bottom: 30px;
-	color: #fff;
+	margin-bottom: 40px;
+	color: #D0122D;
 }
 
 #profile .panel {
 	background: #ffffff;
-	padding: 20px;
+	padding: 22px 20px;
 	width: 410px;
 	min-height: 400px;
 	position: relative;
@@ -60,8 +60,13 @@
 #profile .panel h2 {
 	color: #61514D;
 	display: inline-block;
-	padding-bottom: 12px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
 	background: url(<%= asset_path "assets/hover_2.png" %>) repeat-x bottom left;
+}
+
+#profile .panel h2:first-child {
+	margin-bottom: 35px;
 }
 
 #profile .panel #profile_avatar {
@@ -107,7 +112,7 @@
 #profile .talents {
 	list-style-type: none;
 	text-align: center;
-	padding: 8px 0 75px;
+	padding: 0 0 85px;
 }
 
 #profile .talents li {

@@ -170,6 +170,8 @@ class RegistrationsController < Devise::RegistrationsController
     
       @user = User.reset_password_by_token(params[:user])
 
+      @user.reasons_for_joining = " " if @user.reasons_for_joining.nil?
+
       if @user.errors.empty?
         @user.activated = true
         @user.save!
@@ -178,7 +180,8 @@ class RegistrationsController < Devise::RegistrationsController
         sign_in(User, @user)
         redirect_to member_path(@user, :welcome=>"yahuh")
       else
-        flash[:error] = @user.errors.to_s
+        p @user.errors.inspect
+        flash[:error] = @user.errors.inspect.to_s
         render :claim
       end
       

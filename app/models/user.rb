@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   has_many :talents
   has_many :skills, :through => :talents
   
-  validates_presence_of :name, :reasons_for_joining
+  validates_presence_of :name
   before_save :check_url_scheme
   
   mount_uploader :avatar, AvatarUploader

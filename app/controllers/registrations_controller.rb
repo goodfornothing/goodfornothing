@@ -170,8 +170,6 @@ class RegistrationsController < Devise::RegistrationsController
     
       @user = User.reset_password_by_token(params[:user])
 
-      @user.reasons_for_joining = " " if @user.reasons_for_joining.nil?
-
       if @user.errors.empty?
         @user.activated = true
         @user.save!

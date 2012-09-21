@@ -6,8 +6,9 @@ class SocialsController < ApplicationController
   before_filter :authenticate_user!, :only => [:attend, :attending]
 
 	def show
-	  @attendees = @social.users
-    @attendees = @social.users.where("user_id != #{current_user.id}") if user_signed_in?
+	  
+	  @attendees = @social.users.where('users.id NOT IN (?)', @social.chapter.users.crew.map(&:id).join(','))
+
 	end
 	
 	def attend

@@ -6,15 +6,6 @@
 	float: none;
 }
 
-#new_user.slides {
-	width: 800px;
-	margin: 20px 0 50px;
-}
-
-#new_user.slides {
-	min-height: 510px;
-}
-
 #new_user.slides h1 {
 	font-size: 13px;
 	width: 495px;
@@ -26,13 +17,26 @@
 	background: url(<%= asset_path "text/join.gif" %>) no-repeat;
 }
 
-#new_user.slides p.notice {
+form.slides {
+	width: 800px;
+	margin: 20px 0 50px;
+}
+
+form.slides {
+	min-height: 510px;
+}
+
+.view_edit_moar form.slides {
+	min-height: 391px;
+}
+
+form.slides p.notice {
 	text-align: center;
 	margin-bottom: 40px;
 	display: none;
 }
 
-#new_user.slides fieldset {
+form.slides fieldset {
 	min-height: 320px;
 	margin: 0;
 	padding-top: 40px;
@@ -40,14 +44,19 @@
 	position: relative;
 }
 
-.section_registrations.view_new #pagination {
+.view_edit_moar form.slides fieldset {
+	padding-top: 50px;
+	min-height: 300px;
+}
+
+.section_registrations #pagination {
 	margin: 0 auto;
 	display: inline-block;
 	padding: 0 0 0 15px;
 	background: url(<%= asset_path "assets/white_squiggle.png" %>) repeat-x center center;
 }
 
-.section_registrations.view_new #pagination li.page_links {
+.section_registrations #pagination li.page_links {
 	font-family: "Good for Nothing";
 	display: inline-block;
 	color: #ffffff;
@@ -62,28 +71,28 @@
 	background: url(<%= asset_path "assets/single_splodge_1.png" %>) no-repeat;
 }
 
-.section_registrations.view_new #pagination li.page_links:hover,
-.section_registrations.view_new #pagination li.page_links:active,
-.section_registrations.view_new #pagination li.page_links:focus,
-.section_registrations.view_new #pagination li.page_links.current {
+.section_registrations #pagination li.page_links:hover,
+.section_registrations #pagination li.page_links:active,
+.section_registrations #pagination li.page_links:focus,
+.section_registrations #pagination li.page_links.current {
 	background-position: left bottom;
 	color: #ffffff;
 }
 
-.section_registrations.view_new #pagination .prev,
-.section_registrations.view_new #pagination .next {
+.section_registrations #pagination .prev,
+.section_registrations #pagination .next {
 	text-indent: -13377px;
 	display: block;
 	height: 60px;
 	width: 60px;
 	position: absolute;
-	top: 340px;
+	top: 43%;
 	left: 0;
 	background: url(<%= asset_path "icons/previous.png" %>) no-repeat top left;
 	cursor: pointer;
 }
 
-.section_registrations.view_new #pagination .next {
+.section_registrations #pagination .next {
 	right: 0; left: auto;
 	background: url(<%= asset_path "icons/next.png" %>) no-repeat top left;
 }
@@ -256,6 +265,22 @@
 	bottom: -110px;
 }
 
+form.slides .slide_skills {
+	width: 500px;
+	margin: 0 auto;
+}
+
+form.slides .slide_locations {
+	width: 500px;
+	margin: 0 auto;
+}
+
+form.slides .slide_locations .btn {
+	position: absolute;
+	bottom: -43px;
+	left: 100px;
+}
+
 .range_slider {
 	list-style-type: none;
 	padding: 0;
@@ -327,7 +352,7 @@
 	font-family: "Good for Nothing";
 }
 
-#new_user .claim .btn {
+form.slides .claim .btn {
 	position: absolute;
 	bottom: -35px;
 	left: 280px;

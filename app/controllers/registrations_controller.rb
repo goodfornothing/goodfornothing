@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   
-  before_filter :fetch_associations, :only => [:new, :create, :edit, :edit_talents, :update]
-  prepend_before_filter :authenticate_scope!, :only => [:edit_activity, :edit_talents, :edit_password, :edit, :update, :destroy, :update_activity, :update_talents, :update_password]
+  before_filter :fetch_associations, :only => [:new, :create, :edit, :edit_talents, :update, :edit_moar]
+  prepend_before_filter :authenticate_scope!, :only => [:edit_activity, :edit_talents, :edit_password, :edit, :edit_moar, :update, :destroy, :update_activity, :update_talents, :update_password]
   
   def new
   
@@ -22,6 +22,9 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   def edit
+  end
+  
+  def edit_moar  
   end
   
   def edit_password

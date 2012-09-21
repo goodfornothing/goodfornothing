@@ -72,10 +72,7 @@ $(document).ready(function(){
 		});
 		
 	});
-	
-	// Max lengths
-	$(".single form [maxlength]").each(function(index,input) { $(input).limit_chars(); });
-	
+		
 	// Tips
 	$(".hint a[title]").tooltip({offset: [-1, 22]	});
 	$(".avatar .tip[title]").tooltip({ offset: [-3, 40] });
@@ -85,8 +82,8 @@ $(document).ready(function(){
 	$('.challenge_panel .tip').tooltip({ offset: [-3, 55] });
 	
 	// Registration form
-	$('#new_user.slides').easyPaginate({ step: 1 });
-	$('#new_user.slides').append($('#pagination'))
+	$('form.slides').easyPaginate({ step: 1 });
+	$('form.slides').append($('#pagination'))
 	$('#pagination li').not('.next, .prev').addClass('page_links')
 	
 	// Section panels
@@ -106,5 +103,37 @@ $(document).ready(function(){
 		})
 		
 	});
+	
+	// Ajaxy pants	
+	var opts = {
+	  lines: 9, // The number of lines to draw
+	  length: 3, // The length of each line
+	  width: 2, // The line thickness
+	  radius: 5, // The radius of the inner circle
+	  corners: 0, // Corner roundness (0..1)
+	  rotate: 22, // The rotation offset
+	  color: '#D0122D', // #rgb or #rrggbb
+	  speed: 1.3, // Rounds per second
+	  trail: 60, // Afterglow percentage
+	  shadow: false, // Whether to render a shadow
+	  hwaccel: false, // Whether to use hardware acceleration
+	  className: 'spinner', // The CSS class to assign to the spinner
+	  zInde0x: 2e9, // The z-index (defaults to 2000000000)
+	  top: '0', // Top position relative to parent in px
+	  left: '0', // Left position relative to parent in px
+	};
+	
+	var target = document.getElementById('spinmerightround');
+	var spinner = new Spinner(opts).spin(target);
+	
+	$('#spinmerightround')
+	    .hide()
+	    .ajaxStart(function() {
+	        $(this).show();
+	    })
+	    .ajaxStop(function() {
+	        $(this).hide();
+	    })
+	;
 	
 });

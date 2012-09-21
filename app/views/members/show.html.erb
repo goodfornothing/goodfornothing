@@ -4,14 +4,15 @@
 	<div id="profile_welcome">
 
 		<section class="welcome">
-			<h2>Welcome to our new web hive!</h2>
-					
+			<h2>Welcome to your new profile!</h2>
+				
+			<p>So, what's next? Before you get stuck in, it's worth taking a few seconds to tell the community more about yourself; the more you give, the more you'll get back, and the better we'll get at gathering amazing folk to turbo-charge challenges.</p>
+				
 			<ul>
-				<li class="cta strong"><%= link_to "Find a challenge", challenges_path %></li>
-				<li class="cta strong"><%= link_to "Attend an event", calendar_path %></li>
+				<li class="cta strong"><%= link_to "1. Tell us more", moar_path %></li>
+				<li class="cta strong"><%= link_to "2. Find a challenge", challenges_path %></li>
+				<li class="cta strong"><%= link_to "3. Attend an event", calendar_path %></li>
 			</ul>
-			
-			<p>... or take a few seconds to tell your story and share your skills. The more you give, the more you'll get back. And the better we'll get at gathering amazing folk to turbo-charge challenges.</p>
 			
 		</section>
 		
@@ -19,30 +20,21 @@
 	<% end %>
 
 	<div id="profile">
-		
-		<h1><%= @member.name %></h1>
-		
-		<p class="chapter">
-		<% if @member.chapter %>
-			
-				<%= (@member.crew?) ? "Part of the crew in" : "Doing Good for Nothing in" %>
-				<% if false && signed_in_as_owner?(@member) %>
-					<%= render "chapter_form" %>
-				<% else %>
-					<%= @member.chapter.title %>
-				<% end %>
-		
-		<% elsif false && signed_in_as_owner?(@member) %>
-			You've not joined a local chapter, <%= render "chapter_form" %>, or <%= link_to "drop us a note", "mailto:hello@goodfornothing.com" %> if you're interesting in starting your own.
-		<% end %>
-		</p>
-		
+					
 		<div class="panels">
 
 			<div class="panel">
 
-				<h2>A little about <%= contextual_reference(@member,"you") %></h2>
-		
+				<h1>A little about <%= contextual_reference(@member,"you") %></h1>
+				
+				<% if @member.talents.any? %>
+				<ul class="talents">
+					<% @member.talents.each do |talent| %>
+					<li class="<%= talent.skill.title.underscore %>"><%= talent.level %><sub>/10</sub> <span><%= talent.skill.title %></span></li>
+					<% end %>
+				</ul>
+				<% end %>
+							
 				<div id="profile_avatar">
 				<% if @member.avatar.url.nil? %>
 					<div class="avatar"><%= image_tag "assets/avatar_small.png" %></div>
@@ -61,49 +53,56 @@
 			
 				</div>
 		
-				<ul>
+				<!--<p class="chapter">
+				<%# if @member.chapter %>
+
+					<%#= (@member.crew?) ? "Part of the crew in" : "Doing Good for Nothing in" %>
+					<%# if signed_in_as_owner?(@member) %>
+						<%#= render "chapter_form" %>
+					<%# else %>
+						<%#= @member.chapter.title %>
+					<%# end %>
+
+				<%# elsif signed_in_as_owner?(@member) %>
+					You've not joined a local chapter, <%#= render "chapter_form" %>, or <%#= link_to "drop us a note", "mailto:hello@goodfornothing.com" %> if you're interesting in starting your own.
+				<%# end %>
+				</p>-->
+		
+				<ul class="data">
+					
+					<% if @member.chapter %>
+					<li><%= (@member.crew?) ? "Part of the crew in" : "Doing Good for Nothing in" %> <%= @member.chapter.title %></li>
+					<% end %>
+					
 					<% if time_active(@member) %>
 					<li><%= contextual_reference(@member,"you've").titlecase %> <%= time_active(@member) %></li>
 					<% end %>
-					<%= "<li>Living in #{@member.location}</li>".html_safe if @member.location.present? %>
+					<%= "<li>Live in #{@member.location}</li>".html_safe if @member.location.present? %>
 					<%= "<li>#{@member.gender}</li>".html_safe if @member.gender.present? %>
-					<%= "<li>#{@member.age}</li>".html_safe if @member.age.present? %>
+					<%= "<li>#{@member.age} years old</li>".html_safe if @member.age.present? %>
 					<%= "<li>#{link_to @member.twitter_handle, "http://twitter.com/#{@member.twitter_handle}"}</li>".html_safe if @member.twitter_handle.present? %>
 					<%= "<li>#{link_to @member.url, @member.url}</li>".html_safe if @member.url.present? %>
 				</ul>
 		
-				<% if signed_in_as_owner?(@member) && @completion > 60 %>
-					<p class="call"><%= link_to "Update profile", edit_user_registration_path %></p>
+				<% if signed_in_as_owner?(@member) && (@completion > 60 || params[:welcome]) %>
+					<p class="call"><%= link_to "Edit your profile", edit_user_registration_path %></p>
 					<!--<p class="cta"><%= link_to "Change Password", password_path %></p>-->
-				<% elsif signed_in_as_owner?(@member) %>
-					<p><em>We'd love to get to know you better. The more you share with the community about yourself, the easier it'll be to work together.</em></p>
+				<% elsif signed_in_as_owner?(@member) && !params[:welcome] %>
+					<p><em>We'd love to get to know you better. Why not take a few seconds to tell the community more about yourself; the more you give, the more you'll get back, and the better we'll get at gathering amazing folk to turbo-charge challenges.</em></p>
 					<p class="call"><%= link_to "Tell us more about yourself", edit_user_registration_path %></p>
 				<% end %>
-	
-			</div>
-	
-			<div class="panel">
-	
-				<% if @member.talents.any? %>
-				<h2><%= contextual_reference(@member,"your").titlecase %> Talents</h2>
-				<ul class="talents">
-					<% @member.talents.each do |talent| %>
-					<li class="<%= talent.skill.title.underscore %>"><%= talent.level %><sub>/10</sub> <span><%= talent.skill.title %></span></li>
-					<% end %>
-				</ul>
-				<% end %>
 		
-				<% unless @member.brings.nil? || @member.brings.empty? %>
+				<% if @member.brings? %>
 					<h2>Special skills</h2>
 					<p><%= @member.brings %></p>
 				<% end %>
 		
-				<% if signed_in_as_owner?(@member) && @member.brings.nil? %>
-					<p class="call"><%= link_to "Tell us more about your talents", talents_path %></p>
-				<% elsif signed_in_as_owner?(@member) %>
+				<% if signed_in_as_owner?(@member) %>
 					<p class="call"><%= link_to "Update your talents", talents_path %></p>
 				<% end %>
-		
+				
+				<span id="spinmerightround">Hang on!</span>
+				
 			</div>
 	
 			<div class="panel">
@@ -114,41 +113,35 @@
 	
 				<% if @member.challenges.any? %>
 				<h3><%= contextual_reference(@member, "you've").titlecase %> worked on <%= pluralize(@member.challenges.count, "challenge") %></h3>
-				<ul>
+				<ul class="data">
 					<% @member.challenges.each do |challenge| %>
 					<li><%= link_to challenge.title, challenge_path(challenge) %></li>
 					<% end %>
 				</ul>
 				<% end %>
-			
-			</div>
-			
-			<div class="panel">
 	
 				<% if @member.gigs.any? %>
-	
 					<h3><%= contextual_reference(@member, "you've").titlecase %> taken part in <%= pluralize(@member.gigs.count, "gig") %></h3>
-					<ul>
+					<ul class="data">
 						<% @member.gigs.each do |gig| %>
 						<li><%= link_to gig.title, gig_path(gig) %></li>
 						<% end %>
 					</ul>
 				<% end %>
 	
-				<% if signed_in_as_owner?(@member) && @member.gigs.empty? %>
-				<p>We're not sure if you've taken part in any gigs, <%= link_to "add gigs to your profile", activity_path %> if you have!</p>	
-				<% elsif signed_in_as_owner?(@member) %>
-				<p class="call"><%= link_to "Tell us which gigs you've attended", activity_path %></p>
-	
-				<% end %>
-	
 				<% if @member.socials.any? %>
-				<h3><%= contextual_reference(@member, "you've").titlecase %> taken part in <%= pluralize(@member.socials.count, "social") %></h3>
-				<ul>
+				<h3><%= contextual_reference(@member, "you've").titlecase %> been to <%= pluralize(@member.socials.count, "social") %></h3>
+				<ul class="data">
 					<% @member.socials.each do |social| %>
 					<li><%= social.start_time.day %> <%= social.start_time.strftime('%B') %> in <%= social.chapter.title %></li>
 					<% end %>
 				</ul>
+				<% end %>
+				
+				<% if signed_in_as_owner?(@member) && @member.gigs.empty? %>
+				<p>We're not sure if you've taken part in any gigs, <%= link_to "let the community know", activity_path %> if you have!</p>	
+				<% elsif signed_in_as_owner?(@member) %>
+				<p class="call"><%= link_to "Add gigs to your activity", activity_path %></p>
 				<% end %>
 	
 			</div>

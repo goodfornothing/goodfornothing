@@ -25,6 +25,7 @@ Goodfornothing::Application.routes.draw do
     get '/users/edit/activity' => 'registrations#edit_activity', :as => "activity"
     get '/users/edit/password' => 'registrations#edit_password', :as => "password"
     get '/users/edit/talents' => 'registrations#edit_talents', :as => "talents"
+    get '/users/tell-us-more' => 'registrations#edit_moar', :as => "moar"
     
     put '/users/edit/activity' => 'registrations#update_activity', :as => "activity"
     put '/users/edit/password' => 'registrations#update_password', :as => "password"

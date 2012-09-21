@@ -6,13 +6,13 @@
 
 #profile_welcome h2 {
 	text-align: center;
-	margin-bottom: 45px;
+	margin-bottom: 20px;
 	line-height: 32px;
 }
 
 #profile_welcome p {
-	width: 500px;
-	margin: 0 auto;
+	width: 550px;
+	margin: 0 auto 43px;
 	text-align: center;
 }
 
@@ -21,32 +21,29 @@
 	overflow: hidden;
 	list-style-type: none;
 	text-align: center;
-	width: 560px;
-	margin: 0 auto 10px;
+	width: 900px;
+	margin: 0 auto 0;
 }
 
 #profile_welcome ul li {
 	display: block;
-	margin-right: 20px;
+	margin-right: 25px;
 	float: left;
 	width: 250px;
-	margin-bottom: 15px;
-	margin-left: 30px;
+	margin-bottom: 0px;
+	margin-left: 25px;
 }
 
 #profile_welcome ul li:last-child {
-	margin: 0;
+	margin-right: 0;
 }
 
 #profile h1 {
 	margin-bottom: 10px;
 }
 
-#profile .chapter {
-	font-size: 20px;
-	font-family: "Good for Nothing";
-	margin-bottom: 40px;
-	color: #D0122D;
+#profile:first-child {
+	padding-top: 10px;
 }
 
 #profile .panel {
@@ -57,15 +54,22 @@
 	position: relative;
 }
 
-#profile .panel h2 {
+#profile .panel h3 {
+	margin-bottom: 21px;
+}
+
+#profile .panel h2, #profile .panel h1 {
 	color: #61514D;
+	font-size: 20px;
 	display: inline-block;
 	padding-bottom: 10px;
 	margin-bottom: 20px;
+	padding-top: 0;
+	line-height: 26px;
 	background: url(<%= asset_path "assets/hover_2.png" %>) repeat-x bottom left;
 }
 
-#profile .panel h2:first-child {
+#profile .panel h2:first-child, #profile .panel h1:first-child {
 	margin-bottom: 35px;
 }
 
@@ -77,11 +81,34 @@
 #profile .panel #profile_avatar .avatar {
 }
 
-#profile .panel .call {
-	margin: 0;
-	position: absolute;
-	bottom: 20px;
-	left: 20px;
+#profile .panel ul.data {
+	padding: 0;
+	border-bottom: 1px solid #D0122D;
+	margin-bottom: 30px;
+}
+
+#profile .panel ul.data li {
+	list-style-type: none;
+	padding: 5px 0;
+	border-top: 1px solid #D0122D;
+	color: #61514D;
+	line-height: 16px;
+}
+
+#profile .panel ul.data li a {
+	display: block;
+	color: #61514D;
+}
+
+#profile .panel ul.data li a:hover,
+#profile .panel ul.data li a:focus,
+#profile .panel ul.data li a:active {
+	text-decoration: none;
+	color: #D0122D;
+}
+
+#profile .panel .call:last-child {
+	margin: 0 0 5px;
 }
 
 #profile .panel .call a {
@@ -92,7 +119,7 @@
 	height: 33px;
 	display: block;
 	text-align: center;
-	width: 410px;
+	width: 250px;
 	background: url(<%= asset_path "assets/pull_button.gif"%>) no-repeat;
 }
 

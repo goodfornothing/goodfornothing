@@ -17,5 +17,6 @@
 //= require jquery.validate.min
 //= require jquery.remotipart
 //= require paginate
+//= require spin.min
 //= require_tree .
 //= require modernizr

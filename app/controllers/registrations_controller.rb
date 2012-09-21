@@ -178,7 +178,7 @@ class RegistrationsController < Devise::RegistrationsController
         sign_in(User, @user)
         redirect_to member_path(@user, :welcome=>"yahuh")
       else
-        flash[:error] = nil
+        flash[:error] = @user.errors.to_s
         render :claim
       end
       

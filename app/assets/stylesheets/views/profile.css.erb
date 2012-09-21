@@ -76,6 +76,18 @@
 #profile .panel #profile_avatar {
 	display: block;
 	width: 100%;
+	margin-bottom: 23px;
+	overflow: hidden;
+}
+
+#profile .panel #profile_avatar label {
+	font-size: 14px;
+	padding-top: 2px;
+	padding-bottom: 5px;
+	display: block;
+	padding-bottom: 10px;
+	font-family: "Good for Nothing";
+	color: #61514D;
 }
 
 #profile .panel #profile_avatar .avatar {
@@ -136,10 +148,24 @@
 	display: block;
 }
 
+#profile .panel .more {
+	margin-right: 50px;
+	margin-bottom: 5px;
+	float: left;
+}
+
+#profile .panel .more a {
+	width: 150px;
+}
+
+#profile .panel .more:last-child {
+	margin-right: 0;
+}
+
 #profile .talents {
 	list-style-type: none;
 	text-align: center;
-	padding: 0 0 85px;
+	padding: 0 0 75px;
 }
 
 #profile .talents li {
@@ -180,4 +206,34 @@
 #profile .talents .code { width: 87px; background-image: url(<%= asset_path "icons/code.gif"%>); }
 #profile .talents .think { background-image: url(<%= asset_path "icons/think.gif"%>); }
 
+#profile .icon_members {
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+#profile .icon_members a {
+	width: 200px;
+	color: #ffffff;
+	font-family: "Good for Nothing";
+	padding-top: 153px;
+	padding-bottom: 10px;
+	font-size: 18px;
+	text-align: center;
+	display: inline-block;
+	background: url(<%= asset_path "icons/members.gif" %>) no-repeat top left;
+}
+
+#profile .icon_members span {
+	display: block;
+	padding-bottom: 10px;
+	font-family: "Good for Nothing";
+	color: #61514D;
+}
+
+#profile .icon_members a:hover,
+#profile .icon_members a:focus,
+#profile .icon_members a:active {
+	font-size: 20px;
+	text-decoration: none;
+}
 

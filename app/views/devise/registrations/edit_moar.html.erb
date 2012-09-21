@@ -11,7 +11,13 @@
 			<legend>Collaboration likes faces</legend>
 			
 			<div class="faces">
-				
+				<ul class="avatar_list">
+					<% @faces.each do |user| %>
+						<li class="avatar compact">	
+							<a class="tip" title="<%= user.name %>"><%= image_tag user.avatar.compact, :alt => user.name %></a>
+						</li>
+					<% end %>
+				</ul>
 			</div>
 			
 			<%= f.input :avatar, :label => "Select a picture" %>
@@ -21,7 +27,7 @@
 		
 		<fieldset class="slide slide_skills">
 			
-			<legend>What can you do?</legend>			
+			<legend>Your special skills and talents</legend>			
 			
 			<%= f.input :brings, :label => "Do you bring any other special skills or talents to the community?", :input_html => { :rows => 7 }, :wrapper_html => { :class => "smart_label" } %>
 			

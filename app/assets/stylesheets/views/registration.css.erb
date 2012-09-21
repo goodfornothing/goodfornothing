@@ -265,6 +265,42 @@ form.slides fieldset {
 	bottom: -110px;
 }
 
+form.slides .slide_face {
+	width: 460px;
+	margin: 0 auto;
+}
+
+form.slides .slide_face .faces {
+	width: 220px;
+	float: left;
+	padding-top: 35px;
+}
+
+form.slides .slide_face .faces .avatar a:before {
+	background: url(<%= asset_path "assets/avatar_mask_forms.png" %>) no-repeat center center;
+}
+
+form.slides .slide_face .input.file {
+	width: 200px;
+	float: right;
+	padding-top: 35px;
+}
+
+form.slides .slide_face .input.file label {
+	font-size: 18px;
+	padding-top: 2px;
+	padding-bottom: 10px;
+	display: block;
+	padding-bottom: 20px;
+	font-family: "Good for Nothing";
+	color: #085156;
+	text-align: left;
+}
+
+form.slides .slide_face .input.file input {
+	float: left;
+}
+
 form.slides .slide_skills {
 	width: 500px;
 	margin: 0 auto;
@@ -278,7 +314,7 @@ form.slides .slide_locations {
 form.slides .slide_locations .btn {
 	position: absolute;
 	bottom: -43px;
-	left: 100px;
+	left: 110px;
 }
 
 .range_slider {

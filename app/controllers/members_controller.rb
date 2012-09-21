@@ -44,6 +44,7 @@ class MembersController < ApplicationController
       ]
             
       @completion = ( ( @profile.count.to_f - (@profile.count(nil).to_f+@profile.count("")) ) / @profile.count.to_f) * 100
+          
     end
     
     

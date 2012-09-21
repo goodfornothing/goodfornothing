@@ -24,7 +24,8 @@ class RegistrationsController < Devise::RegistrationsController
   def edit
   end
   
-  def edit_moar  
+  def edit_moar 
+    @faces = User.where('avatar is not null && avatar != ""').order('created_at ASC').limit(6)
   end
   
   def edit_password

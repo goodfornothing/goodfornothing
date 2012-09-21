@@ -34,6 +34,11 @@
 					<% end %>
 				</ul>
 				<% end %>
+				
+				<% if @member.brings? %>
+					<h3>Other special skills</h3>
+					<p><%= @member.brings %></p>
+				<% end %>
 							
 				<div id="profile_avatar">
 				<% if @member.avatar.url.nil? %>
@@ -42,14 +47,15 @@
 					<div class="avatar"><%= image_tag @member.avatar %></div>
 				<% end %>
 			
-					<% if signed_in_as_owner?(@member) %>
-
-						<%= simple_form_for(@member, :as => 'user', :url => registration_path(@member), :html => { :remote => true, :method => :put, :class => "inline_form", :multipart => true }) do |f| %>				
-							<%= f.input :avatar, :label => ((@member.avatar.url.nil?) ? "Show us yer face!" : "New face?") %>
-							<%= f.button :submit, "Upload" %>
-						<% end %>
-
+				<% if signed_in_as_owner?(@member) %>
+					<span id="spinmerightround">Hang on!</span>
+					
+					<%= simple_form_for(@member, :as => 'user', :url => registration_path(@member), :html => { :remote => true, :method => :put, :class => "inline_form", :multipart => true }) do |f| %>				
+						<%= f.input :avatar, :label => ((@member.avatar.url.nil?) ? "Collaboration likes faces, show us yours" : "New face?") %>
+						<%= f.button :submit, "Upload" %>
 					<% end %>
+
+				<% end %>
 			
 				</div>
 		
@@ -83,33 +89,22 @@
 					<%= "<li>#{link_to @member.twitter_handle, "http://twitter.com/#{@member.twitter_handle}"}</li>".html_safe if @member.twitter_handle.present? %>
 					<%= "<li>#{link_to @member.url, @member.url}</li>".html_safe if @member.url.present? %>
 				</ul>
-		
-				<% if signed_in_as_owner?(@member) && (@completion > 60 || params[:welcome]) %>
-					<p class="call"><%= link_to "Edit your profile", edit_user_registration_path %></p>
-					<!--<p class="cta"><%= link_to "Change Password", password_path %></p>-->
-				<% elsif signed_in_as_owner?(@member) && !params[:welcome] %>
+				
+				<% if signed_in_as_owner?(@member) && (@completion >= 55 || params[:welcome]) %>
+					<p class="more"><%= link_to "Edit your profile", edit_user_registration_path %></p>
+					<p class="more"><%= link_to "Update your talents", talents_path %></p>
+				<% elsif signed_in_as_owner?(@member) && (!params[:welcome] && @completion < 55) %>
 					<p><em>We'd love to get to know you better. Why not take a few seconds to tell the community more about yourself; the more you give, the more you'll get back, and the better we'll get at gathering amazing folk to turbo-charge challenges.</em></p>
-					<p class="call"><%= link_to "Tell us more about yourself", edit_user_registration_path %></p>
+					<p class="call"><%= link_to "Tell us more about yourself", moar_path %></p>
 				<% end %>
-		
-				<% if @member.brings? %>
-					<h2>Special skills</h2>
-					<p><%= @member.brings %></p>
-				<% end %>
-		
-				<% if signed_in_as_owner?(@member) %>
-					<p class="call"><%= link_to "Update your talents", talents_path %></p>
-				<% end %>
-				
-				<span id="spinmerightround">Hang on!</span>
-				
+								
 			</div>
 	
 			<div class="panel">
 	
 				<h2>What <%= contextual_reference(@member,"you've").titlecase %> been up to</h2>
 	
-				<p>So far, <%= contextual_reference(@member, "you've") %> worked with <%= link_to pluralize(@member.member_reach.count, "member"), members_path %> of the community.</p>
+				<p class="icon_members"><span>So far, <%= contextual_reference(@member, "you've") %> worked with&hellip;</span> <%= link_to pluralize(@member.member_reach.count, "collaborator"), members_path %> </p>
 	
 				<% if @member.challenges.any? %>
 				<h3><%= contextual_reference(@member, "you've").titlecase %> worked on <%= pluralize(@member.challenges.count, "challenge") %></h3>

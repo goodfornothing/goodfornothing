@@ -20,9 +20,16 @@
 			<%= f.input :subscribed, :as => :boolean, :label => "On the GFN mailing list?" %>
 			
 		</fieldset>
+		
+		<fieldset>
+			<legend>Change your password?</legend>
+			<br /><br />
+			<%= f.input :password, :label => "New password", :required => false, :wrapper_html => { :class => "smart_label" }, :input_html => { :autocomplete => "off" } %>
+			<%= f.input :password_confirmation, :label => "Confirm new password", :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
+		</fieldset>
 
 		<fieldset class="actions">
-			<%= f.button :submit, "Save" %>
+			<%= f.button :submit, "Update me" %>
 		</fieldset>
 	<% end %>
 	

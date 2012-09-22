@@ -2,13 +2,18 @@
 <html xmlns:og="http://opengraphprotocol.org/schema/">
 	<head>
 		
-		<title>Good for Nothing &ndash; Collaborating for Good</title>
+		<title>
+			<% if params[:controller] == "members" && params[:action] == "show" %>
+				<%= @member.name %> at 
+			<% end %>
+			Good for Nothing &ndash; Collaborating for Good
+		</title>
 		
 		<meta name="description" content="Good for Nothing, smart folk collaborating and experimenting to solve stuff that matters." />
-		<meta name="keywords" content="good, nothing, hack, london, pipeline, socent, social, innovation, purpose" />
+		<meta name="keywords" content="good, nothing, hack, london, pipeline, socent, social, innovation, purpose, challenges, enterprise, ventures, causes, charity" />
 		<link rel="shortcut icon" href="/favicon.ico?v2" />
 		
-		<meta property="og:title" content="Good for Nothing &ndash; Collaborating for Good" />
+		<meta property="og:title" content="<%= "#{@member.name.titlecase} at " if params[:controller] == "members" && params[:action] == "show" %>Good for Nothing - Collaborating for Good" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.goodfornothing.com" />
 		<meta property="og:image" content="http://www.goodfornothing.com/assets/branding/og.gif" />
@@ -78,7 +83,7 @@
 				<% if params[:controller] == "home" %>
 				<section id="introduction">
 					<h2>Good for Nothing</h2>
-					<p><%= link_to "Smart folk", community_path %> <span>collaborating and experimenting to solve</span> <%= link_to "stuff that matters", challenges_path %></p>
+					<p><%= link_to "Smart folk", members_path %> <span>collaborating and experimenting to solve</span> <%= link_to "stuff that matters", challenges_path %></p>
 				</section>
 				<% end %>
 				

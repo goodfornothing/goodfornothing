@@ -21,7 +21,7 @@ namespace :mailchimp do
               }],
               :NAME => user.name,
               :CODE => user.reset_password_token,
-              :LOCATION => user.location,
+              :LOCATION => user.ning_profile.location,
               :ACTIVATED => user.activated
           }
         })

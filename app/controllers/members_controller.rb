@@ -8,7 +8,7 @@ class MembersController < ApplicationController
 	   
 	    if current_user.chapter.present?
 	      @chapter_members = current_user.chapter.users.active
-	      @members = User.active.where('chapter_id != ?', current_user.chapter.id)
+	      @members = User.active.where('chapter_id != ? or chapter_id IS NULL', current_user.chapter.id)
 	    else
 	      @members = User.active
 	    end

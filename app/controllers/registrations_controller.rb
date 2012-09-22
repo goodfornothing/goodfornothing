@@ -28,9 +28,6 @@ class RegistrationsController < Devise::RegistrationsController
     @faces = User.where('avatar is not null && avatar != ""').order('created_at ASC').limit(6)
   end
   
-  def edit_password
-  end
-  
   def edit_talents    
   end
   
@@ -71,17 +68,6 @@ class RegistrationsController < Devise::RegistrationsController
         respond_with resource
       end
       
-    end
-  end
-  
-  def update_password
-    if resource.update_attributes(params[resource_name])
-      set_flash_message :notice, :updated
-      sign_in resource_name, resource, :bypass => true
-      redirect_to after_update_path_for(resource)
-    else
-      clean_up_passwords(resource)
-      render_with_scope :edit_passwords
     end
   end
   

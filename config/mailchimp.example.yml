@@ -1,11 +1,11 @@
 development:
   api_key: ''
-  list_name: ''
+  list_id: ''
 
 test:
   api_key: ''
-  list_name: ''
+  list_id: ''
 
 production:
   api_key: ''
-  list_name: ''
+  list_id: ''

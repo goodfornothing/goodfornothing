@@ -10,18 +10,19 @@
 			
 		<% if @gig.start_time && @gig.end_time %><p class="meta"><span>When?</span> <%= @gig.start_time.to_formatted_s(:long_ordinal) %> &rarr; <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time><% end %>
 		<p class="meta"><span>Who?</span> Organised by the <%= @gig.chapter.title %> crew<%= " in partnership with #{link_to @gig.partner.name, @gig.partner.url}".html_safe unless @gig.partner.nil? %></p>
-		<p class="meta"><span>Where?</span> <%= link_to @gig.location, "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.city}" %></p>
+		<% if @gig.location? %><p class="meta"><span>Where?</span> <%= link_to @gig.location, "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.city}" %></p><% end %>
 			
 	</article>
 	
+	<div id="challenges">
 	<% if @gig.challenges.any? %>
 
-	
 		<% @gig.challenges.each do |challenge| %>
 			<%= render :partial => "challenges/block", :locals => { :challenge => challenge } %>
 		<% end %>
 	
 	<% end %>
+	</div>
 	
 </section>
 
@@ -35,9 +36,9 @@
 		<% end %>
 		
 		<% if @attendees.any? %>
-		<% @attendees.each do |user| %>
-			<%= render :partial => "members/avatar", :locals => { :member => user }%>
-		<% end %>
+			<% @attendees.each do |user| %>
+				<%= render :partial => "members/avatar", :locals => { :member => user }%>
+			<% end %>
 		<% end %>
 		
 	</ul>
@@ -46,11 +47,13 @@
 		<h2>It's happening!</h2>
 		<p>This gig is happening right now, you can no longer register, but feel free to just drop in and say hello anyway!</p>
 	<% elsif (@gig.start_time.past? && @gig.end_time.nil?) || @gig.end_time.past? %>
+		<% if @gig.challenges.any? %>
 		<h2>Challenge time</h2>
 		<p>This gig has ended but you can still get involved in the challenges.</p>
+		<% end %>
 	<% else %>
 		<% if user_signed_in? && current_user.is_attending_gig?(@gig) %>
-			<p>You've registered to attend this gig, let us know if you can no longer make it.</p>
+			<p>You've registered to attend this gig &ndash; look forward to doing some Good for Nothing with you!</p>
 			<p class="more"><%= link_to "I can't make it", attend_gig_path(@gig) %></p>
 		<% elsif @gig.slots.count == 1 && @gig.slots.first.skill.nil? %>
 			<p class="cta"><%= link_to "I'm Coming!", attend_gig_path(@gig, :slot => @gig.slots.first) %></p>

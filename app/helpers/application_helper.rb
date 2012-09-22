@@ -40,9 +40,5 @@ module ApplicationHelper
   	  end
   	end
 	end
-	
-	def contextual_name(user)
-	  (user_signed_in? && current_user == user) ? "you've" : "#{user.short_name}'s"
-	end
   
 end

@@ -45,7 +45,7 @@
 		
 	</ul>
 	
-	<% unless @social.location.nil? %>
+	<% if @social.location? %>
 		<h2>Where do I go?</h2>
 		<p><%= link_to @social.location, "https://maps.google.co.uk/maps?q=#{@social.location},+%20#{@social.chapter.city}" %></p>
 	<% end %>

@@ -28,7 +28,12 @@ class GigsController < ApplicationController
         flash[:error] = "Sorry, we've reached the limit for this slot."
       else
         slot.users << current_user
-        location = gig_path(@gig)
+        path = URI.parse(request.referer).path
+        if path == "/register" || path == "/users"
+          location = member_path(current_user, :welcome=>"yahuh", :gig => @gig.id)
+        else 
+          location = gig_path(@gig)
+        end
       end
     end
   

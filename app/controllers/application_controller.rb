@@ -49,11 +49,13 @@ class ApplicationController < ActionController::Base
   
     def store_location
       if !user_signed_in? && params[:action] != "create" && params[:action] != "update"
+        
         if params[:next]
           session[:return_to] = params[:next]
         else
           session[:return_to] = nil
         end
+        
       end
     end
 

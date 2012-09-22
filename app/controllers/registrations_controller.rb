@@ -5,17 +5,6 @@ class RegistrationsController < Devise::RegistrationsController
   
   def new
   
-   #select>
-	 #	<option></option>
-	 #	<optgroup label="United Kingdom">
-	 #		<option>Southwest</option>
-	 #		<option>North</option>
-	 #	</optgroup>
-	 #	<optgroup label="International">
-	 #		<option>France</option>
-	 #		<option>Japan</option>
-	 #	</optgroup>
-	 #</select>
     resource = build_resource({})
     respond_with resource
     

@@ -33,6 +33,8 @@ class MembersController < ApplicationController
     
       @first_sign_in = (user_signed_in? && params[:welcome].present? && current_user == @member) ? true : false
     
+      @gig = (params[:gig].present?) ? Gig.find(params[:gig]) : nil
+    
       @profile = [ 
         @member.name,
         @member.gender,

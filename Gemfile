@@ -25,6 +25,9 @@ gem 'friendly_id', '~> 4.0.1'
 gem "fog", "~> 1.3.1"
 gem "remotipart"
 
+gem 'newrelic_rpm'
+gem 'ey_config'
+
 group :assets do
   gem 'uglifier', '>= 1.0.3'
 end

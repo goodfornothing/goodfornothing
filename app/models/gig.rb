@@ -1,7 +1,7 @@
 class Gig < ActiveRecord::Base
 
   scope :past, where("end_time <= ?", Time.now)
-
+  
   attr_accessible :chapter_id, :title, :description, :location, :start_time, :end_time, :skill_ids, :partner_id, :friend_ids, :poster, :logo
 
 	has_many :challenges
@@ -17,6 +17,8 @@ class Gig < ActiveRecord::Base
 	
 	mount_uploader :logo, ArticleImageUploader
 	mount_uploader :poster, PosterUploader
+	
+	accepts_nested_attributes_for :slots
 	
 	def create_generic_slot
 	  Slot.create!(:gig_id => self.id)

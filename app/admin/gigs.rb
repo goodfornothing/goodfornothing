@@ -15,12 +15,11 @@ ActiveAdmin.register Gig do
     f.inputs "People" do 
       f.input :chapter
       f.input :partner
-      f.input :friends, :as => :check_boxes
     end
-    f.inputs "Identity" do
-      f.input :logo
-      f.input :poster
-    end
+    #f.inputs "Identity" do
+    #  f.input :logo
+    #  f.input :poster
+    #end
     f.inputs "Dates" do
       f.input :start_time, :label => "Start"
       f.input :end_time, :label => "End"
@@ -29,6 +28,14 @@ ActiveAdmin.register Gig do
       f.input :title
       f.input :location
       f.input :description
+    end
+    f.inputs "Sponsors" do 
+      f.input :friends, :as => :check_boxes
+    end
+    f.has_many :slots do |j|
+      j.input :skill
+      j.input :custom_skill
+      j.input :limit
     end
     f.buttons
   end

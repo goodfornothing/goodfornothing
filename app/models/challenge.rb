@@ -17,20 +17,6 @@ class Challenge < ActiveRecord::Base
   friendly_id :title, use: :slugged
   
   validates_presence_of :title
-  
-	def cause
-	  if self.venture.present?
-	    self.venture.name
-	  elsif self.gig.present?
-	    if self.gig.partner.present?
-  	    self.gig.partner.name
-  	  else
-	      self.gig.title
-	    end
-	  else
-	    nil
-	  end
-	end
 	
 	scope :active, where(:active => true)
   scope :inactive, where(:active => false)

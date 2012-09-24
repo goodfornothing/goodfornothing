@@ -99,7 +99,7 @@
 					<%= "<li>Live in #{@member.location}</li>".html_safe if @member.location.present? %>
 					<%= "<li>#{@member.gender}</li>".html_safe if @member.gender.present? %>
 					<%= "<li>#{@member.age} years old</li>".html_safe if @member.age.present? %>
-					<%= "<li>#{link_to @member.twitter_handle, "http://twitter.com/#{@member.twitter_handle}"}</li>".html_safe if @member.twitter_handle.present? %>
+					<%= "<li>#{link_to "@" + @member.twitter_handle.gsub('@',''), "http://twitter.com/#{@member.twitter_handle}"}</li>".html_safe if @member.twitter_handle.present? %>
 					<%= "<li>#{link_to @member.url, @member.url}</li>".html_safe if @member.url.present? %>
 				</ul>
 				

@@ -24,75 +24,11 @@
 	
 		<%= render "shared/notices" %>
 	
-		<% if @challenge.open? && !user_signed_in? %>
-		<!--<p><%#= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "Join the community", register_path(:next => challenge_path(@challenge)) %> to share your ideas or contribute to the challenge.</p>-->
-		<% end %>
+
 	
 	</article>
 	
-	<div class="form_panel">
-		<h2>Ideas</h2>
-		
-		<p>You'll be able to contribute your ideas to this challenge in the next few days, we're slowly rolling our features on our new platform; this one is next!</p>
-		
-		<% if user_signed_in? && @challenge.open? %>
-			<%#= render :partial => "ideas/form", :locals => { :idea => @idea } %>	
-		<% elsif user_signed_in? && !@challenge.open? %>
-			<p>This challenge is closed, thanks for all your Good!</p>
-		<% end %>
-	
-		<% if @challenge.ideas.any? %>
-		<ul>
-			<% @challenge.ideas.each do |idea| %>
-			<li>
-				<h3>From <%= idea.user.name %></h3>
-				<p><%= idea.body %></p>
-				<% if signed_in_as_owner?(idea) %>
-				<ul class="actions">
-					<li><%= link_to "Edit", edit_challenge_idea_path(@challenge, idea) %></li>
-					<li><%= link_to "Delete", challenge_idea_path(@challenge, idea), :method => :delete %></li>	
-				</ul>
-				<% end %>
-			</li>
-			<% end %>
-		</ul>
-		<% end %>
-		
-	</div>
-	
-	<div class="form_panel">
-		<h2>Contributions</h2>
-		
-		<p>You'll be able to upload contributions to this challenge in the next few days, we're slowly rolling our features on our new platform; this one is next!</p>
-		
-	
-		<% if user_signed_in? && @challenge.open?%>
-			<%#= render :partial => "contributions/form", :locals => { :contribution => @contribution } %>
-		<% elsif user_signed_in? && !@challenge.open? %>
-			<p>This challenge is closed, thanks for all your Good!</p>
-		<% end %>
-	
-		<% if @challenge.contributions.any? %>
-	
-		<ul>
-			<% @challenge.contributions.each do |contribution| %>
-			<li>
-				<h3>From <%= contribution.user.name %></h3>
-				<p><%= contribution.skill.title %></p>
-				<p><%= link_to contribution.url, contribution.url %></p>
-				<p><%= contribution.description %></p>
-				<% if signed_in_as_owner?(contribution) %>
-				<ul class="actions">
-					<li><%= link_to "Edit", edit_challenge_contribution_path(@challenge, contribution) %></li>
-					<li><%= link_to "Delete", challenge_contribution_path(@challenge, contribution), :method => :delete %></li>	
-				</ul>
-				<% end %>
-			</li>
-			<% end %>
-		</ul>
-		<% end %>
-		
-	</div>
+
 		
 </section>
 
@@ -110,17 +46,21 @@
 	
 	<% if @challenge.team.any? %>
 	<h2>Thinkers &amp; Contributors</h2>
+	<ul class="avatar_list">
 	<% @challenge.team.each do |user| %>
 		<%= render :partial => "members/avatar", :locals => { :member => user }%>
 	<% end %>
+	</ul>
 	<% end %>
 
 	<% if @challenge.bookmarks.any? %>
 	
 	<h2>Inspirations</h2>
+	<ul>
 	<% @challenge.bookmarks.each do |bookmark| %>
 		<li><%= link_to truncate(bookmark.title, :length => 80, :omission => '&hellip;').html_safe, bookmark.url %></li>
 	<% end %>
+	</ul>
 		
 	<% end %>
 	

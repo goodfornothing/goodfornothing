@@ -147,13 +147,13 @@ class RegistrationsController < Devise::RegistrationsController
 
       if @user.errors.empty?
         @user.activated = true
+        @user.subscribed = true
         @user.save!
         flash_message = @user.active_for_authentication? ? :updated : :updated_not_active
         set_flash_message(:notice, flash_message) if is_navigational_format?
         sign_in(User, @user)
         redirect_to member_path(@user, :welcome=>"yahuh")
       else
-        p @user.errors.inspect
         flash[:error] = @user.errors.inspect.to_s
         render :claim
       end

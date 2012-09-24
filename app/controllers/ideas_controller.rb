@@ -12,10 +12,18 @@ class IdeasController < ApplicationController
     @idea.user = current_user
     
     if @idea.save
-      redirect_to @challenge
-    else
-      flash[:notice] = "Sorry, we couldn't save your idea"
-      redirect_to @challenge
+      if request.xhr?
+        render :create, :format => "js"
+      else
+        redirect_to @challenge
+      end
+    else      
+      if request.xhr?
+        render :json => { :status => 500, :data => { :message => "Your idea could not be saved" } }
+      else
+        flash[:notice] = "Sorry, we couldn't save your idea"
+        redirect_to @challenge
+      end
     end
     
   end

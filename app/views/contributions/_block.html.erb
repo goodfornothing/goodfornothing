@@ -1,0 +1,32 @@
+<div class="meta">
+
+	<div class="compact avatar">
+		<% if contribution.user.avatar.blank? %>
+			<%= link_to (image_tag "assets/avatar_small.png", :alt => contribution.user.name), member_path(contribution.user), :class => "tip", :title => contribution.user.name %>
+		<% else %>
+			<%= link_to (image_tag contribution.user.avatar.compact, :alt => contribution.user.name, :title => contribution.user.name), member_path(contribution.user), :class => "tip", :title => contribution.user.name %>
+		<% end %>
+	</div>
+	
+	
+	<% if contribution.skill.title == "Code" %>
+		<h3><span>A bit of code from</span> <%= contribution.user.name %></h3>
+		<%= link_to "Grab the code", contribution.url, :class => "contribution_link" %>
+	<% elsif contribution.skill.title == "Design" %>
+		<h3><span>Designs from</span> <%= contribution.user.name %></h3>
+		<%= link_to "Take a <br />look".html_safe, contribution.url, :class => "contribution_link" %>
+	<% elsif contribution.skill.title == "Think" %>
+		<h3><span>Some thinking from</span> <%= contribution.user.name %></h3>
+		<%= link_to "Have a<br /> read".html_safe, contribution.url, :class => "contribution_link" %>
+	<% end %>
+
+</div>
+
+<p><%= contribution.description %></p>
+
+<% if signed_in_as_owner?(contribution) %>
+<!--<ul class="actions">
+	<li><%= link_to "Edit", edit_challenge_contribution_path(@challenge, contribution) %></li>
+	<li><%= link_to "Delete", challenge_contribution_path(@challenge, contribution), :method => :delete %></li>	
+</ul>-->
+<% end %>

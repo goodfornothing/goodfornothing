@@ -1,0 +1,22 @@
+<div class="meta">
+	
+	<div class="compact avatar">
+		<% if idea.user.avatar.blank? %>
+			<%= link_to (image_tag "assets/avatar_small.png", :alt => idea.user.name), member_path(idea.user), :class => "tip", :title => idea.user.name %>
+		<% else %>
+			<%= link_to (image_tag idea.user.avatar.compact, :alt => idea.user.name, :title => idea.user.name), member_path(idea.user), :class => "tip", :title => idea.user.name %>
+		<% end %>
+	</div>
+
+	<h3><span>An idea from</span> <%= idea.user.name %></h3>
+
+</div>
+
+<p><%= idea.body %></p>
+
+<% if signed_in_as_owner?(idea) %>
+<!--<ul class="actions">
+	<li><%= link_to "Edit", edit_challenge_idea_path(@challenge, idea) %></li>
+	<li><%= link_to "Delete", challenge_idea_path(@challenge, idea), :method => :delete %></li>	
+</ul>-->
+<% end %>

@@ -1,0 +1,6 @@
+block = '<%= escape_javascript( render( :partial => "ideas/block", :locals => { :idea => @idea } ) ) %>';
+$('#ideas').prepend("<li class='contribution' style='display: none'>"+block+"</li>");
+scrollToElement($('#ideas')[0]);
+$('#ideas li:first-child').slideDown();
+$('#new_idea')[0].reset();
+$('#new_idea textarea').blur();

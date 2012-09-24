@@ -4,7 +4,6 @@ $(document).ready(function(){
 	$('.input.smart_label').each(function(i,el){
 		
 		label = $($(el).find('label')[0]).addClass('js');
-		
 		label.text(label.text().replace('*',''))
 		
 		if($(el).hasClass('text')) {
@@ -13,9 +12,7 @@ $(document).ready(function(){
 			input = $($(el).find('input')[0]);
 		}
 		
-		input.bind('focus',function(ev){
-			$($(this).siblings('label')[0]).hide()
-		});
+		input.bind('focus',function(ev){ $($(this).siblings('label')[0]).hide();  });
 		
 		input.bind('blur',function(ev){
 			if($(this).val()=='') {
@@ -23,10 +20,14 @@ $(document).ready(function(){
 			}
 		});
 		
-		if(input.val()!='') {
-			$(input.siblings('label')[0]).hide()
-		}
+		if(input.val()!='') { $(input.siblings('label')[0]).hide(); }
 		
+	});
+	
+	// Smooth scroll inline links
+	$('a[href*=#]').click(function() {
+	  scrollToElement(this.hash)
+	  return false;   
 	});
 	
 	// Range sliders
@@ -138,3 +139,11 @@ $(document).ready(function(){
 	;
 	
 });
+
+function scrollToElement(element) {
+	var targetPosition=$(element).offset().top;
+  $('html:not(:animated),body:not(:animated)').animate({ scrollTop: targetPosition }, {
+    duration: 500, 
+    easing:'swing'
+  });
+}

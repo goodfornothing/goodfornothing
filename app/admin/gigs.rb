@@ -76,13 +76,17 @@ ActiveAdmin.register Gig do
           tr do
             th "Name"
             th "Email"
+            th "Ticket"
+            th "Talents"
           end
         end
         tbody do
           gig.users.each do |user|
             tr do
-              td user.name
+              td link_to(user.name, member_path(user))
               td user.email
+              td user.slots.where('gig_id = ?',gig).first.skill.title
+              td user.talents.map { |t| "<strong>#{t.skill.title}:</strong> #{t.level}".html_safe }.join("<br />").html_safe
             end
           end
         end

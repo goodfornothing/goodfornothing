@@ -12,10 +12,18 @@ class ContributionsController < ApplicationController
     @contribution.user = current_user
     
     if @contribution.save
-      redirect_to @challenge
-    else
-      flash[:notice] = "Sorry, we couldn't save your contribution"
-      redirect_to @challenge
+      if request.xhr?
+        render :create, :format => "js"
+      else
+        redirect_to @challenge
+      end
+    else      
+      if request.xhr?
+        render :json => { :status => 500, :data => { :message => "Your contribution could not be saved" } }
+      else
+        flash[:notice] = "Sorry, we couldn't save your contribution"
+        redirect_to @challenge
+      end
     end
     
   end

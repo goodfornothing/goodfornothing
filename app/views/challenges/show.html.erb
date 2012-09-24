@@ -22,13 +22,138 @@
 		
 		<%= markdown.render(@challenge.description).html_safe unless @challenge.description.nil? %>
 	
-		<%= render "shared/notices" %>
-	
-
 	
 	</article>
 	
+	<% if @challenge.open? && !user_signed_in? %>
+	
+		<h2>Got something to add?</h2>
+		<p><%= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "become a member", register_path(:next => challenge_path(@challenge)) %> to share your ideas or contribute your work to the challenge.</p>
+		
+	<% else %>
+	
+		<div class="panel_forms">
+				
+			<%= simple_form_for [@challenge, @idea], :html => { :class => "primary form_panel" } do |f| %>
+	
+				<h2>New Idea</h2>
+				
+				<% if user_signed_in? && @challenge.open? %>
+			
+					<%= field_set_tag do %>
+						<%= f.input :body, :label => "Challenges love ideas, share yours with the community!", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 10 } %>
+					<% end %>
 
+					<%= field_set_tag nil, :class => "actions" do %>
+						<%= f.submit :value => "Share" %>	
+					<% end %>
+				
+				<% elsif user_signed_in? && !@challenge.open? %>
+					<p>This challenge is closed, thanks for all your Good!</p>
+				<% end %>
+		
+			<% end %>
+	
+			<%= simple_form_for [@challenge, @contribution], :html => { :class => "primary form_panel" } do |f| %>
+	
+				<h2>New Contribution</h2>
+				
+				<% if user_signed_in? && @challenge.open?%>
+			
+					<%= field_set_tag do %>
+						<%= f.input :skill_id, :label => "Type of contribution", :include_blank => "Type of contribution", :collection => Skill.all %>
+						<%= f.input :url, :label => "Link to your work", :wrapper_html => { :class => "smart_label" }, :hint => "<span title=\"Upload work where you normally would online; GitHub, Dropbox, Slideshare, Dribble etc. and share the link with the community here!\">?</span>".html_safe %>
+						<%= f.input :description, :label => "Tell us a little more about what you've created...", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 5 } %>
+					<% end %>
+
+					<%= field_set_tag nil, :class => "actions" do %>
+						<%= f.submit :value => "Share" %>	
+					<% end %>
+			
+				<% elsif user_signed_in? && !@challenge.open? %>
+					<p>This challenge is closed, thanks for all your Good!</p>
+				<% end %>
+		
+			<% end %>
+	
+		</div>
+	
+	<% end %>
+	
+	<% if @challenge.ideas.any? %>
+	<ul class="contributions">
+		<% @challenge.ideas.order('created_at desc').each do |idea| %>
+		<li class='contribution'>
+		
+			<div class="meta">
+				
+				<div class="compact avatar">
+					<% if idea.user.avatar.blank? %>
+						<%= link_to (image_tag "assets/avatar_small.png", :alt => idea.user.name), member_path(idea.user), :class => "tip", :title => idea.user.name %>
+					<% else %>
+						<%= link_to (image_tag idea.user.avatar.compact, :alt => idea.user.name, :title => idea.user.name), member_path(idea.user), :class => "tip", :title => idea.user.name %>
+					<% end %>
+				</div>
+			
+				<h3><span>An idea from</span> <%= idea.user.name %></h3>
+			
+			</div>
+			
+			<p><%= idea.body %></p>
+			
+			<% if signed_in_as_owner?(idea) %>
+			<!--<ul class="actions">
+				<li><%= link_to "Edit", edit_challenge_idea_path(@challenge, idea) %></li>
+				<li><%= link_to "Delete", challenge_idea_path(@challenge, idea), :method => :delete %></li>	
+			</ul>-->
+			<% end %>
+		
+		</li>
+		<% end %>
+	</ul>
+	<% end %>
+			
+	<% if @challenge.contributions.any? %>
+
+	<ul class="contributions">
+		<% @challenge.contributions.order('created_at desc').each do |contribution| %>
+		<li class="contribution">
+			
+			<div class="meta">
+			
+				<div class="compact avatar">
+					<% if contribution.user.avatar.blank? %>
+						<%= link_to (image_tag "assets/avatar_small.png", :alt => contribution.user.name), member_path(contribution.user), :class => "tip", :title => contribution.user.name %>
+					<% else %>
+						<%= link_to (image_tag contribution.user.avatar.compact, :alt => contribution.user.name, :title => contribution.user.name), member_path(contribution.user), :class => "tip", :title => contribution.user.name %>
+					<% end %>
+				</div>
+				
+				<h3><span>Some <%= contribution.skill.title %> from</span> <%= contribution.user.name %></h3>
+				
+				<% if contribution.skill.title == "Code" %>
+					<%= link_to "Grab the code", contribution.url, :class => "contribution_link" %>
+				<% elsif %>
+					<%= link_to "Take a <br />look".html_safe, contribution.url, :class => "contribution_link" %>
+				<% elsif %>
+					<%= link_to "Check it <br />out".html_safe, contribution.url, :class => "contribution_link" %>
+				<% end %>
+			
+			</div>
+			
+			<p><%= contribution.description %></p>
+			
+			<% if signed_in_as_owner?(contribution) %>
+			<!--<ul class="actions">
+				<li><%= link_to "Edit", edit_challenge_contribution_path(@challenge, contribution) %></li>
+				<li><%= link_to "Delete", challenge_contribution_path(@challenge, contribution), :method => :delete %></li>	
+			</ul>-->
+			<% end %>
+			
+		</li>
+		<% end %>
+	</ul>
+	<% end %>
 		
 </section>
 

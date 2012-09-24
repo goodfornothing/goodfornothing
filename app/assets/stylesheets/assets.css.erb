@@ -685,6 +685,10 @@
 		margin-bottom: 30px;
 	}
 	
+	form .avatar a:before {
+		background: url(<%= asset_path "assets/avatar_mask_forms.png" %>) no-repeat center center;
+	}
+	
 /* Posts */
 
 	article.post {
@@ -784,6 +788,10 @@
 		line-height: 40px;
 	}
 	
+	article.event h2 {
+		padding-top: 6px;
+	}
+	
 	.section_socials article.event h1 {
 		margin-bottom: 0;
 	}
@@ -794,6 +802,7 @@
 	
 	article.event .abstract {
 		padding-bottom: 16px;
+		padding-top: 4px;
 	}
 
 	article.event h1 {
@@ -823,7 +832,8 @@
 	}
 	
 	article.challenge_event .abstract {
-		padding-bottom: 35px;
+		padding-bottom: 30px;
+		padding-top: 5px;
 	}
 		
 /* Registration table */

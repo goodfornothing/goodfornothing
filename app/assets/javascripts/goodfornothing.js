@@ -33,8 +33,8 @@ $(document).ready(function(){
 	$('input[type="range"]').rangeinput();
 	
 	// Select boxes
-	$('.single form select').selectBox();
-	$('.single form .input.select label').hide();
+	$('form.primary select').selectBox();
+	$('form.primary .input.select label').hide();
 	
 	// Checkboxes
 	$(".checkbox").addClass('js');
@@ -75,6 +75,7 @@ $(document).ready(function(){
 		
 	// Tips
 	$(".hint a[title]").tooltip({offset: [-1, 22]	});
+	$(".hint span[title]").tooltip({offset: [-2,-50],tipClass: 'tooltip_large'});
 	$(".avatar .tip[title]").tooltip({ offset: [-3, 40] });
 	$(".cta .tip[title]").tooltip({ offset: [3, 100] });
 	$(".icon_crew .tip[title]").tooltip({ offset: [-5, 45] });

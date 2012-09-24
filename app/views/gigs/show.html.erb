@@ -28,21 +28,6 @@
 
 <aside id="secondary_content">
 	
-	<h2>Who's coming?</h2>
-	<ul class="avatar_list">
-	
-		<% @gig.chapter.users.crew.each do |user| %>
-			<%= render :partial => "members/avatar", :locals => { :member => user }%>
-		<% end %>
-		
-		<% if @attendees.any? %>
-			<% @attendees.each do |user| %>
-				<%= render :partial => "members/avatar", :locals => { :member => user }%>
-			<% end %>
-		<% end %>
-		
-	</ul>
-	
 	<% if !@gig.end_time.nil? && (@gig.start_time.past? && @gig.end_time.future?) %>
 		<h2>It's happening!</h2>
 		<p>This gig is happening right now, you can no longer register, but feel free to just drop in and say hello anyway!</p>
@@ -53,8 +38,10 @@
 		<% end %>
 	<% else %>
 		<% if user_signed_in? && current_user.is_attending_gig?(@gig) %>
+			<h2>You're registered!</h2>
 			<p>You've registered to attend this gig &ndash; look forward to doing some Good for Nothing with you!</p>
 			<p class="more"><%= link_to "I can't make it", attend_gig_path(@gig) %></p>
+			<br />
 		<% elsif @gig.slots.count == 1 && @gig.slots.first.skill.nil? %>
 			<p class="cta"><%= link_to "I'm Coming!", attend_gig_path(@gig, :slot => @gig.slots.first) %></p>
 		<% elsif @gig.slots.any? %>
@@ -81,5 +68,20 @@
 		<% end %>
 	
 	<% end %>
+	
+	<h2>Who's coming?</h2>
+	<ul class="avatar_list">
+	
+		<% @gig.chapter.users.crew.each do |user| %>
+			<%= render :partial => "members/avatar", :locals => { :member => user }%>
+		<% end %>
+		
+		<% if @attendees.any? %>
+			<% @attendees.each do |user| %>
+				<%= render :partial => "members/avatar", :locals => { :member => user }%>
+			<% end %>
+		<% end %>
+		
+	</ul>
 	
 </aside>

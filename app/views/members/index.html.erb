@@ -44,6 +44,6 @@
 	<% if user_signed_in? %>
 	<p class="cta"><%= link_to "View Your profile", member_path(current_user) %></p>
 	<% else %>
-	<p class="cta"><%= link_to "Become a member", register_path %></p>
+	<p class="cta"><%= link_to "Get collaborating", challenges_path %></p>
 	<% end %>
 </aside>

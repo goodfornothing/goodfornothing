@@ -4,10 +4,8 @@ class RegistrationsController < Devise::RegistrationsController
   prepend_before_filter :authenticate_scope!, :only => [:edit_activity, :edit_talents, :edit_password, :edit, :edit_moar, :update, :destroy, :update_activity, :update_talents, :update_password]
   
   def new
-  
     resource = build_resource({})
     respond_with resource
-    
   end
   
   def edit
@@ -168,11 +166,13 @@ class RegistrationsController < Devise::RegistrationsController
   protected
     
     def check_subscription(resource)
-      mc = Gibbon.new()
-      if resource.subscribed?
-        mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :merge_vars => { :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
-      else
-        mc.list_unsubscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :send_goodbye => false, :send_notify => false})
+      if resource.activated?
+        mc = Gibbon.new()
+        if resource.subscribed?
+          mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :merge_vars => { :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
+        else
+          mc.list_unsubscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :send_goodbye => false, :send_notify => false})
+        end
       end
     end
     

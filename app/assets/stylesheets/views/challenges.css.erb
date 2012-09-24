@@ -1,3 +1,7 @@
+article.challenge_event {
+	padding-bottom: 10px;
+}
+
 .section_challenges .view_show .panel {
 	width: 300px;
 	float: left;
@@ -16,7 +20,7 @@
 .challenge_panel h2 {
 	font-size: 20px;
 	line-height: 25px;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	font-family: karlaregular;
 }
 
@@ -72,13 +76,55 @@
 }
 
 .contributions li.contribution {
-	border-top: 1px dotted #ffffff;
 	padding: 10px 0 10px;
+}
+
+.contributions li.contribution .meta {
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 5px;
+}
+
+.contributions li.contribution h3 span {
+	display: block;
+	font-size: 12px;
 }
 
 .contributions li.contribution h3 {
 	text-align: left;
-	font-family: karlabold;
-	color: #ffffff;
+	font-family: "Good for Nothing";
+	color: #61514D;
+	font-size: 20px;
+	line-height: 24px;
+	padding-top: 4px;
 }
+
+.contributions li.contribution h3 {
+	float: left;
+	width: 300px;
+}
+
+.contributions li.contribution .contribution_link {
+	float: right;
+	width: 80px;
+	height: 34px;
+	line-height: 18px;
+	font-size: 14px;
+	color: #ffffff;
+	text-align: center;
+	padding: 12px 13px 8px 7px;
+	font-family: "Good for Nothing";
+	background: url(<%= asset_path "assets/splodge_button.gif" %>) no-repeat top left;
+}
+
+.contributions li.contribution .contribution_link:active,
+.contributions li.contribution .contribution_link:hover,
+.contributions li.contribution .contribution_link:focus {
+	font-size: 16px;
+	text-decoration: none;
+}
+	
+	
+	
+	
 

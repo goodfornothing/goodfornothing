@@ -64,7 +64,8 @@
 		right: 12px;
 	}
 	
-	form.primary .hint a {
+	form.primary .hint a,
+	form.primary .hint span {
 		width: 30px;
 		height: 33px;
 		font-size: 20px;
@@ -76,9 +77,14 @@
 		background: #9adada url(<%= asset_path "assets/input_splodge.gif" %>) no-repeat center center;
 	}
 	
+	form.primary .hint span {
+		cursor: help;
+	}
+	
 	form.primary .hint a:hover,
 	form.primary .hint a:active,
-	form.primary .hint a:focus {
+	form.primary .hint a:focus,
+	form.primary .hint span:hover {
 		font-style: italic;
 		text-decoration: none;
 	}
@@ -324,7 +330,12 @@
 	
 /* Form panels */
 
-	.form_panel {
+	.panel_forms {
+		width: 100%;
+		overflow: hidden;
+	}
+
+	form.form_panel {
 		width: 270px;
 		float: left;
 		margin-right: 20px;
@@ -332,28 +343,114 @@
 		background: #9adada;
 		color: #ffffff;
 		text-align: center;
+		padding-top: 32px;
 		background-position: top left, top right, bottom right;
 		background-repeat: no-repeat, no-repeat, no-repeat;
 		background-image: url(<%= asset_path "blocks/form_top_left.gif" %>),
 											url(<%= asset_path "blocks/form_top_right.gif" %>),
 											url(<%= asset_path "blocks/form_bottom_right.gif" %>);
 	}
-	
-	.form_panel:last-child {
+
+	form.form_panel:last-child {
 		margin: 0;
 	}
 	
-	.form_panel h2 {
+	form.form_panel h2 {
 		color: #ffffff;
-		margin-bottom: 37px;
+		margin-bottom: 20px;
 		background: url(<%= asset_path "assets/teal_squiggle.png" %>) repeat-x center bottom;
 		padding: 0 10px 5px;
 		display: inline-block;
 	}
 	
-	.form_panel p {
+	form.form_panel p {
 		margin-bottom: 17px;
 		text-align: left;
 		color: #085156;
 		font-size: 14px;
+	}
+	
+	form.form_panel input[type="submit"] {
+		background-color: #D0122D;
+		color: #ffffff;
+		display: inline-block;
+		line-height: 30px;
+		font-family: "Good for Nothing";
+		font-size: 12px;
+		padding: 0;
+		text-align: center;
+		background: url(assets/cta_form.gif) no-repeat top left;
+		width: 70px;
+		margin: 0;
+	}
+	
+	form.form_panel input[type="submit"]:active {
+		background-position: inherit;
+		padding: inherit;
+		font-size: 15px;
+	}
+	
+	form.form_panel label {
+		font-size: 14px !important;
+	}
+	
+	form.form_panel .string input, 
+	form.form_panel .email input,
+	form.form_panel .url input,
+	form.form_panel .password input,
+	form.form_panel .integer input {
+		width: 235px;
+		font-size: 14px;
+		margin-bottom: 15px;
+		padding: 11px 18px 11px;
+	}
+	
+	form.form_panel textarea {
+		width: 235px;
+		font-size: 14px;
+		margin-bottom: 0;
+		padding: 13px 15px 11px;	
+	}
+	
+	form.primary .text label.js {
+		top: 13px;
+		left: 15px;
+		width: 85%;
+		line-height: 23px;
+	}
+	
+	form.form_panel .selectBox-dropdown {
+		width: 230px;
+		font-size: 14px;
+		margin-bottom: 15px;
+	}
+	
+	form.form_panel .selectBox-dropdown .selectBox-label {
+		padding-top: 12px;
+		padding-bottom: 10px;
+	}
+	
+	form.form_panel .selectBox-dropdown .selectBox-arrow {
+		height: 33px;
+		width: 30px;
+		margin-top: 5px;
+		margin-right: 10px;
+		background-color: #9adada;
+		background-position: center center, center center;
+		background-repeat: no-repeat no-repeat;
+		background-image: url(<%= asset_path "assets/form_arrow.png" %>),
+											url(<%= asset_path "assets/input_splodge.gif" %>);
+	}
+	
+	form.form_panel fieldset {
+		padding-bottom: 20px;
+	}
+	
+	form.form_panel fieldset:last-child {
+		padding: 0;
+		text-align: right;
+	}
+	
+	form.form_panel:last-child textarea {
+		margin-bottom: 6px;
 	}

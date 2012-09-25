@@ -23,7 +23,7 @@ $(document).ready(function(){
 		if(input.val()!='') { $(input.siblings('label')[0]).hide(); }
 		
 	});
-	
+
 	// Smooth scroll inline links
 	$('a[href*=#]').click(function() {
 	  scrollToElement(this.hash)
@@ -31,7 +31,35 @@ $(document).ready(function(){
 	});
 	
 	// Range sliders
-	$('input[type="range"]').rangeinput();
+	$('.slides input[type="range"]').rangeinput();
+	
+	// Skill filtering
+	var skill_filter = {}
+	$('.skill_filter input[type="range"]').each(function(i,el){
+		skill = $(el).attr('name');
+		skill_filter[skill] = $(el).val();
+	});
+	
+	$('.skill_filter input[type="range"]').rangeinput({
+		change: function(ev, val)  {
+			
+			skill_filter[$(this.getInput()).attr('name')] = val
+						
+			$('.skilled').each(function(i,block){
+				talented = true				
+		  	for(skill in skill_filter) {
+					block_skill = $(block).attr('data-'+skill)
+					if(block_skill < skill_filter[skill]) {
+						$(block).hide();
+						talented = false
+					}
+				}
+				if (talented) $(block).show()
+			});
+	
+		},
+		progress: true
+	});
 	
 	// Select boxes
 	$('form.primary select').selectBox();

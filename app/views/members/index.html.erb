@@ -25,7 +25,7 @@
 	<% end %>
 	
 	<% if @chapter_members.any? || @member_reach.any? %>
-	<h2>Everyone else</h2>
+	<h2>Everyone</h2>
 	<% end %>
 	
 	<% if @members.any? %>
@@ -41,9 +41,24 @@
 </section>
 
 <aside id="secondary_content">
+	
+	<p class="cta"><%= link_to "Find a challenge", challenges_path %></p>
+	
+	<h2>Find a collaborator</h2>
+	
 	<% if user_signed_in? %>
-	<p class="cta"><%= link_to "View Your profile", member_path(current_user) %></p>
+		<div class="skill_filter">
+			<p>Use the skill mixer to find someone with just the right balance.</p>
+			
+			<% Skill.all.each do |skill| %>
+				<div class="skill_range">
+					<label><%= skill.title %></label>
+					<%= range_field_tag "#{skill.title.underscore}", 0, :in => 0...11, :step => 1 %>
+				</div>
+			<% end %>
+		</div>	
 	<% else %>
-	<p class="cta"><%= link_to "Get collaborating", challenges_path %></p>
+		<p><%= link_to "Login", login_path(:next => members_path) %> or <%= link_to "become a member", register_path(:next => members_path) %> to find a collaborator with just the right talents</p>
 	<% end %>
+	
 </aside>

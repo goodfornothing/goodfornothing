@@ -1,3 +1,49 @@
 .view_community .grid_list li {
 	margin-bottom: 35px;
 }
+
+.skill_filter {
+	margin-top: -10px;
+}
+
+.skill_filter p {
+	margin-bottom: 20px;
+}
+
+.skill_filter .skill_range {
+	width: 100%;
+	overflow: hidden;
+	min-height: 28px;
+	padding-top: 2px;
+}
+
+.skill_filter .slider .progress {
+	height: 21px;
+	background: url(<%= asset_path "assets/mini_range_background_fill.png" %>) no-repeat center center;
+	display: block;
+}
+
+.skill_filter .slider {
+	width: 190px;
+	float: right;
+	background-image: url(<%= asset_path "assets/mini_range_background.png" %>);
+}
+
+.skill_filter .slider .handle {
+	height: 28px;
+	width: 27px;
+	top: -2px;
+	margin-left: -1px;
+	position:absolute;
+	display:block;
+	cursor: move;
+	background: url(<%= asset_path "assets/mini_range_handle.png" %>) no-repeat center center;
+}
+
+.skill_filter .skill_range label {
+	float: left;
+	font-size: 12px;
+	font-family: "Good for Nothing";
+	color: #61514D;
+	line-height: 30px;
+}

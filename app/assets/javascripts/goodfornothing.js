@@ -141,7 +141,7 @@ $(document).ready(function(){
 });
 
 function scrollToElement(element) {
-	var targetPosition=$(element).offset().top;
+	var targetPosition=$(element).offset().top-10;
   $('html:not(:animated),body:not(:animated)').animate({ scrollTop: targetPosition }, {
     duration: 500, 
     easing:'swing'

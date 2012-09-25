@@ -33,7 +33,7 @@ class ContributionsController < ApplicationController
   
   def update
     if @contribution.update_attributes(params[:contribution])
-      redirect_to @challenge
+      redirect_to "#{challenge_path(@challenge)}#contributions"
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class ContributionsController < ApplicationController
   
   def destroy
     @contribution.destroy
-    redirect_to @challenge
+    redirect_to "#{challenge_path(@challenge)}#contributions"
   end
   
   protected

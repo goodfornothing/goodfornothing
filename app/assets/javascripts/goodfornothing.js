@@ -49,7 +49,7 @@ $(document).ready(function(){
 				talented = true				
 		  	for(skill in skill_filter) {
 					block_skill = $(block).attr('data-'+skill)
-					if(block_skill < skill_filter[skill]) {
+					if(block_skill < skill_filter[skill] || block_skill == undefined) {
 						$(block).hide();
 						talented = false
 					}

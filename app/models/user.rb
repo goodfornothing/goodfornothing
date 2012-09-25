@@ -85,6 +85,20 @@ class User < ActiveRecord::Base
     (self.online_encountered + self.offline_encountered).uniq
   end
   
+  def profile_completion
+    @profile = [ 
+      self.name,
+      self.gender,
+      self.avatar.url,
+      self.age,
+      self.location,
+      self.url,
+      self.twitter_handle
+    ]
+          
+    ( ( @profile.count.to_f - (@profile.count(nil).to_f+@profile.count("")) ) / @profile.count.to_f) * 100
+  end
+  
   protected
      def password_required?
       !persisted? || password.present? || password_confirmation.present?

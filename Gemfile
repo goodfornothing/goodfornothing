@@ -25,6 +25,10 @@ gem 'friendly_id', '~> 4.0.1'
 gem "fog", "~> 1.3.1"
 gem "remotipart"
 
+# Moar statistics
+gem 'twitter'
+gem 'garb'
+gem 'fb_graph'
 gem 'newrelic_rpm'
 gem 'ey_config'
 

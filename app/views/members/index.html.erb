@@ -6,7 +6,7 @@
 	</div>
 		
 	<% if @member_reach.any? %>
-	<h2>Collaborators</h2>
+	<h2>&hellip;who you have collaborated with</h2>
 	<p>People who have attended gigs and socials with you, or who you've worked with online challenges.</p>
 	<ul class="avatar_list">
 		<% @member_reach.each do |member| %>
@@ -16,7 +16,7 @@
 	<% end %>
 	
 	<% if @chapter_members.any?  %>
-	<h2>In <%= current_user.chapter.title %></h2>
+	<h2>&hellip;that are in <%= current_user.chapter.title %></h2>
 	<ul class="avatar_list">
 		<% @chapter_members.each do |member| %>
 			<%= render :partial => "members/avatar", :locals => { :member => member }%>
@@ -25,7 +25,7 @@
 	<% end %>
 	
 	<% if @chapter_members.any? || @member_reach.any? %>
-	<h2>Everyone</h2>
+	<h2>Around the world</h2>
 	<% end %>
 	
 	<% if @members.any? %>

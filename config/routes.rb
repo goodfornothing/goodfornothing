@@ -76,7 +76,8 @@ Goodfornothing::Application.routes.draw do
 	match "community" => "colophon#community"
   match "calendar" => "colophon#calendar"
   match "privacy" => "colophon#privacy"
-
+  match "datums" => "colophon#datums"
+  
 	root :to => "home#index"
 
 end

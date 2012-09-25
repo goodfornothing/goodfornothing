@@ -326,7 +326,41 @@
 
 /* Tables */
 
-	table { margin-bottom: 14px; }
+	.single table { 
+		margin-bottom: 50px; 
+		width: 100%;
+		border-top: 1px solid #61514D;
+		border-bottom: 1px solid #61514D;
+	}
+	
+	.single table thead tr {
+		border-top: 1px solid #61514D;
+		color: #61514D;
+	}
+	
+	.single table thead tr:last-child {
+		border-bottom: 1px solid #61514D;
+	}
+	
+	.single table thead th {
+		font-size: 14px;
+		padding: 15px 5px;
+		font-weight: normal;
+	}
+		
+	.single table tbody tr {
+		border-bottom: 1px dotted #61514D;
+	}
+	
+	.single table tbody tr:nth-child(even) {
+		background: rgba(255,255,255,0.3);
+	}
+	
+	.single table tbody td {
+		padding: 10px;
+		font-size: 13px;
+		text-align: center;
+	}
 	
 /* Form panels */
 

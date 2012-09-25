@@ -59,6 +59,8 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     ey_config (0.0.6)
+    faraday (0.8.1)
+      multipart-post (~> 1.1)
     fastercsv (1.5.5)
     fog (1.3.1)
       builder
@@ -112,6 +114,7 @@ GEM
       subexec (~> 0.2.1)
     multi_json (1.3.6)
     multi_xml (0.5.1)
+    multipart-post (1.1.5)
     mysql2 (0.3.11)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -160,6 +163,7 @@ GEM
     simple_form (2.0.2)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    simple_oauth (0.1.8)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -172,6 +176,10 @@ GEM
       polyglot (>= 0.3.1)
     turn (0.8.2)
       ansi (>= 1.2.2)
+    twitter (2.5.0)
+      faraday (~> 0.8)
+      multi_json (~> 1.3)
+      simple_oauth (~> 0.1.6)
     tzinfo (0.3.33)
     uglifier (1.2.6)
       execjs (>= 0.3.0)
@@ -204,5 +212,6 @@ DEPENDENCIES
   sass-rails
   simple_form
   turn (= 0.8.2)
+  twitter
   tzinfo
   uglifier (>= 1.0.3)

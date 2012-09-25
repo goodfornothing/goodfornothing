@@ -38,7 +38,7 @@
 
 			<div class="panel">
 
-				<h1>A little about <%= contextual_reference(@member,"you") %></h1>
+				<h1>A little about <%= @member.name %></h1>
 				
 				<% if @member.talents.any? %>
 				<ul class="talents">

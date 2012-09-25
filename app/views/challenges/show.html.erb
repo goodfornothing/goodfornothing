@@ -22,13 +22,12 @@
 		
 		<%= markdown.render(@challenge.description).html_safe unless @challenge.description.nil? %>
 	
-	
 	</article>
 	
 	<% if @challenge.open? && !user_signed_in? %>
 	
 		<h2 id="new_idea">How can I help?</h2>
-		<p>You can make a start on this challenge simply by contributing ideas, or just get stuck in and share your work with the community here for discussion. <%= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "become a member", register_path(:next => challenge_path(@challenge)) %> to get started!</p>
+		<p>You can make a start on this challenge simply by contributing ideas, or get stuck right in and share your work with the community here. <%= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "become a member", register_path(:next => challenge_path(@challenge)) %> to get started!</p>
 		
 	<% else %>
 	

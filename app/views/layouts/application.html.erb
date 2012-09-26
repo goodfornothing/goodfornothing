@@ -5,6 +5,14 @@
 		<title>
 			<% if params[:controller] == "members" && params[:action] == "show" %>
 				<%= @member.name %> at 
+			<% elsif is_about? %>
+				How it works &ndash;
+			<% elsif is_community? %>
+			 	The Community at 
+			<% elsif is_challenges? %>
+			 	Challenges &ndash; 
+			<% elsif is_warblings? %>
+			  	Warblings &ndash;
 			<% end %>
 			Good for Nothing &ndash; Collaborating for Good
 		</title>

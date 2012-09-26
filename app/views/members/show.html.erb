@@ -38,7 +38,27 @@
 
 			<div class="panel">
 
-				<h1>A little about <%= @member.name %></h1>
+				<div id="profile_avatar">
+					
+					<% if @member.avatar.url.nil? %>
+					<div class="avatar"><%= image_tag "assets/avatar_large.png" %></div>
+					<% else %>
+					<div class="avatar"><%= image_tag @member.avatar %></div>
+					<% end %>
+			
+					<h1><span>A little about</span> <%= @member.name %></h1>
+				
+					<% if signed_in_as_owner?(@member) %>
+						<span id="spinmerightround">Hang on!</span>
+					
+						<%= simple_form_for(@member, :as => 'user', :url => registration_path(@member), :html => { :remote => true, :method => :put, :class => "inline_form", :multipart => true }) do |f| %>				
+							<%= f.input :avatar, :label => ((@member.avatar.url.nil?) ? "Collaboration likes faces" : "New face?") %>
+							<%= f.button :submit, "Upload" %>
+						<% end %>
+
+					<% end %>
+			
+				</div>
 				
 				<% if @member.talents.any? %>
 				<ul class="talents">
@@ -52,25 +72,6 @@
 					<h3>Other special skills</h3>
 					<p><%= @member.brings %></p>
 				<% end %>
-							
-				<div id="profile_avatar">
-				<% if @member.avatar.url.nil? %>
-					<div class="avatar"><%= image_tag "assets/avatar_small.png" %></div>
-				<% else %>
-					<div class="avatar"><%= image_tag @member.avatar %></div>
-				<% end %>
-			
-				<% if signed_in_as_owner?(@member) %>
-					<span id="spinmerightround">Hang on!</span>
-					
-					<%= simple_form_for(@member, :as => 'user', :url => registration_path(@member), :html => { :remote => true, :method => :put, :class => "inline_form", :multipart => true }) do |f| %>				
-						<%= f.input :avatar, :label => ((@member.avatar.url.nil?) ? "Collaboration likes faces" : "New face?") %>
-						<%= f.button :submit, "Upload" %>
-					<% end %>
-
-				<% end %>
-			
-				</div>
 		
 				<!--<p class="chapter">
 				<%# if @member.chapter %>

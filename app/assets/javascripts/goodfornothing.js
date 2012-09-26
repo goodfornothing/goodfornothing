@@ -101,6 +101,15 @@ $(document).ready(function(){
 		});
 		
 	});
+	
+	// Avatar file upload
+	$('#profile_avatar form').each(function(i,el){
+		$(el).find('input[type="submit"]').hide();
+		$(el).find('label').hide();
+		$($(el).find('input[type="file"]')[0]).change(function(ev){
+			$($(this).parents('form')[0]).submit();
+		});
+	});
 		
 	// Tips
 	$(".hint a[title]").tooltip({offset: [-1, 22]	});

@@ -19,4 +19,7 @@ pickle-email-*.html
 /config/database.yml
 /config/carrierwave.yml
 /config/mailchimp.yml
+/config/garb.yml
+/config/facebook.yml
+/config/twitter.yml
 /public/uploads/*

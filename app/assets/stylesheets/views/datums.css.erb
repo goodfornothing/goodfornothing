@@ -6,13 +6,27 @@
 	margin-bottom: 45px;
 }
 
-.view_datums h2 {
-	font-weight: normal;
-	font-size: 16px;
-	font-family: karlaregular;
-	margin-bottom: 12px;
-}
-
 .view_datums thead .date {
 	background: rgba(255,255,255,0.7);
+}
+
+.view_datums table {
+	position: relative;
+	margin-bottom: 80px;
+}
+
+.view_datums table:before {
+	content: '';
+	display: block;
+	width: 44px;
+	height: 60px;
+	position: absolute;
+	bottom: -70px;
+	left: 435px;
+	opacity: 0.5;
+	background: url(<%= asset_path "assets/leader_arrow.png" %>) no-repeat top left;
+}
+
+.view_datums table:last-child:before {
+	display: none;
 }

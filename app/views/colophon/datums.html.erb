@@ -1,7 +1,67 @@
 <section id="primary_content" class="single">
 	<h1>How are we doing?</h1>
 	
-	<p class="cta"><%= link_to "&larr; last week".html_safe %></p>
+	<p class="cta" style="float: right; margin-bottom: 25px"><%= link_to "&larr; last week".html_safe %> <%= link_to "This week ".html_safe %></p>
+
+	<table>
+		<thead>
+			<tr class="date">
+				<th colspan="8">Crew activity (all time)</th>
+			</tr>
+			<tr>
+				<th>Blog Posts</th>
+				<th>Warbles</th>
+				<th>Challenges</th>
+				<th>Gigs</th>
+				<th>Socials</th>
+				<th>Facebook Posts</th>
+				<th>Tweets</th>
+				<th>Newsletters</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @crew['blog_posts'] %></td>
+				<td><%= @crew['warbles'] %></td>
+				<td><%= @crew['challenges'] %></td>
+				<td><%= @crew['gigs'] %></td>
+				<td><%= @crew['socials'] %></td>
+				<td><%= @fb_likes %></td>
+				<td><%= @twitter_tweets %></td>
+				<td><%= @mailchimp_newsletters %></td>
+			</tr>
+		</tbody>
+	</table>
+		
+	<table>
+		<thead>
+			<tr class="date">
+				<th colspan="9">User interactions (all time)</th>
+			</tr>
+			<tr>
+				<th>Unique Visitors</th>
+				<th>Ideas</th>
+				<th>Contributions</th>
+				<th>Gig Sign-ups</th>
+				<th>Partner Requests</th>
+				<th>Challenge Requests</th>
+				<th>Followers</th>
+				<th>Likes</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @ga_uniques %></td>
+				<td><%= @users['ideas'] %></td>
+				<td><%= @users['contributions'] %></td>
+				<td><%= @users['gigs_signed_up'] %></td>
+				<td><%= @users['partner_requests'] %></td>
+				<td><%= @users['challenge_requests'] %></td>
+				<td><%= @twitter_followers %></td>
+				<td><%= @fb_likes %></td>
+			</tr>
+		</tbody>
+	</table>
 	
 	<table>
 		<thead>
@@ -27,66 +87,6 @@
 				<td><%= @members['shared_contributions'] %></td>
 				<td><%= @members['attended_gigs'] %></td>
 				<td><%= @members['attended_socials'] %></td>
-			</tr>
-		</tbody>
-	</table>
-		
-	<table>
-		<thead>
-			<tr class="date">
-				<th colspan="9">User Interactions, 7 days ending <%= DateTime.now.to_s(:article) %></th>
-			</tr>
-			<tr>
-				<th>Uniques</th>
-				<th>Ideas</th>
-				<th>Contributions</th>
-				<th>Gig Sign-ups</th>
-				<th>Partner Requests</th>
-				<th>Challenge Requests</th>
-				<th>Followers</th>
-				<th>Likes</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-		</tbody>
-	</table>
-	
-	<table>
-		<thead>
-			<tr class="date">
-				<th colspan="8">Crew Activity, 7 days ending <%= DateTime.now.to_s(:article) %></th>
-			</tr>
-			<tr>
-				<th>Blog Posts</th>
-				<th>Warbles</th>
-				<th>Challenges</th>
-				<th>Gigs Created</th>
-				<th>Socials Created</th>
-				<th>Facebook Posts</th>
-				<th>Tweets</th>
-				<th>Newsletters</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><%= @mailchimp_newsletters %></td>
 			</tr>
 		</tbody>
 	</table>

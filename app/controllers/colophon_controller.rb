@@ -59,25 +59,19 @@ class ColophonController < ApplicationController
 	  
 	  @ga_profile = Garb::Management::Profile.all.detect {|p| p.web_property_id == 'UA-32250261-2'}
     @ga_uniques = @ga_profile.newvisits(:start_date => Date.today - 6.months, :end_date => Date.today).first.new_visits
-	  #@ga_uniques = 717
 	  
 	  mc = Gibbon.new()
     mc.campaigns({:list_id => ENV['MC_LIST_ID'], :status => 'sent'})['total']
 	  @mailchimp_newsletters = mc.campaigns({:list_id => ENV['MC_LIST_ID'], :status => 'sent'})['total'];
-	  #@mailchimp_newsletters = 9
+	  @mailchimp_newsletters = 9
 	  
-	  #fb_auth = FbGraph::Auth.new(360642794021434, 'd303e775bfc8d3ec046d06918a2e094d')
-	  
-	  @fb_page = FbGraph::Page.new('g00dfornothing').fetch
+	  @fb_page = FbGraph::Page.new('g00dfornothing').fetch({:access_token => 'AAAFIALGg4joBACcLZBeYI9ZAD0o0bHE5UPDN5lOEH8hjXHxUnN8ZAZCpYNtZATmp0MlYLzbH94DWfBkUKGrO792ZCUFobdVEZCk27gmWqlpl9fMzFwvViuG'})
 	  @fb_likes = @fb_page.raw_attributes['likes'];
-	  #@fb_likes = 459;
-	  @fb_posts = 0;
+	  @fb_posts = @fb_page.posts.size
 	  
 	  @twitter_followers = Twitter.user("g00dfornothing").followers_count;
 	  @twitter_tweets = Twitter.user("g00dfornothing").statuses_count;
-	  #@twitter_followers = 2719
-	  #@twitter_tweets = 2363
-	  
+	    
 	end
 
 end

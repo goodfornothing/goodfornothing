@@ -5,6 +5,10 @@
 		<title>
 			<% if params[:controller] == "members" && params[:action] == "show" %>
 				<%= @member.name %> at 
+			<% elsif params[:controller] == "gigs" %>
+				Gigs at 
+			<% elsif params[:controller] == "socials" %>
+				Socials at
 			<% elsif is_about? %>
 				How it works &ndash;
 			<% elsif is_community? %>

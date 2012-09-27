@@ -41,12 +41,12 @@
 				<div id="profile_avatar">
 					
 					<% if @member.avatar.url.nil? %>
-					<div class="avatar tip" title="Show us yer face!">
+					<div class="avatar <%= "tip" if signed_in_as_owner?(@member) %>" title="<%+ "Show us yer face!" if signed_in_as_owner?(@member) %>">
 						<%= image_tag "assets/avatar_large.png" %>
 						<%= render "avatar_form" %>
 					</div>
 					<% else %>
-					<div class="avatar tip" title="Change your avatar">
+					<div class="avatar <%= "tip" if signed_in_as_owner?(@member) %>" title="<%= "Change your avatar" if signed_in_as_owner?(@member) %>">
 						<%= image_tag @member.avatar %>
 						<%= render "avatar_form" %>
 					</div>
@@ -56,10 +56,10 @@
 			
 					<% if @member.url.present? || @member.twitter_handle.present? %>
 					<p>
-						You can find <%= @member.short_name %> on
+						<%= @member.short_name %> is on
 						<%= " Twitter #{link_to "@" + @member.twitter_handle.gsub('@',''), "http://twitter.com/#{@member.twitter_handle}"}".html_safe if @member.twitter_handle.present? %>
 						<%= " and " if @member.twitter_handle.present? && @member.url.present? %>
-						<%= "online at #{link_to @member.url.gsub('http://','').truncate(17), @member.url}".html_safe if @member.url.present? %>
+						<%= "online at #{link_to @member.url.gsub('http://','').gsub('www.','').truncate(20), @member.url}".html_safe if @member.url.present? %>
 					</p>
 					<% end %>
 			

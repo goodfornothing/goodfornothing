@@ -7,7 +7,11 @@ class SocialsController < ApplicationController
 
 	def show
 	  
-	  @attendees = @social.users.where('users.id NOT IN (?)', @social.chapter.users.crew.map(&:id).join(','))
+	  if @social.chapter.users.crew.any?
+	    @attendees = @social.users.where("users.id NOT IN (#{@social.chapter.users.crew.map(&:id).join(',')})")
+	  else
+	    @attendees = @social.users
+	  end
 
 	end
 	

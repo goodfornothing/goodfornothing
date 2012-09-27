@@ -11,7 +11,11 @@ class GigsController < ApplicationController
 	end
 
 	def show
-	  @attendees = @gig.users.where('users.id NOT IN (?)', @gig.chapter.users.crew.map(&:id).join(','))
+	  if @gig.chapter.users.crew.any?
+	    @attendees = @gig.users.where("users.id NOT IN (#{@gig.chapter.users.crew.map(&:id).join(',')})")
+	  else
+	    @attendees = @gig.users
+	  end
 	end
 	
 	def attend

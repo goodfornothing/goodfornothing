@@ -24,6 +24,7 @@ gem 'sass-rails'
 gem 'friendly_id', '~> 4.0.1'
 gem "fog", "~> 1.3.1"
 gem "remotipart"
+gem 'rails_autolink'
 
 # Moar statistics
 gem 'twitter'

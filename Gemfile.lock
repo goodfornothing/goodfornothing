@@ -158,6 +158,8 @@ GEM
       activesupport (= 3.2.3)
       bundler (~> 1.0)
       railties (= 3.2.3)
+    rails_autolink (1.0.9)
+      rails (~> 3.1)
     railties (3.2.3)
       actionpack (= 3.2.3)
       activesupport (= 3.2.3)
@@ -227,6 +229,7 @@ DEPENDENCIES
   mysql2
   newrelic_rpm
   rails (= 3.2.3)
+  rails_autolink
   redcarpet (~> 2.0.1)
   remotipart
   sass-rails

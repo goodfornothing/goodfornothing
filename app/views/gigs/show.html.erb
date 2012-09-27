@@ -28,6 +28,10 @@
 
 <aside id="secondary_content">
 	
+	<% unless @gig.poster.blank? %>
+		<%= image_tag @gig.poster.url, :alt => 'Gig poster' %>
+	<% end %>
+	
 	<% if !@gig.end_time.nil? && (@gig.start_time.past? && @gig.end_time.future?) %>
 		<h2>It's happening!</h2>
 		<p>This gig is happening right now, you can no longer register, but feel free to just drop in and say hello anyway!</p>

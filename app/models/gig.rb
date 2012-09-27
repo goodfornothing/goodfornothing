@@ -2,7 +2,7 @@ class Gig < ActiveRecord::Base
 
   scope :past, where("end_time <= ?", Time.now)
   
-  attr_accessible :chapter_id, :title, :description, :location, :start_time, :end_time, :skill_ids, :partner_id, :friend_ids, :poster, :logo
+  attr_accessible :chapter_id, :title, :description, :location, :start_time, :end_time, :skill_ids, :partner_id, :friend_ids, :poster, :logo, :slots_attributes
 
 	has_many :challenges
 	has_many :slots

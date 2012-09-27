@@ -41,7 +41,7 @@
 				<div id="profile_avatar">
 					
 					<% if @member.avatar.url.nil? %>
-					<div class="avatar <%= "tip" if signed_in_as_owner?(@member) %>" title="<%+ "Show us yer face!" if signed_in_as_owner?(@member) %>">
+					<div class="avatar <%= "tip" if signed_in_as_owner?(@member) %>" title="<%= "Show us yer face!" if signed_in_as_owner?(@member) %>">
 						<%= image_tag "assets/avatar_large.png" %>
 						<%= render "avatar_form" %>
 					</div>

@@ -31,7 +31,7 @@ $(document).ready(function(){
 	});
 	
 	// Range sliders
-	$('.slides input[type="range"]').rangeinput();
+	$('.range_slider input[type="range"]').rangeinput();
 	
 	// Skill filtering
 	var skill_filter = {}
@@ -119,9 +119,10 @@ $(document).ready(function(){
 	$(".icon_crew .tip[title]").tooltip({ offset: [-5, 45] });
 	$(".range_slider .details[title]").tooltip({ offset: [0, -50],tipClass: 'tooltip_large' });
 	$('.challenge_panel .tip').tooltip({ offset: [-3, 55] });
+	$('.avatar.tip').tooltip({ offset: [-4, -12] });
 	
 	// Registration form
-	$('form.slides').easyPaginate({ step: 1 });
+	$('form.slides .fields').easyPaginate({ step: 1 });
 	$('form.slides').append($('#pagination'))
 	$('#pagination li').not('.next, .prev').addClass('page_links')
 	

@@ -7,59 +7,63 @@
 		<%= render "shared/notices" %>
 		
 		<p class="notice">Hold up there, did you have an account on old Ning? <%= link_to "Skip registration!", login_path %></p>
-				
-		<fieldset class="slide warblings">
-			<legend>Which issues are you most passionate about?</legend>
-			<%= f.association :warblings, :as => :check_boxes, :label => "" %>
-			<%= image_tag "illustrations/teacup.png", :class => "slide_illustration" %>
-		</fieldset>
 		
-		<fieldset class="slide involvement">
+		<div class="fields">
+		
+			<fieldset class="slide warblings">
+				<legend>Which issues are you most passionate about?</legend>
+				<%= f.association :warblings, :as => :check_boxes, :label => "" %>
+				<%= image_tag "illustrations/teacup.png", :class => "slide_illustration" %>
+			</fieldset>
+		
+			<fieldset class="slide involvement">
 			
-			<legend>Where do your interests lie?</legend>
-			<% if @skills.any? %>
+				<legend>Where do your interests lie?</legend>
+				<% if @skills.any? %>
 
-				<% @skills.each do |skill| %>
-				<ul class="range_slider">
-					<li class="skill"><%= f.label skill.title %></li>
-					<li class="details" title="<%= skill.description %>">?</li>
-					<li class="limit"><%= skill.lower %></li>
-					<li class="ranger"><%= range_field_tag "skill[#{skill.id}]", resource.skill_level(skill) || 1, :in => 0...11, :step => 1 %></li>
-					<li class="limit"><%= skill.upper %></li>
-				</ul>
+					<% @skills.each do |skill| %>
+					<ul class="range_slider">
+						<li class="skill"><%= f.label skill.title %></li>
+						<li class="details" title="<%= skill.description %>">?</li>
+						<li class="limit"><%= skill.lower %></li>
+						<li class="ranger"><%= range_field_tag "skill[#{skill.id}]", resource.skill_level(skill) || 1, :in => 0...11, :step => 1 %></li>
+						<li class="limit"><%= skill.upper %></li>
+					</ul>
+					<% end %>
+				
 				<% end %>
-				
-			<% end %>
-			<%= image_tag "illustrations/laptop.png", :class => "slide_illustration" %>
+				<%= image_tag "illustrations/laptop.png", :class => "slide_illustration" %>
 			
-		</fieldset>
+			</fieldset>
 		
-		<fieldset class="slide chapters">
-			<legend>Do you live near a GFN chapter?</legend>
-			<%= f.association :chapter, :as => :radio_buttons, :label => "" %>
-			<%= image_tag "illustrations/maptorch.png", :class => "slide_illustration" %>
-		</fieldset>
+			<fieldset class="slide chapters">
+				<legend>Do you live near a GFN chapter?</legend>
+				<%= f.association :chapter, :as => :radio_buttons, :label => "" %>
+				<%= image_tag "illustrations/maptorch.png", :class => "slide_illustration" %>
+			</fieldset>
 
-		<fieldset class="slide claim">
-			<legend>A little bit about you</legend>
+			<fieldset class="slide claim">
+				<legend>A little bit about you</legend>
 			
-			<div class="form_panels">
-				<div class="half_panel">
-					<%= f.input :name, :label => "Your name", :required => true, :wrapper_html => { :class => "smart_label" } %>
-					<%= f.input :email, :label => "Your email address", :required => true, :wrapper_html => { :class => "smart_label" } %>
-					<%= f.input :password, :label => "Choose a password", :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
-					<%= f.input :password_confirmation, :label => "Type your password again", :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
+				<div class="form_panels">
+					<div class="half_panel">
+						<%= f.input :name, :label => "Your name", :required => true, :wrapper_html => { :class => "smart_label" } %>
+						<%= f.input :email, :label => "Your email address", :required => true, :wrapper_html => { :class => "smart_label" } %>
+						<%= f.input :password, :label => "Choose a password", :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
+						<%= f.input :password_confirmation, :label => "Type your password again", :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
+					</div>
+			
+					<div class="half_panel">
+						<%= f.input :reasons_for_joining, :label => "What makes you want to do Good for Nothing?", :input_html => { :rows => 9 }, :wrapper_html => { :class => "smart_label" } %>
+						<%= f.input :subscribed, :label => "Join the GFN mailing list?" %>
+					</div>
 				</div>
 			
-				<div class="half_panel">
-					<%= f.input :reasons_for_joining, :label => "What makes you want to do Good for Nothing?", :input_html => { :rows => 9 }, :wrapper_html => { :class => "smart_label" } %>
-					<%= f.input :subscribed, :label => "Join the GFN mailing list?" %>
-				</div>
-			</div>
+				<%= f.button :submit, "Let me in!" %>
 			
-			<%= f.button :submit, "Let me in!" %>
+			</fieldset>
 			
-		</fieldset>
+		</div>
 		
 	<% end %>
 

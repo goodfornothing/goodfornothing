@@ -10,8 +10,6 @@
 				
 			<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
 			<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
-			<%= f.input :gender, :as => :select, :collection => ["Female", "Male", "Transgender"] %>
-			<%= f.input :age, :as => :string, :wrapper_html => { :class => "smart_label" } %>
 			<%= f.input :location, :label => "Your physical location", :wrapper_html => { :class => "smart_label" } %>
 			
 			<%= f.input :url, :label => "Your digital location", :wrapper_html => { :class => "smart_label" } %>

@@ -41,21 +41,26 @@
 				<div id="profile_avatar">
 					
 					<% if @member.avatar.url.nil? %>
-					<div class="avatar"><%= image_tag "assets/avatar_large.png" %></div>
+					<div class="avatar tip" title="Show us yer face!">
+						<%= image_tag "assets/avatar_large.png" %>
+						<%= render "avatar_form" %>
+					</div>
 					<% else %>
-					<div class="avatar"><%= image_tag @member.avatar %></div>
+					<div class="avatar tip" title="Change your avatar">
+						<%= image_tag @member.avatar %>
+						<%= render "avatar_form" %>
+					</div>
 					<% end %>
 			
 					<h1><span>A little about</span> <%= @member.name %></h1>
-				
-					<% if signed_in_as_owner?(@member) %>
-						<span id="spinmerightround">Hang on!</span>
-					
-						<%= simple_form_for(@member, :as => 'user', :url => registration_path(@member), :html => { :remote => true, :method => :put, :class => "inline_form", :multipart => true }) do |f| %>				
-							<%= f.input :avatar, :label => ((@member.avatar.url.nil?) ? "Collaboration likes faces" : "New face?") %>
-							<%= f.button :submit, "Upload" %>
-						<% end %>
-
+			
+					<% if @member.url.present? || @member.twitter_handle.present? %>
+					<p>
+						You can find <%= @member.short_name %> on
+						<%= " Twitter #{link_to "@" + @member.twitter_handle.gsub('@',''), "http://twitter.com/#{@member.twitter_handle}"}".html_safe if @member.twitter_handle.present? %>
+						<%= " and " if @member.twitter_handle.present? && @member.url.present? %>
+						<%= "online at #{link_to @member.url.gsub('http://','').truncate(17), @member.url}".html_safe if @member.url.present? %>
+					</p>
 					<% end %>
 			
 				</div>
@@ -98,10 +103,7 @@
 					<li><%= contextual_reference(@member,"you've").humanize %> <%= time_active(@member) %></li>
 					<% end %>
 					<%= "<li>Live in #{@member.location}</li>".html_safe if @member.location.present? %>
-					<%= "<li>#{@member.gender}</li>".html_safe if @member.gender.present? %>
-					<%= "<li>#{@member.age} years old</li>".html_safe if @member.age.present? %>
-					<%= "<li>#{link_to "@" + @member.twitter_handle.gsub('@',''), "http://twitter.com/#{@member.twitter_handle}"}</li>".html_safe if @member.twitter_handle.present? %>
-					<%= "<li>#{link_to @member.url, @member.url}</li>".html_safe if @member.url.present? %>
+					
 				</ul>
 				
 				<% if signed_in_as_owner?(@member) && (@completion >= 55 || params[:welcome]) %>

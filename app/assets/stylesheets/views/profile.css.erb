@@ -59,7 +59,7 @@
 	margin-bottom: 21px;
 }
 
-#profile .panel h2, #profile .panel h1 {
+#profile .panel h2 {
 	color: #61514D;
 	font-size: 20px;
 	display: inline-block;
@@ -75,10 +75,14 @@
 }
 
 #profile .panel h1 {
-	margin-bottom: 0px;
-	font-size: 26px;
+	margin-bottom: 13px;
+	font-size: 24px;
+	padding-bottom: 5px;
 	line-height: 28px;
-	padding-top: 20px;
+	margin-left: 5px;
+	color: #61514D;
+	background: url(<%= asset_path "assets/hover_2.png" %>) repeat-x bottom left;
+	display: inline-block;
 }
 
 #profile .panel h1 span {
@@ -89,21 +93,31 @@
 #profile .panel #profile_avatar {
 	display: block;
 	width: 100%;
-	margin-bottom: 42px;
-	overflow: hidden;
-}
-
-#profile .panel #profile_avatar label {
-	font-size: 14px;
-	padding-top: 2px;
-	padding-bottom: 5px;
-	display: block;
+	margin-bottom: 25px;
 	padding-bottom: 10px;
-	font-family: "Good for Nothing";
-	color: #61514D;
+	overflow: hidden;
+	position: relative;	
+	
 }
 
-#profile .panel #profile_avatar .avatar {
+#profile .panel #profile_avatar input {
+	height: 120px;
+	width: 120px;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+#profile .panel #profile_avatar p {
+	padding-left: 5px;
+	margin-bottom: 0;
+	display: inline-block;
+	width: 270px;
+	line-height: 18px;
+	color: #61514D;
 }
 
 #profile .panel ul.data {
@@ -178,7 +192,7 @@
 #profile .talents {
 	list-style-type: none;
 	text-align: center;
-	padding: 0 0 90px;
+	padding: 0 0 83px;
 }
 
 #profile .talents li {

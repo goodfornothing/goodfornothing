@@ -1,0 +1,9 @@
+<% if signed_in_as_owner?(@member) %>
+	<span id="spinmerightround">Hang on!</span>
+
+	<%= simple_form_for(@member, :as => 'user', :url => registration_path(@member), :html => { :remote => true, :method => :put, :multipart => true }) do |f| %>				
+		<%= f.input :avatar  %>
+		<%= f.button :submit, "Upload" %>
+	<% end %>
+
+<% end %>

@@ -15,6 +15,10 @@
 			<% if @challenge.partner.present? %>
 				<p class="meta"><span>Challenge partner:</span> <%= link_to @challenge.partner.name, @challenge.partner.url %></p>
 			<% end %>
+			
+			<% if @challenge.gig.present? && !@challenge.gig.past? %>	
+				<p class="meta"><span>The Gig:</span> <%= link_to ("#{@challenge.gig.start_time.day.ordinalize} of #{@challenge.gig.start_time.strftime('%B')} in #{@challenge.gig.chapter.title}".html_safe), gig_path(@challenge.gig) %> </p>
+			<% end %>
 		
 		</div>
 		
@@ -60,15 +64,6 @@
 	
 	<p class="icon_gigs"><a href="#new_idea">Share your ideas, <br />get stuck in!</a></p>
 	
-	<% if @challenge.gig.present? %>	
-	
-		<% unless @challenge.gig.past? %>
-		<h2>Take it offline</h2>
-		<p class="block">This challenge will be tackled at a gig on the <%= "#{@challenge.gig.start_time.day.ordinalize} of #{@challenge.gig.start_time.strftime('%B')}".html_safe %> in <%= @challenge.gig.chapter.title %>, <%= link_to "come join us!", gig_path(@challenge.gig) %></p>
-		<% end %>
-	
-	<% end %>
-	
 	<% if @challenge.team.any? %>
 	<h2>Thinkers &amp; Contributors</h2>
 	<ul class="avatar_list">
@@ -76,6 +71,15 @@
 		<%= render :partial => "members/avatar", :locals => { :member => user }%>
 	<% end %>
 	</ul>
+	<% end %>
+	
+	<% if @challenge.gig.present? %>	
+	
+		<% unless @challenge.gig.past? %>
+		<h2>Take it offline</h2>
+		<p class="block">This challenge will be tackled at a gig on the <%= "#{@challenge.gig.start_time.day.ordinalize} of #{@challenge.gig.start_time.strftime('%B')}".html_safe %> in <%= @challenge.gig.chapter.title %>, <%= link_to "come join us!", gig_path(@challenge.gig) %></p>
+		<% end %>
+	
 	<% end %>
 	
 	<% if @challenge.bookmarks.any? %>

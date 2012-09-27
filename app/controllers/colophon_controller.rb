@@ -65,9 +65,11 @@ class ColophonController < ApplicationController
 	  @mailchimp_newsletters = mc.campaigns({:list_id => ENV['MC_LIST_ID'], :status => 'sent'})['total'];
 	  @mailchimp_newsletters = 9
 	  
-	  @fb_page = FbGraph::Page.new('g00dfornothing').fetch({:access_token => 'AAAFIALGg4joBACcLZBeYI9ZAD0o0bHE5UPDN5lOEH8hjXHxUnN8ZAZCpYNtZATmp0MlYLzbH94DWfBkUKGrO792ZCUFobdVEZCk27gmWqlpl9fMzFwvViuG'})
+	  #@fb_page = FbGraph::Page.new('g00dfornothing').fetch({:access_token => 'AAAFIALGg4joBACcLZBeYI9ZAD0o0bHE5UPDN5lOEH8hjXHxUnN8ZAZCpYNtZATmp0MlYLzbH94DWfBkUKGrO792ZCUFobdVEZCk27gmWqlpl9fMzFwvViuG'})
+	  @fb_page = FbGraph::Page.new('g00dfornothing').fetch()
 	  @fb_likes = @fb_page.raw_attributes['likes'];
-	  @fb_posts = @fb_page.posts.size
+	  @fb_posts = 25
+	  #@fb_posts = @fb_page.posts.size
 	  
 	  @twitter_followers = Twitter.user("g00dfornothing").followers_count;
 	  @twitter_tweets = Twitter.user("g00dfornothing").statuses_count;

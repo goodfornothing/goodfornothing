@@ -2,17 +2,14 @@
 	
 	<h2><%= link_to challenge.title, challenge_path(challenge) %></h2>
 	
-	<%
-		activity = [
-			"#{pluralize(challenge.bookmarks.count,'inspiration')}",
-			"#{pluralize(challenge.ideas.count,'idea')}",
-			"#{pluralize(challenge.contributions.count,'contribution')}"	
-		]
-	
-	%>
-	
 	<% if challenge.warblings.any? %>
 		<%= link_to (image_tag "warblings/#{challenge.warblings.first.slug}.png", :class => "tip", :title => "#{challenge.warblings.first.title}"), warbling_challenges_path(challenge.warblings.first) %>
+	<% end %>
+	
+	<% if challenge.ideas.any? || challenge.contributions.any? %>
+	<p class="challenge_stats">
+		<span>q</span> <%= "#{pluralize(challenge.ideas.count,'Idea')}" %> <span>4</span> <%= "#{pluralize(challenge.contributions.count,'Contribution')}" %>
+	</p>
 	<% end %>
 	
 	<% if challenge.venture %>

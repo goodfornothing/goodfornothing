@@ -4,9 +4,7 @@ class ChallengesController < ApplicationController
 		@challenge = Challenge.find(params[:id])
 		@idea = Idea.new
 		@contribution = Contribution.new
-		
 		@user_content = (@challenge.contributions + @challenge.ideas).sort_by(&:created_at).reverse
-		
 	end
 	
 	def index

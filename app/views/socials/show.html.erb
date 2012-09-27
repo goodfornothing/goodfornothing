@@ -22,7 +22,7 @@
 		<% if user_signed_in? && current_user.is_attending_social?(@social) %>
 			<h2>You're attending</h2>
 			<p>You've told us that you're attending this social, please let us know if you can no longer make it.</p>
-			<p class="cta"><%= link_to "I can't make it", attend_social_path(@social) %></p>
+			<p class="more"><%= link_to "I can't make it", attend_social_path(@social) %></p>
 		<% else %>
 			<p class="cta"><%= link_to "I'm coming!", attend_social_path(@social, :slot => @social.slots.first) %></p>
 		<% end %>

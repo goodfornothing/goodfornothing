@@ -6,16 +6,14 @@
 		
 	
 		<% if @gig.present? || @social.present? %>
-		<div class="social_panel">
+		<div class="event_panel">
 			<% if @gig.present? %>
-			<h3>The next gig</h3>
+			<h3><%= link_to "A gig in #{@gig.chapter.title}", gig_path(@gig) %></h3>
 			<p><%= @gig.title %> on the <%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %> of <%= @gig.start_time.strftime('%B') %> in <%= @gig.chapter.title %></p>
-			<p><%= link_to "Tell me more!", gig_path(@gig) %></p>
 			<% end %>
 			<% if @social.present? %>
-			<h3>The next social</h3>
-			<p>Join us on <%= @social.start_time.day.ordinalize %> of <%= @social.start_time.strftime('%B') %> at <%= @social.start_time.strftime('%l%P') %> in <%= @social.chapter.title %></p>
-			<p><%= link_to "Count me in!", social_path(@social) %>
+			<h3><%= link_to "A social in #{@social.chapter.title}", social_path(@social) %></h3>
+			<p>Join us on <%= @social.start_time.day.ordinalize %> of <%= @social.start_time.strftime('%B') %> at <%= @social.start_time.strftime('%l%P') %> <%= (@social.location?) ? "at #{@social.location}" : ", venue TBC" %></p>
 			<% end %>
 		</div>
 		<% end %>
@@ -36,7 +34,7 @@
 	</section>
 	
 	<section id="updates" class="panel">
-		<% if @challenge.present? && false %>
+		<% if @challenge.present? %>
 			<h2>Featured challenge</h2>
 			<%= render :partial => "challenges/block", :locals => { :challenge => @challenge } %>	
 		<% elsif @update.present? %>

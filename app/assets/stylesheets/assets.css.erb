@@ -746,42 +746,43 @@
 		font-family: karlaregular;
 		font-weight: normal;
 	}
-	
-/* Gig panel */
 
-	.gig_panel {
-		background: #ffffff url(<%= asset_path "blocks/gig_panel.gif" %>) no-repeat top left;
-		padding: 35px 15px 15px;
-		margin-bottom: 6px;
-		margin-top: -3px;
-		text-align: center;
-	}
-	
-	.gig_panel h3, .social_panel h3 {
-		color: #D0122D;
-		padding-bottom: 12px;
-		display: inline-block;
-		margin-bottom: 15px;
-		background: url(<%= asset_path "assets/hover_2.png" %>) bottom center repeat-x;
-	}
-	
-	.gig_panel p, .social_panel p {
-		text-align: left;
-		margin-bottom: 10px
-	}
-	
-	.gig_panel p:last-child, .social_panel p:last-child {
-		margin: 0;
-	}
+/* Event panel */
 
-/* Social panel */
-
-	.social_panel {
-		background: #ffffff url(<%= asset_path "blocks/social_panel.gif" %>) no-repeat top left;
+	.event_panel {
+		background: #ffffff url(<%= asset_path "blocks/event_panel.gif" %>) no-repeat top left;
 		padding: 35px 15px 17px;
 		margin-bottom: 13px;
 		text-align: center;
+		min-height: 211px;
 	}
+	
+	.event_panel h3 {
+		margin-bottom: 17px;
+	}
+	
+	.event_panel h3 a {
+		display: inline-block;
+		padding-bottom: 8px;
+		background: url(<%= asset_path "assets/hover_2.png" %>) bottom center repeat-x;
+	}
+	
+	.event_panel h3 a:hover,
+	.event_panel h3 a:focus,
+	.event_panel h3 a:active {
+		background: transparent;
+		text-decoration: none;
+	}
+	
+	.event_panel p {
+		text-align: left;
+		margin-bottom: 31px
+	}
+	
+	.event_panel p:last-child {
+		margin: 0;
+	}
+	
 	
 /* Event */
 

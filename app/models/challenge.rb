@@ -22,9 +22,20 @@ class Challenge < ActiveRecord::Base
   scope :inactive, where(:active => false)
   scope :opened, where(:active => true, :open => true)
   scope :closed, where(:active => true, :open => false)
+  
+  before_save :assert_featured
 		
 	def team
     User.includes(:contributions,:ideas).where('contributions.challenge_id = ? or ideas.challenge_id = ?',self.id,self.id)
+  end
+  
+  def assert_featured
+    if self.featured?
+      Challenge.where('id != ?',self.id).each do |challenge|
+        challenge.featured = false
+        challenge.save!
+      end
+    end
   end
 		
 end

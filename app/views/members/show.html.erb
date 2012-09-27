@@ -102,7 +102,7 @@
 					<% if time_active(@member) %>
 					<li><%= contextual_reference(@member,"you've").humanize %> <%= time_active(@member) %></li>
 					<% end %>
-					<%= "<li>Live in #{@member.location}</li>".html_safe if @member.location.present? %>
+					<%= "<li>Lives in #{@member.location}</li>".html_safe if @member.location.present? %>
 					
 				</ul>
 				

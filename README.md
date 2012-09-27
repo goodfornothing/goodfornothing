@@ -19,15 +19,11 @@ By default the application uses carrierwave and S3 for image storage. You'll nee
 
 You can check your `bookmark` URLs for life by running `rake bookmarks:ping` daily. Every time a bookmark fails to respond it'll be given a strike, two strikes and it'll be automatically unpublished. A strike is deducted for every active response.
 
-#### Facebook Events
-
-Gigs can be published to Facebook as 'Events'.
-
 ## Datum factories
 
 #### Wordpress
 
-You can import posts from standard Wordpress eXtended RSS formatted files to the Conversation::Posts and Conversation::Category models using the following rake task:
+You can import posts from standard Wordpress eXtended RSS formatted files to the Posts and Warbles or Tags models using the following rake task:
 
     rake migrate:wordpress filename
 
@@ -37,7 +33,7 @@ Post and category relationships will be maintained.
 
 #### Bookmarks 
 
-The Netscape Bookmark format, surprisingly, is still rather common (Read it Later, Chrome, Firefox). Use this task to import bookmarks and tags into the Library::Bookmark and Conversation::Tag models.
+The Netscape Bookmark format, surprisingly, is still rather common (Read it Later, Chrome, Firefox). Use this task to import bookmarks and tags into the Bookmark and Tag models.
 
     rake migrate:bookmarks filename
 

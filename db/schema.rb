@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918132026) do
+ActiveRecord::Schema.define(:version => 20121004133934) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "title"
@@ -164,6 +164,12 @@ ActiveRecord::Schema.define(:version => 20120918132026) do
   end
 
   add_index "posts", ["slug"], :name => "index_conversation_posts_on_slug", :unique => true
+
+  create_table "sir_trevor_images", :force => true do |t|
+    t.string   "file"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "skills", :force => true do |t|
     t.string "title"

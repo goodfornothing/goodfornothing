@@ -5,8 +5,11 @@ class ChallengesController < ApplicationController
 	  if params[:id] == 'can-we-use-local-energy-data-to-improve-our-homes-energy-efficiency'
 	     params[:id] = 'can-we-help-create-an-open-source-home-energy-monitor-as-part-of-a-campaign-to-increase-our-homes-energy-efficiency'
 	  end
+	  
 		@challenge = Challenge.find(params[:id])
-		
+		if @challenge.nil?
+		  not_found
+		end
 		
 		@idea = Idea.new
 		@contribution = Contribution.new

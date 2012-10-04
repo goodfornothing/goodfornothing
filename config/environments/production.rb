@@ -21,9 +21,13 @@ Goodfornothing::Application.configure do
   config.assets.digest = true
 
   config.action_mailer.default_url_options = { :host => 'www.goodfornothing.com' }
-
   config.action_mailer.delivery_method = :sendmail  
   config.action_mailer.sendmail_settings = {:arguments => "-i"}
+  
+  config.middleware.use ExceptionNotifier,
+    :email_prefix => "Good for Nothing Application Error",
+    :sender_address => %{"GFN Hive Mind" <hello@goodfornothing.com>},
+    :exception_recipients => %w{andrew@goodfornothing.com}
   
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH

@@ -18,7 +18,7 @@
 						</div>
 					</div>
 					
-					<%= markdown.render(resource.description).html_safe %>
+					<%= md.render(resource.description).html_safe %>
 
 				</article>
 			<% elsif resource.class == Post %>
@@ -34,7 +34,7 @@
 						<% else %>
 							<h2><%= link_to resource.title, post_path(resource) %></h2>
 						<% end %>
-						<%= markdown.render(resource.excerpt).html_safe %>
+						<%= md.render(resource.excerpt).html_safe %>
 					</div>
 
 				</article>

@@ -2,7 +2,7 @@
 	<article class="post">
 		<h1><%= @post.title %></h1>
 		<time>Warbled on <%= @post.created_at.to_formatted_s(:article) %> <%= "by #{link_to @post.user.short_name, member_path(@post.user)}".html_safe unless @post.user.nil? %></time>
-		<%= markdown.render(@post.body).html_safe %>
+		<%= render_sir_trevor(@post.body) %>
 	</article>
 	<p class="cta strong"><%= link_to "More warblings", warblings_path %></p>
 </section>

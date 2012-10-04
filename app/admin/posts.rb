@@ -22,7 +22,9 @@ ActiveAdmin.register Post do
       f.input :hero_image
       f.input :title
       f.input :excerpt, :input_html => { :rows => 5 }
-      f.input :body
+    end
+    f.inputs "Body" do 
+      f.sir_trevor_text_area :body
     end
     f.buttons
   end
@@ -48,7 +50,7 @@ ActiveAdmin.register Post do
           image_tag(post.hero_image.thumbnail) unless post.hero_image.url.nil?
         end
         row :body do
-          simple_format(post.body).html_safe
+         render_sir_trevor(post.body)
         end
       end
     end

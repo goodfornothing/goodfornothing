@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Something went wrong (500) &ndash; Good for Nothing</title>
+  <style type="text/css">
+    
+	body { 
+		background-color: #F0ECE9;
+		text-align: center; 
+		font-family: Helvetica; 
+		padding: 0;
+		margin: 0;
+	}
+	
+	div.header {
+		background: #ffffff;
+		color: #61514D;
+		padding: 40px 0 30px;
+	}
+		
+    div.dialog {
+    	padding: 50px 0;
+		color: #61514D;
+		background: url(/errors/assets/header.gif) repeat-x top center;	
+    }
+
+    h1 { 
+		font-size: 26px; 
+		width: 500px;
+		line-height: 35px;
+		margin: 0 auto 20px;
+		font-weight: normal;
+	}
+	
+	p {
+		width: 500px;
+		margin: 0 auto 30px;
+		font-size: 14px;
+	}
+	
+  </style>
+</head>
+
+<body>
+	
+	<div class="header">
+		<img src="/errors/assets/logo.gif">
+	</div>
+	
+	<div class="dialog">
+		<%= yield %>
+	</div>
+	
+</body>
+</html>
+

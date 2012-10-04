@@ -103,7 +103,7 @@ class RegistrationsController < Devise::RegistrationsController
       if request.xhr?
         render :json => { :status => 400, :data => { :message => "Something went wrong, please try again" } }
       else
-        render_with_scope :edit
+        render :edit
       end
       
     end

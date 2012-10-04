@@ -1,6 +1,7 @@
 //= require active_admin/base
 //= require markitup/jquery.markitup
 //= require markitup/sets/default/set
+//= require sir-trevor
 
 $(document).ready(function(){
 		
@@ -17,5 +18,9 @@ $(document).ready(function(){
 		});
 		
 		$('.dashboard').hide();
+		
+		$(function(){
+		  var editor = new SirTrevor.Editor({ el: $('.sir-trevor-area') });
+		});
 		
 });

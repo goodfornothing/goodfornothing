@@ -24,7 +24,7 @@
 		
 		<% end %>
 		
-		<%= markdown.render(@challenge.description).html_safe unless @challenge.description.nil? %>
+		<%= md.render(@challenge.description).html_safe unless @challenge.description.nil? %>
 	
 	</article>
 	

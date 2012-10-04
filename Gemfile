@@ -26,6 +26,9 @@ gem "fog", "~> 1.3.1"
 gem "remotipart"
 gem 'rails_autolink'
 
+gem 'exception_notification'
+gem 'sir-trevor-rails'
+
 # Moar statistics
 gem 'twitter'
 gem 'garb'

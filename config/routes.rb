@@ -1,6 +1,7 @@
 Goodfornothing::Application.routes.draw do
 	
   ActiveAdmin.routes(self)
+  post 'attachments' => 'images#create'
   
   match "markdown_preview" => "application#markdown_preview"
   

@@ -5,7 +5,7 @@
 		<h1><%= @gig.title %></h1>
 	
 		<div class="abstract">
-			<%= markdown.render(@gig.description).html_safe unless @gig.description.nil? %>
+			<%= md.render(@gig.description).html_safe unless @gig.description.nil? %>
 		</div>
 			
 		<% if @gig.start_time && @gig.end_time %><p class="meta"><span>When?</span> <%= @gig.start_time.to_formatted_s(:long_ordinal) %> &rarr; <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time><% end %>

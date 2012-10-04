@@ -8,6 +8,18 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+require 'json'
+
+class String
+  def is_json?
+    begin
+      !!JSON.parse(self)
+    rescue
+      false
+    end
+  end
+end
+
 module Goodfornothing
   class Application < Rails::Application    
     # Settings in config/environments/* take precedence over those specified here.

@@ -23,8 +23,12 @@ ActiveAdmin.register Post do
       f.input :title
       f.input :excerpt, :input_html => { :rows => 5 }
     end
-    f.inputs "Body" do 
-      f.sir_trevor_text_area :body
+    f.inputs "Body" do
+      if post.new_record? || post.body.is_json?
+        f.sir_trevor_text_area :body
+      else 
+        f.input :body
+      end
     end
     f.buttons
   end

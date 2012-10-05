@@ -1,3 +1,5 @@
+/* To make nice with ActiveAdmin */
+
 body { 
 	margin: 0; 
 	line-height: 150%;
@@ -26,4 +28,9 @@ form .sir-trevor .buttons a.button {
 	border-radius: 0;
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
+}
+
+.sir-trevor .sir-trevor-block blockquote {
+	padding: 0;
+	min-height: 40px;
 }

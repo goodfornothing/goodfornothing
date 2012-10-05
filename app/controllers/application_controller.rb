@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   
   def not_found
     respond_to do |format|
-      format.html { render 'errors/404', :status => 404 }
+      format.html { render 'errors/404', :status => 404, :layout => 'application' }
       format.any { render 'errors/404', :status => 404, :formats => [:html], :layout => 'application', :content_type => Mime[:html] }
     end
   end

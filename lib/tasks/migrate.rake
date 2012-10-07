@@ -100,7 +100,6 @@ namespace :migrate do
           u.password = unique
           u.password_confirmation = unique
           u.activated = false
-          u.admin = false
           u.gender = ning_user.gender
           u.age = ning_user.age
           u.location = ning_user.country

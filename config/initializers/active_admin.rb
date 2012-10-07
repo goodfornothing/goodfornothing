@@ -103,7 +103,6 @@ ActiveAdmin.setup do |config|
   #     without_comments.allow_comments = false
   #   end
 
-
   # == Controller Filters
   #
   # You can add before, after and around filters to all of your

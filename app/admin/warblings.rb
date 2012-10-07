@@ -1,6 +1,11 @@
 ActiveAdmin.register Warbling do
   
-  menu :priority => 1, :parent => "Conversations"
+  controller do
+    load_resource :except => :index
+    authorize_resource
+  end
+  
+  menu :priority => 1, :parent => "Conversations", :if => proc{ can?(:manage, Warbling) } 
    
   config.clear_sidebar_sections!
   

@@ -4,7 +4,7 @@ ActiveAdmin::Dashboards.build do
     
     @bookmarks = Bookmark.order(:created_at).where('published = false')
     
-    if @bookmarks.any?
+    if @bookmarks.any? && can?(:manage, Bookmark)
     
       table do
         thead do
@@ -33,7 +33,7 @@ ActiveAdmin::Dashboards.build do
 
     @challenges = Challenge.inactive
 
-    if @challenges.any?
+    if @challenges.any? && can?(:manage, Challenge)
 
       table do
         thead do
@@ -62,7 +62,7 @@ ActiveAdmin::Dashboards.build do
     
     @partners = Partner.inactive
     
-    if @partners.any?
+    if @partners.any? && can?(:manage, Partner)
     
       table do
         thead do

@@ -1,6 +1,11 @@
 ActiveAdmin.register Idea do
   
-  menu :priority => 2, :parent => "Challenges"
+  controller do
+    load_resource :except => :index
+    authorize_resource
+  end
+  
+  menu :priority => 2, :parent => "Challenges", :if => proc{ can?(:manage, Idea) } 
    
   config.clear_sidebar_sections!
   

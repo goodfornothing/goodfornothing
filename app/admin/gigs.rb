@@ -1,6 +1,11 @@
 ActiveAdmin.register Gig do
 
-  menu :priority => 1, :parent => "Events"
+  controller do
+    load_resource :except => :index
+    authorize_resource
+  end
+
+  menu :priority => 1, :parent => "Events", :if => proc{ can?(:manage, Gig) } 
 
   filter :chapter
   filter :partner

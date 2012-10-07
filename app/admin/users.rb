@@ -1,9 +1,13 @@
 ActiveAdmin.register User do
   
-  menu :priority => 1, :label => "Members", :parent => "Community"
+  controller do
+    load_resource :except => :index
+    authorize_resource
+  end
+  
+  menu :priority => 1, :label => "Members", :parent => "Community", :if => proc{ can?(:manage, User) }  
     
   filter :skills_id, :as => :check_boxes, :collection => proc {Skill.all}
-  filter :crew, :as => :select, :collection => [true,false]
   filter :name
   filter :email
 
@@ -17,8 +21,7 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs "Privileges" do
-      f.input :admin
-      f.input :crew
+      f.collection_select :role, User::ROLES, :to_s, :humanize
       f.input :activated
     end
     f.buttons
@@ -34,9 +37,7 @@ ActiveAdmin.register User do
     end
     panel "Privileges" do
       attributes_table_for user do
-        row "Is an admin?" do
-          (user.admin) ? "Yes" : "No"
-        end
+        row :role
         row "Activated from Ning?" do
           (user.activated) ? "Yes" : "No"
         end

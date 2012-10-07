@@ -1,6 +1,11 @@
 ActiveAdmin.register Tag do
   
-  menu :priority => 4, :parent => "Conversations"
+  controller do
+    load_resource :except => :index
+    authorize_resource
+  end
+  
+  menu :priority => 4, :parent => "Conversations", :if => proc{ can?(:manage, Tag) } 
    
   config.clear_sidebar_sections!
   

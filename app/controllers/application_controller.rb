@@ -31,12 +31,20 @@ class ApplicationController < ActionController::Base
     ExceptionNotifier::Notifier.exception_notification(request.env, exception).deliver
     render :template => "/errors/500.html.erb", :layout => 'errors.html.erb'
   end
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to admin_dashboard_path, :alert => exception.message
+  end
+  
+  def current_ability
+    @current_ability ||= Ability.new(current_admin_user)
+  end
 
   def signed_in_as_owner?(resource)
     if user_signed_in? && resource == current_user
       true
     elsif resource.class != User && resource.user.present? && user_signed_in?
-      if current_user.admin?
+      if !current_user.role.nil?
         true
       else
         resource.user == current_user
@@ -47,12 +55,12 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_admin_user!
-  	redirect_to new_user_session_path and return if user_signed_in? && !current_user.admin? 
+  	redirect_to new_user_session_path and return if user_signed_in? && current_user.role.nil?
     authenticate_user!
   end
 
   def current_admin_user
-    return nil if user_signed_in? && !current_user.admin? 
+    return nil if user_signed_in? && current_user.role.nil?
     current_user 
   end
   

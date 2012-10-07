@@ -1,6 +1,11 @@
 ActiveAdmin.register Friend do
   
-  menu :priority => 3, :parent => "Community"
+  controller do
+    load_resource :except => :index
+    authorize_resource
+  end
+  
+  menu :priority => 3, :parent => "Community", :if => proc{ can?(:manage, Friend) } 
   
   config.clear_sidebar_sections!
   

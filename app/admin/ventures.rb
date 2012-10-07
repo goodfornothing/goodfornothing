@@ -1,6 +1,11 @@
 ActiveAdmin.register Venture do
   
-  menu :priority => 5, :parent => "Community"
+  controller do
+    load_resource :except => :index
+    authorize_resource
+  end
+  
+  menu :priority => 5, :parent => "Community", :if => proc{ can?(:manage, Venture) } 
   
   config.clear_sidebar_sections!
   

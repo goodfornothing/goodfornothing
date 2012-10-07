@@ -1,6 +1,11 @@
 ActiveAdmin.register Social do
 
-  menu :priority => 2, :parent => "Events"
+  controller do
+    load_resource :except => :index
+    authorize_resource
+  end
+
+  menu :priority => 2, :parent => "Events", :if => proc{ can?(:manage, Social) } 
 
   filter :chapter
 

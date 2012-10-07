@@ -1,6 +1,11 @@
 ActiveAdmin.register Bookmark, :as => "Warbles" do
   
-  menu :priority => 3, :parent => "Conversations"
+  controller do
+    load_resource :except => :index
+    authorize_resource Bookmark
+  end
+  
+  menu :priority => 3, :parent => "Conversations", :if => proc{ can?(:manage, Bookmark) }  
   
   config.clear_sidebar_sections!
   

@@ -1,6 +1,11 @@
 ActiveAdmin.register Post do
   
-  menu :priority => 2, :parent => "Conversations"
+  controller do
+    load_resource :except => :index
+    authorize_resource
+  end
+  
+  menu :priority => 2, :parent => "Conversations", :if => proc{ can?(:manage, Post) } 
     
   filter :warbling
   filter :chapter

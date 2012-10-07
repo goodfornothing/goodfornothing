@@ -1,13 +1,16 @@
 class User < ActiveRecord::Base
 
-  scope :crew, where(:crew => true)
+  # User roles for CanCan
+  ROLES = %w[admin leader cause warbler]
+
+  scope :crew, where("role = 'leader' or role = 'admin'")
   scope :active, where(:activated => true)
-  scope :admins, where(:admin => true)
+  scope :admins, where(:role => "admin")
   
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :email, :password, :password_confirmation, :current_password,
-                  :remember_me, :join_mailing_list, :admin, :name, :brings,
+                  :remember_me, :join_mailing_list, :role, :name, :brings, :role,
                   :gender, :age, :url, :location, :twitter_handle, :activated, :subscribed,
                   :chapter_id, :avatar, :warbling_ids, :reasons_for_joining, :crew
 
@@ -34,6 +37,10 @@ class User < ActiveRecord::Base
 	
 	extend FriendlyId
   friendly_id :name, use: :slugged
+	
+	def crew?
+	  self.role = "admin" || self.role == "leader"
+	end
 	
 	def short_name
 	  self.name.split(' ')[0]

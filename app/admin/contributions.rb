@@ -1,6 +1,11 @@
 ActiveAdmin.register Contribution do
   
-  menu :priority => 3, :parent => "Challenges"
+  controller do
+    load_resource :except => :index
+    authorize_resource
+  end
+  
+  menu :priority => 3, :parent => "Challenges", :if => proc{ can?(:manage, Contribution) } 
    
   config.clear_sidebar_sections!
   

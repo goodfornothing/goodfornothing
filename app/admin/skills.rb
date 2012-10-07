@@ -1,6 +1,11 @@
 ActiveAdmin.register Skill do
   
-  menu :priority => 4, :parent => "Events"
+  controller do
+    load_resource :except => :index
+    authorize_resource
+  end
+  
+  menu :priority => 4, :parent => "Events", :if => proc{ can?(:manage, Skill) } 
 
   config.clear_sidebar_sections!
 

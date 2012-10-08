@@ -4,7 +4,7 @@
 		
 		<title>
 			<% if params[:controller] == "members" && params[:action] == "show" %>
-				<%= @member.name %> at 
+				<%= "#{@member.name} at" unless @member.nil? %>
 			<% elsif params[:controller] == "gigs" %>
 				Gigs at 
 			<% elsif params[:controller] == "socials" %>

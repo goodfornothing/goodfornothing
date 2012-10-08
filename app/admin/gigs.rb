@@ -90,7 +90,7 @@ ActiveAdmin.register Gig do
             tr do
               td link_to(user.name, member_path(user))
               td user.email
-              td user.slots.where('gig_id = ?',gig).first.skill.title
+              td (user.slots.where('gig_id = ?',gig).first.skill.nil?) ? user.slots.where('gig_id = ?',gig).first.custom_skill : user.slots.where('gig_id = ?',gig).first.skill.title
               td user.talents.map { |t| "<strong>#{t.skill.title}:</strong> #{t.level}".html_safe }.join("<br />").html_safe
             end
           end

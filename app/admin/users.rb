@@ -21,7 +21,7 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs "Privileges" do
-      f.collection_select :role, User::ROLES, :to_s, :humanize
+      f.input :role, :as => :select, :collection => User::ROLES
       f.input :activated
     end
     f.buttons

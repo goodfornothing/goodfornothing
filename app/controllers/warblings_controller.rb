@@ -8,6 +8,10 @@ class WarblingsController < ApplicationController
 	
 	def show
 	  @warbling = Warbling.find(params[:id])
+	  # FriendlyID History
+    if request.path != warbling_path(@warbling)
+      return redirect_to @warbling, :status => :moved_permanently
+    end
 	  @stream = (@warbling.bookmarks.published + @warbling.posts).sort_by(&:created_at).reverse
 	end
 	

@@ -6,6 +6,7 @@ class BookmarksController < ApplicationController
 	  page = params[:page] || 1
 	  
 	  @tag = Tag.find(params[:id]) if params[:id]
+	  
   	@bookmarks = (@tag) ? @tag.bookmarks.order("created_at DESC").where("published = true").page(page) : Bookmark.order("created_at DESC").where("published = true").page(page)
 	end
 

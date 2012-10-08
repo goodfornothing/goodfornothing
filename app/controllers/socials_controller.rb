@@ -7,6 +7,11 @@ class SocialsController < ApplicationController
 
 	def show
 	  
+	  # FriendlyID History
+    if request.path != social_path(@social)
+      return redirect_to @social, :status => :moved_permanently
+    end
+	  
 	  if @social.chapter.users.crew.any?
 	    @attendees = @social.users.where("users.id NOT IN (#{@social.chapter.users.crew.map(&:id).join(',')})")
 	  else

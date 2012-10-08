@@ -14,7 +14,7 @@ class Challenge < ActiveRecord::Base
 	has_many :contributions
 	
 	extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :title, use: :history
   
   validates_presence_of :title
 	

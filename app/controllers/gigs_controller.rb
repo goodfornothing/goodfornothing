@@ -11,6 +11,12 @@ class GigsController < ApplicationController
 	end
 
 	def show
+	  
+	  # FriendlyID History
+    if request.path != gig_path(@gig)
+      return redirect_to @gig, :status => :moved_permanently
+    end
+	  
 	  if @gig.chapter.users.crew.any?
 	    @attendees = @gig.users.where("users.id NOT IN (#{@gig.chapter.users.crew.map(&:id).join(',')})")
 	  else

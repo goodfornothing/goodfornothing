@@ -16,6 +16,5 @@ class Bookmark < ActiveRecord::Base
   mount_uploader :hero_image, ::ArticleImageUploader
   
   scope :published, where("published = true")
-  
 	
 end

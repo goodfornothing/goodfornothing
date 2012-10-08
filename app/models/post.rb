@@ -16,6 +16,6 @@ class Post < ActiveRecord::Base
 	paginates_per 10
 	
 	extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :title, use: :history
 
 end

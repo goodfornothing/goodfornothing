@@ -25,7 +25,7 @@ class Gig < ActiveRecord::Base
   end
   
 	extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :title, use: :history
   
   def past?
     self.end_time < Time.now

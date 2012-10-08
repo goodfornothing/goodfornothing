@@ -10,6 +10,6 @@ class Warbling < ActiveRecord::Base
 	validates :title, :presence => true
 	
 	extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :title, use: :history
 
 end

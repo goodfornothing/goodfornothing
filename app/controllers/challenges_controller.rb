@@ -7,6 +7,12 @@ class ChallengesController < ApplicationController
 	  end
 	  
 		@challenge = Challenge.find(params[:id])
+		
+		# FriendlyID History
+    if request.path != challenge_path(@challenge)
+      return redirect_to @challenge, :status => :moved_permanently
+    end
+		
 		if @challenge.nil?
 		  not_found
 		end

@@ -59,8 +59,12 @@ ActiveAdmin.register Post do
           image_tag(post.hero_image.thumbnail) unless post.hero_image.url.nil?
         end
         row :body do
-         render_sir_trevor(post.body)
-        end
+         if post.body.is_json?
+     		   render_sir_trevor(post.body)
+     		 else
+     		  md.render(post.body).html_safe
+     	   end
+     	  end
       end
     end
   end

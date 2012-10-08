@@ -15,6 +15,6 @@ class Social < ActiveRecord::Base
   end
   
 	extend FriendlyId
-  friendly_id :start_time, use: :slugged
+  friendly_id :start_time, use: :history
   	
 end

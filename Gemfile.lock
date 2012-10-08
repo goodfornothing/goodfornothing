@@ -187,7 +187,7 @@ GEM
       actionpack (~> 3.0)
       activemodel (~> 3.0)
     simple_oauth (0.1.8)
-    sir-trevor-rails (0.1.0)
+    sir-trevor-rails (0.1.1)
       activesupport (>= 3.0.7)
       jquery-rails
       rails (>= 3.0.7)
@@ -247,7 +247,7 @@ DEPENDENCIES
   remotipart
   sass-rails
   simple_form
-  sir-trevor-rails
+  sir-trevor-rails (>= 0.1.1)
   turn (= 0.8.2)
   twitter
   tzinfo

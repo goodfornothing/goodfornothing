@@ -28,7 +28,7 @@ gem "remotipart"
 gem 'rails_autolink'
 
 gem 'exception_notification'
-gem 'sir-trevor-rails'
+gem 'sir-trevor-rails','>= 0.1.1'
 
 # Moar statistics
 gem 'twitter'

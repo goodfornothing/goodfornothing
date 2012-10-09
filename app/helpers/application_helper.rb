@@ -1,9 +1,5 @@
 module ApplicationHelper
   
-  def md
-    Redcarpet::Markdown.new(Redcarpet::Render::HTML,:autolink => true, :space_after_headers => true)
-  end
-  
   def spannerize(content)
     content.to_s.split("").map{|c| "<span>#{c}</span>" }.join.html_safe
   end
@@ -21,7 +17,7 @@ module ApplicationHelper
   end
   
   def is_warblings?
-    params[:controller] == 'warblings' || params[:controller] == 'bookmarks' || params[:controller] == 'posts'
+    params[:controller] == 'warblings' || params[:controller] == 'trills' || params[:controller] == 'posts'
   end
   
   def contextual_reference(user,term)

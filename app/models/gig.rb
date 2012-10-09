@@ -1,8 +1,12 @@
 class Gig < ActiveRecord::Base
 
   scope :past, where("end_time <= ?", Time.now)
+  scope :future, where("end_time >= ?", Time.now)
   
-  attr_accessible :chapter_id, :title, :description, :location, :start_time, :end_time, :skill_ids, :partner_id, :friend_ids, :poster, :logo, :slots_attributes
+  just_define_datetime_picker :start_time, :add_to_attr_accessible => true
+  just_define_datetime_picker :end_time, :add_to_attr_accessible => true
+  
+  attr_accessible :chapter_id, :title, :description, :location, :skill_ids, :partner_id, :friend_ids, :poster, :logo, :slots_attributes
 
 	has_many :challenges
 	has_many :slots
@@ -28,7 +32,11 @@ class Gig < ActiveRecord::Base
   friendly_id :title, use: :history
   
   def past?
-    self.end_time < Time.now
+    if self.end_time?
+      self.end_time < Time.now
+    else
+      self.start_time < Time.now
+    end
   end
   
   def future?

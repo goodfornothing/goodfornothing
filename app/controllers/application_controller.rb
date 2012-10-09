@@ -63,11 +63,6 @@ class ApplicationController < ActionController::Base
     return nil if user_signed_in? && current_user.role.nil?
     current_user 
   end
-  
-  def markdown_preview
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
-    render :inline => markdown.render(params[:data]).html_safe
-  end
       
   def fetch_chapters
     @all_chapters = Chapter.all

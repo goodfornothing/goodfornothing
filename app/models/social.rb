@@ -1,6 +1,11 @@
 class Social < ActiveRecord::Base
 
-  attr_accessible :chapter_id, :description, :location, :start_time
+  scope :past, where("start_time <= ?", Time.now)
+  scope :future, where("start_time >= ?", Time.now)
+
+  just_define_datetime_picker :start_time, :add_to_attr_accessible => true
+
+  attr_accessible :chapter_id, :description, :location
 
 	has_many :slots
   has_many :users, :through => :slots

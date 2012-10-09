@@ -1,13 +1,13 @@
 class Post < ActiveRecord::Base
 
-  scope :updates, where(:warbling_id => nil)
+  scope :updates, where(:issue_id => nil)
 
-  attr_accessible :excerpt, :title, :body, :user_id, :chapter_id, :category_id, :chapter_id, :user_id, :hero_image, :warbling_id
+  attr_accessible :excerpt, :title, :body, :user_id, :chapter_id, :category_id, :chapter_id, :user_id, :hero_image, :issue_id
   
 	belongs_to :chapter
 	belongs_to :user
 	
-	belongs_to :warbling
+	belongs_to :issue
 
 	validates_presence_of :title, :excerpt, :body
 	

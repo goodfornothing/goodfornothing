@@ -3,8 +3,8 @@
 	<head>
 		
 		<title>
-			<% if params[:controller] == "members" && params[:action] == "show" %>
-				<%= "#{@member.name} at" unless @member.nil? %>
+			<% if params[:controller] == "members" && params[:action] == "show" && !@member.nil? %>
+				<%= "#{@member.name} at"%>
 			<% elsif params[:controller] == "gigs" %>
 				Gigs at 
 			<% elsif params[:controller] == "socials" %>
@@ -25,7 +25,7 @@
 		<meta name="keywords" content="good, nothing, hack, london, pipeline, socent, social, innovation, purpose, challenges, enterprise, ventures, causes, charity" />
 		<link rel="shortcut icon" href="/favicon.ico?v2" />
 		
-		<meta property="og:title" content="<%= "#{@member.name.titlecase} at " if params[:controller] == "members" && params[:action] == "show" %>Good for Nothing - Collaborating for Good" />
+		<meta property="og:title" content="<%= "#{@member.name.titlecase} at " if params[:controller] == "members" && params[:action] == "show" && !@member.nil? %>Good for Nothing - Collaborating for Good" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.goodfornothing.com" />
 		<meta property="og:image" content="http://www.goodfornothing.com/assets/branding/og.gif" />

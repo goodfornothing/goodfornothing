@@ -7,7 +7,7 @@ Skill.create([
   { title: 'Code' }
 ])
 
-Warbling.create([
+Issue.create([
   { title: 'Food' },
   { title: 'Energy' },
   { title: 'Environment' },

@@ -10,8 +10,18 @@ ActiveAdmin.register User do
   filter :skills_id, :as => :check_boxes, :collection => proc {Skill.all}
   filter :name
   filter :email
-
+  
+  scope :all, :default => true
+  scope :admins
+  scope :leaders
+  scope :causes
+  scope :warblers
+  
   actions :all, :except => [:new]
+
+  sidebar "The Hive" do
+    render "/admin/shared/help"
+  end
 
 	index do
     column :name
@@ -21,6 +31,7 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs "Privileges" do
+      f.input :chapter
       f.input :role, :as => :select, :collection => User::ROLES
       f.input :activated
     end
@@ -44,8 +55,8 @@ ActiveAdmin.register User do
       end
     end
     attributes_table do
-      row :warblings do 
-        user.warblings.map(&:title).join(', ')
+      row :issues do 
+        user.issues.map(&:title).join(', ')
       end
       row :talents do 
         user.talents.map { |t| "<strong>#{t.skill.title}:</strong> #{t.level}".html_safe }.join("<br />").html_safe

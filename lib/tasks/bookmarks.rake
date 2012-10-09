@@ -1,27 +1,27 @@
-namespace :bookmarks do
+namespace :trills do
   desc "Check bookmarks for life, two strikes and you're out. Run every second day at midnight."
   task :ping => :environment do
     
-    Bookmark.each do |bookmark|
+    Trill.each do |trill|
       
-      url = URI.parse(bookmark.url)
+      url = URI.parse(trill.url)
       #puts "Pinging: #{bookmark.url}"
       begin
         res = Net::HTTP.start(url.host, 80) {|http|
           http.head(url.path) #res.class
         } 
-        if bookmark.strikes > 0
-          bookmark.strikes = bookmark.strikes-1
-          bookmark.save!
+        if trill.strikes > 0
+          trill.strikes = trill.strikes-1
+          trill.save!
         end
       rescue
-        bookmark.strikes = bookmark.strikes+1
-        bookmark.save!
+        trill.strikes = trill.strikes+1
+        trill.save!
       end
       
-      if bookmark.strikes >= 2
-        bookmark.published = false
-        bookmark.save!
+      if trill.strikes >= 2
+        trill.published = false
+        trill.save!
       end
       
     end

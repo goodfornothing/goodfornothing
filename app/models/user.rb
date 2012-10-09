@@ -1,18 +1,22 @@
 class User < ActiveRecord::Base
 
   # User roles for CanCan
-  ROLES = %w[admin leader cause warbler]
+  ROLES = %w[warbler cause leader admin]
 
   scope :crew, where("role = 'leader' or role = 'admin'")
   scope :active, where(:activated => true)
+  
   scope :admins, where(:role => "admin")
+  scope :leaders, where(:role => "leader")
+  scope :causes, where(:role => "cause")
+  scope :warblers, where(:role => "warbler")
   
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :email, :password, :password_confirmation, :current_password,
                   :remember_me, :join_mailing_list, :role, :name, :brings, :role,
                   :gender, :age, :url, :location, :twitter_handle, :activated, :subscribed,
-                  :chapter_id, :avatar, :warbling_ids, :reasons_for_joining, :crew
+                  :chapter_id, :avatar, :issue_ids, :reasons_for_joining, :crew
 
   has_one :ning_profile
   has_many :posts
@@ -22,7 +26,7 @@ class User < ActiveRecord::Base
 
   belongs_to :chapter
   
-  has_and_belongs_to_many :warblings
+  has_and_belongs_to_many :issues
   has_and_belongs_to_many :slots
   has_many :gigs, :through => :slots
   has_many :socials, :through => :slots

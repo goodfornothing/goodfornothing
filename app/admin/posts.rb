@@ -5,10 +5,18 @@ ActiveAdmin.register Post do
     authorize_resource
   end
   
-  menu :priority => 2, :parent => "Conversations", :if => proc{ can?(:manage, Post) } 
+  menu :priority => 1, :parent => "Warblings", :if => proc{ can?(:manage, Post) } 
     
-  filter :warbling
-  filter :chapter
+  scope :all, :default => true
+  scope :good_for_nothing_updates do
+    Post.updates
+  end
+  
+  filter :issue
+  
+  sidebar "The Hive" do
+    render "/admin/shared/help"
+  end
   
 	index do
     column :title
@@ -19,9 +27,9 @@ ActiveAdmin.register Post do
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
     f.inputs "Details" do
-      f.input :chapter
-      f.input :user, :label => "Author", :collection => User.admins
-      f.input :warbling
+      f.input :chapter      
+      f.input :user_id, :as => :hidden, :value => current_user.id
+      f.input :issue
     end
     f.inputs "Post" do   
       f.input :hero_image
@@ -48,7 +56,7 @@ ActiveAdmin.register Post do
         row "Posted" do
           post.created_at
         end
-        row :warbling
+        row :issue
       end  
     end
     panel 'Post' do
@@ -62,7 +70,7 @@ ActiveAdmin.register Post do
          if post.body.is_json?
      		   render_sir_trevor(post.body)
      		 else
-     		  md.render(post.body).html_safe
+     		   simple_format(post.body).html_safe
      	   end
      	  end
       end

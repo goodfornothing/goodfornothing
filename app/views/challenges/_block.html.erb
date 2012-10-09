@@ -2,8 +2,8 @@
 	
 	<h2><%= link_to challenge.title, challenge_path(challenge) %></h2>
 	
-	<% if challenge.warblings.any? %>
-		<%= link_to (image_tag "warblings/#{challenge.warblings.first.slug}.png", :class => "tip", :title => "#{challenge.warblings.first.title}"), warbling_challenges_path(challenge.warblings.first) %>
+	<% if challenge.issues.any? %>
+		<%= link_to (image_tag "issues/#{challenge.issues.first.slug}.png", :class => "tip", :title => "#{challenge.issues.first.title}"), issue_challenges_path(challenge.issues.first) %>
 	<% end %>
 	
 	<% if challenge.ideas.any? || challenge.contributions.any? %>

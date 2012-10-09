@@ -10,6 +10,10 @@ ActiveAdmin.register Challenge do
   filter :gig
   filter :venture
   
+  sidebar "The Hive" do
+    render "/admin/shared/help"
+  end
+  
   index do
     column :title
     column :venture
@@ -23,35 +27,43 @@ ActiveAdmin.register Challenge do
       row :open
       row :title
       row :contact
-      row :description
       row :gig
       row :venture
       row :partner
-      row "Warblings" do |i|
-        i.warblings.map{ |w| w.title }.join(', ')
+      row "Issues" do |i|
+        i.issues.map{ |w| w.title }.join(', ')
       end
-      row "Inspirations" do |i|
-        i.bookmarks.map{ |w| w.title }.join(', ')
-      end
+      row "Brief" do
+       if challenge.description.is_json?
+   		   render_sir_trevor(challenge.description)
+   		 else
+   		   simple_format(challenge.description).html_safe
+   	   end
+   	  end
     end
   end
   
   form do |f|
-    f.inputs :active
-    f.inputs :open
-    f.inputs "Associations" do
+    f.inputs "State" do
+      f.input :active
+      f.input :open
+      f.input :featured
+    end
+    f.inputs "Details" do
+      f.input :title
       f.input :gig
       f.input :venture
       f.input :partner
-      f.input :warblings, :as => :check_boxes
     end
-    f.inputs "Content" do
-      f.input :title
-      f.input :description, :input_html => { :rows => 12 }
-      f.input :featured
+    f.inputs "Issues" do
+      f.input :issues, :as => :check_boxes
     end
-    f.inputs "Inspirations" do
-      f.input :bookmarks, :as => :check_boxes
+    f.inputs "Brief" do
+      if challenge.new_record? || challenge.description.is_json?
+        f.sir_trevor_text_area :description
+      else 
+        f.input :description
+      end
     end
     f.buttons
   end

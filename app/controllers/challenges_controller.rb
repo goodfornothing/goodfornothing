@@ -1,11 +1,7 @@
 class ChallengesController < ApplicationController
 
 	def show
-	  
-	  if params[:id] == 'can-we-use-local-energy-data-to-improve-our-homes-energy-efficiency'
-	     params[:id] = 'can-we-help-create-an-open-source-home-energy-monitor-as-part-of-a-campaign-to-increase-our-homes-energy-efficiency'
-	  end
-	  
+		  
 		@challenge = Challenge.find(params[:id])
 		
 		# FriendlyID History
@@ -23,9 +19,9 @@ class ChallengesController < ApplicationController
 	end
 	
 	def index
-	  @warblings = Warbling.all
-  	@warbling = Warbling.find(params[:id]) if params[:id]
-  	@open_challenges = (@warbling) ? @warbling.challenges.opened : Challenge.opened.reverse
+	  @issues = Issue.all
+  	@issue = Issue.find(params[:id]) if params[:id]
+  	@open_challenges = (@issue) ? @issue.challenges.opened : Challenge.opened.reverse
 	end
 	
 	def new

@@ -9,6 +9,14 @@ ActiveAdmin.register Social do
 
   filter :chapter
 
+  scope :future, :default => true
+  scope :past
+  scope :all
+  
+  sidebar "The Hive" do
+    render "/admin/shared/help"
+  end
+
 	index do
     column :chapter
     column :start_time
@@ -17,8 +25,12 @@ ActiveAdmin.register Social do
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
     f.inputs "Details" do
-      f.input :start_time, :label => "Date and Time"
-      f.input :chapter
+      if current_user.role == "admin"
+        f.input :chapter
+      else
+        f.input :chapter, :value => current_user.chapter_id, :input_html => { :disabled => "disabled" }
+      end
+      f.input :start_time, :label => "Date and Time", :as => :just_datetime_picker
       f.input :location
       f.input :description
     end

@@ -20,31 +20,31 @@ namespace :migrate do
 		doc.xpath('//dt/a').each do |node|
 
 			bookmark_url = node.attr('href')
-			bookmark = Bookmark.find_by_url(bookmark_url)
+			trill = Trill.find_by_url(bookmark_url)
 
-			if bookmark.nil?
+			if trill.nil?
 				puts "Creating bookmark: #{node.text}"
 
 				# Create bookmark
-				bookmark = Bookmark.create! do |b|
+				trill = Trill.create! do |b|
 					b.title = node.text
 					b.url = node.attr('href')
 					b.published = true
 				end
 
 				# Associate tag (parent folder)
-				d = node.xpath('ancestor::dl[1]').xpath('preceding::dt[1]/h3')
-				tag = Tag.find_by_title(d.text)
-				if tag.nil?
-					tag = Tag.create do |t|
-						t.title = d.text
-					end
-				end
-				tag.save!
-				bookmark.tags << tag
+				#d = node.xpath('ancestor::dl[1]').xpath('preceding::dt[1]/h3')
+				#tag = Tag.find_by_title(d.text)
+				#if tag.nil?
+				#	tag = Tag.create do |t|
+				#		t.title = d.text
+				#	end
+				#end
+				#tag.save!
+				#bookmark.tags << tag
 			end
 
-			bookmark.save!
+			trill.save!
 
 		end
 

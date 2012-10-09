@@ -9,11 +9,15 @@ ActiveAdmin.register Idea do
    
   config.clear_sidebar_sections!
   
+  sidebar "The Hive" do
+    render "/admin/shared/help"
+  end
+  
   actions :all, :except => [:new]
   
 	index do
-    column :user
     column :challenge
+    column :user
     default_actions
   end
   

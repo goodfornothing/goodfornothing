@@ -1,23 +1,23 @@
 class WarblingsController < ApplicationController
 
-  before_filter :fetch_warblings
+  before_filter :fetch_issues
 
 	def index
-	  @updates = Post.updates.order("created_at DESC").limit(1)
+	  
 	end
 	
 	def show
-	  @warbling = Warbling.find(params[:id])
+	  @issue = Issue.find(params[:id])
 	  # FriendlyID History
-    if request.path != warbling_path(@warbling)
-      return redirect_to @warbling, :status => :moved_permanently
+    if request.path != warbling_path(@issue)
+      return redirect_to @issue, :status => :moved_permanently
     end
-	  @stream = (@warbling.bookmarks.published + @warbling.posts).sort_by(&:created_at).reverse
+	  @stream = (@issue.trills.published + @issue.posts).sort_by(&:created_at).reverse
 	end
 	
 	private 
-	  def fetch_warblings
-	    @warblings = Warbling.all
+	  def fetch_issues
+	    @issues = Issue.all
 	  end
 
 end

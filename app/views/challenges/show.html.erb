@@ -4,7 +4,7 @@
 	
 		<h1><%= @challenge.title %></h1>
 	
-		<% if @challenge.venture.present? || @challenge.partner.present? %>
+		<% if @challenge.venture.present? || @challenge.partner.present? || @challenge.gig.present? %>
 		
 		<div class="abstract">
 			
@@ -24,8 +24,14 @@
 		
 		<% end %>
 		
-		<%= md.render(@challenge.description).html_safe unless @challenge.description.nil? %>
-	
+		<% unless @challenge.description.nil? %>
+			<% if @challenge.description.is_json? %>
+				<%= render_sir_trevor(@challenge.description) %>
+			<% else %>
+				<%= simple_format(@challenge.description).html_safe %>
+			<% end %>
+		<% end %>
+			
 	</article>
 	
 	<% if @challenge.open? && !user_signed_in? %>
@@ -80,17 +86,6 @@
 		<p class="block">This challenge will be tackled at a gig on the <%= "#{@challenge.gig.start_time.day.ordinalize} of #{@challenge.gig.start_time.strftime('%B')}".html_safe %> in <%= @challenge.gig.chapter.title %>, <%= link_to "come join us!", gig_path(@challenge.gig) %></p>
 		<% end %>
 	
-	<% end %>
-	
-	<% if @challenge.bookmarks.any? %>
-	
-	<h2>Inspirations</h2>
-	<ul>
-	<% @challenge.bookmarks.each do |bookmark| %>
-		<li><%= link_to truncate(bookmark.title, :length => 80, :omission => '&hellip;').html_safe, bookmark.url %></li>
-	<% end %>
-	</ul>
-		
 	<% end %>
 	
 </aside>

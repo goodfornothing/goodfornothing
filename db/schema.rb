@@ -11,33 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121008165423) do
-
-  create_table "bookmarks", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.text     "url"
-    t.boolean  "published",   :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "strikes",     :default => 0
-    t.string   "hero_image"
-  end
-
-  create_table "bookmarks_challenges", :force => true do |t|
-    t.integer "challenge_id"
-    t.integer "bookmark_id"
-  end
-
-  create_table "bookmarks_tags", :force => true do |t|
-    t.integer "bookmark_id"
-    t.integer "tag_id"
-  end
-
-  create_table "bookmarks_warblings", :force => true do |t|
-    t.integer "warbling_id"
-    t.integer "bookmark_id"
-  end
+ActiveRecord::Schema.define(:version => 20121008222540) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -52,9 +26,9 @@ ActiveRecord::Schema.define(:version => 20121008165423) do
     t.string  "slug"
   end
 
-  create_table "challenges_warblings", :force => true do |t|
+  create_table "challenges_issues", :force => true do |t|
     t.integer "challenge_id"
-    t.integer "warbling_id"
+    t.integer "issue_id"
   end
 
   create_table "chapters", :force => true do |t|
@@ -125,6 +99,23 @@ ActiveRecord::Schema.define(:version => 20121008165423) do
     t.datetime "updated_at",   :null => false
   end
 
+  create_table "issues", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "slug"
+  end
+
+  create_table "issues_trills", :force => true do |t|
+    t.integer "issue_id"
+    t.integer "trill_id"
+  end
+
+  create_table "issues_users", :force => true do |t|
+    t.integer "issue_id"
+    t.integer "user_id"
+  end
+
   create_table "ning_profiles", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -161,7 +152,7 @@ ActiveRecord::Schema.define(:version => 20121008165423) do
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.integer  "warbling_id"
+    t.integer  "issue_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "user_id"
@@ -210,19 +201,22 @@ ActiveRecord::Schema.define(:version => 20121008165423) do
     t.string   "slug"
   end
 
-  create_table "tags", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "slug"
-  end
-
-  add_index "tags", ["slug"], :name => "index_conversation_tags_on_slug", :unique => true
-
   create_table "talents", :force => true do |t|
     t.integer "user_id"
     t.integer "skill_id"
     t.integer "level",    :default => 0
+  end
+
+  create_table "trills", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "url"
+    t.boolean  "published",   :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "strikes",     :default => 0
+    t.string   "hero_image"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -258,22 +252,10 @@ ActiveRecord::Schema.define(:version => 20121008165423) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
 
-  create_table "users_warblings", :force => true do |t|
-    t.integer "warbling_id"
-    t.integer "user_id"
-  end
-
   create_table "ventures", :force => true do |t|
     t.string "logo"
     t.string "name"
     t.string "url"
-  end
-
-  create_table "warblings", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "slug"
   end
 
 end

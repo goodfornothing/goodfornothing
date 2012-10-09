@@ -13,7 +13,7 @@ Goodfornothing::Application.routes.draw do
     
     # Rename default devise scopes
     get "/login" => "devise/sessions#new"
-    delete "/logout" => "devise/sessions#destroy"
+    get "/logout" => "devise/sessions#destroy"
     get "/register" => "registrations#new"
     
     # Ning user activation routes
@@ -32,16 +32,14 @@ Goodfornothing::Application.routes.draw do
     
   end
   
-  resources :warblings, :only => [:index, :show]
+  match 'warblings' => "warblings#index"
+  match 'warblings/:id' => "warblings#show", :as => "warbling"
+  
   resources :posts, :only => [:show, :index]
-
-  match "library" => "bookmarks#index"
-  match "library/search" => "bookmarks#search"
-  match "library/:id" => "bookmarks#index", :as => "bookmark_tag"
 
   resources :challenges, :only => [:show, :index, :new, :create] do
     collection do
-      match "warbling/:id" => "challenges#index", :as => "warbling"
+      match "issue/:id" => "challenges#index", :as => "issue"
       match "thanks" => "challenges#thanks", :as => "thanks"
     end
     resources :ideas

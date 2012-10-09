@@ -1,14 +1,13 @@
 class Challenge < ActiveRecord::Base
 
   attr_accessible :gig_id, :title, :description, :venture_id, :contact, :partner_id,
-                  :bookmark_ids, :warbling_ids, :featured, :active, :open
+                  :issue_ids, :featured, :active, :open
                   
 	belongs_to :gig
 	belongs_to :venture
 	belongs_to :partner
 	
-	has_and_belongs_to_many :warblings		
-	has_and_belongs_to_many :bookmarks
+	has_and_belongs_to_many :issues		
 	
 	has_many :ideas
 	has_many :contributions

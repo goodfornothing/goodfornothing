@@ -10,37 +10,55 @@ ActiveAdmin.register Gig do
   filter :chapter
   filter :partner
 
+  scope :future, :default => true
+  scope :past
+  scope :all
+
 	index do
     column :title
     column :chapter
     default_actions
   end
   
-  form :html => { :enctype => "multipart/form-data" }  do |f|
-    f.inputs "People" do 
-      f.input :chapter
+  sidebar "The Hive" do
+    render "/admin/shared/help"
+  end
+  
+  form :html => { :enctype => "multipart/form-data" } do |f|
+    
+    f.inputs "Who?" do 
+      if current_user.role == "admin"
+        f.input :chapter
+      else
+        f.input :chapter, :value => current_user.chapter_id, :input_html => { :disabled => "disabled" }
+      end
       f.input :partner
     end
-    #f.inputs "Identity" do
-    #  f.input :logo
-    #  f.input :poster
-    #end
-    f.inputs "Dates" do
-      f.input :start_time, :label => "Start"
-      f.input :end_time, :label => "End"
+  
+    f.inputs "When?" do
+      f.input :start_time, :label => "Start", :as => :just_datetime_picker
+      f.input :end_time, :label => "End", :as => :just_datetime_picker
     end
-    f.inputs "Details" do
+    f.inputs "What?" do
       f.input :title
       f.input :location
-      f.input :description
+    end
+    f.inputs "Details" do
+      if gig.new_record? || gig.description.is_json?
+        f.sir_trevor_text_area :description
+      else 
+        f.input :description
+      end
     end
     f.inputs "Sponsors" do 
       f.input :friends, :as => :check_boxes
     end
-    f.has_many :slots do |j|
-      j.input :skill
-      j.input :custom_skill
-      j.input :limit
+    f.inputs "Registration Slots" do
+      f.has_many :slots do |j|
+        j.input :skill
+        j.input :custom_skill
+        j.input :limit
+      end
     end
     f.buttons
   end
@@ -71,7 +89,13 @@ ActiveAdmin.register Gig do
     attributes_table do
       row :title
       row :location
-      row :description
+      row :description do
+       if gig.description.is_json?
+   		   render_sir_trevor(gig.description)
+   		 else
+   		   simple_format(gig.description).html_safe
+   	   end
+   	  end
     end
     
     panel "Attendees" do
@@ -100,7 +124,7 @@ ActiveAdmin.register Gig do
     end
     
     div :class => "download_links" do
-      "Download attendees: #{link_to "CSV", download_attendees_admin_gig_path(gig, :format => "csv")}".html_safe
+      "Download attendees: #{link_to "CSV", download_attendees_hive_gig_path(gig, :format => "csv")}".html_safe
     end
     
   end

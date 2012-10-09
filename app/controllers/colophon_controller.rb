@@ -24,12 +24,6 @@ class ColophonController < ApplicationController
 	
 	def datums
 	  
-	  #
-	  ##
-	  ## CACHE THIS CONTROLLER
-	  ##
-	  #
-	  
 	  # Member statistics
 	  @members = {}
 	  @members['inactive'] = User.where(:activated => false).count
@@ -45,7 +39,7 @@ class ColophonController < ApplicationController
 	  
 	  @crew = {}
 	  @crew['blog_posts'] = Post.all.count
-	  @crew['warbles'] = Warbling.all.map{ |w| w.bookmarks.published }.flatten.uniq.count
+	  @crew['trills'] = Issue.all.map{ |w| w.trill.published }.flatten.uniq.count
 	  @crew['challenges'] = Challenge.opened.count
 	  @crew['gigs'] = Gig.all.count
 	  @crew['socials'] = Social.all.count

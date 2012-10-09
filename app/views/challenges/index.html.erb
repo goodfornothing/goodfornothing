@@ -1,8 +1,8 @@
 <section id="primary_content">
 	
 	<h1>
-		<% if @warbling %>
-		<%= @warbling.title %> challenges
+		<% if @issue %>
+		<%= @issue.title %> challenges
 		<% else %>
 		Challenges that matter
 		<% end %>
@@ -28,9 +28,5 @@
 	<% else %>	
 	<p class="icon_gigs"><%= link_to "Take it offline<br />at gigs &amp; socials".html_safe, calendar_path,  :class => "tip", :title => "Check out the calendar" %></p>
 	<% end %>
-	<!--<ul class="filter_list">	
-		<% @warblings.each do |warbling| %>
-		<li class="warbling_small small_warbling_<%= warbling.slug.underscore %>"><%= link_to warbling.title, warbling_challenges_path(warbling) %></li>
-		<% end %>
-	</ul>-->	
+	
 </aside>

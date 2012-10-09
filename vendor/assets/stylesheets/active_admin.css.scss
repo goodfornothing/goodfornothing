@@ -1,10 +1,100 @@
-// Active Admin CSS Styles
+// SASS variable overrides must be declared before loading up Active Admin's styles.
+//
+// To view the variables that Active Admin provides, take a look at
+// `app/assets/stylesheets/active_admin/mixins/_variables.css.scss` in the
+// Active Admin source.
+//
+// For example, to change the sidebar width:
+// $sidebar-width: 242px;
+
+// Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
-@import "markitup/style";
-@import "markitup/skin";
 @import "sir-trevor";
 @import "sir-trevor-custom";
 
-// To customize the Active Admin interfaces, add your
-// styles here:
+// Overriding any non-variable SASS must be done after the fact.
+// For example, to change the default status-tag color:
+//
+//   body.active_admin {
+//      .status_tag { background: #6090DB; }
+//   }
+//
+// Notice that Active Admin CSS rules are nested within a
+// 'body.active_admin' selector to prevent conflicts with
+// other pages in the app. It is best to wrap your changes in a 
+// namespace so they are properly recognized. You have options
+// if you e.g. want different styles for different namespaces:
+//
+// .active_admin       applies to any Active Admin namespace
+// .admin_namespace    applies to the admin namespace (eg: /admin)
+// .other_namespace    applies to a custom namespace named other (eg: /other)
+
+body.active_admin #footer p { display: none; }
+
+body.active_admin .choices-group {
+	moz-column-count: 3;
+	-moz-column-gap: 20px;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 20px;
+	column-count: 3;
+	column-gap: 20px;
+}
+
+body.active_admin form .just_datetime_picker input[type="text"] {
+	width: auto;
+}
+
+body.active_admin form .has_many {
+	padding-top: 0 !important;
+}
+
+body.active_admin form .has_many > a.button {
+	margin-top: 20px;
+}
+
+body.active_admin form .has_many h3 {
+	display: none;
+}
+
+body.active_admin form .has_many {
+	padding-left: 30px !important;
+	padding-right: 30px !important;
+}
+
+body.active_admin .table_tools {
+margin-bottom:0
+}
+
+body.active_admin .table_tools > * {
+	margin-bottom: 14px;
+}
+
+body.active_admin form .has_many fieldset {
+	border: none;
+	box-shadow: 0 0 0;
+	margin-bottom: 5px;
+}
+
+body.active_admin form .has_many.slots fieldset input, 
+body.active_admin form .has_many.slots fieldset select {
+	display: inline-block;
+	width: 100px;
+}
+
+body.active_admin form .has_many.slots fieldset select {
+	margin-top: 5px;
+}
+
+body.active_admin form .has_many.slots fieldset label {
+	display: inline-block;
+	padding-right: 15px;
+	width: auto;
+	line-height: 28px;
+}
+
+body.active_admin form .has_many.slots fieldset li {
+	float: left;
+	width: auto;
+	padding: 0 40px 0 0;
+}

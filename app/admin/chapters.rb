@@ -9,6 +9,10 @@ ActiveAdmin.register Chapter do
   
   config.clear_sidebar_sections!
   
+  sidebar "The Hive" do
+    render "/admin/shared/help"
+  end
+  
 	index do
     column :title
     default_actions

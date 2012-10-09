@@ -11,6 +11,6 @@
 		<%= link_to (image_tag post.hero_image, :class => "hero"), post_path(post) %>
 	<% end %>
 
-	<%= md.render(post.excerpt).html_safe %>
+	<%= simple_format(post.excerpt).html_safe %>
 	
 </article>

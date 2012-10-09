@@ -10,7 +10,7 @@ ActiveAdmin.setup do |config|
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
-  config.site_title_link = "/admin"
+  config.site_title_link = "/hive"
 
   # Set an optional image to be displayed for the header
   # instead of a string (overrides :site_title)
@@ -34,7 +34,8 @@ ActiveAdmin.setup do |config|
   #   config.default_namespace = false
   #
   # Default:
-  # config.default_namespace = :admin
+  config.default_namespace = :hive
+  
   #
   # You can customize the settings for each namespace by using
   # a namespace block. For example, to change the site title
@@ -86,6 +87,13 @@ ActiveAdmin.setup do |config|
   # Default:
   config.logout_link_method = :delete
 
+  # == Root
+  #
+  # Set the action to call for the root path. You can set different
+  # roots for each namespace.
+  #
+  # Default:
+  # config.root_to = 'dashboard#index'
 
   # == Admin Comments
   #
@@ -103,10 +111,18 @@ ActiveAdmin.setup do |config|
   #     without_comments.allow_comments = false
   #   end
 
+
+  # == Batch Actions
+  #
+  # Enable and disable Batch Actions
+  #
+  #config.batch_actions = true
+  
+
   # == Controller Filters
   #
   # You can add before, after and around filters to all of your
-  # Active Admin resources from here.
+  # Active Admin resources and pages from here.
   #
   # config.before_filter :do_something_awesome
 
@@ -119,10 +135,32 @@ ActiveAdmin.setup do |config|
   #
   # To load a stylesheet:
   #   config.register_stylesheet 'my_stylesheet.css'
-  #
+  
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
   #   config.register_stylesheet 'my_print_stylesheet.css', :media => :print
   #
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
+
+
+  # == CSV options
+  #
+  # Set the CSV builder separator (default is ",")
+  # config.csv_column_separator = ','
+end
+
+# Hack to allow for sorting by parent item
+class ::ActiveAdmin::Views::TabbedNavigation
+  def priority_for(item)
+    child_item = item.children.detect { |child| display_item?(child) }
+    child_item ? child_item.priority : item.priority
+  end
+  private :priority_for
+
+  # Returns an Array of items to display
+  def displayable_items(items)
+    items.select do |item|
+      display_item? item
+    end.sort { |i1, i2| priority_for(i1) <=> priority_for(i2) }
+  end
 end

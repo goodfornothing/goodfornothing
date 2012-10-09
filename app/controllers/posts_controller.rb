@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_filter :fetch_warblings
+  before_filter :fetch_issues
 
   def show
 		
@@ -19,8 +19,8 @@ class PostsController < ApplicationController
 	
 	private 
 	
-	  def fetch_warblings
-	    @warblings = Warbling.all
+	  def fetch_issues
+	    @issues = Issue.all
 	  end
 
 end

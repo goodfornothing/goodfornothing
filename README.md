@@ -17,13 +17,13 @@ By default the application uses carrierwave and S3 for image storage. You'll nee
 
 #### Check for life
 
-You can check your `bookmark` URLs for life by running `rake bookmarks:ping` daily. Every time a bookmark fails to respond it'll be given a strike, two strikes and it'll be automatically unpublished. A strike is deducted for every active response.
+You can check your `trill` URLs for life by running `rake trills:ping` daily. Every time a bookmark fails to respond it'll be given a strike, two strikes and it'll be automatically unpublished. A strike is deducted for every active response.
 
 ## Datum factories
 
 #### Wordpress
 
-You can import posts from standard Wordpress eXtended RSS formatted files to the Posts and Warbles or Tags models using the following rake task:
+You can import posts from standard Wordpress eXtended RSS formatted files to the Posts and Trills models using the following rake task:
 
     rake migrate:wordpress filename
 

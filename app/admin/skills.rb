@@ -5,9 +5,13 @@ ActiveAdmin.register Skill do
     authorize_resource
   end
   
-  menu :priority => 4, :parent => "Events", :if => proc{ can?(:manage, Skill) } 
+  menu :priority => 10, :parent => "Meta", :if => proc{ can?(:manage, Skill) } 
 
   config.clear_sidebar_sections!
+  
+  sidebar "The Hive" do
+    render "/admin/shared/help"
+  end
 
   index do 
     column :title

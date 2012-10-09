@@ -27,9 +27,13 @@ ActiveAdmin.register Post do
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
     f.inputs "Details" do
-      f.input :chapter      
-      f.input :user_id, :as => :hidden, :value => current_user.id
+      if current_user.role == "admin"
+        f.input :chapter
+      else
+        f.input :chapter, :value => current_user.chapter_id, :input_html => { :disabled => "disabled" }
+      end
       f.input :issue
+      f.input :user_id, :as => :hidden, :value => current_user.id
     end
     f.inputs "Post" do   
       f.input :hero_image

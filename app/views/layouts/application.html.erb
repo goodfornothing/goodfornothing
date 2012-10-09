@@ -85,7 +85,7 @@
 					
 					<p class="registration">
 						<% if user_signed_in? %>
-							View <%= link_to "your profile", member_path(current_user) %>, or <%= link_to "logout", logout_path, :method => :delete %>
+							View <%= link_to "your profile", member_path(current_user) %>, or <%= link_to "logout", logout_path %>
 						<% else %>
 							<%= link_to "Become a member", register_path %> or <%= link_to "Login", login_path %>
 						<% end %>

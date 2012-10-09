@@ -100,7 +100,7 @@ ActiveAdmin.register Gig do
     
     panel "Attendees" do
 
-      table do
+      table :id => "attendees" do
         thead do
           tr do
             th "Name"
@@ -127,6 +127,26 @@ ActiveAdmin.register Gig do
       "Download attendees: #{link_to "CSV", download_attendees_hive_gig_path(gig, :format => "csv")}".html_safe
     end
     
+  end
+  
+  sidebar "Statistics", :only => :show do
+    div :class => "attributes_table" do
+      table do
+        tbody do
+          tr do
+            th "Attendees"
+            td  gig.users.count
+          end
+          gig.slots.each do |slot|
+            tr do
+              th (slot.skill.nil?) ? slot.custom_skill : slot.skill
+              td "0/#{slot.limit}"
+            end
+          end
+        end
+      end
+      span link_to "See list of attendees", "#attendees"
+    end
   end
   
   member_action :download_attendees, :method => :get do

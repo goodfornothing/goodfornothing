@@ -258,7 +258,6 @@ DEPENDENCIES
   newrelic_rpm
   rails (= 3.2.3)
   rails_autolink
-  redcarpet (~> 2.0.1)
   remotipart
   sass-rails
   simple_form

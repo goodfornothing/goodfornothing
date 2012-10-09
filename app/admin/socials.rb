@@ -13,13 +13,17 @@ ActiveAdmin.register Social do
   scope :past
   scope :all
   
-  sidebar "The Hive" do
-    render "/admin/shared/help"
+  actions :index, :destroy, :edit, :update, :new
+  
+  config.clear_sidebar_sections!
+  
+  sidebar :help do
+    render "/hive/shared/help"
   end
 
 	index do
-    column :chapter
-    column :start_time
+	  column("Date") { |social| social.start_time.strftime( "%B #{social.start_time.day.ordinalize} %Y")  }
+    column("Chapter") { |social| social.chapter.title }
     default_actions
   end
   
@@ -31,8 +35,8 @@ ActiveAdmin.register Social do
         f.input :chapter, :value => current_user.chapter_id, :input_html => { :disabled => "disabled" }
       end
       f.input :start_time, :label => "Date and Time", :as => :just_datetime_picker
-      f.input :location
-      f.input :description
+      f.input :location, :hint => "Enter the street address of your venue, you don't need to include a city or country"
+      f.input :description, :input_html => { :rows => 10 }, :hint => "Tell people a little about the format of this social; what should they expect, will they need to bring anything?"
     end
     f.buttons
   end

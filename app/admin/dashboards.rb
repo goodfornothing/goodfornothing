@@ -34,9 +34,11 @@ ActiveAdmin.register_page "Dashboard" do
   
         else
           div :class => "blank_slate_container" do
+            br
             span :class => "blank_slate" do
               span "There are no unpublished trills."
             end
+            br
           end
         end
         
@@ -75,9 +77,11 @@ ActiveAdmin.register_page "Dashboard" do
               end
             else
               div :class => "blank_slate_container" do
+                br
                 span :class => "blank_slate" do
                   span "There are no unread challenge submissions."
                 end
+                br
               end
             end
           
@@ -117,9 +121,11 @@ ActiveAdmin.register_page "Dashboard" do
             
             else
               div :class => "blank_slate_container" do
+                br
                 span :class => "blank_slate" do
                   span "There are no unread partner requests."
                 end
+                br
               end
             end
             

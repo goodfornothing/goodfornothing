@@ -7,21 +7,47 @@ ActiveAdmin.register Gig do
 
   menu :priority => 1, :parent => "Events", :if => proc{ can?(:manage, Gig) } 
 
-  filter :chapter
-  filter :partner
+  filter :title
 
   scope :future, :default => true
   scope :past
   scope :all
 
 	index do
-    column :title
-    column :chapter
-    default_actions
+    column("Title") { |gig| link_to gig.title, hive_gig_path(gig) }
+    column("Chapter") { |gig| gig.chapter.title if gig.chapter.present? }
+    column :start_time
+    column "" do |gig|
+      "#{link_to "Edit", edit_hive_gig_path(gig)} &nbsp; #{link_to "Delete", hive_gig_path(gig), :method => "delete", :confirm => "Are you sure you wish to delete this gig?"}".html_safe
+    end
   end
   
-  sidebar "The Hive" do
-    render "/admin/shared/help"
+  sidebar "Statistics", :only => :show do
+    div :class => "attributes_table" do
+      table do
+        tbody do
+          tr do
+            th "Attendees"
+            td  gig.users.count
+          end
+          if gig.slots.count != 1 && !gig.slots.first.skill.nil?
+            gig.slots.each do |slot|
+              tr do
+                th (slot.skill.nil?) ? slot.custom_skill : slot.skill.title
+                td "#{slot.users.count} / #{(slot.limit) ? slot.available_slots : "&#8734;"}".html_safe
+              end
+            end
+          end
+        end
+      end
+      if gig.users.any?
+        span link_to "View details", "#attendees"
+      end
+    end
+  end
+  
+  sidebar :help do
+    render "/hive/shared/help"
   end
   
   form :html => { :enctype => "multipart/form-data" } do |f|
@@ -41,7 +67,7 @@ ActiveAdmin.register Gig do
     end
     f.inputs "What?" do
       f.input :title
-      f.input :location
+      f.input :location, :hint => "Enter the street address of your venue, you don't need to include a city or country"
     end
     f.inputs "Details" do
       if gig.new_record? || gig.description.is_json?
@@ -65,60 +91,77 @@ ActiveAdmin.register Gig do
 
   show do |gig|
     
-    panel 'People' do
-      attributes_table_for gig do
-        row :chapter
-        row :partner
-        row :friends do 
-          gig.friends.map(&:name).join(', ')
-        end
-      end
-    end
+    columns do
+      
+      column do
     
-    panel "Dates" do
-      attributes_table_for gig do
-        row "Start" do 
-          gig.start_time
-        end
-        row "End" do
-          gig.end_time
-        end
-      end
-    end
-    
-    attributes_table do
-      row :title
-      row :location
-      row :description do
-       if gig.description.is_json?
-   		   render_sir_trevor(gig.description)
-   		 else
-   		   simple_format(gig.description).html_safe
-   	   end
-   	  end
-    end
-    
-    panel "Attendees" do
-
-      table :id => "attendees" do
-        thead do
-          tr do
-            th "Name"
-            th "Email"
-            th "Ticket"
-            th "Talents"
-          end
-        end
-        tbody do
-          gig.users.each do |user|
-            tr do
-              td link_to(user.name, member_path(user))
-              td user.email
-              td (user.slots.where('gig_id = ?',gig).first.skill.nil?) ? user.slots.where('gig_id = ?',gig).first.custom_skill : user.slots.where('gig_id = ?',gig).first.skill.title
-              td user.talents.map { |t| "<strong>#{t.skill.title}:</strong> #{t.level}".html_safe }.join("<br />").html_safe
+       panel 'Who?' do
+          attributes_table_for gig do
+            row :chapter
+            row :partner
+            row :friends do 
+              gig.friends.map(&:name).join(', ')
             end
           end
         end
+      end
+  
+      column do
+    
+        panel "Where and when?" do
+          attributes_table_for gig do
+            row "Start" do 
+              gig.start_time
+            end
+            row "End" do
+              gig.end_time
+            end
+            row :location
+          end
+        end
+        
+      end
+      
+    end
+    
+    panel "Details" do
+      attributes_table_for gig do
+        row :title
+        row :description do
+         if !gig.description.nil? && gig.description.is_json?
+     		   render_sir_trevor(gig.description)
+     		 else
+     		   simple_format(gig.description).html_safe
+     	   end
+     	  end
+      end
+    end
+    
+    if gig.users.any?
+    
+      panel "Attendees" do
+
+        table :id => "attendees" do
+          thead do
+            tr do
+              th "Name"
+              th "Email"
+              th "Ticket"
+              th "Talents"
+            end
+          end
+          tbody do
+            gig.users.each do |user|
+              tr do
+                td link_to(user.name, member_path(user))
+                td user.email
+                td (user.slots.where('gig_id = ?',gig).first.skill.nil?) ? user.slots.where('gig_id = ?',gig).first.custom_skill : user.slots.where('gig_id = ?',gig).first.skill.title
+                td user.talents.map { |t| "<strong>#{t.skill.title}:</strong> #{t.level}".html_safe }.join("<br />").html_safe
+              end
+            end
+          end
+        end
+      
       end
       
     end
@@ -129,29 +172,12 @@ ActiveAdmin.register Gig do
     
   end
   
-  sidebar "Statistics", :only => :show do
-    div :class => "attributes_table" do
-      table do
-        tbody do
-          tr do
-            th "Attendees"
-            td  gig.users.count
-          end
-          gig.slots.each do |slot|
-            tr do
-              th (slot.skill.nil?) ? slot.custom_skill : slot.skill
-              td "#{slot.users.count}/#{slot.limit}"
-            end
-          end
-        end
-      end
-      span link_to "See list of attendees", "#attendees"
-    end
-  end
-  
   member_action :download_attendees, :method => :get do
     @gig = Gig.find(params[:id])
     @attendees = @gig.users
+    headers['Content-Type'] = "text/csv"
+    filename = "attendees_#{@gig.slug}_#{Time.now.strftime("%d_%m_%Y")}"
+    headers['Content-Disposition'] = "attachment; filename=#{filename}"
   end
 
 end

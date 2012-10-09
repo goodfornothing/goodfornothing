@@ -7,22 +7,22 @@ ActiveAdmin.register Trill do
   
   menu :priority => 1, :parent => "Warblings", :if => proc{ can?(:manage, Trill) }  
   
-  config.clear_sidebar_sections!
+  filter :title
   
-  sidebar "The Hive" do
-    render "/admin/shared/help"
+  sidebar :help do
+    render "/hive/shared/help"
   end
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
+    f.inputs "Content" do
+      f.input :title, :as => :string
+      f.input :url, :as => :string, :label => "Link"
+      f.input :hero_image, :label => "Image"
+      f.input :description, :input_html => { :rows => 10 }, :hint => "Write a little bit about what you've found, try to keep it brief"
+    end
     f.inputs "State" do
       f.input :published
-    end
-    f.inputs "Content" do
       f.input :user_id, :as => :hidden, :value => current_user.id
-      f.input :hero_image
-      f.input :title, :as => :string
-      f.input :url, :as => :string
-      f.input :description, :input_html => { :rows => 10 }
     end
     f.inputs "Issues" do
       f.input :issues, :as => :check_boxes
@@ -31,9 +31,11 @@ ActiveAdmin.register Trill do
   end
   
 	index do
-    column :title
+    column("Title") { |trill| link_to trill.title, hive_trill_path(trill) }
     column("State") { |trill| status_tag((trill.published) ? "Published" : "Unpublished") }
-    default_actions
+    column "" do |trill|
+      "#{link_to "Edit", edit_hive_trill_path(trill)} &nbsp; #{link_to "Delete", hive_trill_path(trill), :method => "delete", :confirm => "Are you sure you wish to delete this trill?"}".html_safe
+    end
   end
   
   show do |bookmark|
@@ -41,16 +43,18 @@ ActiveAdmin.register Trill do
       row "Published" do 
         (bookmark.published) ? "Yes" : "No"
       end
+      row "Issues" do |i|
+        i.issues.map{ |w| w.title }.join(', ')
+      end
       row :title
       row "URL" do
         link_to bookmark.url, bookmark.url
       end
-      row :description
-      row :hero_image do
+      row "Image" do
         image_tag(bookmark.hero_image.thumbnail) unless bookmark.hero_image.url.nil?
       end
-      row "Issues" do |i|
-        i.issues.map{ |w| w.title }.join(', ')
+      row :description do
+        simple_format(auto_link(bookmark.description))
       end
     end
   end
@@ -59,7 +63,7 @@ ActiveAdmin.register Trill do
     trill = Trill.find(params[:id])
     trill.published = true
     trill.save
-    redirect_to admin_dashboard_path
+    redirect_to hive_dashboard_path
   end
   
 end

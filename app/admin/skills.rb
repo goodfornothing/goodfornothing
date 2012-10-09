@@ -9,30 +9,24 @@ ActiveAdmin.register Skill do
 
   config.clear_sidebar_sections!
   
-  sidebar "The Hive" do
-    render "/admin/shared/help"
+  sidebar :help do
+    render "/hive/shared/help"
   end
+  
+  actions :index, :destroy, :edit, :update, :new
 
   index do 
     column :title
+    column ("Definition") { |skill| skill.description }
     default_actions
-  end
-
-  show do |skill|
-    attributes_table do
-      row :title
-      row :description
-      row :lower
-      row :upper
-    end
   end
   
   form do |f|
     f.inputs "Details" do
       f.input :title
-      f.input :description, :label => "What does this include?"
-      f.input :lower, :label => "Lower label"
-      f.input :upper, :label => "Upper label"
+      f.input :description, :input_html => { :rows => 5 }, :label => "Definition"
+      f.input :lower, :label => "Lower", :hint => "This value will be displayed on the lower end of talent sliders"
+      f.input :upper, :label => "Upper", :hint => "This value will be displayed on the upper end of talent sliders"
     end
     f.buttons
   end

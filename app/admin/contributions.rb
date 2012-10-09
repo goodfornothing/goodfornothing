@@ -9,8 +9,8 @@ ActiveAdmin.register Contribution do
    
   config.clear_sidebar_sections!
   
-  sidebar "The Hive" do
-    render "/admin/shared/help"
+  sidebar :help do
+    render "/hive/shared/help"
   end
   
   actions :all, :except => [:new]

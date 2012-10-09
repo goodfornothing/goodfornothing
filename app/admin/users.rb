@@ -19,8 +19,8 @@ ActiveAdmin.register User do
   
   actions :all, :except => [:new]
 
-  sidebar "The Hive" do
-    render "/admin/shared/help"
+  sidebar :help do
+    render "/hive/shared/help"
   end
 
 	index do

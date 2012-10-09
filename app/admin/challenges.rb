@@ -10,8 +10,8 @@ ActiveAdmin.register Challenge do
   filter :gig
   filter :venture
   
-  sidebar "The Hive" do
-    render "/admin/shared/help"
+  sidebar :help do
+    render "/hive/shared/help"
   end
   
   index do

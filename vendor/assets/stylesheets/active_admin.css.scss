@@ -98,3 +98,19 @@ body.active_admin form .has_many.slots fieldset li {
 	width: auto;
 	padding: 0 40px 0 0;
 }
+
+body.active_admin .sidebar_section > div {
+	padding-top: 6px;
+}
+
+body.active_admin .sidebar_section > div p {
+	line-height: 20px;
+}
+
+body.active_admin .sidebar_section > div p:last-child {
+	margin-bottom: 0;
+}
+
+body.active_admin .sidebar_section .attributes_table th { 
+	width: auto;
+}

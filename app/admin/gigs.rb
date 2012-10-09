@@ -140,7 +140,7 @@ ActiveAdmin.register Gig do
           gig.slots.each do |slot|
             tr do
               th (slot.skill.nil?) ? slot.custom_skill : slot.skill
-              td "0/#{slot.limit}"
+              td "#{slot.users.count}/#{slot.limit}"
             end
           end
         end

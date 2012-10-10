@@ -61,16 +61,14 @@ ActiveAdmin.register_page "Dashboard" do
                 thead do
                   tr do
                     th "Name"
-                    th "Summary"
-                    th "Actions"
+                    th ""
                   end
                 end
                 tbody do
                   @challenges.collect do |challenge|
                     tr do
                       td challenge.title
-                      td challenge.description
-                      td link_to "View", admin_challenge_path(challenge)
+                      td link_to "Read more", hive_challenge_path(challenge)
                     end
                   end
                 end
@@ -102,17 +100,14 @@ ActiveAdmin.register_page "Dashboard" do
                   tr do
                     th "Name"
                     th "Purpose"
-                    th "Summary"
-                    th "Actions"
+                    th ""
                   end
                 end
                 tbody do
                   @partners.collect do |partner|
                     tr do
-                      td partner.name
+                      td link_to partner.name, hive_partner_path(partner)
                       td partner.purpose
-                      td partner.notes
-                      td link_to "View", admin_partner_path(partner)
                     end
                   end
                 end

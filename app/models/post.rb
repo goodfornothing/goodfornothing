@@ -1,12 +1,11 @@
 class Post < ActiveRecord::Base
 
-  scope :updates, where(:issue_id => nil)
+  scope :updates, where(:gfn_update => true)
 
-  attr_accessible :excerpt, :title, :body, :user_id, :chapter_id, :category_id, :chapter_id, :user_id, :hero_image, :issue_id
+  attr_accessible :excerpt, :title, :body, :user_id, :chapter_id, :category_id, :chapter_id, :user_id, :hero_image, :issue_id, :gfn_update
   
 	belongs_to :chapter
 	belongs_to :user
-	
 	belongs_to :issue
 
 	validates_presence_of :title, :excerpt, :body

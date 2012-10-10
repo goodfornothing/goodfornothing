@@ -14,21 +14,23 @@ ActiveAdmin.register Venture do
   end
   
   index do
-    column :name
-    default_actions
+    column("Name") { |venture| link_to venture.name, hive_venture_path(venture) }
+    column "" do |venture|
+      "#{link_to "Edit", edit_hive_venture_path(venture)} &nbsp; #{link_to "Delete", hive_venture_path(venture), :method => "delete", :confirm => "Are you sure you wish to delete this venture?"}".html_safe
+    end
   end
   
   show do |venture|
     attributes_table do
       row :name
       row "Website" do
-        venture.url unless venture.url.nil?
+        link_to venture.url, venture.url unless venture.url.nil?
       end
       row :logo do
         image_tag(venture.logo.url) unless venture.logo.url.nil?
       end
     end
-  end
+  end  
   
   form do |f|
     f.inputs "Details" do

@@ -9,7 +9,7 @@
 		
 		<% if @social.location? %>
 		<div class="abstract">
-			<p class="meta"><span>Where?</span> <%= link_to @social.location, "https://maps.google.co.uk/maps?q=#{@social.location},+%20#{@social.chapter.city}" %></p>
+			<p class="meta"><span>Where?</span> <%= link_to @social.location, "https://maps.google.co.uk/maps?q=#{@social.location},+%20#{@social.chapter.title}" %></p>
 		</div>
 		<% end %>
 	

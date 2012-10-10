@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121008222540) do
+ActiveRecord::Schema.define(:version => 20121010135439) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -153,14 +153,15 @@ ActiveRecord::Schema.define(:version => 20121008222540) do
     t.string   "title"
     t.text     "body"
     t.integer  "issue_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "user_id"
     t.integer  "chapter_id"
     t.integer  "wordpress_id"
     t.text     "excerpt"
     t.string   "hero_image"
     t.string   "slug"
+    t.boolean  "gfn_update",   :default => false
   end
 
   add_index "posts", ["slug"], :name => "index_conversation_posts_on_slug", :unique => true

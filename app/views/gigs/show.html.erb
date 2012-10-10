@@ -7,7 +7,7 @@
 		<div class="abstract">
 			<% if @gig.start_time && @gig.end_time %><p class="meta"><span>When?</span> <%= @gig.start_time.to_formatted_s(:long_ordinal) %> &rarr; <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time><% end %>
 			<p class="meta"><span>Who?</span> Organised by the <%= @gig.chapter.title %> crew<%= " in partnership with #{link_to @gig.partner.name, @gig.partner.url}".html_safe unless @gig.partner.nil? %></p>
-			<% if @gig.location? %><p class="meta"><span>Where?</span> <%= link_to @gig.location, "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.city}" %></p><% end %>
+			<% if @gig.location? %><p class="meta"><span>Where?</span> <%= link_to @gig.location, "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.title}" %></p><% end %>
 		</div>	
 		
 		<% unless @gig.description.nil? %>

@@ -8,9 +8,7 @@ ActiveAdmin.register Post do
   menu :priority => 1, :parent => "Warblings", :if => proc{ can?(:manage, Post) } 
     
   scope :all, :default => true
-  scope :good_for_nothing_updates do
-    Post.updates
-  end
+  scope :updates, :if => proc { current_user.role == "admin" || current_user.role == "leader" }
   
   filter :title
   
@@ -19,10 +17,12 @@ ActiveAdmin.register Post do
   end
   
 	index do
-    column :title
-    column "Author", :user
+    column("Title") { |post| link_to post.title, hive_post_path(post) }
+    column("Author") { |post| post.user.name unless post.user.nil? }
     column :created_at
-    default_actions
+    column "" do |post|
+      "#{link_to "Edit", edit_hive_post_path(post)} &nbsp; #{link_to "Delete", hive_post_path(post), :method => "delete", :confirm => "Are you sure you wish to delete this post?"}".html_safe
+    end
   end
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
@@ -33,6 +33,9 @@ ActiveAdmin.register Post do
         f.input :chapter, :value => current_user.chapter_id, :input_html => { :disabled => "disabled" }
       end
       f.input :issue
+      if current_user.role == "admin" || current_user.role == "leader"
+        f.input :gfn_update, :label => "Is this a Good for Nothing update?"
+      end
       f.input :user_id, :as => :hidden, :value => current_user.id
     end
     f.inputs "Post" do   
@@ -61,6 +64,9 @@ ActiveAdmin.register Post do
           post.created_at
         end
         row :issue
+        row "GFN Update?" do
+          (post.gfn_update) ? "Yes" : "No"
+        end
       end  
     end
     panel 'Post' do

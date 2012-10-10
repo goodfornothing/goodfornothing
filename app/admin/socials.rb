@@ -5,7 +5,7 @@ ActiveAdmin.register Social do
     authorize_resource
   end
 
-  menu :priority => 2, :parent => "Events", :if => proc{ can?(:manage, Social) } 
+  menu :priority => 4, :parent => "Events", :if => proc{ can?(:manage, Social) } 
 
   filter :chapter
 

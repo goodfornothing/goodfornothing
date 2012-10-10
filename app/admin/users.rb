@@ -5,28 +5,50 @@ ActiveAdmin.register User do
     authorize_resource
   end
   
-  menu :priority => 1, :label => "Members", :parent => "Community", :if => proc{ can?(:manage, User) }  
-    
-  filter :skills_id, :as => :check_boxes, :collection => proc {Skill.all}
+  menu :priority => 5, :label => "Members", :parent => "Community", :if => proc{ can?(:manage, User) }  
+  
+  filter :activated, :as => :select
   filter :name
   filter :email
   
   scope :all, :default => true
   scope :admins
-  scope :leaders
-  scope :causes
+  scope :chapter_leaders do
+    User.leaders
+  end
+  scope :cause_owners do
+    User.causes
+  end
   scope :warblers
   
   actions :all, :except => [:new]
+
+  sidebar :profile, :only => [:show,:edit] do
+    span "The Hive only displays the non-public details of members, for more information about this member #{link_to "view their full profile", member_path(user)}".html_safe
+  end
+  
+  sidebar :audit, :only => :show do
+    attributes_table_for user do
+      row "Last sign in" do
+        user.last_sign_in_at
+      end
+      row "Last IP" do
+        user.last_sign_in_ip
+      end
+    end
+  end
 
   sidebar :help do
     render "/hive/shared/help"
   end
 
 	index do
-    column :name
+    column("Name") { |user| link_to user.name, hive_user_path(user) }
     column :email
-    default_actions
+    column("State") { |user| status_tag((user.activated) ? "Active" : "Inactive") }
+    column "" do |user|
+      "#{link_to "Edit", edit_hive_user_path(user)} &nbsp; #{link_to "Delete", hive_user_path(user), :method => "delete", :confirm => "Are you sure you wish to delete this member?"}".html_safe
+    end
   end
 
   form do |f|
@@ -39,45 +61,42 @@ ActiveAdmin.register User do
   end
   
   show do |user|
-    unless user.chapter.nil?
-      panel "Chapter" do
-        attributes_table_for user do
-          row :chapter
-        end
-      end
-    end
-    panel "Privileges" do
+    
+    panel "Status" do
       attributes_table_for user do
-        row :role
-        row "Activated from Ning?" do
+        row :role do
+          if user.role == "leader"
+            "Chapter Leader"
+          elsif user.role == "owner"
+            "Cause Owner"
+          else
+            user.role.titlecase
+          end
+        end
+        row "Member of chapter" do
+          user.chapter.title
+        end
+        row "Activated?" do
           (user.activated) ? "Yes" : "No"
         end
       end
     end
-    attributes_table do
-      row :issues do 
-        user.issues.map(&:title).join(', ')
+    
+    panel "Interests" do
+      attributes_table_for user do
+        row :issues do 
+          user.issues.map(&:title).join(', ')
+        end
+        row :reasons_for_joining
       end
-      row :talents do 
-        user.talents.map { |t| "<strong>#{t.skill.title}:</strong> #{t.level}".html_safe }.join("<br />").html_safe
-      end
-      row :avatar
-      row :name
-      row :email
-      row "Website" do 
-        user.url
-      end
-      row :twitter_handle
-      row :location
-      row :gender
-      row :age
-      row :reasons_for_joining
-      row "Extra skills" do
-        user.brings
-      end
-      row :last_sign_in_at
-      row :last_sign_in_ip
     end
+    
+    panel "Contact" do
+      attributes_table_for user do
+        row :email
+      end
+    end
+    
   end
 
 end

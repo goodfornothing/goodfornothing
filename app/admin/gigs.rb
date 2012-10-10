@@ -5,7 +5,7 @@ ActiveAdmin.register Gig do
     authorize_resource
   end
 
-  menu :priority => 1, :parent => "Events", :if => proc{ can?(:manage, Gig) } 
+  menu :priority => 4, :parent => "Events", :if => proc{ can?(:manage, Gig) } 
 
   filter :title
 

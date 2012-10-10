@@ -114,3 +114,7 @@ body.active_admin .sidebar_section > div p:last-child {
 body.active_admin .sidebar_section .attributes_table th { 
 	width: auto;
 }
+
+body.active_admin .status_tag.active {
+	background: #8DAA92;
+}

@@ -5,7 +5,7 @@ ActiveAdmin.register Partner do
     authorize_resource
   end
   
-  menu :priority => 4, :parent => "Community", :if => proc{ can?(:manage, Partner) } 
+  menu :priority => 5, :parent => "Community", :if => proc{ can?(:manage, Partner) } 
   
   config.clear_sidebar_sections!
   

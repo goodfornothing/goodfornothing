@@ -5,7 +5,7 @@ ActiveAdmin.register Post do
     authorize_resource
   end
   
-  menu :priority => 1, :parent => "Warblings", :if => proc{ can?(:manage, Post) } 
+  menu :priority => 3, :parent => "Warblings", :if => proc{ can?(:manage, Post) } 
     
   scope :all, :default => true
   scope :updates, :if => proc { current_user.role == "admin" || current_user.role == "leader" }

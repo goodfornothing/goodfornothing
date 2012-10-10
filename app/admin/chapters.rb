@@ -5,7 +5,7 @@ ActiveAdmin.register Chapter do
     authorize_resource
   end
   
-  menu :priority => 3, :parent => "Community", :if => proc{ can?(:manage, Chapter) } 
+  menu :priority => 5, :parent => "Community", :if => proc{ can?(:manage, Chapter) } 
   
   config.clear_sidebar_sections!
   

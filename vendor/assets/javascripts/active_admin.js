@@ -4,9 +4,14 @@
 $(document).ready(function(){
 		
 		$(function(){
+						
 			if($('.sir-trevor-area').length> 0) {
-		  	var editor = new SirTrevor.Editor({ el: $('.sir-trevor-area') });
+		  	var editor = new SirTrevor.Editor({ 
+					el: $('.sir-trevor-area')
+				});
 			}
+			
+			
 		});
 		
 });

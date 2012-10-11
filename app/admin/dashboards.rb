@@ -34,11 +34,9 @@ ActiveAdmin.register_page "Dashboard" do
   
         else
           div :class => "blank_slate_container" do
-            br
             span :class => "blank_slate" do
               span "There are no unpublished trills."
             end
-            br
           end
         end
         
@@ -54,13 +52,14 @@ ActiveAdmin.register_page "Dashboard" do
 
         column do
 
-          panel "Challenge requests" do
+          panel "Challenge Submissions" do
           
             if @challenges.any?
               table do
                 thead do
                   tr do
                     th "Name"
+										th "Email"
                     th ""
                   end
                 end
@@ -68,18 +67,17 @@ ActiveAdmin.register_page "Dashboard" do
                   @challenges.collect do |challenge|
                     tr do
                       td challenge.title
-                      td link_to "Read more", hive_challenge_path(challenge)
+											td challenge.contact
+                      td link_to "Review challenge", hive_challenge_path(challenge)
                     end
                   end
                 end
               end
             else
               div :class => "blank_slate_container" do
-                br
                 span :class => "blank_slate" do
                   span "There are no unread challenge submissions."
                 end
-                br
               end
             end
           
@@ -91,7 +89,7 @@ ActiveAdmin.register_page "Dashboard" do
 
           @partners = Partner.inactive
           
-          panel "Partner requests" do
+          panel "Partner Requests" do
           
             if @partners.any?
 
@@ -116,11 +114,9 @@ ActiveAdmin.register_page "Dashboard" do
             
             else
               div :class => "blank_slate_container" do
-                br
-                span :class => "blank_slate" do
+								span :class => "blank_slate" do
                   span "There are no unread partner requests."
                 end
-                br
               end
             end
             

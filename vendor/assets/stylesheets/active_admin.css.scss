@@ -118,3 +118,27 @@ body.active_admin .sidebar_section .attributes_table th {
 body.active_admin .status_tag.active {
 	background: #8DAA92;
 }
+
+body.active_admin #title_bar #titlebar_left {
+	width: 70%;
+	display: inline-block;
+	float: left;
+	padding-bottom: 10px;
+	padding-top: 5px;
+	height: auto;
+}
+
+body.active_admin #title_bar #titlebar_right {
+	display: inline-block;
+	float: right;
+	padding: 20px 0 0;
+}
+
+body.active_admin #title_bar #titlebar_left h2 {
+	line-height: 115%;
+}
+
+body.active_admin .blank_slate_container .blank_slate {
+	margin-top: 20px;
+	margin-bottom: 15px;
+}

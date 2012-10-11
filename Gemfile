@@ -5,6 +5,7 @@ gem 'rails', '3.2.3'
 gem 'mysql2'
 gem 'devise'
 gem 'simple_form'
+gem 'thin'
 
 gem 'mail'
 gem 'gibbon'

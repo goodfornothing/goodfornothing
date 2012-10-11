@@ -39,7 +39,7 @@ class ColophonController < ApplicationController
 	  
 	  @crew = {}
 	  @crew['blog_posts'] = Post.all.count
-	  @crew['trills'] = Issue.all.map{ |w| w.trill.published }.flatten.uniq.count
+	  @crew['trills'] = Issue.all.map{ |w| w.trills.published }.flatten.uniq.count
 	  @crew['challenges'] = Challenge.opened.count
 	  @crew['gigs'] = Gig.all.count
 	  @crew['socials'] = Social.all.count

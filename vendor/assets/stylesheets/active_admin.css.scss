@@ -142,3 +142,7 @@ body.active_admin .blank_slate_container .blank_slate {
 	margin-top: 20px;
 	margin-bottom: 15px;
 }
+
+body.active_admin table.index_table th:last-child {
+	min-width: 100px;
+}

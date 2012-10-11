@@ -2,7 +2,7 @@ ActiveAdmin.register_page "Dashboard" do
 
   menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") }
 
-  content :title => "Weclome to the Hive" do
+  content :title => "Welcome to the Hive" do
 
     if can?(:manage, Trill)
 

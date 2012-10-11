@@ -28,7 +28,7 @@
 			<% if @challenge.description.is_json? %>
 				<%= render_sir_trevor(@challenge.description) %>
 			<% else %>
-				<%= simple_format(@challenge.description).html_safe %>
+				<%= sir_trevor_markdown(@challenge.description).html_safe %>
 			<% end %>
 		<% end %>
 			

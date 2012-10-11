@@ -63,7 +63,9 @@ body.active_admin .sir-trevor .sir-trevor-marker .buttons a.new-gallery:hover {
   background-image: url(<%= asset_path "sir-trevor/icons/block_editor_image.png" %>);
 }
 
-body.active_admin .sir-trevor .sir-trevor-marker .buttons a.new-text:hover {
+body.active_admin .sir-trevor .sir-trevor-marker .buttons a.new-text:hover,
+body.active_admin .sir-trevor .sir-trevor-marker .buttons a.new-heading,
+body.active_admin .sir-trevor .sir-trevor-marker .buttons a.new-heading:hover  {
   background-image: url(<%= asset_path "sir-trevor/icons/block_editor_text.png" %>);
 }
 
@@ -91,4 +93,14 @@ body.active_admin .sir-trevor .sir-trevor-block blockquote {
 body.active_admin .sir-trevor .sir-trevor-block .dropzone p {
 	margin-bottom: 15px;
 	font-size: 16px;
+}
+
+.sir-trevor-block h2.text-block {
+	min-height: 0;
+	font-size: 22px;
+	color: #222222;
+}
+
+body.active_admin .sir-trevor ul {
+	list-style-type: disc;
 }

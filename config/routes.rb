@@ -1,10 +1,10 @@
 Goodfornothing::Application.routes.draw do
 	
   ActiveAdmin.routes(self)
+
+	# Sir Trevor images
   post 'attachments' => 'images#create'
-  
-  match "markdown_preview" => "application#markdown_preview"
-  
+    
   devise_for :users, :controllers => { :registrations => :registrations, :sessions => :sessions } 
   match "members" => "members#index"
   match "members/:id" => "members#show", :as => "member"

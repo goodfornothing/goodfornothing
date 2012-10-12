@@ -80,7 +80,10 @@
 	
 	<div id="collaborators">
 		<div>
+		
+		<% if @challenge.team.any? || user_signed_in? %>
 		<h2>Collaborators</h2>
+		<% end %>
 	
 		<% if @challenge.team.any? %>
 		<ul class="avatar_list">

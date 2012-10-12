@@ -122,10 +122,10 @@
 	
 				<p class="icon_members"><span>So far, <%= contextual_reference(@member, "you've") %> worked with&hellip;</span> <%= link_to pluralize(@member.member_reach.count, "collaborator"), members_path %> </p>
 	
-				<% if @member.challenges.any? %>
-				<h3><%= contextual_reference(@member, "you've").titlecase %> worked on <%= pluralize(@member.challenges.count, "challenge") %></h3>
+				<% if @member.working_on.any? %>
+				<h3><%= contextual_reference(@member, "you've").titlecase %> worked on <%= pluralize(@member.working_on.count, "challenge") %></h3>
 				<ul class="data">
-					<% @member.challenges.each do |challenge| %>
+					<% @member.working_on.each do |challenge| %>
 					<li><%= link_to challenge.title, challenge_path(challenge) %></li>
 					<% end %>
 				</ul>

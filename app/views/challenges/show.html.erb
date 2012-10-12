@@ -93,7 +93,7 @@
 		<% if user_signed_in? && @challenge.users.include?(current_user)%>
 		<p>You're working on this challenge! You'll receive email notifications when your fellow collaborators post ideas, contributions or meet-up requests.</p>
 		<p class="more"><%= link_to "Leave challenge", subscribe_challenge_path(@challenge) %></p>
-		<% else %>
+		<% elsif user_signed_in? %>
 		<p>Join this challenge if you'd like to get stuck in! We'll then drop you an email when other collaborators share their work, ideas or are looking to create a meet-up to do some Good for Nothing.</p>
 		<p class="more"><%= link_to "Join challenge", subscribe_challenge_path(@challenge) %></p>
 		<% end %>

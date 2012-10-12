@@ -19,7 +19,7 @@
 			<% end %>
 			
 			<% if @challenge.gig.present? && !@challenge.gig.past? %>	
-				<p class="meta"><span>The Gig:</span> <%= link_to ("#{@challenge.gig.start_time.day.ordinalize} of #{@challenge.gig.start_time.strftime('%B')} in #{@challenge.gig.chapter.title}".html_safe), gig_path(@challenge.gig) %> </p>
+				<p class="meta"><span>Attend the Gig:</span> Tackle this challenge offline on <%= link_to ("#{@challenge.gig.start_time.day.ordinalize} of #{@challenge.gig.start_time.strftime('%B')} in #{@challenge.gig.chapter.title}".html_safe), gig_path(@challenge.gig) %> </p>
 			<% end %>
 		
 		</div>
@@ -33,9 +33,9 @@
 				<%= sir_trevor_markdown(@challenge.description).html_safe %>
 			<% end %>
 		<% end %>
-			
+		
 	</article>
-	
+
 	<a id="help"></a>
 	
 	<% if (@challenge.open? || @challenge.open_to_contributions?) && !user_signed_in? %>
@@ -76,25 +76,29 @@
 
 <aside id="secondary_content">
 	
-	<p class="icon_gigs"><a href="#help">Share your ideas, <br />get stuck in!</a></p>
+	<p class="icon_gigs"><a href="#help">Share your ideas <br />and contributions!</a></p>
 	
-	<% if @challenge.team.any? %>
-	<h2>Thinkers &amp; Contributors</h2>
-	<ul class="avatar_list">
-	<% @challenge.team.each do |user| %>
-		<%= render :partial => "members/avatar", :locals => { :member => user }%>
-	<% end %>
-	</ul>
-	<% end %>
+	<div id="collaborators">
+		<div>
+		<h2>Collaborators</h2>
 	
-	<% if @challenge.gig.present? %>	
-	
-		<% unless @challenge.gig.past? %>
-		<h2>Take it offline</h2>
-		<p class="block">This challenge will be tackled at a gig on the <%= "#{@challenge.gig.start_time.day.ordinalize} of #{@challenge.gig.start_time.strftime('%B')}".html_safe %> in <%= @challenge.gig.chapter.title %>, <%= link_to "come join us!", gig_path(@challenge.gig) %></p>
+		<% if @challenge.team.any? %>
+		<ul class="avatar_list">
+		<% @challenge.team.each do |user| %>
+			<%= render :partial => "members/avatar", :locals => { :member => user }%>
+		<% end %>
+		</ul>
 		<% end %>
 	
-	<% end %>
+		<% if user_signed_in? && @challenge.users.include?(current_user)%>
+		<p>You're working on this challenge! You'll receive email notifications when your fellow collaborators post ideas, contributions or meet-up requests.</p>
+		<p class="more"><%= link_to "Leave challenge", subscribe_challenge_path(@challenge) %></p>
+		<% else %>
+		<p>Join this challenge if you'd like to get stuck in! We'll then drop you an email when other collaborators share their work, ideas or are looking to create a meet-up to do some Good for Nothing.</p>
+		<p class="more"><%= link_to "Join challenge", subscribe_challenge_path(@challenge) %></p>
+		<% end %>
+		</div>
+	</div>
 	
 </aside>
 	

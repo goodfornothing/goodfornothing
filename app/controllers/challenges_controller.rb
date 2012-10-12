@@ -46,5 +46,20 @@ class ChallengesController < ApplicationController
 	def thanks
 	  
 	end
+	
+	def subscribe	
+		
+		@challenge = Challenge.find(params[:id])
+
+	  if @challenge.users.include?(current_user)
+      @challenge.users.delete(current_user)
+      flash[:notice] = "You are no longer subscribed to this challenge."
+    else
+      @challenge.users << current_user
+    end
+
+    redirect_to challenge_path(@challenge)
+		
+	end
 
 end

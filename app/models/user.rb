@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
   has_many :contributions
 
   belongs_to :chapter
-  
+
+  has_and_belongs_to_many :challenges
   has_and_belongs_to_many :issues
   has_and_belongs_to_many :slots
   has_many :gigs, :through => :slots

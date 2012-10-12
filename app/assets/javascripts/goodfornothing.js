@@ -176,6 +176,8 @@ $(document).ready(function(){
 	    })
 	;
 	
+	$('#collaborators div').stickyScroll({ container: $('#collaborators') })
+	
 });
 
 function scrollToElement(element) {

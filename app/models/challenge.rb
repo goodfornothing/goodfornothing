@@ -11,6 +11,7 @@ class Challenge < ActiveRecord::Base
 	
 	has_many :ideas
 	has_many :contributions
+	has_and_belongs_to_many :users
 	
 	extend FriendlyId
   friendly_id :title, use: :history
@@ -25,7 +26,7 @@ class Challenge < ActiveRecord::Base
   before_save :assert_featured
 		
 	def team
-    User.includes(:contributions,:ideas).where('contributions.challenge_id = ? or ideas.challenge_id = ?',self.id,self.id)
+    (User.includes(:contributions,:ideas).where('contributions.challenge_id = ? or ideas.challenge_id = ?',self.id,self.id) + self.users).flatten.uniq
   end
   
   def assert_featured

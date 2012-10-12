@@ -42,6 +42,9 @@ Goodfornothing::Application.routes.draw do
       match "issue/:id" => "challenges#index", :as => "issue"
       match "thanks" => "challenges#thanks", :as => "thanks"
     end
+		member do
+			get "subscribe"
+		end
     resources :ideas
     resources :contributions
   end

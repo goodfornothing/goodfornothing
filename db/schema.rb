@@ -11,19 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010135439) do
+ActiveRecord::Schema.define(:version => 20121012105026) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
     t.text    "description"
     t.integer "gig_id"
     t.integer "venture_id"
-    t.boolean "featured",    :default => false
-    t.boolean "active",      :default => false
+    t.boolean "featured",              :default => false
+    t.boolean "active",                :default => false
     t.string  "contact"
-    t.boolean "open",        :default => true
+    t.boolean "open",                  :default => true
     t.integer "partner_id"
     t.string  "slug"
+    t.boolean "open_to_contributions", :default => true
   end
 
   create_table "challenges_issues", :force => true do |t|
@@ -35,7 +36,6 @@ ActiveRecord::Schema.define(:version => 20121010135439) do
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "city"
     t.string   "country"
     t.string   "slug"
   end
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(:version => 20121010135439) do
     t.string "name"
     t.string "url"
     t.string "logo"
-    t.string "description"
   end
 
   create_table "friends_gigs", :force => true do |t|

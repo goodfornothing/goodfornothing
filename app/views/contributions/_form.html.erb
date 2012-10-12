@@ -3,7 +3,7 @@
 	<h2><%= (@contribution.new_record?) ? "New contribution" : "Edit contribution" %></h2>
 	
 	
-	<% if user_signed_in? && @challenge.open?%>
+	<% if user_signed_in? && @challenge.open_to_contributions? %>
 
 		<%= field_set_tag do %>
 			<%= f.input :skill_id, :label => "Type of contribution", :include_blank => "Type of contribution", :collection => Skill.all %>
@@ -15,7 +15,7 @@
 			<%= f.submit :value => ((@contribution.new_record?) ? "Share" : "Edit") %>	
 		<% end %>
 
-	<% elsif user_signed_in? && !@challenge.open? %>
+	<% elsif user_signed_in? && !@challenge.open_to_contributions? %>
 		<p>This challenge is closed, thanks for all your Good!</p>
 	<% end %>
 

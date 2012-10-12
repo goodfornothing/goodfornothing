@@ -34,7 +34,7 @@
 			
 	</article>
 	
-	<% if @challenge.open? && !user_signed_in? %>
+	<% if (@challenge.open? || @challenge.open_to_contributions?) && !user_signed_in? %>
 	
 		<h2 id="new_idea">How can I help?</h2>
 		<p>You can make a start on this challenge simply by contributing ideas, or get stuck right in and share your work with the community here. <%= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "become a member", register_path(:next => challenge_path(@challenge)) %> to get started!</p>
@@ -42,10 +42,14 @@
 	<% else %>
 	
 		<div class="panel_forms">
+			
+			<% if (@challenge.open? && @challenge.open_to_contributions?) %>
 			<h2>This challenge is open to all</h2>
 			<p>Contribute in any way you can; share an idea or just get stuck in to the brief &ndash; maybe team up with some colleagues? &ndash; then come back share your work with the community.</p>
-			<%= render :partial => "ideas/form" %>
-			<%= render :partial => "contributions/form" %>
+			<% end %>
+			
+			<%= render :partial => "ideas/form" if @challenge.open? %>
+			<%= render :partial => "contributions/form" if @challenge.open_to_contributions? %>
 		</div>
 	
 	<% end %>

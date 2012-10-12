@@ -38,8 +38,11 @@ ActiveAdmin.register Challenge do
 				row :active do
 					(challenge.active?) ? "Yes" : "No"
 				end
-				row :open do
+				row "Open to ideas?" do
 					(challenge.open?) ? "Yes" : "No"
+				end
+				row "Open to challenges?" do
+					(challenge.open_to_contributions?) ? "Yes" : "No"
 				end
 			end
 		end
@@ -84,7 +87,8 @@ ActiveAdmin.register Challenge do
   form do |f|
     f.inputs "State" do
       f.input :active
-      f.input :open
+      f.input :open, :label => "Open to ideas"
+			f.input :open_to_contributions
       f.input :featured
     end
     f.inputs "Details" do

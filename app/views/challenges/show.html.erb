@@ -1,5 +1,7 @@
 <section id="primary_content">
 	
+	<%= image_tag "branding/print_logo.gif", :class => "print", :alt => "Good for Nothing" %>
+	
 	<article class="event challenge_event">
 	
 		<h1><%= @challenge.title %></h1>
@@ -34,9 +36,11 @@
 			
 	</article>
 	
+	<a id="help"></a>
+	
 	<% if (@challenge.open? || @challenge.open_to_contributions?) && !user_signed_in? %>
 	
-		<h2 id="new_idea">How can I help?</h2>
+		<h2>How can I help?</h2>
 		<p>You can make a start on this challenge simply by contributing ideas, or get stuck right in and share your work with the community here. <%= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "become a member", register_path(:next => challenge_path(@challenge)) %> to get started!</p>
 		
 	<% else %>
@@ -72,7 +76,7 @@
 
 <aside id="secondary_content">
 	
-	<p class="icon_gigs"><a href="#new_idea">Share your ideas, <br />get stuck in!</a></p>
+	<p class="icon_gigs"><a href="#help">Share your ideas, <br />get stuck in!</a></p>
 	
 	<% if @challenge.team.any? %>
 	<h2>Thinkers &amp; Contributors</h2>

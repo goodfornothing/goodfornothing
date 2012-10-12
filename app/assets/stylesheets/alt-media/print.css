@@ -4,20 +4,25 @@
 	body { background: none; width: 16cm; margin: 0 !important; 
 	padding: 0 !important; line-height: 1.4; font-size: 12pt; }
 	
-	/* Typography */
-	h1,h2,h3,h4,h5,h6 { font-family: Helvetica, Arial, sans-serif; }
-	h1{font-size:19pt;}
-	h2{font-size:17pt;}
-	h3{font-size:15pt;}
-	h4,h5,h6{font-size:12pt;}
+	#secondary_content,
+	footer, 
+	.panel_forms,
+	#contributions,
+	#colophon,
+	header {
+		display: none;
+	}
 	
-	code { font: 10pt Courier, monospace; } 
-	blockquote { margin: 1.3em; padding: 1em;  font-size: 10pt; }
-	hr { background-color: #CCCCCC; }
+	#main #primary_content {
+		width: 100%;
+	}
 	
-	/* Images */
-	img { float: left; margin: 1em 1.5em 1.5em 0; }
-	a img { border: none; }
+	#main #primary_content p,
+	 #main #primary_content li {
+		font-size: 17px;
+	}
+	
+	.print { display: block; }
 	
 	/* Tables */
 	table { margin: 1px; text-align:left; }

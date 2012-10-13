@@ -51,12 +51,17 @@ ActiveAdmin.register User do
     end
   end
 
-  form do |f|
+  form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Privileges" do
       f.input :chapter
       f.input :role, :as => :select, :collection => User::ROLES
       f.input :activated
     end
+		f.inputs "Profile" do
+			f.input :name
+			f.input :email
+			f.input :avatar
+		end
     f.buttons
   end
   

@@ -65,8 +65,8 @@ class ColophonController < ApplicationController
 	  @fb_posts = 25
 	  #@fb_posts = @fb_page.posts.size
 	  
-	  @twitter_followers = Twitter.user("g00dfornothing").followers_count;
-	  @twitter_tweets = Twitter.user("g00dfornothing").statuses_count;
+	  @twitter_followers = 2904 #Twitter.user("g00dfornothing").followers_count;
+	  @twitter_tweets = 2530 # Twitter.user("g00dfornothing").statuses_count;
 	    
 	end
 

@@ -1,0 +1,21 @@
+<div class="meta">
+
+	<div class="compact avatar">
+		<% if comment.user.avatar.blank? %>
+			<%= link_to (image_tag "assets/avatar_small.png", :alt => comment.user.name), member_path(comment.user), :class => "tip", :title => comment.user.name %>
+		<% else %>
+			<%= link_to (image_tag comment.user.avatar.compact, :alt => comment.user.name, :title => comment.user.name), member_path(comment.user), :class => "tip", :title => comment.user.name %>
+		<% end %>
+	</div>
+
+	<div class="author">
+		<h3><span>A comment from</span> <%= comment.user.name %></h3>
+		<%# if signed_in_as_owner?(comment) %>
+		<% if false %>
+			<p class="actions"><%= link_to "edit", edit_comment_path(comment) %> or <%= link_to "delete", comment_path(comment), :method => :delete, :confirm => "Are you sure you want to delete this comment?" %></p>
+		<% end %>
+	</div>
+
+</div>
+
+<%= simple_format auto_link(comment.body) %>

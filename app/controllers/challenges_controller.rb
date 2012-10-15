@@ -1,5 +1,7 @@
 class ChallengesController < ApplicationController
 
+  before_filter :authenticate_user!, :only => :subscribe
+
 	def show
 		  
 		@challenge = Challenge.find(params[:id])

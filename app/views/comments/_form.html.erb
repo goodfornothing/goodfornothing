@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+
+	<%= simple_form_for [commentable, comment], :html => { :class => "primary form_panel single_panel", :remote => ((comment.new_record?) ? true : false)  } do |f| %>
+
+		<h2><%= (comment.new_record?) ? "Your thoughts?" : "Edit comment" %></h2>
+		
+		<%= field_set_tag do %>
+			<%= f.input :body, :label => "Tell us what you think", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 10 } %>
+		<% end %>
+
+		<%= field_set_tag nil, :class => "actions" do %>
+			<%= f.submit :value => ((comment.new_record?) ? "Share" : "Edit") %>	
+		<% end %>
+	
+	<% end %>
+
+<% else %>
+	<p><%= link_to "Login", login_path(:next => social_path(@social)) %> or <%= link_to "become a member", register_path(:next => social_path(@social)) %> to contribute to the discussion.</p>
+<% end %>

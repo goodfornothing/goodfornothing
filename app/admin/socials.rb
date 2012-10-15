@@ -23,11 +23,14 @@ ActiveAdmin.register Social do
 
 	index do
 	  column("Date") { |social| social.start_time.strftime( "%B #{social.start_time.day.ordinalize} %Y")  }
-    column("Chapter") { |social| social.chapter.title }
+    column("Chapter") { |social| "#{social.chapter.title}" + ((social.title.present?) ? ", #{social.title}" : "") }
     default_actions
   end
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
+		f.inputs "State" do
+			f.input :open, :label => "Open to user comments?"
+		end
     f.inputs "Details" do
       if current_user.role == "admin"
         f.input :chapter
@@ -36,7 +39,15 @@ ActiveAdmin.register Social do
       end
       f.input :start_time, :label => "Date and Time", :as => :just_datetime_picker
       f.input :location, :hint => "Enter the street address of your venue, you don't need to include a city or country"
+			f.input :title, :hint => "Optional, for socials that are themed in some way"
       f.input :description, :input_html => { :rows => 10 }, :hint => "Tell people a little about the format of this social; what should they expect, will they need to bring anything?"
+    end
+		f.inputs "Registration Slots" do
+      f.has_many :slots do |j|
+        j.input :skill
+        j.input :custom_skill
+        j.input :limit
+      end
     end
     f.buttons
   end

@@ -5,8 +5,9 @@ class Social < ActiveRecord::Base
 
   just_define_datetime_picker :start_time, :add_to_attr_accessible => true
 
-  attr_accessible :chapter_id, :description, :location
+  attr_accessible :chapter_id, :description, :location, :title, :slots_attributes, :open
 
+	has_many :comments, :as => :commentable
 	has_many :slots
   has_many :users, :through => :slots
 	belongs_to :chapter
@@ -14,6 +15,7 @@ class Social < ActiveRecord::Base
 	after_create :create_generic_slot
 	
 	validates_presence_of :chapter_id, :start_time
+	accepts_nested_attributes_for :slots
 	
 	def create_generic_slot
 	  Slot.create!(:social_id => self.id)
@@ -21,5 +23,13 @@ class Social < ActiveRecord::Base
   
 	extend FriendlyId
   friendly_id :start_time, use: :history
+
+	def name
+		if self.title.present?
+			self.title
+		else
+			"A social in #{self.chapter.title}"
+		end
+	end
   	
 end

@@ -11,7 +11,7 @@
 			<p><%= @gig.title %> on the <%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %> of <%= @gig.start_time.strftime('%B') %> in <%= @gig.chapter.title %></p>
 			<% end %>
 			<% if @social.present? %>
-			<h3><%= link_to "A social in #{@social.chapter.title}", social_path(@social) %></h3>
+			<h3><%= link_to @social.name, social_path(@social) %></h3>
 			<p>Join us on <%= @social.start_time.day.ordinalize %> of <%= @social.start_time.strftime('%B') %> at <%= @social.start_time.strftime('%l%P') %> <%= (@social.location?) ? "at #{@social.location}" : ", venue TBC" %></p>
 			<% end %>
 		</div>

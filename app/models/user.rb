@@ -20,7 +20,8 @@ class User < ActiveRecord::Base
 
   has_one :ning_profile
   has_many :posts
-  
+
+  has_many :comments
   has_many :ideas
   has_many :contributions
 

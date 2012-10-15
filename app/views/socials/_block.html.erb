@@ -1,6 +1,6 @@
 <h2><%= social.start_time.day %> <span><%= social.start_time.strftime('%B') %></span></h2>
 
-<p><strong><%= social.chapter.title %> social</strong><br />
+<p><strong><%= social.name %></strong><br />
 <% unless social.location.nil? || social.location.blank? %>
 At <%=  social.location %>
 <% else %>

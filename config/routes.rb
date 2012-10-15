@@ -62,8 +62,9 @@ Goodfornothing::Application.routes.draw do
 	  member do 
 	    get "attend"
 	  end
+		resources :comments
 	end
-	
+		
   resources :partners, :only => [:index,:new, :create] do
     collection do
       match "thanks" => "partners#thanks", :as => "thanks"

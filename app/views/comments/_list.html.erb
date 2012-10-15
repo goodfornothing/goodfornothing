@@ -1,0 +1,9 @@
+<ul id="contributions" class="contributions">
+	<% if comments.any? %>
+		<li class="contribution">
+			<% comments.each do |comment| %>
+				<%= render :partial => "comments/block", :locals => { :comment => comment } %>	
+			<% end %>
+		</li>
+	<% end %>
+</ul>

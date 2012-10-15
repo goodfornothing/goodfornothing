@@ -8,7 +8,8 @@ SirTrevor.Blocks.Heading = SirTrevor.Block.extend({
   className: "heading",  
   limit: 0,
   toolbarEnabled: true,         
-  dropEnabled: false,           
+  dropEnabled: false,
+  formattingEnabled: false,
 
   editorHTML: function() {
 		return _.template('<h2 class="required text-block <%= className %>" contenteditable="true"></h2>', this);

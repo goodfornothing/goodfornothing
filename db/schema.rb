@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121012145447) do
+ActiveRecord::Schema.define(:version => 20121015124455) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(:version => 20121012145447) do
   end
 
   add_index "chapters", ["slug"], :name => "index_chapters_on_slug", :unique => true
+
+  create_table "comments", :force => true do |t|
+    t.text     "body"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "contributions", :force => true do |t|
     t.string   "url"
@@ -203,9 +212,11 @@ ActiveRecord::Schema.define(:version => 20121012145447) do
     t.string   "location"
     t.datetime "start_time"
     t.integer  "chapter_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.string   "slug"
+    t.string   "title"
+    t.boolean  "open",        :default => false
   end
 
   create_table "talents", :force => true do |t|

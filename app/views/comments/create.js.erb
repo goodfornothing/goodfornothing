@@ -1,0 +1,6 @@
+block = '<%= escape_javascript( render( :partial => "comments/block", :locals => { :comment => @comment } ) ) %>';
+$('#comments').prepend("<div style='display: none'>"+block+"</div>");
+scrollToElement($('#comments')[0]);
+$('#comments div:first-child').slideDown();
+$('#new_comment')[0].reset();
+$('#new_comment textarea').blur();

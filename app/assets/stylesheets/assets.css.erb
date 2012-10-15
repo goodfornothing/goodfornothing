@@ -925,3 +925,75 @@
 	}
 	
 	
+/* User contributions */
+
+	.contributions {
+		padding: 0;
+		list-style-type: none;
+	}
+
+	.contributions li.contribution {
+		padding: 15px 0 20px;
+	}
+
+	.contributions li.contribution .meta {
+		width: 100%;
+		overflow: hidden;
+		margin-bottom: 7px;
+	}
+
+	.contributions li.contribution h3 span {
+		display: block;
+		font-size: 12px;
+	}
+
+	.contributions li.contribution h3 {
+		text-align: left;
+		font-family: "Good for Nothing";
+		color: #61514D;
+		font-size: 20px;
+		line-height: 24px;
+		padding-top: 4px;
+		margin: 0;
+	}
+
+	.contributions li.contribution .author {
+		float: left;
+		width: 300px;
+	}
+
+	.contributions li.contribution .contribution_link {
+		float: right;
+		width: 80px;
+		height: 34px;
+		line-height: 18px;
+		font-size: 14px;
+		color: #ffffff;
+		text-align: center;
+		padding: 12px 13px 8px 7px;
+		font-family: "Good for Nothing";
+		background: url(<%= asset_path "assets/splodge_button.gif" %>) no-repeat top left;
+	}
+
+	.contributions li.contribution .contribution_link:active,
+	.contributions li.contribution .contribution_link:hover,
+	.contributions li.contribution .contribution_link:focus {
+		font-size: 16px;
+		text-decoration: none;
+	}
+	
+	.contributions .meta h3 {
+		display: inline-block;
+	}
+	
+	.contributions .actions {
+		font-size: 11px;
+		padding-left: 5px;
+		display: none;
+		margin: 0;
+	}
+
+	.contributions .contribution:hover .actions {
+		display: inline-block;
+	}
+	

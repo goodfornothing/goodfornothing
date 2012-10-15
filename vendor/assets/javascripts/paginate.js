@@ -27,7 +27,7 @@
 			clickstop:true,
 			controls: 'pagination',
 			current: 'current',
-			randomstart: false
+			startPage: 1
 		}; 
 		
 		var options = $.extend(defaults, options); 
@@ -37,21 +37,21 @@
 		var count = children.length;
 		var obj, next, prev;		
 		var pages = Math.floor(count/step);
-		var page = (options.randomstart) ? Math.floor(Math.random()*pages)+1 : 1;
+		var page = options.startPage
 		var timeout;
 		var clicked = false;
 		
-		function show(){
+		function show(page){
 			clearTimeout(timeout);
 			lower = ((page-1) * step);
 			upper = lower+step;
 			$(children).each(function(i){
 				var child = $(this);
 				child.hide();
-				if(i>=lower && i<upper){ setTimeout(function(){ child.show() }, ( i-( Math.floor(i/step) * step) )*options.delay ); }
+				if(i>=lower && i<upper){ setTimeout(function(){ child.show(page) }, ( i-( Math.floor(i/step) * step) )*options.delay ); }
 				if(options.nextprev){
-					if(upper >= count) { next.hide(); } else { next.show(); };
-					if(lower >= 1) { prev.show(); } else { prev.hide(); };
+					if(upper >= count) { next.hide(); } else { next.show(page); };
+					if(lower >= 1) { prev.show(page); } else { prev.hide(); };
 				};
 			});	
 			$('li','#'+ options.controls).removeClass(options.current);
@@ -63,8 +63,8 @@
 		};
 		
 		function auto(){
-			if(options.loop) if(upper >= count){ page=0; show(); }
-			if(upper < count){ page++; show(); }				
+			if(options.loop) if(upper >= count){ page=0; show(page); }
+			if(upper < count){ page++; show(page); }				
 		};
 		
 		this.each(function(){ 
@@ -86,7 +86,7 @@
 							ev.stopPropagation();
 							clicked = true;
 							page--;
-							show();
+							show(page);
 						});
 				};
 				
@@ -99,7 +99,7 @@
 							ev.stopPropagation();
 							clicked = true;
 							page = $(this).attr('data-index');
-							show();
+							show(page);
 						});					
 					};				
 				};
@@ -113,14 +113,15 @@
 							ev.stopPropagation();
 							clicked = true;			
 							page++;
-							show();
+							show(page);
 							return false;
 						});
 				};
-			
-				show();
+		
+				show(page);
+				
 			};
-		});	
+		});
 		
 	};	
 

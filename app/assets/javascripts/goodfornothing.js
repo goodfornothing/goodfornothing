@@ -23,6 +23,10 @@ $(document).ready(function(){
 		if(input.val()!='') { $(input.siblings('label')[0]).hide(); }
 		
 	});
+	
+	$('.field_with_errors input, .field_with_errors textarea').bind('focus',function(ev){
+		$(this).siblings('.error').hide();
+	});
 
 	// Smooth scroll inline links
 	$('a[href*=#]').click(function() {
@@ -121,8 +125,16 @@ $(document).ready(function(){
 	$('.challenge_panel .tip').tooltip({ offset: [-3, 55] });
 	$('.avatar.tip').tooltip({ offset: [-4, -12] });
 	
-	// Registration form
-	$('form.slides .fields').easyPaginate({ step: 1 });
+	// Paginated forms
+	page = 1;
+	$('form.slides .fields fieldset').each(function(i,el){
+		if($(el).find('.field_with_errors').length>0){
+			page = i+1;
+			return false;
+		}
+	});
+	
+	$('form.slides .fields').easyPaginate({ step: 1, startPage: page });
 	$('form.slides').append($('#pagination'))
 	$('#pagination li').not('.next, .prev').addClass('page_links')
 	

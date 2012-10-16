@@ -23,7 +23,7 @@ You can check your `trill` URLs for life by running `rake trills:ping` daily. Ev
 
 Thar includes an ActiveRecord extension to make things commentable upon:
 
-`app/model/views/show.html`:
+`app/model/views/show.html`
 
     <%= 
 	    render :partial => "comments/panel", :locals => { 
@@ -35,6 +35,9 @@ Thar includes an ActiveRecord extension to make things commentable upon:
 `app/models/model.rb`
 
     acts_as_commentable
+
+	# ...or call it something else
+	acts_as_commentable :label => "Ideas", :title => "Tell us yer ideas!"
 
 `config/routes.rb`
 

@@ -12,9 +12,15 @@
 			<p class="meta"><span>Where?</span> <%= link_to @social.location, "https://maps.google.co.uk/maps?q=#{@social.location},+%20#{@social.chapter.title}" %></p>
 		</div>
 		<% end %>
-	
-		<%= simple_format(@social.description).html_safe unless @social.description.nil? %>
-	
+		
+		<% unless @social.description.nil? %>
+			<% if @social.description.is_json? %>
+			<%= render_sir_trevor(@social.description) %>
+			<% else %>
+			<%= simple_format(@social.description).html_safe %>
+			<% end %>
+		<% end %>
+		
 		<p>See you there! <br /><em><%= @social.chapter.users.crew.map(&:short_name).to_sentence %></em></p>
 
 	</article>

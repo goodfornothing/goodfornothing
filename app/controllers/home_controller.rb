@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 	def index
 	  
 	  @update = Post.order("created_at DESC").first
-	  @challenge = Challenge.active.find_by_featured(true)
+	  @challenge = Challenge.activated.find_by_featured(true)
 	  
 	  @member_count = User.count
 	  @venture_count = Venture.count

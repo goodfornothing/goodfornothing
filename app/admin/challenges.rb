@@ -10,7 +10,7 @@ ActiveAdmin.register Challenge do
   filter :gig
   filter :venture
   
-	scope :active, :default => true
+	scope :activated, :default => true
 	scope "User Submitted" do 
 		Challenge.inactive
 	end

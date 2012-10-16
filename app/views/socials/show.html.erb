@@ -4,7 +4,7 @@
 		
 		<h1><%= @social.name %></h1>
 		<% if @social.start_time %>
-		<time>Join us on <%= @social.start_time.to_formatted_s(:article) %></time>
+		<time>Join us on <%= @social.start_time.to_formatted_s(:article) %> at <%= @social.start_time.strftime('%H:%M') %></time>
 		<% end %>
 		
 		<% if @social.location? %>

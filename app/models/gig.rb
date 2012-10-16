@@ -23,7 +23,7 @@ class Gig < ActiveRecord::Base
 	mount_uploader :poster, PosterUploader
 	
 	accepts_nested_attributes_for :slots
-	
+		
 	def create_generic_slot
 	  Slot.create!(:gig_id => self.id)
   end

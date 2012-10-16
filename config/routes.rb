@@ -55,7 +55,7 @@ Goodfornothing::Application.routes.draw do
 	  end
 	  member do 
 	    get "attend"
-	  end
+	  end  
 	end
 	
 	resources :socials, :only => [:show] do

@@ -19,6 +19,29 @@ By default the application uses carrierwave and S3 for image storage. You'll nee
 
 You can check your `trill` URLs for life by running `rake trills:ping` daily. Every time a bookmark fails to respond it'll be given a strike, two strikes and it'll be automatically unpublished. A strike is deducted for every active response.
 
+#### Making something commentable
+
+Thar includes an ActiveRecord extension to make things commentable upon:
+
+`app/model/views/show.html`:
+
+    <%= 
+	    render :partial => "comments/panel", :locals => { 
+		    :comments => @modelName.comments, 
+		    :commentable => @modelName
+	    } 
+    %>
+
+`app/models/model.rb`
+
+    acts_as_commentable
+
+`config/routes.rb`
+
+    resources :model do
+	  resources :comments 
+	end
+
 ## Datum factories
 
 #### Wordpress

@@ -49,7 +49,7 @@
 		<p>Contribute in any way you can; share an idea or just get stuck in to the brief &ndash; maybe team up with some colleagues? &ndash; then come back share your work with the community.</p>
 		
 		<div class="panel_forms">
-			<%= render :partial => "comments/form", :locals => { :comment => Comment.new, :commentable => @challenge } if @challenge.open? %>
+			<%= render :partial => "comments/form", :locals => { :comment => Comment.new, :commentable => @challenge } if @challenge.open_for_comment? %>
 			<%= render :partial => "contributions/form" if @challenge.open_to_contributions? %>	
 		</div>
 	

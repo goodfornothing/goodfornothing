@@ -3,8 +3,6 @@ class Social < ActiveRecord::Base
   scope :past, where("start_time <= ?", Time.now)
   scope :future, where("start_time >= ?", Time.now)
 
-  just_define_datetime_picker :start_time, :add_to_attr_accessible => true
-
   attr_accessible :chapter_id, :description, :location, :title, :slots_attributes, :open
 
 	has_many :comments, :as => :commentable
@@ -13,24 +11,18 @@ class Social < ActiveRecord::Base
 	belongs_to :chapter
 	
 	after_create :create_generic_slot
-	
 	validates_presence_of :chapter_id, :start_time
 	accepts_nested_attributes_for :slots
+	  
+	extend FriendlyId
+  friendly_id :start_time, use: :history
+	just_define_datetime_picker :start_time, :add_to_attr_accessible => true
 	
+  acts_as_commentable
+
 	def create_generic_slot
 	  Slot.create!(:social_id => self.id)
   end
-  
-	extend FriendlyId
-  friendly_id :start_time, use: :history
-
-	def commentable_label
-		"Comment"
-	end
-	
-	def commentable_title
-		"Post a comment"
-	end
 
 	def name
 		if self.title.present?

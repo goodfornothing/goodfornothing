@@ -1,10 +1,10 @@
-<% if commentable.open? %>
+<% if commentable.open_for_comment? %>
 
 	<%= render :partial => "comments/form", :locals => { :comment => Comment.new, :commentable => commentable } %>
 	
 <% end %>
 
-<% if commentable.open? || commentable.comments.any? %>
+<% if commentable.open_for_comment? || commentable.comments.any? %>
 
 <ul class="contributions" id="contributions">
 	<% if comments.any? %>

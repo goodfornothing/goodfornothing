@@ -40,6 +40,8 @@ ActiveAdmin.register Social do
       f.input :start_time, :label => "Date and Time", :as => :just_datetime_picker
       f.input :location, :hint => "Enter the street address of your venue, you don't need to include a city or country"
 			f.input :title, :hint => "Optional, for socials that are themed in some way"
+		end
+		f.inputs "Description" do
     	if social.new_record? || social.description.is_json?
         f.sir_trevor_text_area :description
       else 

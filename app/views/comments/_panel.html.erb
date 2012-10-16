@@ -1,7 +1,12 @@
-<% if commentable.open_for_comment? %>
+<% if commentable.open_for_comment? && user_signed_in? %>
 
 	<%= render :partial => "comments/form", :locals => { :comment => Comment.new, :commentable => commentable } %>
 	
+<% elsif commentable.open_for_comment? && !user_signed_in?  %>
+	
+	<h2><%= commentable.commentable_title %></h2>
+	<p><%= link_to "Login", login_path(:next => [commentable]) %> or <%= link_to "join the community", register_path(:next => [commentable]) %> to start sharing.</p>
+
 <% end %>
 
 <% if commentable.open_for_comment? || commentable.comments.any? %>

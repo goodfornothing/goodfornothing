@@ -45,7 +45,7 @@ Goodfornothing::Application.routes.draw do
 		member do
 			get "subscribe"
 		end
-    resources :ideas
+    resources :comments
     resources :contributions
   end
 

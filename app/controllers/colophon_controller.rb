@@ -32,7 +32,7 @@ class ColophonController < ApplicationController
 	  completion_percentages = User.active.map(&:profile_completion)
 	  @members['completion_average'] = (completion_percentages.inject{ |sum, el| sum + el }.to_f / completion_percentages.size).to_i
 	  
-	  @members['shared_ideas'] = ((User.where('id in (?)', Idea.all.map(&:user_id).join(',')).count.to_f / @members['active'].to_f) * 100).round
+	  @members['shared_comments'] = ((User.where('id in (?)', Comment.all.map(&:user_id).join(',')).count.to_f / @members['active'].to_f) * 100).round
 	  @members['shared_contributions'] = ((User.where('id in (?)', Contribution.all.map(&:user_id).join(',')).count.to_f / @members['active'].to_f) * 100).round
 	  @members['attended_gigs'] = ((Gig.all.map{ |g| g.users.map(&:id) if g.users.any? }.compact.flatten.uniq.count.to_f / @members['active'].to_f) * 100).round
 	  @members['attended_socials'] = ((Social.all.map{ |s| s.users.map(&:id) if s.users.any? }.compact.flatten.uniq.count.to_f / @members['active'].to_f) * 100).round
@@ -45,7 +45,7 @@ class ColophonController < ApplicationController
 	  @crew['socials'] = Social.all.count
 	  
 	  @users = {}
-	  @users['ideas'] = Idea.all.count
+	  @users['comments'] = Comment.all.count
 	  @users['contributions'] = Contribution.all.count
 	  @users['gigs_signed_up'] = Slot.where('gig_id IS NOT NULL').map{ |s| s.users.map(&:id) if s.users.any? }.compact.flatten.uniq.count
 	  @users['partner_requests'] = Partner.inactive.count

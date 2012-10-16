@@ -1,6 +1,6 @@
-block = '<%= escape_javascript( render( :partial => "comments/block", :locals => { :comment => @comment } ) ) %>';
-$('#comments').prepend("<div style='display: none'>"+block+"</div>");
-scrollToElement($('#comments')[0]);
-$('#comments div:first-child').slideDown();
+block = '<%= escape_javascript( render( :partial => "comments/block", :locals => { :comment => @comment, :commentable => @commentable } ) ) %>';
+$('#contributions').prepend("<li class='contribution' style='display: none'>"+block+"</li>");
+scrollToElement($('#contributions')[0]);
+$('#contributions li:first-child').slideDown();
 $('#new_comment')[0].reset();
 $('#new_comment textarea').blur();

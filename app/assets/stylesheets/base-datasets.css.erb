@@ -381,16 +381,9 @@
 	
 /* Form panels */
 
-	.panel_forms {
-		width: 100%;
-		overflow: hidden;
-	}
-
 	form.form_panel {
-		width: 270px;
-		float: left;
-		margin-right: 20px;
 		padding: 20px;
+		width: 600px;
 		background: #9adada;
 		color: #ffffff;
 		text-align: center;
@@ -400,10 +393,6 @@
 		background-image: url(<%= asset_path "blocks/form_top_left.gif" %>),
 											url(<%= asset_path "blocks/form_top_right.gif" %>),
 											url(<%= asset_path "blocks/form_bottom_right.gif" %>);
-	}
-
-	form.form_panel:last-child {
-		margin: 0;
 	}
 	
 	form.form_panel h2 {
@@ -450,14 +439,15 @@
 	form.form_panel .url input,
 	form.form_panel .password input,
 	form.form_panel .integer input {
-		width: 235px;
+		width: 524px;
 		font-size: 14px;
 		margin-bottom: 15px;
 		padding: 11px 18px 11px;
 	}
 	
 	form.form_panel textarea {
-		width: 235px;
+		width: 560px;
+		height: 80px;
 		font-size: 14px;
 		margin-bottom: 0;
 		padding: 13px 15px 11px;	
@@ -506,26 +496,36 @@
 		margin-bottom: 6px;
 	}
 	
-	form.form_panel.single_panel {
+	.panel_forms {
 		width: 100%;
-		float: none;
+		overflow: hidden;
 	}
 	
-	form.form_panel.single_panel .string input, 
-	form.form_panel.single_panel .email input,
-	form.form_panel.single_panel .url input,
-	form.form_panel.single_panel .password input,
-	form.form_panel.single_panel .integer input {
+	.panel_forms form.form_panel {
+		width: 270px;
+		float: left;
+		margin-right: 20px;
+	}
+	
+	.panel_forms form.form_panel:last-child {
+		margin: 0;
+	}
+	
+	.panel_forms form.form_panel .string input, 
+	.panel_forms form.form_panel .email input,
+	.panel_forms form.form_panel .url input,
+	.panel_forms form.form_panel .password input,
+	.panel_forms form.form_panel .integer input {
 		width: 235px;
 		font-size: 14px;
 		margin-bottom: 15px;
 		padding: 11px 18px 11px;
 	}
 	
-	form.form_panel.single_panel textarea {
-		width: 600px;
+	.panel_forms form.form_panel textarea {
+		width: 235px;
 		font-size: 14px;
 		margin-bottom: 0;
 		padding: 13px 15px 11px;
-		height: 100px;
+		height: auto;
 	}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015124455) do
+ActiveRecord::Schema.define(:version => 20121016085715) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -51,11 +51,12 @@ ActiveRecord::Schema.define(:version => 20121015124455) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
     t.integer  "user_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "challenge_id"
   end
 
   create_table "contributions", :force => true do |t|
@@ -104,14 +105,6 @@ ActiveRecord::Schema.define(:version => 20121015124455) do
     t.string   "poster"
     t.string   "logo"
     t.string   "slug"
-  end
-
-  create_table "ideas", :force => true do |t|
-    t.text     "body"
-    t.integer  "user_id"
-    t.integer  "challenge_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
   end
 
   create_table "issues", :force => true do |t|

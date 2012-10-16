@@ -43,29 +43,26 @@
 		<h2>How can I help?</h2>
 		<p>You can make a start on this challenge simply by contributing ideas, or get stuck right in and share your work with the community here. <%= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "become a member", register_path(:next => challenge_path(@challenge)) %> to get started!</p>
 		
-	<% else %>
+	<% elsif (@challenge.open? || @challenge.open_to_contributions?) && user_signed_in? %>
 	
+		<h2>This challenge is open to all</h2>
+		<p>Contribute in any way you can; share an idea or just get stuck in to the brief &ndash; maybe team up with some colleagues? &ndash; then come back share your work with the community.</p>
+		
 		<div class="panel_forms">
-			
-			<% if (@challenge.open? && @challenge.open_to_contributions?) %>
-			<h2>This challenge is open to all</h2>
-			<p>Contribute in any way you can; share an idea or just get stuck in to the brief &ndash; maybe team up with some colleagues? &ndash; then come back share your work with the community.</p>
-			<% end %>
-			
-			<%= render :partial => "ideas/form" if @challenge.open? %>
-			<%= render :partial => "contributions/form" if @challenge.open_to_contributions? %>
+			<%= render :partial => "comments/form", :locals => { :comment => Comment.new, :commentable => @challenge } if @challenge.open? %>
+			<%= render :partial => "contributions/form" if @challenge.open_to_contributions? %>	
 		</div>
 	
 	<% end %>
-	
+		
 	<ul class="contributions" id="contributions">
 		<% if @user_content.any? %>
 			<% @user_content.each do |user_content| %>
 				<li class="contribution">
 					<% if user_content.class == Contribution %>
 						<%= render :partial => "contributions/block", :locals => { :contribution => user_content } %>
-					<% elsif user_content.class == Idea %>
-						<%= render :partial => "ideas/block", :locals => { :idea => user_content } %>
+					<% elsif user_content.class == Comment %>
+						<%= render :partial => "comments/block", :locals => { :comment => user_content, :commentable => @challenge, :title => "Idea" } %>
 					<% end %>
 				</li>
 			<% end %>

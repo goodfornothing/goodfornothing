@@ -22,7 +22,6 @@ class User < ActiveRecord::Base
   has_many :posts
 
   has_many :comments
-  has_many :ideas
   has_many :contributions
 
   belongs_to :chapter
@@ -83,7 +82,7 @@ class User < ActiveRecord::Base
   end
   
   def working_on
-    (Challenge.includes(:contributions,:ideas).where('contributions.user_id = ? or ideas.user_id = ?',self.id,self.id) + self.challenges).flatten.uniq
+    (Challenge.includes(:contributions,:comments).where('contributions.user_id = ? or comments.user_id = ?',self.id,self.id) + self.challenges).flatten.uniq
   end
   
   def offline_encountered
@@ -91,7 +90,7 @@ class User < ActiveRecord::Base
   end
   
   def online_encountered
-    User.active.includes(:ideas,:contributions).where('users.id != ? and (contributions.challenge_id in (?) or ideas.challenge_id in (?))', self.id, self.challenges.map(&:id).join(','), self.challenges.map(&:id).join(','))
+    User.active.includes(:comments,:contributions).where('users.id != ? and (contributions.challenge_id in (?) or (comments.commentable_id in (?) && comments.commentable_type = "Challenge"))', self.id, self.challenges.map(&:id).join(','), self.challenges.map(&:id).join(','))
   end
   
   def member_reach

@@ -7,9 +7,9 @@ class Challenge < ActiveRecord::Base
 	belongs_to :venture
 	belongs_to :partner
 	
-	has_and_belongs_to_many :issues		
+	has_and_belongs_to_many :issues
 	
-	has_many :ideas
+	has_many :comments, :as => :commentable
 	has_many :contributions
 	has_and_belongs_to_many :users
 	
@@ -25,8 +25,16 @@ class Challenge < ActiveRecord::Base
   
   before_save :assert_featured
 		
+	def commentable_label
+		"Idea"
+	end
+	
+	def commentable_title
+		"Your ideas"
+	end
+	
 	def team
-    (User.includes(:contributions,:ideas).where('contributions.challenge_id = ? or ideas.challenge_id = ?',self.id,self.id) + self.users).flatten.uniq
+    (User.includes(:contributions,:comments).where('contributions.challenge_id = ? or (comments.commentable_id = ? && comments.commentable_type = "Challenge")',self.id,self.id) + self.users).flatten.uniq
   end
   
   def assert_featured

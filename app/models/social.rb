@@ -24,6 +24,14 @@ class Social < ActiveRecord::Base
 	extend FriendlyId
   friendly_id :start_time, use: :history
 
+	def commentable_label
+		"Comment"
+	end
+	
+	def commentable_title
+		"Post a comment"
+	end
+
 	def name
 		if self.title.present?
 			self.title

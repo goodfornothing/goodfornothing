@@ -1,0 +1,19 @@
+<% if commentable.open? %>
+
+	<%= render :partial => "comments/form", :locals => { :comment => Comment.new, :commentable => commentable } %>
+	
+<% end %>
+
+<% if commentable.open? || commentable.comments.any? %>
+
+<ul class="contributions" id="contributions">
+	<% if comments.any? %>
+		<% comments.each do |comment| %>
+			<li class="contribution">
+				<%= render :partial => "comments/block", :locals => { :comment => comment, :commentable => commentable } %>
+			</li>
+		<% end %>
+	<% end %>
+</ul>
+
+<% end %>

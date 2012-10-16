@@ -19,10 +19,12 @@
 
 	</article>
 	
-	<% if @social.open? %>
-		<%= render :partial => "comments/form", :locals => { :comment => Comment.new, :commentable => @social } %>
-		<%= render :partial => "comments/list", :locals => { :comments => @social.comments, :commentable => @social } %>
-	<% end %>
+	<%= 
+		render :partial => "comments/panel", :locals => { 
+			:comments => @social.comments, 
+			:commentable => @social
+		} 
+	%>
 	
 </section>
 

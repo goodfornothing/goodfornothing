@@ -64,19 +64,6 @@
 					<% end %>
 			
 				</div>
-				
-				<% if @member.talents.any? %>
-				<ul class="talents">
-					<% @member.talents.each do |talent| %>
-					<li class="<%= talent.skill.title.underscore %>"><%= talent.level %><sub>/10</sub> <span><%= talent.skill.title %></span></li>
-					<% end %>
-				</ul>
-				<% end %>
-				
-				<% if @member.brings? %>
-					<h3>Other special skills</h3>
-					<p><%= @member.brings %></p>
-				<% end %>
 		
 				<!--<p class="chapter">
 				<%# if @member.chapter %>
@@ -108,7 +95,6 @@
 				
 				<% if signed_in_as_owner?(@member) && (@completion >= 55 || params[:welcome]) %>
 					<p class="more"><%= link_to "Edit your profile", edit_user_registration_path %></p>
-					<p class="more"><%= link_to "Update your talents", talents_path %></p>
 				<% elsif signed_in_as_owner?(@member) && (!params[:welcome] && @completion < 55) %>
 					<p><em>We'd love to get to know you better. Why not take a few seconds to tell the community more about yourself; the more you give, the more you'll get back, and the better we'll get at gathering amazing folk to turbo-charge challenges.</em></p>
 					<p class="call"><%= link_to "Tell us more about yourself", moar_path %></p>
@@ -152,9 +138,40 @@
 				<% if signed_in_as_owner?(@member) && @member.gigs.empty? %>
 				<p>We're not sure if you've taken part in any gigs, <%= link_to "let the community know", activity_path %> if you have!</p>	
 				<% elsif signed_in_as_owner?(@member) %>
-				<p>Been to more than that? <%= link_to "Add gigs", activity_path %> to your activity stream.</p>
+				<p>Been to more gigs? <%= link_to "Add gigs", activity_path %> to your activity stream.</p>
 				<% end %>
 	
+			</div>
+			
+			<div class="panel">
+				
+				<h2><%= contextual_reference(@member, "your").titlecase %> interests and talents</h2>
+				
+				<% if @member.talents.any? %>
+				<ul class="talents">
+					<% @member.talents.each do |talent| %>
+						<% if talent.skill.title == "Think" %>
+						<li class="<%= talent.skill.title.underscore %>">
+							<div class="fill" style="width: <%= (talent.level.to_f/10)*100 %>%;">Make</div>
+							<div class="fill" style="width: <%= 100-((talent.level.to_f/10)*100) %>%;">Think</div>
+							<div class="mask"></div>
+						</li>
+						<% else %>
+						<li class="<%= talent.skill.title.underscore %>"><%= talent.level %><sub>/10</sub> <span><%= talent.skill.title %></span></li>
+						<% end %>
+					<% end %>
+				</ul>
+				<% end %>
+				
+				<% if @member.brings? %>
+					<h3>Other special skills</h3>
+					<p><%= @member.brings %></p>
+				<% end %>
+				
+				<% if signed_in_as_owner?(@member) %>
+					<p class="more"><%= link_to "Update your talents", talents_path %></p>
+				<% end %>
+				
 			</div>
 		
 		</div>

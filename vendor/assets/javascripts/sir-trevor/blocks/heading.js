@@ -17,11 +17,6 @@ SirTrevor.Blocks.Heading = SirTrevor.Block.extend({
 
 	loadData: function(data){
      this.$$('.text-block').html(data.text);
-   },
-  
-  // Function; Executed once content has been pasted into the block or any input field with the class 'paste-block'
-  // The default onContentPasted function strips all the HTML from a text-block, as shown here.
-  onContentPasted: function(ev) {  
   }
 
 });

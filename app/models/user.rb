@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   friendly_id :name, use: :slugged
 	
 	def crew?
-	  self.role = "admin" || self.role == "leader"
+	  self.role == "admin" || self.role == "leader"
 	end
 	
 	def short_name

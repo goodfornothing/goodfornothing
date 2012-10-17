@@ -36,8 +36,14 @@ Thar includes an ActiveRecord extension to make things commentable upon:
 
     acts_as_commentable
 
-	# ...or call it something else
+...or call it something else for all class instances in `app/models/model.rb`
+
 	acts_as_commentable :label => "Ideas", :title => "Tell us yer ideas!"
+	
+...or do this at the instance level in `app/controllers/model_controller.rb`
+
+    model.commentable_title = "Tell us yer ideas!"
+	model.commentable_label = "Ideas"
 
 `config/routes.rb`
 

@@ -7,10 +7,13 @@ ActiveAdmin.register User do
   
   menu :priority => 5, :label => "Members", :parent => "Community", :if => proc{ can?(:manage, User) }  
   
+	filter :brings, :label => "Special skills"
+	filter :chapter
+	
   filter :activated, :as => :select
   filter :name
   filter :email
-  
+	
   scope :all, :default => true
   scope :admins
   scope :chapter_leaders do
@@ -74,12 +77,12 @@ ActiveAdmin.register User do
             "Chapter Leader"
           elsif user.role == "owner"
             "Cause Owner"
-          else
+          elsif user.role.present?
             user.role.titlecase
           end
         end
         row "Member of chapter" do
-          user.chapter.title
+          user.chapter.title if user.chapter.present?
         end
         row "Activated?" do
           (user.activated) ? "Yes" : "No"
@@ -92,6 +95,9 @@ ActiveAdmin.register User do
         row :issues do 
           user.issues.map(&:title).join(', ')
         end
+				row "Special skills" do
+					user.brings if user.brings.present?
+				end
         row :reasons_for_joining
       end
     end

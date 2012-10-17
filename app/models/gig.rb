@@ -27,8 +27,8 @@ class Gig < ActiveRecord::Base
 	def create_generic_slot
 	  Slot.create!(:gig_id => self.id)
   end
-  
-	extend FriendlyId
+
+  extend FriendlyId
   friendly_id :title, use: :history
   
   def past?

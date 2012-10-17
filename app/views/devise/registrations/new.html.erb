@@ -18,7 +18,7 @@
 		
 			<fieldset class="slide involvement">
 			
-				<legend>Where do your interests lie?</legend>
+				<legend>Your interests and talents</legend>
 				<% if @skills.any? %>
 
 					<% @skills.each do |skill| %>
@@ -32,6 +32,7 @@
 					<% end %>
 				
 				<% end %>
+								
 				<%= image_tag "illustrations/laptop.png", :class => "slide_illustration" %>
 			
 			</fieldset>

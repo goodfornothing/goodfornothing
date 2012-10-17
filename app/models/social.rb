@@ -15,21 +15,25 @@ class Social < ActiveRecord::Base
 	accepts_nested_attributes_for :slots
 	  
 	extend FriendlyId
-  friendly_id :start_time, use: :history
+  friendly_id :custom_slug, use: :history
 	just_define_datetime_picker :start_time, :add_to_attr_accessible => true
 	
   acts_as_commentable :title => "What's your Better Problem?", :label => "Problem"
-
-	def create_generic_slot
-	  Slot.create!(:social_id => self.id)
-  end
-
+	
 	def name
 		if self.title.present?
 			self.title
 		else
 			"A social in #{self.chapter.title}"
 		end
+	end
+	
+	def create_generic_slot
+	  Slot.create!(:social_id => self.id)
+  end
+
+	def custom_slug
+		(self.title.present?) ? self.start_time : self.title
 	end
   	
 end

@@ -13,15 +13,16 @@ module ActsAsCommentable
 				(self.respond_to?('open')) ? self.open : true
 			end
 
-			private
+			attr_writer :commentable_label
+			attr_writer :commentable_title
 			
-				define_method :commentable_label do
-					_label
-				end
-
-				define_method :commentable_title do
-					_title
-				end
+			define_method :commentable_label do
+				@commentable_label || _label
+			end
+			
+			define_method :commentable_title do
+				@commentable_title || _title
+			end
 		
 		end
 		

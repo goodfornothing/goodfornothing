@@ -50,9 +50,12 @@
 #profile .panel {
 	background: #ffffff;
 	padding: 22px 20px;
-	width: 410px;
-	min-height: 470px;
+	width: 420px;
 	position: relative;
+}
+
+#profile .panel:nth-child(2) {
+	float: right;
 }
 
 #profile .panel h3 {
@@ -98,7 +101,6 @@
 	padding-bottom: 10px;
 	overflow: hidden;
 	position: relative;	
-	
 }
 
 #profile .panel #profile_avatar input {
@@ -193,20 +195,19 @@
 #profile .talents {
 	list-style-type: none;
 	text-align: center;
-	padding: 0 0 83px;
+	padding: 12px 0 45px;
 }
 
 #profile .talents li {
 	display: inline-block;
 	padding: 0;
 	width: 99px;
-	height: 85px;
+	height: 125px;
 	text-align: center;
 	font-size: 34px;
 	color: #ffffff;
 	line-height: 85px;
 	font-family: "Good for Nothing";
-	background-color: #9adada;
 	background-repeat: no-repeat;
 	background-position: top left;
 	margin-right: 60px;
@@ -232,7 +233,36 @@
 
 #profile .talents .design { width: 71px; background-image: url(<%= asset_path "icons/design.gif"%>); }
 #profile .talents .code { width: 87px; background-image: url(<%= asset_path "icons/code.gif"%>); }
-#profile .talents .think { background-image: url(<%= asset_path "icons/think.gif"%>); }
+
+#profile .talents .think { 
+	width: 100px;
+	position: relative;
+	height: 125px;
+}
+
+#profile .talents .fill {
+	font-size: 13px;
+	width: 50%;
+	float: left;
+	height: 80px;
+	padding: 20px 0 25px;
+	background: #9adada;
+	font-family: "Good for Nothing";
+	text-align: center;
+}
+
+#profile .talents .fill:nth-child(2) {
+	background: #72bbbb;
+}
+
+#profile .talents li div.mask {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(<%= asset_path "icons/think_make_mask.png"%>); 
+}
 
 #profile .icon_members {
 	text-align: center;

@@ -1,8 +1,11 @@
 class Post < ActiveRecord::Base
 
   scope :updates, where(:gfn_update => true)
+	scope :published, where(:published => true)
 
-  attr_accessible :excerpt, :title, :body, :user_id, :chapter_id, :category_id, :chapter_id, :user_id, :hero_image, :issue_id, :gfn_update
+  attr_accessible :excerpt, :title, :body, :user_id, :chapter_id, 
+									:category_id, :chapter_id, :user_id, :hero_image, 
+									:issue_id, :gfn_update, :published
   
 	belongs_to :chapter
 	belongs_to :user

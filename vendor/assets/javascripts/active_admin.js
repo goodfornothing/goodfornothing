@@ -23,7 +23,7 @@ $(document).ready(function(){
 		  	
 				var editor = new SirTrevor.Editor({ 
 					el: $('.sir-trevor-area'),
-					blockTypes: ["Markdown", "Text", "Heading", "Quote", "Ul", "Tweet", "Image", "Video"]
+					blockTypes: ["Text", "Heading", "Quote", "Ul", "Tweet", "Image", "Video"]
 				});
 								
 			}

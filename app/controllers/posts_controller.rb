@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 	end
 	
 	def index
-	  @updates = Post.updates.order("created_at DESC")
+	  @updates = Post.updates.published.order("created_at DESC")
 	end
 	
 	private 

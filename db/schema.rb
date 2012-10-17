@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121016085715) do
+ActiveRecord::Schema.define(:version => 20121017160116) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -170,6 +170,7 @@ ActiveRecord::Schema.define(:version => 20121016085715) do
     t.string   "hero_image"
     t.string   "slug"
     t.boolean  "gfn_update",   :default => false
+    t.boolean  "published",    :default => true
   end
 
   add_index "posts", ["slug"], :name => "index_conversation_posts_on_slug", :unique => true

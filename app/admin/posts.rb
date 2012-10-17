@@ -19,6 +19,7 @@ ActiveAdmin.register Post do
 	index do
     column("Title") { |post| link_to post.title, hive_post_path(post) }
     column("Author") { |post| post.user.name unless post.user.nil? }
+    column("State") { |post| status_tag((post.published) ? "Published" : "Unpublished") }
     column :created_at
     column "" do |post|
       "#{link_to "Edit", edit_hive_post_path(post)} &nbsp; #{link_to "Delete", hive_post_path(post), :method => "delete", :confirm => "Are you sure you wish to delete this post?"}".html_safe
@@ -26,15 +27,18 @@ ActiveAdmin.register Post do
   end
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
+		f.inputs "State" do
+			f.input :published, :label => "Publish this post now?"
+		end
     f.inputs "Details" do
       if current_user.role == "admin"
         f.input :chapter
       else
         f.input :chapter, :value => current_user.chapter_id, :input_html => { :disabled => "disabled" }
       end
-      f.input :issue
+      f.input :issue, :label => "Add to Warble stream?"
       if current_user.role == "admin" || current_user.role == "leader"
-        f.input :gfn_update, :label => "Is this a Good for Nothing update?"
+        f.input :gfn_update, :label => "Post in Good for Nothing updates?"
       end
       f.input :user_id, :as => :hidden, :value => current_user.id
     end

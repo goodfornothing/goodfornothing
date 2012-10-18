@@ -5,7 +5,6 @@ class Social < ActiveRecord::Base
 
   attr_accessible :chapter_id, :description, :location, :title, :slots_attributes, :open
 
-	has_many :comments, :as => :commentable
 	has_many :slots
   has_many :users, :through => :slots
 	belongs_to :chapter
@@ -33,7 +32,7 @@ class Social < ActiveRecord::Base
   end
 
 	def custom_slug
-		(self.title.present?) ? self.start_time : self.title
+		(self.title.present?) ? self.title : self.start_time
 	end
   	
 end

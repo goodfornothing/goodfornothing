@@ -23,6 +23,8 @@
 
 	</article>
 	
+	<a id="comments"></a>
+	
 	<%= 
 		render :partial => "comments/panel", :locals => { 
 			:comments => @social.comments, 
@@ -35,11 +37,9 @@
 <aside id="secondary_content">
 	
 	<% if @social.open? && @social.description.size > 1500 %>
-		<p class="icon_gigs"><%= link_to @social.commentable_title, "#new_comment" %></p>
+		<p class="icon_gigs"><%= link_to @social.commentable_title, "#comments" %></p>
 	<% end %>
-	
-	<h2>Who<%= (user_signed_in? && current_user.is_attending_social?(@social) ? " else is" : "'s") %> coming?</h2>
-	
+		
 	<% if !@social.start_time.future? %>
 		<p>This social is happening right now, you can no longer register, but feel free to just drop in and say hello anyway!</p>
 	<% else %>

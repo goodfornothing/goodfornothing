@@ -3,13 +3,11 @@
 	<article class="event">
 		
 		<h1><%= @social.name %></h1>
-		<% if @social.start_time %>
-		<time>Join us on <%= @social.start_time.to_formatted_s(:article) %> at <%= @social.start_time.strftime('%H:%M') %></time>
-		<% end %>
 		
-		<% if @social.location? %>
+		<% if @social.location? || @social.start_time %>
 		<div class="abstract">
-			<p class="meta"><span>Where?</span> <%= link_to @social.location, "https://maps.google.co.uk/maps?q=#{@social.location},+%20#{@social.chapter.title}" %></p>
+			<% if @social.start_time %><p class="meta"><span>When?</span> <%= @social.start_time.to_formatted_s(:article) %> at <%= @social.start_time.strftime('%H:%M') %></p><% end %>
+			<% if @social.location? %><p class="meta"><span>Where?</span> <%= link_to @social.location, "https://maps.google.co.uk/maps?q=#{@social.location},+%20#{@social.chapter.title}" %></p><% end %>
 		</div>
 		<% end %>
 		
@@ -35,13 +33,17 @@
 </section>
 
 <aside id="secondary_content">
-		
+	
+	<% if @social.open? && @social.description.size > 1500 %>
+		<p class="icon_gigs"><%= link_to @social.commentable_title, "#new_comment" %></p>
+	<% end %>
+	
+	<h2>Who<%= (user_signed_in? && current_user.is_attending_social?(@social) ? " else is" : "'s") %> coming?</h2>
+	
 	<% if !@social.start_time.future? %>
-		<h2>It's happening!</h2>
 		<p>This social is happening right now, you can no longer register, but feel free to just drop in and say hello anyway!</p>
 	<% else %>
 		<% if user_signed_in? && current_user.is_attending_social?(@social) %>
-			<h2>You're registered!</h2>
 			<p>You've registered to attend this social, look forward to seeing you!</p>
 			<p class="more"><%= link_to "I can't make it", attend_social_path(@social) %></p>
 			<br />
@@ -49,11 +51,9 @@
 			<% if @social.slots.first.limit.nil? || @social.slots.first.available_slots > 0 %>
 				<p class="cta"><%= link_to "I'm Coming!", attend_social_path(@social, :slot => @social.slots.first) %></p>
 			<% else %>
-				<h2>We're full up for now</h2>
 				<p>Sorry, there are no tickets left for this social, check back later, some may free up!</p>
 			<% end %>
 		<% elsif @social.slots.any? %>
-			<h2>Register to attend</h2>
 			<table class="registration_table">
 				<thead>
 					<tr>
@@ -76,8 +76,6 @@
 		<% end %>
 	<% end %>
 	
-	
-	<h2>Who<%= (user_signed_in? && current_user.is_attending_social?(@social) ? " else is" : "'s") %> coming?</h2>
 	<ul class="avatar_list">
 		
 		<% @social.chapter.users.crew.each do |user| %>

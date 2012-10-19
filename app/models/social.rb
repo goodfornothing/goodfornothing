@@ -2,13 +2,15 @@ class Social < ActiveRecord::Base
 
   scope :past, where("start_time <= ?", Time.now)
   scope :future, where("start_time >= ?", Time.now)
+	scope :feature, where('featured = true')
 
-  attr_accessible :chapter_id, :description, :location, :title, :slots_attributes, :open
+  attr_accessible :chapter_id, :description, :location, :title, :slots_attributes, :open, :featured
 
 	has_many :slots
   has_many :users, :through => :slots
 	belongs_to :chapter
 	
+	before_save :assert_featured
 	after_create :create_generic_slot
 	validates_presence_of :chapter_id, :start_time
 	accepts_nested_attributes_for :slots
@@ -35,4 +37,13 @@ class Social < ActiveRecord::Base
 		(self.title.present?) ? self.title : self.start_time
 	end
   	
+	def assert_featured
+    if self.featured?
+      Social.where('id != ?',self.id).each do |social|
+        social.featured = false
+        social.save!
+      end
+    end
+  end
+
 end

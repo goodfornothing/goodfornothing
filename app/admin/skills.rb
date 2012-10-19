@@ -13,7 +13,7 @@ ActiveAdmin.register Skill do
     render "/hive/shared/help"
   end
   
-  actions :index, :destroy, :edit, :update, :new
+  actions :index, :destroy, :edit, :update, :new, :create
 
   index do 
     column :title

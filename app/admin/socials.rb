@@ -13,7 +13,7 @@ ActiveAdmin.register Social do
   scope :past
   scope :all
   
-  actions :index, :destroy, :edit, :update, :new
+  actions :index, :destroy, :edit, :update, :new, :create
   
   config.clear_sidebar_sections!
   
@@ -28,7 +28,8 @@ ActiveAdmin.register Social do
   end
   
   form :html => { :enctype => "multipart/form-data" } do |f|
-		f.inputs "State" do
+		f.inputs "Options" do
+			f.input :featured, :label => "Featured on homepage?"
 			f.input :open, :label => "Open to user comments?"
 		end
     f.inputs "Details" do
@@ -48,13 +49,15 @@ ActiveAdmin.register Social do
         f.input :description, :input_html => { :rows => 10 }, :hint => "Tell people a little about the format of this social; what should they expect, will they need to bring anything?"
       end
 		end
-		f.inputs "Registration Slots" do
-      f.has_many :slots do |j|
-        j.input :skill
-        j.input :custom_skill
-        j.input :limit
-      end
-    end
+		if !social.new_record?
+			f.inputs "Registration Slots" do			
+	      f.has_many :slots do |j|
+	        j.input :skill
+	        j.input :custom_skill, :label => "... or custom slot type"
+	        j.input :limit
+	      end
+	    end
+		end
     f.buttons
   end
 

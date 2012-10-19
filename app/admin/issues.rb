@@ -9,7 +9,7 @@ ActiveAdmin.register Issue do
    
   config.clear_sidebar_sections!
   
-  actions :index, :destroy, :edit, :update, :new
+  actions :index, :destroy, :edit, :update, :new, :create
   
   sidebar :help do
     render "/hive/shared/help"

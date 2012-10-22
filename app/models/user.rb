@@ -50,14 +50,6 @@ class User < ActiveRecord::Base
 	def short_name
 	  self.name.split(' ')[0]
 	end
-	
-  def is_attending_gig?(gig)
-    self.gigs.include?(gig)
-  end
-  
-  def is_attending_social?(social)
-    self.socials.include?(social)
-  end
   
   def skill_level(skill)
     level = nil

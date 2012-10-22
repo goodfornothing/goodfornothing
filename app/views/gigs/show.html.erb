@@ -34,59 +34,7 @@
 
 <aside id="secondary_content">
 	
-	<% if !@gig.end_time.nil? && (@gig.start_time.past? && @gig.end_time.future?) %>
-		<h2>It's happening!</h2>
-		<p>This gig is happening right now, you can no longer register, but feel free to just drop in and say hello anyway!</p>
-	<% elsif (@gig.start_time.past? && @gig.end_time.nil?) || @gig.end_time.past? %>
-		<% if @gig.challenges.any? %>
-		<h2>Challenge time</h2>
-		<p>This gig has ended but you can still get involved in the challenges.</p>
-		<% end %>
-	<% else %>
-		<% if user_signed_in? && current_user.is_attending_gig?(@gig) %>
-			<h2>You're registered!</h2>
-			<p>You've registered to attend this gig &ndash; look forward to doing some Good for Nothing with you!</p>
-			<p class="more"><%= link_to "I can't make it", attend_gig_path(@gig) %></p>
-			<br />
-		<% elsif @gig.slots.count == 1 && @gig.slots.first.skill.nil? %>
-			<p class="cta"><%= link_to "I'm Coming!", attend_gig_path(@gig, :slot => @gig.slots.first) %></p>
-		<% elsif @gig.slots.any? %>
-			<h2>Register to attend</h2>
-			<table class="registration_table">
-				<thead>
-					<tr>
-						<th>Ticket</th>
-						<th>Slots</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @gig.slots.each do |slot| %>
-					<tr>
-						<td><%= (slot.skill.present?) ? slot.skill.title : (slot.custom_skill.empty?) ? "Open to all" : slot.custom_skill %></td>
-						<td><%= (slot.limit) ? slot.available_slots : "&#8734;".html_safe %></td>
-						<% if slot.limit.nil? || slot.available_slots > 0 %>
-						<td class="btn"><%= link_to "Attend", attend_gig_path(@gig, :slot => slot) %></td>
-						<% end %>
-					</tr>
-					<% end %>
-				</tbody>
-			</table>
-		<% end %>
-	<% end %>
-	
-	<h2>Who's coming?</h2>
-	<ul class="avatar_list">
-			
-		<% if @attendees.any? %>
-			<% @attendees.reverse.each do |user| %>
-				<%= render :partial => "members/avatar", :locals => { :member => user }%>
-			<% end %>
-		<% end %>
-	
-		<% @gig.chapter.users.crew.each do |user| %>
-			<%= render :partial => "members/avatar", :locals => { :member => user }%>
-		<% end %>
-		
-	</ul>
+	<%= render :partial => "events/attend", :locals => { :event => @gig } %>
+	<%= render :partial => "events/attendees", :locals => { :attendees => @gig.attendees }%>
 	
 </aside>

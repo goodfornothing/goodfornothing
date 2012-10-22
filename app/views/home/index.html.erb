@@ -7,7 +7,7 @@
 		<% if @gig.present? || @social.present? %>
 		<div class="event_panel">
 			<% if @gig.present? %>
-			<h3><%= link_to "A gig in #{@gig.chapter.title}", gig_path(@gig) %></h3>
+			<h3><%= link_to @gig.name, gig_path(@gig) %></h3>
 			<p><%= @gig.title %> on the <%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %> of <%= @gig.start_time.strftime('%B') %> in <%= @gig.chapter.title %></p>
 			<% end %>
 			<% if @social.present? %>

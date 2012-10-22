@@ -30,9 +30,9 @@ class MembersController < ApplicationController
     else
       @first_sign_in = (user_signed_in? && params[:welcome].present? && current_user == @member) ? true : false
       @gig = (params[:gig].present?) ? Gig.find(params[:gig]) : nil
-      @completion = @member.profile_completion
+      @completion = @member.profile_completion					
     end
-    
+		
   end
 
 end

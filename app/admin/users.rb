@@ -7,12 +7,9 @@ ActiveAdmin.register User do
   
   menu :priority => 5, :label => "Members", :parent => "Community", :if => proc{ can?(:manage, User) }  
   
-	filter :brings, :label => "Special skills"
 	filter :chapter
-	
-  filter :activated, :as => :select
   filter :name
-  filter :email
+	filter :brings, :label => "Special skills"
 	
   scope :all, :default => true
   scope :admins

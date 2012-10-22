@@ -49,19 +49,15 @@ Goodfornothing::Application.routes.draw do
     resources :contributions
   end
 
+	get ":resource/:id/attend" => "events#attend", :as => "attend"
+
 	resources :gigs, :only => [:show, :index] do
 	  collection do 
 	    match "chapter/:id" => "gigs#index", :as => "chapter"
 	  end
-	  member do 
-	    get "attend"
-	  end  
 	end
 	
 	resources :socials, :only => [:show] do
-	  member do 
-	    get "attend"
-	  end
 		resources :comments
 	end
 		

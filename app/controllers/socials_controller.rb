@@ -2,8 +2,7 @@ class SocialsController < ApplicationController
 
   respond_to :html
   
-  before_filter :fetch_social, :only => [:show, :attend, :attending]
-  before_filter :authenticate_user!, :only => [:attend, :attending]
+  before_filter :fetch_social, :only => [:show]
 
 	def show
 	  
@@ -11,37 +10,16 @@ class SocialsController < ApplicationController
     if request.path != social_path(@social)
       return redirect_to @social, :status => :moved_permanently
     end
-	  
-	  if @social.chapter.users.crew.any?
-	    @attendees = @social.users.where("users.id NOT IN (#{@social.chapter.users.crew.map(&:id).join(',')})")
-	  else
-	    @attendees = @social.users
-	  end
 
 	end
-	
-	def attend
-
-    location = social_path(@social)
-
-	  if @social.users.include?(current_user)
-	    slot = current_user.slots.select { |item| item.social_id == @social.id }.first	    
-      slot.users.delete(current_user)
-      flash[:notice] = "You are no longer attending this social."
-    else
-      slot = (params[:slot].nil?) ? @social.slots.first : Slot.find(params[:slot])
-      slot.users << current_user
-      location =  social_path(@social)
-    end
-  
-    redirect_to location
-    
-	end
-	
+		
 	private
 	
 	  def fetch_social
 	    @social = Social.find(params[:id])
+			if @social.nil?
+	      not_found
+	    end
 	  end
 
 end

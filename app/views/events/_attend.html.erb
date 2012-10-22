@@ -1,0 +1,41 @@
+<% if !event.end_time.nil? && (event.start_time.past? && event.end_time.future?) %>
+	
+	<h2>It's happening!</h2>
+	<p>This <%= event.class.to_s.humanise.downcase%> is happening right now, you can no longer register, but feel free to just drop in and say hello!</p>
+	
+<% elsif (event.start_time.past? && event.end_time.nil?) || (event.end_time.present? && event.end_time.past?) %>
+	
+	<% # Show outputs... %>
+	
+<% else %>
+
+	<% if user_signed_in? && event.is_attending?(current_user) %>
+		<h2>You're coming</h2>
+		<p>Look forward to seeing you! Please let us know if you can't make it.</p>
+		<p class="more"><%= link_to "I can't make it", attend_path(event.class.to_s.tableize, event) %></p>
+	<% elsif event.slots.count == 1 && event.slots.first.skill.nil? %>
+		<p class="cta"><%= link_to "I'm Coming!", attend_path(event.class.to_s.tableize, event, :slot => event.slots.first) %></p>
+	<% elsif event.slots.any? %>
+		<h2>Register to attend</h2>
+		<table class="registration_table">
+			<thead>
+				<tr>
+					<th>Ticket</th>
+					<th>Slots</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% event.slots.each do |slot| %>
+				<tr>
+					<td><%= (slot.skill.present?) ? slot.skill.title : (slot.custom_skill.empty?) ? "Open to all" : slot.custom_skill %></td>
+					<td><%= (slot.limit) ? slot.available_slots : "&#8734;".html_safe %></td>
+					<% if slot.limit.nil? || slot.available_slots > 0 %>
+					<td class="btn"><%= link_to "Attend", attend_path(event.class.to_s.tableize, event, :slot => slot) %></td>
+					<% end %>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
+	
+<% end %>

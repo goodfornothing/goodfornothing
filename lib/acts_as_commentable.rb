@@ -29,3 +29,5 @@ module ActsAsCommentable
 	end
 	
 end
+
+ActiveRecord::Base.extend ActsAsCommentable

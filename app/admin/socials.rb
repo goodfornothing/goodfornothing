@@ -53,7 +53,7 @@ ActiveAdmin.register Social do
 			f.inputs "Registration Slots" do			
 	      f.has_many :slots do |j|
 	        j.input :skill
-	        j.input :custom_skill, :label => "... or custom slot type"
+	        j.input :custom_skill, :label => "... or custom slot"
 	        j.input :limit
 	      end
 	    end

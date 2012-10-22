@@ -50,6 +50,18 @@ Thar includes an ActiveRecord extension to make things commentable upon:
     resources :model do
 	  resources :comments 
 	end
+	
+#### Making something enventable
+
+acts_as_event
+
+add_column :<%= @model.tableize %>, :title, :string
+add_column :<%= @model.tableize %>, :description, :text
+add_column :<%= @model.tableize %>, :location, :string
+add_column :<%= @model.tableize %>, :slug, :string
+add_column :<%= @model.tableize %>, :start_time, :timestamp
+add_column :<%= @model.tableize %>, :end_time, :end_time
+add_column :<%= @model.tableize %>, :chapter_id, :integer
 
 ## Datum factories
 

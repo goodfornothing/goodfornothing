@@ -1,0 +1,11 @@
+<h2>Who's coming?</h2>
+
+<ul class="avatar_list">
+	
+	<% if attendees.any? %>
+		<% attendees.each do |user| %>
+			<%= render :partial => "members/avatar", :locals => { :member => user }%>
+		<% end %>
+	<% end %>
+	
+</ul>

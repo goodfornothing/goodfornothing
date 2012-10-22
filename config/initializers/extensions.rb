@@ -1,3 +1,2 @@
 require 'acts_as_commentable'
-
-ActiveRecord::Base.extend ActsAsCommentable
+require 'acts_as_event'

@@ -14,7 +14,7 @@
 					<% @past_gigs.each do |gig| %>
 						<div class='input boolean optional'>
 							<label class="boolean optional control-label checkbox">
-								<%= check_box_tag "gigs[]", gig.id, resource.is_attending_gig?(gig), :class => "checkbox" %>
+								<%= check_box_tag "gigs[]", gig.id, gig.is_attending?(resource), :class => "checkbox" %>
 								<%= "#{gig.title} <br /><span>(#{gig.start_time.strftime("%e %B, %Y")})</span>".html_safe %>
 							</label>
 						</div>

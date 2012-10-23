@@ -30,7 +30,7 @@ ActiveAdmin.register Social do
   form :html => { :enctype => "multipart/form-data" } do |f|
 		f.inputs "Options" do
 			f.input :featured, :label => "Featured on homepage?"
-			f.input :open, :label => "Open to user comments?"
+			#f.input :open, :label => "Open to user comments?"
 		end
     f.inputs "Details" do
       if current_user.role == "admin"

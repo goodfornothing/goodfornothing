@@ -18,8 +18,8 @@ SirTrevor.Blocks.Markdown = SirTrevor.Block.extend({
   },
   
   onBlockRender: function(){
+	
     /* Make our expanding text area */
-    
     var cont = this.$$('.expanding-textarea'),
         area = cont.find('textarea'),
         span = cont.find('span');
@@ -29,6 +29,9 @@ SirTrevor.Blocks.Markdown = SirTrevor.Block.extend({
     });
     
     cont.addClass('active');
+
+		area.focus();
+
   },
   
   toData: function() {

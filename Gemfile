@@ -24,6 +24,9 @@ gem 'meta_search', '>= 1.1.0.pre'
 gem 'sass-rails'
 gem "cancan"
 
+gem 'paper_trail', '~> 2'
+gem 'diffy'
+
 gem 'friendly_id', '~> 4.0.1'
 gem "fog", "~> 1.3.1"
 gem "remotipart"

@@ -68,6 +68,7 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    diffy (2.0.8)
     erubis (2.7.0)
     eventmachine (1.0.0)
     exception_notification (2.6.1)
@@ -155,6 +156,9 @@ GEM
     newrelic_rpm (3.5.0)
     nokogiri (1.5.5)
     orm_adapter (0.4.0)
+    paper_trail (2.6.3)
+      activerecord (~> 3.0)
+      railties (~> 3.0)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -251,6 +255,7 @@ DEPENDENCIES
   coffee-rails
   country-select
   devise
+  diffy
   exception_notification
   ey_config
   fb_graph
@@ -267,6 +272,7 @@ DEPENDENCIES
   mini_magick (~> 3.3)
   mysql2
   newrelic_rpm
+  paper_trail (~> 2)
   rails (= 3.2.3)
   rails_autolink
   remotipart

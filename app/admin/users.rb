@@ -44,7 +44,8 @@ ActiveAdmin.register User do
 
 	index do
     column("Name") { |user| link_to user.name, hive_user_path(user) }
-    column :email
+		column("Twitter") { |user| link_to "@#{user.twitter_handle}", "http://twitter.com/@#{user.twitter_handle}" unless user.twitter_handle.nil? }
+		column :created_at
     column("State") { |user| status_tag((user.activated) ? "Active" : "Inactive") }
     column "" do |user|
       "#{link_to "Edit", edit_hive_user_path(user)} &nbsp; #{link_to "Delete", hive_user_path(user), :method => "delete", :confirm => "Are you sure you wish to delete this member?"}".html_safe

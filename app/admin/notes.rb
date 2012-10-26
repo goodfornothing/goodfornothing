@@ -12,16 +12,20 @@ ActiveAdmin.register Note do
 			table :id => "versions" do
         thead do
           tr do
-            th "Body diff"
-            th "Time modified"
-            th "Author"
+            th "Body"
+            th "Time modified", :width => "150"
+            th "Author", :width => "150"
           end
         end
         tbody do
           note.versions.reverse.each do |v|
 						unless v.object.nil?
             	tr do
-	              td (v.previous.object.nil?) ? "[No diff available]" : Diffy::Diff.new(v.previous.reify.body, v.reify.body).to_s(:html).html_safe
+	              if v.previous.object.nil?
+		 							td "[No diff available]"
+								else
+									td Diffy::Diff.new(v.previous.reify.body, v.reify.body).to_s(:html).html_safe
+								end
 	              td v.created_at.to_s(:long)
 	            	td User.find(v.whodunnit).name
 							end

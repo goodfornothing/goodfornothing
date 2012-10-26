@@ -5,18 +5,31 @@
 
 		<section class="welcome">
 			
-			<% unless @gig.nil? %>
-				<h2>You've registered to attend <%= @gig.title %>!</h2>
+			<% if @gig.present? %>
+			
+				<h2>You've registered to attend <%= @gig.name %>!</h2>
 				
-				<p>It's good to get to know your fellow Good for Nothingers before the gig; take a few seconds to share more about yourself, or head on back to the gig challenges and share your ideas!</p>
+				<p>It's good to get to know your fellow Good for Nothingers before the gig; take a few seconds to tell the community more about yourself, or head on over to the challenges and share your ideas!</p>
 				
 				<ul class="gig">
-					<li class="cta strong"><%= link_to "More about you", moar_path %></li>
+					<li class="cta strong"><%= link_to "Tell us more", moar_path %></li>
 					<li class="cta strong"><%= link_to "The challenges", "#{gig_path(@gig)}#challenges" %></li>
 				</ul>
 				
+			<% elsif @social.present? %>
+
+				<h2>You've registered to attend <%= @social.name %>!</h2>
+
+				<p>It's good to get to know your fellow Good for Nothingers before coming along; take a few seconds to tell the community more about yourself!</p>
+
+				<ul class="gig">
+					<li class="cta strong"><%= link_to "Tell us more", moar_path %></li>
+					<li class="cta strong"><%= link_to "Back to the social", "#{social_path(@social)}" %></li>
+				</ul>
+				
 			<% else %>
-				<h2>Welcome to your profile!</h2>
+			
+				<h2>Welcome to the movement!</h2>
 				
 				<p>So, what's next? Before you get stuck in, it's worth taking a few seconds to tell the community more about yourself; the more you give, the more you'll get back, and the better we'll get at gathering amazing folk to turbo-charge challenges!</p>
 				
@@ -25,6 +38,7 @@
 					<li class="cta strong"><%= link_to "2. Find a challenge", challenges_path %></li>
 					<li class="cta strong"><%= link_to "3. Attend an event", calendar_path %></li>
 				</ul>
+				
 			<% end %>
 			
 		</section>

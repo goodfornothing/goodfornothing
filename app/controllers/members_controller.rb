@@ -29,8 +29,11 @@ class MembersController < ApplicationController
       not_found
     else
       @first_sign_in = (user_signed_in? && params[:welcome].present? && current_user == @member) ? true : false
-      @gig = (params[:gig].present?) ? Gig.find(params[:gig]) : nil
-      @completion = @member.profile_completion					
+
+      @gig = (params[:gig_id].present?) ? Gig.find(params[:gig_id]) : nil
+			@social = (params[:social_id].present?) ? Social.find(params[:social_id]) : nil
+
+      @completion = @member.profile_completion
     end
 		
   end

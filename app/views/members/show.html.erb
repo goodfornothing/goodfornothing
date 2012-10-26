@@ -9,11 +9,12 @@
 			
 				<h2>You've registered to attend <%= @gig.name %>!</h2>
 				
-				<p>It's good to get to know your fellow Good for Nothingers before the gig; take a few seconds to tell the community more about yourself, or head on over to the challenges and share your ideas!</p>
+				<p>It's good to get to know your fellow Good for Nothingers before the gig; take a few seconds to tell the community more about yourself, or head on over to the challenges and share your ideas.</p>
 				
-				<ul class="gig">
+				<ul>
 					<li class="cta strong"><%= link_to "Tell us more", moar_path %></li>
-					<li class="cta strong"><%= link_to "The challenges", "#{gig_path(@gig)}#challenges" %></li>
+					<li class="cta strong"><%= link_to "Spread on Twitter", "https://twitter.com/intent/tweet?&amp;via=g00dfornothing&amp;url=http%3A%2F%2Fwww.goodfornothing.com#{url_encode(gig_path(@gig))}&amp;text=Come join me in doing some Good for nothing! ".html_safe %></li>
+					<li class="cta strong"><%= link_to "Gig challenges", "#{gig_path(@gig)}#challenges" %></li>
 				</ul>
 				
 			<% elsif @social.present? %>
@@ -23,7 +24,7 @@
 				<p>It's good to get to know your fellow Good for Nothingers before coming along; take a few seconds to tell the community more about yourself!</p>
 
 				<ul class="gig">
-					<li class="cta strong"><%= link_to "Tell us more", moar_path %></li>
+					<li class="cta strong"><%= link_to "Tell us more", moar_path %></li>					
 					<li class="cta strong"><%= link_to "Back to the social", "#{social_path(@social)}" %></li>
 				</ul>
 				

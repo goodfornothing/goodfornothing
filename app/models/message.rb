@@ -10,13 +10,14 @@ class Message < ActiveRecord::Base
 	has_many :questions, :through => :form
 	has_many :answers
 	
-	def send
+	def send_to_recipients
 		# send something
+		##AdminMailer.new_challenge(@challenge).deliver
 		self.sent = true
 		self.save
 	end
 	
-	def read
+	def mark_as_read
 		self.read = true
 		self.save
 	end

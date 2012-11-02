@@ -24,6 +24,7 @@ class MessagesController < ApplicationController
 	
 	def challenge
 		@message = Message.new
+		@message.form = Form.find_by_title('challenge')
 		# We'll be back in touch when we've had a wee think. If you don't hear back from us in a week, <a href="http://www.twitter.com/g00dfornothing">give us a nudge</a> on Twitter.
 	end
 	
@@ -35,7 +36,12 @@ class MessagesController < ApplicationController
 	def create
 		
 		@message.from = current_user
-		#AdminMailer.new_challenge(@challenge).deliver
+		
+	 	unless @message.sent?
+			@message.send_to_recipients
+		end
+		
+		render "done"
 		
 	end
 	

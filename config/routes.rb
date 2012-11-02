@@ -38,7 +38,6 @@ Goodfornothing::Application.routes.draw do
 
 	resources :messages, :only => [:create] do
 		collection do
-			get 'done'
 			match 'chapter/:id' => "messages#chapter"
 			match 'member/:id' => "messages#member"
 			match 'partner-with-us' => "messages#partner", :as => "submit_partner"

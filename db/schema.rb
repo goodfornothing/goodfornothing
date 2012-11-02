@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121023192923) do
+ActiveRecord::Schema.define(:version => 20121102112956) do
+
+  create_table "answers", :force => true do |t|
+    t.integer "question_id"
+    t.integer "message_id"
+    t.text    "content"
+  end
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -70,6 +76,10 @@ ActiveRecord::Schema.define(:version => 20121023192923) do
     t.integer  "skill_id"
   end
 
+  create_table "forms", :force => true do |t|
+    t.string "title"
+  end
+
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
     t.integer  "sluggable_id",                 :null => false
@@ -122,6 +132,16 @@ ActiveRecord::Schema.define(:version => 20121023192923) do
   create_table "issues_users", :force => true do |t|
     t.integer "issue_id"
     t.integer "user_id"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "form_id"
+    t.boolean  "read",       :default => false
+    t.boolean  "sent",       :default => false
   end
 
   create_table "ning_profiles", :force => true do |t|
@@ -182,6 +202,16 @@ ActiveRecord::Schema.define(:version => 20121023192923) do
   end
 
   add_index "posts", ["slug"], :name => "index_conversation_posts_on_slug", :unique => true
+
+  create_table "questions", :force => true do |t|
+    t.integer "form_id"
+    t.string  "title"
+  end
+
+  create_table "recipients", :force => true do |t|
+    t.integer "message_id"
+    t.integer "user_id"
+  end
 
   create_table "sir_trevor_images", :force => true do |t|
     t.string   "file"

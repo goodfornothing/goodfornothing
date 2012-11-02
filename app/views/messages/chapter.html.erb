@@ -1,0 +1,17 @@
+<section id="primary_content" class="single">
+
+	<%= simple_form_for [@message], :html => { :class => "primary_panel" }  do |f| %>
+  
+		<h1>Message chapter</h1>
+
+		<%= field_set_tag do %>
+		
+		<% end %>
+
+		<%= field_set_tag nil, :class => "actions" do %>
+			<%= f.submit :value => "Send it!" %>	
+		<% end %>
+	
+	<% end %>
+	
+</section>

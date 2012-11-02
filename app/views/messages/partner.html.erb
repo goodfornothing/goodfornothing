@@ -1,0 +1,22 @@
+<section id="primary_content" class="single">
+
+	<%= simple_form_for [@message], :html => { :class => "primary_panel" }  do |f| %>
+  
+		<h1>Partner with us</h1>
+
+		<p>Good for Nothing is good for organisations. We are always open to experiments and collaborations with partners. If you've got an idea in mind, please drop us a note, we'd love to chat.</p>
+
+		<%= field_set_tag do %>
+			<%#= f.input :name, :label => "Your name", :wrapper_html => { :class => "smart_label" } %>
+			<%#= f.input :contact, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
+			<%#= f.input :purpose, :include_blank => "How would you like to get involved?", :label => "How would you like to get involved?", :collection => [ 'Sponsor a challenge', 'Give us stuff to fuel our gigs', 'Get your people doing Good for Nothing', 'Invest in Good for Nothing', 'Take us to the pub'] %>
+			<%#= f.input :notes, :label => "Tell us a little more...", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 8 } %>
+		<% end %>
+
+		<%= field_set_tag nil, :class => "actions" do %>
+			<%= f.submit :value => "Send request" %>	
+		<% end %>
+	
+	<% end %>
+	
+</section>

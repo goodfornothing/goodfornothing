@@ -28,12 +28,12 @@
 		
 		header .container {
 			background: no-repeat url(branding/bird.png) 20px 140px;
-			padding-bottom: 90px;
+			padding-bottom: 95px;
 		}
 		
 		header #branding {
 			display: inline-block;
-			margin: 45px auto 25px;
+			margin: 50px auto 25px;
 			padding: 0;
 			min-width: 274px;
 			background: #D0122D url(assets/horizontal_splodge.gif) no-repeat top left;
@@ -62,24 +62,15 @@
 			width: 100%;
 		}
 		
-		header #secondary_navigation .social {
-			padding: 10px 0;
-			float: left;
-			width: 170px;
-		}
-		
-		header #secondary_navigation .social li {
-			list-style-type: none;
+		header #secondary_navigation ul {
 			padding: 0;
-			float: left;
-			margin-left: 6px;
+			margin: 0;
 		}
 		
-		header #secondary_navigation .social li:first-child { margin-right: 0; }
-		
-		header #secondary_navigation .registration {
+		header #secondary_navigation li {
 			padding: 28px 0 0;
 			float: right;
+			list-style-type: none;
 			width: 180px;
 			line-height: 21px;
 			margin: 0;
@@ -91,15 +82,27 @@
 			font-family: "Good for Nothing";
 		}
 		
-		header #secondary_navigation .registration a { 
+		header #secondary_navigation .chapter_registration {
+			background: #F0ECE9 url(assets/hanging_sign.gif) no-repeat;
+			float: left;
+			padding-top: 26px;
+			font-size: 13px;
+			min-height: 23px;
+		}
+		
+		header #secondary_navigation .registration {
+			background: #F0ECE9 url(assets/hanging_sign.gif) no-repeat;
+		}
+		
+		header #secondary_navigation li a { 
 			color: #ffffff;
 		}
 		
-		header #secondary_navigation .registration a:hover,
-		header #secondary_navigation .registration a:focus, 
-		header #secondary_navigation .registration a:active {  
+		header #secondary_navigation li a:hover,
+		header #secondary_navigation li a:focus, 
+		header #secondary_navigation li a:active {  
 			text-decoration: none;
-			color: #D0122D;
+			color: #443936;
 			padding-top: 2px;
 		}
 		

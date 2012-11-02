@@ -11,9 +11,7 @@ ActiveAdmin.register Challenge do
   filter :venture
   
 	scope :activated, :default => true
-	scope "User Submitted" do 
-		Challenge.inactive
-	end
+	scope :inactive
 
   sidebar "Ideas, contributions", :only => :show do
     span "To manage this challenge's user generated content #{link_to "head on over", challenge_path(challenge)} on the main site.".html_safe
@@ -47,40 +45,22 @@ ActiveAdmin.register Challenge do
 			end
 		end
 
-		if !challenge.active? && challenge.contact.present? 
-			panel "Submission" do
-				attributes_table_for challenge do
-					row "Submitted by" do
-						challenge.title
-					end
-					row "Contact" do
-						challenge.contact
-					end
-					row "Brief" do
-		   		   simple_format(challenge.description).html_safe
-		   	 	end
-				end
-			end
-		else
-
-	    attributes_table do 
-	      row :title
-	      row :gig
-	      row :venture
-	      row :partner
-	      row "Issues" do |i|
-	        i.issues.map{ |w| w.title }.join(', ')
-	      end
-	      row "Brief" do
-	       if challenge.description.is_json?
-	   		   render_sir_trevor(challenge.description)
-	   		 else
-	   		   simple_format(challenge.description).html_safe
-	   	   end
-	   	  end
-	    end
-
-		end
+	  attributes_table do 
+      row :title
+      row :gig
+      row :venture
+      row :partner
+      row "Issues" do |i|
+        i.issues.map{ |w| w.title }.join(', ')
+      end
+      row "Brief" do
+       if challenge.description.is_json?
+   		   render_sir_trevor(challenge.description)
+   		 else
+   		   simple_format(challenge.description).html_safe
+   	   end
+   	  end
+    end
     
   end
   

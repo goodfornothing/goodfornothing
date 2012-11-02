@@ -3,7 +3,7 @@ class Challenge < ActiveRecord::Base
 	scope :activated, where(:active => true)
   scope :inactive, where(:active => false)
 
-  attr_accessible :gig_id, :title, :description, :venture_id, :contact, :partner_id,
+  attr_accessible :gig_id, :title, :description, :venture_id, :partner_id,
                   :issue_ids, :featured, :active, :open, :open_to_contributions
                   
 	belongs_to :gig

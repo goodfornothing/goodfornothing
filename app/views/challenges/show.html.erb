@@ -41,7 +41,7 @@
 	<% if (@challenge.open? || @challenge.open_to_contributions?) && !user_signed_in? %>
 	
 		<h2>How can I help?</h2>
-		<p>You can make a start on this challenge simply by contributing ideas, or get stuck right in and share your work with the community here. <%= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "become a member", register_path(:next => challenge_path(@challenge)) %> to get started!</p>
+		<p>You can make a start on this challenge simply by contributing ideas, or get stuck right in and share your work with the community here. <%= link_to "Login", login_path(:next => challenge_path(@challenge)) %> or <%= link_to "join the movement", register_path(:next => challenge_path(@challenge)) %> to get started!</p>
 		
 	<% elsif (@challenge.open? || @challenge.open_to_contributions?) && user_signed_in? %>
 	

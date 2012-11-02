@@ -26,7 +26,6 @@ Goodfornothing::Application.routes.draw do
     get '/users/edit/activity' => 'registrations#edit_activity', :as => "activity"
     get '/users/edit/talents' => 'registrations#edit_talents', :as => "talents"
     get '/users/tell-us-more' => 'registrations#edit_moar', :as => "moar"
-    
     put '/users/edit/activity' => 'registrations#update_activity', :as => "activity"
     put '/users/edit/talents' => 'registrations#update_talents', :as => "talents"
     
@@ -37,10 +36,19 @@ Goodfornothing::Application.routes.draw do
   
   resources :posts, :only => [:show, :index]
 
-  resources :challenges, :only => [:show, :index, :new, :create] do
+	resources :messages, :only => [:create] do
+		collection do
+			get 'done'
+			match 'chapter/:id' => "messages#chapter"
+			match 'member/:id' => "messages#member"
+			match 'partner-with-us' => "messages#partner", :as => "submit_partner"
+			match 'submit-challenge' => "messages#challenge", :as => "submit_challenge"
+		end
+	end
+
+  resources :challenges, :only => [:show, :index] do
     collection do
       match "issue/:id" => "challenges#index", :as => "issue"
-      match "thanks" => "challenges#thanks", :as => "thanks"
     end
 		member do
 			get "subscribe"
@@ -61,12 +69,7 @@ Goodfornothing::Application.routes.draw do
 		resources :comments
 	end
 		
-  resources :partners, :only => [:index,:new, :create] do
-    collection do
-      match "thanks" => "partners#thanks", :as => "thanks"
-    end
-  end
-  
+  resources :partners, :only => [:index]
   resources :friends, :only => [:index]
   resources :ventures, :only => [:index]
   
@@ -76,6 +79,7 @@ Goodfornothing::Application.routes.draw do
   match "calendar" => "colophon#calendar"
   match "privacy" => "colophon#privacy"
   match "datums" => "colophon#datums"
+	match 'good-in-your-hood' => "colophon#chapter", :as => "chapter_register"
   
 	root :to => "home#index"
 

@@ -22,13 +22,13 @@
 	</section>
 	
 	<section id="community" class="panel">
-		<h2>Community</h2>
+		<h2>The Community</h2>
 		<ul id="community_infographic">
 			<li class="badge_count"><span><%= @venture_count %></span> <%= link_to "amazing ventures", ventures_path %></li>
 			<li class="ticker_count"><%= spannerize("%04d" % @member_count) %> <%= link_to "Good for Nothingers", members_path %></li>
 		</ul>
 		<% unless user_signed_in? %>
-		<p class="highlight_button"><%= link_to "Join the community", register_path %></p>
+		<p class="highlight_button"><%= link_to "Join the movement", register_path %></p>
 		<% end %>
 	</section>
 	

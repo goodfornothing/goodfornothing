@@ -26,29 +26,6 @@ class ChallengesController < ApplicationController
   	@open_challenges = (@issue) ? @issue.challenges.activated : Challenge.activated.reverse
 	end
 	
-	def new
-	  @challenge = Challenge.new
-	end
-	
-	def create
-	  
-	  @challenge = Challenge.new(params[:challenge])
-	  @challenge.active = false
-    	
-    if @challenge.save
-      AdminMailer.new_challenge(@challenge).deliver
-      redirect_to thanks_challenges_path
-    else
-      flash[:notice] = "Sorry, we couldn't save your challenge"
-      render "new"
-    end
-		  
-	end
-	
-	def thanks
-	  
-	end
-	
 	def subscribe	
 		
 		@challenge = Challenge.find(params[:id])

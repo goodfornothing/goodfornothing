@@ -37,14 +37,6 @@ ActiveAdmin.register Partner do
       end
     end
     
-    panel "Partership request details" do
-      attributes_table_for partner do
-        row :contact
-        row :purpose
-        row :notes
-      end
-    end
-    
   end
   
   form do |f|

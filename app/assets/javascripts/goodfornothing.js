@@ -66,8 +66,8 @@ $(document).ready(function(){
 	});
 	
 	// Select boxes
-	$('form.primary select').selectBox();
-	$('form.primary .input.select label').hide();
+	$('form.primary_panel select').selectBox();
+	$('form.primary_panel .input.select label').hide();
 	
 	// Checkboxes
 	$(".checkbox").addClass('js');

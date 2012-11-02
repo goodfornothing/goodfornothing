@@ -1,4 +1,4 @@
-<%= simple_form_for [@challenge, @contribution], :html => { :class => "primary form_panel", :remote => ((@contribution.new_record?) ? true : false) } do |f| %>
+<%= simple_form_for [@challenge, @contribution], :html => { :class => "primary_panel form_panel", :remote => ((@contribution.new_record?) ? true : false) } do |f| %>
 
 	<h2><%= (@contribution.new_record?) ? "New contribution" : "Edit contribution" %></h2>
 	

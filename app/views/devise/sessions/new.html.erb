@@ -1,11 +1,11 @@
 <section id="primary_content" class="single">
 
-	<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "primary" }) do |f| %>
+	<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "primary_panel" }) do |f| %>
 
 		<h1><%= (params[:authfailure]) ? "The bit where you log in" : "Welcome back" %></h1>
 
 		<% if params[:authfailure] %>
-			<p class="form_arrow_down">Hi there, sorry to put a form in your way, but we need you to log in to continue, new members should <%= link_to "join the community", register_path %> first, veteran Good for Nothingers can just pop their details in those boxes down <span>there</span></p>
+			<p class="form_arrow_down">Hi there, sorry to put a form in your way, but we need you to log in to continue, new members should <%= link_to "join the movement", register_path %> first, veteran Good for Nothingers can just pop their details in those boxes down <span>there</span></p>
 		<% else %>
 			<%= render "shared/notices" %>
 		<% end %>

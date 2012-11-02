@@ -1,4 +1,4 @@
-<%= simple_form_for [commentable, comment], :html => { :class => "primary form_panel", :remote => ((comment.new_record?) ? true : false)  } do |f| %>
+<%= simple_form_for [commentable, comment], :html => { :class => "primary_panel form_panel", :remote => ((comment.new_record?) ? true : false)  } do |f| %>
 
 	<h2><%= (comment.new_record?) ? commentable.commentable_title : "Edit" %></h2>
 	

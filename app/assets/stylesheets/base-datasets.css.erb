@@ -1,6 +1,6 @@
 /* =form */
  
-  form.primary { 
+  .primary_panel { 
     padding: 40px 60px;
 		background: #9adada;
 		color: #ffffff;
@@ -14,11 +14,11 @@
 											url(<%= asset_path "blocks/form_bottom_right.gif" %>);
   }
 
-	form.primary ::selection { background:#085156; color:#ffffff; }
-	form.primary ::-moz-selection { background:#085156; color:#ffffff; }
-	form.primary ::-webkit-selection { background:#085156; color:#ffffff; }
+	.primary_panel_panel ::selection { background:#085156; color:#ffffff; }
+	.primary_panel_panel ::-moz-selection { background:#085156; color:#ffffff; }
+	.primary_panel_panel ::-webkit-selection { background:#085156; color:#ffffff; }
 
-	form.primary h1 {
+	.primary_panel h1 {
 		color: #ffffff;
 		margin-bottom: 37px;
 		background: url(<%= asset_path "assets/teal_squiggle.png" %>) repeat-x center bottom;
@@ -26,28 +26,28 @@
 		display: inline-block;
 	}
 	
-	form.primary p {
+	.primary_panel p {
 		margin-bottom: 17px;
 		text-align: left;
 		color: #085156;
 		font-size: 14px;
 	}
 	
-	form.primary p.form_arrow_down {
+	.primary_panel p.form_arrow_down {
 		padding: 0 0px 9px;
 	}
 	
-	form.primary p.form_arrow_down a {
+	.primary_panel p.form_arrow_down a {
 		display: inline-block;
 		padding: 0 2px;
 	}
 	
-	form.primary p.form_arrow_down span {
+	.primary_panel p.form_arrow_down span {
 		display: inline-block;
 		position: relative;
 	}
 	
-	form.primary p.form_arrow_down span:after {
+	.primary_panel p.form_arrow_down span:after {
 		content: '';
 		width: 20px;
 		height: 15px;
@@ -58,14 +58,14 @@
 		background: url(<%= asset_path "assets/form_arrow.png" %>) no-repeat top left;
 	}
 	
-	form.primary .hint {
+	.primary_panel .hint {
 		position: absolute;
 		top: 6px;
 		right: 12px;
 	}
 	
-	form.primary .hint a,
-	form.primary .hint span {
+	.primary_panel .hint a,
+	.primary_panel .hint span {
 		width: 30px;
 		height: 33px;
 		font-size: 20px;
@@ -77,31 +77,31 @@
 		background: #9adada url(<%= asset_path "assets/input_splodge.gif" %>) no-repeat center center;
 	}
 	
-	form.primary .hint span {
+	.primary_panel .hint span {
 		cursor: help;
 	}
 	
-	form.primary .hint a:hover,
-	form.primary .hint a:active,
-	form.primary .hint a:focus,
-	form.primary .hint span:hover {
+	.primary_panel .hint a:hover,
+	.primary_panel .hint a:active,
+	.primary_panel .hint a:focus,
+	.primary_panel .hint span:hover {
 		font-style: italic;
 		text-decoration: none;
 	}
 	
-	form.primary a {
+	.primary_panel a {
 		color: #ffffff;
 	}
   
-  form.primary fieldset {
+  .primary_panel fieldset {
     padding: 10px 0 20px;
   }
 
-	form.primary fieldset:last-child {
+	.primary_panel fieldset:last-child {
 		padding: 10px;
 	}
 
-	form.primary legend {
+	.primary_panel legend {
 		font-size: 26px;
 		line-height: 28px;
 		padding-bottom: 4px;
@@ -111,7 +111,7 @@
 		background: url(<%= asset_path "assets/teal_squiggle.png" %>) repeat-x center bottom;
 	}
 	
-	form.primary .footnote {
+	.primary_panel .footnote {
 		color: #ffffff;
 		text-align: center;
 		padding-top: 10px;
@@ -121,16 +121,16 @@
 		line-height: 18px;
 	}
 	
-	form.primary .footnote a {
+	.primary_panel .footnote a {
 		color: #085156;
 	}
   
 /* =label */
  
-  form.primary .string label,
- 	form.primary .email label,
-	form.primary .url label,
-	form.primary .password label { 
+  .primary_panel .string label,
+ 	.primary_panel .email label,
+	.primary_panel .url label,
+	.primary_panel .password label { 
     display: block; 
     position: relative;
 		text-align: left;
@@ -141,10 +141,10 @@
     border: 0;
   }
 
-	form.primary .string label.js,
- 	form.primary .email label.js,
-	form.primary .url label.js,
-	form.primary .password label.js {
+	.primary_panel .string label.js,
+ 	.primary_panel .email label.js,
+	.primary_panel .url label.js,
+	.primary_panel .password label.js {
 		position: absolute;
 		top: 13px;
 		left: 18px;
@@ -152,15 +152,15 @@
   
 /* =input */
 
-	form.primary .input {
+	.primary_panel .input {
 		position: relative;
 	}
 
-  form.primary .string input, 
-	form.primary .email input,
-	form.primary .url input,
-	form.primary .password input,
-	form.primary .integer input {  
+  .primary_panel .string input, 
+	.primary_panel .email input,
+	.primary_panel .url input,
+	.primary_panel .password input,
+	.primary_panel .integer input {  
     padding: 13px 18px 11px;
 		margin-top: 0;
 		color: #74a4a4;
@@ -178,29 +178,29 @@
 		-webkit-font-smoothing: antialiased;
   }
 
-  form.primary .string:nth-child(odd) input,
-	form.primary .email:nth-child(odd) input,
-	form.primary .url:nth-child(odd) input,
-	form.primary .password:nth-child(odd) input {
+  .primary_panel .string:nth-child(odd) input,
+	.primary_panel .email:nth-child(odd) input,
+	.primary_panel .url:nth-child(odd) input,
+	.primary_panel .password:nth-child(odd) input {
 		background-image: url(<%= asset_path "blocks/input_left_3.gif" %>),
 											url(<%= asset_path "blocks/input_right.gif" %>);
 	}
 	
-	form.primary .string:nth-child(3n) input,
-	form.primary .email:nth-child(3n) input,
-	form.primary .url:nth-child(3n) input,
-	form.primary .password:nth-child(3n) input {
+	.primary_panel .string:nth-child(3n) input,
+	.primary_panel .email:nth-child(3n) input,
+	.primary_panel .url:nth-child(3n) input,
+	.primary_panel .password:nth-child(3n) input {
 		background-image: url(<%= asset_path "blocks/input_left.gif" %>),
 											url(<%= asset_path "blocks/input_right.gif" %>);
 	}
  
  /* =boolean */
  
-	form.primary .boolean {
+	.primary_panel .boolean {
 		margin-bottom: 35px;
 	}
 	
-	form.primary .checkbox {
+	.primary_panel .checkbox {
 		font-size: 18px;
 		font-family: "Good for Nothing";
 		width: 300px;
@@ -212,21 +212,21 @@
 		height: 23px;
 	}
 
-	form.primary  .checkbox.js {
+	.primary_panel  .checkbox.js {
 		background: url(<%= asset_path "icons/checkbox.png" %>) no-repeat 0 0;
 	}
 
-	form.primary .checkbox.checked.js {
+	.primary_panel .checkbox.checked.js {
 		background-position: left bottom;
 	}
 
-	form.primary .checkbox.js input {
+	.primary_panel .checkbox.js input {
 		display: none;
 	}
 
  /* =textarea */
 
- form.primary textarea {  
+ .primary_panel textarea {  
     margin-bottom: 20px;
 		margin-top: 0;
     border: 0;
@@ -249,7 +249,7 @@
 											url(<%= asset_path "blocks/textarea_bottom_right.gif" %>);
   }
 
-  form.primary .text label { 
+  .primary_panel .text label { 
 		font-size: 15px;
 		color: #9adada;
 		background: #ffffff;
@@ -260,7 +260,7 @@
 		text-align: left;
   }
 
-	form.primary .text label.js {
+	.primary_panel .text label.js {
 		position: absolute;
 		top: 17px;
 		left: 24px;
@@ -268,7 +268,7 @@
 
 	/* =submit */
 	
-	form.primary input[type="submit"] {
+	.primary_panel input[type="submit"] {
 		color: #ffffff;
 		display: inline-block;
 		line-height: 28px;
@@ -285,7 +285,7 @@
 		cursor: pointer;
 	}
 	
-	form.primary input[type="submit"]:active {
+	.primary_panel input[type="submit"]:active {
 		text-decoration: none;
 		background-position: left bottom;
 		padding: 41px 20px 18px 0px;
@@ -454,7 +454,7 @@
 		padding: 13px 15px 11px;	
 	}
 	
-	form.primary .text label.js {
+	.primary_panel .text label.js {
 		top: 13px;
 		left: 15px;
 		width: 85%;

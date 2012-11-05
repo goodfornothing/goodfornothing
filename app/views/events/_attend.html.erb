@@ -5,6 +5,8 @@
 	
 <% elsif (event.start_time.past? && event.end_time.nil?) || (event.end_time.present? && event.end_time.past?) %>
 	
+	<h2>Been 'n' gone</h2>
+	<p>This <%= event.class.to_s.humanize.downcase %>'s over but check out the <%= link_to "calendar", calendar_path %> for the next one.</p>
 	<% # Show outputs... %>
 	
 <% else %>
@@ -20,7 +22,14 @@
 		<% end %>
 		
 	<% elsif event.slots.count == 1 && event.slots.first.skill.nil? %>
+	
+		<% if event.slots.first.available_slots > 0 %>
 		<p class="cta"><%= link_to "I'm Coming!", attend_path(event.class.to_s.tableize, event, :slot => event.slots.first) %></p>
+		<% else %>
+		<h2>Oh no, we're full!</h2>
+		<p>It looks like there are no tickets left, but don't worry, we'll make space available if anyone drops out, check again later!</p>
+		<% end %>
+		
 	<% elsif event.slots.any? %>
 		<h2>Register to attend</h2>
 		<table class="registration_table">

@@ -14,14 +14,6 @@
 		
 		<% end %>
 
-		<%= field_set_tag do %>
-			
-			<%= f.simple_fields_for :message do |m| %>
-				<%= m.input :body %>
-			<% end %>
-					
-		<% end %>
-
 		<%= field_set_tag nil, :class => "actions" do %>
 			<%= f.submit :value => "Submit" %>	
 		<% end %>

@@ -1,18 +1,20 @@
 class Messaging::Message < ActiveRecord::Base
 
-  attr_accessible :body, :user, :read, :sent
-	validates_presence_of :body, :user
-	
-	# optional validation on body and user - depending on parent - where do we auth, here or on the parent?
+  attr_accessible :body, :read, :sent
+	validates_presence_of :body, :if => :has_no_submission?
 	
 	belongs_to :user
 	has_many :recipients
-	
 	belongs_to :submission, :polymorphic => true	
+	
+	# Only expect a body if there is
+	# no associated parent submission
 
-	def send_to_recipients
-		# send something
-		##AdminMailer.new_challenge(@challenge).deliver
+	def has_no_submission?
+		self.submission.nil?
+	end
+
+	def mark_as_sent
 		self.sent = true
 		self.save
 	end

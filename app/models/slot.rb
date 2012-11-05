@@ -10,7 +10,7 @@ class Slot < ActiveRecord::Base
     if self.limit 
       self.limit - self.users.count
     else 
-      nil
+      1
     end
   end
   

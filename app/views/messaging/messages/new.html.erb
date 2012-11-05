@@ -2,11 +2,11 @@
 
 	<%= simple_form_for [@message], :html => { :class => "primary_panel" }  do |f| %>
   
-		<h1>Send a message to <%= @member.name %></h1>
+		<h1>Send a message to <%= @recipient.name %></h1>
 
 		<%= field_set_tag do %>
-			<%= f.input :body, :label => "What would you like to say to #{@member.short_name}?", :input_html => { :rows => 5 } %>
-			<%= f.hidden_field "recipients[]", value: @member.id %>
+			<%= f.input :body, :label => "What would you like to say to #{@recipient.short_name}?", :input_html => { :rows => 5 } %>
+			<%= f.hidden_field "recipients[]", value: @recipient.id %>
 		<% end %>
 
 		<%= field_set_tag nil, :class => "actions" do %>

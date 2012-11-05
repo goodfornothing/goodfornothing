@@ -1,30 +1,24 @@
 class Messaging::ChallengesController < ApplicationController
 
 	def new
-		
-		@submission = Messaging::Challenge.new
-		@submission.message = Messaging::Message.new
-		
-		# We'll be back in touch when we've had a wee think. If you don't hear back from us in a week, <a href="http://www.twitter.com/g00dfornothing">give us a nudge</a> on Twitter.
-		
+		@submission = Messaging::Challenge.new				
 	end
 
 	def create
 		
 		@submission = Messaging::Challenge.create(params[:messaging_challenge])
-		@submission.message.user = current_user
+		@submission.message = Messaging::Message.new		
+		@submission.message.user = current_user if user_signed_in?
 		
 		if @submission.save
-		
-	 		unless @submission.message.sent?
-				@submission.message.send_to_recipients
-			end
-		
-			render "messages/done"
-		
+			
+			AdminMailer.challenge_submission(@submission).deliver
+			
+			redirect_to messaging_challenge_confirm_path
+			
 		else
 			
-			render "messages/failed"
+			render messaging_failure_path
 			
 		end
 		

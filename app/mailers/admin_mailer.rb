@@ -8,14 +8,16 @@ class AdminMailer < ActionMailer::Base
     mail(:subject => "New Good for Nothing Member")
   end
   
-  def new_challenge(challenge)
-    @challenge = challenge
+  def challenge_submission(submission)
+    @submission = submission
     mail(:subject => "New Good for Nothing Challenge Submission")
+		@submission.message.mark_as_sent
   end
   
-  def new_partner(partner)
-    @partner = partner
+  def partner_submission(submission)
+    @submission = submission
     mail(:subject => "Good for Nothing Partner Request")
+		@submission.message.mark_as_sent
   end
   
   def crew_activation(member)

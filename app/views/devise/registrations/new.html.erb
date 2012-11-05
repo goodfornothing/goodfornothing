@@ -12,7 +12,7 @@
 		
 			<fieldset class="slide warblings">
 				<legend>Which issues are you most passionate about?</legend>
-				<%= f.association :issues, :as => :check_boxes, :label => "" %>
+				<%= f.association :issues, :as => :check_boxes, :label => "", :wrapper_html => { :class => "splodges" } %>
 				<%= image_tag "illustrations/teacup.png", :class => "slide_illustration" %>
 			</fieldset>
 		
@@ -39,7 +39,7 @@
 		
 			<fieldset class="slide chapters">
 				<legend>Do you live near a GFN chapter?</legend>
-				<%= f.association :chapter, :as => :radio_buttons, :label => "" %>
+				<%= f.association :chapter, :as => :radio_buttons, :label => "", :wrapper_html => { :class => "splodges" } %>
 				<%= image_tag "illustrations/maptorch.png", :class => "slide_illustration" %>
 			</fieldset>
 

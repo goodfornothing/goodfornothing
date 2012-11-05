@@ -35,6 +35,6 @@
 <aside id="secondary_content">
 		
 	<%= render :partial => "events/attend", :locals => { :event => @social } %>
-	<%= render :partial => "events/attendees", :locals => { :attendees => @social.attendees } %>
+	<%= render :partial => "events/attendees", :locals => { :event => @social } %>
 	
 </aside>

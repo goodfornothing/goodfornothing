@@ -3,27 +3,25 @@ Good for Nothing Web Hive
 
 An embryonic platform to support and amplify the Good for Nothing communities' efforts.
 
-## Extra useful stuff
-
-#### Mailchimp/Devise integration
+### Mailchimp/Devise integration
 
 User accounts are tied to a Mailchimp subscriber lists. Users can edit their preferences on their profile page. 
 
 Set your API key and list name in `config/mailchimp.yml`
 
-#### Uploader storage
+### Uploader storage
 
 By default the application uses carrierwave and S3 for image storage. You'll need to pop your AWS credential in `config/carrierwave.yml`
 
-#### Check for life
+### Check for life
 
 You can check your `trill` URLs for life by running `rake trills:ping` daily. Every time a bookmark fails to respond it'll be given a strike, two strikes and it'll be automatically unpublished. A strike is deducted for every active response.
 
-#### Making something commentable
+### Making something Commentable
 
 Thar includes an ActiveRecord extension to make things commentable upon:
 
-`app/model/views/show.html`
+Show the comments form
 
     <%= 
 	    render :partial => "comments/panel", :locals => { 
@@ -32,40 +30,73 @@ Thar includes an ActiveRecord extension to make things commentable upon:
 	    } 
     %>
 
-`app/models/model.rb`
+Extend your model
 
     acts_as_commentable
 
-...or call it something else for all class instances in `app/models/model.rb`
-
+	# Change the labels
 	acts_as_commentable :label => "Ideas", :title => "Tell us yer ideas!"
 	
-...or do this at the instance level in `app/controllers/model_controller.rb`
+Labels can be instance specific, try this in your controller
 
     model.commentable_title = "Tell us yer ideas!"
 	model.commentable_label = "Ideas"
 
-`config/routes.rb`
+Add some routeage
 
     resources :model do
 	  resources :comments 
 	end
 	
-#### Making something enventable
+### Making something Eventable
 
-acts_as_event
+Extend your model
 
-add_column :<%= @model.tableize %>, :title, :string
-add_column :<%= @model.tableize %>, :description, :text
-add_column :<%= @model.tableize %>, :location, :string
-add_column :<%= @model.tableize %>, :slug, :string
-add_column :<%= @model.tableize %>, :start_time, :timestamp
-add_column :<%= @model.tableize %>, :end_time, :end_time
-add_column :<%= @model.tableize %>, :chapter_id, :integer
+    acts_as_event
 
+Add some columns to your table
+
+    add_column :model, :title, :string
+    add_column :model, :description, :text
+    add_column :model, :location, :string
+    add_column :model, :slug, :string
+    add_column :model, :start_time, :timestamp
+    add_column :model, :end_time, :end_time
+    add_column :model, :chapter_id, :integer
+
+### Create a custom messaging model
+
+Standard messaging functionality between users exists, you can extend this functionality in order create messages with different attributes. For example, if you wanted to create an Order form:
+
+Create your model in `models/messaging/order.rb`
+
+    class Message::Order < ActiveRecord::Base
+
+	    attr_accessible :contact, :description, :name
+						:message_attributes
+	
+	    has_one :message, :as => :submission
+	    accepts_nested_attributes_for :message
+	
+    end
+
+Create a basic controller in `controllers/messaging/orders_controller.rb`
+
+    class Messaging::Order < ApplicationController
+
+        def new
+        end
+
+        def create
+        end
+
+	end
+	
+Smash some views into `views/messaging/orders/`
+	
 ## Datum factories
 
-#### Wordpress
+### Wordpress
 
 You can import posts from standard Wordpress eXtended RSS formatted files to the Posts and Trills models using the following rake task:
 
@@ -75,7 +106,7 @@ Images referenced in posts will be downloaded and stored locally, image tags wil
 
 Post and category relationships will be maintained.  
 
-#### Bookmarks 
+### Bookmarks 
 
 The Netscape Bookmark format, surprisingly, is still rather common (Read it Later, Chrome, Firefox). Use this task to import bookmarks and tags into the Bookmark and Tag models.
 
@@ -83,7 +114,7 @@ The Netscape Bookmark format, surprisingly, is still rather common (Read it Late
 
 Bookmark and tag relationships will be maintained.
 
-#### Ning user
+### Ning user
 
 Used to import a CSV Ning user list to a NingProfile model and map it to a core Devise User model.
 

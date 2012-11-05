@@ -1,6 +1,6 @@
 <section id="primary_content" class="single">
 	
-	<%= simple_form_for [@message], :html => { :class => "primary_panel" } do |f| %>
+	<%= simple_form_for [@submission], :html => { :class => "primary_panel" } do |f| %>
   
 		<h1>Submit a challenge</h1>
 		
@@ -8,17 +8,18 @@
 
 		<%= field_set_tag do %>
 		
-			<% @message.questions.each do |q| %>
-
-				<%= f.label q.title %>
-				<%= f.text_field "answer[#{q.id}]", value: (false) ? "hi" : nil %>
-			
-			<% end %>
+			<%= f.input :name, :label => "Your name", :wrapper_html => { :class => "smart_label" }  %>
+			<%= f.input :contact, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
+			<%= f.input :description, :label => "Summarise your challenge, remember to include a link to your digital home if you have one.", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 10 } %>
 		
-			<%#= f.input :title, :label => "Your name", :wrapper_html => { :class => "smart_label" } %>
-			<%#= f.input :contact, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
-			<%#= f.input :description, :label => "Summarise your challenge, remember to include a link to your digital home if you have one.", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 10 } %>
+		<% end %>
+
+		<%= field_set_tag do %>
 			
+			<%= f.simple_fields_for :message do |m| %>
+				<%= m.input :body %>
+			<% end %>
+					
 		<% end %>
 
 		<%= field_set_tag nil, :class => "actions" do %>

@@ -36,13 +36,9 @@ Goodfornothing::Application.routes.draw do
   
   resources :posts, :only => [:show, :index]
 
-	resources :messages, :only => [:create] do
-		collection do
-			match 'chapter/:id' => "messages#chapter"
-			match 'member/:id' => "messages#member"
-			match 'partner-with-us' => "messages#partner", :as => "submit_partner"
-			match 'submit-challenge' => "messages#challenge", :as => "submit_challenge"
-		end
+	namespace :messaging do 
+		resources :messages, :only => [:new, :create]
+		resources :challenges, :only => [:new, :create]
 	end
 
   resources :challenges, :only => [:show, :index] do

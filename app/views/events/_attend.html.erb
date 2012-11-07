@@ -15,11 +15,11 @@
 		
 		<% if event.respond_to?('open_for_comment?') && event.open_for_comment? %>
 		<p class="icon_gigs"><%= link_to event.commentable_title, "#new_comment" %></p>
-		<% else %>
+		<% end %>
 		<h2>You're coming</h2>
 		<p>Look forward to seeing you! Please let us know if you can't make it.</p>
 		<p class="more"><%= link_to "I can't make it", attend_path(event.class.to_s.tableize, event) %></p>
-		<% end %>
+		
 		
 	<% elsif event.slots.count == 1 && event.slots.first.skill.nil? %>
 	

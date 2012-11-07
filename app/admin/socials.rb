@@ -13,7 +13,7 @@ ActiveAdmin.register Social do
   scope :past
   scope :all
   
-  actions :index, :destroy, :edit, :update, :new, :create
+  actions :index, :destroy, :edit, :update, :new, :create, :show
   
   config.clear_sidebar_sections!
   
@@ -22,6 +22,7 @@ ActiveAdmin.register Social do
   end
 
 	index do
+		column("Name") { |social| link_to social.name, hive_social_path(social) }
 	  column("Date") { |social| social.start_time.strftime( "%B #{social.start_time.day.ordinalize} %Y")  }
     column("Chapter") { |social| "#{social.chapter.title}" + ((social.title.present?) ? ", #{social.title}" : "") }
     default_actions
@@ -62,6 +63,7 @@ ActiveAdmin.register Social do
   end
 
   show do |social|
+	
     attributes_table do
       row "Date and Time" do
         social.start_time
@@ -76,6 +78,46 @@ ActiveAdmin.register Social do
    	  	end
    	  end
     end
+		
+		if social.users.any?
+    
+      panel "Attendees" do
+
+        table :id => "attendees" do
+          thead do
+            tr do
+              th "Name"
+              th "Email"
+              th "Ticket Type"
+            end
+          end
+          tbody do
+            social.users.each do |user|
+              tr do
+                td link_to(user.name, member_path(user))
+                td user.email
+                td (user.slots.where('social_id = ?',social).first.skill.nil?) ? user.slots.where('social_id = ?',social).first.custom_skill : user.slots.where('social_id = ?',social).first.skill.title
+              end
+            end
+          end
+        end
+      
+      end
+
+	    div :class => "download_links" do
+	      "Download attendees: #{link_to "CSV", download_attendees_hive_social_path(social, :format => "csv")}".html_safe
+	    end
+	
+		end
+		
+  end
+
+  member_action :download_attendees, :method => :get do
+    @social = Social.find(params[:id])
+    @attendees = @social.users
+    headers['Content-Type'] = "text/csv"
+    filename = "attendees_#{@social.slug}_#{Time.now.strftime("%d_%m_%Y")}"
+    headers['Content-Disposition'] = "attachment; filename=#{filename}"
   end
 
 end

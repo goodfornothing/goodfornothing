@@ -1,4 +1,5 @@
-ActiveAdmin.register Messaging::Message do
+ActiveAdmin.register Messaging::Message, :as => "Message" do
 
+	menu :priority => 1
 
 end

@@ -1,11 +1,11 @@
 Good for Nothing partner request
 ================================
 
-Name: <%= @partner.name %>
-Email: <%= @partner.contact %>
-Type of request: <%= @partner.purpose %>
+Name: <%= @submission.name %>
+Email: <%= @submission.contact %>
+Type of request: <%= @submission.purpose %>
 
 Notes: 
-<%= @partner.notes %>
+<%= @submission.notes %>
 
-Review: <%= hive_partner_url(@partner) %>
+Review: <%= hive_messaging_message_url(@submission.mission) %>

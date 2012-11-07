@@ -1,10 +1,10 @@
 A new Good for Nothing challenge has been submitted
 ===================================================
 
-Name: <%= @challenge.title %>
-Email: <%= @challenge.contact %>
+Name: <%= @submission.title %>
+Email: <%= @submission.contact %>
 
 Summary:
-<%= @challenge.description %>
+<%= @submission.description %>
 
-Review: <%= hive_challenge_url(@challenge) %>
+Review: <%= hive_messaging_message_url(@submission.message) %>

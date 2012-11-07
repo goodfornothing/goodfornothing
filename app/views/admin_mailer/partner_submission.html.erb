@@ -6,12 +6,12 @@
   <body>
     <p>Good for Nothing partner request.</p>
     
-	<p><strong>Name</strong>: <%= @partner.name %><br />
-	<strong>Email</strong>: <%= @partner.contact %><br />
-	<strong>Type of request</strong>: <%= @partner.purpose %></p>
+	<p><strong>Name</strong>: <%= @submission.name %><br />
+	<strong>Email</strong>: <%= @submission.contact %><br />
+	<strong>Type of request</strong>: <%= @submission.purpose %></p>
 	
-	<p><strong>Notes</strong>: <br /><%= @partner.notes %></p>
+	<p><strong>Notes</strong>: <br /><%= @submission.notes %></p>
 
-	<p><%= link_to "Review it", hive_partner_url(@partner) %> at the hive.</p>
+	<p><%= link_to "Review it", hive_messaging_message_url(@submission.message) %> at the hive.</p>
   </body>
 </html>

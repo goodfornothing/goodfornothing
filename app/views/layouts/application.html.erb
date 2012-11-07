@@ -83,10 +83,9 @@
 					<ul>
 						
 						<% unless user_signed_in? && current_user.crew? %>
-						<!--
 						<li class="chapter_registration">
 							<%= link_to "Start GFN in your city", chapter_register_path %>
-						</li>-->
+						</li>
 						<% end %>
 					
 						<li class="registration">
@@ -133,7 +132,7 @@
 
 					<h2>Good in your hood</h2>
 					<p>We love the Interweb, but to solve challenges people also need to get together. Hooking up with likeminded folk at a gig or social, or just for a cuppa and a natter is the Good for Nothing way.</p>
-					<p>We're hatching chapters around the world to help good folk do just that. If we're not near you yet and you'd like to bring Good for Nothing to your hood, let us explain <%= link_to "a little more", "mailto:hello@goodfornothing.com" %> about bringing it to your area.</p>
+					<p>We're hatching chapters around the world to help good folk do just that. If we're not near you yet and you'd like to bring Good for Nothing to your hood, let us explain <%= link_to "a little more", chapter_register_path %> about bringing it to your area.</p>
 
 				</section>
 			

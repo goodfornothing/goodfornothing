@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
 
   require 'sir-trevor-rails'
 
-  before_filter :fetch_chapters
   before_filter :store_location
   helper_method :signed_in_as_owner?
 
@@ -63,11 +62,7 @@ class ApplicationController < ActionController::Base
     return nil if user_signed_in? && current_user.role.nil?
     current_user 
   end
-      
-  def fetch_chapters
-    @all_chapters = Chapter.all
-  end
-  
+       
   private
   
     def store_location

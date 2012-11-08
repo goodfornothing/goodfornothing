@@ -5,6 +5,10 @@
 		<h1>Send a message to <%= @recipient.name %></h1>
 
 		<%= field_set_tag do %>
+			<% unless user_signed_in? %>
+				<%= m.input :name, :label => "Your name", :wrapper_html => { :class => "smart_label" } %>
+				<%= m.input :email, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
+			<% end %>
 			<%= f.input :body, :label => "What would you like to say to #{@recipient.short_name}?", :input_html => { :rows => 5 } %>
 			<%= f.hidden_field "recipients[]", value: @recipient.id %>
 		<% end %>

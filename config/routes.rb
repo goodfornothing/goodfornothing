@@ -38,8 +38,16 @@ Goodfornothing::Application.routes.draw do
 
 	namespace :messaging do 
 		resources :messages, :only => [:new, :create]
-		resources :challenges, :only => [:new, :create]
-		resources :partners, :only => [:new, :create]
+		resources :challenges, :only => [:new, :create] do
+			collection do
+				get 'done'
+			end
+		end
+		resources :partners, :only => [:new, :create] do
+			collection do
+				get 'done'
+			end
+		end
 	end
 
   resources :challenges, :only => [:show, :index] do

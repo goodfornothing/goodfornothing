@@ -1,5 +1,9 @@
 class ColophonController < ApplicationController
 
+	def chapter
+		@chapters = Chapter.all
+	end
+
 	def who
 	end
 	

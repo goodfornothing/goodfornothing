@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107114929) do
+ActiveRecord::Schema.define(:version => 20121108125051) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -133,19 +133,17 @@ ActiveRecord::Schema.define(:version => 20121107114929) do
     t.boolean  "sent",            :default => false
     t.integer  "submission_id"
     t.string   "submission_type"
+    t.string   "email"
+    t.string   "name"
   end
 
   create_table "messaging_challenges", :force => true do |t|
-    t.string   "name"
-    t.string   "contact"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
   create_table "messaging_partners", :force => true do |t|
-    t.string   "name"
-    t.string   "contact"
     t.string   "purpose"
     t.text     "notes"
     t.datetime "created_at", :null => false

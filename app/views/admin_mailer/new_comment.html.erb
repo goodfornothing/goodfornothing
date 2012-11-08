@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p><%= @comment.user.name %> is trying to tell us something about:</p>
+    
+	<p><%= url_for(:action => 'show', :id => @comment.commentable.id, :controller => @comment.commentable.class.to_s.tableize, :only_path => false) %></p>
+	
+	<p><strong>Comment</strong><br />
+	<%= simple_format "\"#{@comment.body}\"" %>
+	</p>
+
+	<p>You can read the full conversation or respond <%= link_to "over yonder", url_for(:action => 'show', :id => @comment.commentable.id, :controller => @comment.commentable.class.to_s.tableize, :only_path => false) %>.</p>
+  </body>
+</html>

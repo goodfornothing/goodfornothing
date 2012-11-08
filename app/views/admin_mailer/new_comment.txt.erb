@@ -1,0 +1,9 @@
+<%= @comment.user.name %> is trying to tell us something about:
+
+<%= url_for(:action => 'show', :id => @comment.commentable.id, :controller => @comment.commentable.class.to_s.tableize, :only_path => false) %>
+	
+Comment
+=======
+<%= simple_format "\"#{@comment.body}\"" %>
+
+You can read the full conversation or respond at <%= url_for(:action => 'show', :id => @comment.commentable.id, :controller => @comment.commentable.class.to_s.tableize, :only_path => false) %>.

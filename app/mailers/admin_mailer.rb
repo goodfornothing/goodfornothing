@@ -7,6 +7,11 @@ class AdminMailer < ActionMailer::Base
     @user = user
     mail(:subject => "New Good for Nothing Member")
   end
+
+	def new_comment(comment)
+    @comment = comment
+    mail(:subject => "New comment on Good for Nothing")
+  end
   
   def challenge_submission(submission)
     @submission = submission
@@ -24,5 +29,5 @@ class AdminMailer < ActionMailer::Base
     @user = member
     mail(:to => member.email, :subject => "Your account is ready for re-activation")
   end
-  
+
 end

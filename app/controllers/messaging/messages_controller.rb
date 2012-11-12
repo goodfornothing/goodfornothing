@@ -10,6 +10,9 @@ class Messaging::MessagesController < ApplicationController
 		@message = Messaging::Message.new
 		@recipient = ::User.first
 	end
+	
+	def failure
+	end
 
 	def create
 		
@@ -22,7 +25,7 @@ class Messaging::MessagesController < ApplicationController
 			end
 			render "done"
 		else
-			render "fail"
+			render "failure"
 		end
 		
 	end

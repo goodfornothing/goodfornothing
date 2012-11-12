@@ -18,7 +18,7 @@ class Messaging::PartnersController < ApplicationController
 			AdminMailer.partner_submission(@submission).deliver
 			redirect_to done_messaging_partners_path
 		else
-			render messaging_failure_path
+			render failure_messaging_messages_path
 		end
 		
 	end

@@ -6,15 +6,9 @@
   <body>
     <p>A new Good for Nothing challenge has been submitted.</p>
     
-	<% if @submission.message.user.nil? %>
-		<p><strong>Name</strong>: <%= @submission.message.name %><br />
-		<strong>Email</strong>: <%= @submission.message.contact %></p>
-	<% else %>
-		<p><strong>Member</strong>: <%= @submittion.message.user.name %></p>
-	<% end %>
+	<%= render "submission" %>
 	
 	<p><strong>Summary</strong>: <br /><%= @submission.description %></p>
 
-	<p><%= link_to "Review it", hive_message_url(@submission.message) %> at the hive.</p>
   </body>
 </html>

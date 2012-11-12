@@ -9,8 +9,8 @@ class Messaging::ChallengesController < ApplicationController
 	end
 
 	def create
-		
-		@submission = Messaging::Challenge.create(params[:messaging_challenge])
+				
+		@submission = Messaging::Challenge.create(params[:messaging_challenge])		
 		@submission.message = Messaging::Message.new if @submission.message.nil?
 		@submission.message.user = current_user if user_signed_in?
 		
@@ -18,7 +18,7 @@ class Messaging::ChallengesController < ApplicationController
 			AdminMailer.challenge_submission(@submission).deliver
 			redirect_to done_messaging_challenges_path
 		else
-			render messaging_failure_path
+			render failure_messaging_messages_path
 		end
 		
 	end

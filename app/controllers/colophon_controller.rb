@@ -5,6 +5,7 @@ class ColophonController < ApplicationController
 	end
 
 	def who
+		@all_chapters = Chapter.all
 	end
 	
 	def how

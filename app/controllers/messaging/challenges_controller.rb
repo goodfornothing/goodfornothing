@@ -11,8 +11,14 @@ class Messaging::ChallengesController < ApplicationController
 	def create
 				
 		@submission = Messaging::Challenge.create(params[:messaging_challenge])		
-		@submission.message = Messaging::Message.new if @submission.message.nil?
-		@submission.message.user = current_user if user_signed_in?
+
+		if @submission.message.nil?
+			@message = Messaging::Message.new
+			@message.user = current_user if user_signed_in?
+			@submission.message = @message
+		elsif user_signed_in?
+			@submission.message.user = current_user 
+		end
 		
 		if @submission.save
 			AdminMailer.challenge_submission(@submission).deliver

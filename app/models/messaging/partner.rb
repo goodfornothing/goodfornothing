@@ -5,7 +5,7 @@ class Messaging::Partner < ActiveRecord::Base
 	attr_accessible :notes, :purpose, :message_attributes
 	validates_presence_of :notes, :purpose
 	
-	has_one :message, :as => :submission
-	accepts_nested_attributes_for :message
-	
+	has_one :message, :as => :submission, :dependent => :destroy	
+	accepts_nested_attributes_for :message, :allow_destroy => true
+		
 end

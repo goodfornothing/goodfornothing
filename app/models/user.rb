@@ -38,11 +38,16 @@ class User < ActiveRecord::Base
   
   validates_presence_of :name
   before_save :check_url_scheme
-  
+  after_save :clear_view_cache
+
   mount_uploader :avatar, AvatarUploader
 	
 	extend FriendlyId
   friendly_id :name, use: :slugged
+	
+	def clear_view_cache
+		expire_cache_for("member_#{self.id}")
+	end
 	
 	def crew?
 	  self.role == "admin" || self.role == "leader"

@@ -10,7 +10,7 @@
 	<% if @chapters.any? %>
 	<h2>Chapters are already established in&hellip;</h2>
 	
-	<ul>
+	<ul class="splodge_list">
 		<% @chapters.each do |chapter| %>
 		<li>
 			<%= link_to chapter.title %>

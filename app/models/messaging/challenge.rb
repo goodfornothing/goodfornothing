@@ -5,7 +5,7 @@ class Messaging::Challenge < ActiveRecord::Base
 	attr_accessible :description, :message_attributes
 	validates_presence_of :description
 	
-	has_one :message, :as => :submission
-	accepts_nested_attributes_for :message
+	has_one :message, :as => :submission, :dependent => :destroy
+	accepts_nested_attributes_for :message, :allow_destroy => true
 	
 end

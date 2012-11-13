@@ -1,9 +1,4 @@
 <p>You can <%= link_to "review it", hive_message_url(@submission.message) %> at the hive, a summary is below:</p>
 
-<% if @submission.message.user.nil? %>
-	<p><strong>Name</strong>: <%= @submission.message.name %><br />
-	<strong>Email</strong>: <%= @submission.message.email %></p>
-<% else %>
-	<p><strong>Name</strong>: <%= @submission.message.user.name %><br />
-	<strong>Email</strong>: <%= @submission.message.user.email %></p>
-<% end %>
+<p><strong>Name</strong>: <%= @submission.message.from_name %><br />
+<strong>Email</strong>: <%= @submission.message.from_email %></p>

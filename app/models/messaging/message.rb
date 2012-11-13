@@ -7,7 +7,7 @@ class Messaging::Message < ActiveRecord::Base
 	
 	belongs_to :user
 	has_many :recipients
-	belongs_to :submission, :polymorphic => true	
+	belongs_to :submission, :polymorphic => true, :dependent => :destroy	
 	
 	def no_user?
 		self.user.nil?
@@ -21,6 +21,22 @@ class Messaging::Message < ActiveRecord::Base
 	def mark_as_read
 		self.read = true
 		self.save
+	end
+	
+	def from_name
+		if self.user.present?
+			self.user.name
+		else
+			self.name
+		end
+	end
+	
+	def from_email
+		if self.user.present?
+			self.user.email
+		else
+			self.email
+		end
 	end
 
 end

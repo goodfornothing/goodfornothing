@@ -1,9 +1,4 @@
 Review: <%= hive_message_url(@submission.message) %>
 
-<% if @submission.message.user.nil? %>
-Name: <%= @submission.message.name %>
-Email: <%= @submission.message.email %>
-<% else %>
-Name: <%= @submission.message.user.name %>
-Email: <%= @submission.message.user.email %>
-<% end %>
+Name: <%= @submission.message.from_name %>
+Email: <%= @submission.message.from_email %>

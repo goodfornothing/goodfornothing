@@ -14,7 +14,7 @@ class Ability
     end
     
     if user.role == "leader"
-      can :manage, [Friend, Venture]
+      can :manage, [Friend, Venture, Messaging::Message]
       can :manage, [Gig, Social], :chapter_id => user.chapter.id
       can :manage, [Trill, Post], :user_id => user.id
     end

@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
   friendly_id :name, use: :slugged
 	
 	def clear_view_cache
-		expire_cache_for("member_#{self.id}")
+		ActionController::Base.new.expire_fragment("member_#{self.id}")
 	end
 	
 	def crew?

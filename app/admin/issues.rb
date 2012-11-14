@@ -23,12 +23,14 @@ ActiveAdmin.register Issue do
   show do |skill|
     attributes_table do
       row :title
+			row :descriptions
     end
   end
   
   form do |f|
     f.inputs "Details" do
       f.input :title
+			f.input :description
     end
     f.buttons
   end

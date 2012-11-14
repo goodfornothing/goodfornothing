@@ -3,7 +3,8 @@ class WarblingsController < ApplicationController
   before_filter :fetch_issues
 
 	def index
-	  
+		@warblers = User.warblers + User.admins + User.leaders
+	  @updates = Post.updates.published.order("created_at DESC").limit(3)
 	end
 	
 	def show

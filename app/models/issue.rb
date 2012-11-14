@@ -1,6 +1,6 @@
 class Issue < ActiveRecord::Base
 
-  attr_accessible :title, :slug
+  attr_accessible :title, :slug, :description
 
 	has_many :posts
 	has_and_belongs_to_many :trills

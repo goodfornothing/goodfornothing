@@ -23,7 +23,7 @@ class EventsController < ApplicationController
         flash[:error] = "Sorry, we've reached the limit for this ticket."
       else
         slot.users << current_user
-        path = URI.parse(request.referer).path
+        path = (request.referer.nil?) ? nil : URI.parse(request.referer).path
         if path == "/register" || path == "/users"
           location = member_path(current_user, :welcome=>"yahuh", klass.to_s.foreign_key => resource.id)
         else 

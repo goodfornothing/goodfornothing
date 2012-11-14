@@ -21,7 +21,7 @@ class Messaging::PartnersController < ApplicationController
 		end 
 
 		if @submission.save
-			AdminMailer.partner_submission(@submission).deliver
+			@submission.message.send_to_recipients
 			redirect_to done_messaging_partners_path
 		else
 			render failure_messaging_messages_path

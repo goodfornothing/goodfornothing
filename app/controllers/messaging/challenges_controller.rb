@@ -21,7 +21,7 @@ class Messaging::ChallengesController < ApplicationController
 		end
 		
 		if @submission.save
-			AdminMailer.challenge_submission(@submission).deliver
+			@submission.message.send_to_recipients
 			redirect_to done_messaging_challenges_path
 		else
 			render failure_messaging_messages_path

@@ -1,51 +1,78 @@
 <section id="primary_content" class="single chapter_sign_up">
 
-	<h1 class="ir">Good in your Hood<span></span></h1>
+	<div id="chapter_introduction">
+
+		<h1 class="ir">Good in your Hood<span></span></h1>
 	
-	<h2>The good for nothing movement is growing through local chapters</h2>
-	<p>Networks of smart folk are hatching their own versions in cities around the UK and across our awesome planet.</p>
-	<p>Nimble cells of do-ers, blowing up the toxic crumbling system with hi-energy creative collaboration gigs and local experiments.</p>
-	<p>All with the learnings, love, support and mentoring from the Good for Nothing mothership. If you're interested in starting a chapter, here's what's involved&hellip;</p>
+		<div id="chapter_movement">
+			<h2>The good for nothing movement is growing through local chapters</h2>
+			<p>Networks of smart folk are hatching their own versions in cities around the UK and across our awesome planet.</p>
+			<p>Nimble cells of do-ers, blowing up the toxic crumbling system with hi-energy creative collaboration gigs and local experiments.</p>
+			<p>All with the learnings, love, support and mentoring from the Good for Nothing mothership. If you're interested in starting a chapter, here's what's involved&hellip;</p>
+		</div>
 	
-	<% if @chapters.any? %>
-	<h2>Chapters are already established in&hellip;</h2>
+		<% if @chapters.any? %>
+		<div id="chapter_contact">
+			<h2>it's already happening in&hellip;</h2>
 	
-	<ul class="splodge_list">
-		<% @chapters.each do |chapter| %>
-		<li>
-			<%= link_to chapter.title %>
-		</li>
+			<ul class="splodge_list">
+				<% @chapters.each do |chapter| %>
+				<li>
+					<%= link_to chapter.title, root_path, :class => 'tip', :title => "Contact" %>
+				</li>
+				<% end %>
+			</ul>
+	
+			<p>&hellip; but don't worry, if you live close to one of these chapters, give them a shout, I'm sure they'd love a hand.</p>
+		</div>
 		<% end %>
-	</ul>
+		
+	</div>
 	
-	<p>&hellip; but don't worry, if you live close to one of these chapters, give them a shout, I'm sure they'd love a hand.</p>
-	<% end %>
+	<div id="chapter_start">
+		
+		<div class="container">
+		
+			<h2>Starting your own chapter</h2>
 	
-	<h2>Starting your own chapter</h2>
+			<div id="chapter_crew">
+				<h3>You'll need a crew</h3>
+				<p>You'll need a crew, you won't be able to do this on your own. Two or three buddies is perfect.</p>
+				<p>Good for Nothing is about diversity and lots of flavours. Ideally to start you'll have a design and communications flavour, a coding and tech flavour and a strong dose of social innovation &amp; sustainability within your chapter crew.</p>
+				<p>This mix we find can be explosive.</p>
+			</div>
 	
-	<h3>You'll need a crew</h3>
-	<p>You'll need a crew, you won't be able to do this on your own. Two or three buddies is perfect.</p>
-	<p>Good for Nothing is about diversity and lots of flavours. Ideally to start you'll have a design and communications flavour, a coding and tech flavour and a strong dose of social innovation &amp; sustainability within your chapter crew.</p>
-	<p>This mix we find can be explosive.</p>
+			<ul id="chapter_flow">
+				<li>You'll be Do-ers of some sort, creators, tinkerers</li>
+				<li>You'll like ideas</li>
+				<li>You'll be well connected in your city</li>
+				<li>You'll know how to reach out to different networks</li>
+				<li>You'll be ok with 'blagging' stuff &ndash; asking for contributions of space, food, drinks and swag</li>
+				<li>You'll like to get things done</li>
+				<li>You’ll also like music (we love 4/4 beats ) parties and having a laugh.</li>
+			</ul>
+		
+		</div>
+		
+	</div>
 	
-	<ul id="chapter_flow">
-		<li>You'll be Do-ers of some sort, creators, tinkerers</li>
-		<li>You'll like ideas</li>
-		<li>You'll be well connected in your city</li>
-		<li>You'll know how to reach out to different networks</li>
-		<li>You'll be ok with 'blagging' stuff &ndash; asking for contributions of space, food, drinks and swag</li>
-		<li>You'll like to get things done</li>
-		<li>You’ll also like music (we love 4/4 beats ) parties and having a laugh.</li>
-	</ul>
+	<div id="chapter_commit">
+		
+		<div class="container">
+			<h3 class="ir">What am I committing to?<span></span></h3>
+			<p>Each new chapter commits to hosting a minimum of 2 gigs each year. (or gives up the chapter)</p>
+			<p>These will be 24 to 48 hrs long (these are where the real doing happens and take a bit of organising but are a roller-coasterlearning trip where you meet lots of smart folk).</p>
+			<p>On top of this are regular socials, at least 4 a year &ndash; these are simple meet-ups in a cafe, bar or pub organised on the tweets and the Facebook etc where people chat and catch up, dance and drink ale (sometimes).</p>
+			<p>We're working on lots of other cool ways for more folk to do Good for Nothing, both offline and using our web hive. So this is just for starters.</p>
+		</div>
+		
+	</div>
 	
-	<h3>What am I committing to?</h3>
-	<p>Each new chapter commits to hosting a minimum of 2 gigs each year. (or gives up the chapter)</p>
-	<p>These will be 24 to 48 hrs long (these are where the real doing happens and take a bit of organising but are a roller-coasterlearning trip where you meet lots of smart folk).</p>
-	<p>On top of this are regular socials, at least 4 a year &ndash; these are simple meet-ups in a cafe, bar or pub organised on the tweets and the Facebook etc where people chat and catch up, dance and drink ale (sometimes).</p>
-	<p>We're working on lots of other cool ways for more folk to do Good for Nothing, both offline and using our web hive. So this is just for starters.</p>
-	
-	<p>So if you're still interested in starting GFN in your hood, drop us a line here and tell us why &ndash; we'll be in touch to set up a Skype</p>
-	
-	<p id="call_mothership"><%= link_to "Call the mothership" %></p>
+	<div id="chapter_call">
+		<div class="container">
+			<p>So if you're still interested in starting GFN in your hood, drop us a line here and tell us why &ndash; we'll be in touch to set up a Skype</p>
+			<p id="call_mothership"><%= link_to "Call the mothership" %></p>
+		</div>
+	</div>
 	
 </section>

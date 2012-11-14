@@ -124,6 +124,8 @@ $(document).ready(function(){
 	$(".range_slider .details[title]").tooltip({ offset: [0, -50],tipClass: 'tooltip_large' });
 	$('.challenge_panel .tip').tooltip({ offset: [-3, 55] });
 	$('.avatar.tip').tooltip({ offset: [-4, -12] });
+	$('.splodge_list .tip').tooltip({ offset: [175, 0],tipClass: 'tooltip_small' });
+	
 	
 	// Paginated forms
 	page = 1;

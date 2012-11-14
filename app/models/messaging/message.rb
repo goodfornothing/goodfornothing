@@ -12,10 +12,13 @@ class Messaging::Message < ActiveRecord::Base
 	def no_user?
 		self.user.nil?
 	end
-
-	def mark_as_sent
-		self.sent = true
-		self.save
+	
+	def send_to_recipients
+		unless self.recipients.nil?
+			MessageMailer.notify(self).deliver
+			self.sent = true
+			self.save
+		end
 	end
 	
 	def mark_as_read

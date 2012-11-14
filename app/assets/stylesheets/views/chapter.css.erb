@@ -1,56 +1,176 @@
-.view_chapter header,
-.view_chapter {
-	background: #ffffff;
-}
+/* Layout */
 
-.view_chapter header .container {
-	background: transparent;
-	padding-bottom: 17px;
-}
+	.view_chapter #main,
+	.view_chapter #main,
+	.view_chapter #main {
+		overflow: visible;
+		width: auto;
+		margin: 0;
+		padding: 0;
+	}
 
-.chapter_sign_up h1 {
-	width: 508px;
-	height: 116px;
-	margin: 0 auto 75px;
-}
+	.view_chapter #main #primary_content,
+	.view_chapter #main #primary_content,
+	.view_chapter #main #primary_content {
+		float: none;
+		width: auto;
+	}
 
-.chapter_sign_up h1 span {
-	background: url(<%= asset_path "text/hood.gif" %>) no-repeat;
-}
-
-.splodge_list {
-	list-style-type: none;
-	padding: 0;
-}
-
-.splodge_list li { 
-	display: inline-block;
-	margin: 0 20px 15px 0;
-}
-
-.splodge_list li:nth-child(6n+6) { 
-	margin-right: 0;
-}
-
-.splodge_list li a {
-	display: block;
-	width: 140px;
-	height: 20px;
-	padding: 55px 0;
-	font-family: "Good for Nothing";
-	text-align: center;
-	background: url(<%= asset_path "assets/red_splodge.png" %>) no-repeat;
-	font-size: 16px;
-}
-
-.splodge_list li:nth-child(2) a {
+	.view_chapter header,
+	.view_chapter {
+		background: #ffffff;
+	}
 	
-}
+	.view_chapter header .container {
+		background: transparent;
+		padding-bottom: 40px;
+	}
 
-.splodge_list li a:hover,
-.splodge_list li a:focus,
-.splodge_list li a:active {
-	text-decoration: none;
-	background-color: #D0122D;
-	color: #ffffff;
-}
+	.chapter_sign_up h1 {
+		width: 508px;
+		height: 116px;
+		margin: 0 auto 110px;
+	}
+
+	.chapter_sign_up h1 span {
+		background: url(<%= asset_path "text/hood.gif" %>) no-repeat;
+	}
+	
+	.chapter_sign_up h2, .chapter_sign_up h3 {
+		color: #D0122D;
+		font-size: 24px;
+		line-height: 31px;
+	}
+	
+	.chapter_sign_up p {
+		font-size: 15px;
+		color: #61514D;
+	}
+	
+/* Chapter introduction */
+	
+	#chapter_introduction { 
+		width: 960px;
+		margin: 0 auto;
+	}
+	
+	#chapter_movement {
+		width: 470px;
+		padding-right: 490px;
+		background: url(<%= asset_path "illustrations/town.gif" %>) no-repeat 130% 10px;
+		height: auto !important;
+		height: 300px;
+		min-height: 340px;
+		margin-bottom: 110px;
+	}
+	
+	#chapter_contact {
+		margin-bottom: 50px;
+	}
+	
+	#chapter_contact h2 {
+		text-align: center;
+		margin-bottom: 40px;
+		line-height: 50px;
+		font-size: 42px;
+	}
+	
+	#chapter_contact p {
+		text-align: center;
+	}
+
+	.splodge_list {
+		list-style-type: none;
+		padding: 0;
+		margin-bottom: 22px;
+	}
+
+	.splodge_list li { 
+		display: inline-block;
+		margin: 0 20px 15px 0;
+	}
+
+	.splodge_list li:nth-child(6n+6) { 
+		margin-right: 0;
+	}
+
+	.splodge_list li a {
+		display: block;
+		width: 140px;
+		height: 20px;
+		padding: 55px 0;
+		font-family: "Good for Nothing";
+		text-align: center;
+		background: url(<%= asset_path "assets/red_splodge.png" %>) no-repeat;
+		font-size: 16px;
+	}
+
+	.splodge_list li a:hover,
+	.splodge_list li a:focus,
+	.splodge_list li a:active {
+		text-decoration: none;
+		background-color: #D0122D;
+		color: #ffffff;
+	}
+	
+/* Chapter start */
+
+	#chapter_start {
+		background: #F0ECE9;
+		padding: 30px 0;
+	}
+	
+/* Chapter commit */
+
+	#chapter_commit {
+		background: #61514D;
+		padding: 40px 0 30px;
+	}
+	
+	#chapter_commit p:nth-child(2) {
+		padding-top: 10px;
+	}
+	
+	#chapter_commit p:last-child {
+		margin: 0;
+	}
+	
+	#chapter_commit p {
+		color: #ffffff;
+	}
+	
+	#chapter_commit h3 {
+		text-indent: -1337px;
+		width: 479px;
+		height: 348px;
+		float: left;
+		margin-right: 60px;
+	}
+	
+	#chapter_commit span {
+		background: url(<%= asset_path "text/commitment.gif" %>);
+	}
+	
+/* Chapter call */
+
+	#chapter_call {
+		background: #F0ECE9;
+		padding: 30px 0;
+		text-align: center;
+	}
+	
+	#chapter_call .container {
+		position: relative;
+		overflow: visible;
+	}
+	
+	#chapter_call .container:before {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: -100px;
+		left: 0;
+		height: 221px;
+		width: 139px;
+		background: url(<%= asset_path "assets/spaceship.png" %>) no-repeat top left;
+	}

@@ -1,10 +1,22 @@
-<section id="primary_content">
+<section id="primary_content" class="single">
 
 	<h1>Warbling about stuff that matters</h1>
-	
 	<p>Warblings are community driven streams of consciousness around topics that matter &ndash; thoughts, ponderances and snippets from the web.</p>
 	
-	<% if @issues %>
+	<% if @warblers.any? %>
+	<div id="warblers">
+		<div class="container">
+			<h2>Introducing&hellip; the warblers</h2>
+			<ul class="avatar_list">
+				<% @warblers.each do |warbler| %>
+					<%= render :partial => "members/avatar", :locals => { :member => warbler }%>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+	<% end %>
+	
+	<% if @issues.any? %>
 	<ul class="grid_list grid_three">
 		<% @issues.each do |issue| %>
 			<li class="warbling warbling_<%= issue.slug.underscore %>"><%= link_to issue.title, warbling_path(issue) %></li>
@@ -12,9 +24,11 @@
 	</ul>
 	<% end %>
 	
+	<% if @updates.any? %>
+		<h2>Good for Nothing Goings On</h2>
+		<% @updates.each do |update| %>
+			<%= render :partial => "posts/block", :locals => { :post => update }%>
+		<% end %>
+	<% end %>
 			
 </section>
-
-<aside id="secondary_content">	
-	<p class="icon_updates"><%= link_to "Good for Nothing goings on", posts_path %></p>
-</aside>

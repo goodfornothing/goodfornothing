@@ -13,18 +13,6 @@ class AdminMailer < ActionMailer::Base
     mail(:subject => "New comment on Good for Nothing")
   end
   
-  def challenge_submission(submission)
-    @submission = submission
-    mail(:subject => "New Good for Nothing Challenge Submission")
-		@submission.message.mark_as_sent
-  end
-  
-  def partner_submission(submission)
-    @submission = submission
-    mail(:subject => "Good for Nothing Partner Request")
-		@submission.message.mark_as_sent
-  end
-  
   def crew_activation(member)
     @user = member
     mail(:to => member.email, :subject => "Your account is ready for re-activation")

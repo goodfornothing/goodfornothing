@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+	
+    <p>You have a new message on Good for Nothing</p>
+    
+	<p>You can <%= link_to "review it", hive_message_url(@message) %> at the hive, a summary is below:</p>
+
+	<p><strong>From</strong>: <%= @message.from_name %> (<%= @message.from_email %>)</p>
+	<p><strong>Message</strong>: <%= @message.body %></p>
+
+  </body>
+</html>

@@ -18,7 +18,7 @@
 			<ul class="splodge_list">
 				<% @chapters.each do |chapter| %>
 				<li>
-					<%= link_to chapter.title, root_path, :class => 'tip', :title => "Contact" %>
+					<%= link_to chapter.title, message_chapter_messaging_messages_path(chapter), :class => 'tip', :title => "Contact" %>
 				</li>
 				<% end %>
 			</ul>
@@ -71,7 +71,7 @@
 	<div id="chapter_call">
 		<div class="container">
 			<p>So if you're still interested in starting GFN in your hood, drop us a line here and tell us why &ndash; we'll be in touch to set up a Skype</p>
-			<p id="call_mothership"><%= link_to "Call the mothership" %></p>
+			<p id="call_mothership"><%= link_to "Call the mothership", new_messaging_chapter_path %></p>
 		</div>
 	</div>
 	

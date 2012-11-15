@@ -1,7 +1,11 @@
 <section id="primary_content" class="single">
 
-	<h1>Warbling about stuff that matters</h1>
-	<p>Warblings are community driven streams of consciousness around topics that matter &ndash; thoughts, ponderances and snippets from the web.</p>
+	<div class="container">
+
+		<h1>Warbling about stuff that matters</h1>
+		<p>Warblings are community driven streams of consciousness around topics that matter &ndash; thoughts, ponderances and snippets from the web.</p>
+	
+	</div>
 	
 	<% if @warblers.any? %>
 	<div id="warblers">
@@ -16,19 +20,23 @@
 	</div>
 	<% end %>
 	
-	<% if @issues.any? %>
-	<ul class="grid_list grid_three">
-		<% @issues.each do |issue| %>
-			<li class="warbling warbling_<%= issue.slug.underscore %>"><%= link_to issue.title, warbling_path(issue) %></li>
-		<% end %>
-	</ul>
-	<% end %>
+	<div class="container">
 	
-	<% if @updates.any? %>
-		<h2>Good for Nothing Goings On</h2>
-		<% @updates.each do |update| %>
-			<%= render :partial => "posts/block", :locals => { :post => update }%>
+		<% if @issues.any? %>
+		<ul class="grid_list grid_three">
+			<% @issues.each do |issue| %>
+				<li class="warbling warbling_<%= issue.slug.underscore %>"><%= link_to issue.title, warbling_path(issue) %></li>
+			<% end %>
+		</ul>
 		<% end %>
-	<% end %>
+	
+		<% if @updates.any? %>
+			<h2>Good for Nothing Goings On</h2>
+			<% @updates.each do |update| %>
+				<%= render :partial => "posts/block", :locals => { :post => update }%>
+			<% end %>
+		<% end %>
+		
+	</div>
 			
 </section>

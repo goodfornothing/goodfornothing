@@ -20,7 +20,9 @@ class User < ActiveRecord::Base
 
   has_one :ning_profile
   has_many :posts
-	has_many :messages
+
+	has_many :recipients
+	has_many :messages, :through => :recipients
 
   has_many :comments
   has_many :contributions

@@ -8,8 +8,8 @@
     
 	<%= render "submission" %>
 
-	<strong>Type of request</strong>: <%= @submission.purpose %></p>
-	<p><strong>Notes</strong>: <br /><%= @submission.notes %></p>
+	<p><strong>Type of request</strong>: <%= @submission.purpose %></p>
+	<p><strong>Notes</strong>: <br /><%= simple_format @submission.notes %></p>
 
   </body>
 </html>

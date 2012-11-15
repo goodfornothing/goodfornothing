@@ -196,7 +196,7 @@
 			
 			<% if signed_in_as_owner?(@member) %>
 			<h3>Want to leave?</h3>
-			<p>We'd be sorry to see you go, but you can <%= link_to "delete your account", registration_path(@member), :method => "delete", :confirm => "Are you sure you want to delete your entire account? There's no going back." %> at any time.</p> 
+			<p>You can <%= link_to "delete your account", registration_path(@member), :method => "delete", :confirm => "Are you sure you want to delete your entire account? There's no going back." %>, but we'd be sorry to see you go!</p> 
 			<% end %>
 		
 		</div>

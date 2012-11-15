@@ -5,10 +5,17 @@ class Messaging::MessagesController < ApplicationController
   # remove_column :partners, :purpose
   # remove_column :partners, :notes
   # remove_column :partners, :contact
-	
-	def new
+		
+	def chapter
+		
+		@chapter = Chapter.find(params[:id])
+		if @chapter.nil?
+		  not_found
+		end
+		
 		@message = Messaging::Message.new
-		@recipient = ::User.first
+		@recipients = @chapter.users
+		
 	end
 	
 	def failure
@@ -20,9 +27,13 @@ class Messaging::MessagesController < ApplicationController
 		@message.user = current_user if user_signed_in?
 		
 		if @message.save
-	 		unless @message.sent?
-				@message.send_to_recipients
+			
+	 		@message.users << params[:recipients]
+	
+			if @message.recipients.any?
+				MessageMailer.notice(@message).deliver
 			end
+			
 			render "done"
 		else
 			render "failure"

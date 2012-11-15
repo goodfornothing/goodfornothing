@@ -15,7 +15,7 @@ ActiveAdmin.register Messaging::Message, :as => "Message" do
 
   actions :index, :destroy, :edit, :update, :show
 	
-	scope :direct_messages, :default => true do
+	scope :messages, :default => true do
 		Messaging::Message.where("submission_type = ?", nil)
 	end
 	scope :partner_request do
@@ -23,6 +23,9 @@ ActiveAdmin.register Messaging::Message, :as => "Message" do
 	end
 	scope :challenge_submissions do
 		Messaging::Message.where("submission_type = ?", 'Messaging::Challenge')
+	end
+	scope :new_chapter_requests do
+		Messaging::Message.where("submission_type = ?", 'Messaging::Chapter')
 	end
 
 	index do

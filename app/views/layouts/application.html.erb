@@ -82,9 +82,13 @@
 					
 					<ul>
 						
-						<% unless (user_signed_in? && current_user.crew?) || (params[:controller] == "colophon" && params[:action] == "chapter") %>
+						<% if !(user_signed_in? && current_user.crew?) %>
 						<li class="chapter_registration">
 							<%= link_to "Start GFN in your city", chapter_register_path %>
+						</li>
+						<% elsif (user_signed_in? && current_user.crew?) %>
+						<li class="chapter_registration">
+							<%= link_to "Back To the Hive!", hive_root_path %>
 						</li>
 						<% end %>
 					

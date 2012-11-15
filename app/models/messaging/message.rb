@@ -6,19 +6,19 @@ class Messaging::Message < ActiveRecord::Base
 	validates_presence_of :name, :if => :no_user?
 	
 	belongs_to :user
+	
 	has_many :recipients
+	has_many :users, :through => :recipients
+	
 	belongs_to :submission, :polymorphic => true, :dependent => :destroy	
 	
 	def no_user?
 		self.user.nil?
 	end
 	
-	def send_to_recipients
-		unless self.recipients.nil?
-			MessageMailer.notify(self).deliver
-			self.sent = true
-			self.save
-		end
+	def mark_as_sent
+		self.sent = true
+		self.save
 	end
 	
 	def mark_as_read

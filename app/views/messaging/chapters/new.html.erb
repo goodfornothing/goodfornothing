@@ -1,15 +1,26 @@
 <section id="primary_content" class="single">
-
-	<%= simple_form_for [@message], :html => { :class => "primary_panel" }  do |f| %>
+	
+	<%= simple_form_for [@submission], :html => { :class => "primary_panel" } do |f| %>
   
-		<h1>Message chapter</h1>
-
-		<%= field_set_tag do %>
+		<h1>I want to start a local chapter</h1>
+		
+		<% unless user_signed_in? %>
+		
+			<%= f.simple_fields_for :message do |m| %>
+				<%= m.input :name, :label => "Your name", :wrapper_html => { :class => "smart_label" } %>
+				<%= m.input :email, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
+			<% end %>
 		
 		<% end %>
 
+		<%= field_set_tag do %>
+			<%= f.input :why_start, :label => "Why do you want to start a Good for Nothing chapter?", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 5 } %>
+			<%= f.input :why_you, :label => "Why do you think you're the right person to do it?", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 5 } %>
+			<%= f.input :why_city, :label => "Why do you think your city is the right place to hatch a new chapter?", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 5 } %>
+		<% end %>
+
 		<%= field_set_tag nil, :class => "actions" do %>
-			<%= f.submit :value => "Send it!" %>	
+			<%= f.submit :value => "Let us know!" %>	
 		<% end %>
 	
 	<% end %>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>Someone feels like they have what it takes to start a new chapter!</p>
+    
+	<%= render "submission" %>
+
+	<p><strong>Why do you want to start a Good for Nothing chapter?</strong><br />
+ 	<%= simple_format @submission.why_start %></p>
+	
+	<p><strong>Why do you think you're the right person to do it?</strong><br />
+	<%= simple_format @submission.why_you %></p>
+	
+	<p><strong>Why do you think your city is the right place to hatch a new chapter?</strong><br />
+	<%= simple_format @submission.why_city %></p>
+
+  </body>
+</html>

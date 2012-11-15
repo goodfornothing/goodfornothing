@@ -1,0 +1,29 @@
+<section id="primary_content" class="single">
+
+	<%= simple_form_for [@message], :html => { :class => "primary_panel" }  do |f| %>
+  
+		<h1>Send a message to the <%= @chapter.title %> crew</h1>
+
+		<%= field_set_tag do %>
+		
+			<% unless user_signed_in? %>
+
+				<%= f.simple_fields_for :message do |m| %>
+					<%= m.input :name, :label => "Your name", :wrapper_html => { :class => "smart_label" } %>
+					<%= m.input :email, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
+				<% end %>
+
+			<% end %>
+			
+			<%= f.input :body, :label => "Your message", :input_html => { :rows => 5 }, :wrapper_html => { :class => "smart_label" } %>
+			<%= f.hidden_field "recipients[]", value: @recipients %>
+			
+		<% end %>
+
+		<%= field_set_tag nil, :class => "actions" do %>
+			<%= f.submit :value => "Send it!" %>	
+		<% end %>
+	
+	<% end %>
+	
+</section>

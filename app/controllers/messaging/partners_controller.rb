@@ -21,7 +21,11 @@ class Messaging::PartnersController < ApplicationController
 		end 
 
 		if @submission.save
-			@submission.message.send_to_recipients
+			recipients = (Rails.env.production?) ? Chapter.find_by_title('London').users.crew : [User.find_by_email("andrew@goodfornothing.com")]
+			@submission.message.users << recipients
+			if @submission.message.recipients.any?
+				MessageMailer.partner_submission(@submission.message).deliver
+			end
 			redirect_to done_messaging_partners_path
 		else
 			render failure_messaging_messages_path

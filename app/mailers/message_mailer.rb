@@ -3,6 +3,7 @@ class MessageMailer < ActionMailer::Base
 	default from: "GFN Hive Mind <crew@goodfornothing.com>"
    
 	def notice(message)
+		@message = message
 		mail(:subject => "You have a new message on Good for Nothing", :to => message.users.map(&:email))
   end
 

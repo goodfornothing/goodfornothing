@@ -14,7 +14,9 @@ class Messaging::MessagesController < ApplicationController
 		end
 		
 		@message = Messaging::Message.new
-		@recipients = @chapter.users
+		@recipients = @chapter.users.crew
+		
+		@recipients = Chapter.find_by_title('London').users.crew if @recipients.nil?
 		
 	end
 	
@@ -23,18 +25,17 @@ class Messaging::MessagesController < ApplicationController
 
 	def create
 		
-		@message = Messaging::Message.create(params[:message])
+		@message = Messaging::Message.create(params[:messaging_message])
 		@message.user = current_user if user_signed_in?
 		
 		if @message.save
-			
-	 		@message.users << params[:recipients]
-	
+						
 			if @message.recipients.any?
 				MessageMailer.notice(@message).deliver
 			end
 			
-			render "done"
+			redirect_to done_messaging_messages_path
+			
 		else
 			render "failure"
 		end

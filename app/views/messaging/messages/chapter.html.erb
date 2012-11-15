@@ -1,10 +1,18 @@
 <section id="primary_content" class="single">
 
-	<%= simple_form_for [@message], :html => { :class => "primary_panel" }  do |f| %>
+	<%= simple_form_for [@message], :html => { :class => "primary_panel" } do |f| %>
   
-		<h1>Send a message to the <%= @chapter.title %> crew</h1>
-
+		<h1>Message the <%= @chapter.title %> crew</h1>
+		
 		<%= field_set_tag do %>
+		
+			<ul class="avatar_list">
+				<% @chapter.users.crew.each do |user| %>
+					<li class="avatar compact">	
+						<a class="tip" title="<%= user.name %>"><%= image_tag user.avatar.compact, :alt => user.name %></a>
+					</li>
+				<% end %>
+			</ul>
 		
 			<% unless user_signed_in? %>
 
@@ -15,8 +23,11 @@
 
 			<% end %>
 			
-			<%= f.input :body, :label => "Your message", :input_html => { :rows => 5 }, :wrapper_html => { :class => "smart_label" } %>
-			<%= f.hidden_field "recipients[]", value: @recipients %>
+			<%= f.input :body, :label => "What would you like to say?", :input_html => { :rows => 5 }, :wrapper_html => { :class => "smart_label" } %>
+						
+			<% @recipients.each do |recipient| %>
+				<%= f.hidden_field "user_ids", :name => "messaging_message[user_ids][]", value: recipient.id %>
+			<% end %>
 			
 		<% end %>
 

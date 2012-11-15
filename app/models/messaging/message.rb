@@ -1,6 +1,6 @@
 class Messaging::Message < ActiveRecord::Base
 
-  attr_accessible :body, :read, :sent, :email, :name
+  attr_accessible :body, :read, :sent, :email, :name, :user_ids
 	
 	validates_presence_of :email, :if => :no_user?
 	validates_presence_of :name, :if => :no_user?
@@ -22,8 +22,10 @@ class Messaging::Message < ActiveRecord::Base
 	end
 	
 	def mark_as_read
-		self.read = true
-		self.save
+		unless self.read?
+			self.read = true
+			self.save
+		end
 	end
 	
 	def from_name

@@ -1,29 +1,29 @@
 /* Layout */
 
-	.view_chapter #main,
-	.view_chapter #main,
-	.view_chapter #main {
+	.section_colophon.view_chapter #main,
+	.section_colophon.view_chapter #main,
+	.section_colophon.view_chapter #main {
 		overflow: visible;
 		width: auto;
 		margin: 0;
 		padding: 0;
 	}
 
-	.view_chapter #main #primary_content,
-	.view_chapter #main #primary_content,
-	.view_chapter #main #primary_content {
+	.section_colophon.view_chapter #main #primary_content,
+	.section_colophon.view_chapter #main #primary_content,
+	.section_colophon.view_chapter #main #primary_content {
 		float: none;
 		width: auto;
 	}
 
-	.view_chapter header,
-	.view_chapter {
+	.section_colophon.view_chapter header,
+	.section_colophon.view_chapter {
 		background: #ffffff;
 	}
 	
-	.view_chapter header .container {
+	.section_colophon.view_chapter header .container {
 		background: transparent;
-		padding-bottom: 40px;
+		padding-bottom: 10px;
 	}
 
 	.chapter_sign_up h1 {
@@ -115,15 +115,23 @@
 		padding: 30px 0;
 	}
 	
+	#chapter_flow {
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+		background: url(<%= asset_path "assets/new_chapter_flow.gif" %>) no-repeat;
+		min-height: 900px;
+	}
+	
 /* Chapter commit */
 
 	#chapter_commit {
 		background: #61514D;
-		padding: 40px 0 30px;
+		padding: 45px 0 25px;
 	}
 	
 	#chapter_commit p:nth-child(2) {
-		padding-top: 10px;
+		padding-top: 5px;
 	}
 	
 	#chapter_commit p:last-child {
@@ -150,7 +158,7 @@
 
 	#chapter_call {
 		background: #F0ECE9;
-		padding: 30px 0;
+		padding: 70px 0;
 		text-align: center;
 	}
 	
@@ -168,4 +176,21 @@
 		height: 221px;
 		width: 139px;
 		background: url(<%= asset_path "assets/spaceship.png" %>) no-repeat top left;
+	}
+	
+	#chapter_call p {
+		text-align: center;
+		width: 60%;
+		margin: 0 auto 45px;
+	}
+	
+	p#call_mothership { margin-bottom: 10px; }
+	
+	#call_mothership a {
+		display: block;
+		margin: 0 auto;
+		width: 466px;
+		height: 110px;
+		text-indent: -1337px;
+		background: url(<%= asset_path "assets/mothership_button.png" %>) no-repeat top left;
 	}

@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   has_many :posts
 
 	has_many :recipients
-	has_many :messages, :through => :recipients
+	has_many :messages, :class_name => "Messaging::Message"
 
   has_many :comments
   has_many :contributions
@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
 	
 	extend FriendlyId
   friendly_id :name, use: :slugged
+	
+	def inbox
+		Messaging::Message.joins(:recipients).where('recipients.user_id = ?', self.id)
+	end
 	
 	def clear_view_cache
 		ActionController::Base.new.expire_fragment("member_#{self.id}")

@@ -46,19 +46,17 @@
 	
 	<h2>Find a collaborator</h2>
 	
-	<% if user_signed_in? %>
-		<div class="skill_filter">
-			<p>Use the skill mixer to find someone with just the right balance.</p>
-			
-			<% Skill.all.each do |skill| %>
-				<div class="skill_range">
-					<label><%= skill.title %></label>
-					<%= range_field_tag "#{skill.title.underscore}", 0, :in => 0...11, :step => 1 %>
-				</div>
-			<% end %>
-		</div>	
-	<% else %>
-		<p><%= link_to "Login", login_path(:next => members_path) %> or <%= link_to "join the movement", register_path(:next => members_path) %> to find a collaborator with the right talents for your project or challenge.</p>
-	<% end %>
+	
+	<div class="skill_filter">
+		<p>Use the skill mixer to find someone with just the right balance.</p>
+		
+		<% Skill.all.each do |skill| %>
+			<div class="skill_range">
+				<label><%= skill.title %></label>
+				<%= range_field_tag "#{skill.title.underscore}", 0, :in => 0...11, :step => 1 %>
+			</div>
+		<% end %>
+	</div>	
+
 	
 </aside>

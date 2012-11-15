@@ -112,7 +112,14 @@
 
 	#chapter_start {
 		background: #F0ECE9;
-		padding: 30px 0;
+		padding: 60px 0 40px;
+	}
+	
+	#chapter_start h2 {
+		text-align: center;
+		margin-bottom: 100px;
+		font-size: 36px;
+		line-height: 46px;
 	}
 	
 	#chapter_flow {
@@ -121,6 +128,58 @@
 		list-style-type: none;
 		background: url(<%= asset_path "assets/new_chapter_flow.gif" %>) no-repeat;
 		min-height: 900px;
+		position: relative;
+	}
+	
+	#chapter_flow li {
+		position: absolute;
+		font-family: "Good for Nothing";
+		font-size: 20px;
+		line-height: 26px;
+		color: #D0122D;
+		text-align: center;
+	}
+	
+	#chapter_flow li:first-child {
+		top: 120px;
+		left: 28px;
+		width: 145px;
+	}
+	
+	#chapter_flow li:nth-child(3) {
+		color: #085156;
+		right: 60px;
+		top: 75px;
+		width: 130px;
+	}
+	
+	#chapter_flow li:nth-child(4) {
+		right: 60px;
+		top: 400px;
+		width: 130px;
+	}
+	
+	#chapter_flow li:nth-child(5) {
+		color: #ffffff;
+		right: 400px;
+		top: 400px;
+		width: 130px;
+	}
+	
+	#chapter_flow li:nth-child(6) {
+		left: 75px;
+		top: 400px;
+		width: 130px;
+	}
+	
+	#chapter_crew {
+		width: 460px;
+		padding-left: 500px;
+		background: url(<%= asset_path "assets/crew.png" %>) no-repeat top left;
+		margin-bottom: 50px;
+		height: auto !important;
+		height: 215px;
+		min-height: 215px;
 	}
 	
 /* Chapter commit */

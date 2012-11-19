@@ -1,6 +1,6 @@
 <section id="primary_content" class="single">
 
-	<div class="container">
+	<div class="container" id="warbling_introduction">
 
 		<h1>Warbling about stuff that matters</h1>
 		<p>Warblings are community driven streams of consciousness around topics that matter &ndash; thoughts, ponderances and snippets from the web.</p>
@@ -16,6 +16,7 @@
 					<%= render :partial => "members/avatar", :locals => { :member => warbler }%>
 				<% end %>
 			</ul>
+			<%= link_to "Join them!", "mailto:hello@goodfornothing.com?subject=I'd like to be a warbler!", :class => "join" %>
 		</div>
 	</div>
 	<% end %>
@@ -23,18 +24,44 @@
 	<div class="container">
 	
 		<% if @issues.any? %>
-		<ul class="grid_list grid_three">
+		
 			<% @issues.each do |issue| %>
-				<li class="warbling warbling_<%= issue.slug.underscore %>"><%= link_to issue.title, warbling_path(issue) %></li>
+			<div class="issue_grid">
+				
+				<h3><%= link_to issue.title, warbling_path(issue) %></h3>
+				
+				<% if issue.warbles.any? %>
+				<ul class="grid_list grid_three">
+					<% issue.warbles.first(3).each do |warble| %>
+					<li>
+						<% unless warble.hero_image.url.nil? %>
+							<%=  image_tag warble.hero_image.thumbnail, :class => "hero" %>
+						<% end %>
+						<%= warble.title %>
+					</li>
+					<% end %>
+				</ul>
+				<% end %>
+				
+			</div>
 			<% end %>
-		</ul>
+		
 		<% end %>
 	
 		<% if @updates.any? %>
-			<h2>Good for Nothing Goings On</h2>
-			<% @updates.each do |update| %>
-				<%= render :partial => "posts/block", :locals => { :post => update }%>
-			<% end %>
+		
+			<div class="issue_grid">
+				
+				<h3>GFN Musings</h3>
+				
+				<ul class="grid_list grid_three">
+					<% @updates.each do |update| %>
+						<%= render :partial => "posts/block", :locals => { :post => update }%>
+					<% end %>
+				</ul>
+			
+			</div>
+			
 		<% end %>
 		
 	</div>

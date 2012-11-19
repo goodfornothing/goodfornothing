@@ -13,7 +13,7 @@ class WarblingsController < ApplicationController
     if request.path != warbling_path(@issue)
       return redirect_to @issue, :status => :moved_permanently
     end
-	  @stream = (@issue.trills.published + @issue.posts.published).sort_by(&:created_at).reverse
+	  @stream = @issue.warbles
 	end
 	
 	private 

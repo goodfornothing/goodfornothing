@@ -12,4 +12,8 @@ class Issue < ActiveRecord::Base
 	extend FriendlyId
   friendly_id :title, use: :history
 
+	def warbles
+		 (self.trills.published + self.posts.published).sort_by(&:created_at).reverse
+	end
+
 end

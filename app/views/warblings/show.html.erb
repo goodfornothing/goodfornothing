@@ -1,9 +1,9 @@
 <aside id="secondary_content" class="introduction">
 	
 	<div id="warble_filters">
+		<%= image_tag "issues/#{@issue.slug.underscore}_large.gif" %>	
 		
 		<h1><%= @issue.title %></h1>
-		<%= image_tag "issues/#{@issue.slug.underscore}_large.gif" %>	
 		
 		<% if @issues.any? %>
 		<ul class="filter_list">
@@ -25,8 +25,11 @@
 <section id="primary_content">
 
 	<div class="abstract">
+		<h2>What's it all about?</h2>
 		<%= simple_format @issue.description %>
 	</div>
+	
+	<h2>Talking about <%= @issue.title %>&hellip;</h2>
 	
 	<% if @stream.any? %>
 		<% @stream.each do |resource| %>

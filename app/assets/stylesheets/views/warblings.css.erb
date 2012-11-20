@@ -38,7 +38,7 @@
 		background: #61514D;
 		color: #ffffff;
 		text-align: center;
-		padding: 35px 0 30px;
+		padding: 40px 0 35px;
 		margin-bottom: 60px;
 	}
 	
@@ -49,11 +49,12 @@
 
 	#warblers h2 {
 		color: #ffffff;
-		margin-bottom: 25px;
+		margin-bottom: 30px;
 	}
 
 	#warblers .avatar_list {
-		margin-bottom: 0;
+		margin: 0 auto 0;
+		width: 70%;
 	}
 
 	#warblers .avatar {
@@ -95,25 +96,27 @@
 	.issue_grid {
 		width: 100%;
 		overflow: hidden;
-		margin-bottom: 40px;
+		margin-bottom: 50px;
 	}
 	
 	.issue_grid h3 {
 		float: left;
 		width: 185px;
+		padding-top: 20px;
+		line-height: 25px;
 	}
 
 	.issue_grid .grid_list li {
 		position: relative;
 		width: 185px;
-		height: 161px;
+		height: 184px;
 		background: #ffffff;
 		margin-right: 40px;
 	}
 	
 	.issue_grid ul.grid_list {
 		float: right;
-		width: 725px;
+		width: 680px;
 		padding: 0;
 	}
 	
@@ -129,14 +132,17 @@
 		background: url(<%= asset_path "blocks/thumbnail_mask.png" %>) no-repeat top left;
 	}
 	
+	.issue_grid .grid_list li img {
+		margin-top: -5px;
+	}
+	
 	.issue_grid .grid_list p {
 		position: relative;
 		z-index: 10;
-		padding: 0px 10px;
+		padding: 3px 10px 0;
 		margin: 0;
 		line-height: 18px;
 		font-size: 14px;
-		margin-top: -2px;
 	}
 	
 	.issue_grid .grid_list p a {

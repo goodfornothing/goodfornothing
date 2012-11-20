@@ -2,6 +2,10 @@
 
 	<h1>Warbling about <%= @issue.title %></h1>
 	
+	<div class="abstract">
+		<%= simple_format @issue.description %>
+	</div>
+	
 	<% if @stream.any? %>
 		<% @stream.each do |resource| %>
 		

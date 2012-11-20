@@ -14,7 +14,7 @@
 	font-size: 13px;
 	width: 495px;
 	height: 60px;
-	margin: 0 auto 65px;
+	margin: 0 auto 40px;
 }
 
 #new_user.slides h1 span {
@@ -309,9 +309,8 @@ form.primary_panel .activity .checkbox span {
 
 /* Splodge inputs */
 
-	#new_user.slides .input.check_boxes.splodges,
 	#new_user.slides .input.radio_buttons.splodges {
-		width: 800px;
+		width: 650px;
 		margin: 0px auto 0;
 		text-align: center;
 	}
@@ -320,7 +319,6 @@ form.primary_panel .activity .checkbox span {
 		width: 600px;
 	}
 
-	#new_user.slides .splodges .checkbox,
 	#new_user.slides .splodges .radio {
 		font-size: 22px;
 		font-family: "Good for Nothing";
@@ -336,62 +334,97 @@ form.primary_panel .activity .checkbox span {
 		cursor: pointer;
 	}
 
-	#new_user.slides .splodges .checkbox.js,
 	#new_user.slides .splodges .radio.js  {
 		background: url(<%= asset_path "assets/white_border_1.png" %>) no-repeat 0 0;
 	}
 
-	#new_user.slides .splodges .checkbox.js input,
 	#new_user.slides .splodges .radio.js input {
 		display: none;
 	}
 
-	#new_user.slides .splodges .checkbox.js:nth-child(3),
 	#new_user.slides .splodges .radio.js:nth-child(3) {
 		width: 107px;
 		font-size: 17px;
 		background: url(<%= asset_path "assets/white_border_5.png" %>) no-repeat 0 0;
 	}
 
-	#new_user.slides .splodges .checkbox.js:nth-child(4),
 	#new_user.slides .splodges .radio.js:nth-child(4) {
 		width: 173px; font-size: 20px;
 		background: url(<%= asset_path "assets/white_border_4.png" %>) no-repeat 0 0;
 	}
 
-	#new_user.slides .splodges .checkbox.js:nth-child(5),
 	#new_user.slides .splodges .radio.js:nth-child(5) {
 		width: 172px;
 		background: url(<%= asset_path "assets/white_border_3.png" %>) no-repeat 0 0;
 	}
 
-	#new_user.slides .splodges .checkbox.js:nth-child(6),
 	#new_user.slides .splodges .radio.js:nth-child(6) {
 		width: 107px;
 		font-size: 16px;
 		background: url(<%= asset_path "assets/white_border_5.png" %>) no-repeat 0 0;
 	}
 
-	#new_user.slides .splodges .checkbox.js:nth-child(7),
 	#new_user.slides .splodges .radio.js:nth-child(7), {
 		width: 172px; font-size: 21px;
 		background: url(<%= asset_path "assets/white_border_3.png" %>) no-repeat 0 0;
 	}
 
-	#new_user.slides .splodges .checkbox.js:nth-child(9),
 	#new_user.slides .splodges .radio.js:nth-child(9) {
 		width: 147px; font-size: 18px;
 		background: url(<%= asset_path "assets/white_border_2.png" %>) no-repeat 0 0;
 	}
 
-	#new_user.slides .splodges .checkbox.js:nth-child(10),
 	#new_user.slides .splodges .radio.js:nth-child(10) {
 		width: 172px; font-size: 21px;
 		background: url(<%= asset_path "assets/white_border_3.png" %>) no-repeat 0 0;
 	}
 
-	#new_user.slides .splodges .checkbox.js.checked,
 	#new_user.slides .splodges .radio.js.checked  {
 		background-color: #D0122D;
 	}
 
+	/* Issues */
+
+	#new_user.slides .warblings .input.check_boxes {
+		position: relative;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	#new_user.slides .warblings .checkbox.js input {
+		display: none;
+	}
+
+	#new_user.slides .warblings .checkbox.js {
+		font-size: 18px;
+		font-family: "Good for Nothing";
+		background: url(<%= asset_path "assets/white_splodge.gif" %>) no-repeat top left;
+		color: #9adada;
+		margin: 0 10px 10px 0;
+		display: inline-block;
+		text-align: center;
+		position: relative;
+		line-height: 30px;
+		vertical-align: middle;
+		height: 105px;
+		padding: 50px 20px 0 10px;
+		width: 130px;
+		overflow: hidden;
+		cursor: pointer;
+	}
+
+	#new_user.slides .warblings .checkbox.checked {
+		color: #D0122D;
+	}
+
+	#new_user.slides .warblings .checkbox.js:nth-child(2) {
+		background: url(<%= asset_path "assets/white_splodge_2.gif" %>) no-repeat top left;
+	}
+
+	#new_user.slides .warblings .checkbox.js:nth-child(4) {
+		background: url(<%= asset_path "assets/white_splodge_3.gif" %>) no-repeat top left;
+	}
+
+	#new_user.slides .warblings .checkbox.js:nth-child(6) {
+		background: url(<%= asset_path "assets/white_splodge_2.gif" %>) no-repeat top left;
+	}

@@ -29,6 +29,7 @@ ActiveAdmin.register Issue do
   
   form do |f|
     f.inputs "Details" do
+			f.input :active
       f.input :title
 			f.input :description
     end

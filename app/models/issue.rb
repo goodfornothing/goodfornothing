@@ -1,6 +1,8 @@
 class Issue < ActiveRecord::Base
 
-  attr_accessible :title, :slug, :description
+	scope :active, where(:active => true)
+
+  attr_accessible :title, :slug, :description, :active
 
 	has_many :posts
 	has_and_belongs_to_many :trills

@@ -28,7 +28,7 @@
 			<% @issues.each do |issue| %>
 			<div class="issue_grid">
 				
-				<h3><%= link_to issue.title, warbling_path(issue) %></h3>
+				<h3 class="warbling warbling_<%= issue.slug.downcase.underscore %>"><%= link_to issue.title, warbling_path(issue) %></h3>
 				
 				<% if issue.warbles.any? %>
 				<ul class="grid_list grid_three">
@@ -37,7 +37,7 @@
 						<% unless warble.hero_image.url.nil? %>
 							<%=  image_tag warble.hero_image.thumbnail, :class => "hero" %>
 						<% end %>
-						<%= warble.title %>
+						<p><%= link_to warble.title, warbling_path(issue) %></p>
 					</li>
 					<% end %>
 				</ul>
@@ -52,11 +52,16 @@
 		
 			<div class="issue_grid">
 				
-				<h3>GFN Musings</h3>
+				<h3 class="warbling warbling_gfn"><%= link_to "GFN Musings", posts_path %></h3>
 				
 				<ul class="grid_list grid_three">
 					<% @updates.each do |update| %>
-						<%= render :partial => "posts/block", :locals => { :post => update }%>
+						<li>
+							<% unless update.hero_image.url.nil? %>
+								<%=  image_tag update.hero_image.thumbnail, :class => "hero" %>
+							<% end %>
+							<p><%= link_to update.title, post_path(update) %></p>
+						</li>
 					<% end %>
 				</ul>
 			

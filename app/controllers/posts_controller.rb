@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 	private 
 	
 	  def fetch_issues
-	    @issues = Issue.all
+	    @issues = Issue.active
 	  end
 
 end

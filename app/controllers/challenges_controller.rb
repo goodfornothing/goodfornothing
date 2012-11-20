@@ -21,7 +21,7 @@ class ChallengesController < ApplicationController
 	end
 	
 	def index
-	  @issues = Issue.all
+	  @issues = Issue.active
   	@issue = Issue.find(params[:id]) if params[:id]
   	@open_challenges = (@issue) ? @issue.challenges.activated : Challenge.activated.reverse
 	end

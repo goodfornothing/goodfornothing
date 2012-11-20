@@ -92,14 +92,32 @@
 	
 /* Issues */
 
-	.issue_grid li {
+	.issue_grid {
+		width: 100%;
+		overflow: hidden;
+		margin-bottom: 40px;
+	}
+	
+	.issue_grid h3 {
+		float: left;
+		width: 185px;
+	}
+
+	.issue_grid .grid_list li {
 		position: relative;
 		width: 185px;
 		height: 161px;
 		background: #ffffff;
+		margin-right: 40px;
 	}
 	
-	.issue_grid li:before {
+	.issue_grid ul.grid_list {
+		float: right;
+		width: 725px;
+		padding: 0;
+	}
+	
+	.issue_grid .grid_list li:after {
 		content: '';
 		display: block;
 		position: absolute;
@@ -107,7 +125,22 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
+		z-index: 1;
 		background: url(<%= asset_path "blocks/thumbnail_mask.png" %>) no-repeat top left;
+	}
+	
+	.issue_grid .grid_list p {
+		position: relative;
+		z-index: 10;
+		padding: 0px 10px;
+		margin: 0;
+		line-height: 18px;
+		font-size: 14px;
+		margin-top: -2px;
+	}
+	
+	.issue_grid .grid_list p a {
+		display: block;
 	}
 
 	.issue_grid .grid_list {
@@ -115,7 +148,7 @@
 	}
 
 	.issue_grid .grid_list li {
-		margin-bottom: 30px;
+		margin-bottom: 0px;
 	}
 
 /* Single warble */

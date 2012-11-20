@@ -1,10 +1,9 @@
 class WarblingsController < ApplicationController
 
-  before_filter :fetch_issues
-
 	def index
 		@warblers = User.warblers + User.admins + User.leaders
 	  @updates = Post.updates.published.order("created_at DESC").limit(3)
+		@issues = Issue.active
 	end
 	
 	def show
@@ -14,11 +13,7 @@ class WarblingsController < ApplicationController
       return redirect_to @issue, :status => :moved_permanently
     end
 	  @stream = @issue.warbles
+		@issues = Issue.active.where('id != ?', @issue.id)
 	end
-	
-	private 
-	  def fetch_issues
-	    @issues = Issue.active
-	  end
 
 end

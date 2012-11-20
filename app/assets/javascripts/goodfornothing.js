@@ -126,7 +126,6 @@ $(document).ready(function(){
 	$('.avatar.tip').tooltip({ offset: [-4, -12] });
 	$('.splodge_list .tip').tooltip({ offset: [175, 0],tipClass: 'tooltip_small' });
 	
-	
 	// Paginated forms
 	page = 1;
 	$('form.slides .fields fieldset').each(function(i,el){
@@ -191,6 +190,7 @@ $(document).ready(function(){
 	;
 	
 	$('#collaborators div').stickyScroll({ container: $('#collaborators') })
+	$('.warble_filters').stickyScroll({ container: $('#main') })
 	
 });
 

@@ -1,7 +1,23 @@
+<aside id="secondary_content" class="introduction">
+	
+	<div id="warble_filters">
+		
+		<h1><%= @issue.title %></h1>	
+		
+		<% if @issues.any? %>
+		<ul class="filter_list">
+			<% @issues.each do |issue| %>
+				<li class="<%= "active" if @issue.present? && issue == @issue %> warbling_small small_warbling_<%= issue.slug.underscore %>"><%= link_to issue.title, warbling_path(issue) %></li>
+			<% end %>
+		</ul>
+		<% end %>
+		
+	</div>
+	
+</aside>
+
 <section id="primary_content">
 
-	<h1>Warbling about <%= @issue.title %></h1>
-	
 	<div class="abstract">
 		<%= simple_format @issue.description %>
 	</div>
@@ -49,16 +65,4 @@
 		<p>There's not a lot here yet, but hey, we've just launched!</p>
 	<% end %>
 			
-</section>
-
-
-<aside id="secondary_content">
-		
-	<% if @issues.any? %>
-	<ul class="filter_list">
-		<% @issues.each do |issue| %>
-			<li class="<%= "active" if @issue.present? && issue == @issue %> warbling_small small_warbling_<%= issue.slug.underscore %>"><%= link_to issue.title, warbling_path(issue) %></li>
-		<% end %>
-	</ul>
-	<% end %>
 </section>

@@ -179,7 +179,25 @@
 		margin-top: 35px;
 		margin-bottom: 45px;
 	}
-
+	
+	.more_arrow a {
+		color: #ffffff;
+		font-family: "Good for Nothing";
+		background: url(<%= asset_path "assets/text_arrow.png" %>) no-repeat top left;
+		width: 70px;
+		line-height: 48px;
+		text-indent: 6px;
+		font-size: 13px;
+		display: block;
+	}
+	
+	.more_arrow a:hover,
+	.more_arrow a:focus,
+	.more_arrow a:active {
+		text-decoration: none;
+		font-size: 16px;
+	}
+	
 /* Graphical counters */
 
 	.badge_count {
@@ -647,14 +665,6 @@
 		padding-left: 65px;
 		background-repeat: no-repeat;
 		background-position: left center;
-	}
-	
-	.warbling_small a:hover,
-	.warbling_small a:active,
-	.warbling_small a:focus,
-	.warbling_small.active a {
-		text-decoration: none;
-		font-size: 19px;
 	}
  
 	.small_warbling_food a { background-image: url(<%= asset_path "issues/food_small.gif" %>); }

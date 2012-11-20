@@ -38,7 +38,7 @@
 		background: #61514D;
 		color: #ffffff;
 		text-align: center;
-		padding: 40px 0 35px;
+		padding: 45px 0 45px;
 		margin-bottom: 60px;
 	}
 	
@@ -49,7 +49,9 @@
 
 	#warblers h2 {
 		color: #ffffff;
-		margin-bottom: 30px;
+		margin-bottom: 40px;
+		font-size: 24px;
+		line-height: 30px;
 	}
 
 	#warblers .avatar_list {
@@ -72,8 +74,8 @@
 
 	#warblers .join {
 		position: absolute;
-		top: -70px;
-		right: 220px;
+		top: -65px;
+		right: 160px;
 		color: #ffffff;
 		width: 75px;
 		height: 63px;
@@ -104,6 +106,8 @@
 		width: 185px;
 		padding-top: 20px;
 		line-height: 25px;
+		margin-right: 55px;
+		margin-bottom: 0;
 	}
 
 	.issue_grid .grid_list li {
@@ -111,12 +115,14 @@
 		width: 185px;
 		height: 184px;
 		background: #ffffff;
-		margin-right: 40px;
+		margin-right: 35px;
 	}
 	
+	.single .issue_grid .grid_list li:nth-child(3n+3) { margin-right: 0; }
+	
 	.issue_grid ul.grid_list {
-		float: right;
-		width: 680px;
+		float: left;
+		width: 640px;
 		padding: 0;
 	}
 	
@@ -132,14 +138,10 @@
 		background: url(<%= asset_path "blocks/thumbnail_mask.png" %>) no-repeat top left;
 	}
 	
-	.issue_grid .grid_list li img {
-		margin-top: -5px;
-	}
-	
 	.issue_grid .grid_list p {
 		position: relative;
 		z-index: 10;
-		padding: 3px 10px 0;
+		padding: 1px 10px 0 12px;
 		margin: 0;
 		line-height: 18px;
 		font-size: 14px;
@@ -155,6 +157,11 @@
 
 	.issue_grid .grid_list li {
 		margin-bottom: 0px;
+	}
+	
+	.issue_grid .more_arrow {
+		float: right;
+		margin: 55px 0 0;
 	}
 
 /* Single warble */

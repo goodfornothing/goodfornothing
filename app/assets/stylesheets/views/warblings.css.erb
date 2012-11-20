@@ -104,9 +104,9 @@
 	.issue_grid h3 {
 		float: left;
 		width: 185px;
-		padding-top: 20px;
+		padding-top: 25px;
 		line-height: 25px;
-		margin-right: 55px;
+		margin-right: 70px;
 		margin-bottom: 0;
 	}
 
@@ -141,7 +141,7 @@
 	.issue_grid .grid_list p {
 		position: relative;
 		z-index: 10;
-		padding: 4px 10px 0 12px;
+		padding: 5px 10px 0 15px;
 		margin: 0;
 		line-height: 18px;
 		font-size: 14px;
@@ -150,7 +150,15 @@
 	.issue_grid .grid_list p a {
 		display: block;
 		color: #61514D;
+		line-height: 19px;
 		font-family: "Good for Nothing";
+	}
+	
+	.issue_grid .grid_list p a:hover,
+	.issue_grid .grid_list p a:active,
+	.issue_grid .grid_list p a:focus {
+		text-decoration: none;
+		color: #D0122D;
 	}
 
 	.issue_grid .grid_list {
@@ -215,10 +223,7 @@
 		overflow: hidden;
 		width: 100%;
 		margin-bottom: 50px;
-		padding-top: 55px;
-		background-position: top center, bottom left;
-		background-repeat: no-repeat;
-		background-image: url(<%= asset_path "assets/brown_squiggle.png" %>);
+		padding-top: 25px;
 	}
 
 	article.post_panel:nth-child(2) {
@@ -246,3 +251,26 @@
 
 	article.post_panel .panel_content h2 a { display: block; }
 	article.post_panel .panel_content p:last-child { margin: 0; }
+	
+/* Warble filters */
+
+	#warble_filters {
+		padding-top: 40px;
+		width: 185px;
+	}
+	
+	#warble_filters h1 {
+		font-size: 22px;
+		margin-bottom: 10px;
+		text-align: center;
+		color: #000000;
+	}
+
+	#warble_filters img {
+		display: block;
+		margin-bottom: 40px;
+	}
+	
+	#warble_filters ul {
+		padding-left: 5px;
+	}

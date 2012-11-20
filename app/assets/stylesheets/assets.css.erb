@@ -616,9 +616,9 @@
 		color: #000000;
 		font-size: 16px;
 		line-height: 23px;
-		padding: 0 0 125px;
+		padding: 125px 0 0;
 		background-repeat: no-repeat;
-		background-position: center bottom;
+		background-position: center top;
 	}
 	
 	.warbling a:hover,
@@ -652,7 +652,13 @@
 	}
 
 	.warbling_small {
-		margin-bottom: 5px;
+		margin-bottom: 0px;
+		float: left;
+		margin-right: 25px;
+	}
+	
+	.warbling_small:nth-child(2n+2) {
+		margin-right: 0;
 	}
 
 	.warbling_small a {
@@ -661,10 +667,11 @@
 		font-family: "Good for Nothing";
 		color: #333;
 		font-size: 15px;
-		line-height: 40px;
-		padding-left: 65px;
+		width: 75px;
+		height: 60px;
 		background-repeat: no-repeat;
-		background-position: left center;
+		background-position: center center;
+		text-indent: -3371px;
 	}
  
 	.small_warbling_food a { background-image: url(<%= asset_path "issues/food_small.gif" %>); }
@@ -676,6 +683,7 @@
 	.small_warbling_health a { background-image: url(<%= asset_path "issues/health_small.gif" %>); }
 	.small_warbling_community a { background-image: url(<%= asset_path "issues/community_small.gif" %>); }
 	.small_warbling_water a { background-image: url(<%= asset_path "issues/water_small.gif" %>); }
+	.small_warbling_gfn a { background-image: url(<%= asset_path "issues/gfn_small.png" %>); }
 	
 /* Avatars */
 

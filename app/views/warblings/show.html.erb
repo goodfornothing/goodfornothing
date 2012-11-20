@@ -2,13 +2,19 @@
 	
 	<div id="warble_filters">
 		
-		<h1><%= @issue.title %></h1>	
+		<h1><%= @issue.title %></h1>
+		<%= image_tag "issues/#{@issue.slug.underscore}_large.gif" %>	
 		
 		<% if @issues.any? %>
 		<ul class="filter_list">
 			<% @issues.each do |issue| %>
-				<li class="<%= "active" if @issue.present? && issue == @issue %> warbling_small small_warbling_<%= issue.slug.underscore %>"><%= link_to issue.title, warbling_path(issue) %></li>
+			<li class="warbling_small small_warbling_<%= issue.slug.underscore %>">
+				<%= link_to issue.title, warbling_path(issue), :class => "tip", :title => issue.title %>
+			</li>
 			<% end %>
+			<li class="warbling_small small_warbling_gfn">
+				<%= link_to "GFN Musings", posts_path, :class => "tip", :title => "GFN Musings" %>
+			</li>
 		</ul>
 		<% end %>
 		

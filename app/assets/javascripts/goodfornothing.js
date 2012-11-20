@@ -125,6 +125,9 @@ $(document).ready(function(){
 	$('.challenge_panel .tip').tooltip({ offset: [-3, 55] });
 	$('.avatar.tip').tooltip({ offset: [-4, -12] });
 	$('.splodge_list .tip').tooltip({ offset: [175, 0],tipClass: 'tooltip_small' });
+	$('.warbling .tip').tooltip({ offset: [195, 0],tipClass: 'tooltip_small' });
+	$('.warbling_small .tip').tooltip({ offset: [105, 0],tipClass: 'tooltip_small' });
+	
 	
 	// Paginated forms
 	page = 1;
@@ -190,7 +193,7 @@ $(document).ready(function(){
 	;
 	
 	$('#collaborators div').stickyScroll({ container: $('#collaborators') })
-	$('.warble_filters').stickyScroll({ container: $('#main') })
+	$('#warble_filters').stickyScroll({ container: $('#main') })
 	
 });
 

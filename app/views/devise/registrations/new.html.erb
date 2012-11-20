@@ -12,7 +12,7 @@
 		
 			<fieldset class="slide warblings">
 				<legend>Which issues are you most passionate about?</legend>
-				<%= f.association :issues, :as => :check_boxes, :label => "", :wrapper_html => { :class => "splodges" } %>
+				<%= f.association :issues, :collection => Issue.active, :as => :check_boxes, :label => "", :wrapper_html => { :class => "splodges" } %>
 				<%= image_tag "illustrations/teacup.png", :class => "slide_illustration" %>
 			</fieldset>
 		

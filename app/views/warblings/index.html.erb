@@ -36,10 +36,21 @@
 				<ul class="grid_list grid_three">
 					<% issue.warbles.first(3).each do |warble| %>
 					<li>
+						
 						<% unless warble.hero_image.url.nil? %>
 							<%=  image_tag warble.hero_image.thumbnail, :class => "hero" %>
 						<% end %>
-						<p><%= link_to warble.title, warbling_path(issue) %></p>
+						
+						<% if warble.class == Post %>
+						
+							<p><%= link_to warble.title, post_path(warble) %></p>
+						
+						<% else %>
+						
+							<p><%= link_to warble.title, warbling_path(issue, :anchor => "warble_#{warble.id}")  %></p>
+						
+						<% end %>
+						
 					</li>
 					<% end %>
 				</ul>

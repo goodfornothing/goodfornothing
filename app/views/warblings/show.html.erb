@@ -5,6 +5,9 @@
 		<%= image_tag @issue.icon.large %>
 		
 		<% if @issues.any? %>
+		
+		<h2>More warblings</h2>
+		
 		<ul class="filter_list">
 			<% @issues.each do |issue| %>
 			<li class="warbling_small">

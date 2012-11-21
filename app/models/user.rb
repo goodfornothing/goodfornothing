@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
 
   has_one :ning_profile
   has_many :posts
+	has_many :trills
 
 	has_many :recipients
 	has_many :messages, :class_name => "Messaging::Message"

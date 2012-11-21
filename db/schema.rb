@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121120112622) do
+ActiveRecord::Schema.define(:version => 20121121125513) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -102,7 +102,6 @@ ActiveRecord::Schema.define(:version => 20121120112622) do
     t.datetime "updated_at",  :null => false
     t.integer  "chapter_id"
     t.integer  "partner_id"
-    t.string   "poster"
     t.string   "logo"
     t.string   "slug"
   end
@@ -114,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20121120112622) do
     t.string   "slug"
     t.text     "description"
     t.boolean  "active",      :default => true
+    t.string   "icon"
   end
 
   create_table "issues_trills", :force => true do |t|
@@ -280,6 +280,7 @@ ActiveRecord::Schema.define(:version => 20121120112622) do
     t.integer  "strikes",     :default => 0
     t.string   "hero_image"
     t.integer  "user_id"
+    t.string   "vimeo"
   end
 
   create_table "users", :force => true do |t|

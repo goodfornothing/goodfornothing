@@ -35,11 +35,14 @@
 /* Warblers */
 
 	#warblers {
-		background: #61514D;
 		color: #ffffff;
 		text-align: center;
-		padding: 44px 0 42px;
-		margin-bottom: 60px;
+		padding: 47px 0 42px;
+		margin-bottom: 65px;
+		background-color: #61514d;
+		background-repeat: repeat-x, repeat-x;
+		background-position: left top, left bottom;
+		background-image: url(layout/footer.gif), url(layout/footer_bottom.gif);
 	}
 	
 	#warblers .container {
@@ -49,7 +52,7 @@
 
 	#warblers h2 {
 		color: #ffffff;
-		margin-bottom: 37px;
+		margin-bottom: 30px;
 		font-size: 24px;
 		line-height: 30px;
 	}
@@ -186,7 +189,6 @@
 
 	article.warble p {
 		margin-bottom: 20px;
-		padding: 0 5px;
 	}
 
 	article.warble .warble_intro {
@@ -200,26 +202,33 @@
 	}
 
 	article.warble .heading {
-		background: rgba(255,255,255,0.8);
-		padding: 21px 20px 20px;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 600px;
-		min-height: 50px;
+		margin-bottom: 10px;
+		overflow: hidden;
 	}
 
 	article.warble .heading h2 {
 		float: left;
 		margin: 0;
 		font-size: 20px;
-		line-height: 30px;
-		width: 400px;
+		line-height: 26px;
+		width: 89%;
+		margin-bottom: 0;
+	}
+	
+	article.warble .heading p {
+		font-size: 12px;
+		float: left;
+		width: 89%;
 	}
 
 	article.warble .heading .cta {
 		float: right;
 		margin: 0;
+	}
+	
+	article.warble .hero {
+		display: block; 
+		margin-bottom: 20px;
 	}
 
 	article.post_panel {
@@ -258,20 +267,13 @@
 /* Warble filters */
 
 	#warble_filters {
-		padding-top: 32px;
+		padding-top: 30px;
 		width: 185px;
 	}
 	
-	#warble_filters h1 {
-		font-size: 22px;
-		margin-bottom: 40px;
-		text-align: center;
-		color: #000000;
-	}
-
 	#warble_filters img {
 		display: block;
-		margin-bottom: 10px;
+		margin: 0 auto 30px;
 	}
 	
 	#warble_filters ul {

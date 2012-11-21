@@ -40,7 +40,9 @@ ActiveAdmin.register Post do
       if current_user.role == "admin" || current_user.role == "leader"
         f.input :gfn_update, :label => "Post in Good for Nothing updates?"
       end
-      f.input :user_id, :as => :hidden, :value => current_user.id
+			if f.object.new_record?
+      	f.input :user_id, :as => :hidden, :value => current_user.id
+			end
     end
     f.inputs "Post" do   
       f.input :hero_image

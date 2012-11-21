@@ -3,7 +3,8 @@
 	<h2><%= link_to challenge.title, challenge_path(challenge) %></h2>
 	
 	<% if challenge.issues.any? %>
-		<%= link_to (image_tag "issues/#{challenge.issues.first.title.parameterize.downcase.underscore}.png", :class => "tip", :title => "#{challenge.issues.first.title}"), issue_challenges_path(challenge.issues.first) %>
+		<% issue = challenge.issues.first %>
+		<%= link_to (image_tag issue.icon.small), issue_challenges_path(issue), :class => "issue_tip", :title => issue.title %>
 	<% end %>
 	
 	<% if challenge.comments.any? || challenge.contributions.any? %>

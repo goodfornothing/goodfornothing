@@ -5,6 +5,9 @@ ActiveAdmin.register Issue do
     authorize_resource
   end
   
+  scope :active, :default => true
+	scope :all
+
   menu :priority => 10, :parent => "Meta", :if => proc{ can?(:manage, Issue) } 
    
   config.clear_sidebar_sections!
@@ -28,8 +31,11 @@ ActiveAdmin.register Issue do
   end
   
   form do |f|
-    f.inputs "Details" do
+		f.inputs "Meta" do
 			f.input :active
+			f.input :icon
+		end
+    f.inputs "Details" do
       f.input :title
 			f.input :description
     end

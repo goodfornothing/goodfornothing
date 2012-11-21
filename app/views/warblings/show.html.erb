@@ -1,19 +1,18 @@
 <aside id="secondary_content" class="introduction">
 	
 	<div id="warble_filters">
-		<%= image_tag "issues/#{@issue.slug.underscore}_large.gif" %>	
 		
-		<h1><%= @issue.title %></h1>
+		<%= image_tag @issue.icon.large %>
 		
 		<% if @issues.any? %>
 		<ul class="filter_list">
 			<% @issues.each do |issue| %>
-			<li class="warbling_small small_warbling_<%= issue.slug.underscore %>">
-				<%= link_to issue.title, warbling_path(issue), :class => "tip", :title => issue.title %>
+			<li class="warbling_small">
+				<%= link_to (image_tag issue.icon.small), warbling_path(issue), :class => "issue_tip", :title => issue.title %>
 			</li>
 			<% end %>
-			<li class="warbling_small small_warbling_gfn">
-				<%= link_to "GFN Musings", posts_path, :class => "tip", :title => "GFN Musings" %>
+			<li class="warbling_small">
+				<%= link_to (image_tag "illustrations/gfn_small.png"), posts_path, :class => "issue_tip", :title => "GFN Musings" %>
 			</li>
 		</ul>
 		<% end %>
@@ -25,31 +24,36 @@
 <section id="primary_content">
 
 	<div class="abstract">
-		<h2>What's it all about?</h2>
+		<h1>Warbling about <%= @issue.title %></h1>
 		<%= simple_format @issue.description %>
 	</div>
-	
-	<h2>Talking about <%= @issue.title %>&hellip;</h2>
 	
 	<% if @stream.any? %>
 		<% @stream.each do |resource| %>
 		
 			<% if resource.class == Trill %>
-				<article class="warble">
+			
+				<article class="warble" id="warble_<%= resource.id %>">
 					
-					<div class="warble_intro">
-						<% unless resource.hero_image.url.nil? %>
-							<%=  image_tag resource.hero_image, :class => "hero" %>
-						<% end %>
-						<div class="heading">
-							<h2><%= resource.title %></h2>
-							<p class="cta"><%= link_to "Check it out", resource.url %></p>
-						</div>
+					<div class="heading">
+						<%= render :partial => "members/avatar", :locals => { :member => resource.user }%>
+						<h2><%= resource.title %></h2>
+						<p>Warbled by <%= resource.user.name %></p>
 					</div>
-					
+											
+					<% if resource.vimeo.present? %>
+						<iframe class="hero" src="http://player.vimeo.com/video/<%= resource.vimeo %>?title=0&amp;byline=0&amp;portrait=0&amp;color=9adada" width="640" height="352" frameborder="0"></iframe>
+					<% elsif resource.hero_image.url.present? %>
+						<%=  image_tag resource.hero_image, :class => "hero" %>
+					<% end %>
+											
 					<%= simple_format(auto_link(resource.description)).html_safe %>
 
+					<p class="cta"><%= link_to "Go check it out!", resource.url %></p>
+					
+
 				</article>
+				
 			<% elsif resource.class == Post %>
 				<article class="post_panel">
 
@@ -70,8 +74,6 @@
 			<% end %>
 			
 		<% end %>
-	<% else %>
-		<p>There's not a lot here yet, but hey, we've just launched!</p>
 	<% end %>
 			
 </section>

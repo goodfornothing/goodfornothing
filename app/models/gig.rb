@@ -2,7 +2,7 @@ class Gig < ActiveRecord::Base
   
 	acts_as_event
 	
-  attr_accessible :partner_id, :friend_ids, :poster, :logo
+  attr_accessible :partner_id, :friend_ids, :logo
 
 	has_many :challenges
 	
@@ -12,6 +12,5 @@ class Gig < ActiveRecord::Base
 	validates_presence_of :description
 	
 	mount_uploader :logo, ArticleImageUploader
-	mount_uploader :poster, PosterUploader
   	
 end

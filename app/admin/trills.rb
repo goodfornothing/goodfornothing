@@ -16,12 +16,15 @@ ActiveAdmin.register Trill do
   form :html => { :enctype => "multipart/form-data" }  do |f|
 	  f.inputs "State" do
       f.input :published, :label => "Publish this trill now?"
-      f.input :user_id, :as => :hidden, :value => current_user.id
+			if f.object.new_record?
+      	f.input :user_id, :as => :hidden, :value => current_user.id
+			end
     end
     f.inputs "Content" do
       f.input :title, :as => :string
       f.input :url, :as => :string, :label => "Link"
       f.input :hero_image, :label => "Image"
+			f.input :vimeo, :label => "Vimeo ID", :hint => "Videos will replace hero images if included"
       f.input :description, :input_html => { :rows => 10 }, :hint => "Write a little bit about what you've found, try to keep it brief"
     end
     f.inputs "Issues" do

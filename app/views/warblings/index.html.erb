@@ -22,14 +22,14 @@
 	<% end %>
 	
 	<div class="container">
-	
+		
 		<% if @issues.any? %>
 		
 			<% @issues.each do |issue| %>
 			<div class="issue_grid">
 				
-				<h3 class="warbling warbling_<%= issue.slug.downcase.underscore %>">
-					<%= link_to issue.title, warbling_path(issue), :class => "tip", :title => "Follow" %>
+				<h3 class="warbling">
+					<%= link_to (image_tag issue.icon.medium) + (issue.title), warbling_path(issue), :class => "tip", :title => "Follow" %>
 				</h3>
 				
 				<% if issue.warbles.any? %>
@@ -54,7 +54,9 @@
 		
 			<div class="issue_grid">
 				
-				<h3 class="warbling warbling_gfn"><%= link_to "GFN Musings", posts_path %></h3>
+				<h3 class="warbling">
+					<%= link_to ((image_tag "illustrations/gfn.png")+"GFN Musings"), posts_path %>
+				</h3>
 				
 				<ul class="grid_list grid_three">
 					<% @updates.each do |update| %>

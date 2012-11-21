@@ -39,9 +39,11 @@
 				<article class="warble" id="warble_<%= resource.id %>">
 					
 					<div class="heading">
-						<%= render :partial => "members/avatar", :locals => { :member => resource.user }%>
+						<%= render :partial => "members/avatar", :locals => { :member => resource.user } unless resource.user.nil? %>
 						<h2><%= resource.title %></h2>
+						<% unless resource.user.nil? %>
 						<p>Warbled by <%= resource.user.name %></p>
+						<% end %>
 					</div>
 											
 					<% if resource.vimeo.present? %>

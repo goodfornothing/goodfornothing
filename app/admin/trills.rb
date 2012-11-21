@@ -16,9 +16,6 @@ ActiveAdmin.register Trill do
   form :html => { :enctype => "multipart/form-data" }  do |f|
 	  f.inputs "State" do
       f.input :published, :label => "Publish this trill now?"
-			if f.object.new_record?
-      	f.input :user_id, :as => :hidden, :value => current_user.id
-			end
     end
     f.inputs "Content" do
       f.input :title, :as => :string
@@ -27,6 +24,11 @@ ActiveAdmin.register Trill do
 			f.input :vimeo, :label => "Vimeo ID", :hint => "Videos will replace hero images if included"
       f.input :description, :input_html => { :rows => 10 }, :hint => "Write a little bit about what you've found, try to keep it brief"
     end
+		f.inputs "User" do
+			if f.object.new_record? || f.object.user.nil?
+	    	f.input :user_id, :as => :hidden, :value => current_user.id
+			end
+		end
     f.inputs "Issues" do
       f.input :issues, :as => :check_boxes
     end

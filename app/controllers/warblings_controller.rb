@@ -7,6 +7,11 @@ class WarblingsController < ApplicationController
 	end
 	
 	def show
+		
+		if params[:id] == "food" 
+			return redirect_to warbling_path('sustainable-food') 
+		end
+
 	  @issue = Issue.find(params[:id])
 	  # FriendlyID History
     if request.path != warbling_path(@issue)

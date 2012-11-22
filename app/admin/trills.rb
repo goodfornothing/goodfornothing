@@ -61,7 +61,7 @@ ActiveAdmin.register Trill do
         link_to bookmark.url, bookmark.url
       end
       row :hero_image do
-        image_tag(bookmark.hero_image) unless bookmark.hero_image.url.nil?
+        image_tag(bookmark.hero_image.thumbnail) unless bookmark.hero_image.url.nil?
       end
 			row :description do
      	 if bookmark.description.is_json?

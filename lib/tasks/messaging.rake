@@ -10,7 +10,7 @@ namespace :messaging do
 			m = Messaging::Partner.new
 			m.message = Messaging::Message.new
 			
-			m.message.email = partner.email
+			m.message.email = partner.contact
 			m.message.name = partner.name
 			
 			m.purpose = partner.purpose

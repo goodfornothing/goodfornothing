@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122102433) do
+ActiveRecord::Schema.define(:version => 20121122125650) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(:version => 20121122102433) do
     t.integer "venture_id"
     t.boolean "featured",              :default => false
     t.boolean "active",                :default => false
-    t.string  "contact"
     t.boolean "open",                  :default => true
     t.integer "partner_id"
     t.string  "slug"
@@ -192,14 +191,9 @@ ActiveRecord::Schema.define(:version => 20121122102433) do
   end
 
   create_table "partners", :force => true do |t|
-    t.string  "name"
     t.string  "url"
     t.string  "logo"
-    t.boolean "active",  :default => false
-    t.string  "purpose"
-    t.string  "email"
-    t.text    "notes"
-    t.string  "contact"
+    t.boolean "active", :default => false
   end
 
   create_table "posts", :force => true do |t|

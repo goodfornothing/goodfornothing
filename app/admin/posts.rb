@@ -20,7 +20,6 @@ ActiveAdmin.register Post do
     column("Title") { |post| link_to post.title, hive_post_path(post) }
     column("Author") { |post| post.user.name unless post.user.nil? }
     column("State") { |post| status_tag((post.published) ? "Published" : "Unpublished") }
-    column :created_at
     column "" do |post|
       "#{link_to "Edit", edit_hive_post_path(post)} &nbsp; #{link_to "Delete", hive_post_path(post), :method => "delete", :confirm => "Are you sure you wish to delete this post?"}".html_safe
     end
@@ -47,7 +46,7 @@ ActiveAdmin.register Post do
 			end
 		end
     f.inputs "Post" do   
-      f.input :hero_image
+      f.input :hero_image, :label => "Thumbnail"
       f.input :title
       f.input :excerpt, :input_html => { :rows => 5 }
     end

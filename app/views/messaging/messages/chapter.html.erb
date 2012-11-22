@@ -8,9 +8,7 @@
 		
 			<ul class="avatar_list">
 				<% @chapter.users.crew.each do |user| %>
-					<li class="avatar compact">	
-						<a class="tip" title="<%= user.name %>"><%= image_tag user.avatar.compact, :alt => user.name %></a>
-					</li>
+					<%= render :partial => "members/avatar", :locals => { :member => user }%>
 				<% end %>
 			</ul>
 		

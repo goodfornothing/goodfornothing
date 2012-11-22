@@ -2,7 +2,7 @@ class Issue < ActiveRecord::Base
 
 	scope :active, where(:active => true)
 
-  attr_accessible :title, :slug, :description, :active, :icon
+  attr_accessible :title, :slug, :description, :active, :icon, :hashtag
 
 	has_many :posts
 	has_and_belongs_to_many :trills

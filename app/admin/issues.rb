@@ -20,24 +20,27 @@ ActiveAdmin.register Issue do
   
 	index do
     column :title
+		column :hashtag
     default_actions
   end
   
   show do |skill|
     attributes_table do
       row :title
+			row :hashtag
 			row :descriptions
     end
   end
   
   form do |f|
 		f.inputs "Meta" do
-			f.input :active
 			f.input :icon
+			f.input	:hashtag
+			f.input :active
 		end
     f.inputs "Details" do
       f.input :title
-			f.input :description
+			f.input :description, :input_html => { :rows => 5 }
     end
     f.buttons
   end

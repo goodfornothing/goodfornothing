@@ -14,23 +14,28 @@ ActiveAdmin.register Trill do
   end
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
-	  f.inputs "State" do
-      f.input :published, :label => "Publish this trill now?"
-    end
+		f.inputs "Author" do
+			if f.object.new_record? || f.object.user.nil?
+	    	f.input :user_id, :as => :hidden, :value => current_user.id
+				current_user.name
+			elsif f.object.user.present?
+				f.object.user.name
+			end
+			f.input :published, :label => "Publish this trill now?"
+		end
     f.inputs "Content" do
       f.input :title, :as => :string
       f.input :url, :as => :string, :label => "Link"
-      f.input :hero_image, :label => "Image"
-			f.input :vimeo, :label => "Vimeo ID", :hint => "Videos will replace hero images if included"
-      f.input :description, :input_html => { :rows => 10 }, :hint => "Write a little bit about what you've found, try to keep it brief"
-    end
-		f.inputs "User" do
-			if f.object.new_record? || f.object.user.nil?
-	    	f.input :user_id, :as => :hidden, :value => current_user.id
-			end
-		end
-    f.inputs "Issues" do
+			f.input :hero_image, :label => "Thumbnail"
       f.input :issues, :as => :check_boxes
+    end
+		f.inputs "Description" do
+			"Write a little bit about what you've found, try to keep it brief"
+      if f.object.new_record? || f.object.description.is_json?
+        f.sir_trevor_text_area :description
+      else 
+        f.input :description
+      end
     end
     f.buttons
   end
@@ -55,12 +60,16 @@ ActiveAdmin.register Trill do
       row "URL" do
         link_to bookmark.url, bookmark.url
       end
-      row "Image" do
+      row :hero_image do
         image_tag(bookmark.hero_image.thumbnail) unless bookmark.hero_image.url.nil?
       end
-      row :description do
-        simple_format(auto_link(bookmark.description))
-      end
+			row :description do
+     	 if bookmark.description.is_json?
+	   		   render_sir_trevor(bookmark.description)
+	   		 else
+	   		   simple_format(bookmark.description).html_safe
+	   	   end
+			end
     end
   end
   

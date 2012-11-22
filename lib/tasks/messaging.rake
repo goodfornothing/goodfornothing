@@ -3,7 +3,7 @@ namespace :messaging do
 	desc "Migrate content from old hacky messaging system to new one"
   task :migrate => :environment do
     
-    Partner.inactive.where('email IS NOT NULL').each do |partner|
+    Partner.inactive.where('contact IS NOT NULL').each do |partner|
 			
 			puts "Migrating #{partner}"
 			

@@ -49,7 +49,7 @@
 					<% if resource.description.is_json? %>
 						<%= render_sir_trevor(resource.description) %>
 					<% else %>
-						<%= imple_format(auto_link(resource.description)).html_safe %>
+						<%= simple_format(auto_link(resource.description)).html_safe %>
 					<% end %>
 					
 					<p class="cta"><%= link_to "Go check it out!", resource.url %></p>

@@ -14,7 +14,7 @@ ActiveAdmin.register Trill do
   end
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
-		f.inputs "Author" do
+		f.inputs "Meta" do
 			if f.object.new_record? || f.object.user.nil?
 	    	f.input :user_id, :as => :hidden, :value => current_user.id
 				current_user.name
@@ -31,7 +31,7 @@ ActiveAdmin.register Trill do
     end
 		f.inputs "Description" do
 			"Write a little bit about what you've found, try to keep it brief"
-      if f.object.new_record? || f.object.description.is_json?
+      if f.object.new_record? || f.object.description.blank? || f.object.description.is_json?
         f.sir_trevor_text_area :description
       else 
         f.input :description
@@ -64,7 +64,7 @@ ActiveAdmin.register Trill do
         image_tag(bookmark.hero_image.thumbnail) unless bookmark.hero_image.url.nil?
       end
 			row :description do
-     	 if !bookmark.description.nil? && bookmark.description.is_json?
+     	 if bookmark.description.present? && bookmark.description.is_json?
 	   		   render_sir_trevor(bookmark.description)
 	   		 else
 	   		   simple_format(bookmark.description).html_safe

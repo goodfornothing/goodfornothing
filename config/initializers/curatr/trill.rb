@@ -1,3 +1,3 @@
-#Curatr.register Trill do
-#    fields :subject => :title, :body => :url          
-#end
+Curatr.register Trill do
+    fields :subject => :title, :body => :url          
+end

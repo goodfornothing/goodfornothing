@@ -6,14 +6,54 @@ ActiveAdmin.register_page "Dashboard" do
   
 
 		columns do
+			
 		  column do
-		    panel "Unread Messages" do
-		      
-		    end
-		  end
+			
+				panel "Inbox" do
+					@messages = current_user.inbox.unread
+					if @messages.any?
+		          table do
+		            thead do
+		              tr do
+		                th "From"
+		                th "Message Type"
+		                th "", :colspan => 2
+		              end
+		            end
+		            tbody do
+		              @messages.collect do |message|
+		                tr do
+		                  td message.from_name
+		                  td do
+												case message.submission_type
+													when "Messaging::Challenge"
+														"Challenge submission"
+													when "Messaging::Chapter"
+														"New Chapter Signup"
+													when "Messaging::Partner"
+														"Partner Request"
+													else
+														"Direct Message"
+												end
+											end
+		                  td link_to "Read", hive_message_path(message)
+		                end
+		              end
+		            end
+		          end
+
+		        else
+		          div :class => "blank_slate_container" do
+		            span :class => "blank_slate" do
+		              span "Inbox zero."
+		            end
+		          end
+		        end
+				end
+			end
     
-			column do
-				if can?(:manage, Trill)
+			if can?(:manage, Trill)
+				column do
 
 					@trills = Trill.order(:created_at).where('published = false').reverse
 
@@ -26,7 +66,7 @@ ActiveAdmin.register_page "Dashboard" do
 			              tr do
 			                th "Title"
 			                th "URL"
-			                th "Actions", :colspan => 2
+			                th "", :colspan => 2
 			              end
 			            end
 			            tbody do
@@ -34,8 +74,7 @@ ActiveAdmin.register_page "Dashboard" do
 			                tr do
 			                  td trill.title
 			                  td trill.url
-			                  td link_to "Edit", edit_hive_trill_path(trill)
-			                  td link_to "Publish", publish_hive_trill_path(trill)
+			                  td link_to "Edit & Publish", edit_hive_trill_path(trill)
 			                end
 			              end
 			            end

@@ -1,5 +1,7 @@
 class Messaging::Message < ActiveRecord::Base
 
+	scope :unread, where(:read => false)
+
   attr_accessible :body, :read, :sent, :email, :name, :user_ids
 	
 	validates_presence_of :email, :if => :no_user?

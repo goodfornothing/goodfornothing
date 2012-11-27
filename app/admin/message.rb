@@ -24,7 +24,7 @@ ActiveAdmin.register Messaging::Message, :as => "Message" do
 	scope :challenge_submissions do
 		current_user.inbox.where("submission_type = ?", 'Messaging::Challenge')
 	end
-	scope :new_chapter_requests do
+	scope :chapter_sign_ups do
 		current_user.inbox.where("submission_type = ?", 'Messaging::Chapter')
 	end
 

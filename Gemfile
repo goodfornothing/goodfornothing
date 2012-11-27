@@ -35,6 +35,8 @@ gem 'rails_autolink'
 gem 'exception_notification'
 gem 'sir-trevor-rails','>= 0.1.1'
 
+gem "curatr", :path => "/Users/andrewsprinz/Sites/_sandbox/curatr"
+
 # Moar statistics
 gem 'twitter'
 gem 'garb'

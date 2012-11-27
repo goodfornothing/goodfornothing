@@ -64,7 +64,7 @@ ActiveAdmin.register Trill do
         image_tag(bookmark.hero_image.thumbnail) unless bookmark.hero_image.url.nil?
       end
 			row :description do
-     	 if bookmark.description.is_json?
+     	 if !bookmark.description.nil? && bookmark.description.is_json?
 	   		   render_sir_trevor(bookmark.description)
 	   		 else
 	   		   simple_format(bookmark.description).html_safe

@@ -22,4 +22,5 @@ pickle-email-*.html
 /config/garb.yml
 /config/facebook.yml
 /config/twitter.yml
+/config/curatr.yml
 /public/uploads/*

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122125650) do
+ActiveRecord::Schema.define(:version => 20121123132410) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -194,6 +194,7 @@ ActiveRecord::Schema.define(:version => 20121122125650) do
     t.string  "url"
     t.string  "logo"
     t.boolean "active", :default => false
+    t.string  "name"
   end
 
   create_table "posts", :force => true do |t|

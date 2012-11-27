@@ -1,0 +1,10 @@
+twitter:
+  api_key: ''
+  api_secret: ''
+resources:
+  trill:
+    email:
+      host: ''
+      port: ''
+      username: ''
+      password: ''

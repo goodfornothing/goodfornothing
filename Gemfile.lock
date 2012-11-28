@@ -153,7 +153,6 @@ GEM
       net-ssh (>= 1.99.1)
     net-ssh (2.6.0)
       jruby-pageant (>= 1.1.1)
-    newrelic_rpm (3.5.0)
     nokogiri (1.5.5)
     orm_adapter (0.4.0)
     paper_trail (2.6.3)
@@ -271,14 +270,13 @@ DEPENDENCIES
   meta_search (>= 1.1.0.pre)
   mini_magick (~> 3.3)
   mysql2
-  newrelic_rpm
   paper_trail (~> 2)
   rails (= 3.2.3)
   rails_autolink
   remotipart
   sass-rails
   simple_form
-  sir-trevor-rails (>= 0.1.1)
+  sir-trevor-rails
   thin
   turn (= 0.8.2)
   twitter

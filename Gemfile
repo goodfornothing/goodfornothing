@@ -33,7 +33,7 @@ gem "remotipart"
 gem 'rails_autolink'
 
 gem 'exception_notification'
-gem 'sir-trevor-rails','>= 0.1.1'
+gem 'sir-trevor-rails'
 
 #gem "curatr"
 
@@ -41,7 +41,6 @@ gem 'sir-trevor-rails','>= 0.1.1'
 gem 'twitter'
 gem 'garb'
 gem 'fb_graph'
-gem 'newrelic_rpm'
 gem 'ey_config'
 
 group :assets do

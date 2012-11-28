@@ -27,8 +27,18 @@ ActiveAdmin.register Post do
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
 		f.inputs "State" do
-			f.input :published, :label => "Publish this post now?"
+			if f.object.new_record? || f.object.user.nil?
+	    	f.input :user_id, :as => :hidden, :value => current_user.id
+			end
+			f.input :published, :label => "Publish this post?"
 		end
+		
+		unless f.object.new_record?
+			f.inputs "Dates" do
+				f.input :created_at, :label => "Published at" 
+			end
+		end
+		
     f.inputs "Details" do
       if current_user.role == "admin"
         f.input :chapter
@@ -40,11 +50,6 @@ ActiveAdmin.register Post do
         f.input :gfn_update, :label => "Post in Good for Nothing updates?"
       end
     end
-		f.inputs "User" do
-			if f.object.new_record? || f.object.user.nil?
-	    	f.input :user_id, :as => :hidden, :value => current_user.id
-			end
-		end
     f.inputs "Post" do   
       f.input :hero_image, :label => "Thumbnail"
       f.input :title

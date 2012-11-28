@@ -1,13 +1,3 @@
-PATH
-  remote: /Users/andrewsprinz/Sites/_sandbox/curatr
-  specs:
-    curatr (0.0.1)
-      activesupport (>= 3.0.7)
-      bitly
-      daemons
-      profanalyzer
-      rails (>= 3.0.7)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -76,6 +66,12 @@ GEM
     coffee-script-source (1.3.3)
     country-select (1.1.1)
     crack (0.3.1)
+    curatr (0.0.1)
+      activesupport (>= 3.0.7)
+      bitly
+      daemons
+      profanalyzer
+      rails (>= 3.0.7)
     daemons (1.1.9)
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
@@ -272,7 +268,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails
   country-select
-  curatr!
+  curatr
   devise
   diffy
   exception_notification

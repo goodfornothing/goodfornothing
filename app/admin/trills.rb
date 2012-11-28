@@ -14,15 +14,6 @@ ActiveAdmin.register Trill do
   end
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
-		f.inputs "Meta" do
-			if f.object.new_record? || f.object.user.nil?
-	    	f.input :user_id, :as => :hidden, :value => current_user.id
-				current_user.name
-			elsif f.object.user.present?
-				f.object.user.name
-			end
-			f.input :published, :label => "Publish this trill now?"
-		end
     f.inputs "Content" do
       f.input :title, :as => :string
       f.input :url, :as => :string, :label => "Link"
@@ -37,6 +28,12 @@ ActiveAdmin.register Trill do
         f.input :description
       end
     end
+		f.inputs "Publish" do
+			if f.object.new_record? || f.object.user.nil?
+	    	f.input :user_id, :as => :hidden, :value => current_user.id
+			end
+			f.input :published, :label => "Publish this trill now?"
+		end
     f.buttons
   end
   

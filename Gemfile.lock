@@ -46,10 +46,6 @@ GEM
     arel (3.0.2)
     attr_required (0.0.5)
     bcrypt-ruby (3.0.1)
-    bitly (0.7.0)
-      crack (>= 0.1.4)
-      httparty (>= 0.7.6)
-      oauth2 (~> 0.5.0)
     bourbon (2.1.2)
       sass (>= 3.2)
       thor
@@ -67,9 +63,8 @@ GEM
     coffee-script-source (1.4.0)
     country-select (1.1.1)
     crack (0.3.1)
-    curatr (0.0.6)
+    curatr (0.1.0)
       activesupport (>= 3.0.7)
-      bitly
       daemons
       profanalyzer
       rails (>= 3.0.7)
@@ -165,9 +160,6 @@ GEM
       net-ssh (>= 1.99.1)
     net-ssh (2.6.2)
     nokogiri (1.5.5)
-    oauth2 (0.5.2)
-      faraday (~> 0.7)
-      multi_json (~> 1.0)
     orm_adapter (0.4.0)
     paper_trail (2.6.4)
       activerecord (~> 3.0)

@@ -67,7 +67,7 @@ GEM
     coffee-script-source (1.4.0)
     country-select (1.1.1)
     crack (0.3.1)
-    curatr (0.0.4)
+    curatr (0.0.5)
       activesupport (>= 3.0.7)
       bitly
       daemons

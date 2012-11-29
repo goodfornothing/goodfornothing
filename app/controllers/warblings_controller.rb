@@ -15,7 +15,7 @@ class WarblingsController < ApplicationController
 	  @issue = Issue.find(params[:id])
 	
 		if @issue.nil?
-			not_found
+			return not_found
 		end
 	
 	  # FriendlyID History
@@ -24,6 +24,7 @@ class WarblingsController < ApplicationController
     end
 	  @stream = @issue.warbles
 		@issues = Issue.active.where('id != ?', @issue.id)
+		
 	end
 
 end

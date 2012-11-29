@@ -35,7 +35,7 @@ gem 'rails_autolink'
 gem 'exception_notification'
 gem 'sir-trevor-rails','>= 0.1.2'
 
-#gem "curatr"
+gem "curatr"
 
 # Moar statistics
 gem 'twitter'

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   # User roles for CanCan
   ROLES = %w[warbler cause leader admin]
+	delegate :can?, :cannot?, :to => :ability
 
   scope :crew, where("role = 'leader' or role = 'admin'")
   scope :active, where(:activated => true)
@@ -115,6 +116,10 @@ class User < ActiveRecord::Base
           
     ( ( @profile.count.to_f - (@profile.count(nil).to_f+@profile.count("")) ) / @profile.count.to_f) * 100
   end
+
+	def ability
+	  @ability ||= Ability.new(self)
+	end
   
   protected
      def password_required?

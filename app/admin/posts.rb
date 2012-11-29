@@ -26,12 +26,6 @@ ActiveAdmin.register Post do
   end
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
-		f.inputs "State" do
-			if f.object.new_record? || f.object.user.nil?
-	    	f.input :user_id, :as => :hidden, :value => current_user.id
-			end
-			f.input :published, :label => "Publish this post?"
-		end
 		
 		unless f.object.new_record?
 			f.inputs "Dates" do
@@ -40,15 +34,15 @@ ActiveAdmin.register Post do
 		end
 		
     f.inputs "Details" do
-      if current_user.role == "admin"
+      if current_user.role == "admin" || current_user.role == "leader"
+        f.input :gfn_update, :label => "Post in Good for Nothing updates?"
+      end
+			if current_user.role == "admin"
         f.input :chapter
       else
         f.input :chapter, :value => current_user.chapter_id, :input_html => { :disabled => "disabled" }
       end
-      f.input :issue, :label => "Add to Warble stream?"
-      if current_user.role == "admin" || current_user.role == "leader"
-        f.input :gfn_update, :label => "Post in Good for Nothing updates?"
-      end
+      f.input :issue, :label => "Add to Warble stream?", :collection => Issue.active
     end
     f.inputs "Post" do   
       f.input :hero_image, :label => "Thumbnail"
@@ -62,6 +56,14 @@ ActiveAdmin.register Post do
         f.input :body
       end
     end
+
+		f.inputs "State" do
+			if f.object.new_record? || f.object.user.nil?
+	    	f.input :user_id, :as => :hidden, :value => current_user.id
+			end
+			f.input :published, :label => "Publish this post?"
+		end
+		
     f.buttons
   end
   

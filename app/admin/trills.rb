@@ -18,7 +18,7 @@ ActiveAdmin.register Trill do
       f.input :title, :as => :string
       f.input :url, :as => :string, :label => "Link"
 			f.input :hero_image, :label => "Thumbnail"
-      f.input :issues, :as => :check_boxes
+      f.input :issues, :as => :check_boxes, :collection => Issue.active
     end
 		f.inputs "Description" do
 			"Write a little bit about what you've found, try to keep it brief"

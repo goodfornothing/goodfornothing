@@ -59,7 +59,7 @@ class ColophonController < ApplicationController
 	  @ga_profile = Garb::Management::Profile.all.detect {|p| p.web_property_id == 'UA-32250261-2'}
     @ga_uniques = @ga_profile.newvisits(:start_date => Date.today - 6.months, :end_date => Date.today).first.new_visits
 	  
-	  mc = Gibbon.new()
+	  mc = Gibbon.new(ENV['MC_API_KEY'])
     mc.campaigns({:list_id => ENV['MC_LIST_ID'], :status => 'sent'})['total']
 	  @mailchimp_newsletters = mc.campaigns({:list_id => ENV['MC_LIST_ID'], :status => 'sent'})['total'];
 	  @mailchimp_newsletters = 9

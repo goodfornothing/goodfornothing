@@ -167,7 +167,7 @@ class RegistrationsController < Devise::RegistrationsController
     
     def check_subscription(resource)
       if resource.activated?
-        mc = Gibbon.new(ENV['MC_API_KEY'])
+        mc = Gibbon.new(ENV['MC_API_KEY'], { :throws_exceptions => false} )
         if resource.subscribed?
           mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :merge_vars => { :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
         else

@@ -2,7 +2,7 @@ namespace :mailchimp do
   desc "Update Mailchimp database with segmentation data"
   task :segment => :environment do
     
-    mc = Gibbon.new(ENV['MC_API_KEY'])
+    mc = Gibbon.new(ENV['MC_API_KEY'],{ :throws_exceptions => false})
     
     User.all.each do |user|
       

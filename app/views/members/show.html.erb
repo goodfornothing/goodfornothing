@@ -48,6 +48,11 @@
 	<% end %>
 
 	<div id="profile">
+		
+		<div class="panel_full">
+			<h2>Why <%= contextual_reference(@member,"you're") %> doing Good for Nothing</h2>
+			<blockquote><%= simple_format(@member.reasons_for_joining) %></blockquote>
+		</div>
 					
 		<div class="panels">
 

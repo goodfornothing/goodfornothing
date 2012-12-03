@@ -70,7 +70,7 @@ $(document).ready(function(){
 	$('form.primary_panel .input.select label').hide();
 	
 	// Checkboxes
-	$(".checkbox").addClass('js');
+	$(".checkbox").addClass('js');	
 	$(".checkbox input").each(function(index,input){
 		
 		checked = $(input).attr('checked')?true:false;

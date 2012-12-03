@@ -15,6 +15,7 @@
 	width: 495px;
 	height: 60px;
 	margin: 0 auto 40px;
+	background: none;
 }
 
 #new_user.slides h1 span {
@@ -24,10 +25,11 @@
 form.slides {
 	width: 840px;
 	margin: 20px 0 50px;
+	padding-top: 45px;
 }
 
 form.slides {
-	min-height: 510px;
+	min-height: 460px;
 }
 
 .view_edit_moar form.slides {
@@ -45,9 +47,9 @@ form.slides .fields {
 }
 
 form.slides fieldset {
-	min-height: 320px;
+	min-height: 270px;
 	margin: 0;
-	padding-top: 40px;
+	padding-top: 60px;
 	padding-bottom: 0;
 	position: relative;
 }
@@ -108,13 +110,21 @@ form.slides fieldset {
 #new_user.slides .warblings .slide_illustration {
 	position: absolute;
 	left: -135px;
-	bottom: 40px;
+	bottom: -20px;
 }
 
 #new_user .chapters .slide_illustration {
 	position: absolute;
 	left: -163px;
 	bottom: -140px;
+}
+
+#new_user .chapters {
+	padding-top: 33px;
+}
+
+#new_user .chapters .input.string {
+	display: none;
 }
 
 #new_user .form_panels {
@@ -206,7 +216,7 @@ form.slides .slide_locations .btn {
 	padding: 0;
 	text-align: left;
 	width: 740px;
-	margin: 10px 0 0 40px;
+	margin: -10px 0 15px 66px;
 	position: relative;
 }
 
@@ -309,122 +319,113 @@ form.primary_panel .activity .checkbox span {
 
 /* Splodge inputs */
 
-	#new_user.slides .input.radio_buttons.splodges {
-		width: 650px;
+	#new_user.slides .border_splodges {
+		width: 580px;
 		margin: 0px auto 0;
 		text-align: center;
 	}
-	
-	#new_user.slides .input.radio_buttons.splodges {
-		width: 600px;
-	}
 
-	#new_user.slides .splodges .radio {
-		font-size: 22px;
+	#new_user.slides .border_splodges label {
+		font-size: 16px;
+		line-height: 21px;
 		font-family: "Good for Nothing";
-		width: 112px;
-		margin: 20px 10px 20px;
-		display: inline-block;
+		margin: 0 20px 20px 0;
 		text-align: center;
 		position: relative;
-		line-height: 55px;
-		height: 50px;
 		overflow: hidden;
 		padding-left: 0;
 		cursor: pointer;
+		float: left;
 	}
 
-	#new_user.slides .splodges .radio.js  {
-		background: url(<%= asset_path "assets/white_border_1.png" %>) no-repeat 0 0;
+	#new_user.slides .border_splodges label.js  { 
+		background-image: url(<%= asset_path "assets/white_borders.png" %>) ;
+		background-repeat: no-repeat;
+		width: 210px;
+		height: 55px;
+		padding-top: 14px;
+		background-position: -4px -1px;
+		width: 200px;
+		
+	}
+	
+	#new_user.slides .border_splodges label.control-label { display: none !important; }
+	#new_user.slides .border_splodges label.js input { display: none; }
+	#new_user.slides .border_splodges label.js.checked { background-color: #D0122D; }
+
+	#new_user.slides .border_splodges label.js:nth-child(3n+3) {
+		width: 131px; background-position: -223px 0px;
 	}
 
-	#new_user.slides .splodges .radio.js input {
-		display: none;
+	#new_user.slides .border_splodges label.js:nth-child(4n+4) {
+		width: 204px; background-position: -376px -3px;
+		margin-right: 0;
+	}
+	
+	#new_user.slides .border_splodges label.js:nth-child(5n+5) {
+		width: 196px; height: 52px; background-position: 0px -96px;
+	}
+	
+	
+	#new_user.slides .border_splodges label.js:nth-child(6n+6) {
+		width: 150px; height: 52px; background-position: -426px -88px;	
+	}
+	
+	#new_user.slides .border_splodges label.js:nth-child(7n+7) {
+		width: 180px; height: 38px; background-position: -220px -95px;
+		padding-top: 20px; margin-right: 0;
 	}
 
-	#new_user.slides .splodges .radio.js:nth-child(3) {
-		width: 107px;
-		font-size: 17px;
-		background: url(<%= asset_path "assets/white_border_5.png" %>) no-repeat 0 0;
-	}
+/* Splodge block inputs */
 
-	#new_user.slides .splodges .radio.js:nth-child(4) {
-		width: 173px; font-size: 20px;
-		background: url(<%= asset_path "assets/white_border_4.png" %>) no-repeat 0 0;
-	}
-
-	#new_user.slides .splodges .radio.js:nth-child(5) {
-		width: 172px;
-		background: url(<%= asset_path "assets/white_border_3.png" %>) no-repeat 0 0;
-	}
-
-	#new_user.slides .splodges .radio.js:nth-child(6) {
-		width: 107px;
-		font-size: 16px;
-		background: url(<%= asset_path "assets/white_border_5.png" %>) no-repeat 0 0;
-	}
-
-	#new_user.slides .splodges .radio.js:nth-child(7), {
-		width: 172px; font-size: 21px;
-		background: url(<%= asset_path "assets/white_border_3.png" %>) no-repeat 0 0;
-	}
-
-	#new_user.slides .splodges .radio.js:nth-child(9) {
-		width: 147px; font-size: 18px;
-		background: url(<%= asset_path "assets/white_border_2.png" %>) no-repeat 0 0;
-	}
-
-	#new_user.slides .splodges .radio.js:nth-child(10) {
-		width: 172px; font-size: 21px;
-		background: url(<%= asset_path "assets/white_border_3.png" %>) no-repeat 0 0;
-	}
-
-	#new_user.slides .splodges .radio.js.checked  {
-		background-color: #D0122D;
-	}
-
-	/* Issues */
-
-	#new_user.slides .warblings .input.check_boxes {
-		position: relative;
+	#new_user.slides .solid_splodges {
+		width: 410px;
+		margin: 0px auto 0;
 		text-align: center;
-		margin-bottom: 20px;
 	}
 
-	#new_user.slides .warblings .checkbox.js input {
-		display: none;
-	}
-
-	#new_user.slides .warblings .checkbox.js {
-		font-size: 18px;
+	#new_user.slides .solid_splodges label {
+		font-size: 15px;
+		line-height: 19px;
 		font-family: "Good for Nothing";
-		background: url(<%= asset_path "assets/white_splodge.gif" %>) no-repeat top left;
-		color: #9adada;
-		margin: 0 10px 10px 0;
-		display: inline-block;
+		margin: 0 30px 15px 0;
 		text-align: center;
 		position: relative;
-		line-height: 30px;
-		vertical-align: middle;
-		height: 105px;
-		padding: 50px 20px 0 10px;
-		width: 130px;
 		overflow: hidden;
+		padding-left: 0;
 		cursor: pointer;
+		float: left;
 	}
 
-	#new_user.slides .warblings .checkbox.checked {
-		color: #D0122D;
+	#new_user.slides .solid_splodges label.js  { 
+		background-image: url(<%= asset_path "assets/white_splodges.png" %>) ;
+		background-repeat: no-repeat;
+		background-position: 0px -3px;
+		background-color: #ffffff;
+		color: #9adada;
+		width: 116px;
+		height: 73px;
+		padding-top: 40px;
 	}
 
-	#new_user.slides .warblings .checkbox.js:nth-child(2) {
-		background: url(<%= asset_path "assets/white_splodge_2.gif" %>) no-repeat top left;
+	#new_user.slides .solid_splodges label.control-label { display: none !important; }
+	#new_user.slides .solid_splodges label.js input { display: none; }
+	#new_user.slides .solid_splodges label.js.checked { background-color: #085156; color: #ffffff; }
+	#new_user.slides .solid_splodges label.js span { display: block; font-size: 11px }
+
+	#new_user.slides .solid_splodges label.js:nth-child(4),
+	#new_user.slides .solid_splodges label.js:nth-child(7n+7) {
+		margin-right: 0;
 	}
 
-	#new_user.slides .warblings .checkbox.js:nth-child(4) {
-		background: url(<%= asset_path "assets/white_splodge_3.gif" %>) no-repeat top left;
+	#new_user.slides .solid_splodges label.js:nth-child(3n+3) {
+		background-position: -140px 0px;
+		height: 76px;
+		width: 118px;
 	}
 
-	#new_user.slides .warblings .checkbox.js:nth-child(6) {
-		background: url(<%= asset_path "assets/white_splodge_2.gif" %>) no-repeat top left;
+	#new_user.slides .solid_splodges label.js:nth-child(4n+4) {
+		background-position: -282px 0px;
+		height: 76px;
 	}
+	

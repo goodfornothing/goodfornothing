@@ -1,8 +1,7 @@
 <section id="primary_content" class="single">
 	
 	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "primary_panel slides" }) do |f| %>
-
-		
+	
 		<%= render "shared/notices" %>
 		
 		<div class="fields">
@@ -26,14 +25,6 @@
 			
 			</fieldset>
 			<% end %>
-		
-			<fieldset class="slide slide_skills">
-			
-				<legend>Your special skills and talents</legend>			
-			
-				<%= f.input :brings, :label => "Do you bring any other special skills or talents to the movement?", :input_html => { :rows => 7 }, :wrapper_html => { :class => "smart_label" } %>
-			
-			</fieldset>
 
 			<fieldset class="slide slide_locations">
 			

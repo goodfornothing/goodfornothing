@@ -4,6 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
   prepend_before_filter :authenticate_scope!, :only => [:edit_activity, :edit_talents, :edit_password, :edit, :edit_moar, :update, :destroy, :update_activity, :update_talents, :update_password]
   
   def new
+		@similar = User.limit(12).collect
     resource = build_resource({})
     respond_with resource
   end

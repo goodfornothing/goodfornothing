@@ -12,10 +12,11 @@
 
 #new_user.slides h1 {
 	font-size: 13px;
-	width: 495px;
+	width: 476px;
 	height: 60px;
-	margin: 0 auto 40px;
+	margin: 0 auto 35px;
 	background: none;
+	padding: 0;
 }
 
 #new_user.slides h1 span {
@@ -62,8 +63,8 @@ form.slides fieldset {
 .section_registrations #pagination {
 	margin: 0 auto;
 	display: inline-block;
-	padding: 0 0 0 15px;
-	background: url(<%= asset_path "assets/white_squiggle.png" %>) repeat-x center center;
+	padding: 0;
+	background: url(<%= asset_path "assets/white_squiggle.png" %>) repeat-x left center;
 }
 
 .section_registrations #pagination li.page_links {
@@ -89,6 +90,14 @@ form.slides fieldset {
 	color: #ffffff;
 }
 
+.section_registrations #pagination li.page_links:nth-last-child(2) {
+	margin: 0;
+}
+
+.section_registrations #pagination li.page_links:nth-last-child(2).current {
+	display: none;
+}
+
 .section_registrations #pagination .prev,
 .section_registrations #pagination .next {
 	text-indent: -13377px;
@@ -107,10 +116,22 @@ form.slides fieldset {
 	background: url(<%= asset_path "icons/next.png" %>) no-repeat top left;
 }
 
+#new_user.slides .similar {
+	padding-top: 50px;
+}
+
+#new_user.slides .similar textarea {
+	padding-bottom: 35px;
+}
+
+#new_user.slides .warblings {
+	padding-top: 60px;
+}
+
 #new_user.slides .warblings .slide_illustration {
 	position: absolute;
 	left: -135px;
-	bottom: -20px;
+	bottom: -15px;
 }
 
 #new_user .chapters .slide_illustration {
@@ -120,11 +141,43 @@ form.slides fieldset {
 }
 
 #new_user .chapters {
-	padding-top: 33px;
+	padding-top: 28px;
 }
 
-#new_user .chapters .input.string {
-	display: none;
+#new_user .chapters .grow_tip {
+	position: absolute;
+	top: 27px;
+	right: 77px;	
+}
+
+#new_user .chapters .grow_tip label {
+	padding-left: 40px;
+	padding-top: 5px;
+	font-size: 13px;
+}
+
+#new_user .chapters .grow_tip input {
+	width: 80px;
+	padding: 5px 0 0 55px;
+	height: 47px;
+	font-size: 12px;
+	font-family: "Good for Nothing";
+	color: #9adada;
+	background: url(<%= asset_path "assets/thought.png" %>) no-repeat top left;
+}
+
+#new_user .chapters .grow_tip.full {
+	right: 9px;
+}
+
+#new_user .chapters .grow_tip.full input:focus {
+	outline: none;
+}
+
+#new_user .chapters .grow_tip.full input {
+	width: 148px;
+	height: 95px;
+	background: url(<%= asset_path "assets/thought_full.png" %>) no-repeat top left;
 }
 
 #new_user .form_panels {
@@ -269,8 +322,19 @@ form.slides .slide_locations .btn {
 }
 
 #new_user.slides fieldset.claim {
-	padding-bottom: 55px;
-	padding-top: 55px;
+	padding-top: 33px;
+	padding-bottom: 30px;
+	width: 295px;
+	margin: 0 auto;
+}
+#new_user.slides fieldset.claim .checkbox {
+	margin-top: -4px;
+}
+
+#new_user.slides fieldset.claim .string input,
+#new_user.slides fieldset.claim .email input,
+#new_user.slides fieldset.claim .password input {
+	width: 260px;
 }
 
 #new_user.slides fieldset.claim .text label {
@@ -284,8 +348,8 @@ form.slides .slide_locations .btn {
 
 form.slides .claim .btn {
 	position: absolute;
-	bottom: -35px;
-	left: 280px;
+	bottom: -55px;
+	left: 45px;
 }
 
 #new_user .footnote {
@@ -366,7 +430,6 @@ form.primary_panel .activity .checkbox span {
 		width: 196px; height: 52px; background-position: 0px -96px;
 	}
 	
-	
 	#new_user.slides .border_splodges label.js:nth-child(6n+6) {
 		width: 150px; height: 52px; background-position: -426px -88px;	
 	}
@@ -428,4 +491,3 @@ form.primary_panel .activity .checkbox span {
 		background-position: -282px 0px;
 		height: 76px;
 	}
-	

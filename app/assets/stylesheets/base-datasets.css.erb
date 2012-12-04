@@ -201,19 +201,19 @@
 	}
 	
 	.primary_panel .checkbox {
-		font-size: 18px;
+		font-size: 14px;
 		font-family: "Good for Nothing";
 		width: 300px;
-		line-height: 28px;
+		line-height: 22px;
 		display: block;
 		text-align: left;
 		cursor: pointer;
-		padding-left: 30px;
-		height: 23px;
+		padding-left: 29px;
+		height: 17px;
 	}
 
 	.primary_panel  .checkbox.js {
-		background: url(<%= asset_path "icons/checkbox.png" %>) no-repeat 0 0;
+		background: url(<%= asset_path "icons/checkbox.png" %>) no-repeat 3px 0;
 	}
 
 	.primary_panel .checkbox.checked.js {
@@ -533,14 +533,17 @@
 	
 	.single .primary_panel .avatar_list {
 		text-align: center;
+		position: relative;
+		min-height: 200px;
 	}
 	
 	.single .primary_panel .avatar_list li,
-	.single .primary_panel .avatar_list li a {
+	.single .primary_panel .avatar_list li .mask {
 		display: inline-block;
 		float: none;
 	}
 	
-	.single .primary_panel .avatar_list li a {
+	.single .primary_panel .avatar_list li .mask {
 		display: block;
+		float: left;
 	}

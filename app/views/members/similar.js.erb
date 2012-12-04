@@ -1,0 +1,5 @@
+$('#similar_list').html('');
+<% @similar.each do |user| %>
+	$('#similar_list').append('<%= escape_javascript( render :partial => "members/dumb_avatar", :locals => { :user => user } ) %>');
+<% end %>
+$(".avatar .tip[title]").tooltip({ offset: [-3, 40] });

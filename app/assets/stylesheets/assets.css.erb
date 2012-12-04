@@ -306,9 +306,10 @@
 		display:none;
 		background:transparent url(<%= asset_path "assets/tooltip.png" %>) no-repeat;
 		font-size: 13px;
-		height: 30px;
+		line-height: 17px;
+		height: 40px;
 		width: 121px;
-		padding: 10px 0;
+		padding: 5px 0;
 		color:#ffffff;
 		font-family: "Good for Nothing";
 		text-align: center;
@@ -675,7 +676,7 @@
 		list-style-type: none;
 	}
 	
-	.avatar a {
+	.avatar .mask {
 		display: block;
 		height: 60px;
 		width: 60px;
@@ -684,7 +685,7 @@
 		overflow: hidden;
 	}
 	
-	.avatar a:before {
+	.avatar .mask:before {
 		position: absolute;
 		content: '';
 		top: 0;
@@ -706,7 +707,7 @@
 		margin-bottom: 10px;
 	}
 	
-	form .avatar a:before {
+	form .avatar .mask:before {
 		background: url(<%= asset_path "assets/avatar_mask_forms.png" %>) no-repeat center center;
 	}
 	
@@ -941,12 +942,10 @@
 	#spinmerightround {
 		font-size: 12px;
 		position: absolute;
-		top: 3px;
-		right: -55px;
-		padding-right: 83px;
+		top: 50%;
+		right: 50%;
 		display: block;
-	}
-	
+	}	
 	
 /* User contributions */
 

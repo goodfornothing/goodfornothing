@@ -46,9 +46,7 @@ $(document).ready(function(){
 	
 	$('.skill_filter input[type="range"]').rangeinput({
 		change: function(ev, val)  {
-			
 			skill_filter[$(this.getInput()).attr('name')] = val
-						
 			$('.skilled').each(function(i,block){
 				talented = true				
 		  	for(skill in skill_filter) {
@@ -60,7 +58,6 @@ $(document).ready(function(){
 				}
 				if (talented) $(block).show()
 			});
-	
 		},
 		progress: true
 	});
@@ -126,8 +123,13 @@ $(document).ready(function(){
 	$('.splodge_list .tip').tooltip({ offset: [175, 0],tipClass: 'tooltip_small' });
 	$('.warbling .tip').tooltip({ offset: [195, 0],tipClass: 'tooltip_small' });
 	$('.issue_tip').tooltip({ offset: [105, 0],tipClass: 'tooltip_small' });
+	$(".grow_tip").tooltip({offset: [-1, 22]	});
 	
-	// Paginated forms
+	// Inputs that grow...
+	$(".grow_tip input").on('focus',function(ev){ $(this).parents('.input').addClass('full');});
+	$(".grow_tip input").on('blur',function(ev){ $(this).parents('.input').removeClass('full');});
+	
+	// Check for errors then paginate forms
 	page = 1;
 	$('form.slides .fields fieldset').each(function(i,el){
 		if($(el).find('.field_with_errors').length>0){
@@ -136,9 +138,34 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('form.slides .fields').easyPaginate({ step: 1, startPage: page });
-	$('form.slides').append($('#pagination'))
-	$('#pagination li').not('.next, .prev').addClass('page_links')
+	$('form.slides .fields').easyPaginate({ 
+			step: 1, 
+			startPage: page,
+			callback: function(slide) {
+				if(slide.hasClass('similar')) {
+					
+					data = {}
+					
+					loc = $('#user_location').val();
+					if(loc.length>0) data.loc = loc
+		
+					issues = Array()
+					$('input:checkbox[name="user[issue_ids][]"]:checked').each(function(i,el){	
+						issues.push($(el).val())
+					});
+					if(issues.length>0) data.issues = issues
+					
+					chapter = $('input:radio[name="user[chapter_id]"]:checked').val();
+					if(typeof(chapter)!=undefined) data.chapter = chapter
+					
+					$.ajax({ 
+						url: "/members/find/similar/",
+						method: 'post',
+						data: data
+					})
+				}
+			}
+	});
 	
 	// Section panels
 	$('.section_panel').each(function(i,el){
@@ -161,12 +188,12 @@ $(document).ready(function(){
 	// Ajaxy pants	
 	var opts = {
 	  lines: 9, // The number of lines to draw
-	  length: 3, // The length of each line
-	  width: 2, // The line thickness
-	  radius: 5, // The radius of the inner circle
+	  length: 4, // The length of each line
+	  width: 3, // The line thickness
+	  radius: 6, // The radius of the inner circle
 	  corners: 0, // Corner roundness (0..1)
 	  rotate: 22, // The rotation offset
-	  color: '#D0122D', // #rgb or #rrggbb
+	  color: '#085156', // #rgb or #rrggbb
 	  speed: 1.3, // Rounds per second
 	  trail: 60, // Afterglow percentage
 	  shadow: false, // Whether to render a shadow
@@ -190,6 +217,7 @@ $(document).ready(function(){
 	    })
 	;
 	
+	// Stick stuff to the top
 	$('#collaborators div').stickyScroll({ container: $('#collaborators') })
 	$('#warble_filters').stickyScroll({ container: $('#main') })
 	

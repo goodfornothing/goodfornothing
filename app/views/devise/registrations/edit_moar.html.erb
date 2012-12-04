@@ -14,9 +14,7 @@
 				<div class="faces">
 					<ul class="avatar_list">
 						<% @faces.each do |user| %>
-							<li class="avatar compact">	
-								<a class="tip" title="<%= user.name %>"><%= image_tag user.avatar.compact, :alt => user.name %></a>
-							</li>
+							<%= render :partial => "members/dumb_avatar", :locals => { :user => user } %>
 						<% end %>
 					</ul>
 				</div>
@@ -32,7 +30,7 @@
 				
 				<%= f.input :twitter_handle, :wrapper_html => { :class => "smart_label" } %>
 				<%= f.input :url, :label => "Your digital home", :wrapper_html => { :class => "smart_label" } %>
-				<%= f.input :location, :label => "Your physical location", :wrapper_html => { :class => "smart_label" } %>
+				<%= f.input :location, :label => "Your physical location", :wrapper_html => { :class => "smart_label" } if (resource.chapter.nil? && resource.location.nil?) %>
 			
 				<%= f.button :submit, "All done" %>
 							

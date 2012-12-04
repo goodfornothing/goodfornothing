@@ -1,0 +1,13 @@
+<% cache("dumb_user_#{user.id}") do %>
+
+	<li class="avatar compact">
+		<div class="mask tip" title="<%= user.name %>">
+			<% if user.avatar.blank? %>
+				<%= image_tag "assets/avatar_small.png", :alt => user.name %>
+			<% else %>
+				<%= image_tag user.avatar.compact, :alt => user.name %>
+			<% end %>
+		</div>
+	</li>
+	
+<% end %>

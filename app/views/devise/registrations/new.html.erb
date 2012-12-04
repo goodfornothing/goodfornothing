@@ -46,7 +46,7 @@
 		
 			<fieldset class="slide chapters">
 				<legend>Do you live near a GFN chapter?</legend>
-				<%= f.input :location, :label => "Nope..." %>
+				<%= f.input :location, :label => "Nope...", :wrapper_html => { :class => "smart_label grow_tip", :title => "Not to worry, where are you?" } %>
 				<%= f.association :chapter, :as => :radio_buttons, :label_method => lambda { |c| "#{c.title}<span>#{c.country}</span>".html_safe }, :label => "", :wrapper_html => { :class => "solid_splodges" } %>
 				<%= image_tag "illustrations/maptorch.png", :class => "slide_illustration" %>
 			</fieldset>
@@ -54,17 +54,13 @@
 
 			<fieldset class="slide similar">
 				
-				<legend>A little bit about you</legend>
+				<legend>People a little like you</legend>
 			
 				<div class="form_panels">
 					
 					<div class="faces half_panel">
-						<ul class="avatar_list">
-							<% @similar.each do |user| %>
-								<li class="avatar compact">	
-									<a class="tip" title="<%= user.name %>"><%= image_tag user.avatar.compact, :alt => user.name %></a>
-								</li>
-							<% end %>
+						<ul class="avatar_list" id="similar_list">
+							<span id="spinmerightround"></span>
 						</ul>
 					</div>
 			

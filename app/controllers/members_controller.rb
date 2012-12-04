@@ -1,5 +1,18 @@
 class MembersController < ApplicationController
 
+	def similar
+		
+		@similar = User.where('(avatar is not null && avatar != "")')
+		@similar += User.includes(:issues).where("issues.id in (?)", params[:issues].map { |s| s.to_i }) if params[:issues]
+		@similar += User.where("chapter_id = ?",params[:chapter].to_i) if params[:chapter]
+		@similar += User.where("location like ?", "%#{params[:location]}%") if params[:location]
+		
+		@similar = @similar.group_by {|x| x}.sort_by {|x,list| [-list.size,x]}.map(&:first).take(12)
+			
+    render :similar
+		
+	end
+
 	def index
 	  
 	  @chapter_members = []

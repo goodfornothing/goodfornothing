@@ -2,9 +2,9 @@
 
 	<li class="avatar compact skilled" <%= member.talents.map{ |s| "data-#{s.skill.title.underscore}='#{s.level}'" }.join(' ') %>>	
 		<% if member.avatar.blank? %>
-			<%= link_to (image_tag "assets/avatar_small.png", :alt => member.name), member_path(member), :class => "tip", :title => member.name %>
+			<%= link_to (image_tag "assets/avatar_small.png", :alt => member.name), member_path(member), :class => "tip mask", :title => member.name %>
 		<% else %>
-			<%= link_to (image_tag member.avatar.compact, :alt => member.name, :title => member.name), member_path(member), :class => "tip", :title => member.name %>
+			<%= link_to (image_tag member.avatar.compact, :alt => member.name, :title => member.name), member_path(member), :class => "tip mask", :title => member.name %>
 		<% end %>
 	</li>
 	

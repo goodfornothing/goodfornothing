@@ -7,6 +7,7 @@ Goodfornothing::Application.routes.draw do
     
   devise_for :users, :controllers => { :registrations => :registrations, :sessions => :sessions } 
   match "members" => "members#index"
+	match "members/find/similar" => "members#similar"
   match "members/:id" => "members#show", :as => "member"
 
   devise_scope :user do

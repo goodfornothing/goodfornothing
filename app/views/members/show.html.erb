@@ -40,15 +40,7 @@
 
 	<div id="profile">
 		
-		<div class="panel_full">
-			<h2>Why <%= contextual_reference(@member,"you're") %> doing Good for Nothing</h2>
-			<blockquote><%= simple_format(@member.reasons_for_joining) %></blockquote>
-			<% if @member.can_be_contacted? %>
-				<%= link_to "Contact", message_member_messaging_messages_path(@member)  %>
-			<% elsif signed_in_as_owner?(@member) %>
-				<%= link_to "Turn on direct messaging", notifications_path(@member) %>
-			<% end %>
-		</div>
+		
 					
 		<div class="panels">
 
@@ -117,6 +109,43 @@
 				<% end %>
 								
 			</div>
+			
+			
+			<div class="panel">
+				
+				<h2><%= contextual_reference(@member, "your").titlecase %> interests and talents</h2>
+				
+				<% if @member.talents.any? %>
+				<ul class="talents">
+					<% @member.talents.each do |talent| %>
+						<% if talent.skill.title == "Think" 
+							
+							@make = 100-((talent.level.to_f/10)*100) 
+							@think =  100-@make
+							
+						%>
+						<li class="<%= talent.skill.title.underscore %>" data-talent-level="<%= talent.level %>">
+							<div class="fill" style="width: <%= @make %>%;">Make</div>
+							<div class="fill" style="width: <%= @think %>%;">Think</div>
+							<div class="mask"></div>
+						</li>
+						<% else %>
+						<li class="<%= talent.skill.title.underscore %>"><%= talent.level %><sub>/10</sub> <span><%= talent.skill.title %></span></li>
+						<% end %>
+					<% end %>
+				</ul>
+				<% end %>
+				
+				<% if @member.brings? %>
+					<h3>Other special skills</h3>
+					<p><%= @member.brings %></p>
+				<% end %>
+				
+				<% if signed_in_as_owner?(@member) %>
+					<p class="more"><%= link_to "Update your talents", talents_path %></p>
+				<% end %>
+				
+			</div>
 	
 			<div class="panel">
 	
@@ -160,48 +189,25 @@
 			</div>
 			
 			<div class="panel">
-				
-				<h2><%= contextual_reference(@member, "your").titlecase %> interests and talents</h2>
-				
-				<% if @member.talents.any? %>
-				<ul class="talents">
-					<% @member.talents.each do |talent| %>
-						<% if talent.skill.title == "Think" 
-							
-							@make = 100-((talent.level.to_f/10)*100) 
-							@think =  100-@make
-							
-						%>
-						<li class="<%= talent.skill.title.underscore %>" data-talent-level="<%= talent.level %>">
-							<div class="fill" style="width: <%= @make %>%;">Make</div>
-							<div class="fill" style="width: <%= @think %>%;">Think</div>
-							<div class="mask"></div>
-						</li>
-						<% else %>
-						<li class="<%= talent.skill.title.underscore %>"><%= talent.level %><sub>/10</sub> <span><%= talent.skill.title %></span></li>
-						<% end %>
-					<% end %>
-				</ul>
+				<h2>Why <%= contextual_reference(@member,"you're") %> doing Good for Nothing</h2>
+				<blockquote><%= simple_format(@member.reasons_for_joining) %></blockquote>
+				<br />
+				<% if @member.can_be_contacted? && !signed_in_as_owner?(@member) %>
+					<p class="more"><%= link_to "Contact #{@member.short_name}", message_member_messaging_messages_path(@member)  %></p>
+				<% elsif signed_in_as_owner?(@member) && !@member.can_be_contacted? %>
+					<p class="pull"><%= link_to "Turn on direct messaging", notifications_path(@member) %></p>
 				<% end %>
-				
-				<% if @member.brings? %>
-					<h3>Other special skills</h3>
-					<p><%= @member.brings %></p>
-				<% end %>
-				
-				<% if signed_in_as_owner?(@member) %>
-					<p class="more"><%= link_to "Update your talents", talents_path %></p>
-				<% end %>
-				
 			</div>
-			
-			<% if signed_in_as_owner?(@member) %>
-			<h3>Want to leave?</h3>
-			<p class="footnote">You can <%= link_to "delete your account", registration_path(@member), :method => "delete", :confirm => "Are you sure you want to delete your entire account? There's no going back." %>, but we'd be sorry to see you go!</p> 
-			<% end %>
 		
 		</div>
 		
+		
+		
 	</div>
+	
+	<% if signed_in_as_owner?(@member) %>
+	<h3>Want to leave?</h3>
+	<p class="footnote">You can <%= link_to "delete your account", registration_path(@member), :method => "delete", :confirm => "Are you sure you want to delete your entire account? There's no going back." %>, but we'd be sorry to see you go!</p> 
+	<% end %>
 	
 </section>

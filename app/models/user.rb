@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :current_password,
                   :remember_me, :join_mailing_list, :role, :name, :brings, :role,
                   :gender, :age, :url, :location, :twitter_handle, :activated, :subscribed,
-                  :chapter_id, :avatar, :issue_ids, :reasons_for_joining, :crew
+                  :chapter_id, :avatar, :issue_ids, :reasons_for_joining, :crew, :can_be_contacted
 
   has_one :ning_profile
   has_many :posts

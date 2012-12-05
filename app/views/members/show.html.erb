@@ -43,6 +43,11 @@
 		<div class="panel_full">
 			<h2>Why <%= contextual_reference(@member,"you're") %> doing Good for Nothing</h2>
 			<blockquote><%= simple_format(@member.reasons_for_joining) %></blockquote>
+			<% if @member.can_be_contacted? %>
+				<%= link_to "Contact", message_member_messaging_messages_path(@member)  %>
+			<% elsif signed_in_as_owner?(@member) %>
+				<%= link_to "Turn on direct messaging", notifications_path(@member) %>
+			<% end %>
 		</div>
 					
 		<div class="panels">

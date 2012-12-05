@@ -1,11 +1,7 @@
 class Messaging::MessagesController < ApplicationController
-	
-	# migrate content to messages table
-  # remove_column :challenges, :contact
-  # remove_column :partners, :purpose
-  # remove_column :partners, :notes
-  # remove_column :partners, :contact
 		
+	before_filter :authenticate_user!, :only => :member
+ 
 	def chapter
 		
 		@chapter = Chapter.find(params[:id])
@@ -17,6 +13,21 @@ class Messaging::MessagesController < ApplicationController
 		@recipients = @chapter.users.crew
 		
 		@recipients = Chapter.find_by_title('London').users.crew if @recipients.nil?
+		
+	end
+	
+	def member
+		
+		@recipient = User.find(params[:id])
+		if @recipient.nil?
+		  not_found
+		end
+		
+		if @recipient.can_be_contacted?
+			@message = Messaging::Message.new	
+		else
+			redirect_to member_path(@recipient)
+		end
 		
 	end
 	

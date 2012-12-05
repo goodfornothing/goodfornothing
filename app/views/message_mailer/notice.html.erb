@@ -5,11 +5,15 @@
   </head>
   <body>
 	
-    <p>You have a new message on Good for Nothing</p>
+    <p>You have a new message from <strong><%= @message.from_name %></strong> on Good for Nothing!</p>
     
-	<p>You can <%= link_to "review it", hive_message_url(@message) %> at the hive, a summary is below:</p>
-
-	<p><strong>From</strong>: <%= @message.from_name %> (<%= @message.from_email %>)</p>
+	<p><strong>To Reply</strong>: 
+		<% if @message.user.nil? %>
+			<%= @message.from_email %>
+		<% else %>
+			View their <%= link_to "profile", member_url(@message.user) %>
+		<% end %>
+	</p>
 	<p><strong>Message</strong>: <%= @message.body %></p>
 
   </body>

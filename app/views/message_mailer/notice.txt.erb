@@ -1,8 +1,14 @@
 You have a new message on Good for Nothing
 ==========================================
     
-You can review it at the hive here: <%= hive_message_url(@message) %>
+You have a new message from <%= @message.from_name %> on Good for Nothing!
 
-From: <%= @message.from_name %> (<%= @message.from_email %>)
+To Reply: 
+<% if @message.user.nil? %>
+<%= @message.from_email %>
+<% else %>
+View profile: <%= member_url(@message.user) %>
+<% end %>
 
+Message: 
 <%= @message.body %>

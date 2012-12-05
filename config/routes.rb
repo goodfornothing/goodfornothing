@@ -29,7 +29,8 @@ Goodfornothing::Application.routes.draw do
     get '/users/tell-us-more' => 'registrations#edit_moar', :as => "moar"
     put '/users/edit/activity' => 'registrations#update_activity', :as => "activity"
     put '/users/edit/talents' => 'registrations#update_talents', :as => "talents"
-    
+    get '/users/edit/notifications' => 'registrations#edit_notifications', :as => "notifications"
+
   end
   
   match 'warblings' => "warblings#index"
@@ -43,6 +44,7 @@ Goodfornothing::Application.routes.draw do
 				get 'failure'
 				get 'done'
 				get 'chapter/:id', :action => "chapter", :as => "message_chapter"
+				get 'member/:id', :action => "member", :as => "message_member"
 			end
 		end
 		resources :chapters, :only => [:new, :create] do

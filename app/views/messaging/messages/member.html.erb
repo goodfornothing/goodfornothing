@@ -1,0 +1,20 @@
+<section id="primary_content" class="single">
+
+	<%= simple_form_for [@message], :html => { :class => "primary_panel" } do |f| %>
+  
+		<h1>Send <%= @recipient.name %> a message</h1>
+		
+		<%= field_set_tag do %>
+			
+			<%= f.input :body, :label => "What would you like to say?", :input_html => { :rows => 5 }, :wrapper_html => { :class => "smart_label" } %>
+			<%= f.hidden_field "user_ids", :name => "messaging_message[user_ids][]", value: @recipient.id %>
+			
+		<% end %>
+
+		<%= field_set_tag nil, :class => "actions" do %>
+			<%= f.submit :value => "Send it!" %>	
+		<% end %>
+	
+	<% end %>
+	
+</section>

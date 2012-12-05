@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   
-  before_filter :fetch_associations, :only => [:new, :create, :edit, :edit_talents, :update, :edit_moar]
-  prepend_before_filter :authenticate_scope!, :only => [:edit_activity, :edit_talents, :edit_password, :edit, :edit_moar, :update, :destroy, :update_activity, :update_talents, :update_password]
+  before_filter :fetch_associations, :only => [:new, :create, :edit, :edit_talents, :update, :edit_moar, :edit_notifications]
+  prepend_before_filter :authenticate_scope!, :only => [:edit_activity, :edit_talents, :edit_password, :edit_notifications, :edit, :edit_moar, :update, :destroy, :update_activity, :update_talents, :update_password]
   
   def new
 		@similar = User.limit(12).collect
@@ -22,6 +22,10 @@ class RegistrationsController < Devise::RegistrationsController
   def edit_activity
     @past_gigs = Gig.past.order('start_time DESC')
   end
+
+	def edit_notifications
+		
+	end
 
   def create
     

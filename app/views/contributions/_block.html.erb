@@ -1,11 +1,9 @@
 <div class="meta">
 
 	<div class="compact avatar">
-		<% if contribution.user.avatar.blank? %>
-			<%= link_to (image_tag "assets/avatar_small.png", :alt => contribution.user.name), member_path(contribution.user), :class => "tip", :title => contribution.user.name %>
-		<% else %>
-			<%= link_to (image_tag contribution.user.avatar.compact, :alt => contribution.user.name, :title => contribution.user.name), member_path(contribution.user), :class => "tip", :title => contribution.user.name %>
-		<% end %>
+		<ul>
+		<%= render :partial => "members/dumb_avatar", :locals => { :user => contribution.user } %>
+		</ul>
 	</div>
 	
 	

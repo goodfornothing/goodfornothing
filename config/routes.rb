@@ -91,6 +91,10 @@ Goodfornothing::Application.routes.draw do
   resources :friends, :only => [:index]
   resources :ventures, :only => [:index]
   
+	scope '/wiki' do
+		resources :pages, :only => [:show, :index]
+	end
+
   match "how-it-works" => "colophon#how", :as => "how"
 	match "who" => "colophon#who"
 	match "community" => "colophon#community"
@@ -98,7 +102,7 @@ Goodfornothing::Application.routes.draw do
   match "privacy" => "colophon#privacy"
   match "datums" => "colophon#datums"
 	match 'good-in-your-hood' => "colophon#chapter", :as => "chapter_register"
-  
+ 
 	root :to => "home#index"
 
 end

@@ -1,0 +1,36 @@
+<section id="primary_content" class="single">
+
+	<div class="panel_full">
+
+		<h1>Welcome to the Mothership!</h1>
+
+		<p>[ability to hide this after manual hiding]</p>
+
+		<p>Hello and respect for starting a GFN chapter and doing some good in your hood. This is a place to find all the resources and info you'll need to get going, it's a bit like a toolkit, GFN in a box.</p>
+		<p>We want to support you as much as we can, and so have developed this place to do just that. There are a few things with GFN that are fixed, so we make that clear here. There is also some stuff that is flexible and some that's open; make it your own, rip, remix, hack it into your own flavour. </p>
+		<p>Good for Nothing is a living thing, we're always in beta, so we are adding, developing, and positively mutating on an ongoing basis. We welcome your feedback, what works, what doesn't, learnings and ideas, so we're adding in some places for you to do just that &ndash; coming soon.</p>
+		<p>If you've got any questions, check the <%= link_to "FAQ's", wiki_page_path('frequently-asked-questions') %> first, if you still can't find what you're looking for, please do <%= link_to "get in touch", message_chapter_messaging_messages_path(Chapter.find('london')) %>.</p>
+		
+		<p>[MAILING LIST]</p>
+		
+		<p>[illustration, anatomy: causes, challenges, formats (gigs/socials/online)] ...then link to what is gfn page</p>
+
+		<p>[Simple illustration - journey - Start -> Social -> Gig -> Feedback -> Repeat] - then link to getting started page</p>
+
+	</div>
+
+	<div id="wiki_page_list">
+
+		<% if @pages.any? %>
+			
+			<ul class="grid_list grid_four">
+				<% @pages.each do |page| %>
+				<li><p><%= link_to page.title, wiki_page_path(page) %></p></li>
+				<% end %>
+			</ul>
+				
+		<% end %>
+	
+	</div>
+	
+</div>

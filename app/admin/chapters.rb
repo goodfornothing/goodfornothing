@@ -54,6 +54,9 @@ ActiveAdmin.register Chapter do
       row "Chapter leaders" do 
         chapter.users.crew.map(&:name).join(', ')
       end
+			row :shaken_hands
+			row :twitter_handle
+			row :twitter_password
     end
   end
   
@@ -61,6 +64,9 @@ ActiveAdmin.register Chapter do
     f.inputs "Details" do
       f.input :title, :label => "Name"
       f.input :country
+			f.input :shaken_hands
+			f.input :twitter_handle
+			f.input :twitter_password
     end
     f.buttons
   end

@@ -1,0 +1,22 @@
+<section id="primary_content">
+
+	<h1><%= @page.title %></h1>
+	<%= sir_trevor_markdown(@page.body).html_safe %>
+	
+</section>
+
+<aside id="secondary_content">
+	
+	<h2>Guides and stuff</h2>
+	
+	<% if @pages.any? %>
+	
+		<ul>
+			<% @pages.each do |page| %>
+			<li><%= link_to page.title, wiki_page_path(page) %></li>
+			<% end %>
+		</ul>
+		
+	<% end %>
+	
+</aside>

@@ -1,4 +1,4 @@
-class Note < ActiveRecord::Base
+class Page < ActiveRecord::Base
 
 	has_paper_trail
 

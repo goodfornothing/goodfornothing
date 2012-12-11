@@ -17,6 +17,7 @@ class Ability
       can :manage, [Friend, Venture, Messaging::Message]
       can :manage, [Gig, Social], :chapter_id => user.chapter.id
       can :manage, [Trill, Post], :user_id => user.id
+			can :read, [Page]
     end
     
     if user.role == "admin"

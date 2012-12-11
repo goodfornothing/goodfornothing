@@ -1,0 +1,55 @@
+#wiki_page_list .grid_list li {
+	position: relative;
+	width: 185px;
+	height: 184px;
+	background: #ffffff;
+	margin-right: 73px;
+	margin-bottom: 70px;
+}
+
+#wiki_page_list .grid_list li:nth-child(4n+4) { margin-right: 0; }
+
+#wiki_page_list ul.grid_list {
+	float: left;
+	width: 100%;
+	padding: 0;
+}
+
+#wiki_page_list .grid_list li:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background: url(<%= asset_path "blocks/thumbnail_mask.png" %>) no-repeat top left;
+}
+
+#wiki_page_list .grid_list p {
+	position: relative;
+	z-index: 10;
+	padding: 5px 10px 0 15px;
+	margin: 0;
+	line-height: 18px;
+	font-size: 14px;
+}
+
+#wiki_page_list .grid_list p:first-child {
+	padding-top: 20px;
+}
+
+#wiki_page_list .grid_list p a {
+	display: block;
+	color: #61514D;
+	line-height: 19px;
+	font-family: "Good for Nothing";
+}
+
+#wiki_page_list .grid_list p a:hover,
+#wiki_page_list .grid_list p a:active,
+#wiki_page_list .grid_list p a:focus {
+	text-decoration: none;
+	color: #D0122D;
+}

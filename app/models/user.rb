@@ -88,7 +88,7 @@ class User < ActiveRecord::Base
   end
   
   def working_on
-    (Challenge.includes(:contributions,:comments).where('contributions.user_id = ? or comments.user_id = ?',self.id,self.id)).flatten.uniq
+    (Challenge.includes(:contributions,:comments).where('contributions.user_id = ? or comments.user_id = ?',self.id,self.id) + self.challenges).flatten.uniq
   end
   
   def offline_encountered

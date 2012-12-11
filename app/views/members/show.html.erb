@@ -117,6 +117,8 @@
 			
 			<div class="skills_and_talents">
 			
+				<!-- prompt to input skills if none -->
+			
 				<% if @member.talents.any? %>
 				<ul class="talents">
 					<% @member.talents.each do |talent| %>
@@ -159,7 +161,7 @@
 			
 			<ul class="action_history">
 				<% if @member.can?(:manage, Trill) %>
-				<li class="action_trill"><%= pluralize(@member.trills.count, "trill") %></li>
+				<li class="action_trill"><%= link_to pluralize(@member.trills.count, "trill") %></li>
 				<% end %>
 				<li class="action_challenge"><%= pluralize(@member.working_on.count, "challenge") %></li>
 				<li class="action_collab"><%= link_to pluralize(@member.member_reach.count, "collaborator"), members_path %></li>

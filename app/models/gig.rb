@@ -4,6 +4,9 @@ class Gig < ActiveRecord::Base
 	
   attr_accessible :partner_id, :friend_ids, :logo
 
+	# for activity history
+	alias_attribute :audited_at, :start_time
+
 	has_many :challenges
 	
 	belongs_to :partner

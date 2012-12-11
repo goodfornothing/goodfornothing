@@ -47,72 +47,126 @@
 	padding-top: 10px;
 }
 
-#profile .panels {
-	width: 100%;
-	overflow: hidden;
-}
-
-#profile .panel {
+#profile section {
 	background: #ffffff;
-	padding: 22px 20px;
-	width: 420px;
+	padding: 40px 40px 40px;
 	position: relative;
+	margin-bottom: 50px;
+	text-align: center;
 }
 
-#profile .panel:nth-child(2) {
-	float: right;
+#profile section:hover .edit {
+	display: block;
 }
 
-#profile .panel h3 {
-	margin-bottom: 21px;
+#profile section .edit {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	display: none;
 }
 
-#profile .panel h2 {
-	color: #61514D;
-	font-size: 20px;
-	display: inline-block;
-	padding-bottom: 10px;
-	margin-bottom: 20px;
-	padding-top: 0;
-	line-height: 26px;
-	background: url(<%= asset_path "assets/hover_2.png" %>) repeat-x bottom left;
-}
-
-#profile .panel h2:first-child, #profile .panel h1:first-child {
-	margin-bottom: 35px;
-}
-
-#profile .panel p {
-	font-size: 14px;
-}
-
-#profile .panel h1 {
+#profile section h1 {
 	margin-bottom: 13px;
-	font-size: 24px;
+	font-size: 21px;
 	padding-bottom: 5px;
-	line-height: 28px;
-	margin-left: 5px;
+	padding-top: 3px;
+	line-height: 24px;
 	color: #61514D;
 	background: url(<%= asset_path "assets/hover_2.png" %>) repeat-x bottom left;
 	display: inline-block;
 	max-width: 275px;
 }
 
-#profile .panel h1 span {
-	font-size: 14px;
-	display: block;
+#profile section h2 {
+	color: #61514D;
+	font-size: 18px;
+	display: inline-block;
+	margin-bottom: 45px;
+	padding-bottom: 5px;
+	padding-top: 0;
+	line-height: 22px;
+	background: url(<%= asset_path "assets/hover_2.png" %>) repeat-x bottom left;
 }
 
-#profile .panel #profile_avatar {
-	display: block;
+#profile section p {
+	font-size: 14px;
+}
+
+#profile section#details {
+	padding: 50px 50px 51px;
+	margin-top: 10px;
+}
+
+#profile section#details .cont {
 	width: 100%;
-	margin-bottom: 25px;
-	padding-bottom: 10px;
+	overflow: hidden;
+}
+
+#profile section #profile_avatar {
+	display: block;
+	width: 605px;
 	overflow: hidden;
 	position: relative;	
+	text-align: left;
+	float: left;
 }
 
-#profile .panel #profile_avatar input {
+#profile section #profile_avatar blockquote {
+	float: right;
+	width: 460px;
+}
+
+#profile section #profile_avatar .twitter {
+	margin: 0 0 0 10px;
+	display: inline-block;
+	position: relative;
+	top: 3px;
+}
+
+#profile section #profile_avatar .twitter a {
+	text-indent: -1337px;
+	display: block;
+	float: left;
+	background: url(<%= asset_path "icons/twitter.png" %>) no-repeat;
+	height: 20px;
+	width: 20px;
+}
+
+#profile section #profile_avatar .web {
+	margin: 0;
+	position: relative;
+	top: 4px;
+	display: inline-block;
+	margin-left: 5px;
+}
+
+#profile section #profile_avatar .web a {
+	display: block;
+	float: left;
+	background: url(<%= asset_path "assets/tiny_sploge.png" %>) no-repeat;
+	line-height: 21px;
+	width: 27px;
+	padding-left: 8px;
+	color: #61514D;
+	font-size: 10px;
+	font-family: "Good for Nothing";
+}
+
+#profile section #profile_avatar .avatar {
+	margin: 0 25px 0 0;
+}
+
+#profile section #profile_avatar .avatar .mask {
+	height: 120px;
+	width: 120px;
+}
+
+#profile section #profile_avatar .avatar .mask:before {
+	background: url(<%= asset_path "assets/avatar_mask_large.png" %>) no-repeat center center;
+}
+
+#profile section #profile_avatar input {
 	height: 120px;
 	width: 120px;
 	display: block;
@@ -123,89 +177,79 @@
 	cursor: pointer;
 }
 
-#profile .panel #profile_avatar p {
-	padding-left: 5px;
-	margin-bottom: 0;
-	display: inline-block;
-	width: 270px;
-	line-height: 18px;
+#profile section #profile_avatar p {
+	margin-bottom: 0px;
+	font-size: 15px;
+	display: block;
+	line-height: 19px;
 	color: #61514D;
 }
 
-#profile .panel ul.data {
-	padding: 0;
-	border-bottom: 1px solid #D0122D;
-	margin-bottom: 30px;
+#profile section .location {
+	color: #ffffff;
+	text-align: center;
+	font-family: "Good for Nothing";
+	font-size: 15px;
+	line-height: 19px;
+	width: 113px;
+	height: 100px;
+	padding-top: 20px;
+	background: url(<%= asset_path "assets/city_splodge.png" %>) no-repeat top left;
+	float: right;
+	margin: 5px 10px 0 0;
+	text-indent: -5px;
 }
 
-#profile .panel ul.data li {
-	list-style-type: none;
-	padding: 6px 0;
-	border-top: 1px solid #D0122D;
-	color: #61514D;
-	line-height: 18px;
+#profile section .location span {
+	display: block;
+	font-size: 11px;
+}
+
+#profile section .contact {
+	position: absolute;
+	top: -30px;
+	left: 100px;
+}
+
+#profile section .contact a {
+	color: #ffffff;
+	text-align: center;
+	font-family: "Good for Nothing";
+	font-size: 12px;
+	line-height: 16px;
+	width: 80px;
+	height: 60px;
+	padding-top: 17px;
+	background: url(<%= asset_path "assets/dark_bubble.png" %>) no-repeat top left;
+	float: right;
+	margin: 0;
+}
+
+#profile section .contact a:focus,
+#profile section .contact a:active,
+#profile section .contact a:hover {
+	text-decoration: none;
 	font-size: 14px;
 }
 
-#profile .panel ul.data li a {
-	display: block;
-	color: #61514D;
-}
-
-#profile .panel ul.data li a:hover,
-#profile .panel ul.data li a:focus,
-#profile .panel ul.data li a:active {
-	text-decoration: none;
-	color: #D0122D;
-}
-
-#profile .panel .call:last-child {
-	margin: 0 0 5px;
-}
-
-#profile .panel .call a {
-	font-family: "Good for Nothing";
-	font-size: 16px;
-	color: #ffffff;
-	line-height: 36px;
-	height: 33px;
-	display: block;
-	text-align: center;
-	width: 250px;
-	background: url(<%= asset_path "assets/pull_button.gif"%>) no-repeat;
-}
-
-#profile .panel .call a:hover,
-#profile .panel .call a:active,
-#profile .panel .call a:focus {
-	text-decoration: none;
-	font-size: 18px;
-}
-
-#profile .panel ul {
+#profile section ul {
 	width: 100%;
 	clear: both;
 	display: block;
 }
 
-#profile .panel .more {
-	margin-right: 50px;
-	margin-bottom: 5px;
-	float: left;
-}
-
-#profile .panel .more a {
-	width: 150px;
-}
-
-#profile .panel .more:last-child {
-	margin-right: 0;
+#profile .skills_and_talents {
+	width: 100%;
+	padding-top: 5px;
+	overflow: hidden;
 }
 
 #profile .talents {
 	list-style-type: none;
-	text-align: center;
-	padding: 12px 0 45px;
+	text-align: left;
+	padding: 0 0 20px 30px;
+	width: 420px;
+	float: left;
 }
 
 #profile .talents li {
@@ -274,43 +318,82 @@
 	background-image: url(<%= asset_path "icons/think_make_mask.png"%>); 
 }
 
-#profile .icon_members {
-	text-align: center;
-	padding-bottom: 15px;
+#profile #special_skills {
+	width: 350px;
+	float: right;
+	text-align: left;
+	padding-right: 20px;
 }
 
-#profile .icon_members a {
-	width: 200px;
-	color: #ffffff;
-	font-family: "Good for Nothing";
-	padding-top: 153px;
-	padding-bottom: 10px;
-	font-size: 18px;
-	text-align: center;
-	display: inline-block;
-	background: url(<%= asset_path "icons/members.gif" %>) no-repeat top left;
-}
-
-#profile .icon_members span {
-	display: block;
-	padding-bottom: 10px;
-	font-family: "Good for Nothing";
-	color: #61514D;
-}
-
-#profile .icon_members a:hover,
-#profile .icon_members a:focus,
-#profile .icon_members a:active {
-	font-size: 20px;
-	text-decoration: none;
-}
-
-#profile .panel p:last-child {
+#profile section p:last-child {
 	margin-bottom: 0px;
 }
 
-#profile .panel_full {
-	background: #ffffff;
-	padding: 30px 20px 20px;
-	margin-bottom: 35px;
+#profile #history h3 {
+	color: #D0122D;
+	margin-bottom: 30px;
 }
+
+#profile #history ul.action_items {
+	margin-bottom: 50px;
+	text-align: left;
+	list-style-type: none;
+	width: 400px;
+	margin: 0 auto;
+}
+
+#profile #history ul.action_items li {
+	padding: 0 0 10px 55px;
+	background-repeat: no-repeat;
+	background-position: left top;
+	margin-bottom: 15px;
+}
+
+#profile #history ul.action_items li.action_item_trill { background-image: url(<%= asset_path "icons/action_trill_small.png" %>); }
+#profile #history ul.action_items li.action_item_comment { background-image: url(<%= asset_path "icons/action_challenge_small.png" %>); }
+#profile #history ul.action_items li.action_item_contribution { background-image: url(<%= asset_path "icons/action_challenge_small.png" %>); }
+#profile #history ul.action_items li.action_item_gig { background-image: url(<%= asset_path "icons/action_gig_small.png" %>); }
+#profile #history ul.action_items li.action_item_social { background-image: url(<%= asset_path "icons/action_social_small.png" %>); }
+
+#profile .action_history {
+	list-style-type: none;
+	padding: 30px 0 0 0;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 60px;
+	overflow: hidden;
+}
+
+#profile .action_history li {
+	display: inline-block;
+	text-align: center;
+	font-family: "Good for Nothing";
+	color: #61514D;
+	font-size: 15px;
+	padding-top: 90px;
+	background-repeat: no-repeat;
+	background-position: center top;
+	margin-right: 23px;
+	width: 130px;
+}
+
+#profile .action_history li a {
+	color: #61514D;
+}
+
+#profile .action_history li a:hover,
+#profile .action_history li a:focus,
+#profile .action_history li a:active {
+	color: #D0122D;
+	text-decoration: none;
+}
+
+#profile .action_history li:last-child {
+	margin: 0;
+}
+
+#profile .action_history li.action_trill { background-position: center 15px; background-image: url(<%= asset_path "icons/action_trill.png" %>); }
+#profile .action_history li.action_challenge { background-image: url(<%= asset_path "icons/action_challenge.png" %>); }
+#profile .action_history li.action_collab { background-image: url(<%= asset_path "icons/action_collab.png" %>); }
+#profile .action_history li.action_gig { background-image: url(<%= asset_path "icons/action_gig.png" %>); }
+#profile .action_history li.action_social { background-position: center 25px; background-image: url(<%= asset_path "icons/action_social.png" %>); }

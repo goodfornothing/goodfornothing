@@ -5,6 +5,8 @@
 
 		<section class="welcome">
 			
+			<!-- make this more of a notification bar -->
+			
 			<% if @gig.present? %>
 			
 				<h2>You've registered to attend <%= @gig.name %>!</h2>
@@ -38,91 +40,91 @@
 	</div>
 	<% end %>
 
+	<% if signed_in_as_owner?(@member) && (!params[:welcome] && @completion < 55) %>
+		<p><em>We'd love to get to know you better. Why not take a few seconds to tell the community more about yourself; the more you give, the more you'll get back, and the better we'll get at gathering amazing folk to turbo-charge challenges.</em></p>
+		<p class="call"><%= link_to "Tell us more about yourself", moar_path %></p>
+	<% end %>
+
 	<div id="profile">
-		
-		
-					
-		<div class="panels">
+						
+		<section id="details">
 
-			<div class="panel">
-
+			<div class="cont">
+			
 				<div id="profile_avatar">
-					
+				
 					<% if @member.avatar.url.nil? %>
 					<div class="avatar <%= "tip" if signed_in_as_owner?(@member) %>" title="<%= "Show us yer face!" if signed_in_as_owner?(@member) %>">
-						<%= image_tag "assets/avatar_large.png" %>
-						<%= render "avatar_form" %>
+						<div class="mask">
+							<%= image_tag "assets/avatar_large.png" %>
+							<%= render "avatar_form" %>
+						</div>
 					</div>
 					<% else %>
 					<div class="avatar <%= "tip" if signed_in_as_owner?(@member) %>" title="<%= "Change your avatar" if signed_in_as_owner?(@member) %>">
-						<%= image_tag @member.avatar %>
-						<%= render "avatar_form" %>
+						<div class="mask">
+							<%= image_tag @member.avatar %>
+							<%= render "avatar_form" %>
+						</div>
 					</div>
 					<% end %>
-			
-					<h1><span>A little about</span> <%= @member.name %></h1>
-			
-					<% if @member.url.present? || @member.twitter_handle.present? %>
-					<p>
-						<%= @member.short_name %> is on
-						<%= " Twitter #{link_to "@" + @member.twitter_handle.gsub('@',''), "http://twitter.com/#{@member.twitter_handle}"}".html_safe if @member.twitter_handle.present? %>
-						<%= " and " if @member.twitter_handle.present? && @member.url.present? %>
-						<%= "online at #{link_to @member.url.gsub('http://','').gsub('www.','').truncate(20), @member.url}".html_safe if @member.url.present? %>
-					</p>
-					<% end %>
-			
-				</div>
 		
-				<!--<p class="chapter">
-				<%# if @member.chapter %>
-
-					<%#= (@member.crew?) ? "Part of the crew in" : "Doing Good for Nothing in" %>
-					<%# if signed_in_as_owner?(@member) %>
-						<%#= render "chapter_form" %>
-					<%# else %>
-						<%#= @member.chapter.title %>
-					<%# end %>
-
-				<%# elsif signed_in_as_owner?(@member) %>
-					You've not joined a local chapter, <%#= render "chapter_form" %>, or <%#= link_to "drop us a note", "mailto:hello@goodfornothing.com" %> if you're interesting in starting your own.
-				<%# end %>
-				</p>-->
-		
-				<ul class="data">
-					
-					<% if @member.chapter %>
-					<li><%= (@member.crew?) ? "Part of the crew in" : "Doing Good for Nothing in" %> <%= @member.chapter.title %></li>
-					<% end %>
-					
-					<% if time_active(@member) %>
-					<li><%= contextual_reference(@member,"you've").humanize %> <%= time_active(@member) %></li>
-					<% end %>
-					<%= "<li>Lives in #{@member.location}</li>".html_safe if @member.location.present? %>
-					
-				</ul>
+					<h1><%= @member.name %></h1>
 				
-				<% if signed_in_as_owner?(@member) && (@completion >= 55 || params[:welcome]) %>
-					<p class="more"><%= link_to "Edit your profile", edit_user_registration_path %></p>
-				<% elsif signed_in_as_owner?(@member) && (!params[:welcome] && @completion < 55) %>
-					<p><em>We'd love to get to know you better. Why not take a few seconds to tell the community more about yourself; the more you give, the more you'll get back, and the better we'll get at gathering amazing folk to turbo-charge challenges.</em></p>
-					<p class="call"><%= link_to "Tell us more about yourself", moar_path %></p>
+					<% if @member.url.present? || @member.twitter_handle.present? %>
+						<p class="twitter"><%= "#{link_to "Twitter", "http://twitter.com/#{@member.twitter_handle}"}".html_safe  if @member.twitter_handle.present? %></p>
+						<p class="web"><%= "#{link_to "Web", @member.url}".html_safe if @member.url.present? %></p>
+					<% end %>
+	
+					<!-- if none, inline form -->
+					<blockquote><p><%= @member.reasons_for_joining %></p></blockquote>	
+		
+				</div>
+				<% if @member.can_be_contacted? && !signed_in_as_owner?(@member) %>
+					<p class="contact"><%= link_to "Say<br />hello!".html_safe, message_member_messaging_messages_path(@member)  %></p>
+				<% elsif signed_in_as_owner?(@member) && !@member.can_be_contacted? %>
+					<p class="contact"><%= link_to "Enable<br />messaging!".html_safe, notifications_path(@member) %></p>
+				<% end %>			
+				<% if @member.chapter || @member.location.present? %>
+				<p class="location">
+					<% if @member.chapter %>
+						<%= @member.chapter.title %>
+					<% elsif @member.location.present? %>
+						<%= @member.location %>
+					<% end %>
+					<span><%= (@member.crew?) ? "crew" : "member" %></span>
+				</p>
 				<% end %>
-								
+				
 			</div>
 			
+			<% if @member.can_be_contacted? && !signed_in_as_owner?(@member) %>
+				<p class="contact"><%= link_to "Say<br />hello!".html_safe, message_member_messaging_messages_path(@member)  %></p>
+			<% elsif signed_in_as_owner?(@member) && !@member.can_be_contacted? %>
+				<p class="contact"><%= link_to "Enable<br />messaging!".html_safe, notifications_path(@member) %></p>
+			<% end %>
 			
-			<div class="panel">
-				
-				<h2><%= contextual_reference(@member, "your").titlecase %> interests and talents</h2>
-				
+			<% if signed_in_as_owner?(@member) %>
+				<p class="edit"><%= link_to "Edit profile", edit_user_registration_path %></p>
+			<% end %>
+							
+		</section>
+		
+		
+		<section id="manifesto">
+			
+			<h2><%= contextual_reference(@member, "your").titlecase %> 'getting stuff done' manifesto</h2>
+			
+			<div class="skills_and_talents">
+			
 				<% if @member.talents.any? %>
 				<ul class="talents">
 					<% @member.talents.each do |talent| %>
 						<% if talent.skill.title == "Think" 
-							
+						
 							@make = 100-((talent.level.to_f/10)*100) 
 							@think =  100-@make
-							
+						
 						%>
 						<li class="<%= talent.skill.title.underscore %>" data-talent-level="<%= talent.level %>">
 							<div class="fill" style="width: <%= @make %>%;">Make</div>
@@ -135,73 +137,71 @@
 					<% end %>
 				</ul>
 				<% end %>
-				
+			
+				<div id="special_skills">
+				<!-- if none, inline form -->
 				<% if @member.brings? %>
-					<h3>Other special skills</h3>
-					<p><%= @member.brings %></p>
+					<%= simple_format @member.brings %>
 				<% end %>
-				
-				<% if signed_in_as_owner?(@member) %>
-					<p class="more"><%= link_to "Update your talents", talents_path %></p>
-				<% end %>
-				
-			</div>
-	
-			<div class="panel">
-	
-				<h2>What <%= contextual_reference(@member,"you've").titlecase %> been up to</h2>
-	
-				<p class="icon_members"><span>So far, <%= contextual_reference(@member, "you've") %> worked with&hellip;</span> <%= link_to pluralize(@member.member_reach.count, "collaborator"), members_path %> </p>
-	
-				<% if @member.working_on.any? %>
-				<h3><%= contextual_reference(@member, "you've").titlecase %> worked on <%= pluralize(@member.working_on.count, "challenge") %></h3>
-				<ul class="data">
-					<% @member.working_on.each do |challenge| %>
-					<li><%= link_to challenge.title, challenge_path(challenge) %></li>
-					<% end %>
-				</ul>
-				<% end %>
-	
-				<% if @member.gigs.any? %>
-					<h3><%= contextual_reference(@member, "you've").titlecase %> taken part in <%= pluralize(@member.gigs.count, "gig") %></h3>
-					<ul class="data">
-						<% @member.gigs.each do |gig| %>
-						<li><%= link_to gig.title, gig_path(gig) %></li>
-						<% end %>
-					</ul>
-				<% end %>
-	
-				<% if @member.socials.any? %>
-				<h3><%= contextual_reference(@member, "you've").titlecase %> been to <%= pluralize(@member.socials.count, "social") %></h3>
-				<ul class="data">
-					<% @member.socials.each do |social| %>
-					<li><%= social.start_time.day %> <%= social.start_time.strftime('%B') %> in <%= social.chapter.title %></li>
-					<% end %>
-				</ul>
-				<% end %>
-				
-				<% if signed_in_as_owner?(@member) && @member.gigs.empty? %>
-				<p>We're not sure if you've taken part in any gigs, <%= link_to "let the community know", activity_path %> if you have!</p>	
-				<% elsif signed_in_as_owner?(@member) %>
-				<p>Been to more gigs? <%= link_to "Add gigs", activity_path %> to your activity stream.</p>
-				<% end %>
-	
+				</div>
+			
 			</div>
 			
-			<div class="panel">
-				<h2>Why <%= contextual_reference(@member,"you're") %> doing Good for Nothing</h2>
-				<blockquote><%= simple_format(@member.reasons_for_joining) %></blockquote>
-				<br />
-				<% if @member.can_be_contacted? && !signed_in_as_owner?(@member) %>
-					<p class="more"><%= link_to "Contact #{@member.short_name}", message_member_messaging_messages_path(@member)  %></p>
-				<% elsif signed_in_as_owner?(@member) && !@member.can_be_contacted? %>
-					<p class="pull"><%= link_to "Turn on direct messaging", notifications_path(@member) %></p>
+			<% if signed_in_as_owner?(@member) %>
+				<p class="edit"><%= link_to "Edit your manifesto", talents_path %></p>
+			<% end %>
+			
+		</section>
+
+		<section id="history">
+
+			<h2>Part of the movement <%= time_active(@member) %></h2>
+			
+			<ul class="action_history">
+				<% if @member.can?(:manage, Trill) %>
+				<li class="action_trill"><%= pluralize(@member.trills.count, "trill") %></li>
 				<% end %>
-			</div>
-		
-		</div>
-		
-		
+				<li class="action_challenge"><%= pluralize(@member.working_on.count, "challenge") %></li>
+				<li class="action_collab"><%= link_to pluralize(@member.member_reach.count, "collaborator"), members_path %></li>
+				<li class="action_gig"><%= pluralize(@member.gigs.count, "gig") %></li>
+				<li class="action_social"><%= pluralize(@member.socials.count, "social") %></li>
+			</ul>
+
+			<% if @history.any? %>
+				<% @history.each do |d| %>
+					<% date = Date.new(d.first.first, d.first.second) %>
+					<h3><%= date.strftime("%B %Y") %></h3>
+					<% if d.second.any? %>
+						<ul class="action_items">
+						<% d.second.each do |action| %>
+							<li class="action_item_<%= action.class.to_s.downcase %>">
+							
+								<%= "Wrote about \"#{action.title}\"" if action.class == Trill %>
+								<%= "Attended the #{action.title} gig in #{action.chapter.title}" if action.class == Gig %>
+								<%= "Attended a social in #{action.chapter.title}" if action.class == Social %>
+								<%= "Contributed to \"#{action.challenge.title}\"" if action.class == Contribution %>
+								
+								<% if action.class == Comment %>
+									<%= "Left a comment on \"#{action.commentable.name}\"" if action.commentable_type == "Social" %>
+									<%= "Left a comment on \"#{action.commentable.title}\"" if action.commentable_type == "Challenge" %>									
+									<%= "Left a comment on \"#{action.commentable.name}\"" if action.commentable_type == "Gig" %>
+								<% end %>
+
+								on
+								<%= action.audited_at.strftime("%A") %> 
+								<%= action.audited_at.strftime("%d").to_i.ordinalize %>
+							</li>
+						<% end %>
+						</ul>
+					<% end %>
+				<% end %>
+			<% end %>
+			
+			<% if signed_in_as_owner?(@member) %>
+				<p class="edit"><%= link_to "Add activity", activity_path %></p>
+			<% end %>
+
+		</section>
 		
 	</div>
 	

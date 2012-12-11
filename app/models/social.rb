@@ -3,6 +3,9 @@ class Social < ActiveRecord::Base
 	acts_as_event
   acts_as_commentable :title => "What's your Better Problem?", :label => "Problem"
 
+	# for activity history
+	alias_attribute :audited_at, :start_time
+
 	scope :feature, where('featured = true')
 
   attr_accessible :open, :featured

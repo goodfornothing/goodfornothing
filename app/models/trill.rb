@@ -2,6 +2,9 @@ class Trill < ActiveRecord::Base
 
   attr_accessible :title, :url, :published, :description, :issue_ids, :hero_image, :user_id, :vimeo
   
+	# for activity history
+	alias_attribute :audited_at, :created_at
+
 	has_and_belongs_to_many :issues
 	belongs_to :user
 

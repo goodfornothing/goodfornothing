@@ -41,12 +41,15 @@ class MembersController < ApplicationController
     if @member.nil?
       not_found
     else
+	
       @first_sign_in = (user_signed_in? && params[:welcome].present? && current_user == @member) ? true : false
-
+			@completion = @member.profile_completion
+			
       @gig = (params[:gig_id].present?) ? Gig.find(params[:gig_id]) : nil
 			@social = (params[:social_id].present?) ? Social.find(params[:social_id]) : nil
+      
+			@history = (@member.comments + @member.contributions + @member.trills + @member.socials + @member.gigs).sort_by(&:audited_at).reverse.group_by{ |t| [t.audited_at.year,t.audited_at.month] }  
 
-      @completion = @member.profile_completion
     end
 		
   end

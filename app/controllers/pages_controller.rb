@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 		@page = Page.find(params[:id])
 		
 		# FriendlyID History
-    if request.path != wiki_page_path(@page)
+    if request.path != page_path(@page)
       return redirect_to @page, :status => :moved_permanently
     end
 		
@@ -20,7 +20,7 @@ class PagesController < ApplicationController
 	end
 	
 	def index
-		@pages = Page.all
+		@pages = Page.features
 	end
 
 end

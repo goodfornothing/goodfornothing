@@ -9,25 +9,29 @@ ActiveAdmin.register Page do
   end
   
 	index do
-    column :title
-		column "Last edited by" do |page|
-			#User.find(page.latest.whodunnit).name
-		end
-    default_actions
+		column("Title") { |page| link_to page.title, hive_page_path(page) }
+    column("Last edited by") { |page| User.find(page.originator).name }
+    column "" do |page|
+      "#{link_to "Edit", edit_hive_page_path(page)} &nbsp; #{link_to "Delete", hive_page_path(page), :method => "delete", :confirm => "Are you sure you wish to delete this page?"}".html_safe
+    end
   end
 
 	form do |f|
 		f.inputs "Content" do
 			f.input :title
+			f.input :description
+			f.input :featured
 			f.input	:body
 		end
     f.buttons
   end
 	
   show do |page|
-
+		
 		attributes_table do 
 	    row :title
+			row :description
+	    row :featured
       row "Body" do |page|
 				sir_trevor_markdown(page.body)
 			end
@@ -35,30 +39,30 @@ ActiveAdmin.register Page do
 		
 		panel "Pevious Versions" do
 			
-			#table :id => "versions" do
-      #  thead do
-      #    tr do
-      #      th "Body"
-      #      th "Time modified", :width => "150"
-      #      th "Author", :width => "150"
-      #    end
-      #  end
-      #  tbody do
-      #    page.versions.reverse.each do |v|
-			#			unless v.object.nil?
-      #      	tr do
-	    #          if v.previous.object.nil?
-		 	#						td "[No diff available]"
-			#					else
-			#						td Diffy::Diff.new(v.previous.reify.body, v.reify.body).to_s(:html).html_safe
-			#					end
-	    #          td v.created_at.to_s(:long)
-	    #        	td User.find(v.whodunnit).name
-			#				end
-			#			end
-      #    end
-      #  end
-      #end
+			table :id => "versions" do
+        thead do
+          tr do
+            th "Body"
+            th "Time modified", :width => "150"
+            th "Author", :width => "150"
+          end
+        end
+        tbody do
+          page.versions.reverse.each do |v|
+						unless v.object.nil?
+            	tr do
+	              if v.previous.object.nil?
+		 							td "[First version - no diff available]"
+								else
+									td Diffy::Diff.new(v.previous.reify.body, v.reify.body).to_s(:html).html_safe
+								end
+	              td v.created_at.to_s(:long)
+	            	td User.find(v.whodunnit).name
+							end
+						end
+          end
+        end
+      end
 		
 		end
 		

@@ -117,10 +117,10 @@
 			<p><%= link_to "The Hive", hive_root_path %></p>
 			
 			<% if @member.can?(:read, Page) %>
-			<p><%= link_to "Chapter Toolkit", wiki_pages_path %></p>
+			<p><%= link_to "Chapter Wiki", pages_path %></p>
 			<% end %>
 			
-			<h3>This year:</h3>
+			<h3>This year</h3>
 			<p>3 gigs, 5 socials, 2 challenges, 10 blog posts, 22 warbles</p>
 			
 			<% unless @member.chapter.shaken_hands? %>
@@ -128,6 +128,12 @@
 			<p>Nothing heavy here, a virtual handshake, a declaration of mutual respect and an agreement to give it a go together. If you can download sign and mail it back. That would be awesome. [download here]</p>
 			<% end %>
 			
+			<h3>Your Accounts</h3>
+			<p>Twits, Email addr, Mailing list</p>
+			
+			<h3>Your design assets</h3>
+			<p><%= link_to "Assets", page_path('assets') %></p>
+	
 		</section>
 		<% end %>
 		

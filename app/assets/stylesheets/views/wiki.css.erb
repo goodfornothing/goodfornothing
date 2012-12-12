@@ -27,29 +27,32 @@
 	background: url(<%= asset_path "blocks/thumbnail_mask.png" %>) no-repeat top left;
 }
 
-#wiki_page_list .grid_list p {
+#wiki_page_list .grid_list h3 {
 	position: relative;
 	z-index: 10;
 	padding: 5px 10px 0 15px;
-	margin: 0;
+	margin: 0 0 10px;
 	line-height: 18px;
 	font-size: 14px;
-}
-
-#wiki_page_list .grid_list p:first-child {
 	padding-top: 20px;
 }
 
-#wiki_page_list .grid_list p a {
+#wiki_page_list .grid_list h3 a {
 	display: block;
 	color: #61514D;
 	line-height: 19px;
 	font-family: "Good for Nothing";
 }
 
-#wiki_page_list .grid_list p a:hover,
-#wiki_page_list .grid_list p a:active,
-#wiki_page_list .grid_list p a:focus {
+#wiki_page_list .grid_list h3 a:hover,
+#wiki_page_list .grid_list h3 a:active,
+#wiki_page_list .grid_list h3 a:focus {
 	text-decoration: none;
 	color: #D0122D;
+}
+
+#wiki_page_list .grid_list p {
+	padding: 0 15px;
+	font-size: 14px;
+	line-height: 20px;
 }

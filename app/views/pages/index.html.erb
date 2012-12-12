@@ -9,7 +9,7 @@
 		<p>Hello and respect for starting a GFN chapter and doing some good in your hood. This is a place to find all the resources and info you'll need to get going, it's a bit like a toolkit, GFN in a box.</p>
 		<p>We want to support you as much as we can, and so have developed this place to do just that. There are a few things with GFN that are fixed, so we make that clear here. There is also some stuff that is flexible and some that's open; make it your own, rip, remix, hack it into your own flavour. </p>
 		<p>Good for Nothing is a living thing, we're always in beta, so we are adding, developing, and positively mutating on an ongoing basis. We welcome your feedback, what works, what doesn't, learnings and ideas, so we're adding in some places for you to do just that &ndash; coming soon.</p>
-		<p>If you've got any questions, check the <%= link_to "FAQ's", wiki_page_path('frequently-asked-questions') %> first, if you still can't find what you're looking for, please do <%= link_to "get in touch", message_chapter_messaging_messages_path(Chapter.find('london')) %>.</p>
+		<p>If you've got any questions, check the <%= link_to "FAQ's", page_path('frequently-asked-questions') %> first, if you still can't find what you're looking for, please do <%= link_to "get in touch", message_chapter_messaging_messages_path(Chapter.find('london')) %>.</p>
 		
 		<p>[MAILING LIST]</p>
 		
@@ -25,7 +25,12 @@
 			
 			<ul class="grid_list grid_four">
 				<% @pages.each do |page| %>
-				<li><p><%= link_to page.title, wiki_page_path(page) %></p></li>
+					<li>
+						<h3><%= link_to page.title, page_path(page) %></h3>
+						<% unless page.description.nil? %>
+						<p><%= page.description %></p>
+						<% end %>
+					</li>
 				<% end %>
 			</ul>
 				

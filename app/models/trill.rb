@@ -9,7 +9,6 @@ class Trill < ActiveRecord::Base
 	belongs_to :user
 
 	validates :title, :presence => true
-	validates :url, :presence => true
 
   paginates_per 50
   

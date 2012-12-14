@@ -2,7 +2,7 @@
 	
 	<div id="warble_filters">
 		
-		<%= image_tag @issue.icon.large %>
+		<%= image_tag @issue.icon.large unless @issue.nil? %>
 		
 		<% if @issues.any? %>
 		
@@ -52,7 +52,9 @@
 						<%= simple_format(auto_link(resource.description)).html_safe %>
 					<% end %>
 					
+					<% unless resource.url.blank? %>
 					<p class="cta"><%= link_to "Go check it out!", resource.url %></p>
+					<% end %>
 					
 				</article>
 				

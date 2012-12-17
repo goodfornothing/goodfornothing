@@ -1,13 +1,25 @@
 .section_registrations.view_new #main,
 .section_registrations.view_create #main,
-.section_registrations.view_edit_moar #main {
+.section_registrations.view_edit_moar #main,
+.section_registrations.view_edit #main {
 	overflow: visible;
 }
 
 .section_registrations.view_new #main #primary_content,
 .section_registrations.view_create #main #primary_content,
-.section_registrations.view_edit_moar #main #primary_content {
+.section_registrations.view_edit_moar #main #primary_content,
+.section_registrations.view_edit #main #primary_content {
 	float: none;
+}
+
+form.slides h1 {
+	font-size: 42px;
+	border-bottom: none;
+	padding: 0;
+	background: transparent;
+	color: #085156;
+	font-style: italic;
+	margin-bottom: 50px;
 }
 
 #new_user.slides h1 {
@@ -116,47 +128,47 @@ form.slides fieldset {
 	background: url(<%= asset_path "icons/next.png" %>) no-repeat top left;
 }
 
-#new_user.slides .similar {
+form.slides .similar {
 	padding-top: 50px;
 }
 
-#new_user.slides .similar textarea {
+form.slides .similar textarea {
 	padding-bottom: 35px;
 }
 
-#new_user.slides .warblings {
+form.slides .warblings {
 	padding-top: 60px;
 }
 
-#new_user.slides .warblings .slide_illustration {
+form.slides .warblings .slide_illustration {
 	position: absolute;
 	left: -135px;
 	bottom: -15px;
 }
 
-#new_user .chapters .slide_illustration {
+form.slides .chapters .slide_illustration {
 	position: absolute;
 	left: -163px;
 	bottom: -140px;
 }
 
-#new_user .chapters {
+form.slides .chapters {
 	padding-top: 28px;
 }
 
-#new_user .chapters .grow_tip {
+form.slides .chapters .grow_tip {
 	position: absolute;
 	top: 27px;
 	right: 77px;	
 }
 
-#new_user .chapters .grow_tip label {
+form.slides .chapters .grow_tip label {
 	padding-left: 40px;
 	padding-top: 5px;
 	font-size: 13px;
 }
 
-#new_user .chapters .grow_tip input {
+form.slides .chapters .grow_tip input {
 	width: 80px;
 	padding: 5px 0 0 55px;
 	height: 47px;
@@ -166,51 +178,51 @@ form.slides fieldset {
 	background: url(<%= asset_path "assets/thought.png" %>) no-repeat top left;
 }
 
-#new_user .chapters .grow_tip.full {
+form.slides .chapters .grow_tip.full {
 	right: 9px;
 }
 
-#new_user .chapters .grow_tip.full input:focus {
+form.slides .chapters .grow_tip.full input:focus {
 	outline: none;
 }
 
-#new_user .chapters .grow_tip.full input {
+form.slides .chapters .grow_tip.full input {
 	width: 148px;
 	height: 95px;
 	background: url(<%= asset_path "assets/thought_full.png" %>) no-repeat top left;
 }
 
-#new_user .form_panels {
+form.slides .fields .form_panels {
 	width: 640px;
 	margin: 0 auto;
 	overflow: hidden;
 }
 
-#new_user .half_panel {
+form.slides .fields .half_panel {
 	width: 300px;
 	float: left;
 	margin-right: 40px;
 }
 
-#new_user .half_panel:last-child {
+form.slides .fields .half_panel:last-child {
 	margin-right: 0;
 }
 
-#new_user .half_panel input.string,
-#new_user .half_panel input.email,
-#new_user .half_panel input.password {
+form.slides .fields .half_panel input.string,
+form.slides .fields .half_panel input.email,
+form.slides .fields .half_panel input.password {
 	width: 264px;
 }
 
-#new_user .half_panel textarea {
+form.slides .fields .half_panel textarea {
 	width: 250px;
 }
 
-#new_user .half_panel:first-child {
+form.slides .fields .half_panel:first-child {
 	float: left;
 }
 
-#new_user .involvement .slide_illustration {
+form.slides .fields .involvement .slide_illustration {
 	position: absolute;
 	left: -170px;
 	bottom: -110px;
@@ -249,6 +261,21 @@ form.slides .slide_face .input.file input {
 }
 
 form.slides .slide_skills {
+	width: 500px;
+	margin: 0 auto;
+}
+
+form.slides .slide_why {
+	padding-top: 40px;
+}
+
+form.slides .slide_why .btn {
+	position: absolute;
+	bottom: -80px;
+	left: 290px;
+}
+
+form.slides .slide_why .input.text {
 	width: 500px;
 	margin: 0 auto;
 }
@@ -321,32 +348,32 @@ form.slides .slide_locations .btn {
 	text-align: left;
 }
 
-#new_user.slides fieldset.claim {
+form.slides fieldset.claim {
 	padding-top: 33px;
 	padding-bottom: 30px;
 	width: 295px;
 	margin: 0 auto;
 }
-#new_user.slides fieldset.claim .checkbox {
+
+form.slides fieldset.claim .checkbox {
 	margin-top: -4px;
 }
 
 #new_user.primary_panel .avatar_list {
-	
-		min-height: 200px;
-	}
+	min-height: 200px;
+}
 
-#new_user.slides fieldset.claim .string input,
-#new_user.slides fieldset.claim .email input,
-#new_user.slides fieldset.claim .password input {
+form.slides fieldset.claim .string input,
+form.slides fieldset.claim .email input,
+form.slides fieldset.claim .password input {
 	width: 260px;
 }
 
-#new_user.slides fieldset.claim .text label {
+form.slides fieldset.claim .text label {
 	font-family: "Good for Nothing";
 }
 
-#new_user.slides fieldset.claim textarea {
+form.slides fieldset.claim textarea {
 	height: 135px;
 	font-family: "Good for Nothing";
 }
@@ -357,20 +384,8 @@ form.slides .claim .btn {
 	left: 45px;
 }
 
-#new_user .footnote {
-	font-family: karlabold;
-	width: 500px;
-	margin: 0 auto;
-}
-
 .view_edit_talents #edit_user {
 	width: 800px;
-}
-
-.view_edit_talents #edit_user .minor {
-	width: 500px;
-	padding-top: 40px;
-	margin: 0 auto;
 }
 
 form.primary_panel .activity .checkbox {
@@ -388,13 +403,13 @@ form.primary_panel .activity .checkbox span {
 
 /* Splodge inputs */
 
-	#new_user.slides .border_splodges {
+	form.slides .border_splodges {
 		width: 580px;
 		margin: 0px auto 0;
 		text-align: center;
 	}
 
-	#new_user.slides .border_splodges label {
+	form.slides .border_splodges label {
 		font-size: 16px;
 		line-height: 21px;
 		font-family: "Good for Nothing";
@@ -407,52 +422,51 @@ form.primary_panel .activity .checkbox span {
 		float: left;
 	}
 
-	#new_user.slides .border_splodges label.js  { 
+	form.slides .border_splodges label.js  { 
 		background-image: url(<%= asset_path "assets/white_borders.png" %>) ;
 		background-repeat: no-repeat;
 		width: 210px;
 		height: 55px;
 		padding-top: 14px;
 		background-position: -4px -1px;
-		width: 200px;
-		
+		width: 200px;		
 	}
 	
-	#new_user.slides .border_splodges label.control-label { display: none !important; }
-	#new_user.slides .border_splodges label.js input { display: none; }
-	#new_user.slides .border_splodges label.js.checked { background-color: #D0122D; }
+	form.slides .border_splodges label.control-label { display: none !important; }
+	form.slides .border_splodges label.js input { display: none; }
+	form.slides .border_splodges label.js.checked { background-color: #D0122D; }
 
-	#new_user.slides .border_splodges label.js:nth-child(3n+3) {
+	form.slides .border_splodges label.js:nth-child(3n+3) {
 		width: 131px; background-position: -223px 0px;
 	}
 
-	#new_user.slides .border_splodges label.js:nth-child(4n+4) {
+	form.slides .border_splodges label.js:nth-child(4n+4) {
 		width: 204px; background-position: -376px -3px;
 		margin-right: 0;
 	}
 	
-	#new_user.slides .border_splodges label.js:nth-child(5n+5) {
+	form.slides .border_splodges label.js:nth-child(5n+5) {
 		width: 196px; height: 52px; background-position: 0px -96px;
 	}
 	
-	#new_user.slides .border_splodges label.js:nth-child(6n+6) {
+	form.slidess .border_splodges label.js:nth-child(6n+6) {
 		width: 150px; height: 52px; background-position: -426px -88px;	
 	}
 	
-	#new_user.slides .border_splodges label.js:nth-child(7n+7) {
+	form.slides .border_splodges label.js:nth-child(7n+7) {
 		width: 180px; height: 38px; background-position: -220px -95px;
 		padding-top: 20px; margin-right: 0;
 	}
 
 /* Splodge block inputs */
 
-	#new_user.slides .solid_splodges {
+	form.slides .solid_splodges {
 		width: 410px;
 		margin: 0px auto 0;
 		text-align: center;
 	}
 
-	#new_user.slides .solid_splodges label {
+	form.slides .solid_splodges label {
 		font-size: 15px;
 		line-height: 19px;
 		font-family: "Good for Nothing";
@@ -465,7 +479,7 @@ form.primary_panel .activity .checkbox span {
 		float: left;
 	}
 
-	#new_user.slides .solid_splodges label.js  { 
+	form.slides .solid_splodges label.js  { 
 		background-image: url(<%= asset_path "assets/white_splodges.png" %>) ;
 		background-repeat: no-repeat;
 		background-position: 0px -3px;
@@ -476,23 +490,23 @@ form.primary_panel .activity .checkbox span {
 		padding-top: 40px;
 	}
 
-	#new_user.slides .solid_splodges label.control-label { display: none !important; }
-	#new_user.slides .solid_splodges label.js input { display: none; }
-	#new_user.slides .solid_splodges label.js.checked { background-color: #085156; color: #ffffff; }
-	#new_user.slides .solid_splodges label.js span { display: block; font-size: 11px }
+	form.slides .solid_splodges label.control-label { display: none !important; }
+	form.slides .solid_splodges label.js input { display: none; }
+	form.slides .solid_splodges label.js.checked { background-color: #085156; color: #ffffff; }
+	form.slides .solid_splodges label.js span { display: block; font-size: 11px }
 
-	#new_user.slides .solid_splodges label.js:nth-child(4),
-	#new_user.slides .solid_splodges label.js:nth-child(7n+7) {
+	form.slides .solid_splodges label.js:nth-child(4),
+	form.slides .solid_splodges label.js:nth-child(7n+7) {
 		margin-right: 0;
 	}
 
-	#new_user.slides .solid_splodges label.js:nth-child(3n+3) {
+	form.slides .solid_splodges label.js:nth-child(3n+3) {
 		background-position: -140px 0px;
 		height: 76px;
 		width: 118px;
 	}
 
-	#new_user.slides .solid_splodges label.js:nth-child(4n+4) {
+	form.slides .solid_splodges label.js:nth-child(4n+4) {
 		background-position: -282px 0px;
 		height: 76px;
 	}

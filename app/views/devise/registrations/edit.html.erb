@@ -2,7 +2,7 @@
 	
 	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "primary_panel slides" }) do |f| %>
 
-		<h1>Your GFN profile</h1>
+		<h1>Your Profile</h1>
 		
 		<%= render "shared/notices" %>
 
@@ -10,17 +10,24 @@
 
 			<fieldset class="slide">
 				
-				<legend>Profile</legend>
+				<legend>A bit about you</legend>
 				
-				<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
-				<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
-				<%= f.input :location, :label => "Your physical location", :wrapper_html => { :class => "smart_label" } %>
-			
-				<%= f.input :url, :label => "Your digital location", :wrapper_html => { :class => "smart_label" } %>
-				<%= f.input :twitter_handle, :wrapper_html => { :class => "smart_label" } %>
-			
-				<%= f.input :subscribed, :as => :boolean, :label => "On the GFN mailing list?" %>
-			
+				<div class="form_panels">
+					
+					<div class="half_panel">
+						<%= f.input :location, :label => "Your physical location", :wrapper_html => { :class => "smart_label" } %>
+						<%= f.input :url, :label => "Your digital location", :wrapper_html => { :class => "smart_label" } %>
+						<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
+					</div>
+
+					<div class="half_panel">
+						<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
+						<%= f.input :twitter_handle, :wrapper_html => { :class => "smart_label" } %>						
+						<%= f.input :subscribed, :as => :boolean, :label => "On the GFN mailing list?" %>
+					</div>
+					
+				</div>
+					
 			</fieldset>
 		
 			<fieldset class="slide chapters">
@@ -31,23 +38,24 @@
 			</fieldset>
 
 
-			<fieldset class="slide similar">
-				<legend>People a little like you</legend>
+			<fieldset class="slide slide_why">
+				<legend>Why you're doing Good for Nothing</legend>
 				<%= f.input :reasons_for_joining, :label => "What makes you want to do Good for Nothing?", :input_html => { :rows => 6 }, :wrapper_html => { :class => "smart_label" } %>
+				<%= f.button :submit, "Update me" %>
 			</fieldset>
 		
-			<fieldset class="slide">
+			<!--<fieldset class="slide">
 				<legend>Change your password?</legend>
 
 				<%= f.input :password, :label => "New password", :required => false, :wrapper_html => { :class => "smart_label" }, :input_html => { :autocomplete => "off" } %>
 				<%= f.input :password_confirmation, :label => "Confirm new password", :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
-			</fieldset>
+				
+				
+			</fieldset>-->
 			
 		</div>
 
-		<fieldset class="actions">
-			<%= f.button :submit, "Update me" %>
-		</fieldset>
+	
 	<% end %>
 	
 </section>

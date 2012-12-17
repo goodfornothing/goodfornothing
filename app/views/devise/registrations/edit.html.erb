@@ -1,30 +1,49 @@
 <section id="primary_content" class="single">
 	
-	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "primary_panel" }) do |f| %>
+	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "primary_panel slides" }) do |f| %>
 
-		<h1>A little about you</h1>
+		<h1>Your GFN profile</h1>
 		
 		<%= render "shared/notices" %>
 
-		<fieldset>
+		<div class="fields">
+
+			<fieldset class="slide">
 				
-			<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
-			<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
-			<%= f.input :location, :label => "Your physical location", :wrapper_html => { :class => "smart_label" } %>
+				<legend>Profile</legend>
+				
+				<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
+				<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
+				<%= f.input :location, :label => "Your physical location", :wrapper_html => { :class => "smart_label" } %>
 			
-			<%= f.input :url, :label => "Your digital location", :wrapper_html => { :class => "smart_label" } %>
-			<%= f.input :twitter_handle, :wrapper_html => { :class => "smart_label" } %>
+				<%= f.input :url, :label => "Your digital location", :wrapper_html => { :class => "smart_label" } %>
+				<%= f.input :twitter_handle, :wrapper_html => { :class => "smart_label" } %>
 			
-			<%= f.input :subscribed, :as => :boolean, :label => "On the GFN mailing list?" %>
+				<%= f.input :subscribed, :as => :boolean, :label => "On the GFN mailing list?" %>
 			
-		</fieldset>
+			</fieldset>
 		
-		<fieldset>
-			<legend>Change your password?</legend>
-			<br /><br />
-			<%= f.input :password, :label => "New password", :required => false, :wrapper_html => { :class => "smart_label" }, :input_html => { :autocomplete => "off" } %>
-			<%= f.input :password_confirmation, :label => "Confirm new password", :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
-		</fieldset>
+			<fieldset class="slide chapters">
+				<legend>Do you live near a GFN chapter?</legend>
+				<%= f.input :location, :label => "Nope...", :wrapper_html => { :class => "smart_label grow_tip", :title => "Not to worry, where are you?" } %>
+				<%= f.association :chapter, :as => :radio_buttons, :label_method => lambda { |c| "#{c.title}<span>#{c.country}</span>".html_safe }, :label => "", :wrapper_html => { :class => "solid_splodges" } %>
+				<%= image_tag "illustrations/maptorch.png", :class => "slide_illustration" %>
+			</fieldset>
+
+
+			<fieldset class="slide similar">
+				<legend>People a little like you</legend>
+				<%= f.input :reasons_for_joining, :label => "What makes you want to do Good for Nothing?", :input_html => { :rows => 6 }, :wrapper_html => { :class => "smart_label" } %>
+			</fieldset>
+		
+			<fieldset class="slide">
+				<legend>Change your password?</legend>
+
+				<%= f.input :password, :label => "New password", :required => false, :wrapper_html => { :class => "smart_label" }, :input_html => { :autocomplete => "off" } %>
+				<%= f.input :password_confirmation, :label => "Confirm new password", :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
+			</fieldset>
+			
+		</div>
 
 		<fieldset class="actions">
 			<%= f.button :submit, "Update me" %>

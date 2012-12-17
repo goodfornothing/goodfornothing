@@ -1,36 +1,45 @@
 <section id="primary_content" class="single">
 	
-	<%= simple_form_for(resource, :as => resource_name, :url => talents_path, :html => { :method => :put, :class => "primary_panel" }) do |f| %>
+	<%= simple_form_for(resource, :as => resource_name, :url => talents_path, :html => { :method => :put, :class => "slides primary_panel" }) do |f| %>
 
 		<h1>Your Manifesto for Doing</h1>
 		
 		<%= render "shared/notices" %>
 
-		<fieldset>	
-				
-			<% if @skills.any? %>
+		<div class="fields">
 
-				<% @skills.each do |skill| %>
-				<ul class="range_slider">
-					<li class="skill"><%= f.label skill.title %></li>
-					<li class="details" title="<%= skill.description %>">?</li>
-					<li class="limit"><%= skill.lower %></li>
-					<li class="ranger"><%= range_field_tag "skill[#{skill.id}]", resource.skill_level(skill) || 1, :in => 0...11, :step => 1 %></li>
-					<li class="limit"><%= skill.upper %></li>
-				</ul>
-				<% end %>
-				
-			<% end %>		
-			
-		</fieldset>
+			<fieldset class="slide involvement">
 		
-		<fieldset class="minor">
-			<%= f.input :brings, :label => "What other special skills do you bring?", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 4 } %>
-		</fieldset>
+				<legend>How do you like to get stuff done?</legend>
+				
+				<% if @skills.any? %>
 
-		<fieldset class="actions">
-			<%= f.button :submit, "Save" %>
-		</fieldset>
+					<div>
+					<% @skills.each do |skill| %>
+					<ul class="range_slider">
+						<li class="skill"><%= f.label skill.title %></li>
+						<li class="details" title="<%= skill.description %>">?</li>
+						<li class="limit"><%= skill.lower %></li>
+						<li class="ranger"><%= range_field_tag "skill[#{skill.id}]", resource.skill_level(skill) || 1, :in => 0...11, :step => 1 %></li>
+						<li class="limit"><%= skill.upper %></li>
+					</ul>
+					<% end %>
+					</div>
+				
+				<% end %>		
+			
+				<%= image_tag "illustrations/laptop.png", :class => "slide_illustration" %>
+			
+			
+			</fieldset>
+		
+			<fieldset class="slide slide_skills">
+				<legend>Your talents and interests</legend>
+				<%= f.input :brings, :label => "What other special skills do you bring?", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 5 } %>
+				<%= f.button :submit, "Save" %>
+			</fieldset>
+		
+		</div>
 		
 	<% end %>
 	

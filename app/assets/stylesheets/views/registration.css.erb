@@ -1,14 +1,16 @@
 .section_registrations.view_new #main,
 .section_registrations.view_create #main,
 .section_registrations.view_edit_moar #main,
-.section_registrations.view_edit #main {
+.section_registrations.view_edit #main,
+.section_registrations.view_edit_talents #main {
 	overflow: visible;
 }
 
 .section_registrations.view_new #main #primary_content,
 .section_registrations.view_create #main #primary_content,
 .section_registrations.view_edit_moar #main #primary_content,
-.section_registrations.view_edit #main #primary_content {
+.section_registrations.view_edit #main #primary_content,
+.section_registrations.view_edit_talents #main #primary_content {
 	float: none;
 }
 
@@ -261,8 +263,18 @@ form.slides .slide_face .input.file input {
 }
 
 form.slides .slide_skills {
-	width: 500px;
+	width: 600px;
 	margin: 0 auto;
+}
+
+.view_edit_talents form.slides .slide_skills {
+	padding-top: 50px;
+}
+
+.view_edit_talents form.slides .slide_skills .btn {
+	position: absolute;
+	bottom: -65px;
+	left: 190px;
 }
 
 form.slides .slide_why {
@@ -382,10 +394,6 @@ form.slides .claim .btn {
 	position: absolute;
 	bottom: -55px;
 	left: 45px;
-}
-
-.view_edit_talents #edit_user {
-	width: 800px;
 }
 
 form.primary_panel .activity .checkbox {

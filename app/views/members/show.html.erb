@@ -4,9 +4,7 @@
 	<div id="profile_welcome">
 
 		<section class="welcome">
-			
-			<!-- make this more of a notification bar -->
-			
+						
 			<% if @gig.present? %>
 			
 				<h2>You've registered to attend <%= @gig.name %>!</h2>
@@ -20,7 +18,8 @@
 
 				<h2>You've registered to attend <%= @social.name %>!</h2>
 
-				<ul class="gig">
+				<ul>
+					<li class="cta strong"><%= link_to "Spread on Twitter", "https://twitter.com/intent/tweet?&amp;via=g00dfornothing&amp;url=http%3A%2F%2Fwww.goodfornothing.com#{url_encode(social_path(@social))}&amp;text=Come join me in doing some Good for nothing! ".html_safe %></li>
 					<li class="cta strong"><%= link_to "Back to the social", "#{social_path(@social)}" %></li>
 				</ul>
 				
@@ -66,13 +65,11 @@
 		
 					<h1><%= @member.name %></h1>
 				
-					<!-- if none, prompt to edit -->
 					<% if @member.url.present? || @member.twitter_handle.present? %>
 						<p class="twitter"><%= "#{link_to "Twitter", "http://twitter.com/#{@member.twitter_handle}"}".html_safe  if @member.twitter_handle.present? %></p>
 						<p class="web"><%= "#{link_to "Web", @member.url}".html_safe if @member.url.present? %></p>
 					<% end %>
 	
-					<!-- if none, prompt to edit -->
 					<blockquote><p><%= @member.reasons_for_joining %></p></blockquote>	
 		
 				</div>
@@ -142,8 +139,6 @@
 			
 			<div class="skills_and_talents">
 			
-				<!-- prompt to input skills if none -->
-			
 				<% if @member.talents.any? %>
 				<ul class="talents">
 					<% @member.talents.each do |talent| %>
@@ -166,7 +161,6 @@
 				<% end %>
 			
 				<div id="special_skills">
-					<!-- if none, prompt to edit -->
 					<% if @member.brings? %>
 						<%= simple_format @member.brings %>
 					<% end %>
@@ -186,12 +180,12 @@
 			
 			<ul class="action_history">
 				<% if @member.can?(:manage, Trill) %>
-				<li class="action_trill"><%= link_to pluralize(@member.trills.count, "trill") %></li>
+				<li class="action_trill"><%= link_to pluralize(@member.trills.count, "trill"), warblings_author_path(@member) %></li>
 				<% end %>
-				<li class="action_challenge"><%= pluralize(@member.working_on.count, "challenge") %></li>
+				<li class="action_challenge"><span><%= pluralize(@member.working_on.count, "challenge") %></span></li>
 				<li class="action_collab"><%= link_to pluralize(@member.member_reach.count, "collaborator"), members_path %></li>
-				<li class="action_gig"><%= pluralize(@member.gigs.count, "gig") %></li>
-				<li class="action_social"><%= pluralize(@member.socials.count, "social") %></li>
+				<li class="action_gig"><span><%= pluralize(@member.gigs.count, "gig") %></span></li>
+				<li class="action_social"><span><%= pluralize(@member.socials.count, "social") %></span></li>
 			</ul>
 
 			<% if @history.any? %>

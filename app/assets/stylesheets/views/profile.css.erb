@@ -1,5 +1,5 @@
 #profile_welcome {
-	margin-bottom: 55px;
+	margin-bottom: 35px;
 	width: 100%;
 	overflow: hidden;
 }
@@ -22,12 +22,7 @@
 	list-style-type: none;
 	text-align: center;
 	margin: 0 auto;
-	width: 900px;
-}
-
-#profile_welcome ul.gig {
-	width: 580px;
-	padding-top: 0;
+	width: 600px;
 }
 
 #profile_welcome ul li {
@@ -329,10 +324,10 @@
 }
 
 #profile #history ul.action_items li {
-	padding: 0 0 10px 55px;
+	padding: 0 0 10px 58px;
 	background-repeat: no-repeat;
 	background-position: left top;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 }
 
 #profile #history ul.action_items li.action_item_trill { background-image: url(<%= asset_path "icons/action_trill_small.png" %>); }
@@ -340,6 +335,10 @@
 #profile #history ul.action_items li.action_item_contribution { background-image: url(<%= asset_path "icons/action_challenge_small.png" %>); }
 #profile #history ul.action_items li.action_item_gig { background-image: url(<%= asset_path "icons/action_gig_small.png" %>); }
 #profile #history ul.action_items li.action_item_social { background-image: url(<%= asset_path "icons/action_social_small.png" %>); }
+
+#profile #history ul.action_items li:last-child {
+	margin-bottom: 10px;
+}
 
 #profile .action_history {
 	list-style-type: none;
@@ -352,6 +351,12 @@
 
 #profile .action_history li {
 	display: inline-block;
+	
+}
+
+#profile .action_history li a,
+#profile .action_history li span {
+	display: block;
 	text-align: center;
 	font-family: "Good for Nothing";
 	color: #61514D;
@@ -378,11 +383,32 @@
 	margin: 0;
 }
 
-#profile .action_history li.action_trill { background-position: center 15px; background-image: url(<%= asset_path "icons/action_trill.png" %>); }
-#profile .action_history li.action_challenge { background-image: url(<%= asset_path "icons/action_challenge.png" %>); }
-#profile .action_history li.action_collab { background-image: url(<%= asset_path "icons/action_collab.png" %>); }
-#profile .action_history li.action_gig { background-image: url(<%= asset_path "icons/action_gig.png" %>); }
-#profile .action_history li.action_social { background-position: center 25px; background-image: url(<%= asset_path "icons/action_social.png" %>); }
+#profile .action_history li.action_trill a,
+#profile .action_history li.action_trill span { 
+	background-position: center 15px; 
+	background-image: url(<%= asset_path "icons/action_trill.png" %>); 
+}
+
+#profile .action_history li.action_challenge a,
+#profile .action_history li.action_challenge span {  
+	background-image: url(<%= asset_path "icons/action_challenge.png" %>); 
+}
+
+#profile .action_history li.action_collab a,
+#profile .action_history li.action_collab span { 
+	background-image: url(<%= asset_path "icons/action_collab.png" %>); 
+}
+
+#profile .action_history li.action_gig a,
+#profile .action_history li.action_gig span { 
+	background-image: url(<%= asset_path "icons/action_gig.png" %>); 
+}
+
+#profile .action_history li.action_social a,
+#profile .action_history li.action_social span {
+	background-position: center 25px; 
+	background-image: url(<%= asset_path "icons/action_social.png" %>); 
+}
 
 #profile #chapter .kit {
 	width: 430px;
@@ -390,7 +416,6 @@
 	overflow: hidden;
 	padding-top: 10px;
 }
-
 
 #profile #chapter .kit .guide {
 	width: 200px;

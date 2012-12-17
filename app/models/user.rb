@@ -121,6 +121,10 @@ class User < ActiveRecord::Base
 	def ability
 	  @ability ||= Ability.new(self)
 	end
+	
+	def warbles
+		 (self.trills.published + self.posts.published).sort_by(&:created_at).reverse
+	end
   
   protected
      def password_required?

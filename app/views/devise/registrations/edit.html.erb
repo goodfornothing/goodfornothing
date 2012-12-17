@@ -10,19 +10,18 @@
 
 			<fieldset class="slide">
 				
-				<legend>A bit about you</legend>
+				<legend>How can people contact you?</legend>
 				
 				<div class="form_panels">
 					
 					<div class="half_panel">
-						<%= f.input :location, :label => "Your physical location", :wrapper_html => { :class => "smart_label" } %>
 						<%= f.input :url, :label => "Your digital location", :wrapper_html => { :class => "smart_label" } %>
-						<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
+						<%= f.input :twitter_handle, :wrapper_html => { :class => "smart_label" } %>
 					</div>
 
 					<div class="half_panel">
 						<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
-						<%= f.input :twitter_handle, :wrapper_html => { :class => "smart_label" } %>						
+						<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
 						<%= f.input :subscribed, :as => :boolean, :label => "On the GFN mailing list?" %>
 					</div>
 					
@@ -40,7 +39,7 @@
 
 			<fieldset class="slide slide_why">
 				<legend>Why you're doing Good for Nothing</legend>
-				<%= f.input :reasons_for_joining, :label => "What makes you want to do Good for Nothing?", :input_html => { :rows => 6 }, :wrapper_html => { :class => "smart_label" } %>
+				<%= f.input :reasons_for_joining, :label => "What makes you want to do Good for Nothing?", :input_html => { :rows => 5 }, :wrapper_html => { :class => "smart_label" } %>
 				<%= f.button :submit, "Update me" %>
 			</fieldset>
 		

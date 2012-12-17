@@ -34,8 +34,9 @@ Goodfornothing::Application.routes.draw do
   end
   
   match 'warblings' => "warblings#index"
+  match 'warblings/author/:id' => "warblings#author", :as => "warblings_author"
   match 'warblings/:id' => "warblings#show", :as => "warbling"
-  
+
   resources :posts, :only => [:show, :index]
 
 	namespace :messaging do

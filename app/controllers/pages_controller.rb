@@ -15,7 +15,7 @@ class PagesController < ApplicationController
 			return not_found
 		end
 		
-		@pages = Page.all
+		@pages = Page.features
 		
 	end
 	

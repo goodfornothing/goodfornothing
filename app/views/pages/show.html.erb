@@ -7,13 +7,16 @@
 
 <aside id="secondary_content">
 	
-	<p class="icon_crew"><%= link_to "Chapter Wiki", pages_path %></p>
+	<p class="cta"><%= link_to "Back to the start ", pages_path %></p>
 		
 	<% if @pages.any? %>
 	
 		<ul>
 			<% @pages.each do |page| %>
-			<li><%= link_to page.title, page_path(page) %></li>
+			<li>
+				<h3><%= link_to page.title, page_path(page) %></h3>
+				<p><%= page.description %></p>
+			</li>
 			<% end %>
 		</ul>
 		

@@ -1,10 +1,9 @@
 <aside id="secondary_content" class="introduction">
+	<h2>Warblings from all</h2>
 	
 	<div id="warble_filters">
 				
 		<% if @issues.any? %>
-		
-		<h2>More warblings</h2>
 		
 		<ul class="filter_list">
 			<% @issues.each do |issue| %>
@@ -12,9 +11,6 @@
 				<%= link_to (image_tag issue.icon.small), warbling_path(issue), :class => "issue_tip", :title => issue.title %>
 			</li>
 			<% end %>
-			<li class="warbling_small">
-				<%= link_to (image_tag "illustrations/gfn_small.png"), posts_path, :class => "issue_tip", :title => "GFN Musings" %>
-			</li>
 		</ul>
 		<% end %>
 		
@@ -24,9 +20,7 @@
 
 <section id="primary_content">
 
-	<div class="abstract">
-		<h1>Warblings from <%= @author.name %></h1>
-	</div>
+	<h1>Warblings from <%= @author.name %></h1>
 	
 	<% if @stream.any? %>
 		<% @stream.each do |resource| %>

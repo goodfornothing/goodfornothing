@@ -141,6 +141,10 @@
 	background: url(<%= asset_path "assets/avatar_mask_large.png" %>) no-repeat center center;
 }
 
+#profile section #profile_avatar .avatar .mask.empty:before {
+	background: url(<%= asset_path "assets/avatar_mask_large_empty.png" %>) no-repeat center center;
+}
+
 #profile section #profile_avatar input {
 	height: 120px;
 	width: 120px;
@@ -158,6 +162,12 @@
 	display: block;
 	line-height: 19px;
 	color: #61514D;
+}
+
+#profile section #profile_avatar p.blank_space {
+	text-align: left;
+	width: 500px;
+	padding-top: 10px;
 }
 
 #profile section .location {
@@ -293,6 +303,11 @@
 	background-image: url(<%= asset_path "icons/think_make_mask.png"%>); 
 }
 
+#profile .talents.blank_space {
+	padding-top: 45px;
+	text-align: center;
+}
+
 #profile #special_skills {
 	width: 400px;
 	float: right;
@@ -305,6 +320,10 @@
 	line-height: 21px;
 		font-size: 14px;
 }
+
+#profile #special_skills p.blank_space {
+	padding-top: 40px;
+}	
 
 #profile section p:last-child {
 	margin-bottom: 0px;

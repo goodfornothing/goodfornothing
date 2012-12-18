@@ -8,27 +8,11 @@
 
 		<div class="fields">
 
-			<fieldset class="slide">
-				
-				<legend>How can people contact you?</legend>
-				
-				<div class="form_panels">
-					
-					<div class="half_panel">
-						<%= f.input :url, :label => "Your digital location", :wrapper_html => { :class => "smart_label" } %>
-						<%= f.input :twitter_handle, :wrapper_html => { :class => "smart_label" } %>
-					</div>
-
-					<div class="half_panel">
-						<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
-						<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
-						<%= f.input :subscribed, :as => :boolean, :label => "On the GFN mailing list?" %>
-					</div>
-					
-				</div>
-					
+			<fieldset class="slide slide_why">
+				<legend>Your 'why'</legend>
+				<%= f.input :reasons_for_joining, :label => "What makes you want to do Good for Nothing?", :input_html => { :rows => 5 }, :wrapper_html => { :class => "smart_label" } %>
 			</fieldset>
-		
+
 			<fieldset class="slide chapters">
 				<legend>Do you live near a GFN chapter?</legend>
 				<%= f.input :location, :label => "Nope...", :wrapper_html => { :class => "smart_label grow_tip", :title => "Not to worry, where are you?" } %>
@@ -36,13 +20,33 @@
 				<%= image_tag "illustrations/maptorch.png", :class => "slide_illustration" %>
 			</fieldset>
 
+			<fieldset class="slide slide_contact">
+				
+				<legend>How can people contact you?</legend>
+				
+				<div class="form_panels">
+					
+					<div class="half_panel">
+						<%= f.input :name, :required => true, :wrapper_html => { :class => "smart_label" } %>
+						
+						<%= f.input :url, :label => "Your digital location", :wrapper_html => { :class => "smart_label" } %>
+						<%= f.input :twitter_handle, :wrapper_html => { :class => "smart_label" } %>
+					</div>
 
-			<fieldset class="slide slide_why">
-				<legend>Why you're doing Good for Nothing</legend>
-				<%= f.input :reasons_for_joining, :label => "What makes you want to do Good for Nothing?", :input_html => { :rows => 5 }, :wrapper_html => { :class => "smart_label" } %>
+					<div class="half_panel">
+						<%= f.input :email, :required => true, :wrapper_html => { :class => "smart_label" } %>
+						<%= f.input :subscribed, :as => :boolean, :label => "On the GFN mailing list?" %>
+					</div>
+					
+				</div>
+			
 				<%= f.button :submit, "Update me" %>
+				
+					
 			</fieldset>
 		
+			
+
 			<!--<fieldset class="slide">
 				<legend>Change your password?</legend>
 

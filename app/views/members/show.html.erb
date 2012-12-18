@@ -49,7 +49,7 @@
 				
 					<% if @member.avatar.url.nil? %>
 					<div class="avatar <%= "tip" if signed_in_as_owner?(@member) %>" title="<%= "Show us yer face!" if signed_in_as_owner?(@member) %>">
-						<div class="mask">
+						<div class="mask empty">
 							<%= image_tag "assets/avatar_large.png" %>
 							<%= render "avatar_form" %>
 						</div>
@@ -69,8 +69,14 @@
 						<p class="twitter"><%= "#{link_to "Twitter", "http://twitter.com/#{@member.twitter_handle}"}".html_safe  if @member.twitter_handle.present? %></p>
 						<p class="web"><%= "#{link_to "Web", @member.url}".html_safe if @member.url.present? %></p>
 					<% end %>
-	
-					<blockquote><p><%= @member.reasons_for_joining %></p></blockquote>	
+					
+					<% if @member.reasons_for_joining? %>
+						<blockquote><p><%= @member.reasons_for_joining %></p></blockquote>	
+					<% elsif signed_in_as_owner?(@member) %>
+						<p class="blank_space">
+							<%= link_to "Space unintentionally left blank? <span>(Share your reasons for doing Good for Nothing)</span>".html_safe, edit_user_registration_path %>
+						</p>
+					<% end %>
 		
 				</div>
 				<% if @member.can_be_contacted? && !signed_in_as_owner?(@member) %>
@@ -103,7 +109,7 @@
 							
 		</section>
 		
-		<% if signed_in_as_owner?(@member) && @member.crew? %>
+		<% if signed_in_as_owner?(@member) && @member.crew? && false %>
 		<section id="chapter" class="panel_full">
 			<h2>Your chapter</h2>
 			
@@ -158,11 +164,19 @@
 						<% end %>
 					<% end %>
 				</ul>
+				<% elsif signed_in_as_owner?(@member) %>
+					<p class="blank_space talents">
+						<%= link_to "Space unintentionally left blank? <span>(How do you like to get stuff done?)</span>".html_safe, talents_path %>
+					</p>
 				<% end %>
 			
 				<div id="special_skills">
 					<% if @member.brings? %>
 						<%= simple_format @member.brings %>
+					<% elsif signed_in_as_owner?(@member) %>
+						<p class="blank_space">
+							<%= link_to "Space unintentionally left blank? <span>(Share your special skills with the community)</span>".html_safe, talents_path %>
+						</p>
 					<% end %>
 				</div>
 			
@@ -198,8 +212,8 @@
 							<li class="action_item_<%= action.class.to_s.downcase %>">
 							
 								<%= "Wrote about \"#{action.title}\"" if action.class == Trill %>
-								<%= "Attended the #{action.title} gig in #{action.chapter.title}" if action.class == Gig %>
-								<%= "Attended a social in #{action.chapter.title}" if action.class == Social %>
+								<%= ( ((action.past?) ? "Attended" : "Is attending") + " the #{action.title} gig in #{action.chapter.title}") if action.class == Gig %>
+								<%= ( ((action.past?) ? "Attended" : "Is attending") + " a social in #{action.chapter.title}") if action.class == Social %>
 								<%= "Contributed to \"#{action.challenge.title}\"" if action.class == Contribution %>
 								
 								<% if action.class == Comment %>

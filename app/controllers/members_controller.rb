@@ -48,7 +48,13 @@ class MembersController < ApplicationController
       @gig = (params[:gig_id].present?) ? Gig.find(params[:gig_id]) : nil
 			@social = (params[:social_id].present?) ? Social.find(params[:social_id]) : nil
       
-			@history = (@member.comments + @member.contributions + @member.posts.published + @member.trills.published + @member.socials + @member.gigs).sort_by(&:audited_at).reverse.group_by{ |t| [t.audited_at.year,t.audited_at.month] }  
+			@history = (@member.comments +
+								  @member.contributions +
+								  @member.posts.published +
+								  @member.trills.published +
+								  @member.socials + ( (@member.crew?) ? @member.chapter.socials : [] ) + 
+								  @member.gigs + ( (@member.crew?) ? @member.chapter.gigs : [] )
+								).uniq.sort_by(&:audited_at).reverse.group_by{ |t| [t.audited_at.year,t.audited_at.month] }  
 
     end
 		

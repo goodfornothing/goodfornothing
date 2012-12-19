@@ -211,11 +211,29 @@
 						<% d.second.each do |action| %>
 							<li class="action_item_<%= action.class.to_s.downcase %>">
 							
+								<% #hackathon - need a proper audit trail for good actions %>
+							
 								<%= "Wrote about \"#{link_to action.title, warbling_path(action.issues.first, :anchor => "warble_#{action.id}")}\"".html_safe if action.class == Trill %>
 								<%= "Wrote about \"#{link_to action.title, action}\"".html_safe if action.class == Post %>
 							
-								<%= ( ((action.past?) ? "Attended" : "Is attending") + " the #{link_to action.title, action} gig in #{action.chapter.title}").html_safe if action.class == Gig %>
-								<%= ( ((action.past?) ? "Attended" : "Is attending") + " a social in #{link_to action.chapter.title, action}").html_safe if action.class == Social %>
+								<% if action.class == Gig || action.class == Social%>
+								
+									<% if @member.crew? && (@member.chapter == action.chapter) %>
+										<%= "Helped organise" %>
+									<% elsif action.past? %>
+										<%= "Attended" %>
+									<% else %>
+										<%= "Is attending" %>
+									<% end %>	
+									
+									<% if action.class == Gig %>
+										<%= " the #{link_to action.title, action} gig in #{action.chapter.title}".html_safe %>
+									<% elsif action.class == Social %>
+										<%= " a social in #{link_to action.chapter.title, action}".html_safe %>
+									<% end %>								
+									
+								<% end %>
+															
 								<%= "Contributed to \"#{link_to action.challenge.title, action.challenge}\"".html_safe if action.class == Contribution %>
 								
 								<% if action.class == Comment %>
@@ -223,7 +241,7 @@
 									<%= "Left a comment on \"#{link_to action.commentable.title, action.commentable}\"".html_safe if action.commentable_type == "Challenge" %>									
 									<%= "Left a comment on \"#{link_to action.commentable.name, action.commentable}\"".html_safe if action.commentable_type == "Gig" %>
 								<% end %>
-								on]
+								on
 								<%= action.audited_at.strftime("%A") %> 
 								<%= action.audited_at.strftime("%d").to_i.ordinalize %>
 							</li>

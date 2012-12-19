@@ -109,7 +109,7 @@
 							
 		</section>
 		
-		<% if signed_in_as_owner?(@member) && @member.crew? %>
+		<% if signed_in_as_owner?(@member) && @member.crew? && false %>
 		<section id="chapter" class="panel_full">
 			<h2>Your chapter toolbox</h2>
 			
@@ -194,7 +194,7 @@
 			
 			<ul class="action_history">
 				<% if @member.can?(:manage, Trill) %>
-				<li class="action_trill"><%= link_to pluralize(@member.trills.count, "trill"), warblings_author_path(@member) %></li>
+				<li class="action_trill"><%= link_to pluralize(@member.warbles.count, "warble"), warblings_author_path(@member) %></li>
 				<% end %>
 				<li class="action_challenge"><span><%= pluralize(@member.working_on.count, "challenge") %></span></li>
 				<li class="action_collab"><%= link_to pluralize(@member.member_reach.count, "collaborator"), members_path %></li>
@@ -211,17 +211,19 @@
 						<% d.second.each do |action| %>
 							<li class="action_item_<%= action.class.to_s.downcase %>">
 							
-								<%= "Wrote about \"#{action.title}\"" if action.class == Trill %>
-								<%= ( ((action.past?) ? "Attended" : "Is attending") + " the #{action.title} gig in #{action.chapter.title}") if action.class == Gig %>
-								<%= ( ((action.past?) ? "Attended" : "Is attending") + " a social in #{action.chapter.title}") if action.class == Social %>
-								<%= "Contributed to \"#{action.challenge.title}\"" if action.class == Contribution %>
+								<%= "Wrote about \"#{link_to action.title, warbling_path(action.issues.first, :anchor => "warble_#{action.id}")}\"".html_safe if action.class == Trill %>
+								<%= "Wrote about \"#{link_to action.title, action}\"".html_safe if action.class == Post %>
+							
+								<%= ( ((action.past?) ? "Attended" : "Is attending") + " the #{link_to action.title, action} gig in #{action.chapter.title}").html_safe if action.class == Gig %>
+								<%= ( ((action.past?) ? "Attended" : "Is attending") + " a social in #{link_to action.chapter.title, action}").html_safe if action.class == Social %>
+								<%= "Contributed to \"#{link_to action.challenge.title, action.challenge}\"".html_safe if action.class == Contribution %>
 								
 								<% if action.class == Comment %>
-									<%= "Left a comment on \"#{action.commentable.name}\"" if action.commentable_type == "Social" %>
-									<%= "Left a comment on \"#{action.commentable.title}\"" if action.commentable_type == "Challenge" %>									
-									<%= "Left a comment on \"#{action.commentable.name}\"" if action.commentable_type == "Gig" %>
+									<%= "Left a comment on \"#{link_to action.commentable.name, action.commentable}\"".html_safe if action.commentable_type == "Social" %>
+									<%= "Left a comment on \"#{link_to action.commentable.title, action.commentable}\"".html_safe if action.commentable_type == "Challenge" %>									
+									<%= "Left a comment on \"#{link_to action.commentable.name, action.commentable}\"".html_safe if action.commentable_type == "Gig" %>
 								<% end %>
-								on
+								on]
 								<%= action.audited_at.strftime("%A") %> 
 								<%= action.audited_at.strftime("%d").to_i.ordinalize %>
 							</li>

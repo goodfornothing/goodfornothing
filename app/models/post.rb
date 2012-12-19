@@ -10,6 +10,9 @@ class Post < ActiveRecord::Base
 	belongs_to :chapter
 	belongs_to :user
 	belongs_to :issue
+	
+	# for activity history
+	alias_attribute :audited_at, :created_at
 
 	validates_presence_of :title, :excerpt, :body
 	

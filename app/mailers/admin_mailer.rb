@@ -20,7 +20,7 @@ class AdminMailer < ActionMailer::Base
 
 	def published_trill(trill)
     @trill = trill
-    mail(:to => "andrew@goodfornothing.com", :subject => "Someone's published a new Trill")
+    mail(:to => "anouk@goodfornothing.com", :subject => "Someone's published a new Trill")
   end
 
 end

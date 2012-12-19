@@ -109,23 +109,23 @@
 							
 		</section>
 		
-		<% if signed_in_as_owner?(@member) && @member.crew? && false %>
+		<% if signed_in_as_owner?(@member) && @member.crew? %>
 		<section id="chapter" class="panel_full">
-			<h2>Your chapter</h2>
+			<h2>Your chapter toolbox</h2>
 			
 			<div class="kit">	
 					
 				<% if @member.can?(:read, Page) %>
-				<p class="guide"><%= link_to "Chapter Guide", pages_path %></p>
+				<p class="guide"><%= link_to "The little book of Good for Nothing", pages_path %></p>
 				<% end %>
 			
 				<div class="toolbelt">
-					<h3>Your Toolbelt</h3>
+					<h3>Tools</h3>
 					<ul>
 						<li><%= link_to "The Hive", hive_root_path %></li>
 						<li><%= link_to "Discussion group", "https://groups.google.com/forum/?fromgroups#!forum/good-for-nothing-crew" %></li>
-						<li><%= link_to "Your Twitter account", "http://www.twitter.com/g00dfornothing" %></li>
-						<li><%= link_to "Design assets", page_path('assets') %></li>
+						<li><%= link_to "Your chapter Twitter account", "http://www.twitter.com/g00dfornothing" %></li>
+						<li><%= link_to "Your chapter's design assets", page_path('assets') %></li>
 					</ul>
 				</div>
 				

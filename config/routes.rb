@@ -97,6 +97,7 @@ Goodfornothing::Application.routes.draw do
 	end
 
   match "how-it-works" => "colophon#how", :as => "how"
+	match "how-it-works/funding" => "colophon#funding", :as => "funding"
 	match "who" => "colophon#who"
 	match "community" => "colophon#community"
   match "calendar" => "colophon#calendar"

@@ -5,7 +5,7 @@ module ApplicationHelper
   end
   
   def is_about?
-    params[:action] == 'how' || params[:action] == 'who'
+    params[:action] == 'how' || params[:action] == 'who' || params[:action] == 'funding'
   end
   
   def is_community?

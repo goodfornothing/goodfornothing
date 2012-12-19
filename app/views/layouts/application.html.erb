@@ -86,15 +86,11 @@
 						<li class="chapter_registration">
 							<%= link_to "Start GFN in your city", chapter_register_path %>
 						</li>
-						<% elsif (user_signed_in?) %>
-						<li class="chapter_registration">
-							<%= link_to "Sign me outta' here", logout_path %>
-						</li>
 						<% end %>
 					
 						<li class="registration">
 							<% if user_signed_in? %>
-								<%= link_to "head over to your profile", member_path(current_user) %>
+								<%= link_to "head to your profile", member_path(current_user) %> or <%= link_to "logout", logout_path %>
 							<% else %>
 								<%= link_to "Join the movement", register_path %> or <%= link_to "Login", login_path %>
 							<% end %>

@@ -10,6 +10,9 @@ class ColophonController < ApplicationController
 	
 	def how
 	end
+	
+	def funding
+	end
 
 	def community
 	  

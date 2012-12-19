@@ -2,7 +2,7 @@
 	
 	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "primary_panel slides" }) do |f| %>
 
-		<h1>Your Profile</h1>
+		<h1 class="ir">Your Profile<span></span></h1>
 		
 		<%= render "shared/notices" %>
 
@@ -22,7 +22,7 @@
 
 			<fieldset class="slide slide_contact">
 				
-				<legend>How can people contact you?</legend>
+				<legend>How can people find you?</legend>
 				
 				<div class="form_panels">
 					

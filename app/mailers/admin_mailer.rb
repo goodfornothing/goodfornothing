@@ -18,4 +18,9 @@ class AdminMailer < ActionMailer::Base
     mail(:to => member.email, :subject => "Your account is ready for re-activation")
   end
 
+	def published_trill(trill)
+    @trill = trill
+    mail(:to => "andrew@goodfornothing.com", :subject => "Someone's published a new Trill")
+  end
+
 end

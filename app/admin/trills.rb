@@ -5,7 +5,7 @@ ActiveAdmin.register Trill do
     authorize_resource Trill
   end
   
-  menu :priority => 3, :parent => "Warblings", :if => proc{ can?(:manage, Trill) }  
+  menu :priority => 1, :parent => "Warblings", :if => proc{ can?(:manage, Trill) }, :label => "Trills (Short form)"
   
   filter :title
   
@@ -39,6 +39,7 @@ ActiveAdmin.register Trill do
   
 	index do
     column("Title") { |trill| link_to trill.title, hive_trill_path(trill) }
+    column("Author") { |trill| trill.user.name unless trill.user.nil? }
     column("State") { |trill| status_tag((trill.published) ? "Published" : "Unpublished") }
     column "" do |trill|
       "#{link_to "Edit", edit_hive_trill_path(trill)} &nbsp; #{link_to "Delete", hive_trill_path(trill), :method => "delete", :confirm => "Are you sure you wish to delete this trill?"}".html_safe

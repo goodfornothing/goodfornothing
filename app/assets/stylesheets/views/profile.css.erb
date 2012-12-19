@@ -330,7 +330,6 @@
 }
 
 #profile #history h3 {
-	color: #D0122D;
 	margin-bottom: 35px;
 	color: #61514D;
 	padding-bottom: 4px;
@@ -347,10 +346,15 @@
 }
 
 #profile #history ul.action_items li {
-	padding: 0 0 10px 58px;
+	padding: 2px 0 10px 58px;
 	background-repeat: no-repeat;
 	background-position: left top;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
+	line-height: 20px;
+}
+
+#profile #history ul.action_items li a {
+	color: #61514D;
 }
 
 #profile #history ul.action_items li.action_item_trill { background-image: url(<%= asset_path "icons/action_trill_small.png" %>); }

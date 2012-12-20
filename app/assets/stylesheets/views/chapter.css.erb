@@ -23,7 +23,7 @@
 	
 	.section_colophon.view_chapter header .container {
 		background: transparent;
-		padding-bottom: 50px;
+		padding-bottom: 43px;
 	}
 
 	.chapter_sign_up h1 {
@@ -184,7 +184,7 @@
 	
 	#chapter_flow li:nth-child(7) {
 		background: url(<%= asset_path "blocks/rig.gif" %>) no-repeat top left;
-		bottom: 0;
+		bottom: -7px;
 		left: 160px;
 		color: #ffffff;
 		width: 270px;
@@ -202,42 +202,40 @@
 		min-height: 215px;
 	}
 	
-/* Chapter commit */
+/* Chapter involve */
 
-	#chapter_commit {
-		background: #61514D;
-		padding: 45px 0 25px;
+	#chapter_involve {
+		padding: 50px 0;
 	}
 	
-	#chapter_commit p:nth-child(2) {
-		padding-top: 5px;
+	#chapter_involve .container {
+		width: 790px;
+	}
+
+	#chapter_involve h3 {
+		width: 790px;
+		height: 445px;
+		text-indent: -1337px;
+		margin: 0 auto 20px;
+		background: url(<%= "text/getting_started.png" %>) no-repeat top left;
 	}
 	
-	#chapter_commit p:last-child {
+	#chapter_involve p {
+		width: 290px;
+		float: left;
 		margin: 0;
 	}
 	
-	#chapter_commit p {
-		color: #ffffff;
-	}
-	
-	#chapter_commit h3 {
-		text-indent: -1337px;
-		width: 479px;
-		height: 348px;
-		float: left;
-		margin-right: 60px;
-	}
-	
-	#chapter_commit span {
-		background: url(<%= asset_path "text/commitment.gif" %>);
+	#chapter_involve p:last-child {
+		float: right;
+		width: 245px;
 	}
 	
 /* Chapter call */
 
 	#chapter_call {
 		background: #F0ECE9;
-		padding: 78px 0 80px;
+		padding: 70px 0 80px;
 		text-align: center;
 	}
 	
@@ -260,7 +258,7 @@
 	#chapter_call p {
 		text-align: center;
 		width: 60%;
-		margin: 0 auto 67px;
+		margin: 0 auto 60px;
 		font-size: 18px;
 		line-height: 25px;
 	}

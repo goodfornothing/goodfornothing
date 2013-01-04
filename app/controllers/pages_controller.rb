@@ -11,10 +11,6 @@ class PagesController < ApplicationController
       return redirect_to @page, :status => :moved_permanently
     end
 		
-		if @page.nil?
-			return not_found
-		end
-		
 		@pages = Page.features
 		
 	end

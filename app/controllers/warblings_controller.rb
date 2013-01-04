@@ -14,14 +14,11 @@ class WarblingsController < ApplicationController
 
 	  @issue = Issue.find(params[:id])
 	
-		if @issue.nil?
-			return not_found
-		end
-	
 	  # FriendlyID History
     if request.path != warbling_path(@issue)
       return redirect_to @issue, :status => :moved_permanently
     end
+
 	  @stream = @issue.warbles
 		@issues = Issue.active.where('id != ?', @issue.id)
 		
@@ -30,10 +27,6 @@ class WarblingsController < ApplicationController
 	def author
 
 	  @author = User.find(params[:id])
-	
-		if @author.nil?
-			return not_found
-		end
 	
 	  # FriendlyID History
     if request.path != warblings_author_path(@author)

@@ -1,6 +1,5 @@
 class UserActiveByDefault < ActiveRecord::Migration
   def up
-    drop_table :locations
     change_column :users, :activated, :boolean, :default => true
   end
 

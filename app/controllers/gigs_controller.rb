@@ -22,9 +22,6 @@ class GigsController < ApplicationController
 	  
 	  def fetch_gig
 	    @gig = Gig.find(params[:id])
-	    if @gig.nil?
-	      not_found
-	    end
 	  end
 
 end

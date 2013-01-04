@@ -17,9 +17,6 @@ class SocialsController < ApplicationController
 	
 	  def fetch_social
 	    @social = Social.find(params[:id])
-			if @social.nil?
-	      not_found
-	    end
 	  end
 
 end

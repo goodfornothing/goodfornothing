@@ -54,11 +54,11 @@ ActiveRecord::Schema.define(:version => 20121219121807) do
   create_table "comments", :force => true do |t|
     t.text     "body"
     t.integer  "user_id"
+    t.integer  "challenge_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.integer  "commentable_id"
     t.string   "commentable_type"
-    t.integer  "challenge_id"
   end
 
   create_table "contributions", :force => true do |t|
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20121219121807) do
     t.string "name"
     t.string "url"
     t.string "logo"
+    t.string "description"
   end
 
   create_table "friends_gigs", :force => true do |t|
@@ -177,12 +178,12 @@ ActiveRecord::Schema.define(:version => 20121219121807) do
     t.date     "birthdate"
     t.text     "reasons_for_joining"
     t.text     "skills"
-    t.boolean  "notification_broadcasts", :default => false
-    t.boolean  "notification_email",      :default => false
+    t.string   "notification_broadcasts"
+    t.string   "notification_email"
     t.date     "date_joined"
     t.date     "last_visit"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "pages", :force => true do |t|
@@ -196,10 +197,10 @@ ActiveRecord::Schema.define(:version => 20121219121807) do
   end
 
   create_table "partners", :force => true do |t|
+    t.string  "name"
     t.string  "url"
     t.string  "logo"
     t.boolean "active", :default => false
-    t.string  "name"
   end
 
   create_table "posts", :force => true do |t|

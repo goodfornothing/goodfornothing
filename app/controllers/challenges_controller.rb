@@ -11,10 +11,6 @@ class ChallengesController < ApplicationController
       return redirect_to @challenge, :status => :moved_permanently
     end
 		
-		if @challenge.nil?
-		  not_found
-		end
-		
 		@contribution = Contribution.new
 		@user_content = (@challenge.contributions + @challenge.comments).sort_by(&:created_at).reverse
 		

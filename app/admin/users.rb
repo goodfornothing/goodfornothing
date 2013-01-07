@@ -9,6 +9,7 @@ ActiveAdmin.register User do
   
 	filter :chapter
   filter :name
+	filter :email
 	filter :brings, :label => "Special skills"
 	
   scope :all, :default => true

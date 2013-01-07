@@ -16,7 +16,13 @@ class PagesController < ApplicationController
 	end
 	
 	def index
+		
 		@pages = Page.features
+		
+		if params[:i_want_to_start_doing_already]
+			cookies.permanent[:i_want_to_start_doing_already] = true
+		end
+		
 	end
 
 end

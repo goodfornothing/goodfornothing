@@ -109,36 +109,6 @@
 							
 		</section>
 		
-		<% if signed_in_as_owner?(@member) && @member.crew? %>
-		<section id="chapter" class="panel_full">
-			<h2>Your chapter toolbox</h2>
-			
-			<div class="kit">	
-					
-				<% if @member.can?(:read, Page) %>
-				<p class="guide"><%= link_to "The little book of Good for Nothing", pages_path %></p>
-				<% end %>
-			
-				<div class="toolbelt">
-					<h3>Tools</h3>
-					<ul>
-						<li><%= link_to "The Hive", hive_root_path %></li>
-						<li><%= link_to "Discussion group", "https://groups.google.com/forum/?fromgroups#!forum/good-for-nothing-crew" %></li>
-						<li><%= link_to "Your chapter Twitter account", "http://www.twitter.com/g00dfornothing" %></li>
-						<li><%= link_to "Your chapter's design assets", page_path('assets') %></li>
-					</ul>
-				</div>
-				
-			</div>
-			
-			<% unless @member.chapter.shaken_hands? %>
-			<h3>Handshake agreement</h3>
-			<p>Nothing heavy here, a virtual handshake, a declaration of mutual respect and an agreement to give it a go together. If you can download sign and mail it back. That would be awesome. [download here]</p>
-			<% end %>
-	
-		</section>
-		<% end %>
-		
 		<section id="manifesto" class="panel_full">
 			
 			<h2><%= contextual_reference(@member, "your").titlecase %> 'getting stuff done' manifesto</h2>
@@ -187,6 +157,40 @@
 			<% end %>
 			
 		</section>
+		
+		<% if signed_in_as_owner?(@member) && @member.crew? %>
+		<section id="chapter" class="panel_full">
+			<h2>Your chapter</h2>
+			
+			<div class="kit">	
+					
+				<% if @member.can?(:read, Page) %>
+				<p class="guide"><%= link_to "The little book", pages_path %></p>
+				<% end %>
+			
+				<div class="toolbelt">
+					<h3>Chapter Toolbox</h3>
+					<ul>
+						<li><%= link_to "The web hive", hive_root_path %></li>
+						<li><%= link_to "Discussion group", "https://groups.google.com/forum/?fromgroups#!forum/good-for-nothing-crew" %></li>
+						<% unless @member.chapter.twitter_handle.blank? %>
+						<li><%= link_to "Twitter account", "http://www.twitter.com/#{@member.chapter.twitter_handle}" %></li>
+						<% end %>
+						<li><%= link_to "Design assets", page_path('assets') %></li>
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="handshake">
+			<% unless @member.chapter.shaken_hands? %>
+			<h3>The Handshake agreement</h3>
+			<p>The Good for Nothing chapter handshake agreement is nothing heavy, just a virtual handshake &ndash; a declaration of mutual respect and an agreement to give it a go together. It'd be awesome if you could <%= link_to "download", "/toolbox/GFN_HandshakeAgreement.pdf" %>, sign and <%= link_to "mail it back", "mailto:hello@goodfornothing.com" %>.</p>
+			<% end %>
+			</div>
+	
+		</section>
+		<% end %>
 	
 		<section id="history" class="panel_full">
 

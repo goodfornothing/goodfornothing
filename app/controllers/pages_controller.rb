@@ -11,7 +11,7 @@ class PagesController < ApplicationController
       return redirect_to @page, :status => :moved_permanently
     end
 		
-		@pages = Page.all
+		@pages = Page.all.reverse
 		
 	end
 	

@@ -182,12 +182,12 @@
 				
 			</div>
 			
-			<div class="handshake">
 			<% unless @member.chapter.shaken_hands? %>
-			<h3>The Handshake agreement</h3>
-			<p>The Good for Nothing chapter handshake agreement is nothing heavy, just a virtual handshake &ndash; a declaration of mutual respect and an agreement to give it a go together. It'd be awesome if you could <%= link_to "download", "/toolbox/GFN_HandshakeAgreement.pdf" %>, sign and <%= link_to "mail it back", "mailto:hello@goodfornothing.com" %>.</p>
-			<% end %>
+			<div class="handshake">
+				<h3>The Handshake agreement</h3>
+				<p>The Good for Nothing chapter handshake agreement is nothing heavy, just a virtual handshake &ndash; a declaration of mutual respect and an agreement to give it a go together. It'd be awesome if you could <%= link_to "download", "/toolbox/GFN_HandshakeAgreement.pdf" %>, sign and <%= link_to "mail it back", "mailto:hello@goodfornothing.com" %>.</p>
 			</div>
+			<% end %>
 	
 		</section>
 		<% end %>

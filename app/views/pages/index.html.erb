@@ -2,7 +2,7 @@
 
 	<% unless cookies[:i_want_to_start_doing_already] %>
 	
-	<div class="panel_full">
+	<div class="panel_full wiki_start">
 
 		<h1>The Little Book of Good for Nothing</h1>
 		<p>Respect for starting a GFN chapter, this is a place to find info you'll need to get going, it's a bit like Good for Nothing in a box.</p>
@@ -16,28 +16,38 @@
 	
 	<% end %>
 	
-	<ol>
-		<li><%= link_to "What is Good for Nothing", page_path('what-is-good-for-nothing') %></li>
-		<li><%= link_to "Getting Started", page_path('getting-started') %></li>
+	<ol class="wiki_get_started">
+		<li class="what"><%= link_to "What is Good for Nothing?", page_path('what-is-good-for-nothing') %></li>
+		<li class="how"><%= link_to "How do I get started", page_path('getting-started') %></li>
+		<li class="social format">
+			<h3><%= link_to "Organising a social", page_path('social') %></h3>
+			<p>A social in a pub, bar or cafe is a cool and simple way to get people together around the GFN concept without too much time invested</p>
+		</li>
+		<li class="gig format">
+			<h3><%= link_to "Putting on a gig", page_path('gig') %></h3>
+			<p>So you're ready to get doing. Good for Nothing gigs work well in 24 or 48 hr formats. We would recommend you start with 24 hrs.</p>
+		</li>
 	</ol>
 	
+	<% if @pages.any? %>
+
 	<div id="wiki_page_list">
-				
-		<% if @pages.any? %>
-			
-			<ul class="grid_list grid_four">
-				<% @pages.each do |page| %>
-					<li>
-						<h3><%= link_to page.title, page_path(page) %></h3>
-						<% unless page.description.nil? %>
-						<p><%= page.description %></p>
-						<% end %>
-					</li>
-				<% end %>
-			</ul>
-				
-		<% end %>
 	
+		<h2>The nitty-gritty</h2>
+	
+		<ul class="grid_list grid_four">
+			<% @pages.each do |page| %>
+				<li>
+					<h3><%= link_to page.title, page_path(page) %></h3>
+					<% unless page.description.nil? %>
+					<p><%= page.description %></p>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+			
 	</div>
+	
+	<% end %>
 	
 </div>

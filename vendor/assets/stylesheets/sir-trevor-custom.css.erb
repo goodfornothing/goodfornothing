@@ -65,7 +65,9 @@ body.active_admin .sir-trevor .sir-trevor-marker .buttons a.new-gallery:hover {
 
 body.active_admin .sir-trevor .sir-trevor-marker .buttons a.new-text:hover,
 body.active_admin .sir-trevor .sir-trevor-marker .buttons a.new-heading,
-body.active_admin .sir-trevor .sir-trevor-marker .buttons a.new-heading:hover  {
+body.active_admin .sir-trevor .sir-trevor-marker .buttons a.new-heading:hover,
+body.active_admin .sir-trevor .sir-trevor-marker .buttons a.new-embed:hover,
+body.active_admin .sir-trevor .sir-trevor-marker .buttons a.new-embed {
   background-image: url(<%= asset_path "sir-trevor/icons/block_editor_text.png" %>);
 }
 
@@ -101,7 +103,14 @@ body.active_admin .sir-trevor .sir-trevor-block .dropzone p {
 	color: #222222;
 }
 
-.sir-trevor-block .heading-block textarea:focus {
+.sir-trevor-block .embed-block textarea {
+	min-height: 0;
+	color: #999;
+	-webkit-font-smoothing: antialiased;
+}
+
+.sir-trevor-block .heading-block textarea:focus,
+.sir-trevor-block .embed-block textarea:focus {
 	border: none !important;
 	-webkit-box-shadow: 0 0 0 !important;
 	margin: 1px 0 0 1px;
@@ -109,6 +118,10 @@ body.active_admin .sir-trevor .sir-trevor-block .dropzone p {
 
 .sir-trevor .heading-block .expanding-textarea {
 	min-height: 43px;
+}
+
+.sir-trevor .embed-block .expanding-textarea {
+	min-height: 100px;
 }
 
 body.active_admin .sir-trevor ul {

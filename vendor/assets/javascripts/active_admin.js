@@ -13,6 +13,8 @@
 //= require sir-trevor
 //= require sir-trevor/blocks/heading
 //= require sir-trevor/blocks/markdown
+//= require sir-trevor/blocks/embed
+
 
 
 $(document).ready(function(){
@@ -23,7 +25,7 @@ $(document).ready(function(){
 		  	
 				var editor = new SirTrevor.Editor({ 
 					el: $('.sir-trevor-area'),
-					blockTypes: ["Text", "Heading", "Quote", "Ul", "Tweet", "Image", "Video"]
+					blockTypes: ["Text", "Heading", "Quote", "Ul", "Tweet", "Image", "Video", "Embed"]
 				});
 								
 			}

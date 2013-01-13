@@ -198,7 +198,7 @@
 			
 			<ul class="action_history">
 				<% if @member.can?(:manage, Trill) %>
-				<li class="action_trill"><%= link_to pluralize(@member.warbles.count, "warble"), warblings_author_path(@member) %></li>
+				<li class="action_trill"><%#= link_to pluralize(@member.warbles.count, "warble"), warblings_author_path(@member) %></li>
 				<% end %>
 				<li class="action_challenge"><span><%= pluralize(@member.working_on.count, "challenge") %></span></li>
 				<li class="action_collab"><%= link_to pluralize(@member.member_reach.count, "collaborator"), members_path %></li>
@@ -217,7 +217,7 @@
 							
 								<% #hackathon - need a proper audit trail for good actions %>
 							
-								<%= "Wrote about \"#{link_to action.title, warbling_path(action.issues.first, :anchor => "warble_#{action.id}")}\"".html_safe if action.class == Trill %>
+								<%= "Wrote about \"#{link_to action.title, warblings_path(action.issues.first, :anchor => "warble_#{action.id}")}\"".html_safe if action.class == Trill %>
 								<%= "Wrote about \"#{link_to action.title, action}\"".html_safe if action.class == Post %>
 							
 								<% if action.class == Gig || action.class == Social%>

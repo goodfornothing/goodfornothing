@@ -1,7 +1,7 @@
 <% if !event.end_time.nil? && (event.start_time.past? && event.end_time.future?) %>
 	
 	<h2>It's happening!</h2>
-	<p>This <%= event.class.to_s.humanise.downcase%> is happening right now, you can no longer register, but feel free to just drop in and say hello!</p>
+	<p>This <%= event.class.to_s.humanize.downcase %> is happening right now, you can no longer register, but feel free to just drop in and say hello!</p>
 	
 <% elsif (event.start_time.past? && event.end_time.nil?) || (event.end_time.present? && event.end_time.past?) %>
 	

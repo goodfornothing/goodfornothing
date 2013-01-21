@@ -1,7 +1,7 @@
 class FriendsController < ApplicationController
 
 	def index
-	  @friends = Friend.all
+	  @friends = Friend.all.reverse
   end
 
 end

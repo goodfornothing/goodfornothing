@@ -220,6 +220,8 @@ $(document).ready(function(){
 	// Stick stuff to the top
 	$('#collaborators div').stickyScroll({ container: $('#collaborators') })
 	$('#warble_filters').stickyScroll({ container: $('#main') })
+	$('#wiki_navigation ul').stickyScroll({ container: $('#wiki_navigation') })
+	
 	
 });
 

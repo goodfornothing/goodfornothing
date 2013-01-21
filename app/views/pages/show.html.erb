@@ -1,30 +1,32 @@
-<section id="primary_content">
+<section id="primary_content" class="single">
 
+
+	<div id="wiki_heading">
 	<h1><%= @page.title %></h1>
+</div>
+
+	<div id="wiki_navigation">
+		
+		<% if @pages.any? %>
 	
-	<% if @page.body.is_json? %>
-	<%= render_sir_trevor(@page.body) %>
-	<% else %>
-	<%= sir_trevor_markdown(@page.body).html_safe %>
-	<% end %>
+			<ul>
+				<li><%= link_to "Back to the start ", pages_path %></li>
+				<% @pages.each do |page| %>
+				<li><%= link_to page.title, page_path(page) %></li>
+				<% end %>
+			</ul>
+		
+		<% end %>
+	</div>
+
+	<div id="wiki_content">
+
+		<% if @page.body.is_json? %>
+		<%= render_sir_trevor(@page.body) %>
+		<% else %>
+		<%= sir_trevor_markdown(@page.body).html_safe %>
+		<% end %>
+		
+	</div>
 	
 </section>
-
-<aside id="secondary_content">
-	
-	<p class="cta"><%= link_to "Back to the start ", pages_path %></p>
-		
-	<% if @pages.any? %>
-	
-		<ul class="wiki_page_list">
-			<% @pages.each do |page| %>
-			<li>
-				<h3><%= link_to page.title, page_path(page) %></h3>
-				<p><%= page.description %></p>
-			</li>
-			<% end %>
-		</ul>
-		
-	<% end %>
-	
-</aside>

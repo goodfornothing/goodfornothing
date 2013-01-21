@@ -1,18 +1,13 @@
 <section id="primary_content" class="single">
 
 
-	<div id="wiki_heading">
-	<h1><%= @page.title %></h1>
-</div>
-
 	<div id="wiki_navigation">
-		
 		<% if @pages.any? %>
 	
 			<ul>
-				<li><%= link_to "Back to the start ", pages_path %></li>
+				<li><%= link_to "The little book", pages_path %></li>
 				<% @pages.each do |page| %>
-				<li><%= link_to page.title, page_path(page) %></li>
+				<li <%= (@page == page) ? 'class=active' : ""%>><%= link_to page.title, page_path(page) %></li>
 				<% end %>
 			</ul>
 		
@@ -20,6 +15,8 @@
 	</div>
 
 	<div id="wiki_content">
+
+		<h1><%= @page.title %></h1>
 
 		<% if @page.body.is_json? %>
 		<%= render_sir_trevor(@page.body) %>

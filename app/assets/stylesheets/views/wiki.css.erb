@@ -179,18 +179,11 @@
 	width: 880px;
 }
 
-#wiki_heading {
-	text-align: center;
-	width: 100%;
-	overflow: hidden;
-	padding-top: 10px;
-}
-
-#wiki_heading h1 {
+#wiki_content h1 {
 	color: #61514D;
 	font-size: 22px;
 	display: inline-block;
-	margin-bottom: 47px;
+	margin-bottom: 37px;
 	padding-bottom: 5px;
 	padding-top: 0;
 	clear: both;
@@ -201,7 +194,7 @@
 #wiki_content {
 	text-align: left;
 	float: right;
-	width: 640px;
+	width: 620px;
 }
 
 #wiki_content h2 {
@@ -218,6 +211,10 @@
 	width: 200px;
 }
 
+#wiki_navigation h2 {
+	font-size: 16px;
+}
+
 #wiki_navigation ul {
 	padding: 2px 0 0;
 }
@@ -228,7 +225,33 @@
 	margin: 0;
 }
 
+#wiki_navigation li:first-child a {
+	color: #61514D;
+	font-family: Good for Nothing;
+}
+
+#wiki_navigation li.active a {
+	color: #61514D;
+}
+
 .wiki_next a {
 	background: red;
 	color: #ffffff;
+}
+
+.wiki_thumbnails {
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+
+.wiki_thumbnails .thumbnail {
+	display: block;
+	margin: 0 30px 0 0;
+	float: left;
+	border:1px solid #F0ECE9;
+}
+
+.wiki_thumbnails .thumbnail:hover {
+	border-color: #D0122D;
 }

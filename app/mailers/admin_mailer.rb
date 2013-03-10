@@ -1,7 +1,7 @@
 class AdminMailer < ActionMailer::Base
   
   default from: "GFN Hive Mind <crew@goodfornothing.com>",
-          to: (Rails.env.production?) ? Chapter.find_by_title('London').users.crew.map(&:email) : "andrew@goodfornothing.com"
+          to: (Rails.env.production?) ? "hello@goodfornothing.com" : "andrew@goodfornothing.com"
   
   def new_user(user)
     @user = user
@@ -20,7 +20,7 @@ class AdminMailer < ActionMailer::Base
 
 	def published_trill(trill)
     @trill = trill
-    mail(:to => "anouk@goodfornothing.com", :subject => "Someone's published a new Trill")
+    mail(:to => "hello@goodfornothing.com", :subject => "Someone's published a new Trill")
   end
 
 end

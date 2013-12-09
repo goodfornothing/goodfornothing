@@ -21,31 +21,26 @@ Issue.create([
 
 @london = Chapter.create({
   title: 'London',
-  city: 'London',
   country: 'United Kingdom'
 })
 
 @bristol = Chapter.create({
   title: 'Bristol',
-  city: 'Bristol',
   country: 'United Kingdom'
 })
 
 @brighton = Chapter.create({
   title: 'Brighton',
-  city: 'Brighton',
   country: 'United Kingdom'
 })
 
 @manchester = Chapter.create({
   title: 'Manchester',
-  city: 'Manchester',
   country: 'United Kingdom'
 })
 
 @wellington = Chapter.create({
   title: 'Wellington',
-  city: 'Wellington',
   country: 'New Zealand'
 })
 

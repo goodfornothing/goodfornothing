@@ -83,6 +83,10 @@ Goodfornothing::Application.routes.draw do
 	    match "chapter/:id" => "gigs#index", :as => "chapter"
 	  end
 	end
+  
+  resources :chapters, :only => [:show] do
+    
+  end
 	
 	resources :socials, :only => [:show] do
 		resources :comments

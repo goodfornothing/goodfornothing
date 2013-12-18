@@ -44,6 +44,11 @@ Issue.create([
   country: 'New Zealand'
 })
 
+@cardiff = Chapter.create({
+  title: 'Cardiff',
+  country: 'United Kingdom'
+})
+
 Friend.create([
   {
     name: 'Adnams',
@@ -458,8 +463,8 @@ Venture.create([
 @northernsoul = Gig.create({
   title: 'Northern Soul',
   chapter_id: @manchester.id,
-  start_time: DateTime.new(2012, 10, 5, 18),
-  end_time: DateTime.new(2012, 10, 7, 17),
+  start_time: DateTime.new(2014, 10, 5, 18),
+  end_time: DateTime.new(2014, 10, 7, 17),
   location: 'MadLab, 36-40 Edge Street, Manchester M4 1HN',
   description: "The first Good for Nothing gig is kicking off in Manchester!
   It's the third chapter of the next wave of Good for Nothing across the UK - Brighton and Bristol went off already and we're really excited to get things going in Manchester.

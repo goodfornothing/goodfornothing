@@ -1,0 +1,78 @@
+<div id="chapter_banner">	
+	<div class="banner_text">
+		<h1>Collaborating for Good in <%= @chapter.title.html_safe %></h1>	
+		<p>We are boilerplate text...</p>
+
+		<p>Chapter specific text...</p>		
+	</div>
+</div>
+
+<section id="primary_content">
+		
+	<h2>
+		Upcoming Events
+	</h2>	
+	<% if @upcoming_events.any? %>
+	<ul class="grid_list">
+		<% @upcoming_events.each do |event| %>
+		<li class="note">
+			<% if event.class == Gig %>
+				<%= render :partial => "gigs/block", :locals => { :gig => event } %>
+			<% elsif %>
+				<%= render :partial => "socials/block", :locals => { :social => event } %>
+			<% end %>
+		</li>
+		<% end %>
+	</ul>
+	<% else %>
+	<p>
+		We don't have any upcoming gigs or events at the moment.		
+	</p>
+	<% end %>
+	
+	<% if @previous_events.any? %>
+	<h2>
+		Been 'n' gone
+	</h2>
+	<ul class="grid_list">
+		<% @previous_events.each do |event| %>
+		<li class="note">
+			<% if event.class == Gig %>
+				<%= render :partial => "gigs/block", :locals => { :gig => event } %>
+			<% elsif %>
+				<%= render :partial => "socials/block", :locals => { :social => event } %>
+			<% end %>
+		</li>
+		<% end %>
+	</ul>
+	<% end%>
+	
+</section>
+
+
+<aside id="secondary_content">
+		
+	<% if @chapter.users.crew.any? %>	
+	<h2><%= @chapter.title.html_safe %> Crew</h2>	
+	
+	<% end %>	
+	
+	<% if @chapter.users.any? %>		
+	<h2><%= @chapter.title.html_safe %> Community</h2>
+	
+	<p><%=@chapter.users.count %> GFNers</p>	
+	<ul class="avatar_list">
+		<% @chapter.users.limit(15).each do |user| %>
+			<%= render :partial => "members/avatar", :locals => { :member => user }%>
+		<% end %>
+	</ul>
+	<% end %>
+	
+
+	<% if !user_signed_in? %>
+		<%= link_to "Join the movement", register_path %> in <%=@chapter.title%> or <%= link_to "Login", login_path %>
+	<% end %>
+
+
+
+</aside>

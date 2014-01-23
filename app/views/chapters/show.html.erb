@@ -55,6 +55,13 @@
 
 <aside id="secondary_content">
 		
+	<% if @chapter.twitter_handle? %>
+	<h2>Follow us on Twitter</h2>
+	
+	<a href="https://twitter.com/<%=@chapter.twitter_handle%>" class="twitter-follow-button" data-show-count="false" data-lang="en" data-size="large">Follow <%=@chapter.twitter_handle%></a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<% end %>
+		
 	<% if @chapter.users.crew.any? %>	
 	<h2><%= @chapter.title.html_safe %> Crew</h2>	
 	

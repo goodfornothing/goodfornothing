@@ -19,7 +19,10 @@
 			<% end %>
 			
 			<% if @challenge.gig.present? && !@challenge.gig.past? %>	
-				<p class="meta"><span>Attend the Gig:</span> Tackle this challenge offline on <%= link_to ("#{@challenge.gig.start_time.day.ordinalize} of #{@challenge.gig.start_time.strftime('%B')} in #{@challenge.gig.chapter.title}".html_safe), gig_path(@challenge.gig) %> </p>
+				<p class="meta"><span>Attend the Gig:</span> Tackle this challenge offline on <%= link_to ("#{@challenge.gig.start_time.day.ordinalize} of #{@challenge.gig.start_time.strftime('%B')} in #{@challenge.gig.chapter.title}".html_safe), gig_path(@challenge.gig) %>
+				in
+				<%={@challenge.gig.chapter.title}.html_safe)%>
+			 </p>
 			<% end %>
 		
 		</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131219152629) do
+ActiveRecord::Schema.define(:version => 20140123174823) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -40,14 +40,15 @@ ActiveRecord::Schema.define(:version => 20131219152629) do
 
   create_table "chapters", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "country"
     t.string   "slug"
     t.string   "twitter_handle"
     t.string   "twitter_password"
-    t.boolean  "shaken_hands",     :default => false
+    t.boolean  "shaken_hands",        :default => false
     t.string   "cover_image"
+    t.string   "chapter_description"
   end
 
   add_index "chapters", ["slug"], :name => "index_chapters_on_slug", :unique => true
@@ -88,7 +89,6 @@ ActiveRecord::Schema.define(:version => 20131219152629) do
     t.string "name"
     t.string "url"
     t.string "logo"
-    t.string "description"
   end
 
   create_table "friends_gigs", :force => true do |t|
@@ -179,12 +179,12 @@ ActiveRecord::Schema.define(:version => 20131219152629) do
     t.date     "birthdate"
     t.text     "reasons_for_joining"
     t.text     "skills"
-    t.string   "notification_broadcasts"
-    t.string   "notification_email"
+    t.boolean  "notification_broadcasts", :default => false
+    t.boolean  "notification_email",      :default => false
     t.date     "date_joined"
     t.date     "last_visit"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "pages", :force => true do |t|

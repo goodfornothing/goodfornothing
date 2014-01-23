@@ -56,6 +56,7 @@ ActiveAdmin.register Chapter do
       end
 			row :shaken_hands
 			row :twitter_handle
+      row :cover_image
     end
   end
   
@@ -65,6 +66,7 @@ ActiveAdmin.register Chapter do
       f.input :country
 			f.input :shaken_hands
 			f.input :twitter_handle
+      f.input :cover_image
     end
     f.buttons
   end

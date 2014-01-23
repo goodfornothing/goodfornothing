@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219121807) do
+ActiveRecord::Schema.define(:version => 20131219152629) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20121219121807) do
     t.string   "twitter_handle"
     t.string   "twitter_password"
     t.boolean  "shaken_hands",     :default => false
+    t.string   "cover_image"
   end
 
   add_index "chapters", ["slug"], :name => "index_chapters_on_slug", :unique => true

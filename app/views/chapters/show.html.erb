@@ -1,16 +1,24 @@
-<div id="chapter_banner">	
-	<div class="banner_text">
-		<% if @chapter.cover_image?%>
-		<%=image_tag(@chapter.cover_image)%>
-		<% end %>
-		<h1>Collaborating for Good in <%= @chapter.title.html_safe %></h1>	
-		<p>We are boilerplate text...</p>
+<div class="banner_text">
+	
+	<h1>Collaborating for Good in <%= @chapter.title.html_safe %></h1>	
+	<p class="large">
+		A group of local people using their skills to help causes they believe in.
+	</p>
 
-		<p>Chapter specific text...</p>		
-	</div>
+	
+	<% if @chapter.chapter_description?%>	
+	<p class="large">
+		<%=@chapter.chapter_description%>
+	</p>		
+	<% end %>	
 </div>
 
+<% if @chapter.cover_image?%>
+	<%=image_tag(@chapter.cover_image)%>
+<% end %>
+
 <section id="primary_content">
+
 		
 	<h2>
 		Upcoming Events
@@ -64,7 +72,6 @@
 		
 	<% if @chapter.users.crew.any? %>	
 	<h2><%= @chapter.title.html_safe %> Crew</h2>	
-	
 	<ul class="avatar_list">
 		<% @chapter.users.crew.each do |user| %>
 			<%= render :partial => "members/avatar", :locals => { :member => user }%>

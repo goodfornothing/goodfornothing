@@ -57,6 +57,7 @@ ActiveAdmin.register Chapter do
 			row :shaken_hands
 			row :twitter_handle
       row :cover_image
+      row :chapter_description      
     end
   end
   
@@ -67,6 +68,7 @@ ActiveAdmin.register Chapter do
 			f.input :shaken_hands
 			f.input :twitter_handle
       f.input :cover_image
+      f.input :chapter_description
     end
     f.buttons
   end

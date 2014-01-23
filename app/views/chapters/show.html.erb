@@ -58,6 +58,11 @@
 	<% if @chapter.users.crew.any? %>	
 	<h2><%= @chapter.title.html_safe %> Crew</h2>	
 	
+	<ul class="avatar_list">
+		<% @chapter.users.crew.each do |user| %>
+			<%= render :partial => "members/avatar", :locals => { :member => user }%>
+		<% end %>
+	</ul>
 	<% end %>	
 	
 	<% if @chapter.users.any? %>		

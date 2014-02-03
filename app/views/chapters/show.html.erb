@@ -1,16 +1,9 @@
 <div class="banner_text">
 	
-	<h1>Collaborating for Good in <%= @chapter.title.html_safe %></h1>	
-	<p class="large">
-		A group of local people using their skills to help causes they believe in.
-	</p>
-
-	
-	<% if @chapter.chapter_description?%>	
+	<h1>Collaborating for Good in <%= @chapter.title.html_safe %></h1>		
 	<p class="large">
 		<%=@chapter.chapter_description%>
 	</p>		
-	<% end %>	
 </div>
 
 <% if @chapter.cover_image?%>

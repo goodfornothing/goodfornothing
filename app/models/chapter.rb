@@ -5,7 +5,7 @@ class Chapter < ActiveRecord::Base
 	has_many :posts
   has_many :users
 
-	attr_accessible :title, :city, :country, :user_ids, :shaken_hands, :twitter_handle, :twitter_password, :cover_image, :chapter_description
+	attr_accessible :title, :city, :country, :user_ids, :shaken_hands, :twitter_handle, :twitter_password, :cover_image, :chapter_description, :chapter_title, :chapter_video_embed
 	
 	validates_presence_of :title
 

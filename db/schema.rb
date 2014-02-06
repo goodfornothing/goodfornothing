@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140123174823) do
+ActiveRecord::Schema.define(:version => 20140206174605) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(:version => 20140123174823) do
     t.boolean  "shaken_hands",        :default => false
     t.string   "cover_image"
     t.string   "chapter_description"
+    t.string   "chapter_title"
+    t.string   "chapter_video_embed"
   end
 
   add_index "chapters", ["slug"], :name => "index_chapters_on_slug", :unique => true

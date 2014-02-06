@@ -1,9 +1,22 @@
 <div class="banner_text">
 	
-	<h1>Collaborating for Good in <%= @chapter.title.html_safe %></h1>		
-	<p class="large">
-		<%=@chapter.chapter_description%>
-	</p>		
+	<% if @chapter.chapter_title? %>	
+		<h1><%=@chapter.chapter_title.html_safe%></h1>
+		<% else %>
+		<h1>Collaborating for Good in <%= @chapter.title.html_safe %></h1>		
+	<% end %>
+	
+	<% if @chapter.chapter_description? %>	
+		<p class="large">
+			<%=@chapter.chapter_description%>
+		</p>
+		<% else %>
+		<p class="large">
+			Good for Nothing is a community of thinkers, do-ers, makers and tinkerers applying their skills and energy to accelerate the work of cause-led innovators and change makers; We're a diverse groups of people collaborating together, working in new, faster, fun and better ways by supporting ideas and communities.
+		</p>
+	<% end %>
+	
+		
 </div>
 
 <% if @chapter.cover_image?%>
@@ -11,6 +24,11 @@
 <% end %>
 
 <section id="primary_content">
+
+	<% if @chapter.chapter_video_embed? %>	
+		<h2>What we've been upto</h2>
+		<%=@chapter.chapter_video_embed%>
+	<% end %>
 
 		
 	<h2>

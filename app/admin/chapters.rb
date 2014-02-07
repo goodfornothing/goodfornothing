@@ -70,7 +70,7 @@ ActiveAdmin.register Chapter do
 			f.input :shaken_hands
 			f.input :twitter_handle
       f.input :chapter_title      
-      f.text_field :chapter_description
+      f.input :chapter_description
       f.input :cover_image, :label => "Cover Image (950 x 60)"
       f.input :chapter_video_embed, :label => "Chapter Video (YouTube or Vimeo URL)"
     end

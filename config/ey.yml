@@ -2,3 +2,5 @@ environments:
   goodfornothing_production:
     maintenance_on_migrate: true
     maintenance_on_restart: true
+  goodfornothing_staging:
+    precompile_assets: true

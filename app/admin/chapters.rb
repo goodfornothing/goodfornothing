@@ -56,6 +56,10 @@ ActiveAdmin.register Chapter do
       end
 			row :shaken_hands
 			row :twitter_handle
+      row :chapter_title      
+      row :chapter_description      
+      row :cover_image
+      row :chapter_video_embed      
     end
   end
   
@@ -65,6 +69,10 @@ ActiveAdmin.register Chapter do
       f.input :country
 			f.input :shaken_hands
 			f.input :twitter_handle
+      f.input :chapter_title      
+      f.text_field :chapter_description
+      f.input :cover_image, :label => "Cover Image (950 x 60)"
+      f.input :chapter_video_embed, :label => "Chapter Video (YouTube or Vimeo URL)"
     end
     f.buttons
   end

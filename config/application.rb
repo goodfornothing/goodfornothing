@@ -25,6 +25,9 @@ module Goodfornothing
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    
+    # heroku-asset-compliation fix
+    config.assets.initialize_on_precompile = false
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
@@ -73,6 +76,6 @@ module Goodfornothing
     # Append here rather than in routes.rb so as not to interfere with any Gem routes
     config.after_initialize do |app|
       app.routes.append{match '*path', :to => 'errors#routing'}
-    end
+    end    
   end
 end

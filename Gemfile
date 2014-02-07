@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
 
@@ -36,6 +36,8 @@ gem 'exception_notification'
 gem 'sir-trevor-rails','>= 0.1.2'
 
 gem "curatr"
+
+gem "ruby-oembed"
 
 # Moar statistics
 gem 'twitter'

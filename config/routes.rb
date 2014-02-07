@@ -83,6 +83,8 @@ Goodfornothing::Application.routes.draw do
 	    match "chapter/:id" => "gigs#index", :as => "chapter"
 	  end
 	end
+  
+  resources :chapters
 	
 	resources :socials, :only => [:show] do
 		resources :comments
@@ -104,7 +106,8 @@ Goodfornothing::Application.routes.draw do
   match "privacy" => "colophon#privacy"
   match "datums" => "colophon#datums"
 	match 'good-in-your-hood' => "colophon#chapter", :as => "chapter_register"
- 
+  
+   
 	root :to => "home#index"
 
 end

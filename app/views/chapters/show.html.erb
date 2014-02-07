@@ -25,9 +25,9 @@
 
 <section id="primary_content">
 
-	<% if @chapter.chapter_video_embed? %>	
+	<% if @video_html %>	
 		<h2>What we've been upto</h2>
-		<%=@chapter.chapter_video_embed%>
+		<%=@video_html.html_safe%>
 	<% end %>
 
 		

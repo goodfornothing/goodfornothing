@@ -37,6 +37,8 @@ gem 'sir-trevor-rails','>= 0.1.2'
 
 gem "curatr"
 
+gem "ruby-oembed"
+
 # Moar statistics
 gem 'twitter'
 gem 'garb'

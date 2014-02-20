@@ -15,6 +15,7 @@ class ChaptersController < ApplicationController
       @upcoming_events = (@socials + @gigs).sort_by(&:start_time)
       @previous_events = (@previous_socials + @previous_gigs).sort_by(&:start_time).reverse
       
+      @warblings = @chapter.posts.all()
       
       if @chapter.chapter_video_embed?
         OEmbed::Providers.register_all

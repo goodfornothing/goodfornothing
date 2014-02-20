@@ -5,7 +5,7 @@ ActiveAdmin.register Chapter do
     authorize_resource
   end
   
-  menu :priority => 5, :parent => "Community", :if => proc{ can?(:manage, Chapter) } 
+  menu :priority => 5, :parent => "Community", :if => proc{ can?(:manage_chapter, Chapter) } 
   
   config.clear_sidebar_sections!
   
@@ -41,7 +41,11 @@ ActiveAdmin.register Chapter do
 	index do
     column("Name") { |chapter| link_to chapter.title, hive_chapter_path(chapter) }
     column "" do |chapter|
-      "#{link_to "Edit", edit_hive_chapter_path(chapter)} &nbsp; #{link_to "Delete", hive_chapter_path(chapter), :method => "delete", :confirm => "Are you sure you wish to delete this chapter?"}".html_safe
+      if current_user.role == "admin"   
+        "#{link_to "Edit", edit_hive_chapter_path(chapter)} &nbsp; #{link_to "Delete", hive_chapter_path(chapter), :method => "delete", :confirm => "Are you sure you wish to delete this chapter?"}".html_safe
+      else
+        "#{link_to "Edit", edit_hive_chapter_path(chapter)}".html_safe
+      end
     end
   end
   
@@ -54,7 +58,9 @@ ActiveAdmin.register Chapter do
       row "Chapter leaders" do 
         chapter.users.crew.map(&:name).join(', ')
       end
-			row :shaken_hands
+      if current_user.role == "admin"      
+        row :shaken_hands
+      end
 			row :twitter_handle
       row :chapter_title      
       row :chapter_description      
@@ -67,7 +73,9 @@ ActiveAdmin.register Chapter do
     f.inputs "Details" do
       f.input :title, :label => "Name"
       f.input :country
-			f.input :shaken_hands
+      if current_user.role == "admin"            
+        f.input :shaken_hands
+      end
 			f.input :twitter_handle
       f.input :chapter_title      
       f.input :chapter_description

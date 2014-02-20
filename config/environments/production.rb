@@ -27,7 +27,7 @@ Goodfornothing::Application.configure do
   config.middleware.use ExceptionNotifier,
     :email_prefix => "Good for Nothing Application Error",
     :sender_address => %{"GFN Hive Mind" <hello@goodfornothing.com>},
-    :exception_recipients => %w{andrew@goodfornothing.com}
+    :exception_recipients => %w{tom@devart.org}
   
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH

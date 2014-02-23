@@ -30,8 +30,8 @@ Goodfornothing::Application.configure do
     :exception_recipients => %w{tom@devart.org}
     
     
-  config.assets.precompile += %w[active_admin.css active_admin.js]
-      
+  config.assets.precompile += %w[active_admin/print.css active_admin.css active_admin.js]
+        
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 

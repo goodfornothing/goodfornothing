@@ -16,7 +16,7 @@ gem 'tzinfo'
 gem 'jquery-rails'
 gem 'country-select'
 
-gem 'activeadmin', '~> 0.5.0'
+gem 'activeadmin', '~> 0.6.0'
 gem 'just-datetime-picker'
 gem 'formtastic', '~> 2.1.1'
 gem 'coffee-rails'

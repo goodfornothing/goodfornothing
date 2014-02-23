@@ -277,7 +277,7 @@ DEPENDENCIES
   coffee-rails
   country-select
   curatr
-  devise
+  devise (~> 2.1.2)
   diffy
   exception_notification
   ey_config

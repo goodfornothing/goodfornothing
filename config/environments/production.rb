@@ -28,7 +28,10 @@ Goodfornothing::Application.configure do
     :email_prefix => "Good for Nothing Application Error",
     :sender_address => %{"GFN Hive Mind" <hello@goodfornothing.com>},
     :exception_recipients => %w{tom@devart.org}
-  
+    
+    
+  config.assets.precompile += %w[active_admin.css active_admin.js]
+      
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 

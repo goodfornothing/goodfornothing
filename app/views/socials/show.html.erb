@@ -7,7 +7,13 @@
 		<% if @social.location? || @social.start_time %>
 		<div class="abstract">
 			<% if @social.start_time %><p class="meta"><span>When?</span> <%= @social.start_time.to_formatted_s(:article) %> at <%= @social.start_time.strftime('%H:%M') %></p><% end %>
-			<% if @social.location? %><p class="meta"><span>Where?</span> <%= link_to @social.location, "https://maps.google.co.uk/maps?q=#{@social.location},+%20#{@social.chapter.title}" %></p><% end %>
+			<% if @social.location? %><p class="meta"><span>Where?</span> 
+				<% if @social.chapter %>
+				<%= link_to @social.location, "https://maps.google.co.uk/maps?q=#{@social.location},+%20#{@social.chapter.title}" %>
+					<% else %>
+				<%= link_to @social.location, "https://maps.google.co.uk/maps?q=#{@social.location}" %>
+				<% end %>
+			</p><% end %>
 		</div>
 		<% end %>
 		
@@ -19,7 +25,8 @@
 			<% end %>
 		<% end %>
 		
-		<p>See you there! <br /><em><%= @social.chapter.users.crew.map(&:short_name).to_sentence %></em></p>
+		<p>See you there! <br /><em>
+		<%= @social.chapter.users.crew.map(&:short_name).to_sentence %></em></p>		
 
 	</article>
 	

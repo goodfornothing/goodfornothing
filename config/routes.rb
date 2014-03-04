@@ -105,7 +105,7 @@ Goodfornothing::Application.routes.draw do
   match "calendar" => "colophon#calendar"
   match "privacy" => "colophon#privacy"
   match "datums" => "colophon#datums"
-  match "survey" => redirect("https://swarm.typeform.com/to/AANJHe?embed=full"), :as => :store    
+  match "survey" => redirect("https://swarm.typeform.com/to/A3gBQ3?embed=full"), :as => :store    
   match "store" => redirect("http://goodfornothing.ourtshirtshop.co.uk/"), :as => :store  
   
 	match 'good-in-your-hood' => "colophon#chapter", :as => "chapter_register"

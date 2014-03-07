@@ -24,7 +24,19 @@ ActiveAdmin.register Social do
 	index do
 		column("Name") { |social| link_to social.name, hive_social_path(social) }
 	  column("Date") { |social| social.start_time.strftime( "%B #{social.start_time.day.ordinalize} %Y")  }
-    column("Chapter") { |social| "#{social.chapter.title}" + ((social.title.present?) ? ", #{social.title}" : "") }
+    column("Chapter") { 
+      |social| 
+      if (social.chapter.present? && social.title.present?)
+        "#{social.title} - #{social.chapter.title}"
+      else
+        if (social.title.present?) 
+          "#{social.title}"
+        end
+        if (social.chapter.present?) 
+          "#{social.chapter.title}"
+        end
+      end
+    }
     default_actions
   end
   

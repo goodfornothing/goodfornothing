@@ -29,6 +29,11 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     
+    # hack to check for spam signups, sorry
+    if params[:user][:reasons_for_joining].include?('<a')
+      abort_register and return
+    end
+    
     ning_user = User.joins(:ning_profile).where('users.email = ? && users.activated = ?', params[:user][:email], false).first
     
     unless ning_user.nil?
@@ -38,7 +43,7 @@ class RegistrationsController < Devise::RegistrationsController
     else
       
       build_resource
-    
+          
       if resource.save
       
         save_talents(resource)
@@ -169,6 +174,10 @@ class RegistrationsController < Devise::RegistrationsController
   end 
   
   protected
+  
+    def abort_register
+      redirect_to('/register') 
+    end
     
     def check_subscription(resource)
       if resource.activated?

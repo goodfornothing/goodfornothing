@@ -11,6 +11,7 @@
 			<a href="/chapters/<%= @gig.chapter.slug%>"><%= @gig.chapter.title%> crew</a><%= " in partnership with #{link_to @gig.partner.name, @gig.partner.url}".html_safe unless @gig.partner.nil? %></p>
 			<% if @gig.location? %><p class="meta"><span>Where?</span> <%= link_to @gig.location, "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.title}" %></p>
 			
+			<% if @gig.start_time || @gig.end_time %>	
 			<div class="meta"><span>Reminder:</span> 
 				<div class="addthisevent">
 					<div class="desc">
@@ -18,21 +19,21 @@
 							Add to Calendar
 						</p>
 					</div>
-					<span class="_start">
-						<%= @gig.start_time.to_formatted_s(:ical)%></span>
-					<span class="_end">
-						<%= @gig.end_time.to_formatted_s(:ical)%></span>
+					<% if @gig.start_time %>	
+					<span class="_start"><%= @gig.start_time.to_formatted_s(:ical)%></span>
+					<% end%>
+					<% if @gig.end_time%>
+					<span class="_end"><%= @gig.end_time.to_formatted_s(:ical)%></span>
+					<% end%>
 					<span class="_zonecode">35</span>
 					<span class="_summary"><%= @gig.title %></span>
 					<span class="_description"><%= @gig.title %></span>
-					<span class="_location">{@gig.location}</span>
+					<span class="_location"><%=@gig.location%></span>
 					<span class="_organizer"><%= @gig.chapter.title%> crew<</span>
 					<span class="_all_day_event">false</span>
 					<span class="_date_format">DD-MM-YYYY</span>
 				</div>
 			</div>
-			<% end %>
-			
 			<script type="text/javascript" src="http://js.addthisevent.com/atemay.js"></script>
 			
 			<script type="text/javascript">
@@ -46,6 +47,7 @@
 				hotmail		: {show:true, text:"Hotmail Calendar"}
 			});
 			</script>
+			<% end %>
 		</div>	
 		
 		<% unless @gig.description.nil? %>

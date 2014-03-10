@@ -8,8 +8,44 @@
 			<% if @gig.start_time && @gig.end_time %><p class="meta"><span>When?</span> <%= @gig.start_time.to_formatted_s(:long_ordinal) %> &rarr; <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time><% end %>
 			<p class="meta"><span>Who?</span> Organised by the 
 				
-				<a href="/chapters/<%= @gig.chapter.slug%>"><%= @gig.chapter.title%> crew</a><%= " in partnership with #{link_to @gig.partner.name, @gig.partner.url}".html_safe unless @gig.partner.nil? %></p>
-			<% if @gig.location? %><p class="meta"><span>Where?</span> <%= link_to @gig.location, "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.title}" %></p><% end %>
+			<a href="/chapters/<%= @gig.chapter.slug%>"><%= @gig.chapter.title%> crew</a><%= " in partnership with #{link_to @gig.partner.name, @gig.partner.url}".html_safe unless @gig.partner.nil? %></p>
+			<% if @gig.location? %><p class="meta"><span>Where?</span> <%= link_to @gig.location, "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.title}" %></p>
+			
+			<div class="meta"><span>Reminder:</span> 
+				<div class="addthisevent">
+					<div class="desc">
+						<p>
+							Add to Calendar
+						</p>
+					</div>
+					<span class="_start">
+						<%= @gig.start_time.to_formatted_s(:ical)%></span>
+					<span class="_end">
+						<%= @gig.end_time.to_formatted_s(:ical)%></span>
+					<span class="_zonecode">35</span>
+					<span class="_summary"><%= @gig.title %></span>
+					<span class="_description"><%= @gig.title %></span>
+					<span class="_location">{@gig.location}</span>
+					<span class="_organizer"><%= @gig.chapter.title%> crew<</span>
+					<span class="_all_day_event">false</span>
+					<span class="_date_format">DD-MM-YYYY</span>
+				</div>
+			</div>
+			<% end %>
+			
+			<script type="text/javascript" src="http://js.addthisevent.com/atemay.js"></script>
+			
+			<script type="text/javascript">
+			addthisevent.settings({
+				mouse		: false,
+				css			: false,
+				outlook		: {show:true, text:"Outlook Calendar"},
+				google		: {show:true, text:"Google Calendar"},
+				yahoo		: {show:true, text:"Yahoo Calendar"},
+				ical		: {show:true, text:"iCal Calendar"},
+				hotmail		: {show:true, text:"Hotmail Calendar"}
+			});
+			</script>
 		</div>	
 		
 		<% unless @gig.description.nil? %>

@@ -26,7 +26,7 @@
 					<span class="_end"><%= @gig.end_time.to_formatted_s(:ical)%></span>
 					<% end%>
 					<span class="_zonecode">35</span>
-					<span class="_summary"><%= @gig.title %></span>
+					<span class="_summary">Good For Nothing: <%= @gig.title %></span>
 					<span class="_description"><%= @gig.title %></span>
 					<span class="_location"><%=@gig.location%></span>
 					<span class="_organizer"><%= @gig.chapter.title%> crew<</span>
@@ -47,6 +47,7 @@
 				hotmail		: {show:true, text:"Hotmail Calendar"}
 			});
 			</script>
+			<% end %>
 			<% end %>
 		</div>	
 		

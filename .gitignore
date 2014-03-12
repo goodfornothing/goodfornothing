@@ -23,4 +23,5 @@ pickle-email-*.html
 /config/facebook.yml
 /config/twitter.yml
 /config/curatr.yml
+/config/stripe.yml
 /public/uploads/*

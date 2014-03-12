@@ -121,6 +121,7 @@
 
 /* CTA */
 
+	.action .cta a,
 	.cta a,
 	.more a {
 		background-color: #D0122D;
@@ -173,6 +174,20 @@
 		padding: 41px 0px 18px;
 		font-size: 22px;
 		line-height: 28px;
+	}
+	
+	.action .cta a:hover {
+		font-size: inherit;
+		background-position: inherit;
+		line-height: inherit;
+		text-decoration: inherit;
+		width: inherit;
+		display: block;
+		width: 110px;
+		padding: 0 15px;
+		line-height: 30px;
+		font-size: 13px;
+		background-position: inherit;
 	}
 
 	aside .cta:first-child {
@@ -1021,6 +1036,45 @@
 		visibility: hidden;
 	}
 	
+	/* stripe */
+	
+	#wishlist .stripe-button-el {
+		isibility: visible;
+		background: none;
+		border: none;
+		box-shadow: none;
+		border-radius: none;
+	}
+	
+	#wishlist .stripe-button-el span {
+		background-color: #D0122D;
+		color: #ffffff;
+		display: inline-block;
+		line-height: 30px;
+		font-family: "Good for Nothing";
+		font-size: 13px;
+		padding: 0 15px;
+		text-align: center;
+		background-image: url(assets/cta_left.gif), url(assets/cta_right.gif);
+		background-position: left center, right center;
+		background-repeat: no-repeat;
+		width: 110px;
+	}
+	
+	.wishlist-item {
+		padding-top: 10px;
+		padding-bottom: 10px;		
+		border-top: 1px dashed #BE373B;
+	}
+	
+	.wishlist-item p {
+		padding-bottom: 10px;
+		margin: 0;
+	}
+	
+	#wishlist h2 {
+		margin-top: 20px;
+	}
 		
 /* Registration table */
 

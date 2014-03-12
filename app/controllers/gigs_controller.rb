@@ -10,7 +10,11 @@ class GigsController < ApplicationController
 	end
 
 	def show
-	  
+    
+    
+    @wishlist_complete = @gig.items.where('complete' => 1).order(:payment_value)
+    @wishlist_incomplete = @gig.items.where('complete' => 0).order(:payment_value)
+    	  
 	  # FriendlyID History
     if request.path != gig_path(@gig)
       return redirect_to @gig, :status => :moved_permanently

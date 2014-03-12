@@ -60,7 +60,7 @@
 		<% end %>
 			
 	</article>
-	
+		
 	<div id="challenges">
 	<% if @gig.challenges.any? %>
 
@@ -77,5 +77,28 @@
 	
 	<%= render :partial => "events/attend", :locals => { :event => @gig } %>
 	<%= render :partial => "events/attendees", :locals => { :event => @gig }%>
+	
+	<% if @wishlist_complete.any? || @wishlist_incomplete.any? %>
+	<div id="wishlist" class="action">
+		<% if @wishlist_incomplete.any?%>
+		<h2>What we need</h2>
+
+		<div class="wishlist-wrapper">
+		<% @wishlist_incomplete.each do |item| %>
+			<%= render :partial => "gigs/item_need", :locals => { :item => item, :chapter => @gig.chapter } %>
+		<% end %>
+		</div>
+		<% end %>
+	
+		<% if @wishlist_complete.any?%>
+		<h2>What we've got</h2>
+		<div class="wishlist-wrapper">		
+		<% @wishlist_complete.each do |item| %>
+			<%= render :partial => "gigs/item_got", :locals => { :item => item, :chapter => @gig.chapter } %>
+		<% end %>
+		</div>
+		<% end %>
+	</div>		
+	<% end %>
 	
 </aside>

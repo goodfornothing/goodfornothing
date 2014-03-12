@@ -1,0 +1,22 @@
+<div class="wishlist-item">
+	<p><strong><%=item.name%></strong> <br />
+	<% if item.description?%>
+		<%=item.description%>
+	<% end%>
+	</p>
+	<% if item.payment_value?%>	
+	<form action="/charge" method="POST">
+	  <script
+	    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+	    data-key="<%=ENV['STRIPE_PUBLISHABLE_KEY']%>"
+		data-currency="GBP"
+		data-label="Donate <%=number_to_currency(item.payment_value, :unit => "£")%>"
+	    data-name="<%=item.name%> for GFN <%=chapter.title%>"
+	    data-description="Donate <%=number_to_currency(item.payment_value, :unit => "£")%>"
+	    data-amount="<%=number_to_currency(item.payment_value, unit: "£", separator: "", delimiter: "", format: "%n")%>">
+	  </script>
+	</form>
+	<% else %>
+	<p class="cta"><a href="mailto:<%=chapter.title%>@goodfornothing.com" class="button">Email us</a></p>
+	<% end %>
+</div>

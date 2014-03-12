@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140206174605) do
+ActiveRecord::Schema.define(:version => 20140307161024) do
 
   create_table "challenges", :force => true do |t|
     t.string  "title"
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(:version => 20140206174605) do
     t.boolean  "shaken_hands",        :default => false
     t.string   "cover_image"
     t.string   "chapter_description"
-    t.string   "chapter_title"
     t.string   "chapter_video_embed"
   end
 
@@ -340,5 +339,16 @@ ActiveRecord::Schema.define(:version => 20140206174605) do
   end
 
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
+
+  create_table "items", :force => true do |t|
+    t.integer  "gig_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "provided_by"
+    t.decimal  "payment_value", :precision => 8, :scale => 2
+    t.boolean  "complete"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+  end
 
 end

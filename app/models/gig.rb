@@ -8,6 +8,7 @@ class Gig < ActiveRecord::Base
 	alias_attribute :audited_at, :start_time
 
 	has_many :challenges
+  has_many :items
 	
 	belongs_to :partner
 	has_and_belongs_to_many :friends

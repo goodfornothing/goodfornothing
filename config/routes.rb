@@ -89,6 +89,8 @@ Goodfornothing::Application.routes.draw do
 	resources :socials, :only => [:show] do
 		resources :comments
 	end
+  
+  resources :charges
 		
   resources :partners, :only => [:index]
   resources :friends, :only => [:index]

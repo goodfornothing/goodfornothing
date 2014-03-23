@@ -5,17 +5,20 @@
 	<% end%>
 	</p>
 	<% if item.payment_value?%>	
-	<form action="/charge" method="POST">
-	  <script
-	    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-	    data-key="<%=ENV['STRIPE_PUBLISHABLE_KEY']%>"
-		data-currency="GBP"
-		data-label="Donate <%=number_to_currency(item.payment_value, :unit => "£")%>"
-	    data-name="<%=item.name%> for GFN <%=chapter.title%>"
-	    data-description="Donate <%=number_to_currency(item.payment_value, :unit => "£")%>"
-	    data-amount="<%=number_to_currency(item.payment_value, unit: "£", separator: "", delimiter: "", format: "%n")%>">
-	  </script>
-	</form>
+		<%= form_tag charges_path do %>	
+			<input type="hidden" name="itemAmount" value="<%=number_to_currency(item.payment_value, unit: "£", separator: "", delimiter: "", format: "%n")%>" />
+			<input type="hidden" name="itemDescription" value="<%=item.name%> for GFN <%=chapter.title%>" />
+			<strong>Contribute</strong>
+			<script
+			src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+			data-key="<%=ENV['STRIPE_PUBLISHABLE_KEY']%>"
+			data-currency="GBP"
+			data-label="<%=number_to_currency(item.payment_value, :unit => "£")%>"
+			data-name="<%=item.name%> for GFN <%=chapter.title%>"
+			data-description="<%=number_to_currency(item.payment_value, :unit => "£")%>"
+			data-amount="<%=number_to_currency(item.payment_value, unit: "£", separator: "", delimiter: "", format: "%n")%>">
+			</script>
+		<% end %>
 	<% else %>
 	<p class="cta"><a href="mailto:<%=chapter.title%>@goodfornothing.com" class="button">Email us</a></p>
 	<% end %>

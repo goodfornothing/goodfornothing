@@ -132,6 +132,17 @@ ActiveRecord::Schema.define(:version => 20140307161024) do
     t.integer "user_id"
   end
 
+  create_table "items", :force => true do |t|
+    t.integer  "gig_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "provided_by"
+    t.decimal  "payment_value", :precision => 8, :scale => 2
+    t.boolean  "complete"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+  end
+
   create_table "messages", :force => true do |t|
     t.integer  "user_id"
     t.text     "body"
@@ -339,16 +350,5 @@ ActiveRecord::Schema.define(:version => 20140307161024) do
   end
 
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
-
-  create_table "items", :force => true do |t|
-    t.integer  "gig_id"
-    t.string   "name"
-    t.text     "description"
-    t.string   "provided_by"
-    t.decimal  "payment_value", :precision => 8, :scale => 2
-    t.boolean  "complete"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
-  end
 
 end

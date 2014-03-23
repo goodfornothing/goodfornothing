@@ -1,4 +1,4 @@
-class Items < ActiveRecord::Migration
+class WishLists < ActiveRecord::Migration
   def up
     create_table :items do |t|
       t.references :gig      

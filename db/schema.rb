@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20140307161024) do
     t.boolean  "shaken_hands",        :default => false
     t.string   "cover_image"
     t.string   "chapter_description"
+    t.string   "chapter_title"
     t.string   "chapter_video_embed"
   end
 
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20140307161024) do
     t.string "name"
     t.string "url"
     t.string "logo"
+    t.string "description"
   end
 
   create_table "friends_gigs", :force => true do |t|
@@ -191,12 +193,12 @@ ActiveRecord::Schema.define(:version => 20140307161024) do
     t.date     "birthdate"
     t.text     "reasons_for_joining"
     t.text     "skills"
-    t.boolean  "notification_broadcasts", :default => false
-    t.boolean  "notification_email",      :default => false
+    t.string   "notification_broadcasts"
+    t.string   "notification_email"
     t.date     "date_joined"
     t.date     "last_visit"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "pages", :force => true do |t|

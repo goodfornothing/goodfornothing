@@ -39,6 +39,9 @@ gem "curatr"
 
 gem "ruby-oembed"
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'json', '~> 1.8.1'
+
 # Moar statistics
 gem 'twitter'
 gem 'garb'

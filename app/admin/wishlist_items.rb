@@ -1,3 +1,4 @@
+#encoding: utf-8
 ActiveAdmin.register Item do
       
   controller do

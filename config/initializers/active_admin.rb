@@ -164,3 +164,25 @@ class ::ActiveAdmin::Views::TabbedNavigation
     end.sort { |i1, i2| priority_for(i1) <=> priority_for(i2) }
   end
 end
+
+# Hack to show pretty boolean values
+module ActiveAdmin
+  module Views
+    class TableFor
+      def yesno_column(attribute)
+        column(attribute){ |model| model[attribute] ? 'Yes' : 'No' }
+      end
+      def ticked_column(attribute)
+        column(attribute){ |model| model[attribute] ? '&#x2714;'.html_safe : '&#x2717;'.html_safe }
+      end      
+    end
+    class AttributesTable
+      def yesno_row(attribute)
+        row(attribute){ |model| model[attribute] ? 'Yes' : 'No' }
+      end
+      def ticked_row(attribute)
+        row(attribute){ |model| model[attribute] ? '&#x2714;'.html_safe : '&#x2717;'.html_safe }
+      end      
+    end
+  end
+end

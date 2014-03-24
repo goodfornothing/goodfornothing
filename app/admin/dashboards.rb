@@ -7,7 +7,8 @@ ActiveAdmin.register_page "Dashboard" do
     'danish' => "Hej",
     'australian' => "G'day",
     'dutch' => "Hoi",
-    'french' => "Bonjour"
+    'french' => "Bonjour",
+    'new zeland' => "Kia ora"
   }
   
   greeting = greetings.to_a.sample(1)

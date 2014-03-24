@@ -17,9 +17,29 @@
 		<p class="icon_gigs"><%= link_to event.commentable_title, "#new_comment" %></p>
 		<% end %>
 		<h2>You're coming</h2>
-		<p>Look forward to seeing you! Please let us know if you can't make it.</p>
-		<p class="more"><%= link_to "I can't make it", attend_path(event.class.to_s.tableize, event) %></p>
+		<p><%=current_user.name%>, Share our gig with the world!</p>		
+		<%
+		if event.chapter.twitter_handle?
+			@related_account = event.chapter.twitter_handle
+		else 
+			@related_account = 'g00dfornothing'
+		end
+		%>
 		
+		<div class="social-buttons">
+		
+			<div class="attending-tweet">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-related="@<%=@related_account%>" data-text="GFN: <%=event.chapter.title%> <%=event.title%> — are you attending? @<%=@related_account%>" data-lang="en" data-size="large" data-count="none">Tweet about it!</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+		
+			<div class="attending-fb">
+			<iframe src="//www.facebook.com/plugins/like.php?href=http://<%=request.host+request.fullpath%>&amp;width&amp;layout=box_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=65&amp;" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:65px;" allowTransparency="true"></iframe>
+			</div>
+		</div>
+			
+		
+		<p class="makeit">Can't make it anymore? <%= link_to "Just let us know.", attend_path(event.class.to_s.tableize, event) %></p>
 		
 	<% elsif event.slots.count == 1 && event.slots.first.skill.nil? %>
 	

@@ -1,3 +1,7 @@
 <div class="wishlist-item">
-	<p>&#10004; <strong><%=item.name%></strong> provided by <%=item.provided_by%>.</p>
+	<p>&#10004; <strong><%=item.name%></strong> 
+		<% if item.provided_by?%>
+		provided by <%=item.provided_by%>
+		<% end %>
+		.</p>
 </div>

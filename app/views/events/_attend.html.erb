@@ -17,7 +17,7 @@
 		<p class="icon_gigs"><%= link_to event.commentable_title, "#new_comment" %></p>
 		<% end %>
 		<h2>You're coming</h2>
-		<p><%=current_user.name%>, Share our gig with the world!</p>		
+		<p>Share our gig with likeminded folk. Get together and make good happen in your hood.</p>
 		<%
 		if event.chapter.twitter_handle?
 			@related_account = event.chapter.twitter_handle

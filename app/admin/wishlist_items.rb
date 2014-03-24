@@ -18,16 +18,7 @@ ActiveAdmin.register Item do
 
   index :title => 'Wishlist Items' do
         
-    content do
-       para "Hello World"
-     end
-    column ("-") { |item|
-      if item.complete == true
-        "X"
-      else
-        "-" 
-      end
-    }
+    ticked_column :complete     
     column :name
     column ("Cost") { |item| 
       if item.payment_value? 
@@ -48,6 +39,7 @@ ActiveAdmin.register Item do
         end
         f.input :name
         f.input :description, :input_html => { :rows => 2 }, :label => "Short Description"
+        f.input :ask_email, :as => :radio, :label => "Ask people to email us?"
         f.input :payment_value, :label => "How much will this cost? (£s)", :placeholder => "0"
       end
       

@@ -4,11 +4,17 @@
 		<%=item.description%>
 	<% end%>
 	</p>
+	<% if item.ask_email?%>	
+		<p class="cta"><a href="mailto:<%=chapter.title%>@goodfornothing.com" class="button">Email us</a></p>
+	<% end%>
 	<% if item.payment_value?%>	
 		<%= form_tag charges_path do %>	
 			<input type="hidden" name="itemAmount" value="<%=number_to_currency(item.payment_value, unit: "£", separator: "", delimiter: "", format: "%n")%>" />
 			<input type="hidden" name="itemDescription" value="<%=item.name%> for GFN <%=chapter.title%>" />
-			<strong>Contribute</strong>
+			<strong>
+				<% if item.ask_email?%> or <% end %>
+				Contribute
+			</strong>
 			<script
 			src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 			data-key="<%=ENV['STRIPE_PUBLISHABLE_KEY']%>"
@@ -19,7 +25,5 @@
 			data-amount="<%=number_to_currency(item.payment_value, unit: "£", separator: "", delimiter: "", format: "%n")%>">
 			</script>
 		<% end %>
-	<% else %>
-	<p class="cta"><a href="mailto:<%=chapter.title%>@goodfornothing.com" class="button">Email us</a></p>
-	<% end %>
+	<% end%>
 </div>

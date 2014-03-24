@@ -2,12 +2,41 @@ ActiveAdmin.register_page "Dashboard" do
 
   menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") }
 
-  content :title => "Welcome to the Hive" do
+  greetings = {
+    'english' => "Hi",
+    'danish' => "Hej",
+    'australian' => "G'day",
+    'dutch' => "Hoi",
+    'french' => "Bonjour"
+  }
   
+  greeting = greetings.to_a.sample(1)
 
+  content :title => "Hive" do
+  
 		columns do
 			
 		  column do
+        
+        panel "Home" do
+            h3 do 
+              greeting[0][1].to_s+" "+current_user.name+"! "+"(now you know how to greet people in "+greeting[0][0].to_s+"!)"
+            end
+            h4 do
+              "Last 10 signups to your chapter"
+            end
+            @current_chapter = current_user.chapter
+            @latest_users = @current_chapter.users.last(10).reverse
+            if @latest_users.any?
+              ul do 
+                @latest_users.collect do |member|
+                  li do
+                    link_to member.name, member_path(member)
+                  end
+                end
+              end
+            end
+        end
 			
 				panel "Inbox" do
 					@messages = current_user.inbox.unread

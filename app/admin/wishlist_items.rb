@@ -22,9 +22,9 @@ ActiveAdmin.register Item do
      end
     column ("-") { |item|
       if item.complete == true
-        "✔"
+        "X"
       else
-         "x" 
+        "-" 
       end
     }
     column :name

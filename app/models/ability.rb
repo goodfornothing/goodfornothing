@@ -25,7 +25,7 @@ class Ability
     end
     
     # ugly feature flags to enable wishlits for specific chapters    
-    if ["Chester", "Camden", "Brighton"].include?(user.chapter.title)    
+    if ["Chester", "Camden", "Brighton", "Cardiff"].include?(user.chapter.title)    
       can :manage, [Item]
     end
 

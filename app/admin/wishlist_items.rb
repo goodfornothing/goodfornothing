@@ -6,7 +6,7 @@ ActiveAdmin.register Item do
     authorize_resource
   end
   
-  menu :label => "Wishlist Items", :priority => 5, :if => proc{ can?(:manage_chapter, Chapter) } 
+  menu :label => "Wishlist Items", :priority => 5, :if => proc{ can?(:manage_item, Item) } 
 
   config.clear_sidebar_sections!
   

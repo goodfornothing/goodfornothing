@@ -18,11 +18,15 @@ class Ability
     if user.role == "leader"
       can :manage, [Friend, Venture, Messaging::Message]
       can :manage, [Gig, Social], :chapter_id => user.chapter.id
-      can :manage, [Item]
       can :manage, [Trill, Post]
 			can :read, [Page]
       cannot :delete, Chapter      
       can :manage_chapter, Chapter, :id => user.chapter.id
+    end
+    
+    # ugly feature flags to enable wishlits for specific chapters    
+    if ["Chester", "Camden", "Brighton"].include?(user.chapter.title)    
+      can :manage, [Item]
     end
 
 

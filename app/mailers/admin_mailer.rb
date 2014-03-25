@@ -22,5 +22,9 @@ class AdminMailer < ActionMailer::Base
     @trill = trill
     mail(:to => "hello@goodfornothing.com", :subject => "Someone's published a new Trill")
   end
+  
+  def new_payment
+    mail(:to => "hello@goodfornothing.com", :subject => "Someone's made a payment")    
+  end
 
 end

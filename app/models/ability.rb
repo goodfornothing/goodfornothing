@@ -24,9 +24,11 @@ class Ability
       can :manage_chapter, Chapter, :id => user.chapter.id
     end
     
-    # ugly feature flags to enable wishlits for specific chapters    
-    if ["Chester", "Camden", "Brighton", "Cardiff"].include?(user.chapter.title)    
-      can :manage, [Item]
+    # ugly feature flags to enable wishlits for specific chapters
+    if user.chapter
+      if ["Chester", "Camden", "Brighton", "Cardiff"].include?(user.chapter.title)    
+        can :manage, [Item]
+      end
     end
 
 

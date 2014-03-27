@@ -84,7 +84,8 @@ Goodfornothing::Application.routes.draw do
 	  end
 	end
   
-  resources :chapters
+  get "/chapters/:id", to: redirect("/chapter/%{id}")
+  resources :chapters, :path => "chapter"
 	
 	resources :socials, :only => [:show] do
 		resources :comments

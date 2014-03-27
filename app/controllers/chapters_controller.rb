@@ -3,8 +3,12 @@ class ChaptersController < ApplicationController
   def show
     
       require 'oembed'
-    
-      @chapter = Chapter.find_by_slug(params[:id])
+      
+      if (params[:id]).start_with?('gfn')
+        return redirect_to :controller=>'chapter', :action => 'show', :id => params[:id].gsub('gfn','')
+      end
+      
+      @chapter = Chapter.find_by_slug(params[:id]) 
 
       @socials = Social.where('start_time >= ?',Time.now).where('chapter_id = ?',@chapter.id).order("start_time DESC")
       @gigs = Gig.where('start_time >= ?',Time.now).where('chapter_id = ?',@chapter.id).order("start_time DESC")      

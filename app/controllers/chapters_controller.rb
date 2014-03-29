@@ -4,8 +4,8 @@ class ChaptersController < ApplicationController
     
       require 'oembed'
       
-      if (params[:id]).start_with?('gfn')
-        return redirect_to :controller=>'chapter', :action => 'show', :id => params[:id].gsub('gfn','')
+      if (params[:id]).downcase.start_with?('gfn')
+        return redirect_to :controller=>'chapter', :action => 'show', :id => params[:id].downcase.gsub('gfn','')
       end
       
       @chapter = Chapter.find_by_slug(params[:id]) 

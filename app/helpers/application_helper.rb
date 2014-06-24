@@ -4,6 +4,14 @@ module ApplicationHelper
     content.to_s.split("").map{|c| "<span>#{c}</span>" }.join.html_safe
   end
   
+  def is_chapters?
+    params[:action] == 'chapters'
+  end
+  
+  def is_calendar?
+    params[:action] == 'calendar'
+  end
+  
   def is_about?
     params[:action] == 'how' || params[:action] == 'who' || params[:action] == 'funding'
   end

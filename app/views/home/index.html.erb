@@ -1,45 +1,81 @@
 <div id="primary_content" class="single">
 
-	<section id="latest_activity" class="panel">
-		
-		<h2>What's next</h2>
+	<h1>What is GFN?</h1>
 	
-		<% if @gig.present? || @social.present? %>
-		<div class="event_panel">
-			<% if @gig.present? %>
-			<h3><%= link_to @gig.name, gig_path(@gig) %></h3>
-			<p><%= @gig.title %> on the <%= @gig.start_time.day.ordinalize %> to the <%= @gig.end_time.day.ordinalize %> of <%= @gig.start_time.strftime('%B') %> in <%= @gig.chapter.title %></p>
-			<% end %>
-			<% if @social.present? %>
-			<h3><%= link_to @social.name, social_path(@social) %></h3>
-			<p>Join us on <%= @social.start_time.day.ordinalize %> of <%= @social.start_time.strftime('%B') %> at <%= @social.start_time.strftime('%l%P') %> <%= (@social.location?) ? "at #{@social.location}" : ", venue TBC" %></p>
-			<% end %>
+	<p class="intro">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+	</p>
+	<p class="intro">	
+	 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+	
+	<div class="homepage-stats">
+		<div class="block" id="red">
+			<div class="image"></div>			
+			<div class="inner">
+				<span class="large-number">
+				<%= @venture_count %>
+				</span>
+				<span class="small-text">
+				Amazing Causes
+				</span>
+			</div>
 		</div>
-		<% end %>
+	
+		<div class="block" id="blue">
+			<div class="image"></div>
+			<div class="inner">			
+				<span class="large-number">
+					<%=@member_count %>
+				</span>
+				<span class="small-text">
+					Talented To-Doers
+				</span>
+			</div>
+		</div>
+	</div>
+
+</div>
+</div><!-- #main -->
+	
+<div role="main" class="homepage-new">
+	<div class="container">
+	<h1>What's Happening</h1>
+
+	<section id="latest_activity">
 		
-		<p class="cta"><%= link_to "GFN Calendar", calendar_path %></p>
-		
+		<% @results.each do |result| %>
+			<div class="card">
+				<% if result.is_a?(Social) 
+					@result_type = "Social"
+					elsif result.is_a?(Gig) 
+					@result_type = "Gig"
+				end %>
+				
+				<% if result.is_a?(Social) 
+					@path = social_path(result)
+					elsif result.is_a?(Gig) 
+					@path = gig_path(result)
+				end %>
+				<a href="<%=@path%>"><img class="cover" src="http://lorempixel.com/350/350/" /></a>
+				<div class="details">
+					<p class="type">
+						<%=@result_type%>
+					</span>
+					<p class="chapter"><%=result.chapter.title%></span>
+					<h2>
+						<% if result.is_a?(Social) %>
+							<%= link_to result.title, social_path(result) %>
+						<% end %>
+						<% if result.is_a?(Gig) %>
+							<%= link_to result.title, gig_path(result) %>
+						<% end %>
+					</h2>
+				</div>
+			</div>
+		<% end %>		
 	</section>
 	
-	<section id="community" class="panel">
-		<h2>The Community</h2>
-		<ul id="community_infographic">
-			<li class="badge_count"><span><%= @venture_count %></span> <%= link_to "amazing ventures", ventures_path %></li>
-			<li class="ticker_count"><%= spannerize("%04d" % @member_count) %> <%= link_to "Good for Nothingers", members_path %></li>
-		</ul>
-		<% unless user_signed_in? %>
-		<p class="highlight_button"><%= link_to "Join the movement", register_path %></p>
-		<% end %>
-	</section>
-	
-	<section id="updates" class="panel">
-		<% if @challenge.present? %>
-			<h2>Featured challenge</h2>
-			<%= render :partial => "challenges/block", :locals => { :challenge => @challenge } %>	
-		<% elsif @update.present? %>
-			<h2>Warblings</h2>
-			<%= render :partial => "posts/block", :locals => { :post => @update } %>
-		<% end %>
-	</section>
-	
+	<div><p class="cta" id="more"><%= link_to "See more events", calendar_path %></p></div>
+	</div>
 </div>

@@ -108,10 +108,28 @@
 				</nav>
 				
 				<% if params[:controller] == "home" %>
-				<section id="introduction">
+				<!--<section id="introduction">
 					<h2>Good for Nothing</h2>
 					<p><%= link_to "Smart folk", members_path %> <span>collaborating and experimenting to solve</span> <%= link_to "stuff that matters", challenges_path %></p>
+				</section>-->
+				<section class="slideshow-wrapper">
+					<div class="slideshow js-slideshow">
+						<div class="slide js-slide">
+							<%= image_tag("illustrations/gfn-homepage.jpg") %>
+						</div>
+						<div class="slide js-slide">
+							<iframe src="//player.vimeo.com/video/49474841?title=0&amp;byline=0&amp;portrait=0&amp;color=d0122d" width="960" height="525" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						</div>
+						<div class="slide js-slide">
+							<%= image_tag("photos/banner-placeholder.jpg") %>
+						</div>
+					</div>
 				</section>
+				<div class="slideshow-navigation">
+					<li class="js-slideshow-pagination active"></li>
+					<li class="js-slideshow-pagination"></li>
+					<li class="js-slideshow-pagination"></li>
+				</div>
 				<% end %>
 				
 			</div>

@@ -9,11 +9,18 @@
 .section_home header .container {
 	padding-bottom: 0;
 	background-position: 3px 500px;
+	/*background image not needed in redesign*/
+	background-image: none;
 	overflow: visible;
 }
 
 .section_home #main #primary_content {
-	padding: 68px 0 13px;
+	/*padding: 68px 0 13px;*/
+	padding: 120px 0 0px;
+}
+
+.section_home #main{
+	padding:0;
 }
 
 .section_home #introduction {
@@ -231,6 +238,7 @@
 
 .section_home .intro {
 	font-size: 18px;
+	padding: 0 100px;
 }
 
 .section_home .block#red .small-text  {
@@ -298,4 +306,52 @@
 .section_home .card .cover {
 	width: 300px;
 	opacity: 1;
+}
+
+.slideshow-wrapper{
+	overflow: hidden;
+	margin-top:40px;
+}
+
+.slideshow{
+	height: 525px;
+	position: relative;
+	transition: all 1s;
+	transform: translateZ(0);
+	left:0%;
+}
+
+.slide{
+	float:left;
+	transition: all 1s;
+}
+.slide iframe{
+	margin:0;
+}
+.slide img{
+	display: block;
+}
+
+.slideshow-navigation{
+	margin-top: 20px;
+	text-align: center;
+	position: absolute;
+	z-index: 1;
+	width:100%;
+}
+
+.slideshow-navigation li{
+	list-style-type: none;
+	height:17px;
+	width:17px;
+	border-radius: 50%;
+	background: #FFF;
+	cursor: pointer;
+	padding:0;
+	margin:5px;
+	display: inline-block;
+}
+
+.slideshow-navigation li.active, .slideshow-navigation li:hover{
+	background: #D0122D;
 }

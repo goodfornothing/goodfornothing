@@ -221,8 +221,29 @@ $(document).ready(function(){
 	$('#collaborators div').stickyScroll({ container: $('#collaborators') })
 	$('#warble_filters').stickyScroll({ container: $('#main') })
 	$('#wiki_navigation ul').stickyScroll({ container: $('#wiki_navigation') })
+
+
+	//Home page slideshow
+	var slideCount = $(".js-slide").length;
+	var index = 0;
+	$(".js-slideshow").width(100 * slideCount + "%");
 	
-	
+	$(".js-slideshow-pagination").click(function(e){
+		index = $(this).index();
+		advanceSlideshow(index);	
+	})
+
+	function advanceSlideshow(index){
+		$(".js-slideshow-pagination").removeClass("active");
+		$(".js-slideshow-pagination").eq(index).addClass("active");
+		$(".js-slideshow").css("left", (-100 * index) + "%");
+	}
+
+	//Uncomment to autoplay
+	// window.setInterval(function(){
+	// 	index++;
+	// 	advanceSlideshow(index % slideCount);
+	// }, 10000);
 });
 
 function scrollToElement(element) {

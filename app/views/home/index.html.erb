@@ -72,6 +72,16 @@
 						<% end %>
 					</h2>
 				</div>
+				<div class="button">
+					<p>
+						<% if result.is_a?(Social) %>
+							<%= link_to "Find out more", social_path(result) %>
+						<% end %>
+						<% if result.is_a?(Gig) %>
+							<%= link_to "Find out more", gig_path(result) %>
+						<% end %>
+					</p>
+				</div>
 			</div>
 		<% end %>		
 	</section>

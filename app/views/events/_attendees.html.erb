@@ -1,15 +1,21 @@
-<% if (event.start_time.past? && event.end_time.nil?) || (event.end_time.present? && event.end_time.past?) %>
-<h2>Who was there?</h2>
-<% else %>
-<h2>Who's coming?</h2>
-<% end %>
+<% if event.attendees.any? %>
 
-<ul class="avatar_list">
-	
-	<% if event.attendees.any? %>
-		<% event.attendees.each do |user| %>
-			<%= render :partial => "members/avatar", :locals => { :member => user }%>
+	<div class="line--top">
+		<% if (event.start_time.past? && event.end_time.nil?) || (event.end_time.present? && event.end_time.past?) %>
+		<h2>Who was there?</h2>
+		<% else %>
+		<h2>Who's coming?</h2>
 		<% end %>
-	<% end %>
-	
-</ul>
+
+		<ul class="avatar_list">
+			
+			<% if event.attendees.any? %>
+				<% event.attendees.each do |user| %>
+					<%= render :partial => "members/avatar", :locals => { :member => user }%>
+				<% end %>
+			<% end %>
+			
+		</ul>
+	</div>
+
+<% end %>

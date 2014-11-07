@@ -13,13 +13,12 @@
 			<input type="hidden" name="itemDescription" value="<%=item.name%> for GFN <%=chapter.title%>" />
 			<strong>
 				<% if item.ask_email?%> or <% end %>
-				Contribute
 			</strong>
 			<script
 			src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 			data-key="<%=ENV['STRIPE_PUBLISHABLE_KEY']%>"
 			data-currency="GBP"
-			data-label="<%=number_to_currency(item.payment_value, :unit => "£")%>"
+			data-label="Donate <%=number_to_currency(item.payment_value, :unit => "£")%>"
 			data-name="<%=item.name%> for GFN <%=chapter.title%>"
 			data-description="<%=number_to_currency(item.payment_value, :unit => "£")%>"
 			data-amount="<%=number_to_currency(item.payment_value, unit: "£", separator: "", delimiter: "", format: "%n")%>">

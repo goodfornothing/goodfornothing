@@ -2,23 +2,24 @@
 	
 	<article class="event">
 
-		<div class="event-header" style='background-image: url("/assets/photos/gig-placeholder.jpg")'>
+		<!-- <div class="event-header" style='background-image: url("/assets/photos/gig-placeholder.jpg")'> -->
+		<div class="event-header">
 
 			<div class="event-image" >
-				
+				<img src="/assets/photos/gig-placeholder-2.jpg" alt="" width='50%'>
 			</div>
 	
 			<div class="event-info">
 				<h1><%= @gig.title %></h1>
 				
 				<div class="abstract">
-					<% if @gig.start_time && @gig.end_time %><p class="meta"><span>When?</span> <%= @gig.start_time.to_formatted_s(:long_ordinal) %> &rarr; <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time><% end %>
+					<% if @gig.start_time && @gig.end_time %><p class="meta"><%= @gig.start_time.to_formatted_s(:long_ordinal) %> &rarr; <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time><% end %>
 					<!-- <p class="meta"><span>Who?</span> Organised by the 
 						
 					<a href="/chapters/<%= @gig.chapter.slug%>"><%= @gig.chapter.title%> crew</a><%= " in partnership with #{link_to @gig.partner.name, @gig.partner.url}".html_safe unless @gig.partner.nil? %></p> -->
 					<% if @gig.location? %>
 						<p class="meta">
-							<span>Venue</span>
+							Venue<br />
 							<%=@gig.location%><br />
 							<%= link_to "View map", "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.title}" %>
 						</p>
@@ -69,65 +70,102 @@
 
 		<div class="event-description">
 			<div class="container">
+
+				<div class="col-left">
+					<p>
+						Introductory paragraph to the event and a general idea of whats happening Nullam quis risus eget urna mollis ornare vel eu leo. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					</p>
+
+					<%= render :partial => "events/attend", :locals => { :event => @gig } %>
+
+				</div>
+
+				<div class="col-right">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#">GFN Birmingham Page</a></li>
+						<li><a href="#">Email Chapter</a></li>
+						<li><a href="#">Another helpful link</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+			
+	</article>
+
+	<div class="container">
+
+		<div class="col-left">
+
+			<div class='line--top event-main-description'>
 				<% unless @gig.description.nil? %>
+
+					<h2>The causes</h2>
+
 					<% if @gig.description.is_json? %>
 					<%= render_sir_trevor(@gig.description) %>
 					<% else %>
 					<%= simple_format(@gig.description).html_safe %>
 					<% end %>
 				<% end %>
-
-				<%= render :partial => "events/attend", :locals => { :event => @gig } %>
-
 			</div>
-		</div>
-		
-			
-	</article>
-		
-	<div id="challenges">
-		<div class="container">
-			<% if @gig.challenges.any? %>
+				
+			<div id="challenges" class='line--top'>
+				<!-- <div class="container"> -->
+					<h2>The challenges</h2>
 
-				<% @gig.challenges.each do |challenge| %>
-					<%= render :partial => "challenges/block", :locals => { :challenge => challenge } %>
-				<% end %>
-			
-			<% end %>
+					<% if @gig.challenges.any? %>
+
+						<% @gig.challenges.each_with_index do |challenge, index| %>
+							<%= render :partial => "challenges/block", :locals => { :challenge => challenge, :index => index } %>
+						<% end %>
+					
+					<% end %>
+				<!-- </div> -->
+			</div>
+
 		</div>
+
+		<div class="col-right">
+		
+			<%= render :partial => "events/attendees", :locals => { :event => @gig }%>
+			
+			<% if @wishlist_complete.any? || @wishlist_incomplete.any? %>
+				<div id="wishlist" class="action line--top">
+					<% if @wishlist_incomplete.any?%>
+						<h2>What we need</h2>
+
+						<div class="wishlist-wrapper">
+						<% @wishlist_incomplete.each do |item| %>
+							<%= render :partial => "gigs/item_need", :locals => { :item => item, :chapter => @gig.chapter } %>
+						<% end %>
+						</div>
+					<% end %>
+				
+					<% if @wishlist_complete.any?%>
+						<h2>What we've got</h2>
+						<div class="wishlist-wrapper">		
+							<% @wishlist_complete.each do |item| %>
+								<%= render :partial => "gigs/item_got", :locals => { :item => item, :chapter => @gig.chapter } %>
+							<% end %>
+						</div>
+					<% end %>
+				</div>		
+			<% end %>
+
+		</div>
+
 	</div>
+
 	
 </section>
 
 <!-- <aside id="secondary_content"> -->
 
-	<div class="container">
-	
-		<%= render :partial => "events/attendees", :locals => { :event => @gig }%>
-		
-		<% if @wishlist_complete.any? || @wishlist_incomplete.any? %>
-		<div id="wishlist" class="action">
-			<% if @wishlist_incomplete.any?%>
-			<h2>What we need</h2>
+	<!-- <div class="container"> -->
 
-			<div class="wishlist-wrapper">
-			<% @wishlist_incomplete.each do |item| %>
-				<%= render :partial => "gigs/item_need", :locals => { :item => item, :chapter => @gig.chapter } %>
-			<% end %>
-			</div>
-			<% end %>
-		
-			<% if @wishlist_complete.any?%>
-			<h2>What we've got</h2>
-			<div class="wishlist-wrapper">		
-			<% @wishlist_complete.each do |item| %>
-				<%= render :partial => "gigs/item_got", :locals => { :item => item, :chapter => @gig.chapter } %>
-			<% end %>
-			</div>
-			<% end %>
-		</div>		
-		<% end %>
 
-	</div>
+	<!-- </div> -->
 	
 <!-- </aside> -->

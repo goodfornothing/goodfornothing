@@ -17,7 +17,8 @@
 }
 
 .event-header{
-	overflow: hidden;
+	/*overflow: hidden;*/
+	display: flex;
 }
 
 .event-info{
@@ -28,6 +29,7 @@
 	width:50%;
 	color:white;
 	background:#D0122D;
+	flex: 1;
 }
 
 .event-info h1{
@@ -37,19 +39,22 @@
 .event-image{
 	float:left;
 	width:50%;
-	position:relative;
+	flex: 1;
 }
 
 .event-image img{
 	display: block;
 	width:100%;
-	position: absolute;
 }
 
 .event-description{
 	background:white;
 	padding:60px 0;
 	color:#D0122D;
+}
+
+.event-main-description{
+	margin-bottom: 60px;
 }
 
 .event-description p{
@@ -59,4 +64,16 @@
 
 .event-info a{
 	color:#61514D;
+}
+
+.col-left{
+	width:60%;
+	margin-right: 5%;
+	float:left;
+}
+
+.col-right{
+	float:left;
+	margin-left:5%;
+	width:30%;
 }

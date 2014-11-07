@@ -44,7 +44,7 @@
 	<% elsif event.slots.count == 1 && event.slots.first.skill.nil? %>
 	
 		<% if event.slots.first.available_slots > 0 %>
-		<p class="cta"><%= link_to "I'm Coming!", attend_path(event.class.to_s.tableize, event, :slot => event.slots.first) %></p>
+		<p><%= link_to "Are you attending?", attend_path(event.class.to_s.tableize, event, :slot => event.slots.first), {:class => 'button button--primary'} %></p>
 		<% else %>
 		<h2>Oh no, we're full!</h2>
 		<p>It looks like there are no tickets left, but don't worry, we'll make space available if anyone drops out, check again later!</p>

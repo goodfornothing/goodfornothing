@@ -57,7 +57,8 @@
 					elsif result.is_a?(Gig) 
 					@path = gig_path(result)
 				end %>
-				<a href="<%=@path%>"><img class="cover" src="http://lorempixel.com/350/350/" /></a>
+				<!-- <a href="<%=@path%>"><img class="cover" src="http://lorempixel.com/350/350/" /></a> -->
+				<a href="<%=@path%>"><%=image_tag("illustrations/bird-tile.jpg", {:class => 'cover'})%></a>
 				<div class="details">
 					<p class="type">
 						<%=@result_type%>

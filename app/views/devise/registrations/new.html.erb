@@ -19,9 +19,19 @@
 			<fieldset class="slide involvement">
 			
 				<legend>How do you like to get stuff done?</legend>
-				<% if @skills.any? %>
+
+					<!-- <div class="skills-badges"> -->
+					<div class="input check_boxes optional border_splodges">
+						<label class="checkbox js"><input class="check_boxes optional" type="checkbox" value="1">Code</label>
+						<label class="checkbox js"><input class="check_boxes optional" type="checkbox" value="1">Design</label>
+						<label class="checkbox js"><input class="check_boxes optional" type="checkbox" value="1">Teach</label>
+						<label class="checkbox js"><input class="check_boxes optional" type="checkbox" value="1">DIY</label>
+						<label class="checkbox js"><input class="check_boxes optional" type="checkbox" value="1">Research</label>
+					</div>
+
+ 				<% if @skills.any? %>
 					
-					<div>
+					<!-- <div>
 					<% @skills.each do |skill| %>
 					<ul class="range_slider">
 						<li class="skill"><%= f.label skill.title %></li>
@@ -31,7 +41,7 @@
 						<li class="limit"><%= skill.upper %></li>
 					</ul>
 					<% end %>
-					</div>
+					</div> -->
 				
 				<% end %>
 								

@@ -1,6 +1,6 @@
 <% if event.attendees.any? %>
 
-	<div class="line--top">
+	<div>
 		<% if (event.start_time.past? && event.end_time.nil?) || (event.end_time.present? && event.end_time.past?) %>
 		<h2>Who was there?</h2>
 		<% else %>

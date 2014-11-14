@@ -6,7 +6,9 @@
 		<div class="event-header">
 
 			<div class="event-image" >
-				<img src="/assets/photos/gig-placeholder-2.jpg" alt="" width='50%'>
+				<% if @gig.logo?%>
+					<%=image_tag(@gig.logo)%>
+				<% end %>
 			</div>
 	
 			<div class="event-info">
@@ -128,9 +130,7 @@
 		</div>
 
 		<div class="col-right">
-		
-			<%= render :partial => "events/attendees", :locals => { :event => @gig }%>
-			
+					
 			<% if @wishlist_complete.any? || @wishlist_incomplete.any? %>
 				<div id="wishlist" class="action line--top">
 					<% if @wishlist_incomplete.any?%>
@@ -153,6 +153,8 @@
 					<% end %>
 				</div>		
 			<% end %>
+
+			<%= render :partial => "events/attendees", :locals => { :event => @gig }%>
 
 		</div>
 

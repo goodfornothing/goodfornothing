@@ -10,29 +10,46 @@
 	</p>
 	
 	<div class="homepage-stats">
-		<div class="block" id="red">
+		<div class="block block--red">
 			<div class="image"></div>			
 			<div class="inner">
 				<span class="large-number">
 				<%= @venture_count %>
 				</span>
-				<span class="small-text">
-				Amazing Causes
-				</span>
+				<%= link_to("Amazing Causes", {:controller => "ventures", :action => "index" }, :class => "small-text") %>
 			</div>
 		</div>
 	
-		<div class="block" id="blue">
+		<div class="block block--blue">
 			<div class="image"></div>
 			<div class="inner">			
 				<span class="large-number">
 					<%=@member_count %>
 				</span>
+				<%= link_to("Talented To-Doers", {:controller => "members", :action => "index" }, :class => "small-text") %>
+			</div>
+		</div>
+
+		<div class="block block--red">
+			<div class="inner">
+				<span class="large-number">
+				<%= @chapter_count %>
+				</span>
+				<%= link_to "Chapters", chapter_register_path, :class => "small-text" %>
+			</div>
+		</div>
+
+		<div class="block block--blue">
+			<div class="inner">			
+				<span class="large-number">
+					<%=@event_count %>
+				</span>
 				<span class="small-text">
-					Talented To-Doers
+					<%= link_to "Gigs & Socials", calendar_path, :class => "small-text" %>
 				</span>
 			</div>
 		</div>
+
 	</div>
 
 </div>

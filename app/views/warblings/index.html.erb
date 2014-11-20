@@ -6,21 +6,7 @@
 		<p>Warblings are community driven streams of consciousness around topics that matter &ndash; thoughts, ponderances and snippets from the web.</p>
 	
 	</div>
-	
-	<% if @warblers.any? %>
-	<div id="warblers">
-		<div class="container">
-			<h2>Introducing&hellip; the warblers</h2>
-			<ul class="avatar_list">
-				<% @warblers.each do |warbler| %>
-					<%= render :partial => "members/avatar", :locals => { :member => warbler }%>
-				<% end %>
-			</ul>
-			<%= link_to "Join them!", "mailto:hello@goodfornothing.com?subject=I'd like to be a warbler!", :class => "join" %>
-		</div>
-	</div>
-	<% end %>
-	
+		
 	<div class="container">
 		
 		<% if @issues.any? %>
@@ -85,5 +71,19 @@
 		<% end %>
 		
 	</div>
+
+	<% if @warblers.any? %>
+	<div id="warblers">
+		<div class="container">
+			<h2>Introducing&hellip; the warblers</h2>
+			<ul class="avatar_list">
+				<% @warblers.each do |warbler| %>
+					<%= render :partial => "members/avatar", :locals => { :member => warbler }%>
+				<% end %>
+			</ul>
+			<%= link_to "Join them!", "mailto:hello@goodfornothing.com?subject=I'd like to be a warbler!", :class => "join" %>
+		</div>
+	</div>
+	<% end %>
 			
 </section>

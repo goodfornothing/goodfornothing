@@ -229,7 +229,7 @@ $(document).ready(function(){
 	$(".js-slideshow").width(100 * slideCount + "%");
 	
 	$(".js-slideshow-pagination").click(function(e){
-		index = $(this).index();
+		index = $(this).index(".js-slideshow-pagination");
 		advanceSlideshow(index);	
 	})
 
@@ -238,6 +238,21 @@ $(document).ready(function(){
 		$(".js-slideshow-pagination").eq(index).addClass("active");
 		$(".js-slideshow").css("left", (-100 * index) + "%");
 	}
+
+	$(".js-arrow-right").click(function(){
+		index = (index+1)%slideCount;
+		advanceSlideshow(index);
+	});
+
+	$(".js-arrow-left").click(function(){
+		console.log((".js-slideshow-pagination").length)
+		index--;
+		if (index < 0){
+			index = -1 + slideCount;
+			console.log(index);
+		}
+		advanceSlideshow(index);
+	});
 
 	//Uncomment to autoplay
 	// window.setInterval(function(){

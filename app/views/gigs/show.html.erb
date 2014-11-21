@@ -2,74 +2,70 @@
 	
 	<article class="event">
 
-		<!-- <div class="event-header" style='background-image: url("/assets/photos/gig-placeholder.jpg")'> -->
-		<div class="event-header">
-
-			<div class="event-image" >
-				<img src="/assets/photos/gig-placeholder-2.jpg" alt="" width='50%'>
-				<% #if @gig.logo?%>
-					<%#=image_tag(@gig.logo)%>
-				<% #end %>
-			</div>
-	
-			<div class="event-info">
-				<h1><%= @gig.title %></h1>
+		<table class="event-header">
+			<tr>
+				<td style='background-image: url("/assets/photos/gig-placeholder.jpg");background-position:center;background-size:cover;'></td>
+				<td class="event-info">
+					<h1><%= @gig.title %></h1>
 				
-				<div class="abstract">
-					<% if @gig.start_time && @gig.end_time %><p class="meta"><%= @gig.start_time.to_formatted_s(:long_ordinal) %> &rarr; <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time><% end %>
-					<!-- <p class="meta"><span>Who?</span> Organised by the 
-						
-					<a href="/chapters/<%= @gig.chapter.slug%>"><%= @gig.chapter.title%> crew</a><%= " in partnership with #{link_to @gig.partner.name, @gig.partner.url}".html_safe unless @gig.partner.nil? %></p> -->
-					<% if @gig.location? %>
-						<p class="meta">
-							Venue<br />
-							<%=@gig.location%><br />
-							<%= link_to "View map", "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.title}" %>
-						</p>
-					
-					
-					<% if @gig.start_time || @gig.end_time %>	
-					<div class="meta">
-						<div class="addthisevent">
-							<div class="desc">
-								<p>
-									Add to Calendar
-								</p>
-							</div>
-							<% if @gig.start_time %>	
-							<span class="_start"><%= @gig.start_time.to_formatted_s(:ical)%></span>
-							<% end%>
-							<% if @gig.end_time%>
-							<span class="_end"><%= @gig.end_time.to_formatted_s(:ical)%></span>
-							<% end%>
-							<span class="_zonecode">35</span>
-							<span class="_summary">Good For Nothing: <%= @gig.title %></span>
-							<span class="_description"><%= @gig.title %></span>
-							<span class="_location"><%=@gig.location%></span>
-							<span class="_organizer"><%= @gig.chapter.title%> crew<</span>
-							<span class="_all_day_event">false</span>
-							<span class="_date_format">DD-MM-YYYY</span>
-						</div>
-					</div>
-					<script type="text/javascript" src="http://js.addthisevent.com/atemay.js"></script>
-					
-					<script type="text/javascript">
-					addthisevent.settings({
-						mouse		: false,
-						css			: false,
-						outlook		: {show:true, text:"Outlook Calendar"},
-						google		: {show:true, text:"Google Calendar"},
-						yahoo		: {show:true, text:"Yahoo Calendar"},
-						ical		: {show:true, text:"iCal Calendar"},
-						hotmail		: {show:true, text:"Hotmail Calendar"}
-					});
-					</script>
-					<% end %>
-					<% end %>
-				</div>
-			</div>
+					<div class="abstract">
+						<% if @gig.start_time && @gig.end_time %><p class="meta"><%= @gig.start_time.to_formatted_s(:long_ordinal) %> &rarr; <%= @gig.end_time.to_formatted_s(:long_ordinal) %></time><% end %>
+						<!-- <p class="meta"><span>Who?</span> Organised by the 
+							
+						<a href="/chapters/<%= @gig.chapter.slug%>"><%= @gig.chapter.title%> crew</a><%= " in partnership with #{link_to @gig.partner.name, @gig.partner.url}".html_safe unless @gig.partner.nil? %></p> -->
+						<% if @gig.location? %>
+							<p class="meta">
+								Venue<br />
+								<%=@gig.location%><br />
+								<%= link_to "View map", "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.title}" %>
+							</p>
+						<% end %>
 
-		</div>
+					
+					
+						<% if @gig.start_time || @gig.end_time %>	
+							<div class="meta">
+								<div class="addthisevent">
+									<div class="desc">
+										<p>
+											Add to Calendar
+										</p>
+									</div>
+									<% if @gig.start_time %>	
+									<span class="_start"><%= @gig.start_time.to_formatted_s(:ical)%></span>
+									<% end%>
+									<% if @gig.end_time%>
+									<span class="_end"><%= @gig.end_time.to_formatted_s(:ical)%></span>
+									<% end%>
+									<span class="_zonecode">35</span>
+									<span class="_summary">Good For Nothing: <%= @gig.title %></span>
+									<span class="_description"><%= @gig.title %></span>
+									<span class="_location"><%=@gig.location%></span>
+									<span class="_organizer"><%= @gig.chapter.title%> crew<</span>
+									<span class="_all_day_event">false</span>
+									<span class="_date_format">DD-MM-YYYY</span>
+								</div>
+							</div>
+							<script type="text/javascript" src="http://js.addthisevent.com/atemay.js"></script>
+							
+							<script type="text/javascript">
+							addthisevent.settings({
+								mouse		: false,
+								css			: false,
+								outlook		: {show:true, text:"Outlook Calendar"},
+								google		: {show:true, text:"Google Calendar"},
+								yahoo		: {show:true, text:"Yahoo Calendar"},
+								ical		: {show:true, text:"iCal Calendar"},
+								hotmail		: {show:true, text:"Hotmail Calendar"}
+							});
+							</script>
+						<% end %>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+
 
 		<div class="event-description">
 			<div class="container">
@@ -127,6 +123,19 @@
 					<% end %>
 				<!-- </div> -->
 			</div>
+
+			<% if @gig.friends.any? %>
+				<div id="friends" class="line--top">
+					<h2>Thank you to our Friends</h2>
+					<div>
+						<ul>
+							<% @gig.friends.each do |friend| %>
+								<li><%=link_to friend.name, friend.url %></li>
+							<% end %>
+						</ul>
+					</div>
+				</div>
+			<% end %>
 
 		</div>
 

@@ -82,9 +82,8 @@
 				<div class="col-right">
 					<h3>Quick Links</h3>
 					<ul>
-						<li><a href="#">GFN Birmingham Page</a></li>
-						<li><a href="#">Email Chapter</a></li>
-						<li><a href="#">Another helpful link</a></li>
+						<li><%= link_to("GFN " + @gig.chapter.title + " Page", {:controller => 'chapters', :action => 'show', :id => @gig.chapter.slug })%></li>
+						<li><%= link_to("Email Chapter", message_chapter_messaging_messages_path(@gig.chapter))%></li>
 					</ul>
 				</div>
 			</div>

@@ -245,11 +245,9 @@ $(document).ready(function(){
 	});
 
 	$(".js-arrow-left").click(function(){
-		console.log((".js-slideshow-pagination").length)
 		index--;
 		if (index < 0){
 			index = -1 + slideCount;
-			console.log(index);
 		}
 		advanceSlideshow(index);
 	});
@@ -259,6 +257,103 @@ $(document).ready(function(){
 	// 	index++;
 	// 	advanceSlideshow(index % slideCount);
 	// }, 10000);
+
+
+
+	//Google map
+	if ($("#js-map").length){
+		(function(){
+			var map;
+			var markers = [];
+			var infoBoxes = [];
+			var locations = [
+				{
+					title: "",
+					desc: "Manchester",
+					lat: 53.482035,
+					lng: -2.234324
+				},
+				{
+					title: "",
+					desc: "Cape Town",
+					lat: -33.925278,
+					lng: 18.423889
+				},
+				{
+					title: "",
+					desc: "Phnom Penh",
+					lat: 11.55,
+					lng: 104.916667
+				}
+			];
+
+			// Google Map
+			function initializeMap() {
+				var settings = {
+					zoom: 2,
+					minZoom:2,
+					maxZoom:7,
+					center: new google.maps.LatLng(20,0),
+					scrollwheel: true,
+					navigationControl: false,
+					scaleControl: false,
+					streetViewControl: false,
+					draggable: true,
+					scrollwheel: false, 
+					mapTypeControl: false,
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					panControl: false
+
+				};
+
+				map = new google.maps.Map(document.getElementById('js-map'), settings);
+			
+				var map_styles = [
+				  {
+				    featureType: "all",
+				    stylers: [
+				      { saturation: -100 }
+				    ]
+				  }
+				];
+				
+				map.setOptions({styles: map_styles});
+				
+			}
+
+			function setupListener(infoBubble,marker){
+				google.maps.event.addListener(marker, 'click', function() {
+				  infoBubble.open(map,marker);
+				});
+			}
+
+			initializeMap();
+
+			for (var i = 0 ; i < locations.length ; i++){
+
+				markers.push(new google.maps.Marker({
+					map: map,
+					position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+					title: locations[i].desc
+				}));
+
+				infoBoxes.push(new InfoBox({
+				     closeBoxURL: "/assets/assets/close-button.png",
+				     closeBoxMargin: "5px",
+				     pixelOffset: new google.maps.Size(-50, 0),
+				     boxStyle: { 
+	     				width: "100px",
+	     				"font-size":"16px",
+	     				background:"white"
+				     },
+				     content: "<div style='padding:10px;'>"+locations[i].desc+"</div>"
+				 }));
+
+				setupListener(infoBoxes[i],markers[i])
+
+			}
+		})();
+	}
 });
 
 function scrollToElement(element) {

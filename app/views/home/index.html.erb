@@ -57,55 +57,83 @@
 	
 <div role="main" class="homepage-new">
 	<div class="container">
-	<h1>What's Happening</h1>
+		<h1>What's Coming Up</h1>
 
-	<section id="latest_activity">
+		<section id="latest_activity">
+			
+			<% @results.each do |result| %>
+				<div class="card">
+					<% if result.is_a?(Social) 
+						@result_type = "Social"
+						elsif result.is_a?(Gig) 
+						@result_type = "Gig"
+					end %>
+					
+					<% if result.is_a?(Social) 
+						@path = social_path(result)
+						elsif result.is_a?(Gig) 
+						@path = gig_path(result)
+					end %>
+
+					<a href="<%=@path%>"><%=image_tag("illustrations/bird-tile.jpg", {:class => 'cover'})%></a>
+					<!--<a href="<%=@path%>"><%#=image_tag(result.logo.url(:thumbnail))%></a>-->
+					
+					<div class="details">
+						<p class="type">
+							<%=@result_type%>
+						</span>
+						<p class="chapter"><%=result.chapter.title%></span>
+						<h2>
+							<% if result.is_a?(Social) %>
+								<%= link_to result.title, social_path(result) %>
+							<% end %>
+							<% if result.is_a?(Gig) %>
+								<%= link_to result.title, gig_path(result) %>
+							<% end %>
+						</h2>
+					</div>
+					<div class="card-button">
+						<p>
+							<% if result.is_a?(Social) %>
+								<%= link_to "Find out more", social_path(result) %>
+							<% end %>
+							<% if result.is_a?(Gig) %>
+								<%= link_to "Find out more", gig_path(result) %>
+							<% end %>
+						</p>
+					</div>
+				</div>
+			<% end %>		
+		</section>
 		
-		<% @results.each do |result| %>
-			<div class="card">
-				<% if result.is_a?(Social) 
-					@result_type = "Social"
-					elsif result.is_a?(Gig) 
-					@result_type = "Gig"
-				end %>
-				
-				<% if result.is_a?(Social) 
-					@path = social_path(result)
-					elsif result.is_a?(Gig) 
-					@path = gig_path(result)
-				end %>
+		<div><p class="cta" id="more"><%= link_to "See more events", calendar_path %></p></div>
+	</div>
+</div>
 
-				<a href="<%=@path%>"><%=image_tag("illustrations/bird-tile.jpg", {:class => 'cover'})%></a>
-				<!--<a href="<%=@path%>"><%#=image_tag(result.logo.url(:thumbnail))%></a>-->
+<div>
+	<div class="container homepage--lower">
+		<section id="latest_activity" class="panel">
 				
-				<div class="details">
-					<p class="type">
-						<%=@result_type%>
-					</span>
-					<p class="chapter"><%=result.chapter.title%></span>
-					<h2>
-						<% if result.is_a?(Social) %>
-							<%= link_to result.title, social_path(result) %>
+				<h2>Previously on GFN:</h2>
+			
+				<% if @last_gig.present? || @social.present? %>
+					<div class="event_panel">
+						<% if @last_gig.present? %>
+							<h3><%= link_to @last_gig.name, gig_path(@last_gig) %></h3>
+							<p><%= @last_gig.title %> on the <%= @last_gig.start_time.day.ordinalize %> to the <%= @last_gig.end_time.day.ordinalize %> of <%= @last_gig.start_time.strftime('%B') %> in <%= @last_gig.chapter.title %></p>
 						<% end %>
-						<% if result.is_a?(Gig) %>
-							<%= link_to result.title, gig_path(result) %>
-						<% end %>
-					</h2>
-				</div>
-				<div class="card-button">
-					<p>
-						<% if result.is_a?(Social) %>
-							<%= link_to "Find out more", social_path(result) %>
-						<% end %>
-						<% if result.is_a?(Gig) %>
-							<%= link_to "Find out more", gig_path(result) %>
-						<% end %>
-					</p>
-				</div>
-			</div>
-		<% end %>		
-	</section>
-	
-	<div><p class="cta" id="more"><%= link_to "See more events", calendar_path %></p></div>
+					</div>
+				<% end %>
+				
+				<!--<p class="cta"><%= link_to "GFN Calendar", calendar_path %></p>-->
+				
+		</section>
+
+		<section id="updates" class="panel">
+				<% if @latest_post.present? %>
+					<h2>Latest warblings</h2>
+					<%= render :partial => "posts/block", :locals => { :post => @latest_post } %>
+				<% end %>
+		</section>
 	</div>
 </div>

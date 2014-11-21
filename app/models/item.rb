@@ -8,7 +8,7 @@ class Item < ActiveRecord::Base
   
   def default_values
     self[:complete] ||= 0
-    self[:ask_email] ||= 1
+    self[:ask_email] ||= 0
   end
   
 end

@@ -15,7 +15,7 @@ class GigImageUploader < CarrierWave::Uploader::Base
   end
   
   version :panel do 
-    process :resize_to_fill => [260,174] 
+    process :resize_to_fill => [300,300] 
   end
 
   def extension_white_list

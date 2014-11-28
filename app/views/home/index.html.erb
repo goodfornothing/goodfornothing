@@ -10,8 +10,11 @@
 	</p>
 	
 	<div class="homepage-stats">
+
+		<%= image_tag "/assets/illustrations/peering-over.png", {:class => 'peering-over'} %>
+		<%= image_tag "/assets/illustrations/teacup.png", {:class => 'teacup'} %>
+
 		<div class="block block--red">
-			<div class="image"></div>			
 			<div class="inner">
 				<span class="large-number">
 				<%= @venture_count %>
@@ -21,7 +24,6 @@
 		</div>
 	
 		<div class="block block--blue">
-			<div class="image"></div>
 			<div class="inner">			
 				<span class="large-number">
 					<%=@member_count %>

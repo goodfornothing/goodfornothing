@@ -267,25 +267,40 @@ $(document).ready(function(){
 			var markers = [];
 			var infoBoxes = [];
 			var locations = [
-				{
-					title: "",
-					desc: "Manchester",
-					lat: 53.482035,
-					lng: -2.234324
-				},
-				{
-					title: "",
-					desc: "Cape Town",
-					lat: -33.925278,
-					lng: 18.423889
-				},
-				{
-					title: "",
-					desc: "Phnom Penh",
-					lat: 11.55,
-					lng: 104.916667
-				}
-			];
+				{title:"London", lat: 51.507351, lng: -0.127758},
+				{title:"Bristol", lat: 51.454513, lng: -2.587910},
+				{title:"Brighton", lat: 50.822530, lng: -0.137163},
+				{title:"Manchester", lat: 53.480759, lng: -2.242631},
+				{title:"Wellington", lat: -41.286460, lng: 174.776236},
+				{title:"Phnom Penh", lat: 11.544873, lng: 104.892167},
+				{title:"Cape Town", lat: -33.924869, lng: 18.424055},
+				{title:"Singapore", lat: 1.352083, lng: 103.819836},
+				{title:"Nottingham", lat: 52.954783, lng: -1.158109},
+				{title:"Cornwall", lat: 50.503630, lng: -4.652498},
+				{title:"Birmingham", lat: 52.486243, lng: -1.890401},
+				{title:"Portsmouth", lat: 50.816667, lng: -1.083333},
+				{title:"London Camden", lat: 51.551706, lng: -0.158826},
+				{title:"Chester", lat: 53.193392, lng: -2.893075},
+				{title:"Cardiff", lat: 51.481581, lng: -3.17909},
+				{title:"Cambridge", lat: 52.204267, lng: 0.114908},
+				{title:"Colchester", lat: 51.895927, lng: 0.891874},
+				{title:"London East", lat: 51.561948, lng: -0.013139},
+				{title:"Derby", lat: 52.922530, lng: -1.474619},
+				{title:"Leeds", lat: 53.800755, lng: -1.549077},
+				{title:"Doncaster", lat: 53.522820, lng: -1.128462},
+				{title:"Rotterdam", lat: 51.924420, lng: 4.477733},
+				{title:"Edinburgh", lat: 55.953252, lng: -3.188267},
+				{title:"Reading", lat: 51.454265, lng: -0.97813},
+				{title:"Stockholm", lat: 59.329323, lng: 18.068581},
+				{title:"Perth", lat: -31.953513, lng: 115.857047},
+				{title:"Sydney", lat: -33.867487, lng: 151.20699},
+				{title:"Glasgow", lat: 55.864237, lng: -4.251806},
+				{title:"Ipswich", lat: 52.056736, lng: 1.14822},
+				{title:"Liverpool", lat: 53.408371, lng: -2.991573},
+				{title:"Victoria", lat: 48.428421, lng: -123.365644},
+				{title:"Leicester", lat: 52.636878, lng: -1.139759},
+				{title:"Montreal", lat: 45.501689, lng: -73.567256}
+			]
 
 			// Google Map
 			function initializeMap() {
@@ -297,8 +312,9 @@ $(document).ready(function(){
 					scrollwheel: true,
 					navigationControl: false,
 					scaleControl: false,
+					zoomControl: false,
 					streetViewControl: false,
-					draggable: true,
+					draggable: false,
 					scrollwheel: false, 
 					mapTypeControl: false,
 					mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -334,22 +350,7 @@ $(document).ready(function(){
 				markers.push(new google.maps.Marker({
 					map: map,
 					position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-					title: locations[i].desc
 				}));
-
-				infoBoxes.push(new InfoBox({
-				     closeBoxURL: "/assets/assets/close-button.png",
-				     closeBoxMargin: "5px",
-				     pixelOffset: new google.maps.Size(-50, 0),
-				     boxStyle: { 
-	     				width: "100px",
-	     				"font-size":"16px",
-	     				background:"white"
-				     },
-				     content: "<div style='padding:10px;'>"+locations[i].desc+"</div>"
-				 }));
-
-				setupListener(infoBoxes[i],markers[i])
 
 			}
 		})();

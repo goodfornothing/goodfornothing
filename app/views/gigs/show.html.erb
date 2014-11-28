@@ -4,7 +4,7 @@
 
 		<table class="event-header">
 			<tr>
-				<td style='background-image: url("/assets/photos/gig-placeholder.jpg");background-position:center;background-size:cover;'></td>
+				<td class="gig-photo" style='background-image: url("<%=@gig.image%>");'></td>
 				<td class="event-info">
 					<h1><%= @gig.title %></h1>
 				
@@ -84,6 +84,7 @@
 					<ul>
 						<li><%= link_to("GFN " + @gig.chapter.title + " Page", {:controller => 'chapters', :action => 'show', :id => @gig.chapter.slug })%></li>
 						<li><%= link_to("Email Chapter", message_chapter_messaging_messages_path(@gig.chapter))%></li>
+						<% if @gig.poster.present? %><li><a href="<%=@gig.poster%>">Gig poster</a></li><% end %>
 					</ul>
 				</div>
 			</div>

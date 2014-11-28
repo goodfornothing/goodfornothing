@@ -51,6 +51,12 @@ ActiveAdmin.register Gig do
   end
   
   form :html => { :enctype => "multipart/form-data" } do |f|
+
+    f.inputs "Image and Poster" do 
+      f.input :image, :hint => f.object.image.present? ? f.template.image_tag(f.object.image.url(:thumbnail)) : f.template.content_tag(:span, "No image yet")
+      f.input :poster, :hint => f.object.poster.present? ? f.template.content_tag(:span, f.object.poster) : f.template.content_tag(:span, "No poster yet")
+
+    end
     
     f.inputs "Who?" do 
       if current_user.role == "admin"

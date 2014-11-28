@@ -2,7 +2,7 @@ class Gig < ActiveRecord::Base
   
 	acts_as_event
 	
-  attr_accessible :partner_id, :friend_ids, :logo
+  attr_accessible :partner_id, :friend_ids, :poster, :image
 
 	# for activity history
 	alias_attribute :audited_at, :start_time
@@ -15,6 +15,7 @@ class Gig < ActiveRecord::Base
 		
 	validates_presence_of :description
 	
-	mount_uploader :logo, ArticleImageUploader
+	mount_uploader :image, GigImageUploader
+	mount_uploader :poster, GigPosterUploader
   	
 end

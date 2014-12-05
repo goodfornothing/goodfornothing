@@ -139,9 +139,6 @@ GEM
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (2.0.2)
-      jquery-rails
-      railties (>= 3.1.0)
     json (1.8.1)
     just-datetime-picker (0.0.5)
       activeadmin (>= 0.4.4)
@@ -298,8 +295,7 @@ DEPENDENCIES
   friendly_id (~> 4.0.1)
   garb
   gibbon
-  jquery-rails
-  jquery-ui-rails
+  jquery-rails (< 3.0.0)
   json (~> 1.8.1)
   just-datetime-picker
   mail

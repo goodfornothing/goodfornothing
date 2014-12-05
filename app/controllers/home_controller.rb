@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 	  @event_count = Social.count + Gig.count
 	  @chapter_count = Chapter.count
 	  
-	  @latest_post = Post.published.order("created_at DESC").first    
+	  @latest_posts = Post.published.order("created_at DESC").take(3)    
 	  @social = Social.where('start_time > ?',Time.now).order("start_time ASC").take(6)
 	  @gig = Gig.where('end_time > ?',Time.now).order("start_time ASC").take(6)
 

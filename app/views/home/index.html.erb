@@ -119,27 +119,13 @@
 
 <div>
 	<div class="container homepage--lower">
-		<section id="latest_activity" class="panel">
-				
-				<h2>Previously on GFN:</h2>
-			
-				<% if @last_gig.present? || @social.present? %>
-					<div class="event_panel">
-						<% if @last_gig.present? %>
-							<h3><%= link_to @last_gig.name, gig_path(@last_gig) %></h3>
-							<p><%= @last_gig.title %> on the <%= @last_gig.start_time.day.ordinalize %> to the <%= @last_gig.end_time.day.ordinalize %> of <%= @last_gig.start_time.strftime('%B') %> in <%= @last_gig.chapter.title %></p>
-						<% end %>
-					</div>
-				<% end %>
-				
-				<!--<p class="cta"><%= link_to "GFN Calendar", calendar_path %></p>-->
-				
-		</section>
-
 		<section id="updates" class="panel">
-				<% if @latest_post.present? %>
 					<h2>Latest warblings</h2>
-					<%= render :partial => "posts/block", :locals => { :post => @latest_post } %>
+					<% if @latest_posts.present? %>
+					<% @latest_posts.each do |result| %>
+						<%#=result.inspect %>
+						<%= render :partial => "posts/block", :locals => { :post => result } %>
+					<% end %>
 				<% end %>
 		</section>
 	</div>

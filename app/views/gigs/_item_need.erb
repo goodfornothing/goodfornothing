@@ -11,6 +11,7 @@
 		<%= form_tag charges_path do %>	
 			<input type="hidden" name="itemAmount" value="<%=number_to_currency(item.payment_value, unit: "£", separator: "", delimiter: "", format: "%n")%>" />
 			<input type="hidden" name="itemDescription" value="<%=item.name%> for GFN <%=chapter.title%>" />
+			<input type="hidden" name='gigID' value='<%= @gig.id%>' />
 			<strong>
 				<% if item.ask_email?%> or <% end %>
 			</strong>

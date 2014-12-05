@@ -23,8 +23,8 @@ class AdminMailer < ActionMailer::Base
     mail(:to => "hello@goodfornothing.com", :subject => "Someone's published a new Trill")
   end
   
-  def new_payment
-    mail(:to => "hello@goodfornothing.com", :subject => "Someone's made a payment")    
+  def made_payment
+    mail(:subject => "Someone's made a payment")    
   end
 
 end

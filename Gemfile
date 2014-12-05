@@ -14,6 +14,7 @@ gem 'mini_magick','~> 3.3'
 
 gem 'tzinfo'
 gem "jquery-rails", "< 3.0.0"
+gem 'jquery-ui-rails'
 gem 'country-select'
 
 gem 'activeadmin', '~> 0.5.0'

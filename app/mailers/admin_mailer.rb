@@ -1,7 +1,7 @@
 class AdminMailer < ActionMailer::Base
   
   default from: "GFN Hive Mind <crew@goodfornothing.com>",
-          to: (Rails.env.production?) ? "hello@goodfornothing.com" : "andrew@goodfornothing.com"
+          to: (Rails.env.production?) ? "hello@goodfornothing.com" : "ed@madebyfieldwork.com"
   
   def new_user(user)
     @user = user

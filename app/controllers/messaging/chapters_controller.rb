@@ -21,7 +21,7 @@ class Messaging::ChaptersController < ApplicationController
 		end
 		
 		if @submission.save
-			recipients = (Rails.env.production?) ? Chapter.find_by_title('London').users.crew : [User.find_by_email("andrew@goodfornothing.com")]
+			recipients = (Rails.env.production?) ? Chapter.find_by_title('London').users.crew : [User.find_by_email("ed@madebyfieldwork.com")]
 			@submission.message.users << recipients
 			if @submission.message.recipients.any?
 				MessageMailer.chapter_submission(@submission.message).deliver

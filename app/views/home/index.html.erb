@@ -92,10 +92,10 @@
 						<p class="chapter"><%=result.chapter.title%></span>
 						<h2>
 							<% if result.is_a?(Social) %>
-								<%= link_to result.title, social_path(result) %>
+								<%= link_to truncate(result.title, length: 40), social_path(result) %>
 							<% end %>
 							<% if result.is_a?(Gig) %>
-								<%= link_to result.title, gig_path(result) %>
+								<%= link_to truncate(result.title, length: 40), gig_path(result) %>
 							<% end %>
 						</h2>
 					</div>

@@ -14,6 +14,7 @@ gem 'mini_magick','~> 3.3'
 
 gem 'tzinfo'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'country-select'
 
 gem 'activeadmin', '~> 0.5.0'
@@ -50,7 +51,6 @@ gem 'ey_config'
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'
-	gem 'jquery-ui-rails'
 end
 
 group :test do

@@ -2,7 +2,7 @@ class Gig < ActiveRecord::Base
   
 	acts_as_event
 	
-  attr_accessible :partner_id, :friend_ids, :poster, :image
+  attr_accessible :partner_id, :friend_ids, :poster, :image, :intro
 
 	# for activity history
 	alias_attribute :audited_at, :start_time

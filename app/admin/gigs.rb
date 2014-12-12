@@ -75,6 +75,9 @@ ActiveAdmin.register Gig do
       f.input :title
       f.input :location, :hint => "Enter the street address of your venue, you don't need to include a city or country"
     end
+    f.inputs "Introduction" do
+      f.input :intro
+    end
     f.inputs "Details" do
       if gig.new_record? || gig.description.is_json?
         f.sir_trevor_text_area :description

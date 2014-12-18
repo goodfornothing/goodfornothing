@@ -78,11 +78,11 @@
 					end %>
 
 					<a href="<%=@path%>">
-						<% if result.image.present? %>
-							<%=image_tag(result.image.url(:panel), {:class => 'cover'}) %>
-						<% else %>
+						<% #if result.image.present? %>
+							<%#=image_tag(result.image.url(:panel), {:class => 'cover'}) %>
+						<% #else %>
 							<%=image_tag("illustrations/bird-tile.jpg", {:class => 'cover'})%>
-						<% end %>
+						<% #end %>
 					</a>
 					
 					<div class="details">

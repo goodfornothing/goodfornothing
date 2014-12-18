@@ -2,7 +2,7 @@
 	
 	<article class="event">
 
-		<table class="event-header">
+		<table class="event-header <%= @gig.image? ? '' : 'event-header--no-photo'%>">
 			<tr>
 				<td class="gig-photo" <% if @gig.image? %>style='background-image: url("<%=@gig.image%>");'><% end %></td>
 				<td class="event-info">

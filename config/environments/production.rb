@@ -27,7 +27,7 @@ Goodfornothing::Application.configure do
   config.middleware.use ExceptionNotifier,
     :email_prefix => "Good for Nothing Application Error",
     :sender_address => %{"GFN Hive Mind" <hello@goodfornothing.com>},
-    :exception_recipients => %w{tom@devart.org}
+    :exception_recipients => %w{ed@madebyfieldwork.com}
     
     
   config.assets.precompile += %w[active_admin/print.css active_admin.css active_admin.js]

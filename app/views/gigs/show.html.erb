@@ -4,7 +4,7 @@
 
 		<table class="event-header">
 			<tr>
-				<td class="gig-photo" style='background-image: url("<%=@gig.image%>");'></td>
+				<td class="gig-photo" <% if @gig.image? %>style='background-image: url("<%=@gig.image%>");'><% end %></td>
 				<td class="event-info">
 					<h1><%= @gig.title %></h1>
 				

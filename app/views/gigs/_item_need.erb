@@ -7,6 +7,7 @@
 	<% if item.ask_email?%>	
 		<p class="cta"><a href="mailto:<%=chapter.title%>@goodfornothing.com" class="button">Email us</a></p>
 	<% end%>
+	<% if false %>
 	<% if item.payment_value?%>	
 		<%= form_tag charges_path do %>	
 			<input type="hidden" name="itemAmount" value="<%=number_to_currency(item.payment_value, unit: "£", separator: "", delimiter: "", format: "%n")%>" />
@@ -26,4 +27,5 @@
 			</script>
 		<% end %>
 	<% end%>
+	<%end%>
 </div>

@@ -1,6 +1,6 @@
 <div class="challenge_panel">
 	
-	<h2><%= link_to((index+1).to_s + ". " + challenge.title, challenge_path(challenge)) %></h2>
+	<h2><%= link_to(challenge.title, challenge_path(challenge)) %></h2>
 	
 	<% if challenge.issues.any? %>
 		<% issue = challenge.issues.first %>

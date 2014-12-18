@@ -107,19 +107,15 @@
 				<% end %>
 			</div>
 				
-			<div id="challenges" class='line--top'>
-				<!-- <div class="container"> -->
+			<% if @gig.challenges.any? %>
+				<div id="challenges" class='line--top'>
 					<h2>The challenges</h2>
 
-					<% if @gig.challenges.any? %>
-
-						<% @gig.challenges.each_with_index do |challenge, index| %>
-							<%= render :partial => "challenges/block", :locals => { :challenge => challenge, :index => index } %>
-						<% end %>
-					
+					<% @gig.challenges.each_with_index do |challenge, index| %>
+						<%= render :partial => "challenges/block", :locals => { :challenge => challenge, :index => index } %>
 					<% end %>
-				<!-- </div> -->
-			</div>
+				</div>					
+			<% end %>
 
 			<% if @gig.friends.any? %>
 				<div id="friends" class="line--top">

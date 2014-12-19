@@ -81,7 +81,7 @@
 
 				<div class="col-right">
 					<h3>Quick Links</h3>
-					<ul>
+					<ul class="event-quick-links">
 						<li><%= link_to("GFN " + @gig.chapter.title + " Page", {:controller => 'chapters', :action => 'show', :id => @gig.chapter.slug })%></li>
 						<li><%= link_to("Email Chapter", message_chapter_messaging_messages_path(@gig.chapter))%></li>
 						<% if @gig.poster.present? %><li><a href="<%=@gig.poster%>">Gig poster</a></li><% end %>

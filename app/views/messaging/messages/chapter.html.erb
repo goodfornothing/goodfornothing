@@ -14,10 +14,8 @@
 		
 			<% unless user_signed_in? %>
 
-				<%= f.simple_fields_for :message do |m| %>
-					<%= m.input :name, :label => "Your name", :wrapper_html => { :class => "smart_label" } %>
-					<%= m.input :email, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
-				<% end %>
+				<%= f.input :name, :label => "Your name", :wrapper_html => { :class => "smart_label" } %>
+				<%= f.input :email, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
 
 			<% end %>
 			

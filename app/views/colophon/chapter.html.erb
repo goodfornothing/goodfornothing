@@ -18,7 +18,7 @@
 			<ul class="splodge_list">
 				<% @chapters.each do |chapter| %>
 				<li>
-					<%= link_to chapter.title, message_chapter_messaging_messages_path(chapter), :class => 'tip', :title => "Contact" %>
+					<%= link_to(chapter.title, {:controller => 'chapters', :action => 'show', :id => chapter.slug}, :class => 'tip', :title => "View" )%>
 				</li>
 				<% end %>
 			</ul>

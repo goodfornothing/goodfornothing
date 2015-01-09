@@ -262,65 +262,72 @@ $(document).ready(function(){
 
 	//Google map
 	if ($("#js-map").length){
+
 		(function(){
+			var chapterPage;
 			var map;
 			var markers = [];
 			var infoBoxes = [];
+			var settings = {
+				zoom: 2,
+				minZoom:2,
+				maxZoom:7,
+				center: new google.maps.LatLng(20,0),
+				scrollwheel: true,
+				streetViewControl: false,
+				scrollwheel: false, 
+			}
 			var locations = [
-				{title:"London", lat: 51.507351, lng: -0.127758},
-				{title:"Bristol", lat: 51.454513, lng: -2.587910},
-				{title:"Brighton", lat: 50.822530, lng: -0.137163},
-				{title:"Manchester", lat: 53.480759, lng: -2.242631},
-				{title:"Wellington", lat: -41.286460, lng: 174.776236},
-				{title:"Phnom Penh", lat: 11.544873, lng: 104.892167},
-				{title:"Cape Town", lat: -33.924869, lng: 18.424055},
-				{title:"Singapore", lat: 1.352083, lng: 103.819836},
-				{title:"Nottingham", lat: 52.954783, lng: -1.158109},
-				{title:"Cornwall", lat: 50.503630, lng: -4.652498},
-				{title:"Birmingham", lat: 52.486243, lng: -1.890401},
-				{title:"Portsmouth", lat: 50.816667, lng: -1.083333},
-				{title:"London Camden", lat: 51.551706, lng: -0.158826},
-				{title:"Chester", lat: 53.193392, lng: -2.893075},
-				{title:"Cardiff", lat: 51.481581, lng: -3.17909},
-				{title:"Cambridge", lat: 52.204267, lng: 0.114908},
-				{title:"Colchester", lat: 51.895927, lng: 0.891874},
-				{title:"London East", lat: 51.561948, lng: -0.013139},
-				{title:"Derby", lat: 52.922530, lng: -1.474619},
-				{title:"Leeds", lat: 53.800755, lng: -1.549077},
-				{title:"Doncaster", lat: 53.522820, lng: -1.128462},
-				{title:"Rotterdam", lat: 51.924420, lng: 4.477733},
-				{title:"Edinburgh", lat: 55.953252, lng: -3.188267},
-				{title:"Reading", lat: 51.454265, lng: -0.97813},
-				{title:"Stockholm", lat: 59.329323, lng: 18.068581},
-				{title:"Perth", lat: -31.953513, lng: 115.857047},
-				{title:"Sydney", lat: -33.867487, lng: 151.20699},
-				{title:"Glasgow", lat: 55.864237, lng: -4.251806},
-				{title:"Ipswich", lat: 52.056736, lng: 1.14822},
-				{title:"Liverpool", lat: 53.408371, lng: -2.991573},
-				{title:"Victoria", lat: 48.428421, lng: -123.365644},
-				{title:"Leicester", lat: 52.636878, lng: -1.139759},
-				{title:"Montreal", lat: 45.501689, lng: -73.567256}
+				{title:"London", slug:"london", lat: 51.507351, lng: -0.127758},
+				{title:"Bristol", slug:"bristol", lat: 51.454513, lng: -2.587910},
+				{title:"Brighton", slug:"brighton", lat: 50.822530, lng: -0.137163},
+				{title:"Manchester", slug:"manchester", lat: 53.480759, lng: -2.242631},
+				{title:"Wellington", slug:"wellington", lat: -41.286460, lng: 174.776236},
+				{title:"Phnom Penh", slug:"phnom-penh", lat: 11.544873, lng: 104.892167},
+				{title:"Cape Town", slug:"cape-town", lat: -33.924869, lng: 18.424055},
+				{title:"Singapore", slug:"singapore", lat: 1.352083, lng: 103.819836},
+				{title:"Nottingham", slug:"nottingham", lat: 52.954783, lng: -1.158109},
+				{title:"Cornwall", slug:"cornwall", lat: 50.503630, lng: -4.652498},
+				{title:"Birmingham", slug:"birmingham", lat: 52.486243, lng: -1.890401},
+				{title:"Portsmouth", slug:"portsmouth", lat: 50.816667, lng: -1.083333},
+				{title:"London Camden", slug:"london-camden", lat: 51.551706, lng: -0.158826},
+				{title:"Chester", slug:"chester", lat: 53.193392, lng: -2.893075},
+				{title:"Cardiff", slug:"cardiff", lat: 51.481581, lng: -3.17909},
+				{title:"Cambridge", slug:"cambridge", lat: 52.204267, lng: 0.114908},
+				{title:"Colchester", slug:"colchester", lat: 51.895927, lng: 0.891874},
+				{title:"London East", slug:"london-east", lat: 51.561948, lng: -0.013139},
+				{title:"Derby", slug:"derby", lat: 52.922530, lng: -1.474619},
+				{title:"Leeds", slug:"leeds", lat: 53.800755, lng: -1.549077},
+				{title:"Doncaster", slug:"doncaster", lat: 53.522820, lng: -1.128462},
+				{title:"Rotterdam", slug:"rotterdam", lat: 51.924420, lng: 4.477733},
+				{title:"Edinburgh", slug:"edinburgh", lat: 55.953252, lng: -3.188267},
+				{title:"Reading", slug:"reading", lat: 51.454265, lng: -0.97813},
+				{title:"Stockholm", slug:"stockholm", lat: 59.329323, lng: 18.068581},
+				{title:"Perth", slug:"perth", lat: -31.953513, lng: 115.857047},
+				{title:"Sydney", slug:"sydney", lat: -33.867487, lng: 151.20699},
+				{title:"Glasgow", slug:"glasgow", lat: 55.864237, lng: -4.251806},
+				{title:"Ipswich", slug:"ipswich", lat: 52.056736, lng: 1.14822},
+				{title:"Liverpool", slug:"liverpool", lat: 53.408371, lng: -2.991573},
+				{title:"Victoria", slug:"victoria", lat: 48.428421, lng: -123.365644},
+				{title:"Leicester", slug:"leicester", lat: 52.636878, lng: -1.139759},
+				{title:"Montreal", slug:"montreal", lat: 45.501689, lng: -73.567256}
 			]
+
+			if ($(".view_chapter").length > 0){
+				chapterPage = true;
+			} else {
+				chapterPage = false;
+				settings.navigationControl = false,
+				settings.scaleControl = false,
+				settings.zoomControl = false,
+				settings.draggable = false,
+				settings.mapTypeControl = false,
+				settings.mapTypeId = google.maps.MapTypeId.ROADMAP,
+				settings.panControl = false
+			}
 
 			// Google Map
 			function initializeMap() {
-				var settings = {
-					zoom: 2,
-					minZoom:2,
-					maxZoom:7,
-					center: new google.maps.LatLng(20,0),
-					scrollwheel: true,
-					navigationControl: false,
-					scaleControl: false,
-					zoomControl: false,
-					streetViewControl: false,
-					draggable: false,
-					scrollwheel: false, 
-					mapTypeControl: false,
-					mapTypeId: google.maps.MapTypeId.ROADMAP,
-					panControl: false
-
-				};
 
 				map = new google.maps.Map(document.getElementById('js-map'), settings);
 			
@@ -351,6 +358,23 @@ $(document).ready(function(){
 					map: map,
 					position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
 				}));
+
+				if (chapterPage){
+
+					infoBoxes.push(new InfoBox({
+						closeBoxURL: "/assets/assets/close-button.png",
+						closeBoxMargin: "5px",
+						pixelOffset: new google.maps.Size(-50, 0),
+						boxStyle: { 
+							width: "100px",
+							"font-size":"16px",
+							background:"white"
+						},
+						content: "<div style='padding:10px;'><a style='font-family:\"Good for Nothing\"' href='/chapter/"+locations[i].slug+"'>"+locations[i].title+"</a></div>"
+					}));
+
+					setupListener(infoBoxes[i],markers[i])
+				}
 
 			}
 		})();

@@ -310,7 +310,9 @@ $(document).ready(function(){
 				{title:"Liverpool", slug:"liverpool", lat: 53.408371, lng: -2.991573},
 				{title:"Victoria", slug:"victoria", lat: 48.428421, lng: -123.365644},
 				{title:"Leicester", slug:"leicester", lat: 52.636878, lng: -1.139759},
-				{title:"Montreal", slug:"montreal", lat: 45.501689, lng: -73.567256}
+				{title:"Montreal", slug:"montreal", lat: 45.501689, lng: -73.567256},
+				{title:"Fargo", slug:"fargo", lat: 46.877222, lng: -96.789444},
+				{title:"São Paulo", slug:"sao-paulo", lat: -23.55, lng: -46.63}, 
 			]
 
 			if ($(".view_chapter").length > 0){

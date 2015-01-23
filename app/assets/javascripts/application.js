@@ -19,5 +19,6 @@
 //= require paginate
 //= require spin.min
 //= require stick_to_top.min
+//= require froogaloop
 //= require_tree .
 //= require modernizr

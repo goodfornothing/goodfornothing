@@ -226,39 +226,65 @@ $(document).ready(function(){
 	//Home page slideshow
 	var slideCount = $(".js-slide").length;
 	var index = 0;
+	var slideDuration = 4000;
+	var slideshowRef = window.setInterval(slide, slideDuration);
+
 	$(".js-slideshow").width(100 * slideCount + "%");
 	
 	$(".js-slideshow-pagination").click(function(e){
 		index = $(this).index(".js-slideshow-pagination");
-		advanceSlideshow(index);	
+		advanceSlideshow(index);
 	})
 
 	function advanceSlideshow(index){
+		player.api("paused", function(paused){
+			if (paused){
+				clearInterval(slideshowRef);
+				slideshowRef = window.setInterval(slide, slideDuration);
+			}
+		});
 		$(".js-slideshow-pagination").removeClass("active");
 		$(".js-slideshow-pagination").eq(index).addClass("active");
 		$(".js-slideshow").css("left", (-100 * index) + "%");
 	}
 
-	$(".js-arrow-right").click(function(){
-		index = (index+1)%slideCount;
-		advanceSlideshow(index);
-	});
-
-	$(".js-arrow-left").click(function(){
-		index--;
-		if (index < 0){
-			index = -1 + slideCount;
+	$(".js-arrow-left, .js-arrow-right").click(function(){
+		if ($(this).hasClass("js-arrow-right")){
+			index = (index+1)%slideCount;
+		} else {
+			index--;
+			if (index < 0){
+				index = -1 + slideCount;
+			}
 		}
 		advanceSlideshow(index);
+
 	});
 
-	//Uncomment to autoplay
-	// window.setInterval(function(){
-	// 	index++;
-	// 	advanceSlideshow(index % slideCount);
-	// }, 10000);
+	function slide(){
+		index++;
+		advanceSlideshow(index % slideCount);
+	}
+
+	//froogaloop
+    var iframe = $('#player1')[0];
+    player = $f(iframe);
+
+    // When the player is ready, add listeners for pause, finish, and playProgress
+    player.addEvent('ready', function() {
+    	player.addEvent('play', onPlay);
+    	player.addEvent('pause', restartSlideshow);
+    	player.addEvent('finish', restartSlideshow);
+    });
 
 
+    function restartSlideshow() {
+        slideshowRef = window.setInterval(slide, slideDuration);
+    }
+
+    function onPlay(){
+    	clearInterval(slideshowRef);
+    }
 
 	//Google map
 	if ($("#js-map").length){

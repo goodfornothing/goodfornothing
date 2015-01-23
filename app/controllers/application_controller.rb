@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   require 'sir-trevor-rails'
 
   before_filter :store_location
-  helper_method :signed_in_as_owner?
+  helper_method :signed_in_as_owner?, :current_admin_user
 
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception,

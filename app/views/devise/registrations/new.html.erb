@@ -20,30 +20,16 @@
 			
 				<legend>How do you like to get stuff done?</legend>
 
-					<!-- <div class="skills-badges"> -->
-<!-- 					<div class="input check_boxes optional border_splodges">
-						<label class="checkbox js"><input class="check_boxes optional" type="checkbox" value="1">Code</label>
-						<label class="checkbox js"><input class="check_boxes optional" type="checkbox" value="1">Design</label>
-						<label class="checkbox js"><input class="check_boxes optional" type="checkbox" value="1">Teach</label>
-						<label class="checkbox js"><input class="check_boxes optional" type="checkbox" value="1">DIY</label>
-						<label class="checkbox js"><input class="check_boxes optional" type="checkbox" value="1">Research</label>
-					</div> -->
+				<% if @skills.any? %>
 
- 				<% if @skills.any? %>
-					
-					<div>
-					<% @skills.each do |skill| %>
-					<ul class="range_slider">
-						<li class="skill"><%= f.label skill.title %></li>
-						<li class="details" title="<%= skill.description %>">?</li>
-						<li class="limit"><%= skill.lower %></li>
-						<li class="ranger"><%= range_field_tag "skill[#{skill.id}]", resource.skill_level(skill) || 1, :in => 0...11, :step => 1 %></li>
-						<li class="limit"><%= skill.upper %></li>
-					</ul>
+					<ul class="talents">
+					<% @skills.each do |skill| %>						
+						<label for='skill_<%=skill.id%>'><li class='js-talent-badge talent-badge <%=resource.skill_level(skill) ? "talent-badge--filled" : ""%>'><%=skill.title%></li></label>
+	 					<%= check_box_tag "skill[#{skill.id}]", 1, resource.skill_level(skill) %>
 					<% end %>
-					</div>
+					</ul>
 				
-				<% end %>
+				<% end %>	
 								
 				<%= image_tag "illustrations/laptop.png", :class => "slide_illustration" %>
 			

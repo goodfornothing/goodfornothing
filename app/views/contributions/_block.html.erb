@@ -23,14 +23,9 @@
 		
 	</div>
 	
-	<% if contribution.skill.title == "Code" %>		
-		<%= link_to "Grab the code", contribution.url, :class => "contribution_link" %>
-	<% elsif contribution.skill.title == "Design" %>
-		<%= link_to "Take a <br />look".html_safe, contribution.url, :class => "contribution_link" %>
-	<% elsif contribution.skill.title == "Think" %>
-		<%= link_to "Have a<br /> read".html_safe, contribution.url, :class => "contribution_link" %>
-	<% end %>
+	<%= link_to "Take a <br />look".html_safe, contribution.url, :class => "contribution_link" %>
 	
 </div>
 
 <%= simple_format auto_link(contribution.description) %>
+

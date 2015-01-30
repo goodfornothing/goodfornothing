@@ -197,7 +197,7 @@ class RegistrationsController < Devise::RegistrationsController
     
     def save_talents(resource)
       if params[:skill]
-        resource.talents.delete_all
+        resource.talents.destroy_all
         params[:skill].each do |i,skill|
           @skill = Skill.find(i)
           resource.talents.create(:skill_id => @skill.id, :level => skill)

@@ -118,20 +118,7 @@
 				<% if @member.talents.any? %>
 				<ul class="talents">
 					<% @member.talents.each do |talent| %>
-						<% if talent.skill.title == "Think" 
-						
-							@make = 100-((talent.level.to_f/10)*100) 
-							@think =  100-@make
-						
-						%>
-						<li class="<%= talent.skill.title.underscore %>" data-talent-level="<%= talent.level %>">
-							<div class="fill" style="width: <%= @make %>%;">Make</div>
-							<div class="fill" style="width: <%= @think %>%;">Think</div>
-							<div class="mask"></div>
-						</li>
-						<% else %>
-						<li class="<%= talent.skill.title.underscore %>"><%= talent.level %><sub>/10</sub> <span><%= talent.skill.title %></span></li>
-						<% end %>
+						<li class="talent-badge talent-badge--filled"><%= talent.skill.title %></li>
 					<% end %>
 				</ul>
 				<% elsif signed_in_as_owner?(@member) %>

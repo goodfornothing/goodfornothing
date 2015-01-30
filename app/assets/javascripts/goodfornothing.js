@@ -36,6 +36,10 @@ $(document).ready(function(){
 	
 	// Range sliders
 	$('.range_slider input[type="range"]').rangeinput();
+
+	$(".js-talent-badge").click(function(){
+		$(this).toggleClass("talent-badge--filled");
+	})
 	
 	// Skill filtering
 	var skill_filter = {}

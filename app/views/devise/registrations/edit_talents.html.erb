@@ -14,17 +14,12 @@
 				
 				<% if @skills.any? %>
 
-					<div>
+					<ul class="talents">
 					<% @skills.each do |skill| %>
-					<ul class="range_slider">
-						<li class="skill"><%= f.label skill.title %></li>
-						<li class="details" title="<%= skill.description %>">?</li>
-						<li class="limit"><%= skill.lower %></li>
-						<li class="ranger"><%= range_field_tag "skill[#{skill.id}]", resource.skill_level(skill) || 1, :in => 0...11, :step => 1 %></li>
-						<li class="limit"><%= skill.upper %></li>
-					</ul>
+						<label for='skill_<%=skill.id%>'><li class='js-talent-badge talent-badge <%=resource.skill_level(skill) ? "talent-badge--filled" : ""%>'><%=skill.title%></li></label>
+	 					<%= check_box_tag "skill[#{skill.id}]", 1, resource.skill_level(skill) %>
 					<% end %>
-					</div>
+					</ul>
 				
 				<% end %>		
 			

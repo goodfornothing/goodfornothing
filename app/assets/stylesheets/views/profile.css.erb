@@ -238,7 +238,7 @@
 }
 
 #profile .talents li {
-	display: inline-block;
+/*	display: inline-block;
 	padding: 0;
 	width: 99px;
 	height: 125px;
@@ -249,18 +249,48 @@
 	font-family: "Good for Nothing";
 	background-repeat: no-repeat;
 	background-position: top left;
-	margin-right: 60px;
+	margin-right: 60px;*/
 }
 
-#profile .talents li sub {
-	font-size: 18px;
+.talent-badge{
+	font-family: "Good for Nothing";
+	background: url(<%= asset_path "assets/talent-badge-transparent.png" %>) no-repeat;
+	text-align: center;
+	font-size: 16px;
+	color:#D0122D;
+	width: 100px;
+	height: 20px;
+	padding: 37px 0;
+	display: inline-block;
+	margin: 0 20px 15px 0;
+	background-color: white;
 }
+
+label .talent-badge{
+	opacity: 0.25;
+	cursor:pointer;
+	background: url(<%= asset_path "assets/talent-badge-blue.png" %>) no-repeat;
+}
+
+.talent-badge--filled{
+	opacity: 1;
+	/*background-color:#D0122D;	*/
+	/*color:white;*/
+}
+
+label .talent-badge--filled{
+	opacity: 1;
+	background-color:white;
+}
+/*#profile .talents li sub {
+	font-size: 18px;
+}*/
 
 #profile .talents li:last-child {
 	margin: 0;
 }
 
-#profile .talents li span {
+/*#profile .talents li span {
 	display: block;
 	width: 100%;
 	background: #ffffff;
@@ -268,18 +298,18 @@
 	color: #61514D;
 	font-size: 20px;
 	padding-top: 10px;
-}
+}*/
 
-#profile .talents .design { width: 71px; background-image: url(<%= asset_path "icons/design.gif"%>); }
-#profile .talents .code { width: 87px; background-image: url(<%= asset_path "icons/code.gif"%>); }
+/*#profile .talents .design { width: 71px; background-image: url(<%= asset_path "icons/design.gif"%>); }*/
+/*#profile .talents .code { width: 87px; background-image: url(<%= asset_path "icons/code.gif"%>); }*/
 
-#profile .talents .think { 
+/*#profile .talents .think { 
 	width: 100px;
 	position: relative;
 	height: 125px;
-}
+}*/
 
-#profile .talents .fill {
+/*#profile .talents .fill {
 	font-size: 13px;
 	width: 50%;
 	float: left;
@@ -292,21 +322,21 @@
 
 #profile .talents .fill:nth-child(2) {
 	background: #72bbbb;
-}
+}*/
 
-#profile .talents li div.mask {
+/*#profile .talents li div.mask {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	background-image: url(<%= asset_path "icons/think_make_mask.png"%>); 
-}
+}*/
 
-#profile .talents.blank_space {
+/*#profile .talents.blank_space {
 	padding-top: 45px;
 	text-align: center;
-}
+}*/
 
 #profile #special_skills {
 	width: 400px;

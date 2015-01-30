@@ -231,7 +231,22 @@ $(document).ready(function(){
 	var slideCount = $(".js-slide").length;
 	var index = 0;
 	var slideDuration = 4000;
-	var slideshowRef = window.setInterval(slide, slideDuration);
+	var slideshowRef;
+	var iframe;
+
+	if ($(".js-slideshow").length > 0){
+		slideshowRef = window.setInterval(slide, slideDuration);
+			//froogaloop
+		    iframe = $('#player1')[0];
+		    player = $f(iframe);
+
+		    // When the player is ready, add listeners for pause, finish, and playProgress
+		    player.addEvent('ready', function() {
+		    	player.addEvent('play', onPlay);
+		    	player.addEvent('pause', restartSlideshow);
+		    	player.addEvent('finish', restartSlideshow);
+		    });
+	}
 
 	$(".js-slideshow").width(100 * slideCount + "%");
 	
@@ -269,18 +284,6 @@ $(document).ready(function(){
 		index++;
 		advanceSlideshow(index % slideCount);
 	}
-
-	//froogaloop
-    var iframe = $('#player1')[0];
-    player = $f(iframe);
-
-    // When the player is ready, add listeners for pause, finish, and playProgress
-    player.addEvent('ready', function() {
-    	player.addEvent('play', onPlay);
-    	player.addEvent('pause', restartSlideshow);
-    	player.addEvent('finish', restartSlideshow);
-    });
-
 
     function restartSlideshow() {
         slideshowRef = window.setInterval(slide, slideDuration);

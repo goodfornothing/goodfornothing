@@ -32,9 +32,16 @@ ActiveAdmin.register_page "Dashboard" do
               ul do 
                 @latest_users.collect do |member|
                   li do
-                    link_to member.name, member_path(member)
+                    link_to(member.name, member_path(member)) + " (" + time_ago_in_words(member.created_at) + " ago)"
                   end
                 end
+              end
+            end
+
+            if can?(:read, User)
+              ul do
+                li link_to "Browse all your members", hive_users_path
+                li link_to "Download member details", "/hive/users.csv"
               end
             end
         end
@@ -90,15 +97,6 @@ ActiveAdmin.register_page "Dashboard" do
             end
             if can?(:manage, Social)
               li link_to "Create a new social", new_hive_social_path()
-            end
-          end
-        end
-
-        if can?(:read, User)
-          panel "Users" do
-            ul do
-              li link_to "Browse your crew members", hive_users_path
-              li link_to "Download member details", "/hive/users.csv"
             end
           end
         end

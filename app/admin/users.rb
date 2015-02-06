@@ -43,6 +43,12 @@ ActiveAdmin.register User do
     render "/hive/shared/help"
   end
 
+  csv do
+    column :name 
+    column :email 
+    column :twitter_handle 
+  end
+
 	index do
     column("Name") { |user| link_to user.name, hive_user_path(user) }
 		column("Twitter") { |user| link_to "#{user.twitter_handle}", "http://twitter.com/#{user.twitter_handle}" unless user.twitter_handle.nil? }

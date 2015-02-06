@@ -20,6 +20,7 @@ class Ability
       can :manage, [Gig, Social], :chapter_id => user.chapter.id
       can :manage, [Trill, Post]
 			can :read, [Page]
+      can :read, [User], :chapter_id => user.chapter.id
       cannot :delete, Chapter      
       can :manage_chapter, Chapter, :id => user.chapter.id
     end

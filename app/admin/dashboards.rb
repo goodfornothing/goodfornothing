@@ -80,48 +80,77 @@ ActiveAdmin.register_page "Dashboard" do
 		          end
 		        end
 				end
-			end
+      end
+
+      column do
+        panel "Plan an Event" do
+          ul do
+            if can?(:manage, Gig)
+              li link_to "Create a new gig", new_hive_gig_path()
+            end
+            if can?(:manage, Social)
+              li link_to "Create a new social", new_hive_social_path()
+            end
+          end
+        end
+
+        if can?(:read, User)
+          panel "Users" do
+            ul do
+              li link_to "Browse your crew members", hive_users_path
+              li link_to "Download member details", "/hive/users.csv"
+            end
+          end
+        end
+
+        if can?(:manage, Challenge)
+          panel "Challenges" do
+            link_to "Add a challenge", new_hive_challenge_path()
+          end
+        end
+      end
+
     
-			if can?(:manage, Trill)
-				column do
+			# if can?(:manage, Trill)
+			# 	column do
 
-					@trills = Trill.order(:created_at).where('published = false').reverse
+			# 		@trills = Trill.order(:created_at).where('published = false').reverse
 
-				  panel "Trillbox" do
+			# 	  panel "Trillbox" do
 
-				     if @trills.any?
+			# 	     if @trills.any?
 
-			          table do
-			            thead do
-			              tr do
-			                th "Title"
-			                th "URL"
-			                th "", :colspan => 2
-			              end
-			            end
-			            tbody do
-			              @trills.collect do |trill|
-			                tr do
-			                  td trill.title
-			                  td trill.url
-			                  td link_to "Edit & Publish", edit_hive_trill_path(trill)
-			                end
-			              end
-			            end
-			          end
+			#           table do
+			#             thead do
+			#               tr do
+			#                 th "Title"
+			#                 th "URL"
+			#                 th "", :colspan => 2
+			#               end
+			#             end
+			#             tbody do
+			#               @trills.collect do |trill|
+			#                 tr do
+			#                   td trill.title
+			#                   td trill.url
+			#                   td link_to "Edit & Publish", edit_hive_trill_path(trill)
+			#                 end
+			#               end
+			#             end
+			#           end
 
-			        else
-			          div :class => "blank_slate_container" do
-			            span :class => "blank_slate" do
-			              span "There are no unpublished trills."
-			            end
-			          end
-			        end
+			#         else
+			#           div :class => "blank_slate_container" do
+			#             span :class => "blank_slate" do
+			#               span "There are no unpublished trills."
+			#             end
+			#           end
+			#         end
 
-			      end
+			#       end
 
-				end
-			end
+			#   end
+			# end
 
 		end
 

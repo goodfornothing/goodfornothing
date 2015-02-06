@@ -23,11 +23,11 @@ ActiveAdmin.register_page "Dashboard" do
             h3 do 
               greeting[0][1].to_s+" "+current_user.name+"! "+"(now you know how to greet people in "+greeting[0][0].to_s+"!)"
             end
-            h4 do
-              "Last 10 signups to your chapter"
-            end
             @current_chapter = current_user.chapter
             @latest_users = @current_chapter.users.last(10).reverse
+            h4 do
+              "Last 10 signups to your chapter. Your chapter now has #{@current_chapter.users.length} members."
+            end
             if @latest_users.any?
               ul do 
                 @latest_users.collect do |member|

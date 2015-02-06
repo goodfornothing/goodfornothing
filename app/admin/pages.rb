@@ -1,19 +1,13 @@
 ActiveAdmin.register Page do
 
-	menu :parent => "Wiki", :if => proc{ can?(:manage, Page) } 
+  actions :all, :except => [:new]
+
+	menu :if => proc{ can?(:manage, Page) }, label: "Wiki"
 
 	config.clear_sidebar_sections!
-  
-	sidebar :help do
+    
+  index :download_links => false, title: "Wiki" do
     render "/hive/shared/help"
-  end
-  
-	index do
-		column("Title") { |page| link_to page.title, hive_page_path(page) }
-    column("Last edited by") { |page| User.find(page.originator).name }
-    column "" do |page|
-      "#{link_to "Edit", edit_hive_page_path(page)} &nbsp; #{link_to "Delete", hive_page_path(page), :method => "delete", :confirm => "Are you sure you wish to delete this page?"}".html_safe
-    end
   end
 
 	form do |f|

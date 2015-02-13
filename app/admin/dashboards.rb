@@ -99,6 +99,27 @@ ActiveAdmin.register_page "Dashboard" do
               li link_to "Create a new social", new_hive_social_path()
             end
           end
+
+          @gig = Gig.where('end_time > ?',Time.now).where('chapter_id = ?', current_user.chapter.id).order("start_time ASC").first
+          if @gig.present?
+            h3 do
+              link_to "Your Next Gig: #{@gig.title}, #{@gig.attendees.count} people attending ", hive_gig_path(@gig)
+            end
+          end
+
+          @social = Social.where('start_time > ?',Time.now).where('chapter_id = ?', current_user.chapter.id).order("start_time ASC").first
+          if @social.present?
+            h3 do
+              link_to "Your Next Social - #{@social.attendees.count} people attending ", hive_social_path(@social)
+            end
+          end          
+          
+          # -
+          # div do
+          #   @gig.first.attendees.each do |user|
+          #     render :partial => "members/avatar", :locals => { :member => user }
+          #   end
+          # end
         end
 
         if can?(:manage, Challenge)

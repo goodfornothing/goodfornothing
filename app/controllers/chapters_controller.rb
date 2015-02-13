@@ -17,7 +17,7 @@ class ChaptersController < ApplicationController
       @previous_gigs = Gig.where('start_time < ?',Time.now).where('chapter_id = ?',@chapter.id).order("start_time DESC")      
       
       @upcoming_events = (@socials + @gigs).sort_by(&:start_time)
-      @previous_events = (@previous_socials + @previous_gigs).sort_by(&:start_time).reverse
+      @previous_events = (@previous_socials + @previous_gigs).sort_by(&:start_time).reverse.first(6)
       
       @warblings = @chapter.posts.all()
       

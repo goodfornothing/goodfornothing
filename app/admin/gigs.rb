@@ -30,7 +30,7 @@ ActiveAdmin.register Gig do
             th "Attendees"
             td  gig.users.count
           end
-          if gig.slots.count != 1 && !gig.slots.first.skill.nil?
+          if gig.slots.count > 0 && !gig.slots.first.skill.nil?
             gig.slots.each do |slot|
               tr do
                 th (slot.skill.nil?) ? slot.custom_skill : slot.skill.title
@@ -88,11 +88,12 @@ ActiveAdmin.register Gig do
     f.inputs "Sponsors" do 
       f.input :friends, :as => :check_boxes
     end
-    f.inputs "Registration Slots" do
+    f.inputs "Registration Slots", :id=>'registration-slots' do
       f.has_many :slots do |j|
         j.input :skill
         j.input :custom_skill, :label => "... or custom slot"
         j.input :limit
+        j.input :_destroy, :label=>'Remove', :as=>:boolean, :required => false, :input_html => { :class => 'remove-slot', :style => 'width:100px'}
       end
     end
     f.buttons

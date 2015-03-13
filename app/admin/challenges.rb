@@ -49,7 +49,7 @@ ActiveAdmin.register Challenge do
       row :title
       row :gig
       row :venture
-      row :partner
+      # row :partner
       row "Issues" do |i|
         i.issues.map{ |w| w.title }.join(', ')
       end
@@ -75,7 +75,7 @@ ActiveAdmin.register Challenge do
       f.input :title
       f.input :gig
       f.input :venture
-      f.input :partner
+      # f.input :partner
     end
     f.inputs "Issues" do
       f.input :issues, :as => :check_boxes

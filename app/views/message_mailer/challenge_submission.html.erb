@@ -7,8 +7,16 @@
     <p>A new Good for Nothing challenge has been submitted.</p>
     
 	<%= render "submission" %>
+
+	<p><strong>Organisation</strong>: <br /><%= simple_format @submission.organisation %></p>
 	
 	<p><strong>Summary</strong>: <br /><%= simple_format @submission.description %></p>
+
+	<p><strong>What do you want from GFN?</strong><br /><%= simple_format @submission.what_they_want %></p>
+
+	<p><strong>What song did you last listen to?</strong><br /><%= simple_format @submission.what_song %></p>
+
+	<p><strong>Where did you hear about GFN?</strong><br /><%= simple_format @submission.where_heard %></p>
 
   </body>
 </html>

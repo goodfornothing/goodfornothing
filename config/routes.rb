@@ -56,6 +56,7 @@ Goodfornothing::Application.routes.draw do
 		resources :challenges, :only => [:new, :create] do
 			collection do
 				get 'done'
+        get 'chapter/:id', :action => "chapter", :as => "message_challenge"
 			end
 		end
 		resources :partners, :only => [:new, :create] do

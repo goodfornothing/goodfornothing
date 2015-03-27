@@ -110,6 +110,7 @@
 
 	<p>
 	<%=link_to("Send us a message", message_chapter_messaging_messages_path(@chapter))%><br />
+	<%=link_to("Submit a challenge", message_challenge_messaging_challenges_path(@chapter))%><br />
 	<% if @chapter.twitter_handle? %>
 	<a href="https://twitter.com/<%=@chapter.twitter_handle.gsub('@', '')%>"><%=@chapter.twitter_handle%> on Twitter</a> <br />
 	<% end %>

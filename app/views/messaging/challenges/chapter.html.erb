@@ -1,0 +1,55 @@
+<section id="primary_content" class="single">
+	
+	<%= simple_form_for [@submission], :html => { :class => "primary_panel" } do |f| %>
+  
+		<h1>Submit a challenge</h1>
+		
+		<p>We are always on the lookout for ventures that are tackling a social or environmental issue in an innovative, disruptive way. If you have started to prove your concept, are up and running and need some help to accelerate &amp; grow, drop us a note, we'd love to chat.
+		</p>
+
+
+		<% unless user_signed_in? %>
+
+			<%= f.simple_fields_for :message do |m| %>
+				<%= m.input :name, :label => "Your name", :wrapper_html => { :class => "smart_label" } %>
+				<%= m.input :email, :label => "Your email address", :wrapper_html => { :class => "smart_label" } %>
+			<% end %>
+		
+		<% end %>
+
+		<%= field_set_tag do %>
+			<%= f.input :organisation, :label => "Your organisation", :wrapper_html => { :class => "smart_label" } %>
+			<%= f.input :description, :label => "Summarise your challenge, remember to include a link to your digital home if you have one.", :wrapper_html => { :class => "smart_label" }, :input_html => { :rows => 10 } %>
+			<%= f.input :what_they_want, :label => "What do you want from us?", :wrapper_html => { :class => "smart_label" } %>
+			<%= f.input :what_song, :label => "What song did you last listen to?", :wrapper_html => { :class => "smart_label" } %>
+			<%= f.input :where_heard, :label => "Where did you hear about us?", :wrapper_html => { :class => "smart_label" } %>
+			<%= f.hidden_field "chapter_id", :name => "chapter_id", value: @chapter.id %>
+			
+			<div class="challenge-submission-submit-wrapper">
+
+				<p class="challenge-submission-next-step">
+					Next step...
+				</p>
+
+				<p class="challenge-submission-have-chat">
+					<span>Have a chat with these <%=@chapter.title%> GFN-ers</span>
+					<%= image_tag("assets/challenge-submission-arrow.png", {:class=>""}) %>
+				</p>
+
+				<ul class="avatar_list">
+					<% @chapter.users.crew.each do |user| %>
+						<%= render :partial => "members/avatar", :locals => { :member => user }%>
+					<% end %>
+				</ul>
+
+			<% end %>
+
+			<%= field_set_tag nil, :class => "actions" do %>
+				<%= f.submit :value => "Submit" %>	
+			<% end %>
+
+		</div>
+	
+	<% end %>
+	
+</section>

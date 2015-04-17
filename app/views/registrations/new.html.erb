@@ -1,0 +1,115 @@
+<section id="primary_content" class="single">
+
+	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "primary_panel slides" } ) do |f| %>
+		
+		<h1 class="ir">Join the movement<span></span></h1>
+		
+		<%= render "shared/notices" %>
+		
+		<p class="notice">Hold up there, did you have an account on old Ning? <%= link_to "Skip registration!", login_path %></p>
+		
+		<div class="fields">
+
+			<fieldset class="slide">
+				
+				<legend>
+					Would you like to sign up with a social media account?
+				</legend>
+				<% if session[:omniauth] %>
+
+					<p class="social-registration-info">
+						Woohoo! Your social media account has been linked.<br />
+						<ul class="social-login-registration-options">
+							<li class="social-login-registration-option js-social-next"><span>Next step</span></li>
+						</ul>
+					</p>
+
+				<% else %>
+					<ul class="social-login-registration-options">
+						<li class="social-login-registration-option"><%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+						<li class="social-login-registration-option"><%= link_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+						<li class="social-login-registration-option js-social-next"><span>No thanks, skip</span></li>
+					</ul>
+				<% end %>
+
+			</fieldset>
+		
+			<fieldset class="slide warblings">
+				<legend>Which issues are you most passionate about?</legend>
+				<%= f.association :issues, :collection => Issue.active, :label_method => lambda { |i| i.title.sub(/\s/,'<br />').html_safe }, :as => :check_boxes, :label => "", :wrapper_html => { :class => "border_splodges" } %>
+				<%= image_tag "illustrations/teacup.png", :class => "slide_illustration" %>
+			</fieldset>
+		
+			<fieldset class="slide involvement">
+			
+				<legend>How do you like to get stuff done?</legend>
+
+				<% if @skills.any? %>
+
+					<ul class="talents">
+					<% @skills.each do |skill| %>						
+						<label for='skill_<%=skill.id%>'><li class='js-talent-badge talent-badge <%=resource.skill_level(skill) ? "talent-badge--filled" : ""%>'><%=skill.title%></li></label>
+	 					<%= check_box_tag "skill[#{skill.id}]", 1, resource.skill_level(skill) %>
+					<% end %>
+					</ul>
+				
+				<% end %>	
+								
+				<%= image_tag "illustrations/laptop.png", :class => "slide_illustration" %>
+			
+			</fieldset>
+			
+			<fieldset class="slide slide_skills">
+				<legend>Your talents and interests</legend>
+				<%= f.input :brings, :label => "What special skills do you bring to the movement?", :input_html => { :rows => 5 }, :wrapper_html => { :class => "smart_label" } %>		
+			</fieldset>
+		
+			<fieldset class="slide chapters">
+				<legend>Do you live near a GFN chapter?</legend>
+				<%= f.input :location, :label => "Nope...", :wrapper_html => { :class => "smart_label grow_tip", :title => "Not to worry, where are you?" } %>
+				<%= f.association :chapter, :as => :radio_buttons, :label_method => lambda { |c| "#{c.title}<span>#{c.country}</span>".html_safe }, :label => "", :wrapper_html => { :class => "solid_splodges" } %>
+				<%= image_tag "illustrations/maptorch.png", :class => "slide_illustration" %>
+			</fieldset>
+
+
+			<fieldset class="slide similar">
+				
+				<legend>People a little like you</legend>
+			
+				<div class="form_panels">
+					
+					<div class="faces half_panel">
+						<ul class="avatar_list" id="similar_list">
+							<span id="spinmerightround"></span>
+						</ul>
+					</div>
+			
+					<div class="half_panel">
+						<%= f.input :reasons_for_joining, :label => "What makes you want to do Good for Nothing? (no HTML please!)", :input_html => { :rows => 6 }, :wrapper_html => { :class => "smart_label" } %>
+					</div>
+					
+				</div>
+			
+			
+			</fieldset>
+			
+			<fieldset class="slide claim">
+				<legend>The boring bit</legend>
+				
+				<%= f.input :name, :label => "Your name", :required => true, :wrapper_html => { :class => "smart_label" }, input_html: {value: @form_defaults[:name] } %>
+				<%= f.input :email, :label => "Your email address", :required => true, :wrapper_html => { :class => "smart_label" }, input_html: {value: @form_defaults[:email] }  %>
+				<% if @user.password_required? %>
+				<%= f.input :password, :label => "Choose a password", :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
+				 <% end %>
+				<%= f.input :subscribed, :label => "Join the GFN mailing list?" %>
+			
+				<%= f.button :submit, "Let me in!" %>
+
+			
+			</fieldset>
+			
+		</div>
+		
+	<% end %>
+
+</section>

@@ -170,6 +170,11 @@ $(document).ready(function(){
 				}
 			}
 	});
+
+	$(".js-social-next").click(function(e){
+		e.preventDefault();
+		$("form.slides .next").click();
+	})
 	
 	// Section panels
 	$('.section_panel').each(function(i,el){

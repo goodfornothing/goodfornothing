@@ -5,7 +5,8 @@ Goodfornothing::Application.routes.draw do
 	# Sir Trevor images
   post 'attachments' => 'images#create'
     
-  devise_for :users, :controllers => { :registrations => :registrations, :sessions => :sessions } 
+  devise_for :users, :controllers => { :registrations => :registrations, :sessions => :sessions, omniauth_callbacks: :authentications } 
+
   match "members" => "members#index"
 	match "members/find/similar" => "members#similar"
   match "members/:id" => "members#show", :as => "member"

@@ -6,6 +6,18 @@ class RegistrationsController < Devise::RegistrationsController
   def new
 		@similar = User.limit(12).collect
     resource = build_resource({})
+    @form_defaults = {}
+    if session["omniauth"]
+      @form_defaults[:name] = session["omniauth"]["info"]["name"]
+      if session["omniauth"]["provider"] == 'facebook'
+        @form_defaults[:email] = session["omniauth"]['extra']['raw_info']['email']
+      else
+        @form_defaults[:email] = ''
+      end
+    else 
+      @form_defaults[:name] = ''
+      @form_defaults[:email] = ''
+    end
     respond_with resource
   end
   
@@ -29,6 +41,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     
+    # session[:omniauth] = nil unless @user.new_record?
+
     # hack to check for spam signups, sorry
     if params[:user][:reasons_for_joining].include?('<a')
       abort_register and return
@@ -223,6 +237,16 @@ class RegistrationsController < Devise::RegistrationsController
     
     def after_sign_up_path_for(resource)
        stored_location_for(resource) || member_path(resource, :welcome=>"yahuh")
+    end
+
+    def build_resource(*args)
+      super
+      if session[:omniauth]
+        @user.apply_omniauth(session[:omniauth])
+        session[:omniauth] = nil unless @user.new_record?
+        
+        # @user.valid?
+      end
     end
   
 end

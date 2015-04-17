@@ -4,6 +4,8 @@ gem 'rails', '3.2.11'
 
 gem 'mysql2'
 gem 'devise','~> 2.1.2'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 gem 'simple_form'
 gem 'thin'
 

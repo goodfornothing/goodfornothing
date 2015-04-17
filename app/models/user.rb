@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   scope :causes, where(:role => "cause")
   scope :warblers, where(:role => "warbler")
   
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   attr_accessible :email, :password, :password_confirmation, :current_password,
                   :remember_me, :join_mailing_list, :role, :name, :brings, :role,
@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_many :contributions
+  has_many :authentications, :dependent => :destroy
 
   belongs_to :chapter
 
@@ -125,10 +126,20 @@ class User < ActiveRecord::Base
 	def warbles
 		 (self.trills.published + self.posts.published).sort_by(&:created_at).reverse
 	end
+
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
+  end
+
+  def apply_omniauth(omni)
+    authentications.build(
+      :provider => omni['provider'],
+      :uid => omni['uid'],
+      :token => omni['credentials'].token,
+      :token_secret => omni['credentials'].secret)
+  end
   
   protected
-     def password_required?
-      !persisted? || password.present? || password_confirmation.present?
-    end
+
 
 end

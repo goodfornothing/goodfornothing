@@ -16,6 +16,9 @@
 	    	<%= f.input :remember_me, :as => :hidden, :input_html => { :value => 1 } if devise_mapping.rememberable? %>
 		<% end %>
 
+		<%= link_to "Log in with Twitter", user_omniauth_authorize_path(:twitter) %><br />
+		<%= link_to "Log in with Facebook", user_omniauth_authorize_path(:facebook) %>
+
 		<%= field_set_tag do %>
 	    	<%= f.button :submit, "Log me in" %>
 		<% end %>

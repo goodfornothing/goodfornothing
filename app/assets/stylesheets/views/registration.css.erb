@@ -129,9 +129,6 @@ form.slides fieldset {
 	margin: 0;
 }
 
-.section_registrations #pagination li.page_links:nth-last-child(2).current {
-	display: none;
-}
 
 .section_registrations #pagination .prev,
 .section_registrations #pagination .next {
@@ -435,11 +432,6 @@ form.slides fieldset.claim textarea {
 	font-family: "Good for Nothing","Amatic SC";
 }
 
-form.slides .claim .btn {
-	position: absolute;
-	bottom: -55px;
-	left: 45px;
-}
 
 form.primary_panel .activity .checkbox {
 	width: 400px;
@@ -571,7 +563,7 @@ p.social-registration-info{
   background-repeat: no-repeat;
   width: 210px;
   height: 55px;
-  padding-top: 20px;
+  padding-top: 0px;
   background-position: -4px -1px;
   width: 200px;
   font-size: 16px;
@@ -585,4 +577,9 @@ p.social-registration-info{
   cursor: pointer;
   display: inline-block;
   list-style: none;
+}
+
+.social-login-registration-option a, .social-login-registration-option span{
+	display: block;
+	padding:20px 0;
 }

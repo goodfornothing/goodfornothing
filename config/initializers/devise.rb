@@ -1,3 +1,6 @@
+yaml_file = File.join(Rails.root, "config", "omniauth.yml")
+omniauth_info = YAML.load_file(yaml_file)[Rails.env.to_s]
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -204,8 +207,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-  config.omniauth :twitter, "ZsI2iwMWHhV8zU70P0t3u0SQq", "e03pWyH6c9jRNx8NAK12PXPK6tqEiaS3OwVegqfA94I834Qdqj"
-  config.omniauth :facebook, "1611391699083495", "505b6bd5461d624046ce8f0079f72bdb"
+  config.omniauth :twitter, omniauth_info['twitter']['app_id'], omniauth_info['twitter']['secret']
+  config.omniauth :facebook, omniauth_info['facebook']['app_id'], omniauth_info['facebook']['secret']
 
 
   # ==> Warden configuration

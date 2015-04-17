@@ -24,4 +24,5 @@ pickle-email-*.html
 /config/twitter.yml
 /config/curatr.yml
 /config/stripe.yml
+/config/omniauth.yml
 /public/uploads/*

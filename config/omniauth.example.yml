@@ -1,0 +1,23 @@
+development:
+  twitter:
+    app_id: ''
+    secret: ''
+  facebook:
+    app_id: ''
+    secret: ''
+
+staging:
+  twitter:
+    app_id: ''
+    secret: ''
+  facebook:
+    app_id: ''
+    secret: ''
+
+production:
+  twitter:
+    app_id: ''
+    secret: ''
+  facebook:
+    app_id: ''
+    secret: ''

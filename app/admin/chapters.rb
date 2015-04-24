@@ -81,7 +81,7 @@ ActiveAdmin.register Chapter do
       f.input :chapter_title      
       f.input :chapter_description
       f.input :cover_image, :label => "Cover Image (950 x 360)"
-      f.input :bird_image, :label => "Bird Image (512 x 512)"
+      f.input :bird_image, :label => "Bird Image (256 x 256)"
       f.input :chapter_video_embed, :label => "Chapter Video (YouTube or Vimeo URL)"
     end
     f.buttons

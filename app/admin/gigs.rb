@@ -86,7 +86,7 @@ ActiveAdmin.register Gig do
       end
     end
     f.inputs "Sponsors" do 
-      f.input :friends, :as => :check_boxes
+      f.input :friends, :as => :check_boxes, :collection=>Friend.order('name ASC')
     end
     f.inputs "Registration Slots", :id=>'registration-slots' do
       f.has_many :slots do |j|

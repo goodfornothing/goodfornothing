@@ -14,6 +14,7 @@
 				
 				<legend>
 					Would you like to sign up with a social media account?
+					<%#=session[:omniauth].inspect %>
 				</legend>
 				<% if session[:omniauth] %>
 
@@ -22,6 +23,7 @@
 						<ul class="social-login-registration-options">
 							<li class="social-login-registration-option js-social-next"><span>Next step</span></li>
 						</ul>
+						<a href="/logout">(Or click here to unlink)</a>
 					</p>
 
 				<% else %>

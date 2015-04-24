@@ -100,6 +100,25 @@
 
 	</div>
 	<% end %>
+
+	<% if @chapter.friends.any? %>
+		<div id="friends">
+			<h2>Our Friends</h2>
+			<div>
+				<ul class="grid_list">
+					<% @chapter.friends.each do |friend| %>
+						<li>
+							<% if friend.logo.present? %>
+								<%= link_to image_tag(friend.logo, :alt => friend.name), friend.url %>
+							<% else %>
+								<%= link_to(friend.name, friend.url, :class => "logo") %>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	<% end %>
 	
 </section>
 
@@ -120,7 +139,7 @@
 			<%=link_to("Submit a challenge", message_challenge_messaging_challenges_path(@chapter))%><br />
 		</div>
 	</div>
-	
+
 	<% if @chapter.twitter_handle? %>
 	<a href="https://twitter.com/<%=@chapter.twitter_handle.gsub('@', '')%>"><%=@chapter.twitter_handle%> on Twitter</a> <br />
 	<% end %>

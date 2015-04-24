@@ -50,6 +50,7 @@ ActiveAdmin.register Friend do
       f.input :name
       f.input :url, :label => "Website"
       f.input :logo
+      f.input :chapters, :as => :check_boxes, :collection=>Chapter.order('title ASC')
     end
     f.buttons
   end

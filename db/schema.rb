@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150424114622) do
+ActiveRecord::Schema.define(:version => 20150424133628) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -65,6 +65,13 @@ ActiveRecord::Schema.define(:version => 20150424114622) do
   end
 
   add_index "chapters", ["slug"], :name => "index_chapters_on_slug", :unique => true
+
+  create_table "chapters_friends", :id => false, :force => true do |t|
+    t.integer "chapter_id"
+    t.integer "friend_id"
+  end
+
+  add_index "chapters_friends", ["chapter_id", "friend_id"], :name => "index_chapters_friends_on_chapter_id_and_friend_id"
 
   create_table "comments", :force => true do |t|
     t.text     "body"

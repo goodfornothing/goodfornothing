@@ -108,15 +108,26 @@
 
 	<h2>Contact us</h2>
 
-	<p>
-	<%=link_to("Send us a message", message_chapter_messaging_messages_path(@chapter))%><br />
-	<%=link_to("Submit a challenge", message_challenge_messaging_challenges_path(@chapter))%><br />
+
+	<% if @chapter.bird_image? %>
+		<%=image_tag(@chapter.bird_image, :class => "contact-bird-image")%>
+	<% end %>
+
+	<div class="gfn-contact-info-wrapper">
+		<div class="gfn-contact-info">
+			<p>
+			<%=link_to("Send us a message", message_chapter_messaging_messages_path(@chapter))%><br />
+			<%=link_to("Submit a challenge", message_challenge_messaging_challenges_path(@chapter))%><br />
+		</div>
+	</div>
+	
 	<% if @chapter.twitter_handle? %>
 	<a href="https://twitter.com/<%=@chapter.twitter_handle.gsub('@', '')%>"><%=@chapter.twitter_handle%> on Twitter</a> <br />
 	<% end %>
 	<%=@chapter.slug %>@goodfornothing.com</p>
 	
-	
+
+
 		
 	<% if @chapter.twitter_handle? %>
 	<h2>Follow us on Twitter</h2>

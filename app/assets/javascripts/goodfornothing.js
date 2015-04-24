@@ -419,6 +419,20 @@ $(document).ready(function(){
 			}
 		})();
 	}
+
+	if ($(".js-attending-button").length){
+		$(document).scroll(function(){
+			if ($(".js-attending-button").offset().top < $(window).scrollTop()){
+				$(".js-attending-fixed-header").addClass("attending-fixed-header--visible");
+			} else {
+				$(".js-attending-fixed-header").removeClass("attending-fixed-header--visible");
+			}
+		});
+
+		$(".js-attending-fixed-header").click(function(){
+			window.location = $(this).attr("href");
+		});
+	}
 });
 
 function scrollToElement(element) {

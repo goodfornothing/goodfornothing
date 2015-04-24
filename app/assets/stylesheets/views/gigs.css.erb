@@ -111,3 +111,26 @@ table td{
 	background-position:center;
 	background-size:cover;
 }
+
+.attending-fixed-header{
+	position:fixed;
+	top:-60px;
+	left:0;
+	width:100%;
+	padding:20px;
+	opacity:0;
+	z-index:1;
+	transition: all 0.25s;
+	cursor: pointer;
+}
+
+.attending-fixed-header--visible{
+	opacity:1;
+	top:0px;
+}
+
+.attending-fixed-header-inner{
+	max-width:1000px;
+	margin:0 auto;
+	padding-left:20px;
+}

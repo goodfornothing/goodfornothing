@@ -121,9 +121,15 @@
 				<div id="friends" class="line--top">
 					<h2>Thank you to our Friends</h2>
 					<div>
-						<ul>
+						<ul class="grid_list">
 							<% @gig.friends.each do |friend| %>
-								<li><%=link_to friend.name, friend.url %></li>
+								<li>
+									<% if friend.logo.present? %>
+										<%= link_to image_tag(friend.logo, :alt => friend.name), friend.url %>
+									<% else %>
+										<%= link_to(friend.name, friend.url, :class => "logo") %>
+									<% end %>
+								</li>
 							<% end %>
 						</ul>
 					</div>

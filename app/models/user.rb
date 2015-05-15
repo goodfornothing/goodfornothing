@@ -138,6 +138,17 @@ class User < ActiveRecord::Base
       :token => omni['credentials'].token,
       :token_secret => omni['credentials'].secret)
   end
+
+  def list_authentications
+    list = ''
+    self.authentications.each do |auth|
+      list.concat(auth.provider.capitalize)
+      if auth != self.authentications.last
+        list.concat(", ")
+      end
+    end
+    list
+  end
   
   protected
 

@@ -51,7 +51,8 @@ ActiveAdmin.register User do
 
 	index do
     column("Name") { |user| link_to user.name, hive_user_path(user) }
-		column("Twitter") { |user| link_to "#{user.twitter_handle}", "http://twitter.com/#{user.twitter_handle}" unless user.twitter_handle.nil? }
+    column("Twitter") { |user| link_to "#{user.twitter_handle}", "http://twitter.com/#{user.twitter_handle}" unless user.twitter_handle.nil? }
+		column("Social Login") { |user| user.list_authentications }
 		column :created_at
     column("State") { |user| status_tag((user.activated) ? "Active" : "Inactive") }
     column "" do |user|

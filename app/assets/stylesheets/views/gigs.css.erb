@@ -1,5 +1,6 @@
 .section_gigs #main{
 	width:100%;
+	max-width:none;
 	/*background:red;*/
 }
 
@@ -88,6 +89,14 @@
 	float:left;
 	margin-left:5%;
 	width:30%;
+}
+
+@media all and (max-width: 780px) {
+	.col-left, .col-right{
+		margin-left:0;
+		margin-right:0;
+		width:100%;
+	}
 }
 
 .event-quick-links{

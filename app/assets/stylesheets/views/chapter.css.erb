@@ -1,19 +1,26 @@
 /* Layout */
 
-	.section_colophon.view_chapter #main,
+/*	.section_colophon.view_chapter #main,
 	.section_colophon.view_chapter #main,
 	.section_colophon.view_chapter #main {
 		overflow: visible;
 		width: auto;
 		margin: 0;
 		padding: 0;
-	}
+	}*/
 
-	.section_colophon.view_chapter #main #primary_content,
+/*	.section_colophon.view_chapter #main #primary_content,
 	.section_colophon.view_chapter #main #primary_content,
 	.section_colophon.view_chapter #main #primary_content {
 		float: none;
 		width: auto;
+	}*/
+
+	/*.section_colophon #main #primary_content{*/
+	.view_chapter #main{
+		width:100%;
+		max-width:none;
+		padding-bottom:0;
 	}
 
 	.section_colophon.view_chapter header,
@@ -193,7 +200,7 @@
 	}
 	
 	#chapter_crew {
-		width: 510px;
+		/*width: 510px;*/
 		padding-left: 450px;
 		background: url(<%= asset_path "assets/crew.png" %>) no-repeat 0 5px;
 		margin-bottom: 80px;
@@ -272,6 +279,88 @@
 		height: 110px;
 		text-indent: -2537px;
 		background: url(<%= asset_path "assets/mothership_button.png" %>) no-repeat top left;
+	}
+
+	@media all and (max-width: 1130px) {
+
+		#chapter_movement{
+			width:auto;
+			padding-right:0;
+			padding-bottom: 350px;
+			background-position: center bottom;
+		}
+
+		#chapter_introduction{
+			width:auto;
+		}
+
+		#chapter_start h2{
+			width:auto;
+		}
+
+		#chapter_crew{
+			margin-bottom: 0px; 
+			padding-left: 0;
+			padding-top:280px;
+			background-position: center top;
+		}
+
+		#chapter_flow{
+			background:none;
+			padding-bottom:30px;
+			min-height: 0;
+			overflow: hidden;
+		}
+
+		#chapter_flow li{
+			position: static;
+			float: left;
+			width: 100%!important;
+			margin-bottom: 20px;
+		}
+
+		#chapter_flow li:nth-child(2){
+			text-indent: 0;
+		}
+
+		#chapter_flow li:nth-child(5){
+			color:#085156;
+		}
+
+		#chapter_flow li:nth-child(7){
+			padding:0;
+			background: none;
+			color:#085156;
+		}
+
+		#chapter_involve h3{
+			width:auto;
+			text-indent: 0;
+			height:auto;
+		}
+
+		#chapter_involve .container{
+			width:auto;
+		}
+
+		#chapter_involve p{
+			float:none;
+			width:auto!important;
+		}
+
+		#chapter_involve {
+			padding:50px;
+		}
+
+		#chapter_call p{
+			margin: 0 auto 20px;
+		}
+
+		#call_mothership a{
+			background: none;
+			text-indent: 0;
+			width:auto;
+		}
 	}
 
 

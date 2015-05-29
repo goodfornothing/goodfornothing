@@ -347,6 +347,7 @@
 .slideshow .slide{
 	float:left;
 	transition: all 1s;
+	width: 33.3%;
 }
 .slide iframe{
 	margin:0;
@@ -395,6 +396,17 @@
 
 .slideshow-arrow--left{
 	left: -60px;
+}
+
+
+@media all and (max-width: 1130px) {
+	.slideshow-arrow--left {
+	  left: 20px;
+	}
+
+	.slideshow-arrow--right {
+	  right: 20px;
+	}
 }
 
 .section_home .homepage--lower{

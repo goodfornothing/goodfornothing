@@ -73,7 +73,7 @@
 
 					<ul>
 						<li class="nav--about"><%= link_to "About", how_path, :class => ('active' if is_about?) %></li>
-						<li class="nav--chapters"><%= link_to user_signed_in? ? "Chapters" : "Local chapters", chapter_register_path, :class => ('active' if is_chapters?) %></li>
+						<li class="nav--chapters"><%= link_to "Local chapters", chapter_register_path, :class => ('active' if is_chapters?) %></li>
 						<li class="nav--gigs"><%= link_to "Gigs", calendar_path, :class => ('active' if is_calendar?) %></li>
 						<li class="nav--warblings"><%= link_to "Warblings", warblings_path, :class => ('active' if is_warblings?) %></li>
 						<li class="nav--challenges"><%= link_to "Challenges", new_messaging_challenge_path, :class => ('active' if is_challenges?) %></li>

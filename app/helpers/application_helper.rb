@@ -27,6 +27,10 @@ module ApplicationHelper
   def is_warblings?
     params[:controller] == 'warblings' || params[:controller] == 'trills' || params[:controller] == 'posts'
   end
+
+  def is_register?
+    params[:controller] == 'registrations'
+  end
   
   def contextual_reference(user,term)
     if (user_signed_in? && current_user == user)

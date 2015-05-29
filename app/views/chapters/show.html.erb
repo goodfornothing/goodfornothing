@@ -125,6 +125,13 @@
 
 <aside id="secondary_content">
 
+	
+	<% if !user_signed_in? %>
+		<div class='become-chapter-member'>
+			<%= link_to "Become a member", register_path %> in <%=@chapter.title%> or <%= link_to "Login", login_path %>
+		</div>
+	<% end %>
+
 	<h2>Contact us</h2>
 
 
@@ -180,11 +187,4 @@
 	</ul>
 	<% end %>
 	
-
-	<% if !user_signed_in? %>
-		<%= link_to "Become a member", register_path %> in <%=@chapter.title%> or <%= link_to "Login", login_path %>
-	<% end %>
-
-
-
 </aside>

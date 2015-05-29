@@ -15,7 +15,7 @@ ActiveAdmin.register User do
   scope :all, :default => true
   scope :admins
   scope :chapter_leaders do
-    User.leaders
+    User.where(:role => ['admin', 'leader'])
   end
   scope :cause_owners do
     User.causes

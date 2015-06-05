@@ -77,10 +77,10 @@
 						<li class="nav--gigs"><%= link_to "Gigs", calendar_path, :class => ('active' if is_calendar?) %></li>
 						<li class="nav--warblings"><%= link_to "Warblings", warblings_path, :class => ('active' if is_warblings?) %></li>
 						<li class="nav--challenges"><%= link_to "Challenges", new_messaging_challenge_path, :class => ('active' if is_challenges?) %></li>
+						<li class="nav--highlights"><%= link_to "Highlights", highlights_path, :class => ('active' if is_highlights?) %></li>
 						<% if !user_signed_in? %>
 							<li class="nav--join"><%= link_to "Join", register_path, :class => ('active' if is_register?)%></li>
 						<% end %>
-						
 					</ul>
 
 				</nav>

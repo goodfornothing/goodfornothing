@@ -15,6 +15,10 @@ module ApplicationHelper
   def is_about?
     params[:action] == 'how' || params[:action] == 'who' || params[:action] == 'funding'
   end
+
+  def is_highlights?
+    params[:action] == 'highlights'
+  end
   
   def is_community?
     params[:action] == 'community' || params[:controller] == 'partners' || params[:controller] == 'ventures' || params[:controller] == 'members' || params[:controller] == 'friends' || params[:controller] == 'socials' ||  params[:controller] == 'gigs' || params[:action] == "calendar"

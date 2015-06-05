@@ -14,6 +14,9 @@ class ColophonController < ApplicationController
 	def funding
 	end
 
+	def highlights
+	end
+
 	def community
 	  
 	  @social = Social.where('start_time > ?',Time.now).first

@@ -390,14 +390,15 @@
 		overflow: hidden;
 		width: 100%;
 		margin-bottom: 20px;
+		text-align: center;
 	}
 
 	.grid_list li {
 		list-style-type: none;
 		padding: 0;
-		float: left;
 		margin: 0 20px 20px 0;
 		width: 200px;
+		display: inline-block;
 	}
 
 	@media all and (max-width: 860px) {
@@ -406,19 +407,19 @@
 		}
 	}
 	
-	.grid_three li:nth-child(3n+3),
+/*	.grid_three li:nth-child(3n+3),
 	.grid_four li:nth-child(4n+4),
 	.grid_two li:nth-child(2n+2) {
 		margin-right: 0;
-	}
+	}*/
 
-	.single .grid_list li:nth-child(3n+3) {
+/*	.single .grid_list li:nth-child(3n+3) {
 		margin-right: 20px;
 	}
 	
 	.single .grid_list li:nth-child(4n+4) {
 		margin-right: 0;
-	}
+	}*/
 	
 	.grid_list li a img {
 		display: block;
@@ -539,7 +540,7 @@
 	
 	.grid_list li.note {
 		width: 180px;
-		height: 140px;
+		height: 150px;
 		padding: 65px 20px 65px;
 		overflow: hidden;
 	}
@@ -666,6 +667,14 @@
 		width: 640px;
 		margin-right: 50px;
 		float: left;
+	}
+
+	@media all and (max-width: 900px) {
+		.single .abstract div{
+			width:auto;
+			margin:0;
+			float:none;
+		}
 	}
 	
 /* Warbling grid */

@@ -15,6 +15,16 @@
 											url(<%= asset_path "blocks/form_bottom_right.gif" %>);
   }
 
+	@media all and (max-width: 740px) {
+		.primary_panel{
+			padding: 20px;
+		}
+		#main #primary_content{
+			float:none;
+		}
+	}
+	
+
 	.primary_panel_panel ::selection { background:#085156; color:#ffffff; }
 	.primary_panel_panel ::-moz-selection { background:#085156; color:#ffffff; }
 	.primary_panel_panel ::-webkit-selection { background:#085156; color:#ffffff; }
@@ -549,3 +559,10 @@
 		display: block;
 		float: left;
 	}
+
+
+@media all and (max-width: 740px) {
+	.primary_panel .string input, .primary_panel .email input, .primary_panel .url input, .primary_panel .password input, .primary_panel .integer input, .primary_panel textarea{
+		width:90%;
+	}
+}

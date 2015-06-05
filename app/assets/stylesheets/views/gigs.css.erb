@@ -110,18 +110,31 @@
 	overflow: hidden;
 }
 
-table{
+.event-header {
 	width:100%;
 }
 
-table td{
+.event-header  td{
 	width:50%;
 }
+
+
 .gig-photo{
 	background-position:center;
 	background-size:cover;
 }
 
+@media all and (max-width: 690px) {
+	.event-header  td{
+		width:100%;
+		display: block;
+		float:left;
+	}
+
+	.gig-photo{
+		padding-bottom: 50%;
+	}
+}
 .attending-fixed-header{
 	position:fixed;
 	top:-60px;

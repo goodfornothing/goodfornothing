@@ -168,6 +168,10 @@ $(document).ready(function(){
 						data: data
 					})
 				}
+
+				$('html, body').animate({
+				        scrollTop: $(".simple_form.primary_panel").offset().top
+			    }, 500);
 			}
 	});
 

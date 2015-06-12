@@ -99,10 +99,6 @@
 		margin: 0 20px 15px 0;
 	}
 
-	.splodge_list li:nth-child(6n+6) { 
-		margin-right: 0;
-	}
-
 	.splodge_list li a {
 		display: block;
 		width: 140px;
@@ -289,6 +285,17 @@
 		background: url(<%= asset_path "assets/mothership_button.png" %>) no-repeat top left;
 	}
 
+	.section_chapters.view_show .grid_list{
+		text-align: left;
+	}
+
+	.section_chapters.view_show #main #primary_content{
+		width:75%;
+	}
+	.section_chapters.view_show #main #secondary_content{
+		width:25%;
+	}
+
 	@media all and (max-width: 1130px) {
 
 		#chapter_movement{
@@ -369,6 +376,15 @@
 			background: none;
 			text-indent: 0;
 			width:auto;
+		}
+	}
+
+	@media all and (max-width: 1000px) {
+		.section_chapters.view_show #main #primary_content{
+			width:100%;
+		}
+		.section_chapters.view_show #main #secondary_content{
+			width:100%;
 		}
 	}
 

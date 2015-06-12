@@ -301,6 +301,8 @@ $(document).ready(function(){
 	//Google map
 	if ($("#js-map").length){
 
+		var center = $(window).width() < 1000 ? new google.maps.LatLng(51.5, 0.1275) : new google.maps.LatLng(20,0);
+
 		(function(){
 			var chapterPage;
 			var map;
@@ -310,7 +312,7 @@ $(document).ready(function(){
 				zoom: 2,
 				minZoom:2,
 				maxZoom:7,
-				center: new google.maps.LatLng(20,0),
+				center: center,
 				scrollwheel: true,
 				streetViewControl: false,
 				scrollwheel: false, 

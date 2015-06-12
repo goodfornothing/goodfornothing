@@ -58,6 +58,30 @@ form.slides h1 {
 	background: url(<%= asset_path "text/join.gif" %>) no-repeat;
 }
 
+@media (max-width: 860px){
+	#new_user.slides h1, .view_edit form.slides h1 { 
+		width:auto;
+		height:auto;
+		margin-bottom: 0;
+	}
+
+	#new_user.slides h1 span,
+	.view_edit form.slides h1 span,
+	.section_registrations #pagination {
+		background: none;
+	}
+
+	.view_edit form.slides h1 { 
+		text-indent: 0; 
+		font-size: 24px;
+		width:auto;
+	}
+
+	.primary_panel legend{
+		font-size:20px;
+	}
+}
+
 form.slides {
 	/*width: 840px;*/
 	max-width: 840px;
@@ -88,7 +112,7 @@ form.slides fieldset {
 	margin: 0;
 	padding-top: 60px;
 	padding-bottom: 0;
-	position: relative;
+	/*position: relative;*/
 }
 
 .view_edit_moar form.slides fieldset {
@@ -583,4 +607,39 @@ p.social-registration-info{
 .social-login-registration-option a, .social-login-registration-option span{
 	display: block;
 	padding:20px 0;
+}
+
+@media (max-width: 860px){
+
+	form.slides .warblings .slide_illustration,
+	form.slides .fields .involvement .slide_illustration,
+	form.slides .chapters .slide_illustration,
+	form.slides .chapters .grow_tip{
+		display: none;
+	}
+
+	form.slides .border_splodges,
+	form.slides .slide_skills,
+	form.slides .fields .form_panels,
+	form.slides .solid_splodges,
+	form.slides .fields .half_panel,
+	form.slides .slide_why .input.text,
+	.primary_panel .checkbox {
+		width:auto;
+	}
+
+	form.slides .fields .half_panel{
+		margin:0;
+	}
+
+	form.slides .fields .half_panel input.string,
+	form.slides .fields .half_panel input.email,
+	form.slides .fields .half_panel input.password {
+		width:100%;
+	}
+
+	form.slides .slide_contact .btn {
+		position:static;
+	}
+
 }

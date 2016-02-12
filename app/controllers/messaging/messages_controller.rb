@@ -39,16 +39,22 @@ class Messaging::MessagesController < ApplicationController
 		@message = Messaging::Message.create(params[:messaging_message])
 		@message.user = current_user if user_signed_in?
 		
-		if @message.save
-						
-			if @message.recipients.any?
-				MessageMailer.notice(@message).deliver
+		if !is_spam_message?(@message)
+
+			if @message.save
+							
+				if @message.recipients.any?
+					MessageMailer.notice(@message).deliver
+				end
+				
+				redirect_to done_messaging_messages_path
+				
+			else
+				render "failure"
 			end
-			
-			redirect_to done_messaging_messages_path
-			
+
 		else
-			render "failure"
+			redirect_to('/how-it-works') 
 		end
 		
 	end

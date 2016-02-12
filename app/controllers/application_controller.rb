@@ -62,6 +62,10 @@ class ApplicationController < ActionController::Base
     return nil if user_signed_in? && current_user.role.nil?
     current_user 
   end
+
+  def is_spam_message?(message)
+    return true if message.name == "2rand[0,1,1]"
+  end
        
   private
   

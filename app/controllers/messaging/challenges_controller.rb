@@ -37,23 +37,26 @@ class Messaging::ChallengesController < ApplicationController
 		elsif user_signed_in?
 			@submission.message.user = current_user 
 		end
-		
-		if @submission.save
-			if(params.has_key?(:chapter_id))
-				chapter_id = params[:chapter_id]
+
+		if !is_spam_message?(@submission.message)
+			if @submission.save
+				if(params.has_key?(:chapter_id))
+					chapter_id = params[:chapter_id]
+				else
+					chapter_id = Chapter.find_by_slug("london").id #send to London by default
+				end
+				recipients = (Rails.env.production?) ? Chapter.find_by_id(chapter_id).users.crew : [User.find_by_email("ed@madebyfieldwork.com")]
+				@submission.message.users << recipients
+				if @submission.message.recipients.any?
+					MessageMailer.challenge_submission(@submission.message).deliver
+					redirect_to done_messaging_challenges_path
+				end
 			else
-				chapter_id = Chapter.find_by_slug("london").id #send to London by default
-			end
-			recipients = (Rails.env.production?) ? Chapter.find_by_id(chapter_id).users.crew : [User.find_by_email("ed@madebyfieldwork.com")]
-			@submission.message.users << recipients
-			if @submission.message.recipients.any?
-				MessageMailer.challenge_submission(@submission.message).deliver
-				redirect_to done_messaging_challenges_path
+				render failure_messaging_messages_path
 			end
 		else
-			render failure_messaging_messages_path
+			redirect_to('/how-it-works') 
 		end
-		
 	end
 	
 end

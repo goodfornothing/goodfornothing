@@ -20,15 +20,21 @@ class Messaging::PartnersController < ApplicationController
 			@submission.message.user = current_user 
 		end 
 
-		if @submission.save
-			recipients = (Rails.env.production?) ? Chapter.find_by_title('London').users.crew : [User.find_by_email("ed@madebyfieldwork.com")]
-			@submission.message.users << recipients
-			if @submission.message.recipients.any?
-				MessageMailer.partner_submission(@submission.message).deliver
+		if !is_spam_message?(@submission.message)
+
+			if @submission.save
+				recipients = (Rails.env.production?) ? Chapter.find_by_title('London').users.crew : [User.find_by_email("ed@madebyfieldwork.com")]
+				@submission.message.users << recipients
+				if @submission.message.recipients.any?
+					MessageMailer.partner_submission(@submission.message).deliver
+				end
+				redirect_to done_messaging_partners_path
+			else
+				render failure_messaging_messages_path
 			end
-			redirect_to done_messaging_partners_path
+
 		else
-			render failure_messaging_messages_path
+			redirect_to('/how-it-works') 
 		end
 		
 	end

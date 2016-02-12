@@ -47,6 +47,10 @@ class RegistrationsController < Devise::RegistrationsController
     if params[:user][:reasons_for_joining].include?('<a')
       abort_register and return
     end
+
+    if params[:user][:brings].blank?
+      abort_register and return
+    end
     
     ning_user = User.joins(:ning_profile).where('users.email = ? && users.activated = ?', params[:user][:email], false).first
     
@@ -190,7 +194,7 @@ class RegistrationsController < Devise::RegistrationsController
   protected
   
     def abort_register
-      redirect_to('/register') 
+      redirect_to('/how-it-works') 
     end
     
     def check_subscription(resource)

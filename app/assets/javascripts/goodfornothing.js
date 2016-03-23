@@ -238,24 +238,48 @@ $(document).ready(function(){
 
 	//Home page slideshow
 	var slideCount = $(".js-slide").length;
+	// var index = Math.floor(Math.random() * 3);
 	var index = 0;
 	var slideDuration = 4000;
 	var slideshowRef;
 	var iframe;
 
-	if ($(".js-slideshow").length > 0){
-		slideshowRef = window.setInterval(slide, slideDuration);
-			//froogaloop
-		    iframe = $('#player1')[0];
-		    player = $f(iframe);
+	$.fn.shuffle = function() {
+	 
+	        var allElems = this.get(),
+	            getRandom = function(max) {
+	                return Math.floor(Math.random() * max);
+	            },
+	            shuffled = $.map(allElems, function(){
+	                var random = getRandom(allElems.length),
+	                    randEl = $(allElems[random]).clone(true)[0];
+	                allElems.splice(random, 1);
+	                return randEl;
+	           });
+	 
+	        this.each(function(i){
+	            $(this).replaceWith($(shuffled[i]));
+	        });
+	 
+	        return $(shuffled);
+	 
+    };
 
-		    // When the player is ready, add listeners for pause, finish, and playProgress
-		    player.addEvent('ready', function() {
-		    	player.addEvent('play', onPlay);
-		    	player.addEvent('pause', restartSlideshow);
-		    	player.addEvent('finish', restartSlideshow);
-		    });
-	}
+    $(".js-slide").shuffle();
+
+	// if ($(".js-slideshow").length > 0){
+	// 		// slideshowRef = window.setInterval(slide, slideDuration);
+	// 		//froogaloop
+	// 	    iframe = $('#player1')[0];
+	// 	    player = $f(iframe);
+
+	// 	    // When the player is ready, add listeners for pause, finish, and playProgress
+	// 	    player.addEvent('ready', function() {
+	// 	    	player.addEvent('play', onPlay);
+	// 	    	player.addEvent('pause', restartSlideshow);
+	// 	    	player.addEvent('finish', restartSlideshow);
+	// 	    });
+	// }
 
 	$(".js-slideshow").width(100 * slideCount + "%");
 	
@@ -265,12 +289,12 @@ $(document).ready(function(){
 	})
 
 	function advanceSlideshow(index){
-		player.api("paused", function(paused){
-			if (paused){
-				clearInterval(slideshowRef);
-				slideshowRef = window.setInterval(slide, slideDuration);
-			}
-		});
+		// player.api("paused", function(paused){
+		// 	if (paused){
+		// 		clearInterval(slideshowRef);
+		// 		// slideshowRef = window.setInterval(slide, slideDuration);
+		// 	}
+		// });
 		$(".js-slideshow-pagination").removeClass("active");
 		$(".js-slideshow-pagination").eq(index).addClass("active");
 		$(".js-slideshow").css("left", (-100 * index) + "%");

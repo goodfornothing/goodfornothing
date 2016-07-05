@@ -6,7 +6,7 @@ class Chapter < ActiveRecord::Base
   has_many :users
   has_and_belongs_to_many :friends
 
-	attr_accessible :title, :city, :country, :user_ids, :shaken_hands, :twitter_handle, :twitter_password, :cover_image, :bird_image, :chapter_description, :chapter_title, :chapter_video_embed, :friend_ids
+	attr_accessible :title, :city, :country, :user_ids, :shaken_hands, :twitter_handle, :twitter_password, :cover_image, :bird_image, :chapter_description, :chapter_title, :chapter_video_embed, :friend_ids, :mailchimp_api_key, :mailchimp_list_id
 	
 	validates_presence_of :title
 

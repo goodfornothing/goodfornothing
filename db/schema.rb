@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150424133628) do
+ActiveRecord::Schema.define(:version => 20160705155043) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20150424133628) do
     t.string   "chapter_title"
     t.string   "chapter_video_embed"
     t.string   "bird_image"
+    t.string   "mailchimp_api_key"
+    t.string   "mailchimp_list_id"
   end
 
   add_index "chapters", ["slug"], :name => "index_chapters_on_slug", :unique => true

@@ -83,6 +83,8 @@ ActiveAdmin.register Chapter do
       f.input :cover_image, :label => "Cover Image (950 x 360)"
       f.input :bird_image, :label => "Bird Image (256 x 256)"
       f.input :chapter_video_embed, :label => "Chapter Video (YouTube or Vimeo URL)"
+      f.input :mailchimp_api_key, :label => "Mailchimp API Key"      
+      f.input :mailchimp_list_id, :label => "Mailchimp List ID"
     end
     f.buttons
   end

@@ -103,7 +103,7 @@
 				<% if @user.password_required? %>
 				<%= f.input :password, :label => "Choose a password", :required => false, :input_html => { :autocomplete => "off" }, :wrapper_html => { :class => "smart_label" } %>
 				 <% end %>
-				<%= f.input :subscribed, :label => "Join the GFN mailing list? (If you've joined a chapter you'll also join their mailing list too)", :input_html => { :value => '1' } %>
+				<%= f.input :subscribed, :label => "Join the GFN mailing list? (If you've joined a chapter you'll also join their mailing list too)", :input_html => { :checked => true } %>
 			
 				<%= f.button :submit, "Let me in!" %>
 

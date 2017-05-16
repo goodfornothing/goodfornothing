@@ -36,11 +36,11 @@
 
 			</fieldset>
 		
-			<fieldset class="slide warblings">
+			<!--<fieldset class="slide warblings">
 				<legend>Which issues are you most passionate about?</legend>
 				<%= f.association :issues, :collection => Issue.active, :label_method => lambda { |i| i.title.sub(/\s/,'<br />').html_safe }, :as => :check_boxes, :label => "", :wrapper_html => { :class => "border_splodges" } %>
 				<%= image_tag "illustrations/teacup.png", :class => "slide_illustration" %>
-			</fieldset>
+			</fieldset>-->
 		
 			<fieldset class="slide involvement">
 			
@@ -87,7 +87,7 @@
 					</div>-->
 			
 					<div class="">
-						<%= f.input :reasons_for_joining, :input_html => { :rows => 6 }, :wrapper_html => { :class => "smart_label" } %>
+						<%= f.input :reasons_for_joining, :label => "", :input_html => { :rows => 6 }, :wrapper_html => { :class => "smart_label" } %>
 					</div>
 					
 				</div>

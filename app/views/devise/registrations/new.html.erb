@@ -12,10 +12,10 @@
 
 			<fieldset class="slide">
 				
-				<legend>
+				<!--<legend>
 					Would you like to sign up with a social media account?
 					<%#=session[:omniauth].inspect %>
-				</legend>
+				</legend>-->
 				<% if session[:omniauth] %>
 
 					<p class="social-registration-info">
@@ -30,17 +30,17 @@
 					<ul class="social-login-registration-options">
 						<li class="social-login-registration-option"><%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter) %></li>
 						<li class="social-login-registration-option"><%= link_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook) %></li>
-						<li class="social-login-registration-option js-social-next"><span>No thanks, skip</span></li>
+						<li class="social-login-registration-option js-social-next"><span>Sign up with email</span></li>
 					</ul>
 				<% end %>
 
 			</fieldset>
 		
-			<fieldset class="slide warblings">
+			<!--<fieldset class="slide warblings">
 				<legend>Which issues are you most passionate about?</legend>
 				<%= f.association :issues, :collection => Issue.active, :label_method => lambda { |i| i.title.sub(/\s/,'<br />').html_safe }, :as => :check_boxes, :label => "", :wrapper_html => { :class => "border_splodges" } %>
 				<%= image_tag "illustrations/teacup.png", :class => "slide_illustration" %>
-			</fieldset>
+			</fieldset>-->
 		
 			<fieldset class="slide involvement">
 			
@@ -76,17 +76,17 @@
 
 			<fieldset class="slide similar">
 				
-				<legend>People a little like you</legend>
+				<legend>Why are you joining Good for Nothing?</legend>
 			
 				<div class="form_panels">
 					
-					<div class="faces half_panel">
+					<!--<div class="faces half_panel">
 						<ul class="avatar_list" id="similar_list">
 							<span id="spinmerightround"></span>
 						</ul>
-					</div>
+					</div>-->
 			
-					<div class="half_panel">
+					<div class="">
 						<%= f.input :reasons_for_joining, :label => "What makes you want to do Good for Nothing? (no HTML please!)", :input_html => { :rows => 6 }, :wrapper_html => { :class => "smart_label" } %>
 					</div>
 					
@@ -96,7 +96,7 @@
 			</fieldset>
 			
 			<fieldset class="slide claim">
-				<legend>The boring bit</legend>
+				<legend>To keep us connected</legend>
 				
 				<%= f.input :name, :label => "Your name", :required => true, :wrapper_html => { :class => "smart_label" }, input_html: {value: @form_defaults[:name] } %>
 				<%= f.input :email, :label => "Your email address", :required => true, :wrapper_html => { :class => "smart_label" }, input_html: {value: @form_defaults[:email] }  %>

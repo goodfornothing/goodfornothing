@@ -1,4 +1,6 @@
 ActiveAdmin.register Chapter do
+	
+  config.sort_order = 'name_asc'
   
   controller do
     load_resource :except => :index

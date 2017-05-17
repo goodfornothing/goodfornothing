@@ -14,14 +14,14 @@
 		<%= image_tag "/assets/illustrations/peering-over.png", {:class => 'peering-over'} %>
 		<%= image_tag "/assets/illustrations/teacup.png", {:class => 'teacup'} %>
 
-		<div class="block block--red">
+		<!--<div class="block block--red">
 			<div class="inner">
 				<span class="large-number">
 				<%= @venture_count %>
 				</span>
 				<%= link_to("Amazing Ventures", {:controller => "ventures", :action => "index" }, :class => "small-text") %>
 			</div>
-		</div>
+		</div>-->
 	
 		<div class="block block--blue">
 			<div class="inner">			
@@ -113,11 +113,11 @@
 			<% end %>		
 		</section>
 		
-		<div><p class="cta" id="more"><%= link_to "See more events", calendar_path %></p></div>
+		<div><p class="cta" id="more"><%= link_to "See more gigs", calendar_path %></p></div>
 	</div>
 </div>
 
-<div>
+<!--<div>
 	<div class="container homepage--lower">
 		<section id="updates" class="panel">
 					<h2>Latest warblings</h2>
@@ -129,7 +129,7 @@
 				<% end %>
 		</section>
 	</div>
-</div>
+</div>-->
 
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <%= javascript_include_tag '/assets/infobox.js' %>

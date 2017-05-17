@@ -17,7 +17,7 @@
 							<p class="meta">
 								Venue<br />
 								<%=@gig.location%><br />
-								<%= link_to "View map", "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.title}" %>
+								<%= link_to "View map", "https://maps.google.co.uk/maps?q=#{@gig.location},+%20#{@gig.chapter.title}", target: "_blank" %>
 							</p>
 						<% end %>
 
@@ -72,7 +72,7 @@
 
 				<div class="col-left">
 					<p>
-						<%=@gig.intro %>
+						<%=simple_format(@gig.intro) %>
 					</p>
 
 					<%= render :partial => "events/attend", :locals => { :event => @gig } %>

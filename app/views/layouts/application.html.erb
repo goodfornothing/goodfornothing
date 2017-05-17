@@ -26,10 +26,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="/favicon.ico?v2" />
 		
-		<meta property="og:title" content="<%= "#{@member.name.titlecase} at " if params[:controller] == "members" && params[:action] == "show" && !@member.nil? %>Good for Nothing - Collaborating for Good" />
+		<% if params[:controller] == "members" && params[:action] == "show" && !@member.nil? %>
+			<meta property="og:title" content="<%= @member.name.titlecase %> at Good for Nothing - Collaborating for Good" />
+			<meta property="og:image" content="http://www.goodfornothing.com/assets/branding/bird-facebook.png" />
+		<% elsif params[:controller] == "gigs" && params[:action] == "show" %>
+			<meta property="og:title" content="<%= @gig.title.titlecase %> | Good for Nothing - Collaborating for Good" />
+			<meta property="og:image" content="<%= @gig.image%>" />
+		<% else %>
+			<meta property="og:title" content="Good for Nothing - Collaborating for Good" />
+			<meta property="og:image" content="http://www.goodfornothing.com/assets/branding/bird-facebook.png" />
+		<% end %>
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://<%=request.host+request.fullpath%>" />
-		<meta property="og:image" content="http://www.goodfornothing.com/assets/branding/bird-facebook.png" />
 		<meta property="og:description" content="Good for Nothing, smart folk collaborating and experimenting to solve stuff that matters." />
 		<meta property="fb:admins" content="1009211182" />
 		

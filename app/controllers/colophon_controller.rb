@@ -1,7 +1,7 @@
 class ColophonController < ApplicationController
 
 	def chapter
-		@chapters = Chapter.all.order("title ASC")
+		@chapters = Chapter.order("title ASC").all
 	end
 
 	def who

@@ -18,14 +18,14 @@ ActiveAdmin.register Challenge do
   end
   
   sidebar :help do
-    render "/hive/shared/help"
+    render "/nest/shared/help"
   end
   
   index do
-    column("Title") { |challenge| link_to challenge.title, hive_challenge_path(challenge) }
+    column("Title") { |challenge| link_to challenge.title, nest_challenge_path(challenge) }
     column(:venture) { |challenge| challenge.venture.name if challenge.venture.present? }
     column "" do |challenge|
-      "#{link_to "Edit", edit_hive_challenge_path(challenge)} &nbsp; #{link_to "Delete", hive_challenge_path(challenge), :method => "delete", :confirm => "Are you sure you wish to delete this challenge?"}".html_safe
+      "#{link_to "Edit", edit_nest_challenge_path(challenge)} &nbsp; #{link_to "Delete", nest_challenge_path(challenge), :method => "delete", :confirm => "Are you sure you wish to delete this challenge?"}".html_safe
     end
   end
   

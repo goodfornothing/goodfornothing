@@ -14,11 +14,11 @@ ActiveAdmin.register Gig do
   scope :all
 
 	index do
-    column("Title") { |gig| link_to gig.title, hive_gig_path(gig) }
+    column("Title") { |gig| link_to gig.title, nest_gig_path(gig) }
     column("Chapter") { |gig| gig.chapter.title if gig.chapter.present? }
     column :start_time
     column "" do |gig|
-      "#{link_to "Edit", edit_hive_gig_path(gig)} &nbsp; #{link_to "Delete", hive_gig_path(gig), :method => "delete", :confirm => "Are you sure you wish to delete this gig?"}".html_safe
+      "#{link_to "Edit", edit_nest_gig_path(gig)} &nbsp; #{link_to "Delete", nest_gig_path(gig), :method => "delete", :confirm => "Are you sure you wish to delete this gig?"}".html_safe
     end
   end
   
@@ -47,7 +47,7 @@ ActiveAdmin.register Gig do
   end
   
   sidebar :help do
-    render "/hive/shared/help"
+    render "/nest/shared/help"
   end
   
   form :html => { :enctype => "multipart/form-data" } do |f|
@@ -177,7 +177,7 @@ ActiveAdmin.register Gig do
     end
     
     div :class => "download_links" do
-      "Download attendees: #{link_to "CSV", download_attendees_hive_gig_path(gig, :format => "csv")}".html_safe
+      "Download attendees: #{link_to "CSV", download_attendees_nest_gig_path(gig, :format => "csv")}".html_safe
     end
     
   end

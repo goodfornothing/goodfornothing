@@ -37,16 +37,16 @@ ActiveAdmin.register Chapter do
   end
   
   sidebar :help do
-    render "/hive/shared/help"
+    render "/nest/shared/help"
   end
   
 	index do
-    column("Name") { |chapter| link_to chapter.title, hive_chapter_path(chapter) }
+    column("Name") { |chapter| link_to chapter.title, nest_chapter_path(chapter) }
     column "" do |chapter|
       if current_user.role == "admin"   
-        "#{link_to "Edit", edit_hive_chapter_path(chapter)} &nbsp; #{link_to "Delete", hive_chapter_path(chapter), :method => "delete", :confirm => "Are you sure you wish to delete this chapter?"}".html_safe
+        "#{link_to "Edit", edit_nest_chapter_path(chapter)} &nbsp; #{link_to "Delete", nest_chapter_path(chapter), :method => "delete", :confirm => "Are you sure you wish to delete this chapter?"}".html_safe
       else
-        "#{link_to "Edit", edit_hive_chapter_path(chapter)}".html_safe
+        "#{link_to "Edit", edit_nest_chapter_path(chapter)}".html_safe
       end
     end
   end

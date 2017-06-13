@@ -7,7 +7,7 @@ ActiveAdmin.register Page do
 	config.clear_sidebar_sections!
     
   index :download_links => false, title: "Wiki" do
-    render "/hive/shared/help"
+    render "/nest/shared/help"
   end
 
 	form do |f|

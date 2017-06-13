@@ -10,7 +10,7 @@ ActiveAdmin.register Trill do
   filter :title
   
   sidebar :help do
-    render "/hive/shared/help"
+    render "/nest/shared/help"
   end
   
   form :html => { :enctype => "multipart/form-data" }  do |f|
@@ -38,11 +38,11 @@ ActiveAdmin.register Trill do
   end
   
 	index do
-    column("Title") { |trill| link_to trill.title, hive_trill_path(trill) }
+    column("Title") { |trill| link_to trill.title, nest_trill_path(trill) }
     column("Author") { |trill| trill.user.name unless trill.user.nil? }
     column("State") { |trill| status_tag((trill.published) ? "Published" : "Unpublished") }
     column "" do |trill|
-      "#{link_to "Edit", edit_hive_trill_path(trill)} &nbsp; #{link_to "Delete", hive_trill_path(trill), :method => "delete", :confirm => "Are you sure you wish to delete this trill?"}".html_safe
+      "#{link_to "Edit", edit_nest_trill_path(trill)} &nbsp; #{link_to "Delete", nest_trill_path(trill), :method => "delete", :confirm => "Are you sure you wish to delete this trill?"}".html_safe
     end
   end
   
@@ -75,7 +75,7 @@ ActiveAdmin.register Trill do
     trill = Trill.find(params[:id])
     trill.published = true
     trill.save
-    redirect_to hive_dashboard_path
+    redirect_to nest_dashboard_path
   end
   
 end

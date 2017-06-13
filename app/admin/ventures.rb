@@ -10,13 +10,13 @@ ActiveAdmin.register Venture do
   config.clear_sidebar_sections!
   
   sidebar :help do
-    render "/hive/shared/help"
+    render "/nest/shared/help"
   end
   
   index do
-    column("Name") { |venture| link_to venture.name, hive_venture_path(venture) }
+    column("Name") { |venture| link_to venture.name, nest_venture_path(venture) }
     column "" do |venture|
-      "#{link_to "Edit", edit_hive_venture_path(venture)} &nbsp; #{link_to "Delete", hive_venture_path(venture), :method => "delete", :confirm => "Are you sure you wish to delete this venture?"}".html_safe
+      "#{link_to "Edit", edit_nest_venture_path(venture)} &nbsp; #{link_to "Delete", nest_venture_path(venture), :method => "delete", :confirm => "Are you sure you wish to delete this venture?"}".html_safe
     end
   end
   

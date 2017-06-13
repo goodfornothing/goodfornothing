@@ -25,7 +25,7 @@ ActiveAdmin.register User do
   actions :all, :except => [:new]
 
   sidebar :profile, :only => [:show,:edit] do
-    span "The Hive only displays the non-public details of members, for more information about this member #{link_to "view their full profile", member_path(user)}".html_safe
+    span "The Nest only displays the non-public details of members, for more information about this member #{link_to "view their full profile", member_path(user)}".html_safe
   end
   
   sidebar :audit, :only => :show do
@@ -40,7 +40,7 @@ ActiveAdmin.register User do
   end
 
   sidebar :help do
-    render "/hive/shared/help"
+    render "/nest/shared/help"
   end
 
   csv do
@@ -50,13 +50,13 @@ ActiveAdmin.register User do
   end
 
 	index do
-    column("Name") { |user| link_to user.name, hive_user_path(user) }
+    column("Name") { |user| link_to user.name, nest_user_path(user) }
     column("Twitter") { |user| link_to "#{user.twitter_handle}", "http://twitter.com/#{user.twitter_handle}" unless user.twitter_handle.nil? }
 		column("Social Login") { |user| user.list_authentications }
 		column :created_at
     column("State") { |user| status_tag((user.activated) ? "Active" : "Inactive") }
     column "" do |user|
-      "#{link_to "Edit", edit_hive_user_path(user)} &nbsp; #{link_to "Delete", hive_user_path(user), :method => "delete", :confirm => "Are you sure you wish to delete this member?"}".html_safe
+      "#{link_to "Edit", edit_nest_user_path(user)} &nbsp; #{link_to "Delete", nest_user_path(user), :method => "delete", :confirm => "Are you sure you wish to delete this member?"}".html_safe
     end
   end
 

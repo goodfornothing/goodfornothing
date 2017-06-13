@@ -18,11 +18,11 @@ ActiveAdmin.register Social do
   config.clear_sidebar_sections!
   
   sidebar :help do
-    render "/hive/shared/help"
+    render "/nest/shared/help"
   end
 
 	index do
-		column("Name") { |social| link_to social.name, hive_social_path(social) }
+		column("Name") { |social| link_to social.name, nest_social_path(social) }
 	  column("Date") { |social| social.start_time.strftime( "%B #{social.start_time.day.ordinalize} %Y")  }
     column("Chapter") { 
       |social| 
@@ -117,7 +117,7 @@ ActiveAdmin.register Social do
       end
 
 	    div :class => "download_links" do
-	      "Download attendees: #{link_to "CSV", download_attendees_hive_social_path(social, :format => "csv")}".html_safe
+	      "Download attendees: #{link_to "CSV", download_attendees_nest_social_path(social, :format => "csv")}".html_safe
 	    end
 	
 		end

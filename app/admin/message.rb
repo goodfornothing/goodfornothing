@@ -10,7 +10,7 @@ ActiveAdmin.register Messaging::Message, :as => "Message" do
 	filter :created_at
 	
 	sidebar :help do
-    render "/hive/shared/help"
+    render "/nest/shared/help"
   end
 
   actions :index, :destroy, :edit, :update, :show
@@ -44,7 +44,7 @@ ActiveAdmin.register Messaging::Message, :as => "Message" do
 					if message.user.nil? 
 						"No"
 					else
-						"Yes, #{link_to message.user.name, hive_user_path(message.user)}".html_safe
+						"Yes, #{link_to message.user.name, nest_user_path(message.user)}".html_safe
 					end
 				end	
 				row "Recipients" do 

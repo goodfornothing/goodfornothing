@@ -13,7 +13,7 @@ ActiveAdmin.register_page "Dashboard" do
   
   greeting = greetings.to_a.sample(1)
 
-  content :title => "Hive" do
+  content :title => "Nest" do
   
 		columns do
 			
@@ -40,8 +40,8 @@ ActiveAdmin.register_page "Dashboard" do
 
             if can?(:read, User)
               ul do
-                li link_to "Browse all your members", hive_users_path
-                li link_to "Download member details", "/hive/users.csv"
+                li link_to "Browse all your members", nest_users_path
+                li link_to "Download member details", "/nest/users.csv"
               end
             end
         end
@@ -73,7 +73,7 @@ ActiveAdmin.register_page "Dashboard" do
 														"Direct Message"
 												end
 											end
-		                  td link_to "Read", hive_message_path(message)
+		                  td link_to "Read", nest_message_path(message)
 		                end
 		              end
 		            end
@@ -93,24 +93,24 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Plan an Event" do
           ul do
             if can?(:manage, Gig)
-              li link_to "Create a new gig", new_hive_gig_path()
+              li link_to "Create a new gig", new_nest_gig_path()
             end
             if can?(:manage, Social)
-              li link_to "Create a new social", new_hive_social_path()
+              li link_to "Create a new social", new_nest_social_path()
             end
           end
 
           @gig = Gig.where('end_time > ?',Time.now).where('chapter_id = ?', current_user.chapter.id).order("start_time ASC").first
           if @gig.present?
             h3 do
-              link_to "Your Next Gig: #{@gig.title}, #{@gig.attendees.count} people attending ", hive_gig_path(@gig)
+              link_to "Your Next Gig: #{@gig.title}, #{@gig.attendees.count} people attending ", nest_gig_path(@gig)
             end
           end
 
           @social = Social.where('start_time > ?',Time.now).where('chapter_id = ?', current_user.chapter.id).order("start_time ASC").first
           if @social.present?
             h3 do
-              link_to "Your Next Social - #{@social.attendees.count} people attending ", hive_social_path(@social)
+              link_to "Your Next Social - #{@social.attendees.count} people attending ", nest_social_path(@social)
             end
           end          
           
@@ -124,7 +124,7 @@ ActiveAdmin.register_page "Dashboard" do
 
         if can?(:manage, Challenge)
           panel "Challenges" do
-            link_to "Add a challenge", new_hive_challenge_path()
+            link_to "Add a challenge", new_nest_challenge_path()
           end
         end
       end

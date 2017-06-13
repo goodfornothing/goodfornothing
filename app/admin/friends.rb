@@ -23,13 +23,13 @@ ActiveAdmin.register Friend do
   end
   
   sidebar :help do
-    render "/hive/shared/help"
+    render "/nest/shared/help"
   end
   
   index do
-    column("Name") { |friend| link_to friend.name, hive_friend_path(friend) }
+    column("Name") { |friend| link_to friend.name, nest_friend_path(friend) }
     column "" do |friend|
-      "#{link_to "Edit", edit_hive_friend_path(friend)} &nbsp; #{link_to "Delete", hive_friend_path(friend), :method => "delete", :confirm => "Are you sure you wish to delete this friend?"}".html_safe
+      "#{link_to "Edit", edit_nest_friend_path(friend)} &nbsp; #{link_to "Delete", nest_friend_path(friend), :method => "delete", :confirm => "Are you sure you wish to delete this friend?"}".html_safe
     end
   end
   

@@ -15,7 +15,7 @@ ActiveAdmin.register Issue do
   actions :index, :destroy, :edit, :update, :new, :create
   
   sidebar :help do
-    render "/hive/shared/help"
+    render "/nest/shared/help"
   end
   
 	index do

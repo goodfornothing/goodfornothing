@@ -10,7 +10,7 @@ ActiveAdmin.register Skill do
   config.clear_sidebar_sections!
   
   sidebar :help do
-    render "/hive/shared/help"
+    render "/nest/shared/help"
   end
   
   actions :index, :destroy, :edit, :update, :new, :create

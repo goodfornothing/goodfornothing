@@ -13,15 +13,15 @@ ActiveAdmin.register Post do
   filter :title
   
   sidebar :help do
-    render "/hive/shared/help"
+    render "/nest/shared/help"
   end
   
 	index do
-    column("Title") { |post| link_to post.title, hive_post_path(post) }
+    column("Title") { |post| link_to post.title, nest_post_path(post) }
     column("Author") { |post| post.user.name unless post.user.nil? }
     column("State") { |post| status_tag((post.published) ? "Published" : "Unpublished") }
     column "" do |post|
-      "#{link_to "Edit", edit_hive_post_path(post)} &nbsp; #{link_to "Delete", hive_post_path(post), :method => "delete", :confirm => "Are you sure you wish to delete this post?"}".html_safe
+      "#{link_to "Edit", edit_nest_post_path(post)} &nbsp; #{link_to "Delete", nest_post_path(post), :method => "delete", :confirm => "Are you sure you wish to delete this post?"}".html_safe
     end
   end
   

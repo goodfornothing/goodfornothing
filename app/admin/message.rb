@@ -1,6 +1,6 @@
 ActiveAdmin.register Messaging::Message, :as => "Message" do
 
-	menu :priority => 1, :if => proc{ can?(:manage, Messaging::Message) } 
+	menu :priority => 2, :if => proc{ can?(:manage, Messaging::Message) } 
 	
 	controller do
     load_resource :except => :index

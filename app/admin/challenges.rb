@@ -5,7 +5,7 @@ ActiveAdmin.register Challenge do
     authorize_resource
   end
   
-  menu :priority => 2, :if => proc{ can?(:manage, Challenge) } 
+  menu :priority => 2, :parent => "Gigs", :if => proc{ can?(:manage, Challenge) } 
   
   filter :gig
   filter :venture

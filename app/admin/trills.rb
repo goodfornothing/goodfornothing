@@ -5,7 +5,8 @@ ActiveAdmin.register Trill do
     authorize_resource Trill
   end
   
-  menu :priority => 1, :parent => "Warblings", :if => proc{ can?(:manage, Trill) }, :label => "Trills (Short form)"
+  # menu :priority => 1, :parent => "Warblings", :if => proc{ can?(:manage, Trill) }, :label => "Trills (Short form)"
+  menu false
   
   filter :title
   

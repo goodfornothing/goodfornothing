@@ -2,11 +2,12 @@ ActiveAdmin.register Page do
 
   actions :all, :except => [:new]
 
-	menu :if => proc{ can?(:manage, Page) }, label: "Wiki"
+	# menu :if => proc{ can?(:manage, Page) }, label: "Wiki"
+	menu label: "Toolkit"
 
 	config.clear_sidebar_sections!
     
-  index :download_links => false, title: "Wiki" do
+  index :download_links => false, title: "Toolkit" do
     render "/nest/shared/help"
   end
 

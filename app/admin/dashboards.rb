@@ -38,7 +38,7 @@ ActiveAdmin.register_page "Dashboard" do
 		  				"<a href='/nest/gigs'>Gigs</a>: this is where you can setup a new gig, as well as where you can post challenges to associate with the gig".html_safe
 		  			end
 		  			li do
-		  				"Community: and here are all the people that you can connect with about new gigs and ideas for your chapter"
+		  				"<a href='/nest/users'>Community</a>: and here are all the people that you can connect with about new gigs and ideas for your chapter".html_safe
 		  			end
 		  			li do
 		  				"<a href='/nest/pages'>Toolkit</a>: here is where all of the creative assets, and explanations are.".html_safe

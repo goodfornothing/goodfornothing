@@ -15,6 +15,10 @@
 		#goodfornothing<br />
 		#Giftie
 	</p>
+
+	<% unless user_signed_in? %>
+		<p class="cta strong"><a href="/register">Join us</a></p>
+	<% end %>
 	
 	<div class="homepage-stats">
 

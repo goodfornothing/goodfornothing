@@ -1,51 +1,53 @@
 <div class="section_home" style="padding-top:30px;">
-	<div class="container"><h1>Watch!</h1>
-<p>Check out the latest goings on from around the Good For Nothing network.</p>
+	<div class="container" style="width:100%">
+		<h1>Watch!</h1>
+		
+		<p>Check out the latest goings on from around the Good For Nothing network.</p>
 
-<% @watches.each do |result| %>
-				<div class="card">
-					<% if result.is_a?(Social) 
-						@result_type = "Social"
-						elsif result.is_a?(Gig) 
-						@result_type = "Gig"
-					end %>
-					
-					<% if result.is_a?(Social) 
-						@path = social_path(result)
-						elsif result.is_a?(Gig) 
-						@path = gig_path(result)
-					end %>
+		<% @watches.each do |result| %>
+			<div class="card">
+				<% if result.is_a?(Social) 
+					@result_type = "Social"
+					elsif result.is_a?(Gig) 
+					@result_type = "Gig"
+				end %>
+				
+				<% if result.is_a?(Social) 
+					@path = social_path(result)
+					elsif result.is_a?(Gig) 
+					@path = gig_path(result)
+				end %>
 
-					<% if result.link.include?("goodfornothing.com") %>
-						<a href="<%=result.link%>">
+				<% if result.link.include?("goodfornothing.com") %>
+					<a href="<%=result.link%>">
+				<% else %>
+					<a href="<%=result.link%>" target="_blank">
+				<% end %>
+					<% if result.hero_image.present? %>
+						<%=image_tag(result.hero_image.url(:panel), {:class => 'cover'}) %>
 					<% else %>
-						<a href="<%=result.link%>" target="_blank">
+						<%=image_tag("illustrations/bird-tile.jpg", {:class => 'cover'})%>
 					<% end %>
-						<% if result.hero_image.present? %>
-							<%=image_tag(result.hero_image.url(:panel), {:class => 'cover'}) %>
-						<% else %>
-							<%=image_tag("illustrations/bird-tile.jpg", {:class => 'cover'})%>
-						<% end %>
-					</a>
-					
-					<div class="details">
-						<p class="type">
-							<%=@result_type%>
-						</span>
-						<h2>
-								<%=result.title%>
-						</h2>
-					</div>
-					<div class="card-button">
-						<p>
-							<% if result.link.include?("goodfornothing.com") %>
-								<%= link_to "Find out more", result.link %>
-							<% else %>
-								<%= link_to "Find out more", result.link, target: '_blank'  %>
-							<% end %>
-						</p>
-					</div>
+				</a>
+				
+				<div class="details">
+					<p class="type">
+						<%=@result_type%>
+					</span>
+					<h2>
+							<%=result.title%>
+					</h2>
 				</div>
-			<% end %>		
-		</div>
-		</div>
+				<div class="card-button">
+					<p>
+						<% if result.link.include?("goodfornothing.com") %>
+							<%= link_to "Find out more", result.link %>
+						<% else %>
+							<%= link_to "Find out more", result.link, target: '_blank'  %>
+						<% end %>
+					</p>
+				</div>
+			</div>
+		<% end %>		
+	</div>
+</div>

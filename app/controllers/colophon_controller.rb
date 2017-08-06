@@ -81,4 +81,8 @@ class ColophonController < ApplicationController
 	    
 	end
 
+	def watch
+		@watches = Post.where(:watch => 1)
+	end
+
 end

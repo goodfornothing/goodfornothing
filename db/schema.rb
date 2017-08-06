@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160705155043) do
+ActiveRecord::Schema.define(:version => 20170806142725) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -260,6 +260,8 @@ ActiveRecord::Schema.define(:version => 20160705155043) do
     t.string   "slug"
     t.boolean  "gfn_update",   :default => false
     t.boolean  "published",    :default => true
+    t.string   "link"
+    t.boolean  "watch"
   end
 
   add_index "posts", ["slug"], :name => "index_conversation_posts_on_slug", :unique => true

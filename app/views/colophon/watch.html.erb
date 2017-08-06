@@ -1,0 +1,43 @@
+<div class="section_home" style="padding-top:30px;">
+	<div class="container"><h1>Watch!</h1>
+<p>Check out the latest goings on from around the Good For Nothing network.</p>
+
+<% @watches.each do |result| %>
+				<div class="card">
+					<% if result.is_a?(Social) 
+						@result_type = "Social"
+						elsif result.is_a?(Gig) 
+						@result_type = "Gig"
+					end %>
+					
+					<% if result.is_a?(Social) 
+						@path = social_path(result)
+						elsif result.is_a?(Gig) 
+						@path = gig_path(result)
+					end %>
+
+					<a href="<%=result.link%>" target="_blank">
+						<% if result.is_a?(Gig) && result.image.present? %>
+							<%=image_tag(result.image.url(:panel), {:class => 'cover'}) %>
+						<% else %>
+							<%=image_tag("illustrations/bird-tile.jpg", {:class => 'cover'})%>
+						<% end %>
+					</a>
+					
+					<div class="details">
+						<p class="type">
+							<%=@result_type%>
+						</span>
+						<h2>
+								<%=result.title%>
+						</h2>
+					</div>
+					<div class="card-button">
+						<p>
+							<%= link_to "Find out more", result.link, :about => 'blank' %>
+						</p>
+					</div>
+				</div>
+			<% end %>		
+		</div>
+		</div>

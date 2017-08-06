@@ -35,6 +35,7 @@ ActiveAdmin.register Post do
 		end
 		
     f.inputs "Details" do
+      f.input :watch, :label => "Add to Watch page?"
       if current_user.role == "admin" || current_user.role == "leader"
         f.input :gfn_update, :label => "Post in Good for Nothing updates?"
       end
@@ -49,6 +50,7 @@ ActiveAdmin.register Post do
       f.input :hero_image, :label => "Thumbnail"
       f.input :title
       f.input :excerpt, :input_html => { :rows => 5 }
+      f.input :link
     end
     f.inputs "Body" do
       if post.new_record? || post.body.is_json?

@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 
   attr_accessible :excerpt, :title, :body, :user_id, :chapter_id, 
 									:category_id, :chapter_id, :user_id, :hero_image, 
-									:issue_id, :gfn_update, :published, :created_at
+									:issue_id, :gfn_update, :published, :created_at, :watch, :link
   
 	belongs_to :chapter
 	belongs_to :user

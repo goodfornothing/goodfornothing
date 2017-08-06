@@ -111,6 +111,7 @@ Goodfornothing::Application.routes.draw do
   match "privacy" => "colophon#privacy"
   match "datums" => "colophon#datums"
   match "highlights" => "colophon#highlights"
+  match "watch" => "colophon#watch"
   match "survey" => redirect("https://swarm.typeform.com/to/A3gBQ3?embed=full"), :as => :store    
   match "store" => redirect("http://goodfornothing.ourtshirtshop.co.uk/"), :as => :store  
   match "shop" => redirect("http://goodfornothing.ourtshirtshop.co.uk/"), :as => :store    

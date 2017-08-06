@@ -16,7 +16,11 @@
 						@path = gig_path(result)
 					end %>
 
-					<a href="<%=result.link%>" <%='target="_blank"' unless result.link.include?("goodfornothing.com") %>
+					<% if result.link.include?("goodfornothing.com") %>
+						<a href="<%=result.link%>">
+					<% else %>
+						<a href="<%=result.link%>" target="_blank">
+					<% end %>
 						<% if result.hero_image.present? %>
 							<%=image_tag(result.hero_image.url(:panel), {:class => 'cover'}) %>
 						<% else %>

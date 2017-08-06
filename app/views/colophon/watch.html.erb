@@ -17,8 +17,8 @@
 					end %>
 
 					<a href="<%=result.link%>" target="_blank">
-						<% if result.image.present? %>
-							<%=image_tag(result.image.url(:panel), {:class => 'cover'}) %>
+						<% if result.hero_image.present? %>
+							<%=image_tag(result.hero_image.url(:panel), {:class => 'cover'}) %>
 						<% else %>
 							<%=image_tag("illustrations/bird-tile.jpg", {:class => 'cover'})%>
 						<% end %>

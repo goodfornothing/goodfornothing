@@ -16,7 +16,7 @@
 						@path = gig_path(result)
 					end %>
 
-					<a href="<%=result.link%>" target="_blank">
+					<a href="<%=result.link%>" <%='target="_blank"' unless result.link.include?("goodfornothing.com") %>
 						<% if result.hero_image.present? %>
 							<%=image_tag(result.hero_image.url(:panel), {:class => 'cover'}) %>
 						<% else %>
@@ -34,7 +34,11 @@
 					</div>
 					<div class="card-button">
 						<p>
-							<%= link_to "Find out more", result.link, :about => 'blank' %>
+							<% if result.link.include?("goodfornothing.com") %>
+								<%= link_to "Find out more", result.link %>
+							<% else %>
+								<%= link_to "Find out more", result.link, target: '_blank'  %>
+							<% end %>
 						</p>
 					</div>
 				</div>

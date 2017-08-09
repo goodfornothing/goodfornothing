@@ -35,6 +35,10 @@ module ApplicationHelper
   def is_register?
     params[:controller] == 'registrations'
   end
+
+  def is_watch?
+    params[:action] == 'watch'
+  end
   
   def contextual_reference(user,term)
     if (user_signed_in? && current_user == user)

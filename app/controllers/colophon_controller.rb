@@ -82,7 +82,7 @@ class ColophonController < ApplicationController
 	end
 
 	def watch
-		@watches = Post.where(:watch => 1)
+		@watches = Post.where(:watch => 1).sort_by(&:created_at)
 	end
 
 end

@@ -8,7 +8,7 @@
     
 	<p><strong>Name</strong>: <%= @user.name %><br />
 	<strong>Email</strong>: <%= @user.email %><br />
-  <strong>Chapter</strong>: <%= @user.chapter.title if user.chapter.present? %>
+  <strong>Chapter</strong>: <%= @user.chapter.title if @user.chapter.present? %>
   </p>
 	
 	<p><strong>Reason for joining</strong>: <br /><%= @user.reasons_for_joining %></p>

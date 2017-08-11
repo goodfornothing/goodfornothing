@@ -3,7 +3,7 @@ A new member has joined Good for Nothing community
 
 Name: <%= @user.name %>
 Email: <%= @user.email %>
-Chapter: <%= @user.chapter.title if user.chapter.present? %>
+Chapter: <%= @user.chapter.title if @user.chapter.present? %>
 
 Reasons for joining: 
 <%= @user.reasons_for_joining %>

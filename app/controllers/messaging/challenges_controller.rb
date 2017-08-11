@@ -1,8 +1,8 @@
 class Messaging::ChallengesController < ApplicationController
 
 	def new
-		@chapter = Chapter.find_by_title('London')
-		@recipients = Chapter.find_by_title('London').users.crew
+		@chapter = Chapter.find_by_title('Mothership')
+		@recipients = Chapter.find_by_title('Mothership').users.crew
 		@submission = Messaging::Challenge.new	
 		@submission.message = Messaging::Message.new			
 	end
@@ -15,7 +15,7 @@ class Messaging::ChallengesController < ApplicationController
 		end
 		
 		@recipients = @chapter.users.crew
-		@recipients = Chapter.find_by_title('London').users.crew if @recipients.nil?
+		@recipients = Chapter.find_by_title('Mothership').users.crew if @recipients.nil?
 		@submission = Messaging::Challenge.create(params[:messaging_challenge])	
 		@submission.message = Messaging::Message.new
 		
@@ -43,7 +43,7 @@ class Messaging::ChallengesController < ApplicationController
 				if(params.has_key?(:chapter_id))
 					chapter_id = params[:chapter_id]
 				else
-					chapter_id = Chapter.find_by_slug("london").id #send to London by default
+					chapter_id = Chapter.find_by_slug("mothership").id #send to Mothership by default
 				end
 				recipients = (Rails.env.production?) ? Chapter.find_by_id(chapter_id).users.crew : [User.find_by_email("ed@madebyfieldwork.com")]
 				@submission.message.users << recipients

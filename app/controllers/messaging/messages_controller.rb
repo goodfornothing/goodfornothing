@@ -12,7 +12,7 @@ class Messaging::MessagesController < ApplicationController
 		@message = Messaging::Message.new
 		@recipients = @chapter.users.crew
 		
-		@recipients = Chapter.find_by_title('London').users.crew if @recipients.nil?
+		@recipients = Chapter.find_by_title('Mothership').users.crew if @recipients.nil?
 		
 	end
 	

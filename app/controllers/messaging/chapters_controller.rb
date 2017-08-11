@@ -23,7 +23,7 @@ class Messaging::ChaptersController < ApplicationController
 		if !is_spam_message?(@submission.message)
 
 			if @submission.save
-				recipients = (Rails.env.production?) ? Chapter.find_by_title('London').users.crew : [User.find_by_email("ed@madebyfieldwork.com")]
+				recipients = (Rails.env.production?) ? Chapter.find_by_title('Mothership').users.crew : [User.find_by_email("ed@madebyfieldwork.com")]
 				@submission.message.users << recipients
 				if @submission.message.recipients.any?
 					MessageMailer.chapter_submission(@submission.message).deliver

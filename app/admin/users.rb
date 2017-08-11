@@ -51,8 +51,9 @@ ActiveAdmin.register User do
 
 	index do
     column("Name") { |user| link_to user.name, nest_user_path(user) }
-    column("Twitter") { |user| link_to "#{user.twitter_handle}", "http://twitter.com/#{user.twitter_handle}" unless user.twitter_handle.nil? }
-		column("Social Login") { |user| user.list_authentications }
+    column("Chapter") { |user| link_to user.chapter.title, nest_chapter_path(user.chapter) unless !user.chapter.present?}
+    # column("Twitter") { |user| link_to "#{user.twitter_handle}", "http://twitter.com/#{user.twitter_handle}" unless user.twitter_handle.nil? }
+		# column("Social Login") { |user| user.list_authentications }
 		column :created_at
     column("State") { |user| status_tag((user.activated) ? "Active" : "Inactive") }
     column "" do |user|

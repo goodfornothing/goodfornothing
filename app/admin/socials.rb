@@ -6,7 +6,8 @@ ActiveAdmin.register Social do
   end
 
   # menu :priority => 4, :parent => "Events", :if => proc{ can?(:manage, Social) }
-  menu false
+  menu :priority => 4, :parent => "Gigs", :if => proc{ can?(:manage, Social) }
+  # menu false
 
   filter :chapter
 

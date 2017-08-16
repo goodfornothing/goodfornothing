@@ -8,6 +8,11 @@ class AdminMailer < ActionMailer::Base
     mail(:subject => "New Good for Nothing Member")
   end
 
+  def welcome(user)
+    @user = user
+    mail(:to => user.email, :subject => "Welcome to Good for Nothing")
+  end
+
 	def new_comment(comment)
     @comment = comment
     mail(:subject => "New comment on Good for Nothing")

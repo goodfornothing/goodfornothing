@@ -64,7 +64,8 @@ ActiveAdmin.register User do
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Privileges" do
       f.input :chapter
-      f.input :role, :as => :select, :collection => User::ROLES
+      # f.input :role, :as => :select, :collection => User::ROLES
+      f.input :role, :as => :select, :collection => [['member', ''], ['warbler', 'warbler'], ['cause', 'cause'], ['leader','leader'], ['admin', 'admin']], :include_blank => false
       f.input :activated
     end
 		f.inputs "Profile" do

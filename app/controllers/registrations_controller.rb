@@ -67,6 +67,7 @@ class RegistrationsController < Devise::RegistrationsController
         save_talents(resource)
         check_subscription(resource)
         AdminMailer.new_user(resource).deliver
+        AdminMailer.welcome(resource).deliver
       
         if resource.active_for_authentication?
           set_flash_message :notice, :signed_up if is_navigational_format?

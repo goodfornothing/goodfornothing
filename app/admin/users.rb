@@ -5,7 +5,8 @@ ActiveAdmin.register User do
     authorize_resource
   end
   
-  menu :priority => 5, :label => "Members", :parent => "Community", :if => proc{ can?(:manage, User) }  
+  # menu :priority => 5, :label => "Members", :parent => "Community", :if => proc{ can?(:manage, User) }  
+  menu :priority => 5, :label => "Members", :parent => "Community"  
   
 	filter :chapter
   filter :name

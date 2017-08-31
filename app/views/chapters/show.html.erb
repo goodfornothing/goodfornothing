@@ -32,7 +32,7 @@
 
 		
 	<h2>
-		Upcoming Events
+		Upcoming Gigs
 	</h2>	
 	<% if @upcoming_events.any? %>
 	<ul class="grid_list">
@@ -48,7 +48,7 @@
 	</ul>
 	<% else %>
 	<p>
-		We don't have any upcoming gigs or events at the moment.		
+		We haven't got anything in the diary yet but please <%=link_to("message us", message_chapter_messaging_messages_path(@chapter))%> to submit your project or challenge and we can chat about doing a gig!
 	</p>
 	<% end %>
 	

@@ -208,7 +208,7 @@ class RegistrationsController < Devise::RegistrationsController
         chapter_mc = Gibbon.new(chapter["mailchimp_api_key"], { :throws_exceptions => false} )
 
         if resource.subscribed?
-          mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :merge_vars => { :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' }, { :name => 'Location', :groups => chapter.title } ] }, :double_optin => false, :send_welcome => false })
+          mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :merge_vars => { "Location" => chapter.title, :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
           chapter_mc.list_subscribe({:id => chapter["mailchimp_list_id"], :email_address => resource.email, :merge_vars => { :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
         else
           mc.list_unsubscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :send_goodbye => false, :send_notify => false})

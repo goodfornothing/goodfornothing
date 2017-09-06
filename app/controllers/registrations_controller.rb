@@ -209,7 +209,7 @@ class RegistrationsController < Devise::RegistrationsController
 
         if resource.subscribed?
           # if !chapter.empty?
-            mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :merge_vars => { "Location" => chapter.title, :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
+            mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :merge_vars => { "Chapter City" => chapter.title, :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
           # else
             # mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :merge_vars => { :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
           # end

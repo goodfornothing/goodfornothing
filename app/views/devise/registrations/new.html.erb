@@ -69,7 +69,7 @@
 			<fieldset class="slide chapters">
 				<legend>Do you live near a GFN chapter?</legend>
 				<%= f.input :location, :label => "Nope...", :wrapper_html => { :class => "smart_label grow_tip", :title => "Not to worry, where are you?" } %>
-				<%= f.association :chapter, :as => :radio_buttons, :label_method => lambda { |c| "#{c.title}<span>#{c.country}</span>".html_safe }, :label => "", :wrapper_html => { :class => "solid_splodges" } %>
+				<%= f.association :chapter, collection: Chapter.where('title <>?', "Mothership").order('title ASC'), :as => :radio_buttons, :label_method => lambda { |c| "#{c.title}<span>#{c.country}</span>".html_safe }, :label => "", :wrapper_html => { :class => "solid_splodges" } %>
 				<%= image_tag "illustrations/maptorch.png", :class => "slide_illustration" %>
 			</fieldset>
 

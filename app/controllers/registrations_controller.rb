@@ -209,11 +209,11 @@ class RegistrationsController < Devise::RegistrationsController
 
         if resource.subscribed?
           # if !chapter.empty?
-            mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :merge_vars => { "Location" => chapter.title, :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
+            mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :merge_vars => { "Location" => chapter.title, "Name" => resource.name, :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
           # else
             # mc.list_subscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :merge_vars => { :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
           # end
-          chapter_mc.list_subscribe({:id => chapter["mailchimp_list_id"], :email_address => resource.email, :merge_vars => { :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
+          chapter_mc.list_subscribe({:id => chapter["mailchimp_list_id"], :email_address => resource.email, :merge_vars => { "Name" => resource.name, :GROUPINGS => [ { :name => 'Source', :groups => 'Platform' } ] }, :double_optin => false, :send_welcome => false })
         else
           mc.list_unsubscribe({:id => ENV['MC_LIST_ID'], :email_address => resource.email, :send_goodbye => false, :send_notify => false})
           chapter_mc.list_unsubscribe({:id => chapter["mailchimp_list_id"], :email_address => resource.email, :send_goodbye => false, :send_notify => false})

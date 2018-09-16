@@ -84,5 +84,8 @@ class ColophonController < ApplicationController
 	def watch
 		@watches = Post.where(:watch => 1).sort_by(&:created_at)
 	end
+	
+	def giftcard
+	end
 
 end

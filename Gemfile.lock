@@ -201,7 +201,7 @@ GEM
       activerecord (~> 3.0)
     polyglot (0.3.3)
     profanalyzer (1.2.0)
-    rack (1.4.3)
+    rack (1.4.7)
     rack-cache (1.2)
       rack (>= 0.4)
     rack-oauth2 (1.0.0)
